@@ -1,9 +1,15 @@
 package com.example.masterproject
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.util.Log
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.addTextChangedListener
+import androidx.core.widget.doAfterTextChanged
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -21,7 +27,7 @@ class MainActivity: AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         recyclerView = findViewById(R.id.recyclerView)
-        val myAdapter = DeviceAdapter(getAvailableDevices())
+        val myAdapter = DeviceAdapter(getAvailableDevices(),"")
         recyclerView.adapter = myAdapter;
         recyclerView.layoutManager = LinearLayoutManager(this);
 
@@ -34,10 +40,20 @@ class MainActivity: AppCompatActivity() {
         val myIpAddressText = "My IP address: ${multicastClientThread.getMyIpAddress()}"
         myIpAddressTextView.text = myIpAddressText
 
+        val messageEditText: EditText = findViewById(R.id.messageText)
+        val messageText = messageEditText.text.toString()
+        messageEditText.doAfterTextChanged {
+            recyclerView = findViewById(R.id.recyclerView)
+            val myAdapter = DeviceAdapter(getAvailableDevices(), messageEditText.text.toString())
+            recyclerView.adapter = myAdapter;
+            recyclerView.layoutManager = LinearLayoutManager(this);
+        }
+
+
         val updateAvailableDevicesButton: Button = findViewById(R.id.updateaAvailableDevicesButton)
         updateAvailableDevicesButton.setOnClickListener {
             recyclerView = findViewById(R.id.recyclerView)
-            val myAdapter = DeviceAdapter(getAvailableDevices())
+            val myAdapter = DeviceAdapter(getAvailableDevices(), messageText)
             recyclerView.adapter = myAdapter;
             recyclerView.layoutManager = LinearLayoutManager(this);
         }

@@ -8,7 +8,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class DeviceAdapter(private val s1: Array<String>): RecyclerView.Adapter<DeviceAdapter.DeviceViewHolder>()  {
+class DeviceAdapter(private val s1: Array<String>, private val message: String): RecyclerView.Adapter<DeviceAdapter.DeviceViewHolder>()  {
 
 
     class DeviceViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
@@ -27,7 +27,7 @@ class DeviceAdapter(private val s1: Array<String>): RecyclerView.Adapter<DeviceA
         holder.deviceIp.text = "$ip"
 
         holder.sendButton.setOnClickListener {
-            val TCPClientThred = TCPClient(ip)
+            val TCPClientThred = TCPClient(ip, message)
             Thread(TCPClientThred).start()
         }
     }

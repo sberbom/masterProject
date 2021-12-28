@@ -1,5 +1,7 @@
 package com.example.masterproject
 
+import android.content.Context
+import android.util.Log
 import java.io.BufferedWriter
 import java.io.IOException
 import java.io.OutputStreamWriter
@@ -9,8 +11,11 @@ import java.net.InetAddress
 import java.net.Socket
 import java.net.UnknownHostException
 import java.util.concurrent.ThreadLocalRandom
+import android.view.LayoutInflater
+import java.security.AccessController.getContext
 
-class TCPClient(private val ip:String): Runnable {
+
+class TCPClient(private val ip:String, private val message: String): Runnable {
 
     override fun run() {
         try {
@@ -23,15 +28,15 @@ class TCPClient(private val ip:String): Runnable {
     }
 
 
-    fun sendMsg(serverIp: String): Void? {
+    private fun sendMsg(serverIp: String): Void? {
         try {
             val serverAddr = InetAddress.getByName(serverIp)
             val socket = Socket(serverAddr, SERVERPORT)
-            val str = ThreadLocalRandom.current().nextInt(0, 100).toString()
+            val str = if (message == "" || message == "Skriv en melding") ThreadLocalRandom.current().nextInt(0, 100).toString() else message;
             val out = PrintWriter(
                 BufferedWriter(
                     OutputStreamWriter(
-                        socket!!.getOutputStream()
+                        socket.getOutputStream()
                     )
                 ), true
             )

@@ -18,7 +18,6 @@ class MulticastServer(private val multicastGroup: String, private val multicastP
     private fun listenForDevices(): MutableList<LedgerEntry>? {
         val address = InetAddress.getByName(multicastGroup);
         val buf = ByteArray(256)
-        //Log.d("SIGMUND", multicastGroup)
         try{
             val clientSocket = MulticastSocket(multicastPort);
             clientSocket.joinGroup(address)
@@ -28,17 +27,11 @@ class MulticastServer(private val multicastGroup: String, private val multicastP
                 clientSocket.receive(msgPacket);
 
                 val msgRaw = String(buf, 0, buf.size);
-
-                //val regex = Regex("[^A-Za-z0-9.]")
-                //val msg = regex.replace(msgRaw, "");
-
-                //Log.d("SIGMUND", msgRaw)
-
                 val jsonObject = JSONObject(msgRaw)
                 val username = jsonObject.getString("username")
                 val publicKeyString = jsonObject.getString("publicKey")
                 val ipAddress = jsonObject.getString("ipAddress")
-                val ledgerEntry = LedgerEntry(stringToKey(publicKeyString), username, ipAddress)
+                val ledgerEntry = LedgerEntry(Utils.stringToEncryptionKey(publicKeyString), username, ipAddress)
 
 
                 if(isAddEntryToLedger(ledgerEntry)){
@@ -60,13 +53,6 @@ class MulticastServer(private val multicastGroup: String, private val multicastP
             ips.add(device.ipAddress)
         }
         return !users.contains(ledgerEntry.userName) && !ips.contains(ledgerEntry.ipAddress)
-    }
-
-    private fun stringToKey(key: String): PublicKey {
-        val encKey = Base64.getDecoder().decode(key)
-        val publicKeySpec = X509EncodedKeySpec(encKey)
-        val keyFactory = KeyFactory.getInstance("EC")
-        return keyFactory.generatePublic(publicKeySpec)
     }
 
     override fun run() {

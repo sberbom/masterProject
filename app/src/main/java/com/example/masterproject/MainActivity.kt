@@ -49,7 +49,7 @@ class MainActivity: AppCompatActivity() {
 
         //Find and display my IP address
         val myIpAddressTextView: TextView = findViewById(R.id.myIpAddress)
-        val myIpAddressText = "My IP address: ${multicastClientThread.getMyIpAddress()}"
+        val myIpAddressText = "My IP address: ${Utils.getMyIpAddress()}"
         myIpAddressTextView.text = myIpAddressText
 
         //Setup edit text field

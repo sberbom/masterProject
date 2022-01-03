@@ -31,13 +31,9 @@ class MulticastClient(private val multicastGroup: String, private val multicastP
     private fun createMulticastMessage(): String {
         val jsonObject = JSONObject()
         jsonObject.put("username", myLedgerEntry.userName)
-        jsonObject.put("ipAddress", getMyIpAddress())
-        jsonObject.put("publicKey", keyToString(myLedgerEntry.publicKey))
+        jsonObject.put("ipAddress", Utils.getMyIpAddress())
+        jsonObject.put("publicKey", Utils.encryptionKeyToString(myLedgerEntry.publicKey))
         return jsonObject.toString()
-    }
-
-    private fun keyToString(key: PublicKey): String {
-        return Base64.getEncoder().encodeToString(key.encoded)
     }
 
     override fun run() {
@@ -52,23 +48,5 @@ class MulticastClient(private val multicastGroup: String, private val multicastP
     }
 
 
-    fun getMyIpAddress(): String? {
-        try {
-            val en: Enumeration<NetworkInterface> = NetworkInterface.getNetworkInterfaces()
-            while (en.hasMoreElements()) {
-                val networkInterface: NetworkInterface = en.nextElement()
-                val enumIpAddress: Enumeration<InetAddress> = networkInterface.inetAddresses
-                while (enumIpAddress.hasMoreElements()) {
-                    val inetAddress: InetAddress = enumIpAddress.nextElement()
-                    if (!inetAddress.isLoopbackAddress && inetAddress is Inet4Address) {
-                        return inetAddress.hostAddress
-                    }
-                }
-            }
-        }
-        catch (e:Exception) {
-            e.printStackTrace()
-        }
-        return null
-    }
+
 }

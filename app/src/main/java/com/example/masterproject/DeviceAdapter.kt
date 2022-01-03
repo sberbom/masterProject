@@ -29,10 +29,10 @@ class DeviceAdapter(private val s1: Array<LedgerEntry>, private val message: Str
         holder.usernameTextView.text = ledgerEntry.userName
         holder.ipTextView.text = "IP-address: ${ledgerEntry.ipAddress}"
         holder.publicKeyTextView.text = "Public key hash: ${ledgerEntry.publicKey.hashCode()}"
-        Log.d("SIGMUND", ledgerEntry.toString())
+        //Log.d("SIGMUND", ledgerEntry.toString())
 
         holder.sendButton.setOnClickListener {
-            val TCPClientThred = TCPClient(ledgerEntry.ipAddress, message)
+            val TCPClientThred = TCPClient(ledgerEntry.userName, message)
             Thread(TCPClientThred).start()
         }
     }

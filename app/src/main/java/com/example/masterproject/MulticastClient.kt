@@ -20,6 +20,7 @@ class MulticastClient(private val multicastGroup: String, private val multicastP
             var msg = createMulticastMessage()
             var msgPacket = DatagramPacket(msg.toByteArray(), msg.toByteArray().size, addr, multicastPort)
             serverSocket.send(msgPacket);
+            serverSocket.close()
             //Log.d("DEBUG SIGMUND","Multicast packet sendt")
         }catch (e: Exception) {
             e.printStackTrace()

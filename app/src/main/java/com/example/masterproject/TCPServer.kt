@@ -45,7 +45,8 @@ class TCPServer(private val messageView: TextView): Runnable {
         override fun run() {
             while (!Thread.currentThread().isInterrupted) {
                 try {
-                    val read = input.readLine()
+                    val readEncrypted = input.readLine()
+                    val read = Utils.decryptMessage(readEncrypted, Utils.keyPair!!.private)
                     updateConversationHandler.post(UpdateUIThread(read))
                 } catch (e: IOException) {
                     e.printStackTrace()

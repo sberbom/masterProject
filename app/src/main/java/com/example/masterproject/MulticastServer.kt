@@ -15,12 +15,10 @@ import java.util.*
 
 class MulticastServer(private val multicastGroup: String, private val multicastPort: Int): Runnable {
 
-    var availableDevices: MutableList<LedgerEntry> = mutableListOf();
-
     private fun listenForDevices(): MutableList<LedgerEntry>? {
         val address = InetAddress.getByName(multicastGroup);
         val buf = ByteArray(256)
-        Log.d("SIGMUND", multicastGroup)
+        //Log.d("SIGMUND", multicastGroup)
         try{
             val clientSocket = MulticastSocket(multicastPort);
             clientSocket.joinGroup(address)
@@ -44,7 +42,7 @@ class MulticastServer(private val multicastGroup: String, private val multicastP
 
 
                 if(isAddEntryToLedger(ledgerEntry)){
-                    availableDevices.add(ledgerEntry)
+                    Ledger.availableDevices.add(ledgerEntry)
                 }
             }
         }catch (e: Exception){
@@ -57,7 +55,7 @@ class MulticastServer(private val multicastGroup: String, private val multicastP
         //check on both username and ip. Can remove ip when proper user registration
         val users = mutableListOf<String>()
         val ips = mutableListOf<String>()
-        for(device in availableDevices){
+        for(device in Ledger.availableDevices){
             users.add(device.userName)
             ips.add(device.ipAddress)
         }

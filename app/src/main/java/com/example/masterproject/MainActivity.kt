@@ -1,19 +1,17 @@
 package com.example.masterproject
 
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.widget.addTextChangedListener
 import androidx.core.widget.doAfterTextChanged
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.masterproject.Ledger.Companion.availableDevices
+import org.bouncycastle.jce.provider.BouncyCastleProvider
 import java.security.KeyPairGenerator
-import java.security.KeyPairGeneratorSpi
+import java.security.Security
 
 class MainActivity: AppCompatActivity() {
 
@@ -22,20 +20,23 @@ class MainActivity: AppCompatActivity() {
     private val multicastPort: Int = 8888
     private val multicastServerThread = MulticastServer(multicastGroup, multicastPort)
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        Security.removeProvider("BC")
+        Security.addProvider(BouncyCastleProvider())
+
         //Set up veiw
         recyclerView = findViewById(R.id.recyclerView)
-        val myAdapter = DeviceAdapter(getAvailableDevices(),"")
+        val myAdapter = DeviceAdapter(availableDevices.toTypedArray(),"")
         recyclerView.adapter = myAdapter;
         recyclerView.layoutManager = LinearLayoutManager(this);
 
         //Create my ledger entry
         val ECDSAGenerator = KeyPairGenerator.getInstance("EC");
         val keyPair = ECDSAGenerator.genKeyPair()
+        Utils.keyPair  = keyPair
         val username = "user-${(0..100).random()}"
         val myLedgerEntry = LedgerEntry(keyPair.public, username)
 
@@ -56,7 +57,7 @@ class MainActivity: AppCompatActivity() {
         val messageText = messageEditText.text.toString()
         messageEditText.doAfterTextChanged {
             recyclerView = findViewById(R.id.recyclerView)
-            val myAdapter = DeviceAdapter(getAvailableDevices(), messageEditText.text.toString())
+            val myAdapter = DeviceAdapter(availableDevices.toTypedArray(), messageEditText.text.toString())
             recyclerView.adapter = myAdapter;
             recyclerView.layoutManager = LinearLayoutManager(this);
         }
@@ -65,16 +66,12 @@ class MainActivity: AppCompatActivity() {
         val updateAvailableDevicesButton: Button = findViewById(R.id.updateaAvailableDevicesButton)
         updateAvailableDevicesButton.setOnClickListener {
             recyclerView = findViewById(R.id.recyclerView)
-            val myAdapter = DeviceAdapter(getAvailableDevices(), messageText)
+            val myAdapter = DeviceAdapter(availableDevices.toTypedArray(), messageText)
             recyclerView.adapter = myAdapter;
             recyclerView.layoutManager = LinearLayoutManager(this);
         }
 
 
-    }
-
-    private fun getAvailableDevices(): Array<LedgerEntry> {
-        return multicastServerThread.availableDevices.toTypedArray()
     }
 
 }

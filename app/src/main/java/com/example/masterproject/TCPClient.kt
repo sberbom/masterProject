@@ -13,13 +13,19 @@ import java.net.UnknownHostException
 import java.util.concurrent.ThreadLocalRandom
 import android.view.LayoutInflater
 import java.security.AccessController.getContext
+import java.security.PublicKey
 
 
-class TCPClient(private val ip:String, private val message: String): Runnable {
+class TCPClient(private val userName:String, private val message: String): Runnable {
 
     override fun run() {
         try {
-            sendMsg(ip)
+            val ledgerEntry = Ledger.getLedgerEntry(userName)
+            if(ledgerEntry !== null) {
+                sendMsg(ledgerEntry)
+            }else {
+                Log.ERROR
+            }
         } catch (e1: UnknownHostException) {
             e1.printStackTrace()
         } catch (e1: IOException) {
@@ -28,11 +34,12 @@ class TCPClient(private val ip:String, private val message: String): Runnable {
     }
 
 
-    private fun sendMsg(serverIp: String): Void? {
+    private fun sendMsg(ledgerEntry: LedgerEntry): Void? {
         try {
-            val serverAddr = InetAddress.getByName(serverIp)
-            val socket = Socket(serverAddr, SERVERPORT)
+            val serverAddress = InetAddress.getByName(ledgerEntry.ipAddress)
+            val socket = Socket(serverAddress, SERVERPORT)
             val str = if (message == "" || message == "Skriv en melding") ThreadLocalRandom.current().nextInt(0, 100).toString() else message;
+            val encryptedMessage = Utils.encryptMessage(str, ledgerEntry.publicKey)
             val out = PrintWriter(
                 BufferedWriter(
                     OutputStreamWriter(
@@ -40,7 +47,7 @@ class TCPClient(private val ip:String, private val message: String): Runnable {
                     )
                 ), true
             )
-            out.println(str)
+            out.println(encryptedMessage)
         } catch (e: UnknownHostException) {
             e.printStackTrace()
         } catch (e: IOException) {

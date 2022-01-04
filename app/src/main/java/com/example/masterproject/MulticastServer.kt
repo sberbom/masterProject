@@ -6,18 +6,13 @@ import java.lang.Exception
 import java.net.DatagramPacket
 import java.net.InetAddress
 import java.net.MulticastSocket
-import java.security.Key
-import java.security.KeyFactory
-import java.security.PublicKey
-import java.security.spec.X509EncodedKeySpec
-import java.util.*
 
 
 class MulticastServer(private val multicastGroup: String, private val multicastPort: Int): Runnable {
 
     private fun listenForDevices(): MutableList<LedgerEntry>? {
         val address = InetAddress.getByName(multicastGroup);
-        val buf = ByteArray(256)
+        val buf = ByteArray(512)
         try{
             val clientSocket = MulticastSocket(multicastPort);
             clientSocket.joinGroup(address)
@@ -26,12 +21,13 @@ class MulticastServer(private val multicastGroup: String, private val multicastP
                 val msgPacket = DatagramPacket(buf, buf.size)
                 clientSocket.receive(msgPacket);
 
-                val msgRaw = String(buf, 0, buf.size);
+                val msgRaw = String(buf, 0, buf.size)
+                //Log.d("SIGMUND TEST",msgRaw)
                 val jsonObject = JSONObject(msgRaw)
                 val username = jsonObject.getString("username")
-                val publicKeyString = jsonObject.getString("publicKey")
+                val certificateString = jsonObject.getString("certificate")
                 val ipAddress = jsonObject.getString("ipAddress")
-                val ledgerEntry = LedgerEntry(Utils.stringToEncryptionKey(publicKeyString), username, ipAddress)
+                val ledgerEntry = LedgerEntry(Utils.stringToCertificate(certificateString), username, ipAddress)
 
 
                 if(isAddEntryToLedger(ledgerEntry)){

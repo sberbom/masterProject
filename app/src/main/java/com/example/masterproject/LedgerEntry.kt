@@ -1,6 +1,6 @@
 package com.example.masterproject
 
-import java.security.PublicKey
+import java.security.cert.X509Certificate
 
-data class LedgerEntry(val publicKey: PublicKey, val userName: String, val ipAddress: String = "") {
+data class LedgerEntry(val certificate: X509Certificate, val userName: String, val ipAddress: String = "") {
 }

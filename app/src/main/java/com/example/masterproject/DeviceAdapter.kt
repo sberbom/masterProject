@@ -28,7 +28,7 @@ class DeviceAdapter(private val s1: Array<LedgerEntry>, private val message: Str
         val ledgerEntry = s1[position]
         holder.usernameTextView.text = ledgerEntry.userName
         holder.ipTextView.text = "IP-address: ${ledgerEntry.ipAddress}"
-        holder.publicKeyTextView.text = "Public key hash: ${ledgerEntry.publicKey.hashCode()}"
+        holder.publicKeyTextView.text = "Certificate hash: ${ledgerEntry.certificate.hashCode()}"
         //Log.d("SIGMUND", ledgerEntry.toString())
 
         holder.sendButton.setOnClickListener {

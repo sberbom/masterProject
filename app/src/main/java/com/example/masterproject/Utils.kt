@@ -1,5 +1,6 @@
 package com.example.masterproject
 
+import android.text.TextUtils
 import org.bouncycastle.asn1.x500.X500Name
 import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo
 import java.lang.Exception
@@ -125,6 +126,10 @@ class Utils {
                 e.printStackTrace()
             }
             return null
+        }
+
+        fun isEmail(email: String): Boolean {
+            return !TextUtils.isEmpty(email) && android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
         }
     }
 }

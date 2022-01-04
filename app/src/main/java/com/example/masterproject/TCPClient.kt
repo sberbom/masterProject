@@ -1,6 +1,5 @@
 package com.example.masterproject
 
-import android.content.Context
 import android.util.Log
 import java.io.BufferedWriter
 import java.io.IOException
@@ -11,9 +10,6 @@ import java.net.InetAddress
 import java.net.Socket
 import java.net.UnknownHostException
 import java.util.concurrent.ThreadLocalRandom
-import android.view.LayoutInflater
-import java.security.AccessController.getContext
-import java.security.PublicKey
 
 
 class TCPClient(private val userName:String, private val message: String): Runnable {
@@ -38,8 +34,8 @@ class TCPClient(private val userName:String, private val message: String): Runna
         try {
             val serverAddress = InetAddress.getByName(ledgerEntry.ipAddress)
             val socket = Socket(serverAddress, SERVERPORT)
-            val str = if (message == "" || message == "Skriv en melding") ThreadLocalRandom.current().nextInt(0, 100).toString() else message;
-            val encryptedMessage = Utils.encryptMessage(str, ledgerEntry.publicKey)
+            val str = if (message == "" || message == "Skriv en melding") ThreadLocalRandom.current().nextInt(0, 100).toString() else message
+            val encryptedMessage = Utils.encryptMessage(str, ledgerEntry.certificate.publicKey)
             val out = PrintWriter(
                 BufferedWriter(
                     OutputStreamWriter(
@@ -55,7 +51,7 @@ class TCPClient(private val userName:String, private val message: String): Runna
         } catch (e: Exception) {
             e.printStackTrace()
         }
-        return null;
+        return null
     }
 
     companion object {

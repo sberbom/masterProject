@@ -32,7 +32,7 @@ class MulticastClient(private val multicastGroup: String, private val multicastP
         val jsonObject = JSONObject()
         jsonObject.put("username", myLedgerEntry.userName)
         jsonObject.put("ipAddress", Utils.getMyIpAddress())
-        jsonObject.put("publicKey", Utils.encryptionKeyToString(myLedgerEntry.publicKey))
+        jsonObject.put("certificate", Utils.certificateToString(myLedgerEntry.certificate))
         return jsonObject.toString()
     }
 

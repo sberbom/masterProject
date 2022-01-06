@@ -31,7 +31,10 @@ class DeviceAdapter(private val s1: Array<LedgerEntry>, private val message: Str
         holder.usernameTextView.text = ledgerEntry.userName
         holder.ipTextView.text = "IP-address: ${ledgerEntry.ipAddress}"
         holder.publicKeyTextView.text = "Certificate hash: ${ledgerEntry.certificate.hashCode()}"
-        if(ledgerEntry.certificate.issuerDN == ledgerEntry.certificate.subjectDN){
+        if(Utils.isCASignedCertificate(ledgerEntry.certificate)){
+            holder.certificateIndication.setImageResource(R.drawable.green)
+        }
+        else if(Utils.isSelfSignedCertificate(ledgerEntry.certificate)){
             holder.certificateIndication.setImageResource(R.drawable.yellow)
         }else {
             holder.certificateIndication.setImageResource(R.drawable.red)

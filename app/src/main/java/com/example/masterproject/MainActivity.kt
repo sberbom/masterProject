@@ -12,6 +12,7 @@ import com.example.masterproject.Ledger.Companion.availableDevices
 import org.bouncycastle.jce.provider.BouncyCastleProvider
 import java.security.Security
 import android.content.Intent
+import android.util.Log
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -42,12 +43,19 @@ class MainActivity: AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         //Create my ledger entry
-        Utils.generateSelfSignedX509Certificate()
-        val username = "user-${(0..100).random()}"
-        val myLedgerEntry = LedgerEntry(Utils.selfSignedX509Certificate!!, username)
+        val storedCertificate = Utils.fetchStoredCertificate(this)
+        var username = "user-${(0..100).random()}"
+        if(storedCertificate == null) {
+            val certificate = Utils.generateSelfSignedX509Certificate(username)
+            Utils.storeCertificate(certificate, this)
+        }
+        else {
+            username = Utils.getUsernameFromCertificate(storedCertificate)
+        }
+        Utils.myLedgerEntry = LedgerEntry(Utils.getCertificate()!!, username)
 
         //Start network processes
-        val multicastClientThread = MulticastClient(multicastGroup, multicastPort, myLedgerEntry)
+        val multicastClientThread = MulticastClient(multicastGroup, multicastPort)
         Thread(multicastServerThread).start()
         Thread(multicastClientThread).start()
         val tcpServerThread = TCPServer(findViewById(R.id.tcpMessage))
@@ -109,6 +117,12 @@ class MainActivity: AppCompatActivity() {
         if(auth.currentUser != null) {
             val loggedInAsText: TextView = findViewById(R.id.loggedInAsText)
             loggedInAsText.text = "Logged in as: ${auth.currentUser!!.email}"
+        }
+
+        //Delete button
+        val deleteDataButton: Button = findViewById(R.id.deleteButton)
+        deleteDataButton.setOnClickListener {
+            Utils.deleteStoredCertificate(this)
         }
 
     }

@@ -29,7 +29,6 @@ class MulticastServer(private val multicastGroup: String, private val multicastP
                 val ipAddress = jsonObject.getString("ipAddress")
                 val ledgerEntry = LedgerEntry(Utils.stringToCertificate(certificateString), username, ipAddress)
 
-
                 if(isAddEntryToLedger(ledgerEntry)){
                     Ledger.availableDevices.add(ledgerEntry)
                 }
@@ -43,12 +42,10 @@ class MulticastServer(private val multicastGroup: String, private val multicastP
     private fun isAddEntryToLedger(ledgerEntry: LedgerEntry): Boolean {
         //check on both username and ip. Can remove ip when proper user registration
         val users = mutableListOf<String>()
-        val ips = mutableListOf<String>()
-        for(device in Ledger.availableDevices){
-            users.add(device.userName)
-            ips.add(device.ipAddress)
+        for(ledgerEntry in Ledger.availableDevices){
+            users.add(ledgerEntry.userName)
         }
-        return !users.contains(ledgerEntry.userName) && !ips.contains(ledgerEntry.ipAddress)
+        return !users.contains(ledgerEntry.userName)
     }
 
     override fun run() {

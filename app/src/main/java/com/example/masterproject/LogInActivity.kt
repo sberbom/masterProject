@@ -54,7 +54,11 @@ class LogInActivity: AppCompatActivity() {
                             baseContext, "Sign in success.",
                             Toast.LENGTH_SHORT
                         ).show()
-
+                        val storedCertificate = Utils.fetchStoredCertificate(this)
+                        if(storedCertificate == null || !Utils.isCASignedCertificate(storedCertificate)) {
+                            val httpThread = HTTPClient(email, this)
+                            Thread(httpThread).start()
+                        }
                     }else {
                         auth.currentUser!!.sendEmailVerification()
                         Toast.makeText(

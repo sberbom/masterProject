@@ -11,7 +11,7 @@ import java.security.PublicKey
 import java.security.spec.X509EncodedKeySpec
 import java.util.*
 
-class MulticastClient(private val multicastGroup: String, private val multicastPort: Int, private val myLedgerEntry: LedgerEntry): Runnable {
+class MulticastClient(private val multicastGroup: String, private val multicastPort: Int): Runnable {
 
     private fun sendMulticastData(): Void? {
         var addr = InetAddress.getByName(multicastGroup)
@@ -30,16 +30,18 @@ class MulticastClient(private val multicastGroup: String, private val multicastP
 
     private fun createMulticastMessage(): String {
         val jsonObject = JSONObject()
-        jsonObject.put("username", myLedgerEntry.userName)
+        jsonObject.put("username", Utils.myLedgerEntry!!.userName)
         jsonObject.put("ipAddress", Utils.getMyIpAddress())
-        jsonObject.put("certificate", Utils.certificateToString(myLedgerEntry.certificate))
+        jsonObject.put("certificate", Utils.certificateToString(Utils.myLedgerEntry!!.certificate))
         return jsonObject.toString()
     }
 
     override fun run() {
         try{
             while (true){
-                sendMulticastData()
+                if(Utils.myLedgerEntry != null){
+                    sendMulticastData()
+                }
                 Thread.sleep(2000)
             }
         }catch (e:Exception){

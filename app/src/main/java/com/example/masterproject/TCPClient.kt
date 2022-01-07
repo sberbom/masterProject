@@ -44,6 +44,7 @@ class TCPClient(private val userName:String, private val message: String): Runna
                 ), true
             )
             out.println(encryptedMessage)
+            socket.close()
         } catch (e: UnknownHostException) {
             e.printStackTrace()
         } catch (e: IOException) {

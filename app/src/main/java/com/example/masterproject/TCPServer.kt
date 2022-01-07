@@ -1,6 +1,7 @@
 package com.example.masterproject
 
 import android.os.Handler
+import android.os.Looper
 import android.widget.TextView
 import java.io.BufferedReader
 import java.io.IOException
@@ -10,7 +11,7 @@ import java.net.Socket
 
 class TCPServer(private val messageView: TextView): Runnable {
 
-    var updateConversationHandler: Handler = Handler()
+    var updateConversationHandler: Handler = Handler(Looper.getMainLooper())
 
     override fun run() {
         try {
@@ -23,6 +24,7 @@ class TCPServer(private val messageView: TextView): Runnable {
                     e.printStackTrace()
                 }
             }
+            serverSocket.close()
         } catch (e: IOException) {
             e.printStackTrace()
         }
@@ -38,16 +40,23 @@ class TCPServer(private val messageView: TextView): Runnable {
     }
     */
 
-    internal inner class CommunicationThread(clientSocket: Socket) : Runnable {
+    internal inner class CommunicationThread(serverSocket: Socket) : Runnable {
 
-        private var input: BufferedReader = BufferedReader(InputStreamReader(clientSocket.getInputStream()))
+        private var input: BufferedReader = BufferedReader(InputStreamReader(serverSocket.getInputStream()))
 
         override fun run() {
             while (!Thread.currentThread().isInterrupted) {
                 try {
                     val readEncrypted = input.readLine()
-                    val read = Utils.decryptMessage(readEncrypted, Utils.keyPair!!.private)
-                    updateConversationHandler.post(UpdateUIThread(read))
+                    if(readEncrypted != null) {
+                        val read = Utils.decryptMessage(readEncrypted, Utils.privateKey!!)
+                        if(read != null){
+                            updateConversationHandler.post(UpdateUIThread(read))
+                        }
+                    }
+                    else {
+                        Thread.currentThread().interrupt()
+                    }
                 } catch (e: IOException) {
                     e.printStackTrace()
                 }

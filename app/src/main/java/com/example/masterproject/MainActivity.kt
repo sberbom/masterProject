@@ -12,7 +12,6 @@ import com.example.masterproject.Ledger.Companion.availableDevices
 import org.bouncycastle.jce.provider.BouncyCastleProvider
 import java.security.Security
 import android.content.Intent
-import android.util.Log
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -46,11 +45,14 @@ class MainActivity: AppCompatActivity() {
         val storedCertificate = Utils.fetchStoredCertificate(this)
         var username = "user-${(0..100).random()}"
         if(storedCertificate == null) {
-            val certificate = Utils.generateSelfSignedX509Certificate(username)
+            val keyPair = Utils.generateECKeyPair()
+            Utils.storePrivateKey(keyPair.private, this)
+            val certificate = Utils.generateSelfSignedX509Certificate(username, keyPair)
             Utils.storeCertificate(certificate, this)
         }
         else {
             username = Utils.getUsernameFromCertificate(storedCertificate)
+            Utils.fetchStoredPrivateKey(this)
         }
         Utils.myLedgerEntry = LedgerEntry(Utils.getCertificate()!!, username)
 
@@ -123,6 +125,9 @@ class MainActivity: AppCompatActivity() {
         val deleteDataButton: Button = findViewById(R.id.deleteButton)
         deleteDataButton.setOnClickListener {
             Utils.deleteStoredCertificate(this)
+            Utils.deleteStoredPrivateKey(this)
+            Toast.makeText(baseContext, "Stored certificate and private key deleted",
+                Toast.LENGTH_SHORT).show()
         }
 
     }

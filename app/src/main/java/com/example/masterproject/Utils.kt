@@ -25,6 +25,7 @@ import org.bouncycastle.operator.jcajce.JcaContentSignerBuilder
 import java.io.FileNotFoundException
 import java.lang.Error
 import java.net.*
+import java.security.spec.PKCS8EncodedKeySpec
 
 
 class Utils {
@@ -32,6 +33,7 @@ class Utils {
     companion object{
         var myLedgerEntry: LedgerEntry? = null
         var keyPair: KeyPair? = null
+        var privateKey: PrivateKey? = null
         private var selfSignedX509Certificate: X509Certificate? = null
         private var CASignedX509Certificate: X509Certificate? = null
         var CAPublicKey: PublicKey = stringToEncryptionKey("MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEnbbrYnAGkcNYD72o/H7jP2z91bQyA1B8GwUzsV0NG34RhpJ6xJMLxQT0kXwnSunXz6wVndN6O/6ZDWymVCk3nw==")
@@ -58,12 +60,50 @@ class Utils {
             val ECDSAGenerator = KeyPairGenerator.getInstance("EC");
             val keyPair = ECDSAGenerator.genKeyPair()
             Utils.keyPair  = keyPair
+            privateKey = keyPair.private
             return keyPair
         }
 
+        fun storePrivateKey(key: PrivateKey, context: Context) {
+            val filename = "my_private_key"
+            val fileContents = privateKeyToString(key)
+            context.openFileOutput(filename, Context.MODE_PRIVATE).use {
+                it.write(fileContents.toByteArray())
+            }
+        }
+
+        fun fetchStoredPrivateKey(context: Context): PrivateKey? {
+            try {
+                val filename = "my_private_key"
+                val fileContent = context.openFileInput(filename).bufferedReader().use { it.readText() }
+                val privateKey = stringToPrivateKey(fileContent)
+                Utils.privateKey = privateKey
+                return privateKey
+            }
+            catch (e: FileNotFoundException) {
+                Log.w("STORED CERTIFICATE", "No stored certificate")
+                return null
+            }
+        }
+
+        fun privateKeyToString(key: PrivateKey): String {
+            return Base64.getEncoder().encodeToString(key.encoded)
+        }
+
+        fun stringToPrivateKey(string: String): PrivateKey {
+            val encKey = Base64.getDecoder().decode(string)
+            val privateKeySpec = PKCS8EncodedKeySpec(encKey)
+            val keyFactory = KeyFactory.getInstance("EC")
+            return keyFactory.generatePrivate(privateKeySpec)
+        }
+
+        fun deleteStoredPrivateKey(context: Context) {
+            val filename = "my_private_key"
+            context.deleteFile(filename)
+        }
+
         //https://www.bouncycastle.org/docs/pkixdocs1.5on/org/bouncycastle/cert/X509v1CertificateBuilder.html
-        fun generateSelfSignedX509Certificate(username: String): X509Certificate  {
-            val keyPair = generateECKeyPair()
+        fun generateSelfSignedX509Certificate(username: String, keyPair: KeyPair): X509Certificate  {
             val validityBeginDate = Date(System.currentTimeMillis() - 24 * 60 * 60 * 1000)
             val validityEndDate = Date(System.currentTimeMillis() + 2 * 365 * 24 * 60 * 60 * 1000)
             val certificateIssuer = X500Name("CN=$username")

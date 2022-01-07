@@ -8,6 +8,7 @@ import com.android.volley.toolbox.Volley
 import org.json.JSONObject
 import java.lang.Exception
 import java.nio.charset.Charset
+import java.security.KeyPair
 
 class HTTPClient(private val email: String, private val context: Context): Runnable{
 
@@ -21,11 +22,13 @@ class HTTPClient(private val email: String, private val context: Context): Runna
     }
 
     private fun getCASignedCertificate(email: String, context: Context) {
-        val keyPair = if (Utils.keyPair != null) Utils.keyPair else Utils.generateECKeyPair()
+        val keyPair = Utils.generateECKeyPair()
+        Utils.storePrivateKey(keyPair.private, context)
+        Utils.privateKey = keyPair.private
         val url = "https://europe-west1-master-project-337221.cloudfunctions.net/x509Certificate"
         val queue = Volley.newRequestQueue(context)
 
-        val requestBody = JSONObject().put("email", email).put("publicKeyString", Utils.encryptionKeyToPem(keyPair!!.public)).toString()
+        val requestBody = JSONObject().put("email", email).put("publicKeyString", Utils.encryptionKeyToPem(keyPair.public)).toString()
         val stringReq: StringRequest =
             object : StringRequest(Method.POST, url,
                 Response.Listener { response ->

@@ -13,34 +13,36 @@ import java.util.*
 
 class MulticastClient(private val multicastGroup: String, private val multicastPort: Int): Runnable {
 
-    private fun sendMulticastData(): Void? {
+    private val TAG = "MulticastClient"
+
+    private fun sendMulticastData(msg: String): Void? {
         var addr = InetAddress.getByName(multicastGroup)
         try {
             var serverSocket = DatagramSocket()
-            var msg = createMulticastMessage()
             var msgPacket = DatagramPacket(msg.toByteArray(), msg.toByteArray().size, addr, multicastPort)
             serverSocket.send(msgPacket);
             serverSocket.close()
-            //Log.d("DEBUG SIGMUND","Multicast packet sendt")
+            Log.d(TAG,"Multicast packet sent")
         }catch (e: Exception) {
             e.printStackTrace()
         }
         return null;
     }
 
-    private fun createMulticastMessage(): String {
+    private fun broadcastBlock(): Void? {
         val jsonObject = JSONObject()
+        jsonObject.put("type", BroadcastMessageTypes.BROADCAST_LEDGER)
         jsonObject.put("username", Utils.myLedgerEntry!!.userName)
         jsonObject.put("ipAddress", Utils.getMyIpAddress())
         jsonObject.put("certificate", Utils.certificateToString(Utils.myLedgerEntry!!.certificate))
-        return jsonObject.toString()
+        return sendMulticastData(jsonObject.toString())
     }
 
     override fun run() {
         try{
             while (true){
                 if(Utils.myLedgerEntry != null){
-                    sendMulticastData()
+                    broadcastBlock()
                 }
                 Thread.sleep(2000)
             }

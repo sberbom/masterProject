@@ -10,6 +10,8 @@ import java.net.MulticastSocket
 
 class MulticastServer(private val multicastGroup: String, private val multicastPort: Int): Runnable {
 
+    private val TAG = "MutlicastServer"
+
     private fun listenForDevices(): MutableList<LedgerEntry>? {
         val address = InetAddress.getByName(multicastGroup);
         val buf = ByteArray(512)
@@ -24,13 +26,15 @@ class MulticastServer(private val multicastGroup: String, private val multicastP
                 val msgRaw = String(buf, 0, buf.size)
                 //Log.d("SIGMUND TEST",msgRaw)
                 val jsonObject = JSONObject(msgRaw)
-                val username = jsonObject.getString("username")
-                val certificateString = jsonObject.getString("certificate")
-                val ipAddress = jsonObject.getString("ipAddress")
-                val ledgerEntry = LedgerEntry(Utils.stringToCertificate(certificateString), username, ipAddress)
+                if (jsonObject.getString("type") == BroadcastMessageTypes.BROADCAST_LEDGER.toString()) {
+                    val username = jsonObject.getString("username")
+                    val certificateString = jsonObject.getString("certificate")
+                    val ipAddress = jsonObject.getString("ipAddress")
+                    val ledgerEntry = LedgerEntry(Utils.stringToCertificate(certificateString), username, ipAddress)
 
-                if(isAddEntryToLedger(ledgerEntry)){
-                    Ledger.availableDevices.add(ledgerEntry)
+                    if(isAddEntryToLedger(ledgerEntry)){
+                        Ledger.availableDevices.add(ledgerEntry)
+                    }
                 }
             }
         }catch (e: Exception){

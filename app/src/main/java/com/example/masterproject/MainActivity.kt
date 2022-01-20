@@ -12,6 +12,11 @@ import com.example.masterproject.Ledger.Companion.availableDevices
 import org.bouncycastle.jce.provider.BouncyCastleProvider
 import java.security.Security
 import android.content.Intent
+import android.net.ConnectivityManager
+import android.net.LinkProperties
+import android.net.Network
+import android.net.NetworkCapabilities
+import android.util.Log
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -25,6 +30,9 @@ class MainActivity: AppCompatActivity() {
     private val multicastPort: Int = 8888
     private val multicastServerThread = MulticastServer(multicastGroup, multicastPort)
     private lateinit var auth: FirebaseAuth
+
+    private val TAG = "MainActivity"
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,10 +57,6 @@ class MainActivity: AppCompatActivity() {
             Utils.storePrivateKey(keyPair.private, this)
             val certificate = Utils.generateSelfSignedX509Certificate(username, keyPair)
             Utils.storeCertificate(certificate, this)
-        }
-        else {
-            username = Utils.getUsernameFromCertificate(storedCertificate)
-            Utils.fetchStoredPrivateKey(this)
         }
         Utils.myLedgerEntry = LedgerEntry(Utils.getCertificate()!!, username)
 

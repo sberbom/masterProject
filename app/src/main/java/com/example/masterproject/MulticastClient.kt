@@ -1,6 +1,8 @@
 package com.example.masterproject
 
 import android.util.Log
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import org.json.JSONObject
 import java.lang.Exception
 import java.lang.StringBuilder
@@ -11,7 +13,7 @@ import java.security.PublicKey
 import java.security.spec.X509EncodedKeySpec
 import java.util.*
 
-class MulticastClient(private val multicastGroup: String, private val multicastPort: Int): Runnable {
+class MulticastClient(private val multicastGroup: String, private val multicastPort: Int) {
 
     private val TAG = "MulticastClient"
 
@@ -29,28 +31,15 @@ class MulticastClient(private val multicastGroup: String, private val multicastP
         return null;
     }
 
-    private fun broadcastBlock(): Void? {
+    suspend fun broadcastBlock(): Void? {
         val jsonObject = JSONObject()
         jsonObject.put("type", BroadcastMessageTypes.BROADCAST_LEDGER)
         jsonObject.put("username", Utils.myLedgerEntry!!.userName)
         jsonObject.put("ipAddress", Utils.getMyIpAddress())
         jsonObject.put("certificate", Utils.certificateToString(Utils.myLedgerEntry!!.certificate))
-        return sendMulticastData(jsonObject.toString())
-    }
-
-    override fun run() {
-        try{
-            while (true){
-                if(Utils.myLedgerEntry != null){
-                    broadcastBlock()
-                }
-                Thread.sleep(2000)
-            }
-        }catch (e:Exception){
-            e.printStackTrace()
+        return withContext(Dispatchers.IO) {
+            sendMulticastData(jsonObject.toString())
         }
     }
-
-
 
 }

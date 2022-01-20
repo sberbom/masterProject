@@ -21,6 +21,9 @@ import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 
 class MainActivity: AppCompatActivity() {
@@ -60,10 +63,13 @@ class MainActivity: AppCompatActivity() {
         }
         Utils.myLedgerEntry = LedgerEntry(Utils.getCertificate()!!, username)
 
+        val multicastClient = MulticastClient(multicastGroup, multicastPort)
+        GlobalScope.launch(Dispatchers.IO) {
+            multicastClient.broadcastBlock()
+        }
+
         //Start network processes
-        val multicastClientThread = MulticastClient(multicastGroup, multicastPort)
         Thread(multicastServerThread).start()
-        Thread(multicastClientThread).start()
         val tcpServerThread = TCPServer(findViewById(R.id.tcpMessage))
         Thread(tcpServerThread).start()
 

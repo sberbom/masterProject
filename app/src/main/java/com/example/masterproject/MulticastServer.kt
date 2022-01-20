@@ -24,7 +24,7 @@ class MulticastServer(private val multicastGroup: String, private val multicastP
                 clientSocket.receive(msgPacket);
 
                 val msgRaw = String(buf, 0, buf.size)
-                //Log.d("SIGMUND TEST",msgRaw)
+                Log.d(TAG, msgRaw)
                 val jsonObject = JSONObject(msgRaw)
                 if (jsonObject.getString("type") == BroadcastMessageTypes.BROADCAST_LEDGER.toString()) {
                     val username = jsonObject.getString("username")

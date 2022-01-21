@@ -12,11 +12,6 @@ import com.example.masterproject.Ledger.Companion.availableDevices
 import org.bouncycastle.jce.provider.BouncyCastleProvider
 import java.security.Security
 import android.content.Intent
-import android.net.ConnectivityManager
-import android.net.LinkProperties
-import android.net.Network
-import android.net.NetworkCapabilities
-import android.util.Log
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -63,7 +58,7 @@ class MainActivity: AppCompatActivity() {
         }
         val myLedgerEntry = LedgerEntry(Utils.getCertificate()!!, username)
         Utils.myLedgerEntry = myLedgerEntry
-        //availableDevices.add(myLedgerEntry)
+        availableDevices.add(myLedgerEntry)
 
         val multicastClient = MulticastClient(multicastGroup, multicastPort)
         GlobalScope.launch(Dispatchers.IO) {

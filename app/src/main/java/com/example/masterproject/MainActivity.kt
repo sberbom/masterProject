@@ -1,5 +1,6 @@
 package com.example.masterproject
 
+import android.content.Context
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -26,7 +27,7 @@ class MainActivity: AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private val multicastGroup: String = "224.0.0.10"
     private val multicastPort: Int = 8888
-    private val multicastServerThread = MulticastServer(multicastGroup, multicastPort)
+    //private val multicastServerThread = MulticastServer(multicastGroup, multicastPort)
     private lateinit var auth: FirebaseAuth
 
     private val TAG = "MainActivity"
@@ -40,6 +41,9 @@ class MainActivity: AppCompatActivity() {
         Security.addProvider(BouncyCastleProvider())
 
         auth = Firebase.auth
+
+        // Start multicast server
+        baseContext.startService(Intent(MainActivity@this, MulticastServer::class.java))
 
         //Set up view
         recyclerView = findViewById(R.id.recyclerView)
@@ -60,17 +64,7 @@ class MainActivity: AppCompatActivity() {
         Utils.myLedgerEntry = myLedgerEntry
         availableDevices.add(myLedgerEntry)
 
-        val multicastClient = MulticastClient(multicastGroup, multicastPort)
-        GlobalScope.launch(Dispatchers.IO) {
-            multicastClient.broadcastBlock()
-        }
-
-        GlobalScope.launch(Dispatchers.IO) {
-            multicastClient.requestLedger()
-        }
-
         //Start network processes
-        Thread(multicastServerThread).start()
         val tcpServerThread = TCPServer(findViewById(R.id.tcpMessage))
         Thread(tcpServerThread).start()
 

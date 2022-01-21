@@ -1,5 +1,9 @@
 package com.example.masterproject
 
+import android.app.Service
+import android.content.Intent
+import android.os.IBinder
+import android.provider.Settings
 import android.util.Log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -13,20 +17,21 @@ import com.example.masterproject.Ledger.Companion.availableDevices
 
 
 
-class MulticastServer(private val multicastGroup: String, private val multicastPort: Int): Runnable {
+class MulticastServer: Service() {
 
-    private val TAG = "MutlicastServer"
+    private val TAG = "MulticastServer"
+    private val socket: MulticastSocket? = null
+    private val address = InetAddress.getByName(Constants.multicastGroup);
 
-    private fun listenForDevices(): MutableList<LedgerEntry>? {
-        val address = InetAddress.getByName(multicastGroup);
+    private fun listenForData(): MutableList<LedgerEntry>? {
         val buf = ByteArray(2048)
         try{
-            val clientSocket = MulticastSocket(multicastPort);
-            clientSocket.joinGroup(address)
-
+            val socket = MulticastSocket(Constants.multicastPort);
+            socket.joinGroup(address)
+            Log.d(TAG, "Listening for data.")
             while (true) {
                 val msgPacket = DatagramPacket(buf, buf.size)
-                clientSocket.receive(msgPacket)
+                socket.receive(msgPacket)
 
                 val msgRaw = String(buf, 0, buf.size)
                 Log.d(TAG, "msgRaw $msgRaw")
@@ -56,7 +61,7 @@ class MulticastServer(private val multicastGroup: String, private val multicastP
     }
 
     private fun handleRequestedLedger(jsonObject: JSONObject) {
-        val multicastClient = MulticastClient(multicastGroup, multicastPort)
+        val multicastClient = MulticastClient(Constants.multicastGroup, Constants.multicastPort)
         GlobalScope.launch (Dispatchers.IO) {
             multicastClient.sendLedger()
         }
@@ -81,7 +86,29 @@ class MulticastServer(private val multicastGroup: String, private val multicastP
         return !users.contains(ledgerEntry.userName)
     }
 
-    override fun run() {
-        listenForDevices()
+    override fun onBind(intent: Intent?): IBinder? {
+        return null
     }
+
+    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        GlobalScope.launch {
+            listenForData()
+        }
+        val client = MulticastClient(Constants.multicastGroup, Constants.multicastPort)
+        GlobalScope.launch {
+            client.broadcastBlock()
+            client.requestLedger()
+        }
+        return super.onStartCommand(intent, flags, startId)
+    }
+
+    override fun onDestroy() {
+        if (socket != null) {
+            socket.leaveGroup(address)
+            socket.close()
+        }
+        super.onDestroy()
+    }
+
+
 }

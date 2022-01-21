@@ -61,11 +61,17 @@ class MainActivity: AppCompatActivity() {
             val certificate = Utils.generateSelfSignedX509Certificate(username, keyPair)
             Utils.storeCertificate(certificate, this)
         }
-        Utils.myLedgerEntry = LedgerEntry(Utils.getCertificate()!!, username)
+        val myLedgerEntry = LedgerEntry(Utils.getCertificate()!!, username)
+        Utils.myLedgerEntry = myLedgerEntry
+        //availableDevices.add(myLedgerEntry)
 
         val multicastClient = MulticastClient(multicastGroup, multicastPort)
         GlobalScope.launch(Dispatchers.IO) {
             multicastClient.broadcastBlock()
+        }
+
+        GlobalScope.launch(Dispatchers.IO) {
+            multicastClient.requestLedger()
         }
 
         //Start network processes

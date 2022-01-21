@@ -1,5 +1,6 @@
 package com.example.masterproject
 
+import android.provider.ContactsContract
 import android.util.Log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -24,7 +25,7 @@ class MulticastClient(private val multicastGroup: String, private val multicastP
             var msgPacket = DatagramPacket(msg.toByteArray(), msg.toByteArray().size, addr, multicastPort)
             serverSocket.send(msgPacket);
             serverSocket.close()
-            Log.d(TAG,"Multicast packet sent")
+            Log.d(TAG,msg)
         }catch (e: Exception) {
             e.printStackTrace()
         }
@@ -33,10 +34,27 @@ class MulticastClient(private val multicastGroup: String, private val multicastP
 
     suspend fun broadcastBlock(): Void? {
         val jsonObject = JSONObject()
-        jsonObject.put("type", BroadcastMessageTypes.BROADCAST_LEDGER)
+        jsonObject.put("type", BroadcastMessageTypes.BROADCAST_BLOCK)
         jsonObject.put("username", Utils.myLedgerEntry!!.userName)
         jsonObject.put("ipAddress", Utils.getMyIpAddress())
         jsonObject.put("certificate", Utils.certificateToString(Utils.myLedgerEntry!!.certificate))
+        return withContext(Dispatchers.IO) {
+            sendMulticastData(jsonObject.toString())
+        }
+    }
+
+    suspend fun requestLedger(): Void? {
+        val jsonObject = JSONObject()
+        jsonObject.put("type", BroadcastMessageTypes.REQUEST_LEDGER)
+        return withContext(Dispatchers.IO) {
+            sendMulticastData(jsonObject.toString())
+        }
+    }
+
+    suspend fun sendLedger(): Void? {
+        val jsonObject = JSONObject()
+        jsonObject.put("type", BroadcastMessageTypes.FULL_LEDGER)
+        jsonObject.put("ledger", Ledger.availableDevices.map {it.toString()})
         return withContext(Dispatchers.IO) {
             sendMulticastData(jsonObject.toString())
         }

@@ -16,6 +16,9 @@ import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 
 class MainActivity: AppCompatActivity() {
@@ -25,6 +28,9 @@ class MainActivity: AppCompatActivity() {
     private val multicastPort: Int = 8888
     private val multicastServerThread = MulticastServer(multicastGroup, multicastPort)
     private lateinit var auth: FirebaseAuth
+
+    private val TAG = "MainActivity"
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,16 +56,21 @@ class MainActivity: AppCompatActivity() {
             val certificate = Utils.generateSelfSignedX509Certificate(username, keyPair)
             Utils.storeCertificate(certificate, this)
         }
-        else {
-            username = Utils.getUsernameFromCertificate(storedCertificate)
-            Utils.fetchStoredPrivateKey(this)
+        val myLedgerEntry = LedgerEntry(Utils.getCertificate()!!, username)
+        Utils.myLedgerEntry = myLedgerEntry
+        availableDevices.add(myLedgerEntry)
+
+        val multicastClient = MulticastClient(multicastGroup, multicastPort)
+        GlobalScope.launch(Dispatchers.IO) {
+            multicastClient.broadcastBlock()
         }
-        Utils.myLedgerEntry = LedgerEntry(Utils.getCertificate()!!, username)
+
+        GlobalScope.launch(Dispatchers.IO) {
+            multicastClient.requestLedger()
+        }
 
         //Start network processes
-        val multicastClientThread = MulticastClient(multicastGroup, multicastPort)
         Thread(multicastServerThread).start()
-        Thread(multicastClientThread).start()
         val tcpServerThread = TCPServer(findViewById(R.id.tcpMessage))
         Thread(tcpServerThread).start()
 

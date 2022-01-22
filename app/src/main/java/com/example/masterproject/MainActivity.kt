@@ -1,5 +1,6 @@
 package com.example.masterproject
 
+import android.content.Context
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -16,6 +17,9 @@ import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 
 class MainActivity: AppCompatActivity() {
@@ -23,8 +27,11 @@ class MainActivity: AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private val multicastGroup: String = "224.0.0.10"
     private val multicastPort: Int = 8888
-    private val multicastServerThread = MulticastServer(multicastGroup, multicastPort)
+    //private val multicastServerThread = MulticastServer(multicastGroup, multicastPort)
     private lateinit var auth: FirebaseAuth
+
+    private val TAG = "MainActivity"
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +41,9 @@ class MainActivity: AppCompatActivity() {
         Security.addProvider(BouncyCastleProvider())
 
         auth = Firebase.auth
+
+        // Start multicast server
+        baseContext.startService(Intent(MainActivity@this, MulticastServer::class.java))
 
         //Set up view
         recyclerView = findViewById(R.id.recyclerView)
@@ -50,16 +60,11 @@ class MainActivity: AppCompatActivity() {
             val certificate = Utils.generateSelfSignedX509Certificate(username, keyPair)
             Utils.storeCertificate(certificate, this)
         }
-        else {
-            username = Utils.getUsernameFromCertificate(storedCertificate)
-            Utils.fetchStoredPrivateKey(this)
-        }
-        Utils.myLedgerEntry = LedgerEntry(Utils.getCertificate()!!, username)
+        val myLedgerEntry = LedgerEntry(Utils.getCertificate()!!, username)
+        Utils.myLedgerEntry = myLedgerEntry
+        availableDevices.add(myLedgerEntry)
 
         //Start network processes
-        val multicastClientThread = MulticastClient(multicastGroup, multicastPort)
-        Thread(multicastServerThread).start()
-        Thread(multicastClientThread).start()
         val tcpServerThread = TCPServer(this)
         Thread(tcpServerThread).start()
 

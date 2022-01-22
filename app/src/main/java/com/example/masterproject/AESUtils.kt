@@ -2,7 +2,6 @@ package com.example.masterproject
 
 import android.content.Context
 import android.util.Log
-import org.json.JSONException
 import java.io.FileNotFoundException
 import java.nio.ByteBuffer
 import java.nio.charset.StandardCharsets
@@ -12,24 +11,52 @@ import java.security.cert.X509Certificate
 import java.util.*
 import javax.crypto.spec.GCMParameterSpec
 import javax.crypto.spec.SecretKeySpec
-import org.json.JSONObject
 import javax.crypto.*
-import kotlin.Error
 
 
 class AESUtils {
+
+    data class SymmetricKeyEntry(val currentKey: SecretKey, val nextKey: SecretKey?)
 
     companion object {
         private const val GCM_IV_LENGTH = 12
         private const val GCM_TAG_LENGTH = 16
         private const val AES_KEY_SIZE = 128
-        var currentKey: SecretKey? = null
-        var nextKey: SecretKey? = null
+        var keyMap: MutableMap<String, SymmetricKeyEntry> = mutableMapOf()
 
         private const val TAG = "AESUtils"
 
+        private fun getCurrentKeyForUser(userName: String): SecretKey? {
+            if(keyMap.keys.contains(userName)){
+                return keyMap.getValue(userName).currentKey
+            }
+            return null
+        }
 
-        fun calculateAESKeyDH(privateKey: PrivateKey, certificate: X509Certificate): SecretKey {
+        fun getNextKeyForUser(userName: String): SecretKey? {
+            if(keyMap.containsKey(userName)){
+                return keyMap.getValue(userName).nextKey
+            }
+            return null
+        }
+
+        fun useNextKeyForUser(userName: String) {
+            val symmetricKeyEntry = keyMap.getValue(userName)
+            if(symmetricKeyEntry.nextKey != null) {
+                keyMap[userName] = SymmetricKeyEntry(symmetricKeyEntry.nextKey, null)
+            }
+        }
+
+        fun setNextKeyForUser(userName: String, nextKey: SecretKey) {
+            val symmetricKeyEntry = keyMap.getValue(userName)
+            keyMap[userName] = SymmetricKeyEntry(symmetricKeyEntry.currentKey, nextKey)
+        }
+
+        private fun setCurrentKeyForUser(userName: String, currentKey: SecretKey) {
+            keyMap[userName] = SymmetricKeyEntry(currentKey, null)
+        }
+
+        private fun calculateAESKeyDH(privateKey: PrivateKey, certificate: X509Certificate): SecretKey {
             val keyAgreement = KeyAgreement.getInstance("ECDH")
             keyAgreement.init(privateKey)
             keyAgreement.doPhase(certificate.publicKey, true)
@@ -40,7 +67,9 @@ class AESUtils {
                 sha256.digest(sharedSecret), AES_KEY_SIZE / java.lang.Byte.SIZE
             )
 
-            return SecretKeySpec(byteKey, "AES")
+            val secretKey = SecretKeySpec(byteKey, "AES")
+            setCurrentKeyForUser(Utils.getUsernameFromCertificate(certificate), secretKey)
+            return secretKey
         }
 
         fun generateAESKey(): SecretKey {
@@ -50,47 +79,9 @@ class AESUtils {
 
         }
 
-        fun storeAESKey(key: SecretKey, userName: String, context: Context) {
-            try {
-                val keysString =
-                    context.openFileInput(Constants.KEY_FILE).bufferedReader().use { it.readText() }
-                val keysObject = JSONObject(keysString)
-                val keyString = keyToString(key)
-                keysObject.put(userName, keyString)
-                context.openFileOutput(Constants.KEY_FILE, Context.MODE_PRIVATE).use {
-                    it.write(keysObject.toString().toByteArray())
-                }
-            } catch (e: FileNotFoundException) {
-                Log.w(TAG, "keyList file not found")
-                val keysObject = JSONObject()
-                val keyString = keyToString(key)
-                keysObject.put(userName, keyString)
-                context.openFileOutput(Constants.KEY_FILE, Context.MODE_PRIVATE).use {
-                    it.write(keysObject.toString().toByteArray())
-                }
-            }
-        }
-
-        private fun fetchStoredAESKey(userName: String, context: Context): SecretKey? {
-            return try {
-                val keysString =
-                    context.openFileInput(Constants.KEY_FILE).bufferedReader().use { it.readText() }
-                val keysObject = JSONObject(keysString)
-                Log.d(TAG, "FETCHED KEY: ${keysObject.getString(userName)}")
-                stringToKey(keysObject.getString(userName))
-            } catch (e: FileNotFoundException) {
-                Log.w(TAG, "keyList file not found")
-                null
-            } catch (e: JSONException) {
-                Log.w(TAG, "Could not find stored key for user $userName")
-                null
-            }
-        }
-
         fun deleteAllStoredKeys(context: Context) {
             try {
-                currentKey = null
-                nextKey = null
+                keyMap.clear()
                 context.deleteFile(Constants.KEY_FILE)
             } catch (e: FileNotFoundException) {
                 Log.w(TAG, "keyList file not found")
@@ -98,13 +89,7 @@ class AESUtils {
         }
 
         fun getEncryptionKey(userName: String, context: Context): SecretKey {
-            /*
-            return fetchStoredAESKey(userName, context) ?: calculateAESKeyDH(
-                Utils.privateKey!!,
-                Ledger.getLedgerEntry(userName!!)!!.certificate
-            )
-             */
-            return currentKey ?: calculateAESKeyDH(
+            return getCurrentKeyForUser(userName) ?: calculateAESKeyDH(
                 Utils.privateKey!!,
                 Ledger.getLedgerEntry(userName!!)!!.certificate
             )
@@ -149,6 +134,7 @@ class AESUtils {
 
                 return String(plainText, StandardCharsets.UTF_8)
             } catch (e: AEADBadTagException) {
+                //Keys are probably out of sync
                 e.printStackTrace()
                 return "NOT ABLE TO DECRYPT MESSAGE AEADBadTagException"
             }

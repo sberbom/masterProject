@@ -40,11 +40,9 @@ class TCPServer(val context: Context): Runnable {
         override fun run() {
             try {
                 val read = input.readUTF()
-                Log.d("MESSAGE RECEIVED", read)
                 val arrOfRead = read.split(":://")
                 val userName = arrOfRead[0]
                 val ledgerEntry = Ledger.getLedgerEntry(userName)
-                //TODO: What happens if only one user leave the conversation?
                 when(val readEncrypted = arrOfRead[1]) {
                     Constants.CLIENT_HELLO -> changeToChatActivity(ledgerEntry!!)
                     Constants.KEY_DELEVERY -> storeNextKey(arrOfRead[2], ledgerEntry!!)
@@ -60,8 +58,7 @@ class TCPServer(val context: Context): Runnable {
             val decrypted = AESUtils.symmetricDecryption(key, sharedKey)
             try {
                 val nextKey = AESUtils.stringToKey(decrypted)
-                Log.d(TAG, "NEXT KEY RECEIVED ${String(nextKey.encoded)}")
-                AESUtils.nextKey = nextKey
+                AESUtils.setNextKeyForUser(ledgerEntry.userName, nextKey)
             }
             catch (e: IllegalArgumentException) {
                 Log.d(TAG, decrypted)

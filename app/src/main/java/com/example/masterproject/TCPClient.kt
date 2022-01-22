@@ -34,7 +34,7 @@ class TCPClient() {
     suspend fun sendEncryptedMessage(ledgerEntry: LedgerEntry, message: String, encryptionKey: SecretKey) {
         val encryptedMessage = AESUtils.symmetricEncryption(message, encryptionKey)
         Handler(Looper.getMainLooper()).post {
-            ChatActivity.addChat("You", message)
+            ChatActivity.addChat("You:", message)
         }
         return withContext(Dispatchers.IO) {
             sendMessage(ledgerEntry, encryptedMessage)

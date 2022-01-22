@@ -1,7 +1,6 @@
 package com.example.masterproject
 
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -11,41 +10,22 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import javax.crypto.SecretKey
 
 class ChatActivity: AppCompatActivity() {
 
     private val tcpClient = TCPClient()
-    private val TAG = "ChatActivity"
+    private var userName: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chat)
-        val userName = intent.getStringExtra("userName")
+        userName = intent.getStringExtra("userName")
         val isStartingConnection = intent.getBooleanExtra("staringNewConnection", false)
         val ledgerEntry = Ledger.getLedgerEntry(userName!!)
 
-        //NEXT KEY OR MAKE NEW KEY
-        AESUtils.currentKey = AESUtils.getEncryptionKey(userName, this)
-        Log.d(TAG, "CURRENT KEY SET")
-        val currentKeyText: TextView = findViewById(R.id.currentKeyText)
-        currentKeyText.text = String(AESUtils.currentKey!!.encoded)
-
-        //MAKE NEXT KEY, STORE AND SEND NEXT KEY
-        if(isStartingConnection){
-            AESUtils.nextKey = AESUtils.generateAESKey()
-            val nextKeyText: TextView = findViewById(R.id.nextEncryptionKey)
-            nextKeyText.text = "${String(AESUtils.nextKey!!.encoded)} - starting converstation"
-            //AESUtils.storeAESKey(nextKey, ledgerEntry!!.userName, this)
-            val nextKeyString = AESUtils.keyToString(AESUtils.nextKey!!)
-            GlobalScope.launch(Dispatchers.IO) {
-                tcpClient.sendMessage(ledgerEntry!!, "${Constants.KEY_DELEVERY}:://${AESUtils.symmetricEncryption(nextKeyString, AESUtils.currentKey!!)}")
-            }
-        }
-        else {
-            val nextKeyText: TextView = findViewById(R.id.nextEncryptionKey)
-            nextKeyText.text = "${String(AESUtils.nextKey!!.encoded)} - received"
-        }
-
+        val currentKey = AESUtils.getEncryptionKey(userName!!, this)
+        updateAESKeys(userName!!, isStartingConnection, ledgerEntry!!, currentKey)
 
         val tcpServerThread = TCPServer(this)
         Thread(tcpServerThread).start()
@@ -55,23 +35,42 @@ class ChatActivity: AppCompatActivity() {
         messageView.layoutManager = LinearLayoutManager(this)
 
         val youAreChattingWith: TextView = findViewById(R.id.chatWith)
-        youAreChattingWith.text = "You are chatting with: $userName"
+        val youAreChattingWithText = "You are chatting with: $userName"
+        youAreChattingWith.text = youAreChattingWithText
+
+        val currentKeyText: TextView = findViewById(R.id.currentKeyText)
+        currentKeyText.text = String(currentKey.encoded)
 
         val sendMessageButton: Button = findViewById(R.id.messageSendButton)
         sendMessageButton.setOnClickListener {
             val messageEditText: EditText = findViewById(R.id.messageEditText)
             val messageText = messageEditText.text.toString()
             GlobalScope.launch(Dispatchers.IO) {
-                tcpClient.sendEncryptedMessage(ledgerEntry!!, messageText, AESUtils.currentKey!!)
+                tcpClient.sendEncryptedMessage(ledgerEntry!!, messageText, currentKey)
             }
         }
     }
 
     override fun onStop() {
         messages.clear()
-        AESUtils.currentKey = AESUtils.nextKey
-        AESUtils.nextKey = null
+        AESUtils.useNextKeyForUser(userName!!)
         super.onStop()
+    }
+
+    private fun updateAESKeys(userName: String, isStartingConnection: Boolean, ledgerEntry: LedgerEntry, currentKey: SecretKey) {
+        if(isStartingConnection) {
+            val nextKey = AESUtils.generateAESKey()
+            AESUtils.setNextKeyForUser(userName, nextKey)
+            val nextKeyString = AESUtils.keyToString(nextKey)
+            val nextKeyEncrypted = AESUtils.symmetricEncryption(nextKeyString, currentKey)
+            GlobalScope.launch(Dispatchers.IO) {
+                tcpClient.sendMessage(ledgerEntry, "${Constants.KEY_DELEVERY}:://$nextKeyEncrypted")
+            }
+        }
+        val nextKey = AESUtils.getNextKeyForUser(userName)?.encoded?.let { String(it) } ?: "No next key stored"
+        val nextKeyTextView: TextView = findViewById(R.id.nextEncryptionKey)
+        val nextKeyText = if(isStartingConnection) "$nextKey - sent" else "$nextKey - received"
+        nextKeyTextView.text = nextKeyText
     }
 
     companion object {

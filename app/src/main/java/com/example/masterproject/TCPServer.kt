@@ -5,7 +5,6 @@ import android.content.Intent
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
-import org.bouncycastle.jcajce.provider.symmetric.AES
 import java.io.*
 import java.lang.IllegalArgumentException
 import java.net.ServerSocket
@@ -64,13 +63,11 @@ class TCPServer(val context: Context): Runnable {
                 Log.d(TAG, decrypted)
                 e.printStackTrace()
             }
-
-            //AESUtils.storeAESKey(nextKey, ledgerEntry.userName, context)
         }
 
         private fun changeToChatActivity(ledgerEntry: LedgerEntry) {
             val intent = Intent(context, ChatActivity::class.java)
-            intent.putExtra("userName", ledgerEntry.userName) //Optional parameters
+            intent.putExtra("userName", ledgerEntry.userName)
             intent.putExtra("staringNewConnection", false)
             context.startActivity(intent)
         }

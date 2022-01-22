@@ -27,7 +27,7 @@ class AESUtils {
         private const val TAG = "AESUtils"
 
         private fun getCurrentKeyForUser(userName: String): SecretKey? {
-            if(keyMap.keys.contains(userName)){
+            if(keyMap.containsKey(userName)){
                 return keyMap.getValue(userName).currentKey
             }
             return null
@@ -56,6 +56,13 @@ class AESUtils {
             keyMap[userName] = SymmetricKeyEntry(currentKey, null)
         }
 
+        fun getEncryptionKey(userName: String, context: Context): SecretKey {
+            return getCurrentKeyForUser(userName) ?: calculateAESKeyDH(
+                Utils.privateKey!!,
+                Ledger.getLedgerEntry(userName!!)!!.certificate
+            )
+        }
+
         private fun calculateAESKeyDH(privateKey: PrivateKey, certificate: X509Certificate): SecretKey {
             val keyAgreement = KeyAgreement.getInstance("ECDH")
             keyAgreement.init(privateKey)
@@ -74,7 +81,7 @@ class AESUtils {
 
         fun generateAESKey(): SecretKey {
             val keyGen = KeyGenerator.getInstance("AES")
-            keyGen.init(AES_KEY_SIZE) // for example
+            keyGen.init(AES_KEY_SIZE)
             return keyGen.generateKey()
 
         }
@@ -86,13 +93,6 @@ class AESUtils {
             } catch (e: FileNotFoundException) {
                 Log.w(TAG, "keyList file not found")
             }
-        }
-
-        fun getEncryptionKey(userName: String, context: Context): SecretKey {
-            return getCurrentKeyForUser(userName) ?: calculateAESKeyDH(
-                Utils.privateKey!!,
-                Ledger.getLedgerEntry(userName!!)!!.certificate
-            )
         }
 
         fun keyToString(key: SecretKey): String {

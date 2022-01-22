@@ -1,10 +1,7 @@
 package com.example.masterproject
 
 import android.util.Log
-import java.io.BufferedWriter
-import java.io.IOException
-import java.io.OutputStreamWriter
-import java.io.PrintWriter
+import java.io.*
 import java.lang.Exception
 import java.net.InetAddress
 import java.net.Socket
@@ -33,17 +30,13 @@ class TCPClient(private val userName:String, private val message: String): Runna
     private fun sendMsg(ledgerEntry: LedgerEntry): Void? {
         try {
             val serverAddress = InetAddress.getByName(ledgerEntry.ipAddress)
-            val socket = Socket(serverAddress, SERVERPORT)
+            val socket = Socket(serverAddress, Constants.SERVERPORT)
             val str = if (message == "" || message == "Skriv en melding") ThreadLocalRandom.current().nextInt(0, 100).toString() else message
-            val encryptedMessage = Utils.encryptMessage(str, ledgerEntry.certificate.publicKey)
-            val out = PrintWriter(
-                BufferedWriter(
-                    OutputStreamWriter(
-                        socket.getOutputStream()
-                    )
-                ), true
-            )
-            out.println(encryptedMessage)
+            val sharedKey = EncryptionUtils.calculateAESKeys(Utils.privateKey!!, ledgerEntry.certificate)
+            val encryptedMessage = EncryptionUtils.symmetricEncryption(str, sharedKey)
+            val out = DataOutputStream(socket.getOutputStream())
+            out.writeUTF("${Utils.getUsernameFromCertificate(Utils.getCertificate()!!)}:://$encryptedMessage")
+            out.flush()
             socket.close()
         } catch (e: UnknownHostException) {
             e.printStackTrace()
@@ -53,9 +46,5 @@ class TCPClient(private val userName:String, private val message: String): Runna
             e.printStackTrace()
         }
         return null
-    }
-
-    companion object {
-        private const val SERVERPORT = 7000
     }
 }

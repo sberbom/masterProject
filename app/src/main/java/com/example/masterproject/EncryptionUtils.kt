@@ -7,6 +7,7 @@ import java.security.PrivateKey
 import java.security.SecureRandom
 import java.security.cert.X509Certificate
 import java.util.*
+import javax.crypto.AEADBadTagException
 import javax.crypto.Cipher
 import javax.crypto.KeyAgreement
 import javax.crypto.SecretKey
@@ -58,17 +59,24 @@ class EncryptionUtils {
         }
 
         fun symmetricDecryption(cipherText: String, secretKey: SecretKey): String {
-            val cipherArray = Base64.getDecoder().decode(cipherText)
+            try {
+                val cipherArray = Base64.getDecoder().decode(cipherText)
 
-            val cipher = Cipher.getInstance("AES/GCM/NoPadding")
-            //use first 12 bytes for iv
-            val gcmIv = GCMParameterSpec(GCM_TAG_LENGTH * 8, cipherArray, 0, GCM_IV_LENGTH)
-            cipher.init(Cipher.DECRYPT_MODE, secretKey, gcmIv)
+                val cipher = Cipher.getInstance("AES/GCM/NoPadding")
+                //use first 12 bytes for iv
+                val gcmIv = GCMParameterSpec(GCM_TAG_LENGTH * 8, cipherArray, 0, GCM_IV_LENGTH)
+                cipher.init(Cipher.DECRYPT_MODE, secretKey, gcmIv)
 
-            //use everything from 12 bytes on as ciphertext
-            val plainText = cipher.doFinal(cipherArray, GCM_IV_LENGTH, cipherArray.size - GCM_IV_LENGTH)
+                //use everything from 12 bytes on as ciphertext
+                val plainText =
+                    cipher.doFinal(cipherArray, GCM_IV_LENGTH, cipherArray.size - GCM_IV_LENGTH)
 
-            return String(plainText, StandardCharsets.UTF_8)
+                return String(plainText, StandardCharsets.UTF_8)
+            }
+            catch (e: AEADBadTagException) {
+                e.printStackTrace()
+                return  "AEADBadTagException could not decrypt message"
+            }
         }
     }
 }

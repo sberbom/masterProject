@@ -238,21 +238,16 @@ class Utils {
         }
 
         fun getMyIpAddress(): String? {
-            try {
-                val en: Enumeration<NetworkInterface> = NetworkInterface.getNetworkInterfaces()
-                while (en.hasMoreElements()) {
-                    val networkInterface: NetworkInterface = en.nextElement()
-                    val enumIpAddress: Enumeration<InetAddress> = networkInterface.inetAddresses
-                    while (enumIpAddress.hasMoreElements()) {
-                        val inetAddress: InetAddress = enumIpAddress.nextElement()
-                        if (!inetAddress.isLoopbackAddress && inetAddress is Inet4Address) {
-                            return inetAddress.hostAddress
-                        }
+            val en: Enumeration<NetworkInterface> = NetworkInterface.getNetworkInterfaces()
+            while (en.hasMoreElements()) {
+                val networkInterface: NetworkInterface = en.nextElement()
+                val enumIpAddress: Enumeration<InetAddress> = networkInterface.inetAddresses
+                while (enumIpAddress.hasMoreElements()) {
+                    val inetAddress: InetAddress = enumIpAddress.nextElement()
+                    if (!inetAddress.isLoopbackAddress && inetAddress is Inet4Address) {
+                        return inetAddress.hostAddress
                     }
                 }
-            }
-            catch (e: Exception) {
-                e.printStackTrace()
             }
             return null
         }

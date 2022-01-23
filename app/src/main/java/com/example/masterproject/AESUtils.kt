@@ -2,6 +2,9 @@ package com.example.masterproject
 
 import android.content.Context
 import android.util.Log
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import java.io.FileNotFoundException
 import java.nio.ByteBuffer
 import java.nio.charset.StandardCharsets
@@ -149,11 +152,11 @@ class AESUtils {
                     val plainText =
                         cipher.doFinal(cipherArray, GCM_IV_LENGTH, cipherArray.size - GCM_IV_LENGTH)
 
-                    return "ERROR DECRYPTION MESSAGE, key reset"
+                    return "ERROR DECRYPTING MESSAGE, please restart chat - key reset"
                 } catch (e: AEADBadTagException) {
                     resyncKeys(ledgerEntry)
                     e.printStackTrace()
-                    return "NOT ABLE TO DECRYPT MESSAGE AEADBadTagException - resync request sent"
+                    return "ERROR DECRYPTING MESSAGE, please restart chat - resync request sent"
                 }
             }
         }
@@ -162,7 +165,9 @@ class AESUtils {
             val currentKey = calculateAESKeyDH(Utils.privateKey!!, ledgerEntry.certificate)
             val nextKey = generateAESKey()
             setNextKeyForUser(Utils.getUsernameFromCertificate(ledgerEntry.certificate), nextKey)
-            TCPClient.sendKeyDelivery(ledgerEntry, nextKey, currentKey)
+            GlobalScope.launch(Dispatchers.IO) {
+                TCPClient.sendKeyDelivery(ledgerEntry, nextKey, currentKey)
+            }
         }
     }
 }

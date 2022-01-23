@@ -60,7 +60,9 @@ class ChatActivity: AppCompatActivity() {
         if(isStartingConnection) {
             val nextKey = AESUtils.generateAESKey()
             AESUtils.setNextKeyForUser(userName, nextKey)
-            TCPClient.sendKeyDelivery(ledgerEntry, nextKey, currentKey)
+            GlobalScope.launch(Dispatchers.IO) {
+                TCPClient.sendKeyDelivery(ledgerEntry, nextKey, currentKey)
+            }
         }
         val nextKey = AESUtils.getNextKeyForUser(userName)?.encoded?.let { String(it) } ?: "No next key stored"
         val nextKeyTextView: TextView = findViewById(R.id.nextEncryptionKey)

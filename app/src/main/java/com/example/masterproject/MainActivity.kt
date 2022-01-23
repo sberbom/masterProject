@@ -53,14 +53,14 @@ class MainActivity: AppCompatActivity() {
 
         //Create my ledger entry
         val storedCertificate = Utils.fetchStoredCertificate(this)
-        var username = "user-${(0..100).random()}"
+        val username = "user-${(0..100).random()}"
         if(storedCertificate == null) {
             val keyPair = Utils.generateECKeyPair()
             Utils.storePrivateKey(keyPair.private, this)
             val certificate = Utils.generateSelfSignedX509Certificate(username, keyPair)
             Utils.storeCertificate(certificate, this)
         }
-        val myLedgerEntry = LedgerEntry(Utils.getCertificate()!!, username)
+        val myLedgerEntry = LedgerEntry(Utils.getCertificate()!!, username, Utils.getMyIpAddress()!!)
         Utils.myLedgerEntry = myLedgerEntry
         availableDevices.add(myLedgerEntry)
 

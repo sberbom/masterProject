@@ -56,14 +56,14 @@ class AESUtils {
             keyMap[userName] = SymmetricKeyEntry(currentKey, null)
         }
 
-        fun getEncryptionKey(userName: String, context: Context): SecretKey {
+        fun getEncryptionKey(userName: String): SecretKey {
             return getCurrentKeyForUser(userName) ?: calculateAESKeyDH(
                 Utils.privateKey!!,
                 Ledger.getLedgerEntry(userName!!)!!.certificate
             )
         }
 
-        private fun calculateAESKeyDH(privateKey: PrivateKey, certificate: X509Certificate): SecretKey {
+        fun calculateAESKeyDH(privateKey: PrivateKey, certificate: X509Certificate): SecretKey {
             val keyAgreement = KeyAgreement.getInstance("ECDH")
             keyAgreement.init(privateKey)
             keyAgreement.doPhase(certificate.publicKey, true)
@@ -118,7 +118,7 @@ class AESUtils {
 
         }
 
-        fun symmetricDecryption(cipherText: String, secretKey: SecretKey): String {
+        fun symmetricDecryption(cipherText: String, secretKey: SecretKey, ledgerEntry: LedgerEntry): String {
             try {
                 val cipherArray = Base64.getDecoder().decode(cipherText)
 
@@ -135,9 +135,34 @@ class AESUtils {
                 return String(plainText, StandardCharsets.UTF_8)
             } catch (e: AEADBadTagException) {
                 //Keys are probably out of sync
-                e.printStackTrace()
-                return "NOT ABLE TO DECRYPT MESSAGE AEADBadTagException"
+                try{
+                    val sharedKey = calculateAESKeyDH(Utils.privateKey!!, ledgerEntry.certificate)
+                    val cipherArray = Base64.getDecoder().decode(cipherText)
+
+                    val cipher = Cipher.getInstance("AES/GCM/NoPadding")
+                    //use first 12 bytes for iv
+                    val gcmIv = GCMParameterSpec(GCM_TAG_LENGTH * 8, cipherArray, 0, GCM_IV_LENGTH)
+                    cipher.init(Cipher.DECRYPT_MODE, sharedKey, gcmIv)
+
+                    Log.d("DECRYPT KEY", String(sharedKey.encoded))
+                    //use everything from 12 bytes on as ciphertext
+                    val plainText =
+                        cipher.doFinal(cipherArray, GCM_IV_LENGTH, cipherArray.size - GCM_IV_LENGTH)
+
+                    return "ERROR DECRYPTION MESSAGE, key reset"
+                } catch (e: AEADBadTagException) {
+                    resyncKeys(ledgerEntry)
+                    e.printStackTrace()
+                    return "NOT ABLE TO DECRYPT MESSAGE AEADBadTagException - resync request sent"
+                }
             }
+        }
+
+        fun resyncKeys(ledgerEntry: LedgerEntry){
+            val currentKey = calculateAESKeyDH(Utils.privateKey!!, ledgerEntry.certificate)
+            val nextKey = generateAESKey()
+            setNextKeyForUser(Utils.getUsernameFromCertificate(ledgerEntry.certificate), nextKey)
+            TCPClient.sendKeyDelivery(ledgerEntry, nextKey, currentKey)
         }
     }
 }

@@ -14,7 +14,6 @@ import javax.crypto.SecretKey
 
 class ChatActivity: AppCompatActivity() {
 
-    private val tcpClient = TCPClient()
     private var userName: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +23,7 @@ class ChatActivity: AppCompatActivity() {
         val isStartingConnection = intent.getBooleanExtra("staringNewConnection", false)
         val ledgerEntry = Ledger.getLedgerEntry(userName!!)
 
-        val currentKey = AESUtils.getEncryptionKey(userName!!, this)
+        val currentKey = AESUtils.getEncryptionKey(userName!!)
         updateAESKeys(userName!!, isStartingConnection, ledgerEntry!!, currentKey)
 
         val tcpServerThread = TCPServer(this)
@@ -46,7 +45,7 @@ class ChatActivity: AppCompatActivity() {
             val messageEditText: EditText = findViewById(R.id.messageEditText)
             val messageText = messageEditText.text.toString()
             GlobalScope.launch(Dispatchers.IO) {
-                tcpClient.sendEncryptedMessage(ledgerEntry!!, messageText, currentKey)
+                TCPClient.sendEncryptedMessage(ledgerEntry!!, messageText, currentKey)
             }
         }
     }
@@ -61,10 +60,8 @@ class ChatActivity: AppCompatActivity() {
         if(isStartingConnection) {
             val nextKey = AESUtils.generateAESKey()
             AESUtils.setNextKeyForUser(userName, nextKey)
-            val nextKeyString = AESUtils.keyToString(nextKey)
-            val nextKeyEncrypted = AESUtils.symmetricEncryption(nextKeyString, currentKey)
             GlobalScope.launch(Dispatchers.IO) {
-                tcpClient.sendMessage(ledgerEntry, "${Constants.KEY_DELEVERY}:://$nextKeyEncrypted")
+                TCPClient.sendKeyDelivery(ledgerEntry, nextKey, currentKey)
             }
         }
         val nextKey = AESUtils.getNextKeyForUser(userName)?.encoded?.let { String(it) } ?: "No next key stored"

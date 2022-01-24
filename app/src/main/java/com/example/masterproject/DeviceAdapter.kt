@@ -51,7 +51,7 @@ class DeviceAdapter(private val s1: Array<LedgerEntry>, private val context: Con
             intent.putExtra("staringNewConnection", true)
             context.startActivity(intent)
             GlobalScope.launch(Dispatchers.IO) {
-                tcpClient.sendMessage(ledgerEntry, Constants.CLIENT_HELLO)
+                TCPClient.sendMessage(ledgerEntry, Constants.CLIENT_HELLO)
             }
         }
     }

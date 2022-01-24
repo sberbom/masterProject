@@ -53,8 +53,8 @@ class TCPServer(val context: Context): Runnable {
         }
 
         private fun storeNextKey(key: String, ledgerEntry: LedgerEntry) {
-            val sharedKey = AESUtils.getEncryptionKey(ledgerEntry.userName, context)
-            val decrypted = AESUtils.symmetricDecryption(key, sharedKey)
+            val sharedKey = AESUtils.getEncryptionKey(ledgerEntry.userName)
+            val decrypted = AESUtils.symmetricDecryption(key, sharedKey, ledgerEntry)
             try {
                 val nextKey = AESUtils.stringToKey(decrypted)
                 AESUtils.setNextKeyForUser(ledgerEntry.userName, nextKey)
@@ -74,8 +74,8 @@ class TCPServer(val context: Context): Runnable {
 
         internal inner class UpdateUIThread(private val userName: String, private val msg: String, private val ledgerEntry: LedgerEntry) : Runnable {
             override fun run() {
-                val sharedKey = AESUtils.getEncryptionKey(userName, context)
-                val decrypted = AESUtils.symmetricDecryption(msg, sharedKey)
+                val sharedKey = AESUtils.getEncryptionKey(userName)
+                val decrypted = AESUtils.symmetricDecryption(msg, sharedKey, ledgerEntry)
                 Handler(Looper.getMainLooper()).post {
                     ChatActivity.addChat(userName, decrypted)
                 }

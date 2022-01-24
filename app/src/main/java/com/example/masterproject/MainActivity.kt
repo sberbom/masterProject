@@ -2,9 +2,6 @@ package com.example.masterproject
 
 import android.content.Context
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doAfterTextChanged
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,15 +12,15 @@ import java.security.Security
 import android.content.Intent
 import android.util.Log
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import android.view.Menu
 import android.view.View
+import androidx.appcompat.widget.Toolbar
+import android.widget.*
 import com.google.android.material.navigation.NavigationView
 
 
@@ -49,6 +46,8 @@ class MainActivity: AppCompatActivity() {
         val headerView: View = navigationView.getHeaderView(0)
 
         setSupportActionBar(findViewById(R.id.mainToolBar))
+        supportActionBar!!.setDisplayShowTitleEnabled(false);
+        findViewById<Toolbar>(R.id.mainToolBar).title = "Master Project"
 
         drawer = findViewById(R.id.drawer)
         val drawerToggle = ActionBarDrawerToggle(this, drawer, R.string.open, R.string.close)

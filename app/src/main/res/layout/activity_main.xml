@@ -12,7 +12,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#F5F5F5">
+        android:background="#FAFAFA">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/mainToolBar"
@@ -28,7 +28,9 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="416dp"
-            android:layout_height="180dp"
+            android:minHeight="100dp"
+            android:maxHeight="400dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:paddingBottom="10dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -41,35 +43,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Update Available Devices"
+            android:backgroundTint="@color/orange_500"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
-
-        <TextView
-            android:id="@+id/tcpMessage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="TCP Message received:"
-            android:textSize="24dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/updateaAvailableDevicesButton" />
-
-        <EditText
-            android:id="@+id/messageText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:minHeight="48dp"
-            android:text="Skriv en melding"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tcpMessage" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

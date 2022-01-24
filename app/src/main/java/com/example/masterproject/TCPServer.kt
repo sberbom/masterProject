@@ -1,15 +1,19 @@
 package com.example.masterproject
 
+import android.content.Context
+import android.content.Intent
 import android.os.Handler
 import android.os.Looper
-import android.widget.TextView
+import android.util.Log
 import java.io.*
+import java.lang.IllegalArgumentException
 import java.net.ServerSocket
 import java.net.Socket
 
-class TCPServer(private val messageView: TextView): Runnable {
+class TCPServer(val context: Context): Runnable {
 
     var updateConversationHandler: Handler = Handler(Looper.getMainLooper())
+    private val TAG = "TCPServer"
 
     override fun run() {
         try {
@@ -38,25 +42,43 @@ class TCPServer(private val messageView: TextView): Runnable {
                 val arrOfRead = read.split(":://")
                 val userName = arrOfRead[0]
                 val ledgerEntry = Ledger.getLedgerEntry(userName)
-                val readEncrypted = arrOfRead[1]
-                if(readEncrypted != null && ledgerEntry != null) {
-                    val sharedKey = EncryptionUtils.calculateAESKeys(Utils.privateKey!!, ledgerEntry.certificate)
-                    val read = EncryptionUtils.symmetricDecryption(readEncrypted, sharedKey)
-                    if(read != null){
-                        updateConversationHandler.post(UpdateUIThread(read))
-                    }
-                }
-                else {
-                    Thread.currentThread().interrupt()
+                when(val readEncrypted = arrOfRead[1]) {
+                    Constants.CLIENT_HELLO -> changeToChatActivity(ledgerEntry!!)
+                    Constants.KEY_DELEVERY -> storeNextKey(arrOfRead[2], ledgerEntry!!)
+                    else -> updateConversationHandler.post(UpdateUIThread(userName, readEncrypted, ledgerEntry!!))
                 }
             } catch (e: IOException) {
                 e.printStackTrace()
             }
         }
 
-        internal inner class UpdateUIThread(private val msg: String) : Runnable {
+        private fun storeNextKey(key: String, ledgerEntry: LedgerEntry) {
+            val sharedKey = AESUtils.getEncryptionKey(ledgerEntry.userName, context)
+            val decrypted = AESUtils.symmetricDecryption(key, sharedKey)
+            try {
+                val nextKey = AESUtils.stringToKey(decrypted)
+                AESUtils.setNextKeyForUser(ledgerEntry.userName, nextKey)
+            }
+            catch (e: IllegalArgumentException) {
+                Log.d(TAG, decrypted)
+                e.printStackTrace()
+            }
+        }
+
+        private fun changeToChatActivity(ledgerEntry: LedgerEntry) {
+            val intent = Intent(context, ChatActivity::class.java)
+            intent.putExtra("userName", ledgerEntry.userName)
+            intent.putExtra("staringNewConnection", false)
+            context.startActivity(intent)
+        }
+
+        internal inner class UpdateUIThread(private val userName: String, private val msg: String, private val ledgerEntry: LedgerEntry) : Runnable {
             override fun run() {
-                messageView.text = "TCP message received: $msg\n"
+                val sharedKey = AESUtils.getEncryptionKey(userName, context)
+                val decrypted = AESUtils.symmetricDecryption(msg, sharedKey)
+                Handler(Looper.getMainLooper()).post {
+                    ChatActivity.addChat(userName, decrypted)
+                }
             }
         }
     }

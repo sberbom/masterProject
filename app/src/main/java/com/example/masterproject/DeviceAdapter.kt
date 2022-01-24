@@ -1,5 +1,7 @@
 package com.example.masterproject
 
+import android.content.Context
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -8,15 +10,19 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
-class DeviceAdapter(private val s1: Array<LedgerEntry>, private val message: String): RecyclerView.Adapter<DeviceAdapter.DeviceViewHolder>()  {
+class DeviceAdapter(private val s1: Array<LedgerEntry>, private val context: Context): RecyclerView.Adapter<DeviceAdapter.DeviceViewHolder>()  {
 
+    private val tcpClient = TCPClient()
 
     class DeviceViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val usernameTextView: TextView = itemView.findViewById(R.id.usernameText)
         val ipTextView: TextView = itemView.findViewById(R.id.ipText)
         val publicKeyTextView: TextView = itemView.findViewById(R.id.publicKeyText)
-        val sendButton: Button = itemView.findViewById(R.id.sendButton)
+        val startChatButton: Button = itemView.findViewById(R.id.startChatButton)
         val certificateIndication: ImageView = itemView.findViewById(R.id.certificateIndication)
     }
 
@@ -39,9 +45,14 @@ class DeviceAdapter(private val s1: Array<LedgerEntry>, private val message: Str
         }else {
             holder.certificateIndication.setImageResource(R.drawable.red)
         }
-        holder.sendButton.setOnClickListener {
-            val TCPClientThred = TCPClient(ledgerEntry.userName, message)
-            Thread(TCPClientThred).start()
+        holder.startChatButton.setOnClickListener {
+            val intent = Intent(context, ChatActivity::class.java)
+            intent.putExtra("userName", ledgerEntry.userName) //Optional parameters
+            intent.putExtra("staringNewConnection", true)
+            context.startActivity(intent)
+            GlobalScope.launch(Dispatchers.IO) {
+                tcpClient.sendMessage(ledgerEntry, Constants.CLIENT_HELLO)
+            }
         }
     }
 

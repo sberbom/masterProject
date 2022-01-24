@@ -1,41 +1,25 @@
 package com.example.masterproject
 
-import android.util.Log
+import android.os.Handler
+import android.os.Looper
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import java.io.*
 import java.lang.Exception
 import java.net.InetAddress
 import java.net.Socket
 import java.net.UnknownHostException
-import java.util.concurrent.ThreadLocalRandom
+import javax.crypto.SecretKey
 
 
-class TCPClient(private val userName:String, private val message: String): Runnable {
+class TCPClient() {
 
-    override fun run() {
-        try {
-            val ledgerEntry = Ledger.getLedgerEntry(userName)
-            if(ledgerEntry !== null) {
-                sendMsg(ledgerEntry)
-            }else {
-                Log.ERROR
-            }
-        } catch (e1: UnknownHostException) {
-            e1.printStackTrace()
-        } catch (e1: IOException) {
-            e1.printStackTrace()
-        }
-    }
-
-
-    private fun sendMsg(ledgerEntry: LedgerEntry): Void? {
+    fun sendMessage(ledgerEntry: LedgerEntry, message: String){
         try {
             val serverAddress = InetAddress.getByName(ledgerEntry.ipAddress)
             val socket = Socket(serverAddress, Constants.SERVERPORT)
-            val str = if (message == "" || message == "Skriv en melding") ThreadLocalRandom.current().nextInt(0, 100).toString() else message
-            val sharedKey = EncryptionUtils.calculateAESKeys(Utils.privateKey!!, ledgerEntry.certificate)
-            val encryptedMessage = EncryptionUtils.symmetricEncryption(str, sharedKey)
             val out = DataOutputStream(socket.getOutputStream())
-            out.writeUTF("${Utils.getUsernameFromCertificate(Utils.getCertificate()!!)}:://$encryptedMessage")
+            out.writeUTF("${Utils.getUsernameFromCertificate(Utils.getCertificate()!!)}:://$message")
             out.flush()
             socket.close()
         } catch (e: UnknownHostException) {
@@ -45,6 +29,15 @@ class TCPClient(private val userName:String, private val message: String): Runna
         } catch (e: Exception) {
             e.printStackTrace()
         }
-        return null
+    }
+
+    suspend fun sendEncryptedMessage(ledgerEntry: LedgerEntry, message: String, encryptionKey: SecretKey) {
+        val encryptedMessage = AESUtils.symmetricEncryption(message, encryptionKey)
+        Handler(Looper.getMainLooper()).post {
+            ChatActivity.addChat("You:", message)
+        }
+        return withContext(Dispatchers.IO) {
+            sendMessage(ledgerEntry, encryptedMessage)
+        }
     }
 }

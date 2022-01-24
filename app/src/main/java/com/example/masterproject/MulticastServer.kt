@@ -21,7 +21,7 @@ class MulticastServer: Service() {
     private val address = InetAddress.getByName(Constants.multicastGroup);
 
     private val registrationHandler: RegistrationHandler = RegistrationHandler(MulticastServer@this)
-    private val client: MulticastClient = MulticastClient(Constants.multicastGroup, Constants.multicastPort)
+    private val client: MulticastClient = MulticastClient()
 
     private fun listenForData(): MutableList<LedgerEntry>? {
         val buf = ByteArray(2048)
@@ -34,7 +34,6 @@ class MulticastServer: Service() {
                 socket.receive(msgPacket)
 
                 val msgRaw = String(buf, 0, buf.size)
-                Log.d(TAG, "msgRaw $msgRaw")
                 val jsonObject = JSONObject(msgRaw)
                 Log.d(TAG, "object ${jsonObject.toString()}")
                 when (jsonObject.getString("type")) {
@@ -61,9 +60,8 @@ class MulticastServer: Service() {
     }
 
     private fun handleRequestedLedger(jsonObject: JSONObject) {
-        val multicastClient = MulticastClient(Constants.multicastGroup, Constants.multicastPort)
         GlobalScope.launch (Dispatchers.IO) {
-            multicastClient.sendLedger()
+            client.sendLedger()
         }
     }
 
@@ -91,7 +89,7 @@ class MulticastServer: Service() {
         return null
     }
 
-    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+    override fun onCreate() {
         Log.d(TAG, "Service started")
         GlobalScope.launch {
             listenForData()
@@ -101,7 +99,6 @@ class MulticastServer: Service() {
             client.requestLedger()
             registrationHandler.startWaitForLedgerTimer()
         }
-        return super.onStartCommand(intent, flags, startId)
     }
 
     override fun onDestroy() {

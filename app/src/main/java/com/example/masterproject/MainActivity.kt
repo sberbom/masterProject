@@ -52,8 +52,8 @@ class MainActivity: AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         //Create my ledger entry
-        val storedCertificate = Utils.fetchStoredCertificate(this)
-        val username = "user-${(0..100).random()}"
+        // val storedCertificate = Utils.fetchStoredCertificate(this)
+        /*val username = "user-${(0..100).random()}"
         if(storedCertificate == null) {
             val keyPair = Utils.generateECKeyPair()
             Utils.storePrivateKey(keyPair.private, this)
@@ -61,7 +61,7 @@ class MainActivity: AppCompatActivity() {
             Utils.storeCertificate(certificate, this)
         }
         val myLedgerEntry = LedgerEntry(Utils.getCertificate()!!, username, Utils.getMyIpAddress()!!)
-        Utils.myLedgerEntry = myLedgerEntry
+        Utils.myLedgerEntry = myLedgerEntry*/
         //availableDevices.add(myLedgerEntry)
 
         //Start network processes

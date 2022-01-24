@@ -14,9 +14,11 @@ import java.security.PublicKey
 import java.security.spec.X509EncodedKeySpec
 import java.util.*
 
-class MulticastClient(private val multicastGroup: String, private val multicastPort: Int) {
+class MulticastClient() {
 
     private val TAG = "MulticastClient"
+    private val multicastGroup: String = Constants.multicastGroup
+    private val multicastPort: Int = Constants.multicastPort
 
     private fun sendMulticastData(msg: String): Void? {
         var addr = InetAddress.getByName(multicastGroup)
@@ -32,6 +34,7 @@ class MulticastClient(private val multicastGroup: String, private val multicastP
         return null;
     }
 
+    // TODO: The hash of the full ledger should be sent together with users own block
     suspend fun broadcastBlock(): Void? {
         val jsonObject = JSONObject()
         jsonObject.put("type", BroadcastMessageTypes.BROADCAST_BLOCK)

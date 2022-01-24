@@ -57,7 +57,7 @@ class MulticastClient() {
     suspend fun sendLedger(): Void? {
         val jsonObject = JSONObject()
         jsonObject.put("type", BroadcastMessageTypes.FULL_LEDGER)
-        jsonObject.put("ledger", Ledger.availableDevices.map {it.toString()})
+        jsonObject.put("ledger", Ledger.getFullLedger().map {it.toString()})
         return withContext(Dispatchers.IO) {
             sendMulticastData(jsonObject.toString())
         }

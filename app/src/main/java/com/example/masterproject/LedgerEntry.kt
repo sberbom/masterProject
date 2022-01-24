@@ -13,10 +13,16 @@ data class LedgerEntry(val certificate: X509Certificate, val userName: String, v
 
     companion object {
         private val TAG = "LedgerEntry"
+
         fun parseString(ledgerEntry: String): LedgerEntry {
             val jsonObject = JSONTokener(ledgerEntry).nextValue() as JSONObject
             Log.d(TAG, jsonObject.toString())
             return LedgerEntry(Utils.stringToCertificate(jsonObject.getString("certificate")), jsonObject.getString("username"), jsonObject.getString("ipAddress"))
+        }
+
+        fun ledgerEntryIsValid(ledgerEntry: LedgerEntry): Boolean {
+            val userNameFromCertificate = Utils.getUsernameFromCertificate(ledgerEntry.certificate)
+            return userNameFromCertificate == ledgerEntry.userName
         }
     }
 }

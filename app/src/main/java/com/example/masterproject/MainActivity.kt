@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doAfterTextChanged
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.masterproject.Ledger.Companion.availableDevices
 import org.bouncycastle.jce.provider.BouncyCastleProvider
 import java.security.Security
 import android.content.Intent
@@ -47,7 +46,7 @@ class MainActivity: AppCompatActivity() {
 
         //Set up view
         recyclerView = findViewById(R.id.recyclerView)
-        var myAdapter = DeviceAdapter(availableDevices.toTypedArray(),"")
+        var myAdapter = DeviceAdapter(Ledger.getFullLedger().toTypedArray(),"")
         recyclerView.adapter = myAdapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
@@ -78,7 +77,7 @@ class MainActivity: AppCompatActivity() {
         val messageText = messageEditText.text.toString()
         messageEditText.doAfterTextChanged {
             recyclerView = findViewById(R.id.recyclerView)
-            myAdapter = DeviceAdapter(availableDevices.toTypedArray(), messageEditText.text.toString())
+            myAdapter = DeviceAdapter(Ledger.getFullLedger().toTypedArray(), messageEditText.text.toString())
             recyclerView.adapter = myAdapter
             recyclerView.layoutManager = LinearLayoutManager(this)
         }
@@ -87,7 +86,7 @@ class MainActivity: AppCompatActivity() {
         val updateAvailableDevicesButton: Button = findViewById(R.id.updateaAvailableDevicesButton)
         updateAvailableDevicesButton.setOnClickListener {
             recyclerView = findViewById(R.id.recyclerView)
-            myAdapter = DeviceAdapter(availableDevices.toTypedArray(), messageText)
+            myAdapter = DeviceAdapter(Ledger.getFullLedger().toTypedArray(), messageText)
             recyclerView.adapter = myAdapter
             recyclerView.layoutManager = LinearLayoutManager(this)
         }

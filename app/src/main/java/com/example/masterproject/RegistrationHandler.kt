@@ -3,13 +3,10 @@ package com.example.masterproject
 import android.content.Context
 import android.os.CountDownTimer
 import android.util.Log
-import com.example.masterproject.Ledger.Companion.availableDevices
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 class RegistrationHandler(server: MulticastServer) {
-
-    private var readyForRegistration: Boolean = false
 
     private var fullLedger: List<LedgerEntry> = listOf()
 
@@ -49,7 +46,7 @@ class RegistrationHandler(server: MulticastServer) {
         stopTimer()
         fullLedger = ledger
         if (ledgerIsAccepted()) {
-            availableDevices.addAll(ledger)
+            Ledger.addFullLedger(ledger)
             startRegistration()
         }
     }
@@ -67,7 +64,7 @@ class RegistrationHandler(server: MulticastServer) {
         // TODO: If needed it should be handled when context is null
         if (context != null) {
             val storedCertificate = Utils.fetchStoredCertificate(context)
-            // If the user has a stored certificate it should be broadcasted if it does not conflict with ledger
+            // If the user has a stored certificate it should be broadcast if it does not conflict with ledger
             if (storedCertificate != null){
                 val myLedgerEntry = LedgerEntry(Utils.getCertificate()!!, Utils.getUsernameFromCertificate(storedCertificate), Utils.getMyIpAddress()!!)
                 Utils.myLedgerEntry = myLedgerEntry
@@ -85,5 +82,13 @@ class RegistrationHandler(server: MulticastServer) {
     // Returns whether we can conclude that the ledger is correct
     private fun ledgerIsAccepted(): Boolean {
         return true
+    }
+
+    companion object {
+        private var readyForRegistration: Boolean = false
+
+        fun getReadyForRegistration(): Boolean {
+            return readyForRegistration
+        }
     }
 }

@@ -12,7 +12,6 @@ import java.lang.Exception
 import java.net.DatagramPacket
 import java.net.InetAddress
 import java.net.MulticastSocket
-import com.example.masterproject.Ledger.Companion.availableDevices
 
 class MulticastServer: Service() {
 
@@ -37,7 +36,7 @@ class MulticastServer: Service() {
                 val jsonObject = JSONObject(msgRaw)
                 Log.d(TAG, "object ${jsonObject.toString()}")
                 when (jsonObject.getString("type")) {
-                    BroadcastMessageTypes.BROADCAST_BLOCK.toString() -> handleBroadcastedBlock(jsonObject)
+                    BroadcastMessageTypes.BROADCAST_BLOCK.toString() -> handleBroadcastBlock(jsonObject)
                     BroadcastMessageTypes.REQUEST_LEDGER.toString() -> handleRequestedLedger(jsonObject)
                     BroadcastMessageTypes.FULL_LEDGER.toString() -> handleFullLedger(jsonObject)
                 }
@@ -48,15 +47,12 @@ class MulticastServer: Service() {
         return null;
     }
 
-    private fun handleBroadcastedBlock(jsonObject: JSONObject) {
+    private fun handleBroadcastBlock(jsonObject: JSONObject) {
         val username = jsonObject.getString("username")
         val certificateString = jsonObject.getString("certificate")
         val ipAddress = jsonObject.getString("ipAddress")
         val ledgerEntry = LedgerEntry(Utils.stringToCertificate(certificateString), username, ipAddress)
-
-        if(isAddEntryToLedger(ledgerEntry)){
-            Ledger.availableDevices.add(ledgerEntry)
-        }
+        Ledger.addLedgerEntry(ledgerEntry)
     }
 
     private fun handleRequestedLedger(jsonObject: JSONObject) {
@@ -74,15 +70,9 @@ class MulticastServer: Service() {
             val fullLedger: List<LedgerEntry> = ledgerArray.map{ LedgerEntry.parseString(it)}
             registrationHandler.fullLedgerReceived(fullLedger)
             fullLedger.forEach{
-                if (isAddEntryToLedger(it)) availableDevices.add(it)
+                Ledger.addLedgerEntry(it)
             }
         }
-    }
-
-    private fun isAddEntryToLedger(ledgerEntry: LedgerEntry): Boolean {
-        //check on both username and ip. Can remove ip when proper user registration
-        val users = availableDevices.map { it.userName }
-        return !users.contains(ledgerEntry.userName)
     }
 
     override fun onBind(intent: Intent?): IBinder? {

@@ -62,7 +62,7 @@ class MainActivity: AppCompatActivity() {
         }
         val myLedgerEntry = LedgerEntry(Utils.getCertificate()!!, username)
         Utils.myLedgerEntry = myLedgerEntry
-        availableDevices.add(myLedgerEntry)
+        //availableDevices.add(myLedgerEntry)
 
         //Start network processes
         val tcpServerThread = TCPServer(findViewById(R.id.tcpMessage))

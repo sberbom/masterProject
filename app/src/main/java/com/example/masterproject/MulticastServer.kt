@@ -3,7 +3,6 @@ package com.example.masterproject
 import android.app.Service
 import android.content.Intent
 import android.os.IBinder
-import android.provider.Settings
 import android.util.Log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -15,13 +14,14 @@ import java.net.InetAddress
 import java.net.MulticastSocket
 import com.example.masterproject.Ledger.Companion.availableDevices
 
-
-
 class MulticastServer: Service() {
 
     private val TAG = "MulticastServer"
     private val socket: MulticastSocket? = null
     private val address = InetAddress.getByName(Constants.multicastGroup);
+
+    private val registrationHandler: RegistrationHandler = RegistrationHandler(MulticastServer@this)
+    private val client: MulticastClient = MulticastClient(Constants.multicastGroup, Constants.multicastPort)
 
     private fun listenForData(): MutableList<LedgerEntry>? {
         val buf = ByteArray(2048)
@@ -73,9 +73,10 @@ class MulticastServer: Service() {
         if (ledgerWithoutBrackets.isNotEmpty()) {
             // split between array objects
             val ledgerArray = ledgerWithoutBrackets.split("},{")
-            ledgerArray.forEach{
-                val ledgerEntry = LedgerEntry.parseString(it)
-                if (isAddEntryToLedger(ledgerEntry)) availableDevices.add(ledgerEntry)
+            val fullLedger: List<LedgerEntry> = ledgerArray.map{ LedgerEntry.parseString(it)}
+            registrationHandler.fullLedgerReceived(fullLedger)
+            fullLedger.forEach{
+                if (isAddEntryToLedger(it)) availableDevices.add(it)
             }
         }
     }
@@ -91,13 +92,14 @@ class MulticastServer: Service() {
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        Log.d(TAG, "Service started")
         GlobalScope.launch {
             listenForData()
         }
-        val client = MulticastClient(Constants.multicastGroup, Constants.multicastPort)
         GlobalScope.launch {
-            client.broadcastBlock()
+            //client.broadcastBlock()
             client.requestLedger()
+            registrationHandler.startWaitForLedgerTimer()
         }
         return super.onStartCommand(intent, flags, startId)
     }
@@ -108,7 +110,6 @@ class MulticastServer: Service() {
             socket.close()
         }
         super.onDestroy()
+
     }
-
-
 }

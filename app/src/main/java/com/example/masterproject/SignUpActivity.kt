@@ -77,15 +77,19 @@ class SignUpActivity: AppCompatActivity() {
                     }
             } else {
                 if (RegistrationHandler.getReadyForRegistration()) {
-                    val keyPair = Utils.generateECKeyPair()
-                    Utils.storePrivateKey(keyPair.private, applicationContext)
-                    val certificate = Utils.generateSelfSignedX509Certificate(email, keyPair)
-                    Utils.storeCertificate(certificate,applicationContext)
-                    val myLedgerEntry = LedgerEntry(Utils.getCertificate()!!, email, Utils.getMyIpAddress()!!)
-                    Utils.myLedgerEntry = myLedgerEntry
-                    GlobalScope.launch {
-                        client.broadcastBlock()
-                        returnToMainActivity()
+                    if (Ledger.getLedgerEntry(email) == null) {
+                        val keyPair = Utils.generateECKeyPair()
+                        Utils.storePrivateKey(keyPair.private, applicationContext)
+                        val certificate = Utils.generateSelfSignedX509Certificate(email, keyPair)
+                        Utils.storeCertificate(certificate,applicationContext)
+                        val myLedgerEntry = LedgerEntry(Utils.getCertificate()!!, email, Utils.getMyIpAddress()!!)
+                        Utils.myLedgerEntry = myLedgerEntry
+                        GlobalScope.launch {
+                            client.broadcastBlock()
+                            returnToMainActivity()
+                        }
+                    } else {
+                        Toast.makeText(baseContext, "Username already taken.", Toast.LENGTH_SHORT)
                     }
                 } else {
                     Toast.makeText(baseContext, "Not ready for registration", Toast.LENGTH_SHORT)

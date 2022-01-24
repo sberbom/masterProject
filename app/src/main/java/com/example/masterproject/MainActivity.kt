@@ -23,7 +23,11 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import android.view.Menu
+import android.view.View
 import com.google.android.material.navigation.NavigationView
+
+
+
 
 
 class MainActivity: AppCompatActivity() {
@@ -41,6 +45,8 @@ class MainActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val navigationView: NavigationView = findViewById(R.id.navigation_view)
+        val headerView: View = navigationView.getHeaderView(0)
 
         setSupportActionBar(findViewById(R.id.mainToolBar))
 
@@ -84,8 +90,8 @@ class MainActivity: AppCompatActivity() {
         Thread(tcpServerThread).start()
 
         //Find and display my IP address
-        val myIpAddressTextView: TextView = findViewById(R.id.myIpAddress)
-        val myIpAddressText = "My IP address: ${Utils.getMyIpAddress()}"
+        val myIpAddressTextView: TextView = headerView.findViewById(R.id.nav_ip)
+        val myIpAddressText = Utils.getMyIpAddress()
         myIpAddressTextView.text = myIpAddressText
 
         //Setup edit text field
@@ -109,11 +115,10 @@ class MainActivity: AppCompatActivity() {
 
         //Logged in as text
         if (auth.currentUser != null) {
-            val loggedInAsText: TextView = findViewById(R.id.loggedInAsText)
-            loggedInAsText.text = "Logged in as: ${auth.currentUser!!.email}"
+            val loggedInAsText: TextView = headerView.findViewById(R.id.nav_username)
+            loggedInAsText.text = auth.currentUser!!.email
         }
 
-        val navigationView: NavigationView = findViewById(R.id.navigation_view)
         navigationView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.nav_login -> {
@@ -131,8 +136,8 @@ class MainActivity: AppCompatActivity() {
                 R.id.nav_logout -> {
                     if (auth.currentUser != null) {
                         auth.signOut()
-                        val loggedInAsText: TextView = findViewById(R.id.loggedInAsText)
-                        loggedInAsText.text = "Logged in as: Not logged in"
+                        val loggedInAsText: TextView = headerView.findViewById(R.id.nav_username)
+                        loggedInAsText.text = "Not logged in"
                     }
                     Toast.makeText(
                         baseContext, "Logged out",
@@ -150,11 +155,6 @@ class MainActivity: AppCompatActivity() {
             }
         }
 
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.main_menue, menu)
-        return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

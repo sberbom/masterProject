@@ -29,7 +29,7 @@ class DeviceAdapter(private val s1: Array<LedgerEntry>, private val message: Str
     override fun onBindViewHolder(holder: DeviceViewHolder, position: Int) {
         val ledgerEntry = s1[position]
         holder.usernameTextView.text = ledgerEntry.userName
-        holder.ipTextView.text = "IP-address: ${ledgerEntry.ipAddress}"
+        holder.ipTextView.text = "${ledgerEntry.ipAddress}"
         holder.publicKeyTextView.text = "Certificate hash: ${ledgerEntry.certificate.hashCode()}"
         if(Utils.isCASignedCertificate(ledgerEntry.certificate)){
             holder.certificateIndication.setImageResource(R.drawable.green)

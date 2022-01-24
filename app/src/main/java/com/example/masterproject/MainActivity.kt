@@ -13,13 +13,17 @@ import com.example.masterproject.Ledger.Companion.availableDevices
 import org.bouncycastle.jce.provider.BouncyCastleProvider
 import java.security.Security
 import android.content.Intent
+import android.util.Log
+import android.view.MenuItem
 import android.widget.Toast
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+import android.view.Menu
+import com.google.android.material.navigation.NavigationView
 
 
 class MainActivity: AppCompatActivity() {
@@ -27,6 +31,7 @@ class MainActivity: AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private val multicastGroup: String = "224.0.0.10"
     private val multicastPort: Int = 8888
+    private lateinit var drawer: DrawerLayout
     //private val multicastServerThread = MulticastServer(multicastGroup, multicastPort)
     private lateinit var auth: FirebaseAuth
 
@@ -37,17 +42,27 @@ class MainActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        setSupportActionBar(findViewById(R.id.mainToolBar))
+
+        drawer = findViewById(R.id.drawer)
+        val drawerToggle = ActionBarDrawerToggle(this, drawer, R.string.open, R.string.close)
+        drawer.addDrawerListener(drawerToggle)
+        drawerToggle.syncState()
+
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         Security.removeProvider("BC")
         Security.addProvider(BouncyCastleProvider())
 
         auth = Firebase.auth
 
         // Start multicast server
-        baseContext.startService(Intent(MainActivity@this, MulticastServer::class.java))
+        baseContext.startService(Intent(MainActivity@ this, MulticastServer::class.java))
 
         //Set up view
         recyclerView = findViewById(R.id.recyclerView)
-        var myAdapter = DeviceAdapter(availableDevices.toTypedArray(),"")
+        var myAdapter = DeviceAdapter(availableDevices.toTypedArray(), "")
         recyclerView.adapter = myAdapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
@@ -92,49 +107,82 @@ class MainActivity: AppCompatActivity() {
             recyclerView.layoutManager = LinearLayoutManager(this)
         }
 
-        //Sign up button
-        val signUpButton: Button = findViewById(R.id.signUpButton)
-        signUpButton.setOnClickListener{
-            val myIntent = Intent(this@MainActivity, SignUpActivity::class.java)
-            //myIntent.putExtra("key", value) //Optional parameters
-            this@MainActivity.startActivity(myIntent)
-        }
-
-        //Log in button
-        val logInButton: Button = findViewById(R.id.logInButton)
-        logInButton.setOnClickListener{
-            val myIntent = Intent(this@MainActivity, LogInActivity::class.java)
-            //myIntent.putExtra("key", value) //Optional parameters
-            this@MainActivity.startActivity(myIntent)
-        }
-
-        //Log out
-        val logOutButton: Button = findViewById(R.id.logOutButton)
-        logOutButton.setOnClickListener {
-            if(auth.currentUser != null) {
-                auth.signOut()
-                val loggedInAsText: TextView = findViewById(R.id.loggedInAsText)
-                loggedInAsText.text = "Logged in as: Not logged in"
-            }
-            Toast.makeText(baseContext, "Logged out",
-                Toast.LENGTH_SHORT).show()
-        }
-
         //Logged in as text
-        if(auth.currentUser != null) {
+        if (auth.currentUser != null) {
             val loggedInAsText: TextView = findViewById(R.id.loggedInAsText)
             loggedInAsText.text = "Logged in as: ${auth.currentUser!!.email}"
         }
 
-        //Delete button
-        val deleteDataButton: Button = findViewById(R.id.deleteButton)
-        deleteDataButton.setOnClickListener {
-            Utils.deleteStoredCertificate(this)
-            Utils.deleteStoredPrivateKey(this)
-            Toast.makeText(baseContext, "Stored certificate and private key deleted",
-                Toast.LENGTH_SHORT).show()
+        val navigationView: NavigationView = findViewById(R.id.navigation_view)
+        navigationView.setNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.nav_login -> {
+                    val myIntent = Intent(this@MainActivity, LogInActivity::class.java)
+                    this@MainActivity.startActivity(myIntent)
+                    drawer.closeDrawer(GravityCompat.START)
+                    false
+                }
+                R.id.nav_register -> {
+                    val myIntent = Intent(this@MainActivity, SignUpActivity::class.java)
+                    this@MainActivity.startActivity(myIntent)
+                    drawer.closeDrawer(GravityCompat.START)
+                    false
+                }
+                R.id.nav_logout -> {
+                    if (auth.currentUser != null) {
+                        auth.signOut()
+                        val loggedInAsText: TextView = findViewById(R.id.loggedInAsText)
+                        loggedInAsText.text = "Logged in as: Not logged in"
+                    }
+                    Toast.makeText(
+                        baseContext, "Logged out",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    drawer.closeDrawer(GravityCompat.START)
+                    false
+                }
+                R.id.nav_delete_stored_data -> {
+                    deleteStoredData()
+                    drawer.closeDrawer(GravityCompat.START)
+                    false
+                }
+                else -> false
+            }
         }
 
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menue, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                drawer.openDrawer(GravityCompat.START)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    override fun onBackPressed() {
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START)
+        } else {
+            super.onBackPressed()
+        }
+    }
+
+    private fun deleteStoredData() {
+        Utils.deleteStoredCertificate(this)
+        Utils.deleteStoredPrivateKey(this)
+        Toast.makeText(
+            baseContext, "Stored certificate and private key deleted",
+            Toast.LENGTH_SHORT
+        ).show()
+    }
+
 }
+

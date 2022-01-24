@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">MasterProject</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="sing_up">Sign Up</string>
+    <string name="log_in">Log In</string>
+    <string name="log_out">Log Out</string>
+    <string name="delete_stored_data">Delete Stored Data</string>
+    <string name="empty_string" />
+    <string name="menu">Menu</string>
+
 </resources>

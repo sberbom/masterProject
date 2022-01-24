@@ -20,7 +20,7 @@ class RegistrationHandler(server: MulticastServer) {
     // cancelled if we receive an answer. The counter will finish only if
     // there is no answer in X seconds, and if so, we conclude that we are
     // the first ones to join a group.
-    private val timer = object: CountDownTimer(20000, 1000) {
+    private val timer = object: CountDownTimer(2000, 1000) {
         override fun onTick(millisUntilFinished: Long) {}
 
         override fun onFinish() {

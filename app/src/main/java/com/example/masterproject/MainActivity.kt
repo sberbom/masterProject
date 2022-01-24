@@ -68,7 +68,7 @@ class MainActivity: AppCompatActivity() {
 
         //Set up view
         recyclerView = findViewById(R.id.recyclerView)
-        var myAdapter = DeviceAdapter(availableDevices.toTypedArray(), "")
+        var myAdapter = DeviceAdapter(availableDevices.toTypedArray(),this)
         recyclerView.adapter = myAdapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
@@ -86,7 +86,7 @@ class MainActivity: AppCompatActivity() {
         availableDevices.add(myLedgerEntry)
 
         //Start network processes
-        val tcpServerThread = TCPServer(findViewById(R.id.tcpMessage))
+        val tcpServerThread = TCPServer(this)
         Thread(tcpServerThread).start()
 
         //Find and display my IP address
@@ -94,21 +94,12 @@ class MainActivity: AppCompatActivity() {
         val myIpAddressText = Utils.getMyIpAddress()
         myIpAddressTextView.text = myIpAddressText
 
-        //Setup edit text field
-        val messageEditText: EditText = findViewById(R.id.messageText)
-        val messageText = messageEditText.text.toString()
-        messageEditText.doAfterTextChanged {
-            recyclerView = findViewById(R.id.recyclerView)
-            myAdapter = DeviceAdapter(availableDevices.toTypedArray(), messageEditText.text.toString())
-            recyclerView.adapter = myAdapter
-            recyclerView.layoutManager = LinearLayoutManager(this)
-        }
 
         //Setup available devices button and display
         val updateAvailableDevicesButton: Button = findViewById(R.id.updateaAvailableDevicesButton)
         updateAvailableDevicesButton.setOnClickListener {
             recyclerView = findViewById(R.id.recyclerView)
-            myAdapter = DeviceAdapter(availableDevices.toTypedArray(), messageText)
+            myAdapter = DeviceAdapter(availableDevices.toTypedArray(), this)
             recyclerView.adapter = myAdapter
             recyclerView.layoutManager = LinearLayoutManager(this)
         }

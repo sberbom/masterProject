@@ -61,12 +61,14 @@ class RegistrationHandler(server: MulticastServer) {
         Log.d(TAG, "Registration started")
         readyForRegistration = true
         val context = App.getAppContext()
+        val ipAddress = Utils.getMyIpAddress()
         // TODO: If needed it should be handled when context is null
-        if (context != null) {
+        if (context != null && ipAddress != null) {
             val storedCertificate = Utils.fetchStoredCertificate(context)
             // If the user has a stored certificate it should be broadcast if it does not conflict with ledger
             if (storedCertificate != null){
-                val myLedgerEntry = LedgerEntry(Utils.getCertificate()!!, Utils.getUsernameFromCertificate(storedCertificate), Utils.getMyIpAddress()!!)
+
+                val myLedgerEntry = LedgerEntry(Utils.getCertificate()!!, Utils.getUsernameFromCertificate(storedCertificate), ipAddress)
                 Utils.myLedgerEntry = myLedgerEntry
                 // TODO: Check if my username is not the same as some other user
                 GlobalScope.launch {

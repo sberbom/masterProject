@@ -3,6 +3,7 @@ package com.example.masterproject
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -40,7 +41,7 @@ class ChatActivity: AppCompatActivity() {
         val currentKeyText: TextView = findViewById(R.id.currentKeyText)
         currentKeyText.text = String(currentKey.encoded)
 
-        val sendMessageButton: Button = findViewById(R.id.messageSendButton)
+        val sendMessageButton: ImageView = findViewById(R.id.messageSendButton)
         sendMessageButton.setOnClickListener {
             val messageEditText: EditText = findViewById(R.id.messageEditText)
             val messageText = messageEditText.text.toString()

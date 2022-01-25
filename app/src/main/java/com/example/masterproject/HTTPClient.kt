@@ -37,7 +37,7 @@ class HTTPClient(private val email: String, private val context: Context): Runna
                     val certificate = Utils.pemToCertificate(strResp)
                     Utils.setCertificate(certificate)
                     Utils.storeCertificate(certificate, context)
-                    Utils.myLedgerEntry = LedgerEntry(certificate, Utils.getUsernameFromCertificate(certificate))
+                    //Utils.myLedgerEntry = LedgerEntry(certificate, Utils.getUsernameFromCertificate(certificate))
 
                     //Log.d("SIGMUND API", strResp)
                 },

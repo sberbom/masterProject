@@ -1,11 +1,11 @@
 package com.example.masterproject
 
 import android.content.Context
+import android.system.Os.bind
 import android.text.TextUtils
 import android.util.Log
 import org.bouncycastle.asn1.x500.X500Name
 import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo
-import java.lang.Exception
 import java.security.*
 import java.security.cert.X509Certificate
 import java.security.spec.X509EncodedKeySpec
@@ -28,30 +28,30 @@ import java.net.*
 import java.security.spec.PKCS8EncodedKeySpec
 
 
+
 class Utils {
 
-    companion object{
+    companion object {
         var myLedgerEntry: LedgerEntry? = null
         var keyPair: KeyPair? = null
         var privateKey: PrivateKey? = null
         private var selfSignedX509Certificate: X509Certificate? = null
         private var CASignedX509Certificate: X509Certificate? = null
-        var CAPublicKey: PublicKey = stringToEncryptionKey("MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEnbbrYnAGkcNYD72o/H7jP2z91bQyA1B8GwUzsV0NG34RhpJ6xJMLxQT0kXwnSunXz6wVndN6O/6ZDWymVCk3nw==")
+        var CAPublicKey: PublicKey =
+            stringToEncryptionKey("MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEnbbrYnAGkcNYD72o/H7jP2z91bQyA1B8GwUzsV0NG34RhpJ6xJMLxQT0kXwnSunXz6wVndN6O/6ZDWymVCk3nw==")
 
         fun getCertificate(): X509Certificate? {
-            if(CASignedX509Certificate != null) {
+            if (CASignedX509Certificate != null) {
                 return CASignedX509Certificate
-            }
-            else {
+            } else {
                 return selfSignedX509Certificate
             }
         }
 
         fun setCertificate(certificate: X509Certificate) {
-            if(isCASignedCertificate(certificate)) {
+            if (isCASignedCertificate(certificate)) {
                 CASignedX509Certificate = certificate
-            }
-            else {
+            } else {
                 selfSignedX509Certificate = certificate
             }
         }
@@ -59,7 +59,7 @@ class Utils {
         fun generateECKeyPair(): KeyPair {
             val ECDSAGenerator = KeyPairGenerator.getInstance("EC");
             val keyPair = ECDSAGenerator.genKeyPair()
-            Utils.keyPair  = keyPair
+            Utils.keyPair = keyPair
             privateKey = keyPair.private
             return keyPair
         }
@@ -75,12 +75,12 @@ class Utils {
         fun fetchStoredPrivateKey(context: Context): PrivateKey? {
             try {
                 val filename = "my_private_key"
-                val fileContent = context.openFileInput(filename).bufferedReader().use { it.readText() }
+                val fileContent =
+                    context.openFileInput(filename).bufferedReader().use { it.readText() }
                 val privateKey = stringToPrivateKey(fileContent)
                 Utils.privateKey = privateKey
                 return privateKey
-            }
-            catch (e: FileNotFoundException) {
+            } catch (e: FileNotFoundException) {
                 Log.w("STORED CERTIFICATE", "No stored certificate")
                 return null
             }
@@ -103,13 +103,20 @@ class Utils {
         }
 
         //https://www.bouncycastle.org/docs/pkixdocs1.5on/org/bouncycastle/cert/X509v1CertificateBuilder.html
-        fun generateSelfSignedX509Certificate(username: String, keyPair: KeyPair): X509Certificate  {
+        fun generateSelfSignedX509Certificate(username: String, keyPair: KeyPair): X509Certificate {
             val validityBeginDate = Date(System.currentTimeMillis() - 24 * 60 * 60 * 1000)
             val validityEndDate = Date(System.currentTimeMillis() + 2 * 365 * 24 * 60 * 60 * 1000)
             val certificateIssuer = X500Name("CN=$username")
             val certificateSerialNumber = BigInteger.valueOf(System.currentTimeMillis())
             val publicKeyInfo = SubjectPublicKeyInfo.getInstance(keyPair.public.encoded);
-            val certificateBuilder = X509v1CertificateBuilder(certificateIssuer, certificateSerialNumber, validityBeginDate, validityEndDate, certificateIssuer, publicKeyInfo)
+            val certificateBuilder = X509v1CertificateBuilder(
+                certificateIssuer,
+                certificateSerialNumber,
+                validityBeginDate,
+                validityEndDate,
+                certificateIssuer,
+                publicKeyInfo
+            )
 
             val sigAlgId = DefaultSignatureAlgorithmIdentifierFinder().find("SHA256withECDSA")
             val digAlgId = DefaultDigestAlgorithmIdentifierFinder().find(sigAlgId)
@@ -129,10 +136,9 @@ class Utils {
         }
 
         fun isValidCACertificate(certificate: X509Certificate): Boolean {
-            try{
+            try {
                 certificate.verify(Utils.CAPublicKey)
-            }
-            catch (e: Error) {
+            } catch (e: Error) {
                 Log.w("CA Certifiate", e.stackTraceToString())
                 return false
             }
@@ -144,7 +150,9 @@ class Utils {
         }
 
         fun isCASignedCertificate(certificate: X509Certificate): Boolean {
-            return certificate.issuerDN.toString() == "CN=TTM4905 CA" && isValidCACertificate(certificate)
+            return certificate.issuerDN.toString() == "CN=TTM4905 CA" && isValidCACertificate(
+                certificate
+            )
         }
 
         fun storeCertificate(certificate: X509Certificate, context: Context) {
@@ -163,8 +171,7 @@ class Utils {
                 val certificate = pemToCertificate(fileContent)
                 setCertificate(certificate)
                 return certificate
-            }
-            catch (e: FileNotFoundException) {
+            } catch (e: FileNotFoundException) {
                 Log.w("STORED CERTIFICATE", "No stored certificate")
                 return null
             }
@@ -185,14 +192,15 @@ class Utils {
         fun pemToCertificate(pem: String): X509Certificate {
             val beginCertificate = "-----BEGIN CERTIFICATE-----";
             val endCertificate = "-----END CERTIFICATE-----";
-            val certificate = pem.replace(beginCertificate, "").replace(endCertificate,"").replace("\n","")
+            val certificate =
+                pem.replace(beginCertificate, "").replace(endCertificate, "").replace("\n", "")
             val decoded: ByteArray = Base64.getDecoder().decode(certificate)
             return (CertificateFactory.getInstance("X.509")
                 .generateCertificate(ByteArrayInputStream(decoded)) as X509Certificate)!!
         }
 
         fun getUsernameFromCertificate(certificate: X509Certificate): String {
-            return certificate.subjectDN.toString().replace("CN=","")
+            return certificate.subjectDN.toString().replace("CN=", "")
         }
 
         fun encryptMessage(plainText: String, publicKey: PublicKey): String {
@@ -253,7 +261,15 @@ class Utils {
         }
 
         fun isEmail(email: String): Boolean {
-            return !TextUtils.isEmpty(email) && android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
+            return !TextUtils.isEmpty(email) && android.util.Patterns.EMAIL_ADDRESS.matcher(email)
+                .matches();
+        }
+
+        fun hashString(input: String): String {
+            val bytes = input.toByteArray()
+            val md = MessageDigest.getInstance("SHA-256")
+            val digest = md.digest(bytes)
+            return digest.fold("", { str, it -> str + "%02x".format(it) })
         }
     }
 }

@@ -1,7 +1,7 @@
 package com.example.masterproject
 
-import android.content.Context
 import android.os.CountDownTimer
+import android.provider.Settings
 import android.util.Log
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -36,7 +36,7 @@ class RegistrationHandler(server: MulticastServer) {
         }
     }
 
-    fun stopTimer() {
+    private fun stopTimer() {
         Log.d(TAG, "Timer cancelled")
         timer.cancel()
     }
@@ -44,8 +44,9 @@ class RegistrationHandler(server: MulticastServer) {
     fun fullLedgerReceived(ledger: List<LedgerEntry>) {
         Log.d(TAG, "Full ledger received ${ledger.map { it.toString() }.toString()}")
         stopTimer()
-        fullLedger = ledger
-        if (ledgerIsAccepted()) {
+        fullLedger = ledger.sortedBy { it.height }
+        // TODO: Handle what to do if ledger is not valid
+        if (ledgerIsAccepted() && Ledger.ledgerIsValid(fullLedger)) {
             Ledger.addFullLedger(ledger)
             startRegistration()
         }
@@ -60,22 +61,10 @@ class RegistrationHandler(server: MulticastServer) {
     private fun startRegistration() {
         Log.d(TAG, "Registration started")
         readyForRegistration = true
-        val context = App.getAppContext()
-        val ipAddress = Utils.getMyIpAddress()
-        // TODO: If needed it should be handled when context is null
-        if (context != null && ipAddress != null) {
-            val storedCertificate = Utils.fetchStoredCertificate(context)
-            // If the user has a stored certificate it should be broadcast if it does not conflict with ledger
-            if (storedCertificate != null){
-
-                val myLedgerEntry = LedgerEntry(Utils.getCertificate()!!, Utils.getUsernameFromCertificate(storedCertificate), ipAddress)
-                Utils.myLedgerEntry = myLedgerEntry
-                // TODO: Check if my username is not the same as some other user
-                GlobalScope.launch {
-                    client.broadcastBlock()
-                }
-            } else {
-                Log.d(TAG, "No certificate stored.")
+        val myLedgerEntry = Ledger.createNewBlockFromStoredCertificate()
+        if (myLedgerEntry != null) {
+            GlobalScope.launch {
+                client.broadcastBlock()
             }
         }
     }

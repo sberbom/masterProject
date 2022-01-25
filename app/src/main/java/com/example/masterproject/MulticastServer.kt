@@ -34,7 +34,6 @@ class MulticastServer: Service() {
 
                 val msgRaw = String(buf, 0, buf.size)
                 val jsonObject = JSONObject(msgRaw)
-                Log.d(TAG, "object ${jsonObject.toString()}")
                 when (jsonObject.getString("type")) {
                     BroadcastMessageTypes.BROADCAST_BLOCK.toString() -> handleBroadcastBlock(jsonObject)
                     BroadcastMessageTypes.REQUEST_LEDGER.toString() -> handleRequestedLedger(jsonObject)
@@ -48,10 +47,8 @@ class MulticastServer: Service() {
     }
 
     private fun handleBroadcastBlock(jsonObject: JSONObject) {
-        val username = jsonObject.getString("username")
-        val certificateString = jsonObject.getString("certificate")
-        val ipAddress = jsonObject.getString("ipAddress")
-        val ledgerEntry = LedgerEntry(Utils.stringToCertificate(certificateString), username, ipAddress)
+        val ledger = jsonObject.getString("ledger")
+        val ledgerEntry = LedgerEntry.parseString(ledger)
         Ledger.addLedgerEntry(ledgerEntry)
     }
 
@@ -63,13 +60,16 @@ class MulticastServer: Service() {
 
     private fun handleFullLedger(jsonObject: JSONObject) {
         val ledger = jsonObject.getString("ledger")
+        Log.d(TAG, ledger)
         val ledgerWithoutBrackets = ledger.substring(1, ledger.length - 1)
         if (ledgerWithoutBrackets.isNotEmpty()) {
             // split between array objects
-            val ledgerArray = ledgerWithoutBrackets.split("},{")
+            val ledgerArray = ledgerWithoutBrackets.split(", ")
+            Log.d(TAG, "LedgerArray $ledgerArray")
             val fullLedger: List<LedgerEntry> = ledgerArray.map{ LedgerEntry.parseString(it)}
             registrationHandler.fullLedgerReceived(fullLedger)
             fullLedger.forEach{
+                Log.d(TAG, "Adding $it")
                 Ledger.addLedgerEntry(it)
             }
         }
@@ -85,7 +85,6 @@ class MulticastServer: Service() {
             listenForData()
         }
         GlobalScope.launch {
-            //client.broadcastBlock()
             client.requestLedger()
             registrationHandler.startWaitForLedgerTimer()
         }

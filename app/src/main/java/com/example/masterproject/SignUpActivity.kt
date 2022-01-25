@@ -77,18 +77,13 @@ class SignUpActivity: AppCompatActivity() {
                     }
             } else {
                 if (RegistrationHandler.getReadyForRegistration()) {
-                    if (Ledger.getLedgerEntry(email) == null) {
-                        val keyPair = Utils.generateECKeyPair()
-                        Utils.storePrivateKey(keyPair.private, applicationContext)
-                        val certificate = Utils.generateSelfSignedX509Certificate(email, keyPair)
-                        Utils.storeCertificate(certificate,applicationContext)
-                        val myLedgerEntry = LedgerEntry(Utils.getCertificate()!!, email, Utils.getMyIpAddress()!!)
-                        Utils.myLedgerEntry = myLedgerEntry
+                    try {
+                        Ledger.createNewBlockFromEmail(email)
                         GlobalScope.launch {
                             client.broadcastBlock()
                             returnToMainActivity()
                         }
-                    } else {
+                    } catch (e: UsernameTakenError){
                         Toast.makeText(baseContext, "Username already taken.", Toast.LENGTH_SHORT)
                     }
                 } else {

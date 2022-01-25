@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doAfterTextChanged
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.masterproject.Ledger.Companion.availableDevices
 import org.bouncycastle.jce.provider.BouncyCastleProvider
 import java.security.Security
 import android.content.Intent
@@ -67,13 +66,13 @@ class MainActivity: AppCompatActivity() {
 
         //Set up view
         recyclerView = findViewById(R.id.recyclerView)
-        var myAdapter = DeviceAdapter(availableDevices.toTypedArray(),this)
+        var myAdapter = DeviceAdapter(Ledger.getFullLedger().toTypedArray(),this)
         recyclerView.adapter = myAdapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         //Create my ledger entry
-        val storedCertificate = Utils.fetchStoredCertificate(this)
-        val username = "user-${(0..100).random()}"
+        // val storedCertificate = Utils.fetchStoredCertificate(this)
+        /*val username = "user-${(0..100).random()}"
         if(storedCertificate == null) {
             val keyPair = Utils.generateECKeyPair()
             Utils.storePrivateKey(keyPair.private, this)
@@ -81,8 +80,8 @@ class MainActivity: AppCompatActivity() {
             Utils.storeCertificate(certificate, this)
         }
         val myLedgerEntry = LedgerEntry(Utils.getCertificate()!!, username, Utils.getMyIpAddress()!!)
-        Utils.myLedgerEntry = myLedgerEntry
-        availableDevices.add(myLedgerEntry)
+        Utils.myLedgerEntry = myLedgerEntry*/
+        //availableDevices.add(myLedgerEntry)
 
         //Start network processes
         val tcpServerThread = TCPServer(this)
@@ -98,7 +97,7 @@ class MainActivity: AppCompatActivity() {
         val updateAvailableDevicesButton: Button = findViewById(R.id.updateaAvailableDevicesButton)
         updateAvailableDevicesButton.setOnClickListener {
             recyclerView = findViewById(R.id.recyclerView)
-            myAdapter = DeviceAdapter(availableDevices.toTypedArray(), this)
+            myAdapter = DeviceAdapter(Ledger.getFullLedger().toTypedArray(), this)
             recyclerView.adapter = myAdapter
             recyclerView.layoutManager = LinearLayoutManager(this)
         }

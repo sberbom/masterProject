@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <group
+        android:checkableBehavior="single"
+        android:id="@+id/group1">
+        <item
+            android:id="@+id/nav_register"
+            android:icon="@drawable/register"
+            android:title="@string/sing_up" />
+        <item
+            android:id="@+id/nav_login"
+            android:icon="@drawable/log_in"
+            android:title="@string/log_in" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/log_out"
+            android:title="@string/log_out" />
+    </group>
+    <group
+        android:checkableBehavior="single"
+        android:id="@+id/group2">
+        <item
+            android:id="@+id/nav_delete_stored_data"
+            android:icon="@drawable/bin"
+            android:title="@string/delete_stored_data" />
+    </group>
+
+</menu>

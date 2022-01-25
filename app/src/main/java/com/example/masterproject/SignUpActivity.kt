@@ -13,6 +13,8 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import java.lang.Exception
+import java.net.InetAddress
 
 
 class SignUpActivity: AppCompatActivity() {
@@ -20,6 +22,8 @@ class SignUpActivity: AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
 
     private val client: MulticastClient = MulticastClient()
+
+    private val TAG = "SignupActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +36,9 @@ class SignUpActivity: AppCompatActivity() {
         signUpButton.setOnClickListener {
             val emailTextView: TextView = findViewById(R.id.emailInputText)
             val passwordTextView: TextView = findViewById(R.id.passwordInputText)
-            signUp(emailTextView.text.toString(), passwordTextView.text.toString())
+            GlobalScope.launch {
+                signUp(emailTextView.text.toString(), passwordTextView.text.toString())
+            }
         }
 
     }
@@ -52,7 +58,9 @@ class SignUpActivity: AppCompatActivity() {
 
     private fun signUp(email: String, password: String) {
         if(Utils.isEmail(email)) {
-            if (networkIsOnline()) {
+            val isOnline = networkIsOnline()
+            Log.d(TAG, "Is online: $isOnline")
+            if (isOnline) {
                 auth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this) { task ->
                         if (task.isSuccessful) {
@@ -99,9 +107,14 @@ class SignUpActivity: AppCompatActivity() {
         }
     }
 
-    // TODO: Implement a check on whether the network is online by pinging
     private fun networkIsOnline(): Boolean {
-        return false
+        return try {
+            val ipAddress = InetAddress.getByName("google.com")
+            !ipAddress.equals("")
+        } catch (e: Exception) {
+            Log.d(TAG, e.toString())
+            false
+        }
     }
 
     private fun returnToMainActivity() {

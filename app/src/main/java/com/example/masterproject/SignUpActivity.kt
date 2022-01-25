@@ -3,6 +3,7 @@ package com.example.masterproject
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.Settings
 import android.util.Log
 import android.widget.Button
 import android.widget.TextView
@@ -10,11 +11,15 @@ import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 
 class SignUpActivity: AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
+
+    private val client: MulticastClient = MulticastClient()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,28 +52,49 @@ class SignUpActivity: AppCompatActivity() {
 
     private fun signUp(email: String, password: String) {
         if(Utils.isEmail(email)) {
-            auth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this) { task ->
-                    if (task.isSuccessful) {
-                        // Sign in success, update UI with the signed-in user's information
-                        Log.d("FIREBASE LOGIN", "createUserWithEmail:success")
-                        val user = auth.currentUser
-                        user!!.sendEmailVerification()
-                        Toast.makeText(
-                            baseContext, "Confirm email and log in",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                        auth.signOut()
-                        returnToMainActivity()
-                    } else {
-                        // If sign in fails, display a message to the user.
-                        Log.w("FIREBASE LOGIN", "createUserWithEmail:failure", task.exception)
-                        Toast.makeText(
-                            baseContext, "Authentication failed.",
-                            Toast.LENGTH_SHORT
-                        ).show()
+            if (networkIsOnline()) {
+                auth.createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this) { task ->
+                        if (task.isSuccessful) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d("FIREBASE LOGIN", "createUserWithEmail:success")
+                            val user = auth.currentUser
+                            user!!.sendEmailVerification()
+                            Toast.makeText(
+                                baseContext, "Confirm email and log in",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            auth.signOut()
+                            returnToMainActivity()
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w("FIREBASE LOGIN", "createUserWithEmail:failure", task.exception)
+                            Toast.makeText(
+                                baseContext, "Authentication failed.",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
                     }
+            } else {
+                if (RegistrationHandler.getReadyForRegistration()) {
+                    if (Ledger.getLedgerEntry(email) == null) {
+                        val keyPair = Utils.generateECKeyPair()
+                        Utils.storePrivateKey(keyPair.private, applicationContext)
+                        val certificate = Utils.generateSelfSignedX509Certificate(email, keyPair)
+                        Utils.storeCertificate(certificate,applicationContext)
+                        val myLedgerEntry = LedgerEntry(Utils.getCertificate()!!, email, Utils.getMyIpAddress()!!)
+                        Utils.myLedgerEntry = myLedgerEntry
+                        GlobalScope.launch {
+                            client.broadcastBlock()
+                            returnToMainActivity()
+                        }
+                    } else {
+                        Toast.makeText(baseContext, "Username already taken.", Toast.LENGTH_SHORT)
+                    }
+                } else {
+                    Toast.makeText(baseContext, "Not ready for registration", Toast.LENGTH_SHORT)
                 }
+            }
         }
         else{
             Toast.makeText(
@@ -76,6 +102,11 @@ class SignUpActivity: AppCompatActivity() {
                 Toast.LENGTH_SHORT
             ).show()
         }
+    }
+
+    // TODO: Implement a check on whether the network is online by pinging
+    private fun networkIsOnline(): Boolean {
+        return false
     }
 
     private fun returnToMainActivity() {

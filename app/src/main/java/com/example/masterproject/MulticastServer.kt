@@ -3,7 +3,6 @@ package com.example.masterproject
 import android.app.Service
 import android.content.Intent
 import android.os.IBinder
-import android.provider.Settings
 import android.util.Log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -13,15 +12,15 @@ import java.lang.Exception
 import java.net.DatagramPacket
 import java.net.InetAddress
 import java.net.MulticastSocket
-import com.example.masterproject.Ledger.Companion.availableDevices
-
-
 
 class MulticastServer: Service() {
 
     private val TAG = "MulticastServer"
     private val socket: MulticastSocket? = null
     private val address = InetAddress.getByName(Constants.multicastGroup);
+
+    private val registrationHandler: RegistrationHandler = RegistrationHandler(MulticastServer@this)
+    private val client: MulticastClient = MulticastClient()
 
     private fun listenForData(): MutableList<LedgerEntry>? {
         val buf = ByteArray(2048)
@@ -34,11 +33,10 @@ class MulticastServer: Service() {
                 socket.receive(msgPacket)
 
                 val msgRaw = String(buf, 0, buf.size)
-                Log.d(TAG, "msgRaw $msgRaw")
                 val jsonObject = JSONObject(msgRaw)
                 Log.d(TAG, "object ${jsonObject.toString()}")
                 when (jsonObject.getString("type")) {
-                    BroadcastMessageTypes.BROADCAST_BLOCK.toString() -> handleBroadcastedBlock(jsonObject)
+                    BroadcastMessageTypes.BROADCAST_BLOCK.toString() -> handleBroadcastBlock(jsonObject)
                     BroadcastMessageTypes.REQUEST_LEDGER.toString() -> handleRequestedLedger(jsonObject)
                     BroadcastMessageTypes.FULL_LEDGER.toString() -> handleFullLedger(jsonObject)
                 }
@@ -49,21 +47,17 @@ class MulticastServer: Service() {
         return null;
     }
 
-    private fun handleBroadcastedBlock(jsonObject: JSONObject) {
+    private fun handleBroadcastBlock(jsonObject: JSONObject) {
         val username = jsonObject.getString("username")
         val certificateString = jsonObject.getString("certificate")
         val ipAddress = jsonObject.getString("ipAddress")
         val ledgerEntry = LedgerEntry(Utils.stringToCertificate(certificateString), username, ipAddress)
-
-        if(isAddEntryToLedger(ledgerEntry)){
-            Ledger.availableDevices.add(ledgerEntry)
-        }
+        Ledger.addLedgerEntry(ledgerEntry)
     }
 
     private fun handleRequestedLedger(jsonObject: JSONObject) {
-        val multicastClient = MulticastClient(Constants.multicastGroup, Constants.multicastPort)
         GlobalScope.launch (Dispatchers.IO) {
-            multicastClient.sendLedger()
+            client.sendLedger()
         }
     }
 
@@ -73,33 +67,28 @@ class MulticastServer: Service() {
         if (ledgerWithoutBrackets.isNotEmpty()) {
             // split between array objects
             val ledgerArray = ledgerWithoutBrackets.split("},{")
-            ledgerArray.forEach{
-                val ledgerEntry = LedgerEntry.parseString(it)
-                if (isAddEntryToLedger(ledgerEntry)) availableDevices.add(ledgerEntry)
+            val fullLedger: List<LedgerEntry> = ledgerArray.map{ LedgerEntry.parseString(it)}
+            registrationHandler.fullLedgerReceived(fullLedger)
+            fullLedger.forEach{
+                Ledger.addLedgerEntry(it)
             }
         }
-    }
-
-    private fun isAddEntryToLedger(ledgerEntry: LedgerEntry): Boolean {
-        //check on both username and ip. Can remove ip when proper user registration
-        val users = availableDevices.map { it.userName }
-        return !users.contains(ledgerEntry.userName)
     }
 
     override fun onBind(intent: Intent?): IBinder? {
         return null
     }
 
-    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+    override fun onCreate() {
+        Log.d(TAG, "Service started")
         GlobalScope.launch {
             listenForData()
         }
-        val client = MulticastClient(Constants.multicastGroup, Constants.multicastPort)
         GlobalScope.launch {
-            client.broadcastBlock()
+            //client.broadcastBlock()
             client.requestLedger()
+            registrationHandler.startWaitForLedgerTimer()
         }
-        return super.onStartCommand(intent, flags, startId)
     }
 
     override fun onDestroy() {
@@ -108,7 +97,6 @@ class MulticastServer: Service() {
             socket.close()
         }
         super.onDestroy()
+
     }
-
-
 }

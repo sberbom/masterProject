@@ -1,15 +1,12 @@
 package com.example.masterproject
 
-import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.widget.doAfterTextChanged
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.bouncycastle.jce.provider.BouncyCastleProvider
 import java.security.Security
 import android.content.Intent
-import android.util.Log
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
@@ -29,10 +26,7 @@ import com.google.android.material.navigation.NavigationView
 class MainActivity: AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
-    private val multicastGroup: String = "224.0.0.10"
-    private val multicastPort: Int = 8888
     private lateinit var drawer: DrawerLayout
-    //private val multicastServerThread = MulticastServer(multicastGroup, multicastPort)
     private lateinit var auth: FirebaseAuth
 
     private val TAG = "MainActivity"
@@ -69,19 +63,6 @@ class MainActivity: AppCompatActivity() {
         var myAdapter = DeviceAdapter(Ledger.getFullLedger().toTypedArray(),this)
         recyclerView.adapter = myAdapter
         recyclerView.layoutManager = LinearLayoutManager(this)
-
-        //Create my ledger entry
-        // val storedCertificate = Utils.fetchStoredCertificate(this)
-        /*val username = "user-${(0..100).random()}"
-        if(storedCertificate == null) {
-            val keyPair = Utils.generateECKeyPair()
-            Utils.storePrivateKey(keyPair.private, this)
-            val certificate = Utils.generateSelfSignedX509Certificate(username, keyPair)
-            Utils.storeCertificate(certificate, this)
-        }
-        val myLedgerEntry = LedgerEntry(Utils.getCertificate()!!, username, Utils.getMyIpAddress()!!)
-        Utils.myLedgerEntry = myLedgerEntry*/
-        //availableDevices.add(myLedgerEntry)
 
         //Start network processes
         val tcpServerThread = TCPServer(this)

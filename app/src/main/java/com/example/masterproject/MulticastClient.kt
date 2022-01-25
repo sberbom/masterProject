@@ -1,18 +1,11 @@
 package com.example.masterproject
 
-import android.provider.ContactsContract
 import android.util.Log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.json.JSONObject
 import java.lang.Exception
-import java.lang.StringBuilder
 import java.net.*
-import java.security.KeyFactory
-import java.security.KeyPairGenerator
-import java.security.PublicKey
-import java.security.spec.X509EncodedKeySpec
-import java.util.*
 
 class MulticastClient() {
 

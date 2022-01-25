@@ -92,6 +92,16 @@ class Ledger {
             }
         }
 
+        fun shouldSendFullLedger(): Boolean {
+            val myLedgerEntry = Utils.myLedgerEntry ?: return false
+            return try {
+                val lastCA = availableDevices.last { Utils.isCASignedCertificate(it.certificate) }
+                LedgerEntry.isEqual(lastCA, myLedgerEntry)
+            } catch (e: NoSuchElementException) {
+                val lastBlock = getLastBlock() ?: return false
+                LedgerEntry.isEqual(lastBlock, myLedgerEntry)
+            }
+        }
 
         fun ledgerIsValid(ledger: List<LedgerEntry>): Boolean {
             val userNames = ledger.map{it.userName}
@@ -139,6 +149,10 @@ class Ledger {
         private fun getNextPreviousBlockHash(): String {
             val lastBlock = getLastBlock() ?: return "0"
             return Utils.hashString(lastBlock.toString())
+        }
+
+        override fun toString(): String {
+            return availableDevices.sortedBy { it.height }.map { it.toString() }.toString()
         }
     }
 }

@@ -54,4 +54,13 @@ class MulticastClient() {
         }
     }
 
+    suspend fun sendHash(): Void? {
+        val jsonObject = JSONObject()
+        jsonObject.put("type", BroadcastMessageTypes.LEDGER_HASH)
+        jsonObject.put("hash", Utils.hashString(Ledger.toString()))
+        return withContext(Dispatchers.IO) {
+            sendMulticastData(jsonObject.toString())
+        }
+    }
+
 }

@@ -26,7 +26,6 @@ data class LedgerEntry(
 
         fun parseString(ledgerEntry: String): LedgerEntry {
             val jsonObject = JSONTokener(ledgerEntry).nextValue() as JSONObject
-            Log.d(TAG, jsonObject.toString())
             return LedgerEntry(
                 Utils.stringToCertificate(jsonObject.getString("certificate")),
                 jsonObject.getString("username"),
@@ -39,6 +38,12 @@ data class LedgerEntry(
         fun ledgerEntryIsValid(ledgerEntry: LedgerEntry): Boolean {
             val userNameFromCertificate = Utils.getUsernameFromCertificate(ledgerEntry.certificate)
             return userNameFromCertificate == ledgerEntry.userName
+        }
+
+        fun isEqual(first: LedgerEntry, second: LedgerEntry): Boolean {
+            return first.userName == second.userName &&
+                    first.certificate.toString() == second.certificate.toString() &&
+                    first.height == second.height
         }
     }
 }

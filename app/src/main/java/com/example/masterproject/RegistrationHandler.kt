@@ -14,6 +14,8 @@ class RegistrationHandler(server: MulticastServer) {
 
     private val client: MulticastClient = MulticastClient()
 
+    private var ledgerIsInitialized: Boolean = false
+
     private val TAG = "RegistrationHandler"
 
     // The counter is started when the request for the ledger is sent, and
@@ -42,13 +44,15 @@ class RegistrationHandler(server: MulticastServer) {
     }
 
     fun fullLedgerReceived(ledger: List<LedgerEntry>) {
-        Log.d(TAG, "Full ledger received ${ledger.map { it.toString() }.toString()}")
-        stopTimer()
-        fullLedger = ledger.sortedBy { it.height }
-        // TODO: Handle what to do if ledger is not valid
-        if (ledgerIsAccepted() && Ledger.ledgerIsValid(fullLedger)) {
-            Ledger.addFullLedger(ledger)
-            startRegistration()
+        if (!ledgerIsInitialized) {
+            stopTimer()
+            fullLedger = ledger.sortedBy { it.height }
+            // TODO: Handle what to do if ledger is not valid
+            if (ledgerIsAccepted() && Ledger.ledgerIsValid(fullLedger)) {
+                ledgerIsInitialized = true
+                Ledger.addFullLedger(ledger)
+                startRegistration()
+            }
         }
     }
 
@@ -59,12 +63,14 @@ class RegistrationHandler(server: MulticastServer) {
     }
 
     private fun startRegistration() {
-        Log.d(TAG, "Registration started")
-        readyForRegistration = true
-        val myLedgerEntry = Ledger.createNewBlockFromStoredCertificate()
-        if (myLedgerEntry != null) {
-            GlobalScope.launch {
-                client.broadcastBlock()
+        if (Utils.myLedgerEntry == null) {
+            readyForRegistration = true
+            Log.d(TAG, "Registration started")
+            val myLedgerEntry = Ledger.createNewBlockFromStoredCertificate()
+            if (myLedgerEntry != null) {
+                GlobalScope.launch {
+                    client.broadcastBlock()
+                }
             }
         }
     }

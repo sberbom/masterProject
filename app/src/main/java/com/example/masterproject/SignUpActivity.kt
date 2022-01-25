@@ -109,8 +109,13 @@ class SignUpActivity: AppCompatActivity() {
 
     private fun networkIsOnline(): Boolean {
         return try {
-            val ipAddress = InetAddress.getByName("google.com")
-            !ipAddress.equals("")
+            val runtime = Runtime.getRuntime()
+            val ipProcess = runtime.exec("/system/bin/ping -c 1 8.8.8.8")
+            val exitValue = ipProcess.waitFor()
+            ipProcess.destroy()
+            val isOnline = exitValue == 0
+            Log.d(TAG, "is Online: $isOnline")
+            return isOnline
         } catch (e: Exception) {
             Log.d(TAG, e.toString())
             false

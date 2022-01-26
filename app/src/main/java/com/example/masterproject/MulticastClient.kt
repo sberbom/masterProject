@@ -1,18 +1,11 @@
 package com.example.masterproject
 
-import android.provider.ContactsContract
 import android.util.Log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.json.JSONObject
 import java.lang.Exception
-import java.lang.StringBuilder
 import java.net.*
-import java.security.KeyFactory
-import java.security.KeyPairGenerator
-import java.security.PublicKey
-import java.security.spec.X509EncodedKeySpec
-import java.util.*
 
 class MulticastClient() {
 
@@ -38,9 +31,7 @@ class MulticastClient() {
     suspend fun broadcastBlock(): Void? {
         val jsonObject = JSONObject()
         jsonObject.put("type", BroadcastMessageTypes.BROADCAST_BLOCK)
-        jsonObject.put("username", Utils.myLedgerEntry!!.userName)
-        jsonObject.put("ipAddress", Utils.getMyIpAddress())
-        jsonObject.put("certificate", Utils.certificateToString(Utils.myLedgerEntry!!.certificate))
+        jsonObject.put("ledger", Utils.myLedgerEntry.toString())
         return withContext(Dispatchers.IO) {
             sendMulticastData(jsonObject.toString())
         }

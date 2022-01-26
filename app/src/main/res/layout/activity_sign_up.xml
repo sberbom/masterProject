@@ -13,6 +13,7 @@
         android:ems="10"
         android:inputType="textPassword"
         android:minHeight="48dp"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="@+id/PasswordText"
         app:layout_constraintTop_toBottomOf="@+id/PasswordText" />
 
@@ -22,6 +23,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textEmailAddress"
+        android:textColor="@color/black"
         android:minHeight="48dp"
         app:layout_constraintStart_toStartOf="@+id/emailText"
         app:layout_constraintTop_toBottomOf="@+id/emailText" />

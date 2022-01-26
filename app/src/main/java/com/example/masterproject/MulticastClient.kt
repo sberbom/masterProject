@@ -31,7 +31,7 @@ class MulticastClient() {
     suspend fun broadcastBlock(): Void? {
         val jsonObject = JSONObject()
         jsonObject.put("type", BroadcastMessageTypes.BROADCAST_BLOCK)
-        jsonObject.put("ledger", Utils.myLedgerEntry.toString())
+        jsonObject.put("block", Utils.myLedgerEntry.toString())
         return withContext(Dispatchers.IO) {
             sendMulticastData(jsonObject.toString())
         }
@@ -49,6 +49,15 @@ class MulticastClient() {
         val jsonObject = JSONObject()
         jsonObject.put("type", BroadcastMessageTypes.FULL_LEDGER)
         jsonObject.put("ledger", Ledger.getFullLedger().map {it.toString()})
+        return withContext(Dispatchers.IO) {
+            sendMulticastData(jsonObject.toString())
+        }
+    }
+
+    suspend fun sendHash(): Void? {
+        val jsonObject = JSONObject()
+        jsonObject.put("type", BroadcastMessageTypes.LEDGER_HASH)
+        jsonObject.put("hash", Utils.hashString(Ledger.toString()))
         return withContext(Dispatchers.IO) {
             sendMulticastData(jsonObject.toString())
         }

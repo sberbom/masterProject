@@ -36,8 +36,9 @@ class MulticastServer: Service() {
                 val jsonObject = JSONObject(msgRaw)
                 when (jsonObject.getString("type")) {
                     BroadcastMessageTypes.BROADCAST_BLOCK.toString() -> handleBroadcastBlock(jsonObject)
-                    BroadcastMessageTypes.REQUEST_LEDGER.toString() -> handleRequestedLedger(jsonObject)
+                    BroadcastMessageTypes.REQUEST_LEDGER.toString() -> handleRequestedLedger()
                     BroadcastMessageTypes.FULL_LEDGER.toString() -> handleFullLedger(jsonObject)
+                    BroadcastMessageTypes.LEDGER_HASH.toString() -> handleHash(jsonObject)
                 }
             }
         }catch (e: Exception){
@@ -47,32 +48,43 @@ class MulticastServer: Service() {
     }
 
     private fun handleBroadcastBlock(jsonObject: JSONObject) {
-        val ledger = jsonObject.getString("ledger")
-        val ledgerEntry = LedgerEntry.parseString(ledger)
-        Ledger.addLedgerEntry(ledgerEntry)
+        val blockString = jsonObject.getString("block")
+        val block = LedgerEntry.parseString(blockString)
+        Log.d(TAG, "Received broadcast block: $block")
+        Ledger.addLedgerEntry(block)
     }
 
-    private fun handleRequestedLedger(jsonObject: JSONObject) {
-        GlobalScope.launch (Dispatchers.IO) {
-            client.sendLedger()
+    private fun handleRequestedLedger() {
+        Log.d(TAG, "Received request for ledger.")
+        if (Ledger.getFullLedger().isNotEmpty()) {
+            GlobalScope.launch (Dispatchers.IO) {
+                val shouldSendFullLedger = Ledger.shouldSendFullLedger()
+                Log.d(TAG, "Should send full ledger: $shouldSendFullLedger")
+                if (shouldSendFullLedger) {
+                    client.sendLedger()
+                } else {
+                    client.sendHash()
+                }
+            }
         }
     }
 
     private fun handleFullLedger(jsonObject: JSONObject) {
         val ledger = jsonObject.getString("ledger")
-        Log.d(TAG, ledger)
+        Log.d(TAG, "Received full ledger: $ledger")
         val ledgerWithoutBrackets = ledger.substring(1, ledger.length - 1)
         if (ledgerWithoutBrackets.isNotEmpty()) {
             // split between array objects
             val ledgerArray = ledgerWithoutBrackets.split(", ")
-            Log.d(TAG, "LedgerArray $ledgerArray")
             val fullLedger: List<LedgerEntry> = ledgerArray.map{ LedgerEntry.parseString(it)}
             registrationHandler.fullLedgerReceived(fullLedger)
-            fullLedger.forEach{
-                Log.d(TAG, "Adding $it")
-                Ledger.addLedgerEntry(it)
-            }
         }
+    }
+
+    private fun handleHash(jsonObject: JSONObject) {
+        val hash = jsonObject.getString("hash")
+        Log.d(TAG, "Received hash: $hash")
+        registrationHandler.hashOfLedgerReceived(hash)
     }
 
     override fun onBind(intent: Intent?): IBinder? {

@@ -59,7 +59,6 @@ class SignUpActivity: AppCompatActivity() {
     private fun signUp(email: String, password: String) {
         if(Utils.isEmail(email)) {
             val isOnline = networkIsOnline()
-            Log.d(TAG, "Is online: $isOnline")
             if (isOnline) {
                 auth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this) { task ->

@@ -47,6 +47,8 @@ class RegistrationHandler(server: MulticastServer) {
         if (!ledgerIsInitialized) {
             stopTimer()
             fullLedger = ledger.sortedBy { it.height }
+            val ledgerIsValid = Ledger.ledgerIsValid(fullLedger)
+            Log.d(TAG, "Ledger is valid: $ledgerIsValid")
             // TODO: Handle what to do if ledger is not valid
             if (ledgerIsAccepted() && Ledger.ledgerIsValid(fullLedger)) {
                 ledgerIsInitialized = true
@@ -59,7 +61,6 @@ class RegistrationHandler(server: MulticastServer) {
     fun hashOfLedgerReceived(hash: String) {
         stopTimer()
         hashes.add(hash)
-        Log.d(TAG, "Hash received $hash")
     }
 
     private fun startRegistration() {

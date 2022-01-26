@@ -31,7 +31,7 @@ class MulticastClient() {
     suspend fun broadcastBlock(): Void? {
         val jsonObject = JSONObject()
         jsonObject.put("type", BroadcastMessageTypes.BROADCAST_BLOCK)
-        jsonObject.put("ledger", Utils.myLedgerEntry.toString())
+        jsonObject.put("block", Utils.myLedgerEntry.toString())
         return withContext(Dispatchers.IO) {
             sendMulticastData(jsonObject.toString())
         }

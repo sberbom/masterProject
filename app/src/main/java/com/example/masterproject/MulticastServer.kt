@@ -48,9 +48,10 @@ class MulticastServer: Service() {
     }
 
     private fun handleBroadcastBlock(jsonObject: JSONObject) {
-        val ledger = jsonObject.getString("ledger")
-        val ledgerEntry = LedgerEntry.parseString(ledger)
-        Ledger.addLedgerEntry(ledgerEntry)
+        val blockString = jsonObject.getString("block")
+        val block = LedgerEntry.parseString(blockString)
+        Log.d(TAG, "Received broadcast block: $block")
+        Ledger.addLedgerEntry(block)
     }
 
     private fun handleRequestedLedger() {
@@ -77,9 +78,6 @@ class MulticastServer: Service() {
             val ledgerArray = ledgerWithoutBrackets.split(", ")
             val fullLedger: List<LedgerEntry> = ledgerArray.map{ LedgerEntry.parseString(it)}
             registrationHandler.fullLedgerReceived(fullLedger)
-            fullLedger.forEach{
-                Ledger.addLedgerEntry(it)
-            }
         }
     }
 

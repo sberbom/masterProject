@@ -59,10 +59,10 @@ class AESUtils {
             keyMap[userName] = SymmetricKeyEntry(currentKey, null)
         }
 
-        fun getEncryptionKey(userName: String): SecretKey {
+        fun getEncryptionKey(userName: String, context: Context): SecretKey {
             return getCurrentKeyForUser(userName) ?: calculateAESKeyDH(
-                Utils.privateKey!!,
-                Ledger.getLedgerEntry(userName!!)!!.certificate
+                Utils.getPrivateKey(context)!!,
+                Ledger.getLedgerEntry(userName)!!.certificate
             )
         }
 

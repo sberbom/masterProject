@@ -8,5 +8,6 @@
     <string name="delete_stored_data">Delete Stored Data</string>
     <string name="empty_string" />
     <string name="menu">Menu</string>
+    <string name="not_logged_in">Not logged in</string>
 
 </resources>

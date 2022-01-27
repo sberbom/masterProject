@@ -1,10 +1,14 @@
-package com.example.masterproject
+package com.example.masterproject.network
 
 import android.os.Handler
 import android.os.Looper
+import com.example.masterproject.utils.AESUtils
+import com.example.masterproject.utils.Constants
+import com.example.masterproject.utils.PKIUtils
+import com.example.masterproject.activities.ChatActivity
+import com.example.masterproject.ledger.LedgerEntry
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import org.bouncycastle.jcajce.provider.symmetric.AES
 import java.io.*
 import java.lang.Exception
 import java.net.InetAddress
@@ -21,7 +25,7 @@ class TCPClient() {
                 val serverAddress = InetAddress.getByName(ledgerEntry.ipAddress)
                 val socket = Socket(serverAddress, Constants.SERVERPORT)
                 val out = DataOutputStream(socket.getOutputStream())
-                out.writeUTF("${Utils.getUsernameFromCertificate(Utils.getCertificate()!!)}:://$message")
+                out.writeUTF("${PKIUtils.getUsernameFromCertificate(PKIUtils.getCertificate()!!)}:://$message")
                 out.flush()
                 socket.close()
             } catch (e: UnknownHostException) {
@@ -50,7 +54,7 @@ class TCPClient() {
         fun sendKeyDelivery(ledgerEntry: LedgerEntry, nextKey: SecretKey, currentKey: SecretKey) {
             val nextKeyString = AESUtils.keyToString(nextKey)
             val nextKeyEncrypted = AESUtils.symmetricEncryption(nextKeyString, currentKey)
-            sendMessage(ledgerEntry, "${Constants.KEY_DELEVERY}:://$nextKeyEncrypted")
+            sendMessage(ledgerEntry, "${UnicastMessageTypes.KEY_DELEVERY}:://$nextKeyEncrypted")
         }
     }
 

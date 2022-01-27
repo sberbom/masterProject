@@ -1,20 +1,24 @@
-package com.example.masterproject
+package com.example.masterproject.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.Settings
 import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import com.example.masterproject.*
+import com.example.masterproject.ledger.Ledger
+import com.example.masterproject.ledger.RegistrationHandler
+import com.example.masterproject.ledger.UsernameTakenError
+import com.example.masterproject.network.MulticastClient
+import com.example.masterproject.utils.MISCUtils
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.lang.Exception
-import java.net.InetAddress
 
 
 class SignUpActivity: AppCompatActivity() {
@@ -57,7 +61,7 @@ class SignUpActivity: AppCompatActivity() {
     }
 
     private fun signUp(email: String, password: String) {
-        if(Utils.isEmail(email)) {
+        if(MISCUtils.isEmail(email)) {
             val isOnline = networkIsOnline()
             if (isOnline) {
                 auth.createUserWithEmailAndPassword(email, password)

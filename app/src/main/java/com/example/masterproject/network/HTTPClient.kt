@@ -1,14 +1,14 @@
-package com.example.masterproject
+package com.example.masterproject.network
 
 import android.content.Context
 import android.util.Log
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.example.masterproject.utils.PKIUtils
 import org.json.JSONObject
 import java.lang.Exception
 import java.nio.charset.Charset
-import java.security.KeyPair
 
 class HTTPClient(private val email: String, private val context: Context): Runnable{
 
@@ -22,21 +22,23 @@ class HTTPClient(private val email: String, private val context: Context): Runna
     }
 
     private fun getCASignedCertificate(email: String, context: Context) {
-        val keyPair = Utils.generateECKeyPair()
-        Utils.storePrivateKey(keyPair.private, context)
-        Utils.privateKey = keyPair.private
+        val keyPair = PKIUtils.generateECKeyPair()
+        PKIUtils.storePrivateKey(keyPair.private, context)
+        PKIUtils.privateKey = keyPair.private
         val url = "https://europe-west1-master-project-337221.cloudfunctions.net/x509Certificate"
         val queue = Volley.newRequestQueue(context)
 
-        val requestBody = JSONObject().put("email", email).put("publicKeyString", Utils.encryptionKeyToPem(keyPair.public)).toString()
+        val requestBody = JSONObject().put("email", email).put("publicKeyString",
+            PKIUtils.encryptionKeyToPem(keyPair.public)
+        ).toString()
         val stringReq: StringRequest =
             object : StringRequest(Method.POST, url,
                 Response.Listener { response ->
                     // response
                     var strResp = response.toString()
-                    val certificate = Utils.pemToCertificate(strResp)
-                    Utils.setCertificate(certificate)
-                    Utils.storeCertificate(certificate, context)
+                    val certificate = PKIUtils.pemToCertificate(strResp)
+                    PKIUtils.setCertificate(certificate)
+                    PKIUtils.storeCertificate(certificate, context)
                     //Utils.myLedgerEntry = LedgerEntry(certificate, Utils.getUsernameFromCertificate(certificate))
 
                     //Log.d("SIGMUND API", strResp)

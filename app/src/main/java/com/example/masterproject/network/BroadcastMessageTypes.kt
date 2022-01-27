@@ -1,4 +1,4 @@
-package com.example.masterproject
+package com.example.masterproject.network
 
 enum class BroadcastMessageTypes {
     BROADCAST_BLOCK,

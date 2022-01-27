@@ -1,6 +1,9 @@
-package com.example.masterproject
+package com.example.masterproject.network
 
 import android.util.Log
+import com.example.masterproject.utils.Constants
+import com.example.masterproject.ledger.Ledger
+import com.example.masterproject.utils.MISCUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.json.JSONObject
@@ -31,7 +34,7 @@ class MulticastClient() {
     suspend fun broadcastBlock(): Void? {
         val jsonObject = JSONObject()
         jsonObject.put("type", BroadcastMessageTypes.BROADCAST_BLOCK)
-        jsonObject.put("block", Utils.myLedgerEntry.toString())
+        jsonObject.put("block", Ledger.getMyLedgerEntry().toString())
         return withContext(Dispatchers.IO) {
             sendMulticastData(jsonObject.toString())
         }
@@ -57,7 +60,7 @@ class MulticastClient() {
     suspend fun sendHash(): Void? {
         val jsonObject = JSONObject()
         jsonObject.put("type", BroadcastMessageTypes.LEDGER_HASH)
-        jsonObject.put("hash", Utils.hashString(Ledger.toString()))
+        jsonObject.put("hash", MISCUtils.hashString(Ledger.toString()))
         return withContext(Dispatchers.IO) {
             sendMulticastData(jsonObject.toString())
         }

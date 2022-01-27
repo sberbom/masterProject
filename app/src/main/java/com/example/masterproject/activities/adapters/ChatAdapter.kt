@@ -1,10 +1,12 @@
-package com.example.masterproject
+package com.example.masterproject.activities.adapters
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.masterproject.types.ChatMessage
+import com.example.masterproject.R
 
 class ChatAdapter(private val messages: MutableList<ChatMessage>): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 

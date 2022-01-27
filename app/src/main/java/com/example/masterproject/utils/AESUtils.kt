@@ -1,7 +1,10 @@
-package com.example.masterproject
+package com.example.masterproject.utils
 
 import android.content.Context
 import android.util.Log
+import com.example.masterproject.ledger.Ledger
+import com.example.masterproject.ledger.LedgerEntry
+import com.example.masterproject.network.TCPClient
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -61,7 +64,7 @@ class AESUtils {
 
         fun getEncryptionKey(userName: String, context: Context): SecretKey {
             return getCurrentKeyForUser(userName) ?: calculateAESKeyDH(
-                Utils.getPrivateKey(context)!!,
+                PKIUtils.getPrivateKey(context)!!,
                 Ledger.getLedgerEntry(userName)!!.certificate
             )
         }
@@ -78,7 +81,7 @@ class AESUtils {
             )
 
             val secretKey = SecretKeySpec(byteKey, "AES")
-            setCurrentKeyForUser(Utils.getUsernameFromCertificate(certificate), secretKey)
+            setCurrentKeyForUser(PKIUtils.getUsernameFromCertificate(certificate), secretKey)
             return secretKey
         }
 
@@ -139,7 +142,7 @@ class AESUtils {
             } catch (e: AEADBadTagException) {
                 //Keys are probably out of sync
                 try{
-                    val sharedKey = calculateAESKeyDH(Utils.privateKey!!, ledgerEntry.certificate)
+                    val sharedKey = calculateAESKeyDH(PKIUtils.privateKey!!, ledgerEntry.certificate)
                     val cipherArray = Base64.getDecoder().decode(cipherText)
 
                     val cipher = Cipher.getInstance("AES/GCM/NoPadding")
@@ -152,7 +155,7 @@ class AESUtils {
                     val plainText =
                         cipher.doFinal(cipherArray, GCM_IV_LENGTH, cipherArray.size - GCM_IV_LENGTH)
 
-                    return "ERROR DECRYPTING MESSAGE, please restart chat - key reset"
+                    return String(plainText, StandardCharsets.UTF_8)
                 } catch (e: AEADBadTagException) {
                     resyncKeys(ledgerEntry)
                     e.printStackTrace()
@@ -162,9 +165,9 @@ class AESUtils {
         }
 
         fun resyncKeys(ledgerEntry: LedgerEntry){
-            val currentKey = calculateAESKeyDH(Utils.privateKey!!, ledgerEntry.certificate)
+            val currentKey = calculateAESKeyDH(PKIUtils.privateKey!!, ledgerEntry.certificate)
             val nextKey = generateAESKey()
-            setNextKeyForUser(Utils.getUsernameFromCertificate(ledgerEntry.certificate), nextKey)
+            setNextKeyForUser(PKIUtils.getUsernameFromCertificate(ledgerEntry.certificate), nextKey)
             GlobalScope.launch(Dispatchers.IO) {
                 TCPClient.sendKeyDelivery(ledgerEntry, nextKey, currentKey)
             }

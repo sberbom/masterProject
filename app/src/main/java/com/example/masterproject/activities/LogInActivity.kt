@@ -1,4 +1,4 @@
-package com.example.masterproject
+package com.example.masterproject.activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,6 +7,9 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.masterproject.network.HTTPClient
+import com.example.masterproject.R
+import com.example.masterproject.utils.PKIUtils
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -54,8 +57,11 @@ class LogInActivity: AppCompatActivity() {
                             baseContext, "Sign in success.",
                             Toast.LENGTH_SHORT
                         ).show()
-                        val storedCertificate = Utils.fetchStoredCertificate(this)
-                        if(storedCertificate == null || !Utils.isCASignedCertificate(storedCertificate)) {
+                        val storedCertificate = PKIUtils.fetchStoredCertificate(this)
+                        if(storedCertificate == null || !PKIUtils.isCASignedCertificate(
+                                storedCertificate
+                            )
+                        ) {
                             val httpThread = HTTPClient(email, this)
                             Thread(httpThread).start()
                         }

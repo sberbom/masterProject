@@ -14,7 +14,7 @@ import java.lang.IllegalArgumentException
 import java.net.ServerSocket
 import java.net.Socket
 
-class TCPServer(val context: Context): Service() {
+class TCPServer(): Service() {
 
     var updateConversationHandler: Handler = Handler(Looper.getMainLooper())
     private val TAG = "TCPServer"
@@ -24,9 +24,7 @@ class TCPServer(val context: Context): Service() {
         Log.d(TAG, "Listening for connections.")
         while (!Thread.currentThread().isInterrupted) {
             try {
-                GlobalScope.launch {
-                    listenForMessages(serverSocket?.accept())
-                }
+                listenForMessages(serverSocket?.accept())
             } catch (e: IOException) {
                 e.printStackTrace()
             }
@@ -66,10 +64,13 @@ class TCPServer(val context: Context): Service() {
     }
 
     private fun changeToChatActivity(ledgerEntry: LedgerEntry) {
-        val intent = Intent(context, ChatActivity::class.java)
-        intent.putExtra("userName", ledgerEntry.userName)
-        intent.putExtra("staringNewConnection", false)
-        context.startActivity(intent)
+        val context = App.getAppContext()
+        if (context != null){
+            val intent = Intent(context, ChatActivity::class.java)
+            intent.putExtra("userName", ledgerEntry.userName)
+            intent.putExtra("staringNewConnection", false)
+            context.startActivity(intent)
+        }
     }
 
     internal inner class UpdateUIThread(private val userName: String, private val msg: String, private val ledgerEntry: LedgerEntry) : Runnable {

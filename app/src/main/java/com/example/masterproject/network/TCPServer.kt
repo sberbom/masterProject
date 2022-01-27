@@ -28,7 +28,8 @@ class TCPServer: Service() {
 
     private fun listenForConnections() {
         Log.d(TAG, "Listening for connections.")
-        while (!Thread.currentThread().isInterrupted) {
+        val socket = serverSocket
+        while (!Thread.currentThread().isInterrupted && socket != null && !socket.isClosed) {
             try {
                 listenForMessages(serverSocket?.accept())
             } catch (e: IOException) {
@@ -111,5 +112,4 @@ class TCPServer: Service() {
         serverSocket?.close()
         super.onDestroy()
     }
-
 }

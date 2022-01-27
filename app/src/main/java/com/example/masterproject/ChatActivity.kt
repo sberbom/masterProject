@@ -27,7 +27,7 @@ class ChatActivity: AppCompatActivity() {
         val currentKey = AESUtils.getEncryptionKey(userName!!, this)
         updateAESKeys(userName!!, isStartingConnection, ledgerEntry!!, currentKey)
 
-        val messageView: RecyclerView = findViewById(R.id.chatView)
+        messageView = findViewById(R.id.chatView)
         messageView.adapter = chatAdapter
         messageView.layoutManager = LinearLayoutManager(this)
 
@@ -72,11 +72,13 @@ class ChatActivity: AppCompatActivity() {
 
         var messages: MutableList<ChatMessage> = mutableListOf();
         var chatAdapter = ChatAdapter(messages)
+        lateinit var messageView: RecyclerView
 
 
         fun addChat(userName: String, msg: String) {
             messages.add(ChatMessage(userName, msg))
             chatAdapter.notifyDataSetChanged()
+            messageView.smoothScrollToPosition(chatAdapter.itemCount - 1)
         }
     }
 }

@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:text="You are chatting with:"
+        android:text="@string/you_are_chatting_with"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -49,11 +49,12 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:minHeight="48dp"
-            android:text="Skriv inn text"
+            android:text="@string/skriv_inn_text"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/messageSendButton"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            android:autofillHints="Text to send" />
 
         <ImageView
             android:id="@+id/messageSendButton"
@@ -62,7 +63,8 @@
             android:layout_marginEnd="8dp"
             android:src="@drawable/send"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            android:contentDescription="@string/send" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
@@ -70,7 +72,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="TextView"
+        android:text="@string/textview"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintStart_toStartOf="@+id/textView2" />
 
@@ -79,7 +81,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="Current encryption key:"
+        android:text="@string/current_encryption_key"
         app:layout_constraintBottom_toTopOf="@+id/currentKeyText"
         app:layout_constraintStart_toStartOf="@+id/currentKeyText" />
 
@@ -88,7 +90,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="Next encryption key:"
+        android:text="@string/next_encryption_key"
         app:layout_constraintBottom_toTopOf="@+id/nextEncryptionKey"
         app:layout_constraintStart_toStartOf="@+id/nextEncryptionKey" />
 
@@ -98,7 +100,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="16dp"
-        android:text="TextView"
+        android:text="@string/textview"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

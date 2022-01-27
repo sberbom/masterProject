@@ -295,7 +295,7 @@ class Utils {
         private fun deleteDir(dir: File?): Boolean {
             return if (dir != null && dir.isDirectory) {
                 val children = dir.list()
-                if(children != null){
+                if (children != null) {
                     for (i in children.indices) {
                         val success: Boolean = deleteDir(File(dir, children[i]))
                         if (!success) {
@@ -309,6 +309,7 @@ class Utils {
             } else {
                 false
             }
+        }
             
         fun getCurrentUserString(context: Context): String {
             if (Firebase.auth.currentUser != null) {

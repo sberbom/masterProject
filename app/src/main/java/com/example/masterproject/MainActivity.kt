@@ -83,6 +83,7 @@ class MainActivity: AppCompatActivity() {
             myAdapter = DeviceAdapter(Ledger.getFullLedger().toTypedArray(), this)
             recyclerView.adapter = myAdapter
             recyclerView.layoutManager = LinearLayoutManager(this)
+            recyclerView.scrollToPosition(myAdapter.itemCount-1)
         }
 
         //Logged in as text

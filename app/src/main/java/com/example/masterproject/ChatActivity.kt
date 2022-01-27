@@ -30,7 +30,7 @@ class ChatActivity: AppCompatActivity() {
         val tcpServerThread = TCPServer(this)
         Thread(tcpServerThread).start()
 
-        val messageView: RecyclerView = findViewById(R.id.chatView)
+        messageView = findViewById(R.id.chatView)
         messageView.adapter = chatAdapter
         messageView.layoutManager = LinearLayoutManager(this)
 
@@ -75,11 +75,13 @@ class ChatActivity: AppCompatActivity() {
 
         var messages: MutableList<ChatMessage> = mutableListOf();
         var chatAdapter = ChatAdapter(messages)
+        lateinit var messageView: RecyclerView
 
 
         fun addChat(userName: String, msg: String) {
             messages.add(ChatMessage(userName, msg))
             chatAdapter.notifyDataSetChanged()
+            messageView.smoothScrollToPosition(chatAdapter.itemCount - 1)
         }
     }
 }

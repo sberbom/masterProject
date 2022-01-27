@@ -69,6 +69,7 @@ class Ledger {
             if (context != null) {
                 val storedCertificate = PKIUtils.fetchStoredCertificate(context)
                 if (storedCertificate != null) {
+                    Log.d(TAG, "User is already in the ledger")
                     return availableDevices.find { it.certificate.toString() == storedCertificate.toString() }
                 }
             }

@@ -113,12 +113,20 @@ class Ledger {
 
         fun shouldSendFullLedger(): Boolean {
             val myLedgerEntry = getMyLedgerEntry() ?: return false
-            return try {
-                val lastCA = availableDevices.last { PKIUtils.isCASignedCertificate(it.certificate) }
-                LedgerEntry.isEqual(lastCA, myLedgerEntry)
-            } catch (e: NoSuchElementException) {
-                val lastBlock = getLastBlock() ?: return false
-                LedgerEntry.isEqual(lastBlock, myLedgerEntry)
+            val myCertificateString = myLedgerEntry.certificate.toString()
+            val caSignedCertificates = availableDevices.filter { PKIUtils.isCASignedCertificate(it.certificate) }.map { it.certificate.toString() }
+            // TODO: Check that takeLast does not alter arrays
+            return when {
+                caSignedCertificates.size > 1 -> {
+                    caSignedCertificates.takeLast(2).contains(myCertificateString)
+                }
+                caSignedCertificates.isNotEmpty() -> {
+                    caSignedCertificates.last() == myCertificateString || availableDevices.last().certificate.toString() == myCertificateString
+                }
+                else -> {
+                    availableDevices.takeLast(2).map { it.certificate.toString() }
+                        .contains(myCertificateString)
+                }
             }
         }
 

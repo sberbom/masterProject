@@ -23,7 +23,8 @@
         <activity android:name=".LogInActivity"/>
         <activity android:name=".ChatActivity"/>
 
-        <service android:name=".MulticastServer" android:label="My Service" />
+        <service android:name=".MulticastServer" android:label="Multicast Server" />
+        <service android:name=".TCPServer" android:label="TCP Server" />
 
     </application>
 

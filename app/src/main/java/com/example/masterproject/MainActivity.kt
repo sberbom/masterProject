@@ -65,8 +65,7 @@ class MainActivity: AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         //Start network processes
-        val tcpServerThread = TCPServer(this)
-        Thread(tcpServerThread).start()
+        baseContext.startService(Intent(MainActivity@this, TCPServer::class.java))
 
         //Find and display my IP address
         val myIpAddressTextView: TextView = headerView.findViewById(R.id.nav_ip)

@@ -25,7 +25,8 @@
             android:name=".ChatActivity"
             android:windowSoftInputMode="adjustResize" />
 
-        <service android:name=".MulticastServer" android:label="My Service" />
+        <service android:name=".MulticastServer" android:label="Multicast Server" />
+        <service android:name=".TCPServer" android:label="TCP Server" />
 
     </application>
 

@@ -27,9 +27,6 @@ class ChatActivity: AppCompatActivity() {
         val currentKey = AESUtils.getEncryptionKey(userName!!, this)
         updateAESKeys(userName!!, isStartingConnection, ledgerEntry!!, currentKey)
 
-        val tcpServerThread = TCPServer(this)
-        Thread(tcpServerThread).start()
-
         messageView = findViewById(R.id.chatView)
         messageView.adapter = chatAdapter
         messageView.layoutManager = LinearLayoutManager(this)

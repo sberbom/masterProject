@@ -19,6 +19,7 @@ class TCPServer(): Service() {
     var updateConversationHandler: Handler = Handler(Looper.getMainLooper())
     private val TAG = "TCPServer"
     private var serverSocket: ServerSocket? = null
+    private val context = App.getAppContext()
 
     private fun listenForConnections() {
         Log.d(TAG, "Listening for connections.")
@@ -51,7 +52,8 @@ class TCPServer(): Service() {
     }
 
     private fun storeNextKey(key: String, ledgerEntry: LedgerEntry) {
-        val sharedKey = AESUtils.getEncryptionKey(ledgerEntry.userName)
+        if (context == null) return
+        val sharedKey = AESUtils.getEncryptionKey(ledgerEntry.userName, context)
         val decrypted = AESUtils.symmetricDecryption(key, sharedKey, ledgerEntry)
         try {
             val nextKey = AESUtils.stringToKey(decrypted)
@@ -64,18 +66,19 @@ class TCPServer(): Service() {
     }
 
     private fun changeToChatActivity(ledgerEntry: LedgerEntry) {
-        val context = App.getAppContext()
-        if (context != null){
-            val intent = Intent(context, ChatActivity::class.java)
-            intent.putExtra("userName", ledgerEntry.userName)
-            intent.putExtra("staringNewConnection", false)
-            context.startActivity(intent)
-        }
+        if (context == null) return
+        val intent = Intent(context, ChatActivity::class.java)
+        intent.putExtra("userName", ledgerEntry.userName)
+        intent.putExtra("staringNewConnection", false)
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        context.startActivity(intent)
+
     }
 
     internal inner class UpdateUIThread(private val userName: String, private val msg: String, private val ledgerEntry: LedgerEntry) : Runnable {
         override fun run() {
-            val sharedKey = AESUtils.getEncryptionKey(userName)
+            if (context == null) return
+            val sharedKey = AESUtils.getEncryptionKey(userName, context)
             val decrypted = AESUtils.symmetricDecryption(msg, sharedKey, ledgerEntry)
             Handler(Looper.getMainLooper()).post {
                 ChatActivity.addChat(userName, decrypted)

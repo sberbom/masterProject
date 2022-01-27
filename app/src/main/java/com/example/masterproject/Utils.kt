@@ -29,7 +29,9 @@ import java.io.FileNotFoundException
 import java.lang.Error
 import java.net.*
 import java.security.spec.PKCS8EncodedKeySpec
-
+import org.bouncycastle.crypto.params.Blake3Parameters.context
+import java.io.File
+import java.lang.Exception
 
 
 class Utils {
@@ -40,6 +42,7 @@ class Utils {
         var privateKey: PrivateKey? = null
         private var selfSignedX509Certificate: X509Certificate? = null
         private var CASignedX509Certificate: X509Certificate? = null
+        private const val TAG: String = "Utils"
         var CAPublicKey: PublicKey =
             stringToEncryptionKey("MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEnbbrYnAGkcNYD72o/H7jP2z91bQyA1B8GwUzsV0NG34RhpJ6xJMLxQT0kXwnSunXz6wVndN6O/6ZDWymVCk3nw==")
 
@@ -279,6 +282,35 @@ class Utils {
             return digest.fold("", { str, it -> str + "%02x".format(it) })
         }
 
+        fun deleteCache(context: Context) {
+            try {
+                val dir: File = context.cacheDir
+                deleteDir(dir)
+            }catch (e: Exception) {
+                Log.w(TAG, "Could not delete cache")
+                e.printStackTrace()
+            }
+        }
+
+        private fun deleteDir(dir: File?): Boolean {
+            return if (dir != null && dir.isDirectory) {
+                val children = dir.list()
+                if (children != null) {
+                    for (i in children.indices) {
+                        val success: Boolean = deleteDir(File(dir, children[i]))
+                        if (!success) {
+                            return false
+                        }
+                    }
+                }
+                dir.delete()
+            } else if (dir != null && dir.isFile) {
+                dir.delete()
+            } else {
+                false
+            }
+        }
+            
         fun getCurrentUserString(context: Context): String {
             if (Firebase.auth.currentUser != null) {
                 return Firebase.auth.currentUser!!.email!!

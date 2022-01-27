@@ -175,8 +175,10 @@ class MainActivity: AppCompatActivity() {
     private fun deleteStoredData() {
         Utils.deleteStoredCertificate(this)
         Utils.deleteStoredPrivateKey(this)
+        AESUtils.deleteAllStoredKeys(this)
+        Utils.deleteCache(this)
         Toast.makeText(
-            baseContext, "Stored certificate and private key deleted",
+            baseContext, "Stored certificate, private key and symmetric keys deleted",
             Toast.LENGTH_SHORT
         ).show()
     }

@@ -1,13 +1,19 @@
-package com.example.masterproject
+package com.example.masterproject.activities
 
 import android.os.Bundle
-import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.masterproject.*
+import com.example.masterproject.activities.adapters.ChatAdapter
+import com.example.masterproject.ledger.Ledger
+import com.example.masterproject.ledger.LedgerEntry
+import com.example.masterproject.network.TCPClient
+import com.example.masterproject.types.ChatMessage
+import com.example.masterproject.utils.AESUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -43,7 +49,7 @@ class ChatActivity: AppCompatActivity() {
             val messageEditText: EditText = findViewById(R.id.messageEditText)
             val messageText = messageEditText.text.toString()
             GlobalScope.launch(Dispatchers.IO) {
-                TCPClient.sendEncryptedMessage(ledgerEntry!!, messageText, currentKey)
+                TCPClient.sendEncryptedMessage(ledgerEntry, messageText, currentKey)
             }
         }
     }

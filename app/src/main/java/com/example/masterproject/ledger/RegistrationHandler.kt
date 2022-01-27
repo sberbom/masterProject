@@ -1,12 +1,13 @@
-package com.example.masterproject
+package com.example.masterproject.ledger
 
 import android.os.CountDownTimer
-import android.provider.Settings
 import android.util.Log
+import com.example.masterproject.network.MulticastClient
+import com.example.masterproject.network.MulticastServer
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class RegistrationHandler(server: MulticastServer) {
+class RegistrationHandler {
 
     private var fullLedger: List<LedgerEntry> = listOf()
 
@@ -64,7 +65,7 @@ class RegistrationHandler(server: MulticastServer) {
     }
 
     private fun startRegistration() {
-        if (Utils.myLedgerEntry == null) {
+        if (Ledger.getMyLedgerEntry() == null) {
             readyForRegistration = true
             Log.d(TAG, "Registration started")
             val myLedgerEntry = Ledger.createNewBlockFromStoredCertificate()

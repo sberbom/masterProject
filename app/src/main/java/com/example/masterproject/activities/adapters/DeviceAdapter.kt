@@ -1,8 +1,7 @@
-package com.example.masterproject
+package com.example.masterproject.activities.adapters
 
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +10,13 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.example.masterproject.R
+import com.example.masterproject.utils.PKIUtils
+import com.example.masterproject.activities.ChatActivity
+import com.example.masterproject.ledger.LedgerEntry
+import com.example.masterproject.network.TCPClient
+import com.example.masterproject.network.UnicastMessageTypes
+import com.example.masterproject.utils.MISCUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -38,22 +44,22 @@ class DeviceAdapter(private val s1: Array<LedgerEntry>, private val context: Con
         holder.usernameTextView.text = ledgerEntry.userName
         holder.ipTextView.text = "${ledgerEntry.ipAddress}"
         holder.publicKeyTextView.text = "Certificate hash: ${ledgerEntry.certificate.hashCode()}"
-        if(Utils.isCASignedCertificate(ledgerEntry.certificate)){
+        if(PKIUtils.isCASignedCertificate(ledgerEntry.certificate)){
             holder.certificateIndication.setImageResource(R.drawable.green)
         }
-        else if(Utils.isSelfSignedCertificate(ledgerEntry.certificate)){
+        else if(PKIUtils.isSelfSignedCertificate(ledgerEntry.certificate)){
             holder.certificateIndication.setImageResource(R.drawable.yellow)
         }else {
             holder.certificateIndication.setImageResource(R.drawable.red)
         }
         holder.startChatButton.setOnClickListener {
-            if(Utils.isLoggedIn(context)){
+            if(MISCUtils.isLoggedIn(context)){
                 val intent = Intent(context, ChatActivity::class.java)
                 intent.putExtra("userName", ledgerEntry.userName) //Optional parameters
                 intent.putExtra("staringNewConnection", true)
                 context.startActivity(intent)
                 GlobalScope.launch(Dispatchers.IO) {
-                    TCPClient.sendMessage(ledgerEntry, Constants.CLIENT_HELLO)
+                    TCPClient.sendMessage(ledgerEntry, UnicastMessageTypes.CLIENT_HELLO.toString())
                 }
             } else {
                 Toast.makeText(

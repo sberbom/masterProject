@@ -1,6 +1,6 @@
-package com.example.masterproject
+package com.example.masterproject.ledger
 
-import android.util.Log
+import com.example.masterproject.utils.PKIUtils
 import org.json.JSONObject
 import org.json.JSONTokener
 import java.security.cert.X509Certificate
@@ -18,7 +18,7 @@ data class LedgerEntry(
                 "\"ipAddress\":\"$ipAddress\"," +
                 "\"previousBlockHash\":\"$previousBlockHash\"," +
                 "\"height\":\"$height\"," +
-                "\"certificate\":\"${Utils.certificateToString(certificate)}\"}"
+                "\"certificate\":\"${PKIUtils.certificateToString(certificate)}\"}"
     }
 
     companion object {
@@ -27,7 +27,7 @@ data class LedgerEntry(
         fun parseString(ledgerEntry: String): LedgerEntry {
             val jsonObject = JSONTokener(ledgerEntry).nextValue() as JSONObject
             return LedgerEntry(
-                Utils.stringToCertificate(jsonObject.getString("certificate")),
+                PKIUtils.stringToCertificate(jsonObject.getString("certificate")),
                 jsonObject.getString("username"),
                 jsonObject.getString("ipAddress"),
                 jsonObject.getString("previousBlockHash"),
@@ -36,7 +36,7 @@ data class LedgerEntry(
         }
 
         fun ledgerEntryIsValid(ledgerEntry: LedgerEntry): Boolean {
-            val userNameFromCertificate = Utils.getUsernameFromCertificate(ledgerEntry.certificate)
+            val userNameFromCertificate = PKIUtils.getUsernameFromCertificate(ledgerEntry.certificate)
             return userNameFromCertificate == ledgerEntry.userName
         }
 

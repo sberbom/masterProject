@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MasterProject" >
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,14 +19,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SignUpActivity"/>
-        <activity android:name=".LogInActivity"/>
+        <activity android:name=".activities.SignUpActivity"/>
+        <activity android:name=".activities.LogInActivity"/>
         <activity
-            android:name=".ChatActivity"
+            android:name=".activities.ChatActivity"
             android:windowSoftInputMode="adjustResize" />
 
-        <service android:name=".MulticastServer" android:label="Multicast Server" />
-        <service android:name=".TCPServer" android:label="TCP Server" />
+        <service android:name=".network.MulticastServer" android:label="Multicast Server" />
+        <service android:name=".network.TCPServer" android:label="TCP Server" />
 
     </application>
 

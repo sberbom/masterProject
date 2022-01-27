@@ -1,4 +1,4 @@
-package com.example.masterproject
+package com.example.masterproject.network
 
 import android.app.Service
 import android.content.Intent
@@ -6,6 +6,12 @@ import android.os.Handler
 import android.os.IBinder
 import android.os.Looper
 import android.util.Log
+import com.example.masterproject.utils.AESUtils
+import com.example.masterproject.App
+import com.example.masterproject.utils.Constants
+import com.example.masterproject.activities.ChatActivity
+import com.example.masterproject.ledger.Ledger
+import com.example.masterproject.ledger.LedgerEntry
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.io.*
@@ -41,8 +47,8 @@ class TCPServer: Service() {
             val userName = arrOfRead[0]
             val ledgerEntry = Ledger.getLedgerEntry(userName)
             when(val readEncrypted = arrOfRead[1]) {
-                Constants.CLIENT_HELLO -> changeToChatActivity(ledgerEntry!!)
-                Constants.KEY_DELEVERY -> storeNextKey(arrOfRead[2], ledgerEntry!!)
+                UnicastMessageTypes.CLIENT_HELLO.toString() -> changeToChatActivity(ledgerEntry!!)
+                UnicastMessageTypes.KEY_DELEVERY.toString() -> storeNextKey(arrOfRead[2], ledgerEntry!!)
                 else -> updateConversationHandler.post(UpdateUIThread(userName, readEncrypted, ledgerEntry!!))
             }
         } catch (e: IOException) {

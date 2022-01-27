@@ -1,6 +1,5 @@
-package com.example.masterproject
+package com.example.masterproject.activities
 
-import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -8,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView
 import org.bouncycastle.jce.provider.BouncyCastleProvider
 import java.security.Security
 import android.content.Intent
-import android.util.Log
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
@@ -19,6 +17,14 @@ import com.google.firebase.ktx.Firebase
 import android.view.View
 import androidx.appcompat.widget.Toolbar
 import android.widget.*
+import com.example.masterproject.*
+import com.example.masterproject.activities.adapters.DeviceAdapter
+import com.example.masterproject.ledger.Ledger
+import com.example.masterproject.network.MulticastServer
+import com.example.masterproject.network.TCPServer
+import com.example.masterproject.utils.AESUtils
+import com.example.masterproject.utils.MISCUtils
+import com.example.masterproject.utils.PKIUtils
 import com.google.android.material.navigation.NavigationView
 
 
@@ -58,7 +64,7 @@ class MainActivity: AppCompatActivity() {
         auth = Firebase.auth
 
         // Start multicast server
-        baseContext.startService(Intent(MainActivity@ this, MulticastServer::class.java))
+        baseContext.startService(Intent(this, MulticastServer::class.java))
 
         //Set up view
         recyclerView = findViewById(R.id.recyclerView)
@@ -67,11 +73,11 @@ class MainActivity: AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         //Start network processes
-        baseContext.startService(Intent(MainActivity@this, TCPServer::class.java))
+        baseContext.startService(Intent(this, TCPServer::class.java))
 
         //Find and display my IP address
         val myIpAddressTextView: TextView = headerView.findViewById(R.id.nav_ip)
-        val myIpAddressText = Utils.getMyIpAddress()
+        val myIpAddressText = MISCUtils.getMyIpAddress()
         myIpAddressTextView.text = myIpAddressText
 
 
@@ -87,7 +93,7 @@ class MainActivity: AppCompatActivity() {
 
         //Logged in as text
         val loggedInAsText: TextView = headerView.findViewById(R.id.nav_username)
-        loggedInAsText.text = Utils.getCurrentUserString(this)
+        loggedInAsText.text = MISCUtils.getCurrentUserString(this)
 
 
         navigationView.setNavigationItemSelectedListener { menuItem ->
@@ -119,7 +125,7 @@ class MainActivity: AppCompatActivity() {
     }
 
     private fun handleRegister() {
-        if(!Utils.isLoggedIn(this)) {
+        if(!MISCUtils.isLoggedIn(this)) {
             val myIntent = Intent(this@MainActivity, SignUpActivity::class.java)
             this@MainActivity.startActivity(myIntent)
         }else {
@@ -131,7 +137,7 @@ class MainActivity: AppCompatActivity() {
     }
 
     private fun handleLogIn() {
-        if(!Utils.isLoggedIn(this)) {
+        if(!MISCUtils.isLoggedIn(this)) {
             val myIntent = Intent(this@MainActivity, LogInActivity::class.java)
             this@MainActivity.startActivity(myIntent)
         }else {
@@ -173,10 +179,10 @@ class MainActivity: AppCompatActivity() {
     }
 
     private fun deleteStoredData() {
-        Utils.deleteStoredCertificate(this)
-        Utils.deleteStoredPrivateKey(this)
+        PKIUtils.deleteStoredCertificate(this)
+        PKIUtils.deleteStoredPrivateKey(this)
         AESUtils.deleteAllStoredKeys(this)
-        Utils.deleteCache(this)
+        MISCUtils.deleteCache(this)
         Toast.makeText(
             baseContext, "Stored certificate, private key and symmetric keys deleted",
             Toast.LENGTH_SHORT

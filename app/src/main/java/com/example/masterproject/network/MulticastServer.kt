@@ -1,9 +1,13 @@
-package com.example.masterproject
+package com.example.masterproject.network
 
 import android.app.Service
 import android.content.Intent
 import android.os.IBinder
 import android.util.Log
+import com.example.masterproject.utils.Constants
+import com.example.masterproject.ledger.RegistrationHandler
+import com.example.masterproject.ledger.Ledger
+import com.example.masterproject.ledger.LedgerEntry
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -19,7 +23,7 @@ class MulticastServer: Service() {
     private val socket: MulticastSocket? = null
     private val address = InetAddress.getByName(Constants.multicastGroup);
 
-    private val registrationHandler: RegistrationHandler = RegistrationHandler(MulticastServer@this)
+    private val registrationHandler: RegistrationHandler = RegistrationHandler()
     private val client: MulticastClient = MulticastClient()
 
     private fun listenForData(): MutableList<LedgerEntry>? {

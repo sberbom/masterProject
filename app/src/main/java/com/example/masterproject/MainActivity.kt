@@ -1,5 +1,6 @@
 package com.example.masterproject
 
+import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -7,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import org.bouncycastle.jce.provider.BouncyCastleProvider
 import java.security.Security
 import android.content.Intent
+import android.util.Log
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
@@ -83,35 +85,24 @@ class MainActivity: AppCompatActivity() {
         }
 
         //Logged in as text
-        if (auth.currentUser != null) {
-            val loggedInAsText: TextView = headerView.findViewById(R.id.nav_username)
-            loggedInAsText.text = auth.currentUser!!.email
-        }
+        val loggedInAsText: TextView = headerView.findViewById(R.id.nav_username)
+        loggedInAsText.text = Utils.getCurrentUserString(this)
+
 
         navigationView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.nav_login -> {
-                    val myIntent = Intent(this@MainActivity, LogInActivity::class.java)
-                    this@MainActivity.startActivity(myIntent)
+                    handleLogIn()
                     drawer.closeDrawer(GravityCompat.START)
                     false
                 }
                 R.id.nav_register -> {
-                    val myIntent = Intent(this@MainActivity, SignUpActivity::class.java)
-                    this@MainActivity.startActivity(myIntent)
+                    handleRegister()
                     drawer.closeDrawer(GravityCompat.START)
                     false
                 }
                 R.id.nav_logout -> {
-                    if (auth.currentUser != null) {
-                        auth.signOut()
-                        val loggedInAsText: TextView = headerView.findViewById(R.id.nav_username)
-                        loggedInAsText.text = "Not logged in"
-                    }
-                    Toast.makeText(
-                        baseContext, "Logged out",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    handleLogOut(headerView)
                     drawer.closeDrawer(GravityCompat.START)
                     false
                 }
@@ -124,6 +115,42 @@ class MainActivity: AppCompatActivity() {
             }
         }
 
+    }
+
+    private fun handleRegister() {
+        if(!Utils.isLoggedIn(this)) {
+            val myIntent = Intent(this@MainActivity, SignUpActivity::class.java)
+            this@MainActivity.startActivity(myIntent)
+        }else {
+            Toast.makeText(
+                baseContext, "Please log out",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+    }
+
+    private fun handleLogIn() {
+        if(!Utils.isLoggedIn(this)) {
+            val myIntent = Intent(this@MainActivity, LogInActivity::class.java)
+            this@MainActivity.startActivity(myIntent)
+        }else {
+            Toast.makeText(
+                baseContext, "Please log out",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+    }
+
+    private fun handleLogOut(headerView: View) {
+        if (auth.currentUser != null) {
+            auth.signOut()
+            val loggedInAsText: TextView = headerView.findViewById(R.id.nav_username)
+            loggedInAsText.text = getString(R.string.not_logged_in)
+        }
+        Toast.makeText(
+            baseContext, "Logged out",
+            Toast.LENGTH_SHORT
+        ).show()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

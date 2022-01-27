@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -46,13 +47,21 @@ class DeviceAdapter(private val s1: Array<LedgerEntry>, private val context: Con
             holder.certificateIndication.setImageResource(R.drawable.red)
         }
         holder.startChatButton.setOnClickListener {
-            val intent = Intent(context, ChatActivity::class.java)
-            intent.putExtra("userName", ledgerEntry.userName) //Optional parameters
-            intent.putExtra("staringNewConnection", true)
-            context.startActivity(intent)
-            GlobalScope.launch(Dispatchers.IO) {
-                TCPClient.sendMessage(ledgerEntry, Constants.CLIENT_HELLO)
+            if(Utils.isLoggedIn(context)){
+                val intent = Intent(context, ChatActivity::class.java)
+                intent.putExtra("userName", ledgerEntry.userName) //Optional parameters
+                intent.putExtra("staringNewConnection", true)
+                context.startActivity(intent)
+                GlobalScope.launch(Dispatchers.IO) {
+                    TCPClient.sendMessage(ledgerEntry, Constants.CLIENT_HELLO)
+                }
+            } else {
+                Toast.makeText(
+                    context, "Please log in or register before sending messages",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
+
         }
     }
 

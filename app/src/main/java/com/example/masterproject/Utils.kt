@@ -4,6 +4,9 @@ import android.content.Context
 import android.system.Os.bind
 import android.text.TextUtils
 import android.util.Log
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import org.bouncycastle.asn1.x500.X500Name
 import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo
 import java.security.*
@@ -87,6 +90,10 @@ class Utils {
                 Log.w("STORED CERTIFICATE", "No stored certificate")
                 return null
             }
+        }
+
+        fun getPrivateKey(context: Context): PrivateKey? {
+            return privateKey ?: fetchStoredPrivateKey(context)
         }
 
         fun privateKeyToString(key: PrivateKey): String {
@@ -302,6 +309,19 @@ class Utils {
             } else {
                 false
             }
+            
+        fun getCurrentUserString(context: Context): String {
+            if (Firebase.auth.currentUser != null) {
+                return Firebase.auth.currentUser!!.email!!
+            }
+            else if(fetchStoredCertificate(context) != null){
+                return getUsernameFromCertificate(fetchStoredCertificate(context)!!)
+            }
+            return "Not logged in"
+        }
+
+        fun isLoggedIn(context: Context): Boolean {
+            return (Firebase.auth.currentUser != null || fetchStoredCertificate(context) != null)
         }
     }
 }

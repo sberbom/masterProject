@@ -24,7 +24,7 @@ class ChatActivity: AppCompatActivity() {
         val isStartingConnection = intent.getBooleanExtra("staringNewConnection", false)
         val ledgerEntry = Ledger.getLedgerEntry(userName!!)
 
-        val currentKey = AESUtils.getEncryptionKey(userName!!)
+        val currentKey = AESUtils.getEncryptionKey(userName!!, this)
         updateAESKeys(userName!!, isStartingConnection, ledgerEntry!!, currentKey)
 
         val tcpServerThread = TCPServer(this)

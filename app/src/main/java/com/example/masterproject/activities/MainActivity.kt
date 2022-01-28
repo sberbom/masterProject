@@ -67,35 +67,19 @@ class MainActivity: AppCompatActivity() {
 
         //Set up view
         recyclerView = findViewById(R.id.recyclerView)
-
-
-        myAdapter = DeviceAdapter(Ledger.availableDevices,this)
+        myAdapter = DeviceAdapter(Ledger.availableDevices)
         recyclerView.adapter = myAdapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-
-
         //Start network processes
         baseContext.startService(Intent(this, TCPServer::class.java))
+
 
         //Find and display my IP address
         val myIpAddressTextView: TextView = headerView.findViewById(R.id.nav_ip)
         val myIpAddressText = MISCUtils.getMyIpAddress()
         myIpAddressTextView.text = myIpAddressText
 
-
-        //Setup available devices button and display
-        /*
-        val updateAvailableDevicesButton: Button = findViewById(R.id.updateaAvailableDevicesButton)
-        updateAvailableDevicesButton.setOnClickListener {
-            recyclerView = findViewById(R.id.recyclerView)
-            myAdapter = DeviceAdapter(Ledger.getFullLedger().toTypedArray(), this)
-            recyclerView.adapter = myAdapter
-            recyclerView.layoutManager = LinearLayoutManager(this)
-            recyclerView.scrollToPosition(myAdapter.itemCount-1)
-        }
-
-         */
 
         //Logged in as text
         val loggedInAsText: TextView = headerView.findViewById(R.id.nav_username)
@@ -110,7 +94,7 @@ class MainActivity: AppCompatActivity() {
                     false
                 }
                 R.id.nav_register -> {
-                    handleRegister()
+                    changeToRegisterView()
                     drawer.closeDrawer(GravityCompat.START)
                     false
                 }
@@ -130,7 +114,7 @@ class MainActivity: AppCompatActivity() {
 
     }
 
-    private fun handleRegister() {
+    private fun changeToRegisterView() {
         if(!MISCUtils.isLoggedIn(this)) {
             val myIntent = Intent(this@MainActivity, SignUpActivity::class.java)
             this@MainActivity.startActivity(myIntent)
@@ -199,13 +183,11 @@ class MainActivity: AppCompatActivity() {
 
     companion object {
         private lateinit var recyclerView: RecyclerView
-        private lateinit var myAdapter: DeviceAdapter
         private val TAG = "MainActivity"
+        private lateinit var myAdapter: DeviceAdapter
 
 
         fun updateAvailableDevices() {
-            Log.d(TAG, "Update available devices called")
-
             myAdapter.notifyDataSetChanged()
             recyclerView.scrollToPosition(myAdapter.itemCount-1)
         }

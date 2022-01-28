@@ -13,6 +13,7 @@ import com.example.masterproject.App
 import com.example.masterproject.R
 import com.example.masterproject.utils.PKIUtils
 import com.example.masterproject.activities.ChatActivity
+import com.example.masterproject.ledger.Ledger
 import com.example.masterproject.ledger.LedgerEntry
 import com.example.masterproject.network.TCPClient
 import com.example.masterproject.network.UnicastMessageTypes
@@ -21,9 +22,12 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class DeviceAdapter(private val s1: MutableList<LedgerEntry>): RecyclerView.Adapter<DeviceAdapter.DeviceViewHolder>()  {
+class DeviceAdapter(private val ledger: MutableList<LedgerEntry>): RecyclerView.Adapter<RecyclerView.ViewHolder>()  {
 
     private val context = App.getAppContext()
+
+    private val SHOW = 0
+    private val HIDE = 1
 
     class DeviceViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val usernameTextView: TextView = itemView.findViewById(R.id.usernameText)
@@ -33,50 +37,66 @@ class DeviceAdapter(private val s1: MutableList<LedgerEntry>): RecyclerView.Adap
         val certificateIndication: ImageView = itemView.findViewById(R.id.certificateIndication)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DeviceViewHolder {
-        val inflater: LayoutInflater = LayoutInflater.from(parent.context)
-        val view: View = inflater.inflate(R.layout.device_info, parent, false)
-        return DeviceViewHolder(view);
+    class EmptyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {}
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        val inflater = LayoutInflater.from(parent.context)
+        val viewHolder = when (viewType) {
+            SHOW -> {
+                val v1: View = inflater.inflate(R.layout.device_info, parent, false)
+                DeviceViewHolder(v1)
+            }
+            else -> {
+                val v2: View = inflater.inflate(R.layout.empty, parent, false)
+                EmptyViewHolder(v2)
+            }
+        }
+        return viewHolder;
     }
 
-    override fun onBindViewHolder(holder: DeviceViewHolder, position: Int) {
-        val ledgerEntry = s1[position]
-        holder.usernameTextView.text = ledgerEntry.userName
-        holder.ipTextView.text = ledgerEntry.ipAddress
-        holder.publicKeyTextView.text = "Certificate hash: ${ledgerEntry.certificate.hashCode()}"
-        if(PKIUtils.isCASignedCertificate(ledgerEntry.certificate)){
-            holder.certificateIndication.setImageResource(R.drawable.green)
-        }
-        else if(PKIUtils.isSelfSignedCertificate(ledgerEntry.certificate)){
-            holder.certificateIndication.setImageResource(R.drawable.yellow)
-        }else {
-            holder.certificateIndication.setImageResource(R.drawable.red)
-        }
-        holder.startChatButton.setOnClickListener {
-            if(context != null && MISCUtils.isLoggedIn()){
-                val intent = Intent(context, ChatActivity::class.java)
-                intent.putExtra("userName", ledgerEntry.userName) //Optional parameters
-                intent.putExtra("staringNewConnection", true)
-                context.startActivity(intent)
-                GlobalScope.launch(Dispatchers.IO) {
-                    TCPClient.sendMessage(ledgerEntry, UnicastMessageTypes.CLIENT_HELLO.toString())
-                }
-            } else {
-                Toast.makeText(
-                    context, "Please log in or register before sending messages",
-                    Toast.LENGTH_SHORT
-                ).show()
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        val ledgerEntry = ledger[position]
+        if (holder is DeviceViewHolder) {
+            holder.usernameTextView.text = ledgerEntry.userName
+            holder.ipTextView.text = ledgerEntry.ipAddress
+            holder.publicKeyTextView.text = "Certificate hash: ${ledgerEntry.certificate.hashCode()}"
+            if(PKIUtils.isCASignedCertificate(ledgerEntry.certificate)){
+                holder.certificateIndication.setImageResource(R.drawable.green)
             }
+            else if(PKIUtils.isSelfSignedCertificate(ledgerEntry.certificate)){
+                holder.certificateIndication.setImageResource(R.drawable.yellow)
+            }else {
+                holder.certificateIndication.setImageResource(R.drawable.red)
+            }
+            holder.startChatButton.setOnClickListener {
+                if(context != null && MISCUtils.isLoggedIn()){
+                    val intent = Intent(context, ChatActivity::class.java)
+                    intent.putExtra("userName", ledgerEntry.userName) //Optional parameters
+                    intent.putExtra("staringNewConnection", true)
+                    context.startActivity(intent)
+                    GlobalScope.launch(Dispatchers.IO) {
+                        TCPClient.sendMessage(ledgerEntry, UnicastMessageTypes.CLIENT_HELLO.toString())
+                    }
+                } else {
+                    Toast.makeText(
+                        context, "Please log in or register before sending messages",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
 
+            }
         }
     }
 
     override fun getItemCount(): Int {
-        return s1.size;
+        return ledger.size;
     }
 
     override fun getItemViewType(position: Int): Int {
-        return super.getItemViewType(position)
+        return if (Ledger.shouldBeRendered(ledger[position])) {
+            SHOW
+        } else{
+            HIDE
+        }
     }
-
 }

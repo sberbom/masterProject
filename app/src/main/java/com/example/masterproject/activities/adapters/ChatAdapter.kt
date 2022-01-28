@@ -24,20 +24,18 @@ class ChatAdapter(private val messages: MutableList<ChatMessage>): RecyclerView.
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):RecyclerView.ViewHolder {
-        val viewHolder: RecyclerView.ViewHolder
         val inflater = LayoutInflater.from(parent.context)
-        when (viewType) {
+        val viewHolder = when (viewType) {
             YOU -> {
                 val v1: View = inflater.inflate(R.layout.you_chat_message, parent, false)
-                viewHolder = YouChatViewHolder(v1)
+                YouChatViewHolder(v1)
             }
             else -> {
                 val v2: View = inflater.inflate(R.layout.other_chat_message, parent, false)
-                viewHolder = OtherChatViewHolder(v2)
+                OtherChatViewHolder(v2)
             }
         }
         return viewHolder
-
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {

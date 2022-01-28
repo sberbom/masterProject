@@ -56,7 +56,7 @@ class MulticastServer: Service() {
         val blockString = networkMessage.payload
         val block = LedgerEntry.parseString(blockString)
         val publicKey = block.certificate.publicKey
-        val isValidSignature = PKIUtils.verifySignature(blockString,networkMessage.signature, publicKey)
+        val isValidSignature = PKIUtils.verifySignature(blockString, networkMessage.signature, publicKey)
         if(isValidSignature) {
             Ledger.addLedgerEntry(block)
         }
@@ -67,7 +67,6 @@ class MulticastServer: Service() {
 
     private fun handleRequestedLedger() {
         Log.d(TAG, "Received request for ledger.")
-        Log.d(TAG, Ledger.getFullLedger().isNotEmpty().toString())
         if (Ledger.getFullLedger().isNotEmpty()) {
             GlobalScope.launch (Dispatchers.IO) {
                 val shouldSendFullLedger = Ledger.shouldSendFullLedger()
@@ -84,20 +83,34 @@ class MulticastServer: Service() {
     //TODO CHECKY SEND CHEK IF RIGHT
     private fun handleFullLedger(networkMessage: NetworkMessage) {
         val ledger = networkMessage.payload
-        Log.d(TAG, "Received full ledger: $ledger")
-        val ledgerWithoutBrackets = ledger.substring(1, ledger.length - 1)
-        if (ledgerWithoutBrackets.isNotEmpty()) {
-            // split between array objects
-            val ledgerArray = ledgerWithoutBrackets.split(", ")
-            val fullLedger: List<LedgerEntry> = ledgerArray.map{ LedgerEntry.parseString(it)}
-            registrationHandler.fullLedgerReceived(fullLedger)
+        val publicKey = Ledger.getLedgerEntry(networkMessage.sender)?.certificate?.publicKey ?: throw Exception("Can not handle full ledger - Could not find public key for user")
+        val isValidSignature = PKIUtils.verifySignature(ledger, networkMessage.signature, publicKey)
+        if(isValidSignature) {
+            Log.d(TAG, "Received full ledger: $ledger")
+            val ledgerWithoutBrackets = ledger.substring(1, ledger.length - 1)
+            if (ledgerWithoutBrackets.isNotEmpty()) {
+                // split between array objects
+                val ledgerArray = ledgerWithoutBrackets.split(", ")
+                val fullLedger: List<LedgerEntry> = ledgerArray.map{ LedgerEntry.parseString(it)}
+                registrationHandler.fullLedgerReceived(fullLedger)
+            }
+        }
+        else {
+            Log.d(TAG, "Can not handle full ledger, signature not valid")
         }
     }
 
     private fun handleHash(networkMessage: NetworkMessage) {
         val hash = networkMessage.payload
-        Log.d(TAG, "Received hash: $hash")
-        registrationHandler.hashOfLedgerReceived(hash)
+        val publicKey = Ledger.getLedgerEntry(networkMessage.sender)?.certificate?.publicKey ?: throw Exception("Can not handle full ledger - Could not find public key for user")
+        val isValidSignature = PKIUtils.verifySignature(hash, networkMessage.signature, publicKey)
+        if(isValidSignature) {
+            Log.d(TAG, "Received hash: $hash")
+            registrationHandler.hashOfLedgerReceived(hash)
+        }
+        else {
+            Log.d(TAG, "Can not handle full hash, signature not valid")
+        }
     }
 
     override fun onBind(intent: Intent?): IBinder? {

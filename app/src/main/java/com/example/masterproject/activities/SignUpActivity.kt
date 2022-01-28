@@ -8,17 +8,20 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import com.example.masterproject.*
+import com.example.masterproject.exceptions.InvalidEmailException
+import com.example.masterproject.exceptions.UsernameTakenException
 import com.example.masterproject.ledger.Ledger
 import com.example.masterproject.ledger.RegistrationHandler
-import com.example.masterproject.ledger.UsernameTakenError
 import com.example.masterproject.network.MulticastClient
 import com.example.masterproject.utils.MISCUtils
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.lang.Exception
+import java.util.*
 
 
 class SignUpActivity: AppCompatActivity() {
@@ -38,8 +41,20 @@ class SignUpActivity: AppCompatActivity() {
         signUpButton.setOnClickListener {
             val emailTextView: TextView = findViewById(R.id.emailInputText)
             val passwordTextView: TextView = findViewById(R.id.passwordInputText)
-            GlobalScope.launch {
-                signUp(emailTextView.text.toString(), passwordTextView.text.toString())
+            GlobalScope.launch(Dispatchers.IO) {
+                try {
+                    signUp(emailTextView.text.toString(), passwordTextView.text.toString())
+                } catch (e: InvalidEmailException) {
+                    Toast.makeText(
+                        baseContext, e.message,
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } catch (e: UsernameTakenException) {
+                    Toast.makeText(
+                        baseContext, e.message,
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
         }
 
@@ -59,53 +74,51 @@ class SignUpActivity: AppCompatActivity() {
     }
 
     private fun signUp(email: String, password: String) {
-        if(MISCUtils.isEmail(email)) {
-            val isOnline = networkIsOnline()
-            if (isOnline) {
-                auth.createUserWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(this) { task ->
-                        if (task.isSuccessful) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d("FIREBASE LOGIN", "createUserWithEmail:success")
-                            val user = auth.currentUser
-                            user!!.sendEmailVerification()
-                            Toast.makeText(
-                                baseContext, "Confirm email and log in",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                            auth.signOut()
-                            returnToMainActivity()
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w("FIREBASE LOGIN", "createUserWithEmail:failure", task.exception)
-                            Toast.makeText(
-                                baseContext, "Authentication failed.",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                        }
-                    }
-            } else {
-                if (RegistrationHandler.getReadyForRegistration()) {
-                    try {
-                        Ledger.createNewBlockFromEmail(email)
-                        GlobalScope.launch {
-                            client.broadcastBlock()
-                            returnToMainActivity()
-                        }
-                    } catch (e: UsernameTakenError){
-                        Toast.makeText(baseContext, "Username already taken.", Toast.LENGTH_SHORT)
-                    }
+        if (!MISCUtils.isEmail(email)) throw InvalidEmailException("The email is not valid.")
+        if (Ledger.getLedgerEntry(email) != null) throw UsernameTakenException("The username is taken.")
+        val isOnline = networkIsOnline()
+        if (isOnline) {
+            onlineRegistration(email, password)
+        } else {
+            offlineRegistration(email)
+        }
+    }
+
+    private fun offlineRegistration(email: String) {
+        if (RegistrationHandler.getReadyForRegistration()) {
+            returnToMainActivity()
+            Ledger.createNewBlockFromEmail(email)
+            GlobalScope.launch(Dispatchers.IO) {
+                client.broadcastBlock()
+            }
+        } else {
+            Toast.makeText(baseContext, "Not ready for registration", Toast.LENGTH_SHORT)
+        }
+    }
+
+    private fun onlineRegistration(email: String, password: String) {
+        auth.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    // Sign in success, update UI with the signed-in user's information
+                    Log.d("FIREBASE LOGIN", "createUserWithEmail:success")
+                    val user = auth.currentUser
+                    user!!.sendEmailVerification()
+                    Toast.makeText(
+                        baseContext, "Confirm email and log in",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    auth.signOut()
+                    returnToMainActivity()
                 } else {
-                    Toast.makeText(baseContext, "Not ready for registration", Toast.LENGTH_SHORT)
+                    // If sign in fails, display a message to the user.
+                    Log.w("FIREBASE LOGIN", "createUserWithEmail:failure", task.exception)
+                    Toast.makeText(
+                        baseContext, "Authentication failed.",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
-        }
-        else{
-            Toast.makeText(
-                baseContext, "Not valid email",
-                Toast.LENGTH_SHORT
-            ).show()
-        }
     }
 
     private fun networkIsOnline(): Boolean {

@@ -11,12 +11,12 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.masterproject.App
 import com.example.masterproject.R
-import com.example.masterproject.utils.PKIUtils
 import com.example.masterproject.activities.ChatActivity
 import com.example.masterproject.ledger.LedgerEntry
 import com.example.masterproject.network.TCPClient
 import com.example.masterproject.network.UnicastMessageTypes
 import com.example.masterproject.utils.MISCUtils
+import com.example.masterproject.utils.PKIUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -57,6 +57,7 @@ class DeviceAdapter(private val s1: MutableList<LedgerEntry>): RecyclerView.Adap
                 val intent = Intent(context, ChatActivity::class.java)
                 intent.putExtra("userName", ledgerEntry.userName) //Optional parameters
                 intent.putExtra("staringNewConnection", true)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK;
                 context.startActivity(intent)
                 GlobalScope.launch(Dispatchers.IO) {
                     TCPClient.sendMessage(ledgerEntry, UnicastMessageTypes.CLIENT_HELLO.toString())

@@ -1,14 +1,15 @@
 package com.example.masterproject.network
 
 import android.util.Log
-import com.example.masterproject.utils.Constants
 import com.example.masterproject.ledger.Ledger
+import com.example.masterproject.types.NetworkMessage
+import com.example.masterproject.utils.Constants
 import com.example.masterproject.utils.MISCUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import org.json.JSONObject
-import java.lang.Exception
-import java.net.*
+import java.net.DatagramPacket
+import java.net.DatagramSocket
+import java.net.InetAddress
 
 class MulticastClient() {
 
@@ -17,10 +18,10 @@ class MulticastClient() {
     private val multicastPort: Int = Constants.multicastPort
 
     private fun sendMulticastData(msg: String): Void? {
-        var addr = InetAddress.getByName(multicastGroup)
+        val address = InetAddress.getByName(multicastGroup)
         try {
-            var serverSocket = DatagramSocket()
-            var msgPacket = DatagramPacket(msg.toByteArray(), msg.toByteArray().size, addr, multicastPort)
+            val serverSocket = DatagramSocket()
+            val msgPacket = DatagramPacket(msg.toByteArray(), msg.toByteArray().size, address, multicastPort)
             serverSocket.send(msgPacket);
             serverSocket.close()
             Log.d(TAG,msg)
@@ -31,38 +32,34 @@ class MulticastClient() {
     }
 
     // TODO: The hash of the full ledger should be sent together with users own block
-    suspend fun broadcastBlock(): Void? {
-        val jsonObject = JSONObject()
-        jsonObject.put("type", BroadcastMessageTypes.BROADCAST_BLOCK)
-        jsonObject.put("block", Ledger.getMyLedgerEntry().toString())
+    suspend fun broadcastBlock() {
+        val block = Ledger.getMyLedgerEntry().toString()
+        val message = NetworkMessage("", block, BroadcastMessageTypes.BROADCAST_BLOCK.toString())
         return withContext(Dispatchers.IO) {
-            sendMulticastData(jsonObject.toString())
+            sendMulticastData(message.toString())
         }
     }
 
-    suspend fun requestLedger(): Void? {
-        val jsonObject = JSONObject()
-        jsonObject.put("type", BroadcastMessageTypes.REQUEST_LEDGER)
+    suspend fun requestLedger() {
+        val message = NetworkMessage("", "", BroadcastMessageTypes.REQUEST_LEDGER.toString())
         return withContext(Dispatchers.IO) {
-            sendMulticastData(jsonObject.toString())
+            sendMulticastData(message.toString())
         }
     }
 
-    suspend fun sendLedger(): Void? {
-        val jsonObject = JSONObject()
-        jsonObject.put("type", BroadcastMessageTypes.FULL_LEDGER)
-        jsonObject.put("ledger", Ledger.getFullLedger().map {it.toString()})
+    suspend fun sendLedger() {
+        val ledger = Ledger.getFullLedger().map {it.toString()}.toString()
+        val message = NetworkMessage("", ledger, BroadcastMessageTypes.FULL_LEDGER.toString())
         return withContext(Dispatchers.IO) {
-            sendMulticastData(jsonObject.toString())
+            sendMulticastData(message.toString())
         }
     }
 
-    suspend fun sendHash(): Void? {
-        val jsonObject = JSONObject()
-        jsonObject.put("type", BroadcastMessageTypes.LEDGER_HASH)
-        jsonObject.put("hash", MISCUtils.hashString(Ledger.toString()))
+    suspend fun sendHash() {
+        val hash = MISCUtils.hashString(Ledger.toString())
+        val message = NetworkMessage("", hash, BroadcastMessageTypes.LEDGER_HASH.toString())
         return withContext(Dispatchers.IO) {
-            sendMulticastData(jsonObject.toString())
+            sendMulticastData(message.toString())
         }
     }
 

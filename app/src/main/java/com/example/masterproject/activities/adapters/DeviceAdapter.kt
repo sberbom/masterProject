@@ -53,7 +53,7 @@ class DeviceAdapter(private val s1: MutableList<LedgerEntry>): RecyclerView.Adap
             holder.certificateIndication.setImageResource(R.drawable.red)
         }
         holder.startChatButton.setOnClickListener {
-            if(context != null && MISCUtils.isLoggedIn(context)){
+            if(context != null && MISCUtils.isLoggedIn()){
                 val intent = Intent(context, ChatActivity::class.java)
                 intent.putExtra("userName", ledgerEntry.userName) //Optional parameters
                 intent.putExtra("staringNewConnection", true)
@@ -74,4 +74,9 @@ class DeviceAdapter(private val s1: MutableList<LedgerEntry>): RecyclerView.Adap
     override fun getItemCount(): Int {
         return s1.size;
     }
+
+    override fun getItemViewType(position: Int): Int {
+        return super.getItemViewType(position)
+    }
+
 }

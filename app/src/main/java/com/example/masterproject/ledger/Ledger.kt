@@ -14,7 +14,7 @@ import java.lang.Exception
 class Ledger {
 
     companion object {
-        var availableDevices: MutableList<LedgerEntry> = mutableListOf();
+        var availableDevices: MutableList<LedgerEntry> = mutableListOf()
         private const val TAG = "LedgerEntry"
         private var myLedgerEntry: LedgerEntry? = null
 
@@ -107,7 +107,7 @@ class Ledger {
             // TODO: handle if height is not correct
             val myLedgerEntry = myLedgerEntry
             if (isValidNewBlock(newBlock)) {
-                if (myLedgerEntry != null && (newBlock.userName == myLedgerEntry.userName)) {
+                if (myLedgerEntry != null && !LedgerEntry.isEqual(myLedgerEntry, newBlock) && (newBlock.userName == myLedgerEntry.userName)) {
                     handleLosingUsername()
                 }
                 Log.d(TAG, "${newBlock.userName} added to ledger")
@@ -127,7 +127,8 @@ class Ledger {
                 availableDevices.sortBy { it.height }
                 Handler(Looper.getMainLooper()).post {
                     MainActivity.updateAvailableDevices()
-                }            }
+                }
+            }
         }
 
         fun shouldSendFullLedger(): Boolean {
@@ -177,11 +178,13 @@ class Ledger {
             myLedgerEntry = null
             Log.d(TAG, "Your ledger entry has been overwritten due to username conflict.")
             val context = App.getAppContext()
-            Toast.makeText(
-                context,
-                "Someone with valid certificate has claimed your username. Please register again.",
-                Toast.LENGTH_SHORT
-            ).show()
+            Handler(Looper.getMainLooper()).post {
+                Toast.makeText(
+                    context,
+                    "Someone with valid certificate has claimed your username. Please register again.",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
         }
 
         private fun isValidNewBlock(newBlock: LedgerEntry): Boolean {

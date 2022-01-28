@@ -117,11 +117,8 @@ class Ledger {
             val caSignedCertificates = availableDevices.filter { PKIUtils.isCASignedCertificate(it.certificate) }.map { it.certificate.toString() }
             // TODO: Check that takeLast does not alter arrays
             return when {
-                caSignedCertificates.size > 1 -> {
-                    caSignedCertificates.takeLast(2).contains(myCertificateString)
-                }
                 caSignedCertificates.isNotEmpty() -> {
-                    caSignedCertificates.last() == myCertificateString || availableDevices.last().certificate.toString() == myCertificateString
+                    caSignedCertificates.takeLast(2).contains(myCertificateString)
                 }
                 else -> {
                     availableDevices.takeLast(2).map { it.certificate.toString() }

@@ -245,5 +245,20 @@ class PKIUtils {
             val keyFactory = KeyFactory.getInstance("EC")
             return keyFactory.generatePublic(publicKeySpec)
         }
+
+        fun signMessage(message: String, privateKey: PrivateKey): String {
+            val signatureBuilder = Signature.getInstance("SHA1withECDSA")
+            signatureBuilder.initSign(privateKey)
+            signatureBuilder.update(message.toByteArray())
+            return Base64.getEncoder().encodeToString(signatureBuilder.sign())
+        }
+
+        fun verifySignature(message: String, signature: String, publicKey: PublicKey): Boolean {
+            val signatureBuilder = Signature.getInstance("SHA1withECDSA")
+            signatureBuilder.initVerify(publicKey)
+            signatureBuilder.update(message.toByteArray())
+            return signatureBuilder.verify(Base64.getDecoder().decode(signature))
+
+        }
     }
 }

@@ -9,6 +9,7 @@ import com.example.masterproject.ledger.LedgerEntry
 import com.example.masterproject.ledger.RegistrationHandler
 import com.example.masterproject.types.NetworkMessage
 import com.example.masterproject.utils.Constants
+import com.example.masterproject.utils.PKIUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -54,8 +55,14 @@ class MulticastServer: Service() {
     private fun handleBroadcastBlock(networkMessage: NetworkMessage) {
         val blockString = networkMessage.payload
         val block = LedgerEntry.parseString(blockString)
-        Log.d(TAG, "Received broadcast block: $block")
-        Ledger.addLedgerEntry(block)
+        val publicKey = block.certificate.publicKey
+        val isValidSignature = PKIUtils.verifySignature(blockString,networkMessage.signature, publicKey)
+        if(isValidSignature) {
+            Ledger.addLedgerEntry(block)
+        }
+        else {
+            Log.d(TAG, "Could not add block, signature not valid")
+        }
     }
 
     private fun handleRequestedLedger() {

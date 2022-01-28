@@ -21,7 +21,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class DeviceAdapter(private val s1: Array<LedgerEntry>, private val context: Context): RecyclerView.Adapter<DeviceAdapter.DeviceViewHolder>()  {
+class DeviceAdapter(private val s1: MutableList<LedgerEntry>, private val context: Context): RecyclerView.Adapter<DeviceAdapter.DeviceViewHolder>()  {
 
     private val tcpClient = TCPClient()
 

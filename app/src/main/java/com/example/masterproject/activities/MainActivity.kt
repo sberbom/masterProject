@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import org.bouncycastle.jce.provider.BouncyCastleProvider
 import java.security.Security
 import android.content.Intent
+import android.util.Log
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
@@ -33,11 +34,9 @@ import com.google.android.material.navigation.NavigationView
 
 class MainActivity: AppCompatActivity() {
 
-    private lateinit var recyclerView: RecyclerView
     private lateinit var drawer: DrawerLayout
     private lateinit var auth: FirebaseAuth
 
-    private val TAG = "MainActivity"
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -68,9 +67,13 @@ class MainActivity: AppCompatActivity() {
 
         //Set up view
         recyclerView = findViewById(R.id.recyclerView)
-        var myAdapter = DeviceAdapter(Ledger.getFullLedger().toTypedArray(),this)
+
+
+        myAdapter = DeviceAdapter(Ledger.availableDevices,this)
         recyclerView.adapter = myAdapter
         recyclerView.layoutManager = LinearLayoutManager(this)
+
+
 
         //Start network processes
         baseContext.startService(Intent(this, TCPServer::class.java))
@@ -82,6 +85,7 @@ class MainActivity: AppCompatActivity() {
 
 
         //Setup available devices button and display
+        /*
         val updateAvailableDevicesButton: Button = findViewById(R.id.updateaAvailableDevicesButton)
         updateAvailableDevicesButton.setOnClickListener {
             recyclerView = findViewById(R.id.recyclerView)
@@ -90,6 +94,8 @@ class MainActivity: AppCompatActivity() {
             recyclerView.layoutManager = LinearLayoutManager(this)
             recyclerView.scrollToPosition(myAdapter.itemCount-1)
         }
+
+         */
 
         //Logged in as text
         val loggedInAsText: TextView = headerView.findViewById(R.id.nav_username)
@@ -187,6 +193,23 @@ class MainActivity: AppCompatActivity() {
             baseContext, "Stored certificate, private key and symmetric keys deleted",
             Toast.LENGTH_SHORT
         ).show()
+    }
+
+
+
+    companion object {
+        private lateinit var recyclerView: RecyclerView
+        private lateinit var myAdapter: DeviceAdapter
+        private val TAG = "MainActivity"
+
+
+        fun updateAvailableDevices() {
+            Log.d(TAG, "Update available devices called")
+
+            myAdapter.notifyDataSetChanged()
+            recyclerView.scrollToPosition(myAdapter.itemCount-1)
+        }
+
     }
 
 }

@@ -72,6 +72,7 @@ class DeviceAdapter(private val ledger: MutableList<LedgerEntry>): RecyclerView.
                 if(context != null && MISCUtils.isLoggedIn()){
                     val intent = Intent(context, ChatActivity::class.java)
                     intent.putExtra("userName", ledgerEntry.userName) //Optional parameters
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
                     intent.putExtra("staringNewConnection", true)
                     context.startActivity(intent)
                     GlobalScope.launch(Dispatchers.IO) {

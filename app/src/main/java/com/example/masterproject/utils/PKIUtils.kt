@@ -38,7 +38,7 @@ class PKIUtils {
         var privateKey: PrivateKey? = null
         private var selfSignedX509Certificate: X509Certificate? = null
         private var CASignedX509Certificate: X509Certificate? = null
-        private const val TAG: String = "Utils"
+        private const val TAG: String = "PKIUtils"
         var CAPublicKey: PublicKey =
             stringToEncryptionKey("MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEnbbrYnAGkcNYD72o/H7jP2z91bQyA1B8GwUzsV0NG34RhpJ6xJMLxQT0kXwnSunXz6wVndN6O/6ZDWymVCk3nw==")
 
@@ -123,14 +123,12 @@ class PKIUtils {
                 certificateIssuer,
                 publicKeyInfo
             )
-
             val privateKeyInfo = PrivateKeyInfo.getInstance(keyPair.private.encoded)
+            // This function takes a lot of time
             val contentSigner = JcaContentSignerBuilder("SHA256withECDSA").build(
                 JcaPEMKeyConverter().getPrivateKey(privateKeyInfo)
             )
-
             val holder: X509CertificateHolder = certificateBuilder.build(contentSigner)
-
             val certificate = JcaX509CertificateConverter().getCertificate(holder)
             selfSignedX509Certificate = certificate
             return certificate

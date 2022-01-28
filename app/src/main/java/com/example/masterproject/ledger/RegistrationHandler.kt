@@ -68,10 +68,15 @@ class RegistrationHandler {
         if (Ledger.getMyLedgerEntry() == null) {
             readyForRegistration = true
             Log.d(TAG, "Registration started")
-            val myLedgerEntry = Ledger.createNewBlockFromStoredCertificate()
-            if (myLedgerEntry != null) {
-                GlobalScope.launch {
-                    client.broadcastBlock()
+            val myExistingBlock = Ledger.existingLedgerEntryFromStoredCertificate()
+            if (myExistingBlock != null) {
+                Ledger.setMyLedgerEntry(myExistingBlock)
+            } else {
+                val myLedgerEntry = Ledger.createNewBlockFromStoredCertificate()
+                if (myLedgerEntry != null) {
+                    GlobalScope.launch {
+                        client.broadcastBlock()
+                    }
                 }
             }
         }

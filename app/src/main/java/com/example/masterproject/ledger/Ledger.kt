@@ -66,6 +66,23 @@ class Ledger {
             return null
         }
 
+        /**
+         * @description: Return this users entry in the existing ledger if the user
+         *                has a stored certificate that is part of the ledger.
+         *                Returns null if not.
+         * */
+        fun existingLedgerEntryFromStoredCertificate(): LedgerEntry? {
+            val context = App.getAppContext()
+            if (context != null) {
+                val storedCertificate = PKIUtils.fetchStoredCertificate(context)
+                if (storedCertificate != null) {
+                    Log.d(TAG, "User is already in the ledger")
+                    return availableDevices.find { it.certificate.toString() == storedCertificate.toString() }
+                }
+            }
+            return null
+        }
+
         fun getLedgerEntry(userName: String): LedgerEntry? {
             for(entry in availableDevices){
                 if(entry.userName == userName){

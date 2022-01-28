@@ -4,8 +4,8 @@ import android.os.Handler
 import android.os.Looper
 import android.util.Log
 import com.example.masterproject.App
-import com.example.masterproject.activities.ChatActivity
 import com.example.masterproject.activities.MainActivity
+import com.example.masterproject.exceptions.UsernameTakenException
 import com.example.masterproject.utils.MISCUtils
 import com.example.masterproject.utils.PKIUtils
 import java.lang.Exception
@@ -37,7 +37,7 @@ class Ledger {
                     e.printStackTrace()
                 }
             } else {
-                throw UsernameTakenError("Username is already in use.")
+                throw UsernameTakenException("Username is already in use.")
             }
         }
 

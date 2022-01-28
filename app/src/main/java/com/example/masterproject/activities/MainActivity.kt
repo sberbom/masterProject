@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import org.bouncycastle.jce.provider.BouncyCastleProvider
 import java.security.Security
 import android.content.Intent
+import android.util.Log
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
@@ -33,11 +34,9 @@ import com.google.android.material.navigation.NavigationView
 
 class MainActivity: AppCompatActivity() {
 
-    private lateinit var recyclerView: RecyclerView
     private lateinit var drawer: DrawerLayout
     private lateinit var auth: FirebaseAuth
 
-    private val TAG = "MainActivity"
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -68,28 +67,19 @@ class MainActivity: AppCompatActivity() {
 
         //Set up view
         recyclerView = findViewById(R.id.recyclerView)
-        var myAdapter = DeviceAdapter(Ledger.getFullLedger().toTypedArray(),this)
+        myAdapter = DeviceAdapter(Ledger.availableDevices)
         recyclerView.adapter = myAdapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         //Start network processes
         baseContext.startService(Intent(this, TCPServer::class.java))
 
+
         //Find and display my IP address
         val myIpAddressTextView: TextView = headerView.findViewById(R.id.nav_ip)
         val myIpAddressText = MISCUtils.getMyIpAddress()
         myIpAddressTextView.text = myIpAddressText
 
-
-        //Setup available devices button and display
-        val updateAvailableDevicesButton: Button = findViewById(R.id.updateaAvailableDevicesButton)
-        updateAvailableDevicesButton.setOnClickListener {
-            recyclerView = findViewById(R.id.recyclerView)
-            myAdapter = DeviceAdapter(Ledger.getFullLedger().toTypedArray(), this)
-            recyclerView.adapter = myAdapter
-            recyclerView.layoutManager = LinearLayoutManager(this)
-            recyclerView.scrollToPosition(myAdapter.itemCount-1)
-        }
 
         //Logged in as text
         val loggedInAsText: TextView = headerView.findViewById(R.id.nav_username)
@@ -104,7 +94,7 @@ class MainActivity: AppCompatActivity() {
                     false
                 }
                 R.id.nav_register -> {
-                    handleRegister()
+                    changeToRegisterView()
                     drawer.closeDrawer(GravityCompat.START)
                     false
                 }
@@ -124,7 +114,7 @@ class MainActivity: AppCompatActivity() {
 
     }
 
-    private fun handleRegister() {
+    private fun changeToRegisterView() {
         if(!MISCUtils.isLoggedIn(this)) {
             val myIntent = Intent(this@MainActivity, SignUpActivity::class.java)
             this@MainActivity.startActivity(myIntent)
@@ -187,6 +177,21 @@ class MainActivity: AppCompatActivity() {
             baseContext, "Stored certificate, private key and symmetric keys deleted",
             Toast.LENGTH_SHORT
         ).show()
+    }
+
+
+
+    companion object {
+        private lateinit var recyclerView: RecyclerView
+        private val TAG = "MainActivity"
+        private lateinit var myAdapter: DeviceAdapter
+
+
+        fun updateAvailableDevices() {
+            myAdapter.notifyDataSetChanged()
+            recyclerView.scrollToPosition(myAdapter.itemCount-1)
+        }
+
     }
 
 }

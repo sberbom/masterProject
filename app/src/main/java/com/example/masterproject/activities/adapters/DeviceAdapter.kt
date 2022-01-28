@@ -1,6 +1,5 @@
 package com.example.masterproject.activities.adapters
 
-import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.example.masterproject.App
 import com.example.masterproject.R
 import com.example.masterproject.utils.PKIUtils
 import com.example.masterproject.activities.ChatActivity
@@ -21,9 +21,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class DeviceAdapter(private val s1: Array<LedgerEntry>, private val context: Context): RecyclerView.Adapter<DeviceAdapter.DeviceViewHolder>()  {
+class DeviceAdapter(private val s1: MutableList<LedgerEntry>): RecyclerView.Adapter<DeviceAdapter.DeviceViewHolder>()  {
 
-    private val tcpClient = TCPClient()
+    private val context = App.getAppContext()
 
     class DeviceViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val usernameTextView: TextView = itemView.findViewById(R.id.usernameText)
@@ -42,7 +42,7 @@ class DeviceAdapter(private val s1: Array<LedgerEntry>, private val context: Con
     override fun onBindViewHolder(holder: DeviceViewHolder, position: Int) {
         val ledgerEntry = s1[position]
         holder.usernameTextView.text = ledgerEntry.userName
-        holder.ipTextView.text = "${ledgerEntry.ipAddress}"
+        holder.ipTextView.text = ledgerEntry.ipAddress
         holder.publicKeyTextView.text = "Certificate hash: ${ledgerEntry.certificate.hashCode()}"
         if(PKIUtils.isCASignedCertificate(ledgerEntry.certificate)){
             holder.certificateIndication.setImageResource(R.drawable.green)
@@ -53,7 +53,7 @@ class DeviceAdapter(private val s1: Array<LedgerEntry>, private val context: Con
             holder.certificateIndication.setImageResource(R.drawable.red)
         }
         holder.startChatButton.setOnClickListener {
-            if(MISCUtils.isLoggedIn(context)){
+            if(context != null && MISCUtils.isLoggedIn(context)){
                 val intent = Intent(context, ChatActivity::class.java)
                 intent.putExtra("userName", ledgerEntry.userName) //Optional parameters
                 intent.putExtra("staringNewConnection", true)

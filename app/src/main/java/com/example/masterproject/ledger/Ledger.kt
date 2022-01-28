@@ -1,7 +1,11 @@
 package com.example.masterproject.ledger
 
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import com.example.masterproject.App
+import com.example.masterproject.activities.ChatActivity
+import com.example.masterproject.activities.MainActivity
 import com.example.masterproject.utils.MISCUtils
 import com.example.masterproject.utils.PKIUtils
 import java.lang.Exception
@@ -9,7 +13,7 @@ import java.lang.Exception
 class Ledger {
 
     companion object {
-        private var availableDevices: MutableList<LedgerEntry> = mutableListOf();
+        var availableDevices: MutableList<LedgerEntry> = mutableListOf();
         private const val TAG = "LedgerEntry"
         private var myLedgerEntry: LedgerEntry? = null
 
@@ -26,6 +30,9 @@ class Ledger {
                     val myLedgerEntry = LedgerEntry(PKIUtils.getCertificate()!!, email, MISCUtils.getMyIpAddress()!!, newPreviousHash, newBlockHeight)
                     setMyLedgerEntry(myLedgerEntry)
                     availableDevices.add(myLedgerEntry)
+                    Handler(Looper.getMainLooper()).post {
+                        MainActivity.updateAvailableDevices()
+                    }
                 } catch (e: Exception) {
                     e.printStackTrace()
                 }
@@ -81,7 +88,9 @@ class Ledger {
             if (isValidNewBlock(ledgerEntry)) {
                 Log.d(TAG, "${ledgerEntry.userName} added to ledger")
                 availableDevices.add(ledgerEntry)
-            } else {
+                Handler(Looper.getMainLooper()).post {
+                    MainActivity.updateAvailableDevices()
+                }            } else {
                 Log.d(TAG, "${ledgerEntry.userName} not added to ledger")
             }
         }
@@ -91,7 +100,9 @@ class Ledger {
                 Log.d(TAG, "Ledger set to ${ledger.toString()}")
                 availableDevices.addAll(ledger)
                 availableDevices.sortBy { it.height }
-            }
+                Handler(Looper.getMainLooper()).post {
+                    MainActivity.updateAvailableDevices()
+                }            }
         }
 
         fun shouldSendFullLedger(): Boolean {

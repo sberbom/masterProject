@@ -31,8 +31,6 @@ class SignUpActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //val intent = intent
-        //val value = intent.getStringExtra("key") //if it's a string you stored.
         setContentView(R.layout.activity_sign_up)
         auth = Firebase.auth
 
@@ -127,7 +125,6 @@ class SignUpActivity: AppCompatActivity() {
 
     private fun returnToMainActivity() {
         val myIntent = Intent(this@SignUpActivity, MainActivity::class.java)
-        //myIntent.putExtra("key", value) //Optional parameters
         this@SignUpActivity.startActivity(myIntent)
     }
 

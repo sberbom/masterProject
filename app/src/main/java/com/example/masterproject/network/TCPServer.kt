@@ -49,7 +49,7 @@ class TCPServer: Service() {
             val ledgerEntry = Ledger.getLedgerEntry(userName)
             when(val readEncrypted = arrOfRead[1]) {
                 UnicastMessageTypes.CLIENT_HELLO.toString() -> changeToChatActivity(ledgerEntry!!)
-                UnicastMessageTypes.KEY_DELEVERY.toString() -> storeNextKey(arrOfRead[2], ledgerEntry!!)
+                UnicastMessageTypes.KEY_DELIVERY.toString() -> storeNextKey(arrOfRead[2], ledgerEntry!!)
                 else -> updateConversationHandler.post(UpdateUIThread(userName, readEncrypted, ledgerEntry!!))
             }
         } catch (e: IOException) {

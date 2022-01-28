@@ -54,7 +54,7 @@ class TCPClient() {
         fun sendKeyDelivery(ledgerEntry: LedgerEntry, nextKey: SecretKey, currentKey: SecretKey) {
             val nextKeyString = AESUtils.keyToString(nextKey)
             val nextKeyEncrypted = AESUtils.symmetricEncryption(nextKeyString, currentKey)
-            sendMessage(ledgerEntry, "${UnicastMessageTypes.KEY_DELEVERY}:://$nextKeyEncrypted")
+            sendMessage(ledgerEntry, "${UnicastMessageTypes.KEY_DELIVERY}:://$nextKeyEncrypted")
         }
     }
 

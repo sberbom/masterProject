@@ -34,14 +34,10 @@ class HTTPClient(private val email: String, private val context: Context): Runna
         val stringReq: StringRequest =
             object : StringRequest(Method.POST, url,
                 Response.Listener { response ->
-                    // response
                     var strResp = response.toString()
                     val certificate = PKIUtils.pemToCertificate(strResp)
                     PKIUtils.setCertificate(certificate)
                     PKIUtils.storeCertificate(certificate, context)
-                    //Utils.myLedgerEntry = LedgerEntry(certificate, Utils.getUsernameFromCertificate(certificate))
-
-                    //Log.d("SIGMUND API", strResp)
                 },
                 Response.ErrorListener { error ->
                     Log.d("SIGMUND API", "error => $error")

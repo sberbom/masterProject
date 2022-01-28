@@ -1,34 +1,25 @@
 package com.example.masterproject.utils
 
 import android.content.Context
-import android.text.TextUtils
 import android.util.Log
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
+import org.bouncycastle.asn1.pkcs.PrivateKeyInfo
 import org.bouncycastle.asn1.x500.X500Name
 import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo
+import org.bouncycastle.cert.X509CertificateHolder
+import org.bouncycastle.cert.X509v1CertificateBuilder
+import org.bouncycastle.cert.jcajce.JcaX509CertificateConverter
+import org.bouncycastle.openssl.jcajce.JcaPEMKeyConverter
+import org.bouncycastle.operator.jcajce.JcaContentSignerBuilder
+import java.io.ByteArrayInputStream
+import java.io.FileNotFoundException
+import java.math.BigInteger
 import java.security.*
+import java.security.cert.CertificateFactory
 import java.security.cert.X509Certificate
+import java.security.spec.PKCS8EncodedKeySpec
 import java.security.spec.X509EncodedKeySpec
 import java.util.*
 import javax.crypto.Cipher
-import org.bouncycastle.cert.X509v1CertificateBuilder
-import java.math.BigInteger
-import org.bouncycastle.cert.jcajce.JcaX509CertificateConverter
-import org.bouncycastle.cert.X509CertificateHolder
-import org.bouncycastle.operator.DefaultDigestAlgorithmIdentifierFinder
-import org.bouncycastle.operator.DefaultSignatureAlgorithmIdentifierFinder
-import java.io.ByteArrayInputStream
-import java.security.cert.CertificateFactory
-import org.bouncycastle.asn1.pkcs.PrivateKeyInfo
-import org.bouncycastle.openssl.jcajce.JcaPEMKeyConverter
-import org.bouncycastle.operator.jcajce.JcaContentSignerBuilder
-import java.io.FileNotFoundException
-import java.lang.Error
-import java.net.*
-import java.security.spec.PKCS8EncodedKeySpec
-import java.io.File
-import java.lang.Exception
 
 
 class PKIUtils {
@@ -135,17 +126,29 @@ class PKIUtils {
         }
 
         private fun isValidCACertificate(certificate: X509Certificate): Boolean {
-            try {
+            return try {
                 certificate.verify(CAPublicKey)
-            } catch (e: Error) {
-                Log.w("CA Certifiate", e.stackTraceToString())
-                return false
+                true
+            } catch (e: Exception) {
+                Log.w(TAG, "INVALID CA SIGNATURE ON CERTIFICATE")
+                e.printStackTrace()
+                false
             }
-            return true
+        }
+
+        private fun isValidSelfSignedCertificate(certificate: X509Certificate): Boolean {
+            return try {
+                certificate.verify(certificate.publicKey)
+                true
+            } catch (e: Error) {
+                Log.w(TAG, "INVALID SELF SIGN SIGNATURE ON CERTIFICATE")
+                e.printStackTrace()
+                false
+            }
         }
 
         fun isSelfSignedCertificate(certificate: X509Certificate): Boolean {
-            return certificate.issuerDN == certificate.subjectDN
+            return certificate.issuerDN == certificate.subjectDN && isValidSelfSignedCertificate(certificate)
         }
 
         fun isCASignedCertificate(certificate: X509Certificate): Boolean {

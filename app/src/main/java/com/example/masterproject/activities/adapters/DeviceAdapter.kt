@@ -57,6 +57,7 @@ class DeviceAdapter(private val s1: MutableList<LedgerEntry>): RecyclerView.Adap
                 val intent = Intent(context, ChatActivity::class.java)
                 intent.putExtra("userName", ledgerEntry.userName) //Optional parameters
                 intent.putExtra("staringNewConnection", true)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
                 context.startActivity(intent)
                 GlobalScope.launch(Dispatchers.IO) {
                     TCPClient.sendMessage(ledgerEntry, UnicastMessageTypes.CLIENT_HELLO.toString())

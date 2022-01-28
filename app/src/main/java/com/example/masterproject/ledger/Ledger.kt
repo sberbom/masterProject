@@ -3,6 +3,7 @@ package com.example.masterproject.ledger
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
+import android.widget.Toast
 import com.example.masterproject.App
 import com.example.masterproject.activities.MainActivity
 import com.example.masterproject.exceptions.UsernameTakenException
@@ -57,8 +58,10 @@ class Ledger {
                         ipAddress,
                         previousBlockHash,
                         blockHeight)
-                    setMyLedgerEntry(myLedgerEntry)
-                    return myLedgerEntry
+                    if (isValidNewBlock(myLedgerEntry)){
+                        setMyLedgerEntry(myLedgerEntry)
+                        return myLedgerEntry
+                    }
                 } else {
                     Log.d(TAG, "No certificate stored.")
                 }
@@ -71,7 +74,7 @@ class Ledger {
          *                has a stored certificate that is part of the ledger.
          *                Returns null if not.
          * */
-        fun existingLedgerEntryFromStoredCertificate(): LedgerEntry? {
+        fun existingBlockFromStoredCertificate(): LedgerEntry? {
             val context = App.getAppContext()
             if (context != null) {
                 val storedCertificate = PKIUtils.fetchStoredCertificate(context)
@@ -100,15 +103,20 @@ class Ledger {
             return availableDevices.maxByOrNull { it.height }
         }
 
-        fun addLedgerEntry(ledgerEntry: LedgerEntry) {
+        fun addLedgerEntry(newBlock: LedgerEntry) {
             // TODO: handle if height is not correct
-            if (isValidNewBlock(ledgerEntry)) {
-                Log.d(TAG, "${ledgerEntry.userName} added to ledger")
-                availableDevices.add(ledgerEntry)
+            val myLedgerEntry = myLedgerEntry
+            if (isValidNewBlock(newBlock)) {
+                if (myLedgerEntry != null && (newBlock.userName == myLedgerEntry.userName)) {
+                    handleLosingUsername()
+                }
+                Log.d(TAG, "${newBlock.userName} added to ledger")
+                availableDevices.add(newBlock)
                 Handler(Looper.getMainLooper()).post {
                     MainActivity.updateAvailableDevices()
-                }            } else {
-                Log.d(TAG, "${ledgerEntry.userName} not added to ledger")
+                }
+            } else {
+                Log.d(TAG, "${newBlock.userName} not added to ledger")
             }
         }
 
@@ -165,13 +173,31 @@ class Ledger {
             return myLedgerEntry
         }
 
+        private fun handleLosingUsername() {
+            myLedgerEntry = null
+            Log.d(TAG, "Your ledger entry has been overwritten due to username conflict.")
+            val context = App.getAppContext()
+            Toast.makeText(
+                context,
+                "Someone with valid certificate has claimed your username. Please register again.",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+
         private fun isValidNewBlock(newBlock: LedgerEntry): Boolean {
-            val existingUserNames = availableDevices.map { it.userName }
-            val userNameAlreadyExists = existingUserNames.contains(newBlock.userName)
+            val canUseUsername = canUseUsername(newBlock)
             val lastBlock = getLastBlock()
             val heightIsCorrect = blockHeightIsCorrect(lastBlock, newBlock)
             val hashIsCorrect = previousHashIsCorrect(lastBlock, newBlock)
-            return LedgerEntry.ledgerEntryIsValid(newBlock) && !userNameAlreadyExists && heightIsCorrect && hashIsCorrect
+            return LedgerEntry.ledgerEntryIsValid(newBlock) && canUseUsername && heightIsCorrect && hashIsCorrect
+        }
+
+        private fun canUseUsername(newBlock: LedgerEntry): Boolean {
+            val isCASigned = PKIUtils.isCASignedCertificate(newBlock.certificate)
+            val certificateAndUsernameCorresponds = PKIUtils.getUsernameFromCertificate(newBlock.certificate) == newBlock.userName
+            val existingUserNames = availableDevices.map { it.userName }
+            val userNameIsUnique = !existingUserNames.contains(newBlock.userName)
+            return (isCASigned && certificateAndUsernameCorresponds) || userNameIsUnique
         }
 
         private fun blockHeightIsCorrect(lastBlock: LedgerEntry?, newBlock: LedgerEntry): Boolean {

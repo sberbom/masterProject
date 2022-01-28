@@ -68,7 +68,7 @@ class RegistrationHandler {
         if (Ledger.getMyLedgerEntry() == null) {
             readyForRegistration = true
             Log.d(TAG, "Registration started")
-            val myExistingBlock = Ledger.existingLedgerEntryFromStoredCertificate()
+            val myExistingBlock = Ledger.existingBlockFromStoredCertificate()
             if (myExistingBlock != null) {
                 Ledger.setMyLedgerEntry(myExistingBlock)
             } else {

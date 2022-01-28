@@ -1,6 +1,7 @@
 package com.example.masterproject.utils
 
 import android.content.Context
+import android.nfc.Tag
 import android.text.TextUtils
 import android.util.Log
 import com.google.firebase.auth.ktx.auth
@@ -38,7 +39,7 @@ class PKIUtils {
         var privateKey: PrivateKey? = null
         private var selfSignedX509Certificate: X509Certificate? = null
         private var CASignedX509Certificate: X509Certificate? = null
-        private const val TAG: String = "Utils"
+        private const val TAG: String = "PKIUtils"
         var CAPublicKey: PublicKey =
             stringToEncryptionKey("MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEnbbrYnAGkcNYD72o/H7jP2z91bQyA1B8GwUzsV0NG34RhpJ6xJMLxQT0kXwnSunXz6wVndN6O/6ZDWymVCk3nw==")
 
@@ -137,17 +138,29 @@ class PKIUtils {
         }
 
         private fun isValidCACertificate(certificate: X509Certificate): Boolean {
-            try {
+            return try {
                 certificate.verify(CAPublicKey)
-            } catch (e: Error) {
-                Log.w("CA Certifiate", e.stackTraceToString())
-                return false
+                true
+            } catch (e: Exception) {
+                Log.w(TAG, "INVALID CA SIGNATURE ON CERTIFICATE")
+                e.printStackTrace()
+                false
             }
-            return true
+        }
+
+        private fun isValidSelfSignedCertificate(certificate: X509Certificate): Boolean {
+            return try {
+                certificate.verify(certificate.publicKey)
+                true
+            } catch (e: Error) {
+                Log.w(TAG, "INVALID SELF SIGN SIGNATURE ON CERTIFICATE")
+                e.printStackTrace()
+                false
+            }
         }
 
         fun isSelfSignedCertificate(certificate: X509Certificate): Boolean {
-            return certificate.issuerDN == certificate.subjectDN
+            return certificate.issuerDN == certificate.subjectDN && isValidSelfSignedCertificate(certificate)
         }
 
         fun isCASignedCertificate(certificate: X509Certificate): Boolean {

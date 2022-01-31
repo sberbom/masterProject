@@ -3,6 +3,8 @@ package com.example.masterproject.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.widget.Button
 import android.widget.TextView
@@ -44,16 +46,17 @@ class SignUpActivity: AppCompatActivity() {
             GlobalScope.launch(Dispatchers.IO) {
                 try {
                     signUp(emailTextView.text.toString(), passwordTextView.text.toString())
-                } catch (e: InvalidEmailException) {
-                    Toast.makeText(
-                        baseContext, e.message,
-                        Toast.LENGTH_SHORT
-                    ).show()
-                } catch (e: UsernameTakenException) {
-                    Toast.makeText(
-                        baseContext, e.message,
-                        Toast.LENGTH_SHORT
-                    ).show()
+                } catch (e: Exception) {
+                    when (e) {
+                        is UsernameTakenException, is InvalidEmailException ->
+                            runOnUiThread(java.lang.Runnable {
+                                Toast.makeText(
+                                    baseContext, e.message,
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            })
+                        else -> throw e
+                    }
                 }
             }
         }
@@ -63,8 +66,7 @@ class SignUpActivity: AppCompatActivity() {
     public override fun onStart() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
-        val currentUser = auth.currentUser
-        if(currentUser != null){
+        if(MISCUtils.isLoggedIn()){
             Toast.makeText(
                 baseContext, "Please log out first",
                 Toast.LENGTH_SHORT

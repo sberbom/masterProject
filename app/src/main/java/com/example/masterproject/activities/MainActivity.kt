@@ -115,7 +115,7 @@ class MainActivity: AppCompatActivity() {
     }
 
     private fun changeToRegisterView() {
-        if(!MISCUtils.isLoggedIn(this)) {
+        if(!MISCUtils.isLoggedIn()) {
             val myIntent = Intent(this@MainActivity, SignUpActivity::class.java)
             this@MainActivity.startActivity(myIntent)
         }else {
@@ -127,7 +127,7 @@ class MainActivity: AppCompatActivity() {
     }
 
     private fun handleLogIn() {
-        if(!MISCUtils.isLoggedIn(this)) {
+        if(!MISCUtils.isLoggedIn()) {
             val myIntent = Intent(this@MainActivity, LogInActivity::class.java)
             this@MainActivity.startActivity(myIntent)
         }else {

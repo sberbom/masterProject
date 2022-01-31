@@ -39,7 +39,6 @@ class MulticastServer: Service() {
 
                 val msgRaw = String(buf, 0, buf.size)
                 val networkMessage = NetworkMessage.decodeNetworkMessage(msgRaw)
-                Log.d(TAG, "MESSAGE RECEIVED: $networkMessage")
                 when (networkMessage.messageType) {
                     BroadcastMessageTypes.BROADCAST_BLOCK.toString() -> handleBroadcastBlock(networkMessage)
                     BroadcastMessageTypes.REQUEST_LEDGER.toString() -> handleRequestedLedger()
@@ -83,20 +82,19 @@ class MulticastServer: Service() {
 
     private fun handleFullLedger(networkMessage: NetworkMessage) {
         val ledger = networkMessage.payload
-        val publicKey = Ledger.getLedgerEntry(networkMessage.sender)?.certificate?.publicKey ?: throw Exception("Can not handle full ledger - Could not find public key for user")
-        val isValidSignature = PKIUtils.verifySignature(ledger, networkMessage.signature, publicKey)
-        if(isValidSignature) {
-            Log.d(TAG, "Received full ledger: $ledger")
-            val ledgerWithoutBrackets = ledger.substring(1, ledger.length - 1)
-            if (ledgerWithoutBrackets.isNotEmpty()) {
-                // split between array objects
-                val ledgerArray = ledgerWithoutBrackets.split(", ")
-                val fullLedger: List<LedgerEntry> = ledgerArray.map{ LedgerEntry.parseString(it)}
+        Log.d(TAG, "Received full ledger: $ledger")
+        val ledgerWithoutBrackets = ledger.substring(1, ledger.length - 1)
+        if (ledgerWithoutBrackets.isNotEmpty()) {
+            // split between array objects
+            val ledgerArray = ledgerWithoutBrackets.split(", ")
+            val fullLedger: List<LedgerEntry> = ledgerArray.map{ LedgerEntry.parseString(it)}
+            val publicKey = fullLedger.find{it.userName == networkMessage.sender}?.certificate?.publicKey ?: throw Exception("Can not handle full ledger - Could not find public key for user")
+            val isValidSignature = PKIUtils.verifySignature(ledger, networkMessage.signature, publicKey)
+            if(isValidSignature) {
                 registrationHandler.fullLedgerReceived(fullLedger)
+            } else {
+                Log.d(TAG, "Can not handle full ledger, signature not valid")
             }
-        }
-        else {
-            Log.d(TAG, "Can not handle full ledger, signature not valid")
         }
     }
 

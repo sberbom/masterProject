@@ -74,7 +74,6 @@ class MulticastServer: Service() {
         }
     }
 
-    //TODO CHECKY SEND CHEK IF RIGHT
     private fun handleFullLedger(networkMessage: NetworkMessage) {
         val ledger = networkMessage.payload
         Log.d(TAG, "Received full ledger: $ledger")

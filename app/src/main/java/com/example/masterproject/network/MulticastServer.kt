@@ -4,15 +4,14 @@ import android.app.Service
 import android.content.Intent
 import android.os.IBinder
 import android.util.Log
-import com.example.masterproject.utils.Constants
-import com.example.masterproject.ledger.RegistrationHandler
 import com.example.masterproject.ledger.Ledger
 import com.example.masterproject.ledger.LedgerEntry
+import com.example.masterproject.ledger.RegistrationHandler
+import com.example.masterproject.types.NetworkMessage
+import com.example.masterproject.utils.Constants
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import org.json.JSONObject
-import java.lang.Exception
 import java.net.DatagramPacket
 import java.net.InetAddress
 import java.net.MulticastSocket
@@ -37,12 +36,13 @@ class MulticastServer: Service() {
                 socket.receive(msgPacket)
 
                 val msgRaw = String(buf, 0, buf.size)
-                val jsonObject = JSONObject(msgRaw)
-                when (jsonObject.getString("type")) {
-                    BroadcastMessageTypes.BROADCAST_BLOCK.toString() -> handleBroadcastBlock(jsonObject)
+                val networkMessage = NetworkMessage.decodeNetworkMessage(msgRaw)
+                Log.d(TAG, "MESSAGE RECEIVED: $networkMessage")
+                when (networkMessage.messageType) {
+                    BroadcastMessageTypes.BROADCAST_BLOCK.toString() -> handleBroadcastBlock(networkMessage)
                     BroadcastMessageTypes.REQUEST_LEDGER.toString() -> handleRequestedLedger()
-                    BroadcastMessageTypes.FULL_LEDGER.toString() -> handleFullLedger(jsonObject)
-                    BroadcastMessageTypes.LEDGER_HASH.toString() -> handleHash(jsonObject)
+                    BroadcastMessageTypes.FULL_LEDGER.toString() -> handleFullLedger(networkMessage)
+                    BroadcastMessageTypes.LEDGER_HASH.toString() -> handleHash(networkMessage)
                 }
             }
         }catch (e: Exception){
@@ -51,8 +51,8 @@ class MulticastServer: Service() {
         return null;
     }
 
-    private fun handleBroadcastBlock(jsonObject: JSONObject) {
-        val blockString = jsonObject.getString("block")
+    private fun handleBroadcastBlock(networkMessage: NetworkMessage) {
+        val blockString = networkMessage.payload
         val block = LedgerEntry.parseString(blockString)
         Log.d(TAG, "Received broadcast block: $block")
         Ledger.addLedgerEntry(block)
@@ -60,6 +60,7 @@ class MulticastServer: Service() {
 
     private fun handleRequestedLedger() {
         Log.d(TAG, "Received request for ledger.")
+        Log.d(TAG, Ledger.getFullLedger().isNotEmpty().toString())
         if (Ledger.getFullLedger().isNotEmpty()) {
             GlobalScope.launch (Dispatchers.IO) {
                 val shouldSendFullLedger = Ledger.shouldSendFullLedger()
@@ -73,8 +74,8 @@ class MulticastServer: Service() {
         }
     }
 
-    private fun handleFullLedger(jsonObject: JSONObject) {
-        val ledger = jsonObject.getString("ledger")
+    private fun handleFullLedger(networkMessage: NetworkMessage) {
+        val ledger = networkMessage.payload
         Log.d(TAG, "Received full ledger: $ledger")
         val ledgerWithoutBrackets = ledger.substring(1, ledger.length - 1)
         if (ledgerWithoutBrackets.isNotEmpty()) {
@@ -85,8 +86,8 @@ class MulticastServer: Service() {
         }
     }
 
-    private fun handleHash(jsonObject: JSONObject) {
-        val hash = jsonObject.getString("hash")
+    private fun handleHash(networkMessage: NetworkMessage) {
+        val hash = networkMessage.payload
         Log.d(TAG, "Received hash: $hash")
         registrationHandler.hashOfLedgerReceived(hash)
     }

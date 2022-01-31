@@ -4,6 +4,7 @@ import android.os.CountDownTimer
 import android.util.Log
 import com.example.masterproject.network.MulticastClient
 import com.example.masterproject.network.MulticastServer
+import com.example.masterproject.utils.PKIUtils
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -11,7 +12,7 @@ class RegistrationHandler {
 
     private var fullLedger: List<LedgerEntry> = listOf()
 
-    private var hashes: MutableList<String> = mutableListOf()
+    private var hashes: MutableList<ReceivedHash> = mutableListOf()
 
     private val client: MulticastClient = MulticastClient()
 
@@ -59,9 +60,9 @@ class RegistrationHandler {
         }
     }
 
-    fun hashOfLedgerReceived(hash: String) {
+    fun hashOfLedgerReceived(receivedHash: ReceivedHash) {
         stopTimer()
-        hashes.add(hash)
+        hashes.add(receivedHash)
     }
 
     private fun startRegistration() {

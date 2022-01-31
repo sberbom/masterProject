@@ -6,6 +6,7 @@ import android.os.IBinder
 import android.util.Log
 import com.example.masterproject.ledger.Ledger
 import com.example.masterproject.ledger.LedgerEntry
+import com.example.masterproject.ledger.ReceivedHash
 import com.example.masterproject.ledger.RegistrationHandler
 import com.example.masterproject.types.NetworkMessage
 import com.example.masterproject.utils.Constants
@@ -100,15 +101,14 @@ class MulticastServer: Service() {
     }
 
     private fun handleHash(networkMessage: NetworkMessage) {
-        val hash = networkMessage.payload
-        val publicKey = Ledger.getLedgerEntry(networkMessage.sender)?.certificate?.publicKey ?: throw Exception("Can not handle full ledger - Could not find public key for user")
-        val isValidSignature = PKIUtils.verifySignature(hash, networkMessage.signature, publicKey)
-        if(isValidSignature) {
-            Log.d(TAG, "Received hash: $hash")
-            registrationHandler.hashOfLedgerReceived(hash)
-        }
-        else {
-            Log.d(TAG, "Can not handle full hash, signature not valid")
+        val receivedHash = ReceivedHash(networkMessage.payload, networkMessage.signature, LedgerEntry.parseString(networkMessage.sender))
+        val publicKey = receivedHash.senderBlock.certificate.publicKey ?: throw Exception("Can not handle full ledger - Could not find public key for user")
+        val isValidSignature = PKIUtils.verifySignature(receivedHash.hash, receivedHash.signature, publicKey)
+        if (isValidSignature) {
+            Log.d(TAG, "Received hash from ${receivedHash.senderBlock.userName}: ${receivedHash.hash}")
+            registrationHandler.hashOfLedgerReceived(receivedHash)
+        } else {
+            Log.d(TAG, "Hash from ${receivedHash.senderBlock.userName} rejected, signature not valid.")
         }
     }
 

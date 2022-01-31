@@ -3,6 +3,7 @@ package com.example.masterproject.utils
 import android.content.Context
 import android.text.TextUtils
 import android.util.Log
+import com.example.masterproject.ledger.Ledger
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import java.io.File
@@ -84,8 +85,8 @@ class MISCUtils {
             return "Not logged in"
         }
 
-        fun isLoggedIn(context: Context): Boolean {
-            return (Firebase.auth.currentUser != null || PKIUtils.fetchStoredCertificate(context) != null)
+        fun isLoggedIn(): Boolean {
+            return (Firebase.auth.currentUser != null || Ledger.getMyLedgerEntry() != null)
         }
 
         fun addYear(date: Date, i: Int): Date {

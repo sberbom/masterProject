@@ -27,7 +27,7 @@ class MulticastServer: Service() {
     private val client: MulticastClient = MulticastClient()
 
     private fun listenForData(): MutableList<LedgerEntry>? {
-        val buf = ByteArray(2048)
+        val buf = ByteArray(512 * 10)
         try{
             val socket = MulticastSocket(Constants.multicastPort);
             socket.joinGroup(address)
@@ -80,7 +80,6 @@ class MulticastServer: Service() {
         }
     }
 
-    //TODO CHECKY SEND CHEK IF RIGHT
     private fun handleFullLedger(networkMessage: NetworkMessage) {
         val ledger = networkMessage.payload
         val publicKey = Ledger.getLedgerEntry(networkMessage.sender)?.certificate?.publicKey ?: throw Exception("Can not handle full ledger - Could not find public key for user")

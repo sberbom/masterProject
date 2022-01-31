@@ -73,9 +73,10 @@ class MulticastClient() {
         if(context == null) throw Exception("Could not broadcast block, context not defined")
         val privateKey = PKIUtils.getPrivateKey(context) ?: throw Exception("Could not broadcast block, private not defined")
 
+        val myBlock = Ledger.getMyLedgerEntry()
         val hash = MISCUtils.hashString(Ledger.toString())
         val signature = PKIUtils.signMessage(hash, privateKey)
-        val message = NetworkMessage("", hash, BroadcastMessageTypes.LEDGER_HASH.toString(), signature)
+        val message = NetworkMessage(myBlock.toString(), hash, BroadcastMessageTypes.LEDGER_HASH.toString(), signature)
         return withContext(Dispatchers.IO) {
             sendMulticastData(message.toString())
         }

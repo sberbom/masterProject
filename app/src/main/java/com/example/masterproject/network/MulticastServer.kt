@@ -6,6 +6,7 @@ import android.os.IBinder
 import android.util.Log
 import com.example.masterproject.ledger.Ledger
 import com.example.masterproject.ledger.LedgerEntry
+import com.example.masterproject.ledger.ReceivedHash
 import com.example.masterproject.ledger.RegistrationHandler
 import com.example.masterproject.types.NetworkMessage
 import com.example.masterproject.utils.Constants
@@ -38,7 +39,6 @@ class MulticastServer: Service() {
 
                 val msgRaw = String(buf, 0, buf.size)
                 val networkMessage = NetworkMessage.decodeNetworkMessage(msgRaw)
-                Log.d(TAG, "MESSAGE RECEIVED: $networkMessage")
                 when (networkMessage.messageType) {
                     BroadcastMessageTypes.BROADCAST_BLOCK.toString() -> handleBroadcastBlock(networkMessage)
                     BroadcastMessageTypes.REQUEST_LEDGER.toString() -> handleRequestedLedger()
@@ -82,33 +82,31 @@ class MulticastServer: Service() {
 
     private fun handleFullLedger(networkMessage: NetworkMessage) {
         val ledger = networkMessage.payload
-        val publicKey = Ledger.getLedgerEntry(networkMessage.sender)?.certificate?.publicKey ?: throw Exception("Can not handle full ledger - Could not find public key for user")
-        val isValidSignature = PKIUtils.verifySignature(ledger, networkMessage.signature, publicKey)
-        if(isValidSignature) {
-            Log.d(TAG, "Received full ledger: $ledger")
-            val ledgerWithoutBrackets = ledger.substring(1, ledger.length - 1)
-            if (ledgerWithoutBrackets.isNotEmpty()) {
-                // split between array objects
-                val ledgerArray = ledgerWithoutBrackets.split(", ")
-                val fullLedger: List<LedgerEntry> = ledgerArray.map{ LedgerEntry.parseString(it)}
+        Log.d(TAG, "Received full ledger: $ledger")
+        val ledgerWithoutBrackets = ledger.substring(1, ledger.length - 1)
+        if (ledgerWithoutBrackets.isNotEmpty()) {
+            // split between array objects
+            val ledgerArray = ledgerWithoutBrackets.split(", ")
+            val fullLedger: List<LedgerEntry> = ledgerArray.map{ LedgerEntry.parseString(it)}
+            val publicKey = fullLedger.find{it.userName == networkMessage.sender}?.certificate?.publicKey ?: throw Exception("Can not handle full ledger - Could not find public key for user")
+            val isValidSignature = PKIUtils.verifySignature(ledger, networkMessage.signature, publicKey)
+            if(isValidSignature) {
                 registrationHandler.fullLedgerReceived(fullLedger)
+            } else {
+                Log.d(TAG, "Can not handle full ledger, signature not valid")
             }
-        }
-        else {
-            Log.d(TAG, "Can not handle full ledger, signature not valid")
         }
     }
 
     private fun handleHash(networkMessage: NetworkMessage) {
-        val hash = networkMessage.payload
-        val publicKey = Ledger.getLedgerEntry(networkMessage.sender)?.certificate?.publicKey ?: throw Exception("Can not handle full ledger - Could not find public key for user")
-        val isValidSignature = PKIUtils.verifySignature(hash, networkMessage.signature, publicKey)
-        if(isValidSignature) {
-            Log.d(TAG, "Received hash: $hash")
-            registrationHandler.hashOfLedgerReceived(hash)
-        }
-        else {
-            Log.d(TAG, "Can not handle full hash, signature not valid")
+        val receivedHash = ReceivedHash(networkMessage.payload, networkMessage.signature, LedgerEntry.parseString(networkMessage.sender))
+        val publicKey = receivedHash.senderBlock.certificate.publicKey ?: throw Exception("Can not handle full ledger - Could not find public key for user")
+        val isValidSignature = PKIUtils.verifySignature(receivedHash.hash, receivedHash.signature, publicKey)
+        if (isValidSignature) {
+            Log.d(TAG, "Received hash: $receivedHash")
+            registrationHandler.hashOfLedgerReceived(receivedHash)
+        } else {
+            Log.d(TAG, "Hash from ${receivedHash.senderBlock.userName} rejected, signature not valid.")
         }
     }
 

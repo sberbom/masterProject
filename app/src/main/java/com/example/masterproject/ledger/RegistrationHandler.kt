@@ -5,8 +5,10 @@ import android.util.Log
 import com.example.masterproject.network.MulticastClient
 import com.example.masterproject.utils.MISCUtils
 import com.example.masterproject.utils.PKIUtils
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import org.bouncycastle.pqc.crypto.DigestingStateAwareMessageSigner
 
 class RegistrationHandler {
 
@@ -19,6 +21,8 @@ class RegistrationHandler {
     private var listenedForMoreThanOneSecond: Boolean = false
 
     private var ledgerIsInitialized: Boolean = false
+
+    private var acceptedHash: String? = null
 
     private val TAG = "RegistrationHandler"
 
@@ -39,7 +43,7 @@ class RegistrationHandler {
         override fun onTick(millisUntilFinished: Long) {}
 
         override fun onFinish() {
-            Log.d(TAG, "Timer finished")
+            Log.d(TAG, "Acceptance timer finished")
             listenedForMoreThanOneSecond = true
         }
     }
@@ -61,20 +65,31 @@ class RegistrationHandler {
     // TODO: If second ledger received equals the first, it should be stored as hash, if not it should be stored as alternative ledger
     fun fullLedgerReceived(ledger: List<LedgerEntry>) {
         if (!ledgerIsInitialized) {
+            if (!Ledger.ledgerIsValid(ledger)) return
             stopTimer()
-            fullLedger = ledger.sortedBy { it.height }
-            val ledgerIsValid = Ledger.ledgerIsValid(fullLedger)
-            Log.d(TAG, "Ledger is valid: $ledgerIsValid")
-            // TODO: Handle what to do if ledger is not valid
-            if (ledgerIsAccepted() && Ledger.ledgerIsValid(fullLedger)) {
-                ledgerIsInitialized = true
+            val sortedLedger = ledger.sortedBy { it.height }
+            fullLedger = sortedLedger
+            val hashOfFullLedger = MISCUtils.hashString(sortedLedger.map { it.toString() }.toString())
+            if (acceptedHash == hashOfFullLedger) {
                 Ledger.addFullLedger(ledger)
                 startRegistration()
+            } else {
+                val hashOfAcceptedLedger = getHashOfAcceptedLedger(hashOfFullLedger)
+                if (hashOfAcceptedLedger == hashOfFullLedger) {
+                    ledgerIsInitialized = true
+                    Ledger.addFullLedger(ledger)
+                    startRegistration()
+                } else if (hashOfAcceptedLedger != null) {
+                    val sentCorrectHash = hashes.find { it.hash == hashOfAcceptedLedger }
+                    acceptedHash = hashOfAcceptedLedger
+                    GlobalScope.launch(Dispatchers.IO) {
+                        client.requestSpecificHash(hashOfAcceptedLedger, sentCorrectHash!!.senderBlock.userName)
+                    }
+                }
             }
         }
     }
 
-    // TODO: Check if only CA verified ledgers should be added
     // TODO: Make sure the same user cannot send both hash and ledger
     fun hashOfLedgerReceived(receivedHash: ReceivedHash) {
         stopTimer()
@@ -93,7 +108,7 @@ class RegistrationHandler {
             } else {
                 val myLedgerEntry = Ledger.createNewBlockFromStoredCertificate()
                 if (myLedgerEntry != null) {
-                    GlobalScope.launch {
+                    GlobalScope.launch(Dispatchers.IO) {
                         client.broadcastBlock()
                     }
                 }
@@ -102,6 +117,7 @@ class RegistrationHandler {
     }
 
     // TODO: Implement function. Ledger should be accepted if enough people has confirmed the ledger.
+    // TODO: Check if the one who sent the ledger is CA certified, if not it should not be accepted based on numberOfCACertifiedInLedger
     // Returns whether we can conclude that the ledger is correct
     /**
      * @return whether we can conclude that the ledger is correct
@@ -109,25 +125,43 @@ class RegistrationHandler {
      * and they account for more than half of the CA certified blocks in the ledger
      * (excluding the one that sent the ledger)
      * OR
-     * There are no CA certified hashes unlike the hash of the full ledger
-     * OR
-     * More than one second has passed since the request AND either there are some CA certified
-     * in the ledger (if so the hashes should not matter since they are either in favor of
+     * More than one second has passed since the request AND there are no CA certified hashes
+     * disapproving the ledger AND either there are some CA certified in the ledger
+     * (if so the hashes should not matter since they are either in favor of
      * the ledger or not CA certified) OR more than half of the hashes validate the ledger
      */
-    private fun ledgerIsAccepted(): Boolean {
+    private fun getHashOfAcceptedLedger(hashOfFullLedger: String): String? {
         acceptanceTimer.cancel()
         val numberOfCACertifiedInLedger = fullLedger.count { PKIUtils.isCASignedCertificate(it.certificate) }
-        val hashOfFullLedger = MISCUtils.hashString(fullLedger.sortedBy { it.height }.map { it.toString() }.toString())
-        val numberOfCACertifiedValidations = hashes.count { it.hash == hashOfFullLedger && PKIUtils.isCASignedCertificate(it.senderBlock.certificate) }
+        val caVerifiedValidators = hashes.filter { PKIUtils.isCASignedCertificate(it.senderBlock.certificate) }
+        val mostCommonHashAmongCACertified = getMostCommonHash( caVerifiedValidators, hashOfFullLedger )
+        val numberOfCACertifiedValidations = caVerifiedValidators.count { it.hash == hashOfFullLedger }
         // If two or more CA certified users have approved the ledger and they are more then half of the validators, the ledger should be accepted
-        if (numberOfCACertifiedValidations > 1 && numberOfCACertifiedValidations > (numberOfCACertifiedInLedger - 1) / 2) return true
-        val numberOfCACertifiedDisapprovals = hashes.count { it.hash != hashOfFullLedger && PKIUtils.isCASignedCertificate(it.senderBlock.certificate) }
-        // If there is a disapproval and no more than half of validators have approved, the ledger should not yet be accepted
-        if (numberOfCACertifiedDisapprovals > 0) return false
-        val hashesValidatingLedger = hashes.count { it.hash == hashOfFullLedger }
-        // TODO: Should we always accept if enough validations has been received in 1 second if there are no disapprovals?
-        return listenedForMoreThanOneSecond && (numberOfCACertifiedInLedger > 0 || hashesValidatingLedger > (fullLedger.size - 1) / 2)
+        if (numberOfCACertifiedValidations >= 2 && numberOfCACertifiedValidations > (numberOfCACertifiedInLedger - 1) / 2) return hashOfFullLedger
+        val mostCommonHash = getMostCommonHash(hashes, hashOfFullLedger)
+        return when {
+            (!listenedForMoreThanOneSecond) -> null
+            // TODO: Should return hashOfFullLedger if sender of ledger is CA verified
+            (caVerifiedValidators.isNotEmpty()) -> mostCommonHashAmongCACertified
+            else -> mostCommonHash
+        }
+
+    }
+
+    private fun getMostCommonHash(hashes: List<ReceivedHash>, hashOfFullLedger: String): String {
+        val hashToCount = mutableMapOf(hashOfFullLedger to 1)
+        hashes.forEach {
+            hashToCount[it.hash] = (hashToCount[it.hash] ?: 0) + 1
+        }
+        val mostCommonHash = hashToCount.maxByOrNull { it.value }
+        // Because maxOrByNull returns first max, we have to explicitly return hashOfFullLedger
+        // when mostCommonHash and count of hashOfFullLedger is equal
+        // hashToCount[hashOfFullLedger] is never null since it is added in the beginning
+        return if (mostCommonHash != null && mostCommonHash.value > hashToCount[hashOfFullLedger]!!) {
+            mostCommonHash.key
+        } else {
+            hashOfFullLedger
+        }
     }
 
     companion object {

@@ -55,10 +55,12 @@ class MulticastServer: Service() {
     }
 
     private fun handleBroadcastBlock(networkMessage: NetworkMessage) {
+        Log.d(TAG, "Broadcast block received ${networkMessage.payload}")
         val blockString = networkMessage.payload
         val block = LedgerEntry.parseString(blockString)
         val publicKey = block.certificate.publicKey
         val isValidSignature = PKIUtils.verifySignature(blockString, networkMessage.signature, publicKey)
+        Log.d(TAG, "Signature is valid: $isValidSignature")
         if(isValidSignature) {
             Ledger.addLedgerEntry(block)
         }

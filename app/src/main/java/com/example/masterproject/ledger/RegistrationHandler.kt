@@ -22,8 +22,6 @@ class RegistrationHandler {
 
     private var ledgerIsInitialized: Boolean = false
 
-    private var acceptedHash: String? = null
-
     private val TAG = "RegistrationHandler"
 
     // The counter is started when the request for the ledger is sent, and
@@ -45,6 +43,7 @@ class RegistrationHandler {
         override fun onFinish() {
             Log.d(TAG, "Acceptance timer finished")
             listenedForMoreThanOneSecond = true
+            setLedgerIfAccepted()
         }
     }
 
@@ -69,22 +68,27 @@ class RegistrationHandler {
             stopTimer()
             val sortedLedger = ledger.sortedBy { it.height }
             fullLedger = sortedLedger
-            val hashOfFullLedger = MISCUtils.hashString(sortedLedger.map { it.toString() }.toString())
-            if (acceptedHash == hashOfFullLedger) {
+            setLedgerIfAccepted()
+        }
+    }
+
+    private fun setLedgerIfAccepted() {
+        val ledger = fullLedger
+        val hashOfFullLedger = MISCUtils.hashString(ledger.map { it.toString() }.toString())
+        val hashOfAcceptedLedger = getHashOfAcceptedLedger(hashOfFullLedger)
+        if (hashOfAcceptedLedger != null) {
+            acceptanceTimer.cancel()
+            if (hashOfAcceptedLedger == hashOfFullLedger) {
+                ledgerIsInitialized = true
                 Ledger.addFullLedger(ledger)
                 startRegistration()
             } else {
-                val hashOfAcceptedLedger = getHashOfAcceptedLedger(hashOfFullLedger)
-                if (hashOfAcceptedLedger == hashOfFullLedger) {
-                    ledgerIsInitialized = true
-                    Ledger.addFullLedger(ledger)
-                    startRegistration()
-                } else if (hashOfAcceptedLedger != null) {
-                    val sentCorrectHash = hashes.find { it.hash == hashOfAcceptedLedger }
-                    acceptedHash = hashOfAcceptedLedger
-                    GlobalScope.launch(Dispatchers.IO) {
-                        client.requestSpecificHash(hashOfAcceptedLedger, sentCorrectHash!!.senderBlock.userName)
-                    }
+                val sentCorrectHash = hashes.find { it.hash == hashOfAcceptedLedger }
+                GlobalScope.launch(Dispatchers.IO) {
+                    client.requestSpecificHash(
+                        hashOfAcceptedLedger,
+                        sentCorrectHash!!.senderBlock.userName
+                    )
                 }
             }
         }
@@ -131,7 +135,6 @@ class RegistrationHandler {
      * the ledger or not CA certified) OR more than half of the hashes validate the ledger
      */
     private fun getHashOfAcceptedLedger(hashOfFullLedger: String): String? {
-        acceptanceTimer.cancel()
         val numberOfCACertifiedInLedger = fullLedger.count { PKIUtils.isCASignedCertificate(it.certificate) }
         val caVerifiedValidators = hashes.filter { PKIUtils.isCASignedCertificate(it.senderBlock.certificate) }
         val mostCommonHashAmongCACertified = getMostCommonHash( caVerifiedValidators, hashOfFullLedger )

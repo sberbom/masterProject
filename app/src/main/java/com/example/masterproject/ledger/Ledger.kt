@@ -134,7 +134,6 @@ class Ledger {
             val myLedgerEntry = getMyLedgerEntry() ?: return false
             val myCertificateString = myLedgerEntry.certificate.toString()
             val caSignedCertificates = availableDevices.filter { PKIUtils.isCASignedCertificate(it.certificate) }.map { it.certificate.toString() }
-            // TODO: Check that takeLast does not alter arrays
             return when {
                 caSignedCertificates.isNotEmpty() -> {
                     caSignedCertificates.takeLast(2).contains(myCertificateString)
@@ -239,8 +238,12 @@ class Ledger {
             return MISCUtils.hashString(lastBlock.toString())
         }
 
+        fun toString(ledger: List<LedgerEntry>): String {
+            return ledger.sortedBy { it.height }.map { it.toString() }.toString()
+        }
+
         override fun toString(): String {
-            return availableDevices.sortedBy { it.height }.map { it.toString() }.toString()
+            return toString(availableDevices)
         }
     }
 }

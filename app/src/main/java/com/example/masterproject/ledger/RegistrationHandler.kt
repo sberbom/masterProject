@@ -8,11 +8,12 @@ import com.example.masterproject.utils.PKIUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import org.bouncycastle.pqc.crypto.DigestingStateAwareMessageSigner
 
 class RegistrationHandler {
 
     private var fullLedger: List<LedgerEntry> = listOf()
+
+    private var backupLedger: List<LedgerEntry> = listOf()
 
     private var hashes: MutableList<ReceivedHash> = mutableListOf()
 
@@ -74,7 +75,7 @@ class RegistrationHandler {
 
     private fun setLedgerIfAccepted() {
         val ledger = fullLedger
-        val hashOfFullLedger = MISCUtils.hashString(ledger.map { it.toString() }.toString())
+        val hashOfFullLedger = MISCUtils.hashString(Ledger.toString(ledger))
         val hashOfAcceptedLedger = getHashOfAcceptedLedger(hashOfFullLedger)
         if (hashOfAcceptedLedger != null) {
             acceptanceTimer.cancel()

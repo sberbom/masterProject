@@ -121,17 +121,13 @@ class Ledger {
 
         fun addFullLedger(ledger: List<LedgerEntry>) {
             if (ledgerIsValid(ledger) && availableDevices.isEmpty()) {
-                Log.d(TAG, "Ledger set to ${ledger.toString()}")
+                Log.d(TAG, "Ledger set to $ledger")
                 availableDevices.addAll(ledger)
                 availableDevices.sortBy { it.height }
                 Handler(Looper.getMainLooper()).post {
                     MainActivity.updateAvailableDevices()
                 }
             }
-        }
-
-        fun getHashOfFullLedger(): String {
-            return MISCUtils.hashString(toString(availableDevices))
         }
 
         fun shouldSendFullLedger(): Boolean {

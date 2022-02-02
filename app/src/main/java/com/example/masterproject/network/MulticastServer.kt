@@ -3,6 +3,7 @@ package com.example.masterproject.network
 import android.app.Service
 import android.content.Intent
 import android.os.IBinder
+import android.provider.Settings
 import android.util.Log
 import com.example.masterproject.ledger.Ledger
 import com.example.masterproject.ledger.LedgerEntry
@@ -42,6 +43,7 @@ class MulticastServer: Service() {
                 when (networkMessage.messageType) {
                     BroadcastMessageTypes.BROADCAST_BLOCK.toString() -> handleBroadcastBlock(networkMessage)
                     BroadcastMessageTypes.REQUEST_LEDGER.toString() -> handleRequestedLedger()
+                    BroadcastMessageTypes.REQUEST_SPECIFIC_LEDGER.toString() -> handleSpecificLedgerRequest(networkMessage)
                     BroadcastMessageTypes.FULL_LEDGER.toString() -> handleFullLedger(networkMessage)
                     BroadcastMessageTypes.LEDGER_HASH.toString() -> handleHash(networkMessage)
                 }
@@ -53,10 +55,12 @@ class MulticastServer: Service() {
     }
 
     private fun handleBroadcastBlock(networkMessage: NetworkMessage) {
+        Log.d(TAG, "Broadcast block received ${networkMessage.payload}")
         val blockString = networkMessage.payload
         val block = LedgerEntry.parseString(blockString)
         val publicKey = block.certificate.publicKey
         val isValidSignature = PKIUtils.verifySignature(blockString, networkMessage.signature, publicKey)
+        Log.d(TAG, "Signature is valid: $isValidSignature")
         if(isValidSignature) {
             Ledger.addLedgerEntry(block)
         }
@@ -65,18 +69,33 @@ class MulticastServer: Service() {
         }
     }
 
+    // TODO: Should not send hash if there are CA-certified and you are not one of them
     private fun handleRequestedLedger() {
         Log.d(TAG, "Received request for ledger.")
         if (Ledger.getFullLedger().isNotEmpty()) {
             GlobalScope.launch (Dispatchers.IO) {
-                val shouldSendFullLedger = Ledger.shouldSendFullLedger()
-                Log.d(TAG, "Should send full ledger: $shouldSendFullLedger")
-                if (shouldSendFullLedger) {
+                if (Ledger.shouldSendFullLedger()) {
                     client.sendLedger()
                 } else {
                     client.sendHash()
                 }
             }
+        }
+    }
+
+    private fun handleSpecificLedgerRequest(networkMessage: NetworkMessage) {
+        val payloadArray = networkMessage.payload.split(":")
+        if (payloadArray.size > 1) {
+            val usernameToReply = payloadArray[0]
+            val hash = payloadArray[1]
+            Log.d(TAG, "Received request for $usernameToReply to send ledger with hash $hash")
+            if (usernameToReply == Ledger.getMyLedgerEntry()?.userName && Ledger.getHashOfFullLedger() == hash) {
+                GlobalScope.launch(Dispatchers.IO) {
+                    client.sendLedger()
+                }
+            }
+        } else {
+            Log.d(TAG, "Message received was wrong format.")
         }
     }
 

@@ -121,7 +121,7 @@ class Ledger {
 
         fun addFullLedger(ledger: List<LedgerEntry>) {
             if (ledgerIsValid(ledger) && availableDevices.isEmpty()) {
-                Log.d(TAG, "Ledger set to ${ledger.toString()}")
+                Log.d(TAG, "Ledger set to $ledger")
                 availableDevices.addAll(ledger)
                 availableDevices.sortBy { it.height }
                 Handler(Looper.getMainLooper()).post {
@@ -129,12 +129,15 @@ class Ledger {
                 }
             }
         }
+        
+        fun getHashOfFullLedger(): String {
+            return MISCUtils.hashString(toString(availableDevices))
+        }
 
         fun shouldSendFullLedger(): Boolean {
             val myLedgerEntry = getMyLedgerEntry() ?: return false
             val myCertificateString = myLedgerEntry.certificate.toString()
             val caSignedCertificates = availableDevices.filter { PKIUtils.isCASignedCertificate(it.certificate) }.map { it.certificate.toString() }
-            // TODO: Check that takeLast does not alter arrays
             return when {
                 caSignedCertificates.isNotEmpty() -> {
                     caSignedCertificates.takeLast(2).contains(myCertificateString)
@@ -239,8 +242,12 @@ class Ledger {
             return MISCUtils.hashString(lastBlock.toString())
         }
 
+        fun toString(ledger: List<LedgerEntry>): String {
+            return ledger.sortedBy { it.height }.map { it.toString() }.toString()
+        }
+
         override fun toString(): String {
-            return availableDevices.sortedBy { it.height }.map { it.toString() }.toString()
+            return toString(availableDevices)
         }
     }
 }

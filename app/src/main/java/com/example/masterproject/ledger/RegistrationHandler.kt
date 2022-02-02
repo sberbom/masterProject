@@ -67,7 +67,10 @@ class RegistrationHandler {
         if (!ledgerIsInitialized) {
             val sortedLedger = ledger.sortedBy { it.height }
             if (!Ledger.ledgerIsValid(ledger)) throw Exception("Ledger received by ${sender.userName} is not valid.")
-            if (userHasAlreadyResponded(sender)) throw Exception("${sender.userName} has already responded.")
+            if (userHasAlreadyResponded(sender)) {
+                Log.d(TAG, "User has already responded.")
+                return
+            }
             stopTimer()
             val hashOfReceivedLedger = Ledger.getHashOfLedger(sortedLedger)
             if (receivedLedgers.map { it.hash }.contains(hashOfReceivedLedger)) {
@@ -116,7 +119,9 @@ class RegistrationHandler {
 
     fun hashOfLedgerReceived(senderBlock: LedgerEntry, hash: String) {
         stopTimer()
-        if (userHasAlreadyResponded(senderBlock)) throw Exception("${senderBlock.userName} has already responded.")
+        if (userHasAlreadyResponded(senderBlock)) {
+            Log.d(TAG, "${senderBlock.userName} has already responded.")
+        }
         addHash(senderBlock, hash)
     }
 

@@ -40,6 +40,7 @@ class MulticastServer: Service() {
 
                 val msgRaw = String(buf, 0, buf.size)
                 val networkMessage = NetworkMessage.decodeNetworkMessage(msgRaw)
+                Log.d(TAG, "Received message: $networkMessage")
                 when (networkMessage.messageType) {
                     BroadcastMessageTypes.BROADCAST_BLOCK.toString() -> handleBroadcastBlock(networkMessage)
                     BroadcastMessageTypes.REQUEST_LEDGER.toString() -> handleRequestedLedger()
@@ -72,7 +73,7 @@ class MulticastServer: Service() {
     // TODO: Should not send hash if there are CA-certified and you are not one of them
     private fun handleRequestedLedger() {
         Log.d(TAG, "Received request for ledger.")
-        if (Ledger.getFullLedger().isNotEmpty()) {
+        if (Ledger.getFullLedger().isNotEmpty() && Ledger.getMyLedgerEntry() != null) {
             GlobalScope.launch (Dispatchers.IO) {
                 if (Ledger.shouldSendFullLedger()) {
                     client.sendLedger()
@@ -122,13 +123,11 @@ class MulticastServer: Service() {
 
     private fun handleHash(networkMessage: NetworkMessage) {
         val senderBlock = LedgerEntry.parseString(networkMessage.sender)
+        Log.d(TAG, "Received hash from ${senderBlock.userName}")
         val publicKey = senderBlock.certificate.publicKey ?: throw Exception("Can not handle full ledger - Could not find public key for user")
         val isValidSignature = PKIUtils.verifySignature(networkMessage.payload, networkMessage.signature, publicKey)
         if (isValidSignature) {
-            Log.d(TAG, "Received hash from ${senderBlock.userName}: ${networkMessage.payload}")
             registrationHandler.hashOfLedgerReceived(senderBlock, networkMessage.payload)
-        } else {
-            Log.d(TAG, "Hash from ${senderBlock.userName} rejected, signature not valid.")
         }
     }
 

@@ -8,12 +8,11 @@ import com.example.masterproject.utils.PKIUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import java.security.cert.X509Certificate
 
 class RegistrationHandler {
 
-    private var fullLedger: List<LedgerEntry> = listOf()
-
-    private var backupLedger: List<LedgerEntry> = listOf()
+    private var receivedLedgers: MutableList<ReceivedLedger> = mutableListOf()
 
     private var hashes: MutableList<ReceivedHash> = mutableListOf()
 
@@ -61,46 +60,69 @@ class RegistrationHandler {
         waitForResponseTimer.cancel()
     }
 
-    // TODO: Make sure the same user cannot send both hash and ledger
     // TODO: If second ledger received equals the first, it should be stored as hash, if not it should be stored as alternative ledger
-    fun fullLedgerReceived(ledger: List<LedgerEntry>) {
+    // TODO: Handle if too many ledgers are received
+    // TODO: Check that user has not already sent hash or ledger
+    fun fullLedgerReceived(sender: LedgerEntry, ledger: List<LedgerEntry>) {
         if (!ledgerIsInitialized) {
-            if (!Ledger.ledgerIsValid(ledger)) return
-            stopTimer()
             val sortedLedger = ledger.sortedBy { it.height }
-            fullLedger = sortedLedger
+            if (!Ledger.ledgerIsValid(ledger)) throw Exception("Ledger received by ${sender.userName} is not valid.")
+            if (userHasAlreadyResponded(sender)) {
+                Log.d(TAG, "User has already responded.")
+                return
+            }
+            stopTimer()
+            val hashOfReceivedLedger = Ledger.getHashOfLedger(sortedLedger)
+            if (receivedLedgers.map { it.hash }.contains(hashOfReceivedLedger)) {
+                addHash(sender, hashOfReceivedLedger)
+            } else {
+                receivedLedgers.add(ReceivedLedger(ledger, hashOfReceivedLedger, sender))
+            }
             setLedgerIfAccepted()
         }
     }
 
+    private fun userHasAlreadyResponded(user: LedgerEntry): Boolean {
+        val userHasAlreadyRespondedWithHash = hashes.map { it.senderBlock.certificate.toString() }.contains(user.certificate.toString())
+        val userHasAlreadyRespondedWithLedger = receivedLedgers.map { it.senderBlock.certificate.toString() }.contains(user.certificate.toString())
+        return userHasAlreadyRespondedWithHash || userHasAlreadyRespondedWithLedger
+    }
+
     private fun setLedgerIfAccepted() {
-        val ledger = fullLedger
-        val hashOfFullLedger = MISCUtils.hashString(Ledger.toString(ledger))
-        val hashOfAcceptedLedger = getHashOfAcceptedLedger(hashOfFullLedger)
-        if (hashOfAcceptedLedger != null) {
-            acceptanceTimer.cancel()
-            if (hashOfAcceptedLedger == hashOfFullLedger) {
-                ledgerIsInitialized = true
-                Ledger.addFullLedger(ledger)
-                startRegistration()
-            } else {
-                val sentCorrectHash = hashes.find { it.hash == hashOfAcceptedLedger }
-                GlobalScope.launch(Dispatchers.IO) {
-                    client.requestSpecificHash(
-                        hashOfAcceptedLedger,
-                        sentCorrectHash!!.senderBlock.userName
-                    )
-                }
+        val hashOfAcceptedLedger = getHashOfAcceptedLedger() ?: return
+        acceptanceTimer.cancel()
+        val acceptedLedger = receivedLedgers.find { it.hash == hashOfAcceptedLedger }
+        if (acceptedLedger != null) {
+            ledgerIsInitialized = true
+            Ledger.addFullLedger(acceptedLedger.ledger)
+            startRegistration()
+        } else {
+            // if the most common hash is not null and does not exist in receivedLedgers
+            // it must be found in hashes, therefore we can use non-null assertion
+            val sentCorrectHash = hashes.find { it.hash == hashOfAcceptedLedger }!!.senderBlock.userName
+            GlobalScope.launch(Dispatchers.IO) {
+                client.requestSpecificHash(
+                    hashOfAcceptedLedger,
+                    sentCorrectHash
+                )
             }
+
         }
     }
 
-    // TODO: Make sure the same user cannot send both hash and ledger
-    fun hashOfLedgerReceived(receivedHash: ReceivedHash) {
-        stopTimer()
-        if (hashes.count { LedgerEntry.isEqual(it.senderBlock, receivedHash.senderBlock) } == 0) {
-            hashes.add(receivedHash)
+    private fun addHash(senderBlock: LedgerEntry, hash: String) {
+        val certificateIsValid = PKIUtils.isCASignedCertificate(senderBlock.certificate) || PKIUtils.isSelfSignedCertificate(senderBlock.certificate)
+        if (certificateIsValid) {
+            hashes.add(ReceivedHash(hash, senderBlock))
         }
+    }
+
+    fun hashOfLedgerReceived(senderBlock: LedgerEntry, hash: String) {
+        stopTimer()
+        if (userHasAlreadyResponded(senderBlock)) {
+            Log.d(TAG, "${senderBlock.userName} has already responded.")
+        }
+        addHash(senderBlock, hash)
     }
 
     private fun startRegistration() {
@@ -123,6 +145,7 @@ class RegistrationHandler {
 
     // TODO: Implement function. Ledger should be accepted if enough people has confirmed the ledger.
     // TODO: Check if the one who sent the ledger is CA certified, if not it should not be accepted based on numberOfCACertifiedInLedger
+    // TODO: Only give sender of full ledger voting right if it is CA-certified and the others are not
     // Returns whether we can conclude that the ledger is correct
     /**
      * @return whether we can conclude that the ledger is correct
@@ -135,37 +158,39 @@ class RegistrationHandler {
      * (if so the hashes should not matter since they are either in favor of
      * the ledger or not CA certified) OR more than half of the hashes validate the ledger
      */
-    private fun getHashOfAcceptedLedger(hashOfFullLedger: String): String? {
-        val numberOfCACertifiedInLedger = fullLedger.count { PKIUtils.isCASignedCertificate(it.certificate) }
+    private fun getHashOfAcceptedLedger(): String? {
         val caVerifiedValidators = hashes.filter { PKIUtils.isCASignedCertificate(it.senderBlock.certificate) }
-        val mostCommonHashAmongCACertified = getMostCommonHash( caVerifiedValidators, hashOfFullLedger )
-        val numberOfCACertifiedValidations = caVerifiedValidators.count { it.hash == hashOfFullLedger }
+        val mostCommonHashAmongCACertified = getMostCommonHash( caVerifiedValidators, true )
+        val ledgerWithMostCommonHashAmongCACertified = receivedLedgers.find { it.hash == mostCommonHashAmongCACertified }
+        val numberOfCACertifiedInLedger = ledgerWithMostCommonHashAmongCACertified?.ledger?.count { PKIUtils.isCASignedCertificate(it.certificate) }
+        val numberOfCACertifiedValidations = caVerifiedValidators.count { it.hash == mostCommonHashAmongCACertified }
         // If two or more CA certified users have approved the ledger and they are more then half of the validators, the ledger should be accepted
-        if (numberOfCACertifiedValidations >= 2 && numberOfCACertifiedValidations > (numberOfCACertifiedInLedger - 1) / 2) return hashOfFullLedger
-        val mostCommonHash = getMostCommonHash(hashes, hashOfFullLedger)
+        if (numberOfCACertifiedInLedger != null && numberOfCACertifiedValidations >= 2 && numberOfCACertifiedValidations > (numberOfCACertifiedInLedger - 1) / 2) return mostCommonHashAmongCACertified
+        val mostCommonHash = getMostCommonHash(hashes, false)
         return when {
             (!listenedForMoreThanOneSecond) -> null
-            // TODO: Should return hashOfFullLedger if sender of ledger is CA verified
-            (caVerifiedValidators.isNotEmpty()) -> mostCommonHashAmongCACertified
+            (ledgerWithMostCommonHashAmongCACertified != null) -> mostCommonHashAmongCACertified
             else -> mostCommonHash
         }
 
     }
 
-    private fun getMostCommonHash(hashes: List<ReceivedHash>, hashOfFullLedger: String): String {
-        val hashToCount = mutableMapOf(hashOfFullLedger to 1)
+    private fun getMostCommonHash(hashes: List<ReceivedHash>, onlyCACertified: Boolean): String? {
+        val hashToCount = mutableMapOf<String, Int>()
+        // There should be no entries in receivedLedgers with same hash, so all can be set to 1
+        receivedLedgers.forEach {
+            if (!onlyCACertified || PKIUtils.isCASignedCertificate(it.senderBlock.certificate))
+                hashToCount[it.hash] = 1
+        }
         hashes.forEach {
             hashToCount[it.hash] = (hashToCount[it.hash] ?: 0) + 1
         }
-        val mostCommonHash = hashToCount.maxByOrNull { it.value }
-        // Because maxOrByNull returns first max, we have to explicitly return hashOfFullLedger
-        // when mostCommonHash and count of hashOfFullLedger is equal
-        // hashToCount[hashOfFullLedger] is never null since it is added in the beginning
-        return if (mostCommonHash != null && mostCommonHash.value > hashToCount[hashOfFullLedger]!!) {
-            mostCommonHash.key
-        } else {
-            hashOfFullLedger
-        }
+        if (hashToCount.isEmpty()) return null
+        val maxValue = hashToCount.values.maxOrNull()
+        val mostCommonHashes = hashToCount.filterValues { it == maxValue }
+        val hashesOfReceivedLedgers = receivedLedgers.map { it.hash }
+        val mostCommonHashWithReceivedLedger = mostCommonHashes.keys.find{ hashesOfReceivedLedgers.contains(it) }
+        return mostCommonHashWithReceivedLedger ?: mostCommonHashes.entries.first().key
     }
 
     companion object {

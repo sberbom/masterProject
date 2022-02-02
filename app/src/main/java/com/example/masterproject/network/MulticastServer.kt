@@ -40,6 +40,7 @@ class MulticastServer: Service() {
 
                 val msgRaw = String(buf, 0, buf.size)
                 val networkMessage = NetworkMessage.decodeNetworkMessage(msgRaw)
+                Log.d(TAG, "Received message: $networkMessage")
                 when (networkMessage.messageType) {
                     BroadcastMessageTypes.BROADCAST_BLOCK.toString() -> handleBroadcastBlock(networkMessage)
                     BroadcastMessageTypes.REQUEST_LEDGER.toString() -> handleRequestedLedger()
@@ -72,7 +73,7 @@ class MulticastServer: Service() {
     // TODO: Should not send hash if there are CA-certified and you are not one of them
     private fun handleRequestedLedger() {
         Log.d(TAG, "Received request for ledger.")
-        if (Ledger.getFullLedger().isNotEmpty()) {
+        if (Ledger.getFullLedger().isNotEmpty() && Ledger.getMyLedgerEntry() != null) {
             GlobalScope.launch (Dispatchers.IO) {
                 if (Ledger.shouldSendFullLedger()) {
                     client.sendLedger()
@@ -89,7 +90,7 @@ class MulticastServer: Service() {
             val usernameToReply = payloadArray[0]
             val hash = payloadArray[1]
             Log.d(TAG, "Received request for $usernameToReply to send ledger with hash $hash")
-            if (usernameToReply == Ledger.getMyLedgerEntry()?.userName && Ledger.getHashOfFullLedger() == hash) {
+            if (usernameToReply == Ledger.getMyLedgerEntry()?.userName && Ledger.getHashOfStoredLedger() == hash) {
                 GlobalScope.launch(Dispatchers.IO) {
                     client.sendLedger()
                 }
@@ -107,10 +108,13 @@ class MulticastServer: Service() {
             // split between array objects
             val ledgerArray = ledgerWithoutBrackets.split(", ")
             val fullLedger: List<LedgerEntry> = ledgerArray.map{ LedgerEntry.parseString(it)}
-            val publicKey = fullLedger.find{it.userName == networkMessage.sender}?.certificate?.publicKey ?: throw Exception("Can not handle full ledger - Could not find public key for user")
+            val usersWithUsernameOfSender = fullLedger.filter { it.userName == networkMessage.sender }
+            if (usersWithUsernameOfSender.isEmpty()) throw Exception("Sender is not in ledger.")
+            val blockOfSender = if (usersWithUsernameOfSender.size == 1) usersWithUsernameOfSender[0] else usersWithUsernameOfSender[1]
+            val publicKey = blockOfSender.certificate.publicKey
             val isValidSignature = PKIUtils.verifySignature(ledger, networkMessage.signature, publicKey)
             if(isValidSignature) {
-                registrationHandler.fullLedgerReceived(fullLedger)
+                registrationHandler.fullLedgerReceived(blockOfSender, fullLedger)
             } else {
                 Log.d(TAG, "Can not handle full ledger, signature not valid")
             }
@@ -118,14 +122,12 @@ class MulticastServer: Service() {
     }
 
     private fun handleHash(networkMessage: NetworkMessage) {
-        val receivedHash = ReceivedHash(networkMessage.payload, networkMessage.signature, LedgerEntry.parseString(networkMessage.sender))
-        val publicKey = receivedHash.senderBlock.certificate.publicKey ?: throw Exception("Can not handle full ledger - Could not find public key for user")
-        val isValidSignature = PKIUtils.verifySignature(receivedHash.hash, receivedHash.signature, publicKey)
+        val senderBlock = LedgerEntry.parseString(networkMessage.sender)
+        Log.d(TAG, "Received hash from ${senderBlock.userName}")
+        val publicKey = senderBlock.certificate.publicKey ?: throw Exception("Can not handle full ledger - Could not find public key for user")
+        val isValidSignature = PKIUtils.verifySignature(networkMessage.payload, networkMessage.signature, publicKey)
         if (isValidSignature) {
-            Log.d(TAG, "Received hash: $receivedHash")
-            registrationHandler.hashOfLedgerReceived(receivedHash)
-        } else {
-            Log.d(TAG, "Hash from ${receivedHash.senderBlock.userName} rejected, signature not valid.")
+            registrationHandler.hashOfLedgerReceived(senderBlock, networkMessage.payload)
         }
     }
 

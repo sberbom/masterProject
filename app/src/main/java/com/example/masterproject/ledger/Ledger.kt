@@ -129,9 +129,13 @@ class Ledger {
                 }
             }
         }
-        
-        fun getHashOfFullLedger(): String {
-            return MISCUtils.hashString(toString(availableDevices))
+
+        fun getHashOfLedger(ledger: List<LedgerEntry>): String {
+            return MISCUtils.hashString(toString(ledger.sortedBy { it.height }))
+        }
+
+        fun getHashOfStoredLedger(): String {
+            return getHashOfLedger(availableDevices)
         }
 
         fun shouldSendFullLedger(): Boolean {

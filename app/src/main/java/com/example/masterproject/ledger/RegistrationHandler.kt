@@ -65,7 +65,7 @@ class RegistrationHandler {
     // TODO: Check that user has not already sent hash or ledger
     fun fullLedgerReceived(sender: LedgerEntry, ledger: List<LedgerEntry>) {
         if (!ledgerIsInitialized) {
-            val sortedLedger = ledger.sortedBy { it.height }
+            val sortedLedger = ledger.sortedBy { it.userName }
             if (!Ledger.ledgerIsValid(ledger)) throw Exception("Ledger received by ${sender.userName} is not valid.")
             if (userHasAlreadyResponded(sender)) {
                 Log.d(TAG, "User has already responded.")

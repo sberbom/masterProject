@@ -129,6 +129,10 @@ class Ledger {
                 }
             }
         }
+        
+        fun getHashOfFullLedger(): String {
+            return MISCUtils.hashString(toString(availableDevices))
+        }
 
         fun shouldSendFullLedger(): Boolean {
             val myLedgerEntry = getMyLedgerEntry() ?: return false

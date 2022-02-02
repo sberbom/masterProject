@@ -45,7 +45,6 @@ class Ledger {
         fun createNewBlockFromStoredCertificate(): LedgerEntry? {
             val context = App.getAppContext()
             val ipAddress = MISCUtils.getMyIpAddress()
-            // TODO: If needed it should be handled when context is null
             if (context != null && ipAddress != null) {
                 val storedCertificate = PKIUtils.fetchStoredCertificate(context)
                 // If the user has a stored certificate it should be broadcast if it does not conflict with ledger
@@ -57,7 +56,7 @@ class Ledger {
                         PKIUtils.getUsernameFromCertificate(storedCertificate),
                         ipAddress,
                         previousBlockHash,
-                        blockHeight)
+                        blockHeight))
                     if (isValidNewBlock(myLedgerEntry)){
                         setMyLedgerEntry(myLedgerEntry)
                         return myLedgerEntry
@@ -103,7 +102,6 @@ class Ledger {
         }
 
         fun addLedgerEntry(newBlock: LedgerEntry) {
-            // TODO: handle if height is not correct
             val myLedgerEntry = myLedgerEntry
             if (isValidNewBlock(newBlock)) {
                 if (myLedgerEntry != null && !LedgerEntry.isEqual(myLedgerEntry, newBlock) && (newBlock.userName == myLedgerEntry.userName)) {
@@ -131,8 +129,7 @@ class Ledger {
         }
 
         fun getHashOfLedger(ledger: List<LedgerEntry>): String {
-            return MISCUtils.hashString(toString(ledger.sortedBy { it.height }))
-        }
+            return MISCUtils.hashString(toString(ledger.sortedBy { it.height }))        }
 
         fun getHashOfStoredLedger(): String {
             return getHashOfLedger(availableDevices)

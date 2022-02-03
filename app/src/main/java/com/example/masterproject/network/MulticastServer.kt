@@ -9,7 +9,6 @@ import com.example.masterproject.ledger.LedgerEntry
 import com.example.masterproject.ledger.RegistrationHandler
 import com.example.masterproject.types.NetworkMessage
 import com.example.masterproject.utils.Constants
-import com.example.masterproject.utils.MISCUtils
 import com.example.masterproject.utils.PKIUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -39,13 +38,13 @@ class MulticastServer: Service() {
 
                 val msgRaw = String(buf, 0, buf.size)
                 val networkMessage = NetworkMessage.decodeNetworkMessage(msgRaw)
-                Log.d(TAG, "Received message: $networkMessage")
                 when (networkMessage.messageType) {
                     BroadcastMessageTypes.BROADCAST_BLOCK.toString() -> handleBroadcastBlock(networkMessage)
                     BroadcastMessageTypes.REQUEST_LEDGER.toString() -> handleRequestedLedger(networkMessage)
                     BroadcastMessageTypes.REQUEST_SPECIFIC_LEDGER.toString() -> handleSpecificLedgerRequest(networkMessage)
                     BroadcastMessageTypes.FULL_LEDGER.toString() -> handleFullLedger(networkMessage)
                     BroadcastMessageTypes.LEDGER_HASH.toString() -> handleHash(networkMessage)
+                    else -> Log.d(TAG, "Received unknown message type.")
                 }
             }
         }catch (e: Exception){
@@ -55,6 +54,7 @@ class MulticastServer: Service() {
     }
 
     private fun handleBroadcastBlock(networkMessage: NetworkMessage) {
+        if (networkMessage.sender == Ledger.getMyLedgerEntry()?.userName) return
         Log.d(TAG, "Broadcast block received ${networkMessage.payload}")
         val blockString = networkMessage.payload
         val block = LedgerEntry.parseString(blockString)
@@ -100,6 +100,7 @@ class MulticastServer: Service() {
     }
 
     private fun handleFullLedger(networkMessage: NetworkMessage) {
+        if (networkMessage.sender == Ledger.getMyLedgerEntry()?.userName) return
         val ledger = networkMessage.payload
         Log.d(TAG, "Received full ledger: $ledger")
         if (networkMessage.nonce != RegistrationHandler.getNonce()) {
@@ -130,6 +131,7 @@ class MulticastServer: Service() {
             return
         }
         val senderBlock = LedgerEntry.parseString(networkMessage.sender)
+        if (senderBlock.userName == Ledger.getMyLedgerEntry()?.userName) return
         Log.d(TAG, "Received hash from ${senderBlock.userName}")
         val publicKey = senderBlock.certificate.publicKey ?: throw Exception("Can not handle full ledger - Could not find public key for user")
         val isValidSignature = PKIUtils.verifySignature(networkMessage.payload, networkMessage.signature, publicKey, networkMessage.nonce)

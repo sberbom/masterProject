@@ -2,5 +2,7 @@ package com.example.masterproject.network
 
 enum class UnicastMessageTypes {
     CLIENT_HELLO,
-    KEY_DELIVERY
+    KEY_DELIVERY,
+    GOODBYE,
+    CHAT_MESSAGE
 }

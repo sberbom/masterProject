@@ -14,13 +14,8 @@ import com.example.masterproject.R
 import com.example.masterproject.activities.ChatActivity
 import com.example.masterproject.ledger.Ledger
 import com.example.masterproject.ledger.LedgerEntry
-import com.example.masterproject.network.TCPClient
-import com.example.masterproject.network.UnicastMessageTypes
 import com.example.masterproject.utils.MISCUtils
 import com.example.masterproject.utils.PKIUtils
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 
 class DeviceAdapter(private val ledger: MutableList<LedgerEntry>): RecyclerView.Adapter<RecyclerView.ViewHolder>()  {
 
@@ -73,11 +68,8 @@ class DeviceAdapter(private val ledger: MutableList<LedgerEntry>): RecyclerView.
                     val intent = Intent(context, ChatActivity::class.java)
                     intent.putExtra("userName", ledgerEntry.userName) //Optional parameters
                     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-                    intent.putExtra("staringNewConnection", true)
+                    intent.putExtra("isClient", true)
                     context.startActivity(intent)
-                    GlobalScope.launch(Dispatchers.IO) {
-                        TCPClient.sendMessage(ledgerEntry, UnicastMessageTypes.CLIENT_HELLO.toString())
-                    }
                 } else {
                     Toast.makeText(
                         context, "Please log in or register before sending messages",

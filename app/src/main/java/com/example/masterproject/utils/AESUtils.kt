@@ -4,7 +4,7 @@ import android.content.Context
 import android.util.Log
 import com.example.masterproject.ledger.Ledger
 import com.example.masterproject.ledger.LedgerEntry
-import com.example.masterproject.network.TCPClient
+import com.example.masterproject.network.TLSClient
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -18,11 +18,12 @@ import java.util.*
 import javax.crypto.spec.GCMParameterSpec
 import javax.crypto.spec.SecretKeySpec
 import javax.crypto.*
+import kotlin.NoSuchElementException
 
 
 class AESUtils {
 
-    data class SymmetricKeyEntry(val currentKey: SecretKey, val nextKey: SecretKey?)
+    data class SymmetricKeyEntry(val currentKey: SecretKey?, val nextKey: SecretKey?)
 
     companion object {
         private const val GCM_IV_LENGTH = 12
@@ -32,7 +33,7 @@ class AESUtils {
 
         private const val TAG = "AESUtils"
 
-        private fun getCurrentKeyForUser(userName: String): SecretKey? {
+        fun getCurrentKeyForUser(userName: String): SecretKey? {
             if(keyMap.containsKey(userName)){
                 return keyMap.getValue(userName).currentKey
             }
@@ -46,19 +47,25 @@ class AESUtils {
             return null
         }
 
-        fun useNextKeyForUser(userName: String) {
+        fun useNextKeyForUser(userName: String): SecretKey? {
             val symmetricKeyEntry = keyMap.getValue(userName)
+            val nextKey = symmetricKeyEntry.nextKey
             if(symmetricKeyEntry.nextKey != null) {
-                keyMap[userName] = SymmetricKeyEntry(symmetricKeyEntry.nextKey, null)
+                keyMap[userName] = SymmetricKeyEntry(nextKey, null)
             }
+            return nextKey
         }
 
         fun setNextKeyForUser(userName: String, nextKey: SecretKey) {
-            val symmetricKeyEntry = keyMap.getValue(userName)
-            keyMap[userName] = SymmetricKeyEntry(symmetricKeyEntry.currentKey, nextKey)
+            try{
+                val symmetricKeyEntry = keyMap.getValue(userName)
+                keyMap[userName] = SymmetricKeyEntry(symmetricKeyEntry.currentKey, nextKey)
+            } catch (e: NoSuchElementException) {
+                keyMap[userName] = SymmetricKeyEntry(null, nextKey)
+            }
         }
 
-        private fun setCurrentKeyForUser(userName: String, currentKey: SecretKey) {
+        fun setCurrentKeyForUser(userName: String, currentKey: SecretKey) {
             keyMap[userName] = SymmetricKeyEntry(currentKey, null)
         }
 
@@ -157,20 +164,23 @@ class AESUtils {
 
                     return String(plainText, StandardCharsets.UTF_8)
                 } catch (e: AEADBadTagException) {
-                    resyncKeys(ledgerEntry)
+                    //resyncKeys(ledgerEntry)
                     e.printStackTrace()
                     return "ERROR DECRYPTING MESSAGE, please restart chat - resync request sent"
                 }
             }
         }
 
+        /*
         fun resyncKeys(ledgerEntry: LedgerEntry){
             val currentKey = calculateAESKeyDH(PKIUtils.privateKey!!, ledgerEntry.certificate)
             val nextKey = generateAESKey()
             setNextKeyForUser(PKIUtils.getUsernameFromCertificate(ledgerEntry.certificate), nextKey)
             GlobalScope.launch(Dispatchers.IO) {
-                TCPClient.sendKeyDelivery(ledgerEntry, nextKey, currentKey)
+                TLSClient.sendKeyDelivery(ledgerEntry, nextKey, currentKey)
             }
         }
+
+         */
     }
 }

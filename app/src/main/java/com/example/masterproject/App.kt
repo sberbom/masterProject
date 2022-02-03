@@ -2,7 +2,6 @@ package com.example.masterproject
 
 import android.app.Application
 import android.content.Context
-import android.util.Log
 
 class App: Application() {
 

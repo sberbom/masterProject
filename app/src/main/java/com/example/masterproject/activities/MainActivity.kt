@@ -1,35 +1,32 @@
 package com.example.masterproject.activities
 
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import org.bouncycastle.jce.provider.BouncyCastleProvider
-import java.security.Security
 import android.content.Intent
-import android.util.Log
+import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
-import android.view.View
-import androidx.appcompat.widget.Toolbar
-import android.widget.*
-import com.example.masterproject.*
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.masterproject.R
 import com.example.masterproject.activities.adapters.DeviceAdapter
 import com.example.masterproject.ledger.Ledger
 import com.example.masterproject.network.MulticastServer
-import com.example.masterproject.network.TCPServer
+import com.example.masterproject.network.TCPListener
 import com.example.masterproject.utils.AESUtils
 import com.example.masterproject.utils.MISCUtils
 import com.example.masterproject.utils.PKIUtils
 import com.google.android.material.navigation.NavigationView
-
-
-
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
+import org.bouncycastle.jce.provider.BouncyCastleProvider
+import java.security.Security
 
 
 class MainActivity: AppCompatActivity() {
@@ -72,7 +69,7 @@ class MainActivity: AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         //Start network processes
-        baseContext.startService(Intent(this, TCPServer::class.java))
+        baseContext.startService(Intent(this, TCPListener::class.java))
 
 
         //Find and display my IP address

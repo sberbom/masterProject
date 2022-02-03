@@ -193,6 +193,9 @@ class RegistrationHandler {
         return mostCommonHashWithReceivedLedger ?: mostCommonHashes.entries.first().key
     }
 
+    fun getHashCount(): Int {
+        return hashes.size
+    }
 
     companion object {
         private var readyForRegistration: Boolean = false

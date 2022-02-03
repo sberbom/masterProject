@@ -26,7 +26,7 @@
             android:windowSoftInputMode="adjustResize" />
 
         <service android:name=".network.MulticastServer" android:label="Multicast Server" />
-        <service android:name=".network.TCPServer" android:label="TCP Server" />
+        <service android:name=".network.TCPListener" android:label="TCP Listener" />
 
     </application>
 

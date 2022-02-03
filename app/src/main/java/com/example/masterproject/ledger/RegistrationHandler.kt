@@ -65,7 +65,7 @@ class RegistrationHandler {
     // TODO: Check that user has not already sent hash or ledger
     fun fullLedgerReceived(sender: LedgerEntry, ledger: List<LedgerEntry>) {
         if (!ledgerIsInitialized) {
-            val sortedLedger = ledger.sortedBy { it.height }
+            val sortedLedger = ledger.sortedBy { it.userName }
             if (!Ledger.ledgerIsValid(ledger)) throw Exception("Ledger received by ${sender.userName} is not valid.")
             if (userHasAlreadyResponded(sender)) {
                 Log.d(TAG, "User has already responded.")
@@ -193,11 +193,26 @@ class RegistrationHandler {
         return mostCommonHashWithReceivedLedger ?: mostCommonHashes.entries.first().key
     }
 
+    fun getHashCount(): Int {
+        return hashes.size
+    }
+
     companion object {
         private var readyForRegistration: Boolean = false
 
+        private var nonceOfRequest: Int? = null
+
+
         fun getReadyForRegistration(): Boolean {
             return readyForRegistration
+        }
+
+        fun setNonce(nonce: Int) {
+            nonceOfRequest = nonce
+        }
+
+        fun getNonce(): Int? {
+            return nonceOfRequest
         }
     }
 }

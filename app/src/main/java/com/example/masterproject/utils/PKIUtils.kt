@@ -247,17 +247,17 @@ class PKIUtils {
             return keyFactory.generatePublic(publicKeySpec)
         }
 
-        fun signMessage(message: String, privateKey: PrivateKey): String {
+        fun signMessage(message: String, privateKey: PrivateKey, nonce: Int?): String {
             val signatureBuilder = Signature.getInstance("SHA1withECDSA")
             signatureBuilder.initSign(privateKey)
-            signatureBuilder.update(message.toByteArray())
+            signatureBuilder.update((if (nonce == null) message else "$message:$nonce").toByteArray())
             return Base64.getEncoder().encodeToString(signatureBuilder.sign())
         }
 
-        fun verifySignature(message: String, signature: String, publicKey: PublicKey): Boolean {
+        fun verifySignature(message: String, signature: String, publicKey: PublicKey, nonce: Int?): Boolean {
             val signatureBuilder = Signature.getInstance("SHA1withECDSA")
             signatureBuilder.initVerify(publicKey)
-            signatureBuilder.update(message.toByteArray())
+            signatureBuilder.update((if (nonce == null) message else "$message:$nonce").toByteArray())
             return signatureBuilder.verify(Base64.getDecoder().decode(signature))
 
         }

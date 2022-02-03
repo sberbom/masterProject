@@ -46,8 +46,6 @@ class ChatActivity: AppCompatActivity() {
             isClient = false
         }
         else {
-            Log.d(TAG, username!!.toString())
-            Log.d(TAG, AESUtils.getCurrentKeyForUser(username!!).toString())
             client = if(AESUtils.getCurrentKeyForUser(username!!) == null) {
                 TLSClient(ledgerEntry)
             } else {

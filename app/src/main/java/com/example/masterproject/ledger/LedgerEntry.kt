@@ -8,16 +8,12 @@ import java.security.cert.X509Certificate
 data class LedgerEntry(
         val certificate: X509Certificate,
         val userName: String,
-        val ipAddress: String = "",
-        val previousBlockHash: String,
-        val height: Int
+        val ipAddress: String = ""
     ) {
 
     override fun toString(): String {
         return "{\"username\":\"$userName\"," +
                 "\"ipAddress\":\"$ipAddress\"," +
-                "\"previousBlockHash\":\"$previousBlockHash\"," +
-                "\"height\":\"$height\"," +
                 "\"certificate\":\"${PKIUtils.certificateToString(certificate)}\"}"
     }
 
@@ -29,9 +25,7 @@ data class LedgerEntry(
             return LedgerEntry(
                 PKIUtils.stringToCertificate(jsonObject.getString("certificate")),
                 jsonObject.getString("username"),
-                jsonObject.getString("ipAddress"),
-                jsonObject.getString("previousBlockHash"),
-                jsonObject.getString("height").toInt()
+                jsonObject.getString("ipAddress")
             )
         }
 
@@ -42,8 +36,7 @@ data class LedgerEntry(
 
         fun isEqual(first: LedgerEntry, second: LedgerEntry): Boolean {
             return first.userName == second.userName &&
-                    first.certificate.toString() == second.certificate.toString() &&
-                    first.height == second.height
+                    first.certificate.toString() == second.certificate.toString()
         }
     }
 }

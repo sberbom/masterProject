@@ -200,8 +200,19 @@ class RegistrationHandler {
     companion object {
         private var readyForRegistration: Boolean = false
 
+        private var nonceOfRequest: Int? = null
+
+
         fun getReadyForRegistration(): Boolean {
             return readyForRegistration
+        }
+
+        fun setNonce(nonce: Int) {
+            nonceOfRequest = nonce
+        }
+
+        fun getNonce(): Int? {
+            return nonceOfRequest
         }
     }
 }

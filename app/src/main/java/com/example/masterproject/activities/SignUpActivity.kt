@@ -30,7 +30,7 @@ class SignUpActivity: AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
 
-    private val client: MulticastClient = MulticastClient()
+    private val client: MulticastClient = MulticastClient(null)
 
     private val TAG = "SignupActivity"
 

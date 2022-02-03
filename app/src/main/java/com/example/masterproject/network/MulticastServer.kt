@@ -9,6 +9,7 @@ import com.example.masterproject.ledger.LedgerEntry
 import com.example.masterproject.ledger.RegistrationHandler
 import com.example.masterproject.types.NetworkMessage
 import com.example.masterproject.utils.Constants
+import com.example.masterproject.utils.MISCUtils
 import com.example.masterproject.utils.PKIUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -23,8 +24,8 @@ class MulticastServer: Service() {
     private val socket: MulticastSocket? = null
     private val address = InetAddress.getByName(Constants.multicastGroup)
 
-    private val registrationHandler: RegistrationHandler = RegistrationHandler()
-    private val client: MulticastClient = MulticastClient()
+    private val registrationHandlers: MutableMap<Int, RegistrationHandler> = mutableMapOf()
+    private val client: MulticastClient = MulticastClient(this)
 
     private fun listenForData(): MutableList<LedgerEntry>? {
         val buf = ByteArray(512 * 10)
@@ -101,12 +102,13 @@ class MulticastServer: Service() {
 
     private fun handleFullLedger(networkMessage: NetworkMessage) {
         if (networkMessage.sender == Ledger.getMyLedgerEntry()?.userName) return
-        val ledger = networkMessage.payload
-        Log.d(TAG, "Received full ledger: $ledger")
-        if (networkMessage.nonce != RegistrationHandler.getNonce()) {
+        val registrationHandler = registrationHandlers[networkMessage.nonce]
+        if (registrationHandler == null) {
             Log.d(TAG, "Wrong nonce.")
             return
         }
+        val ledger = networkMessage.payload
+        Log.d(TAG, "Received full ledger: $ledger")
         val ledgerWithoutBrackets = ledger.substring(1, ledger.length - 1)
         if (ledgerWithoutBrackets.isNotEmpty()) {
             // split between array objects
@@ -126,7 +128,8 @@ class MulticastServer: Service() {
     }
 
     private fun handleHash(networkMessage: NetworkMessage) {
-        if (networkMessage.nonce != RegistrationHandler.getNonce()) {
+        val registrationHandler = registrationHandlers[networkMessage.nonce]
+        if (registrationHandler == null) {
             Log.d(TAG, "Wrong nonce.")
             return
         }
@@ -140,18 +143,33 @@ class MulticastServer: Service() {
         }
     }
 
+    private fun startRegistrationProcess(nonce: Int) {
+        if (registrationHandlers[nonce] == null) {
+            val registrationHandler = RegistrationHandler(this, nonce)
+            registrationHandlers[nonce] = registrationHandler
+            registrationHandler.startTimers()
+        }
+    }
+
+    fun registrationProcessFinished(nonce: Int) {
+        if (registrationHandlers[nonce] != null) {
+            registrationHandlers.remove(nonce)
+        }
+    }
+
     override fun onBind(intent: Intent?): IBinder? {
         return null
     }
 
     override fun onCreate() {
         Log.d(TAG, "Service started")
+        val nonce = MISCUtils.generateNonce()
+        startRegistrationProcess(nonce)
         GlobalScope.launch {
             listenForData()
         }
         GlobalScope.launch {
-            client.requestLedger()
-            registrationHandler.startWaitForLedgerTimer()
+            client.requestLedger(nonce)
         }
     }
 

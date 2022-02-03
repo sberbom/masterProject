@@ -72,7 +72,7 @@ class TCPListener: Service() {
     }
 
     override fun onDestroy() {
-        serverSocket?.close()
+        serverSocket.close()
         super.onDestroy()
     }
 }

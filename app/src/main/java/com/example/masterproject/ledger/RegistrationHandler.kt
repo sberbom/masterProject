@@ -3,20 +3,19 @@ package com.example.masterproject.ledger
 import android.os.CountDownTimer
 import android.util.Log
 import com.example.masterproject.network.MulticastClient
-import com.example.masterproject.utils.MISCUtils
+import com.example.masterproject.network.MulticastServer
 import com.example.masterproject.utils.PKIUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import java.security.cert.X509Certificate
 
-class RegistrationHandler {
+class RegistrationHandler(private val server: MulticastServer, private val nonce: Int) {
 
     private var receivedLedgers: MutableList<ReceivedLedger> = mutableListOf()
 
     private var hashes: MutableList<ReceivedHash> = mutableListOf()
 
-    private val client: MulticastClient = MulticastClient()
+    private val client: MulticastClient = MulticastClient(server)
 
     private var listenedForMoreThanOneSecond: Boolean = false
 
@@ -47,9 +46,9 @@ class RegistrationHandler {
         }
     }
 
-    fun startWaitForLedgerTimer() {
+    fun startTimers() {
         Log.d(TAG, "Timer started")
-        GlobalScope.launch {
+        GlobalScope.launch (Dispatchers.Default) {
             acceptanceTimer.start()
             waitForResponseTimer.start()
         }
@@ -93,9 +92,9 @@ class RegistrationHandler {
         acceptanceTimer.cancel()
         val acceptedLedger = receivedLedgers.find { it.hash == hashOfAcceptedLedger }
         if (acceptedLedger != null) {
-            ledgerIsInitialized = true
             Ledger.addFullLedger(acceptedLedger.ledger)
             startRegistration()
+            server.registrationProcessFinished(nonce)
         } else {
             // if the most common hash is not null and does not exist in receivedLedgers
             // it must be found in hashes, therefore we can use non-null assertion
@@ -108,6 +107,7 @@ class RegistrationHandler {
             }
 
         }
+
     }
 
     private fun addHash(senderBlock: LedgerEntry, hash: String) {
@@ -200,19 +200,9 @@ class RegistrationHandler {
     companion object {
         private var readyForRegistration: Boolean = false
 
-        private var nonceOfRequest: Int? = null
-
-
         fun getReadyForRegistration(): Boolean {
             return readyForRegistration
         }
 
-        fun setNonce(nonce: Int) {
-            nonceOfRequest = nonce
-        }
-
-        fun getNonce(): Int? {
-            return nonceOfRequest
-        }
     }
 }

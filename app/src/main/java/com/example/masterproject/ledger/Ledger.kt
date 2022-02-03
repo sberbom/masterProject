@@ -52,7 +52,12 @@ class Ledger {
                         PKIUtils.getUsernameFromCertificate(storedCertificate),
                         ipAddress)
                     if (isValidNewBlock(myLedgerEntry)){
+                        Log.d(TAG, "Created block from stored certificate.")
                         setMyLedgerEntry(myLedgerEntry)
+                        availableDevices.add(myLedgerEntry)
+                        Handler(Looper.getMainLooper()).post {
+                            MainActivity.updateAvailableDevices()
+                        }
                         return myLedgerEntry
                     }
                 } else {

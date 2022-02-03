@@ -7,18 +7,21 @@ import android.util.Log
 import com.example.masterproject.App
 import com.example.masterproject.activities.ChatActivity
 import com.example.masterproject.types.NetworkMessage
+import com.example.masterproject.utils.AESUtils
 import com.example.masterproject.utils.Constants
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.io.DataInputStream
 import java.io.DataOutputStream
 import java.io.IOException
-import java.net.ServerSocket
+import javax.net.ssl.SSLContext
+import javax.net.ssl.SSLServerSocket
 
-class TCPListener: Service() {
 
-    private val TAG = "TCPListener"
-    private lateinit var serverSocket: ServerSocket
+class TLSListener: Service() {
+    private val TAG = "TLSListener"
+    private lateinit var serverSocket: SSLServerSocket
+    private val sslContext: SSLContext = SSLContext.getDefault()
     private val context = App.getAppContext()
 
     private fun listenForConnections() {
@@ -31,9 +34,9 @@ class TCPListener: Service() {
                 val outputStream = DataOutputStream(clientSocket.getOutputStream())
                 val message = inputStream.readUTF()
                 val username = NetworkMessage.decodeNetworkMessage(message).sender
-                val tcpServer = TCPServer(inputStream, outputStream)
-                Thread(tcpServer).start()
-                ServerMap.serverMap[username] = tcpServer
+                val tlsServer = TLSServer(outputStream, inputStream)
+                Thread(tlsServer).start()
+                ServerMap.serverMap[username] = tlsServer
                 changeToChatActivity(username)
             } catch (e: IOException) {
                 e.printStackTrace()
@@ -53,7 +56,7 @@ class TCPListener: Service() {
     override fun onCreate() {
         try {
             Log.d(TAG, "TCPListener started")
-            serverSocket = ServerSocket(Constants.TCP_SERVERPORT)
+            serverSocket = sslContext.serverSocketFactory.createServerSocket(Constants.TLS_SERVERPORT) as SSLServerSocket
             GlobalScope.launch {
                 listenForConnections()
             }

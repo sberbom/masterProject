@@ -53,7 +53,7 @@ class TCPClient(private val ledgerEntry: LedgerEntry): Client() {
         try {
             while(running){
                 val serverAddress = InetAddress.getByName(ledgerEntry.ipAddress)
-                clientSocket = Socket(serverAddress, Constants.SERVERPORT)
+                clientSocket = Socket(serverAddress, Constants.TCP_SERVERPORT)
                 outputStream = DataOutputStream(clientSocket.getOutputStream())
                 inputStream = DataInputStream(clientSocket.getInputStream())
 

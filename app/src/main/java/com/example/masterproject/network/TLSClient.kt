@@ -14,13 +14,16 @@ import java.io.DataOutputStream
 import java.io.IOException
 import java.net.InetAddress
 import java.net.Socket
+import javax.net.ssl.SSLContext
+import javax.net.ssl.SSLSocket
 
 
 class TLSClient(private val ledgerEntry: LedgerEntry): Client() {
 
     override lateinit var outputStream: DataOutputStream
     override lateinit var inputStream: DataInputStream
-    override lateinit var clientSocket: Socket
+    override lateinit var clientSocket: SSLSocket
+    private val sslContext: SSLContext = SSLContext.getDefault()
     private val TAG = "TCPClient"
     private var running = true
     private val username = ledgerEntry.userName
@@ -51,7 +54,7 @@ class TLSClient(private val ledgerEntry: LedgerEntry): Client() {
         try {
             while(running && !isInterrupted){
                 val serverAddress = InetAddress.getByName(ledgerEntry.ipAddress)
-                clientSocket = Socket(serverAddress, Constants.SERVERPORT)
+                clientSocket = sslContext.socketFactory.createSocket(serverAddress, Constants.TLS_SERVERPORT) as SSLSocket
                 outputStream = DataOutputStream(clientSocket.getOutputStream())
                 inputStream = DataInputStream(clientSocket.getInputStream())
 

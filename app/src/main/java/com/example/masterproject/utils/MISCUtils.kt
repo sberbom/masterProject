@@ -13,6 +13,8 @@ import java.net.InetAddress
 import java.net.NetworkInterface
 import java.security.MessageDigest
 import java.util.*
+import kotlin.math.pow
+import kotlin.random.Random.Default.nextInt
 
 class MISCUtils {
 
@@ -83,6 +85,14 @@ class MISCUtils {
                 return PKIUtils.getUsernameFromCertificate(PKIUtils.fetchStoredCertificate(context)!!)
             }
             return "Not logged in"
+        }
+
+        fun generateNonce(): Int {
+            return 2.0.pow(128.0).toInt()
+        }
+
+        fun getMessageWithNonce(message: String, nonce: Int): String {
+            return "$message:$nonce"
         }
 
         fun isLoggedIn(): Boolean {

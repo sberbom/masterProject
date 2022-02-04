@@ -95,7 +95,9 @@ class ChatActivity: AppCompatActivity() {
         AESUtils.useNextKeyForUser(username!!)
         if(isClient){
             sendMessage("", UnicastMessageTypes.GOODBYE.toString())
-            client!!.closeSocket()
+            GlobalScope.launch(Dispatchers.IO) {
+                client!!.closeSocket()
+            }
             client!!.interrupt()
         }
         super.onStop()

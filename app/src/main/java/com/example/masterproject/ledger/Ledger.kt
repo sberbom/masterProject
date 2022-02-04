@@ -9,6 +9,7 @@ import com.example.masterproject.activities.MainActivity
 import com.example.masterproject.exceptions.UsernameTakenException
 import com.example.masterproject.utils.MISCUtils
 import com.example.masterproject.utils.PKIUtils
+import com.example.masterproject.utils.TLSUtils
 import java.lang.Exception
 
 class Ledger {
@@ -26,6 +27,8 @@ class Ledger {
                     PKIUtils.storePrivateKey(keyPair.private, context!!)
                     val certificate = PKIUtils.generateSelfSignedX509Certificate(email, keyPair)
                     PKIUtils.storeCertificate(certificate, context)
+                    TLSUtils.addKeyToKeyStore(keyPair.private, certificate)
+                    TLSUtils.writeKeyStoreToFile()
                     val myLedgerEntry = LedgerEntry(PKIUtils.getCertificate()!!, email, MISCUtils.getMyIpAddress()!!)
                     setMyLedgerEntry(myLedgerEntry)
                     availableDevices.add(myLedgerEntry)
@@ -112,6 +115,9 @@ class Ledger {
                 Log.d(TAG, "Ledger set to $ledger")
                 availableDevices.addAll(ledger)
                 availableDevices.sortBy { it.userName }
+                availableDevices.forEach {
+                    TLSUtils.addCertificateToTrustStore(it.userName, it.certificate)
+                }
                 Handler(Looper.getMainLooper()).post {
                     MainActivity.updateAvailableDevices()
                 }

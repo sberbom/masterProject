@@ -18,9 +18,11 @@ import com.example.masterproject.activities.adapters.DeviceAdapter
 import com.example.masterproject.ledger.Ledger
 import com.example.masterproject.network.MulticastServer
 import com.example.masterproject.network.TCPListener
+import com.example.masterproject.network.TLSListener
 import com.example.masterproject.utils.AESUtils
 import com.example.masterproject.utils.MISCUtils
 import com.example.masterproject.utils.PKIUtils
+import com.example.masterproject.utils.TLSUtils
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -51,13 +53,16 @@ class MainActivity: AppCompatActivity() {
         drawer.addDrawerListener(drawerToggle)
         drawerToggle.syncState()
 
-
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         Security.removeProvider("BC")
         Security.addProvider(BouncyCastleProvider())
 
         auth = Firebase.auth
+
+        if(TLSUtils.keyStore == null) {
+            TLSUtils.keyStore = TLSUtils.loadKeyStore()
+        }
 
         // Start multicast server
         baseContext.startService(Intent(this, MulticastServer::class.java))
@@ -70,6 +75,7 @@ class MainActivity: AppCompatActivity() {
 
         //Start network processes
         baseContext.startService(Intent(this, TCPListener::class.java))
+        baseContext.startService(Intent(this, TLSListener::class.java))
 
 
         //Find and display my IP address

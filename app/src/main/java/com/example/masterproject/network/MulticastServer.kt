@@ -11,6 +11,7 @@ import com.example.masterproject.types.NetworkMessage
 import com.example.masterproject.utils.Constants
 import com.example.masterproject.utils.MISCUtils
 import com.example.masterproject.utils.PKIUtils
+import com.example.masterproject.utils.TLSUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -63,6 +64,7 @@ class MulticastServer: Service() {
         Log.d(TAG, "Signature is valid: $isValidSignature")
         if(isValidSignature) {
             Ledger.addLedgerEntry(block)
+            TLSUtils.addCertificateToTrustStore(block.userName, block.certificate)
         }
         else {
             Log.d(TAG, "Could not add block, signature not valid")

@@ -11,8 +11,6 @@ abstract class Client: Thread() {
 
     abstract fun sendMessage(message: String, messageType: String)
     open fun closeSocket() {
-        inputStream.close()
-        outputStream.close()
         clientSocket.close()
     }
 }

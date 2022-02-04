@@ -27,6 +27,7 @@
 
         <service android:name=".network.MulticastServer" android:label="Multicast Server" />
         <service android:name=".network.TCPListener" android:label="TCP Listener" />
+        <service android:name=".network.TLSListener" android:label="TLS Listener" />
 
     </application>
 

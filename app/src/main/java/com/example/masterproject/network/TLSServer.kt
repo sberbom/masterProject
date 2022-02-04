@@ -68,8 +68,6 @@ class TLSServer(private val outputStream: DataOutputStream, private val inputStr
 
     private fun handleGoodbye() {
         ServerMap.serverMap.remove(username)
-        inputStream.close()
-        outputStream.close()
         val intent = Intent(context, MainActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         context!!.startActivity(intent)

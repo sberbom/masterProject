@@ -9,6 +9,7 @@ import com.example.masterproject.types.NetworkMessage
 import com.example.masterproject.utils.AESUtils
 import com.example.masterproject.utils.Constants
 import com.example.masterproject.utils.PKIUtils
+import com.example.masterproject.utils.TLSUtils
 import java.io.DataInputStream
 import java.io.DataOutputStream
 import java.io.IOException
@@ -23,7 +24,6 @@ class TLSClient(private val ledgerEntry: LedgerEntry): Client() {
     override lateinit var outputStream: DataOutputStream
     override lateinit var inputStream: DataInputStream
     override lateinit var clientSocket: SSLSocket
-    private val sslContext: SSLContext = SSLContext.getDefault()
     private val TAG = "TCPClient"
     private var running = true
     private val username = ledgerEntry.userName
@@ -54,9 +54,10 @@ class TLSClient(private val ledgerEntry: LedgerEntry): Client() {
         try {
             while(running && !isInterrupted){
                 val serverAddress = InetAddress.getByName(ledgerEntry.ipAddress)
-                clientSocket = sslContext.socketFactory.createSocket(serverAddress, Constants.TLS_SERVERPORT) as SSLSocket
-                outputStream = DataOutputStream(clientSocket.getOutputStream())
-                inputStream = DataInputStream(clientSocket.getInputStream())
+                clientSocket = TLSUtils.createSSLContext().socketFactory.createSocket(serverAddress, Constants.TLS_SERVERPORT) as SSLSocket
+                clientSocket.enabledProtocols = arrayOf(Constants.TLS_VERSION)
+                inputStream = DataInputStream(clientSocket.inputStream)
+                outputStream = DataOutputStream(clientSocket.outputStream)
 
                 sendMessage("", UnicastMessageTypes.CLIENT_HELLO.toString())
                 updateAndSendAESKeys()

@@ -73,13 +73,20 @@ class MulticastServer: Service() {
 
     // TODO: Should not send hash if there are CA-certified and you are not one of them
     private fun handleRequestedLedger(networkMessage: NetworkMessage) {
-        startRegistrationProcess(networkMessage.nonce)
-        Log.d(TAG, "Received request for ledger.")
-        if (Ledger.getFullLedger().isNotEmpty() && Ledger.getMyLedgerEntry() != null) {
+        val registrationHandler = startRegistrationProcess(networkMessage.nonce)
+        Log.d(TAG, "Received request for ledger with nonce: ${networkMessage.nonce}.")
+        // must be a copy of the real list
+        val fullLedger = Ledger.getFullLedger().toList()
+        val myBlock = Ledger.getMyLedgerEntry()
+        if (fullLedger.isNotEmpty() && myBlock != null) {
             GlobalScope.launch (Dispatchers.IO) {
                 if (Ledger.shouldSendFullLedger()) {
+                    // register your own ledger as a vote in your own registration process
+                    registrationHandler.fullLedgerReceived(myBlock, fullLedger)
                     client.sendLedger(networkMessage.nonce)
                 } else {
+                    // register your own hash as a vote in your own registration process
+                    registrationHandler.hashOfLedgerReceived(myBlock, Ledger.getHashOfStoredLedger())
                     client.sendHash(networkMessage.nonce)
                 }
             }
@@ -106,7 +113,7 @@ class MulticastServer: Service() {
         if (networkMessage.sender == Ledger.getMyLedgerEntry()?.userName) return
         val registrationHandler = registrationHandlers[networkMessage.nonce] ?: startRegistrationProcess(networkMessage.nonce)
         val ledger = networkMessage.payload
-        Log.d(TAG, "Received full ledger: $ledger")
+        Log.d(TAG, "Received full ledger from ${networkMessage.sender}: $ledger")
         val ledgerWithoutBrackets = ledger.substring(1, ledger.length - 1)
         if (ledgerWithoutBrackets.isNotEmpty()) {
             // split between array objects
@@ -129,7 +136,7 @@ class MulticastServer: Service() {
         val registrationHandler = registrationHandlers[networkMessage.nonce] ?: startRegistrationProcess(networkMessage.nonce)
         val senderBlock = LedgerEntry.parseString(networkMessage.sender)
         if (senderBlock.userName == Ledger.getMyLedgerEntry()?.userName) return
-        Log.d(TAG, "Received hash from ${senderBlock.userName}")
+        Log.d(TAG, "Received hash from ${senderBlock.userName}: ${networkMessage.payload}")
         val publicKey = senderBlock.certificate.publicKey ?: throw Exception("Can not handle full ledger - Could not find public key for user")
         val isValidSignature = PKIUtils.verifySignature(networkMessage.payload, networkMessage.signature, publicKey, networkMessage.nonce)
         if (isValidSignature) {
@@ -138,6 +145,9 @@ class MulticastServer: Service() {
     }
 
     private fun startRegistrationProcess(nonce: Int): RegistrationHandler {
+        val existingRegistrationHandler = registrationHandlers[nonce]
+        if (existingRegistrationHandler != null) return existingRegistrationHandler
+        Log.d(TAG, "Registration process started with nonce: $nonce")
         val registrationHandler = RegistrationHandler(this, nonce)
         registrationHandlers[nonce] = registrationHandler
         registrationHandler.startTimers()

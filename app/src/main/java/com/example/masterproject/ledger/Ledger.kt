@@ -114,10 +114,14 @@ class Ledger {
             }
         }
 
-        fun addFullLedger(ledger: List<LedgerEntry>) {
-            if (ledgerIsValid(ledger) && availableDevices.isEmpty()) {
-                Log.d(TAG, "Ledger set to $ledger")
-                availableDevices.addAll(ledger)
+        fun addNewBlocks(ledger: List<LedgerEntry>) {
+            if (ledgerIsValid(ledger)) {
+                ledger.forEach { block ->
+                    val userAlreadyInLedger = availableDevices.map { it.certificate }.contains(block.certificate)
+                    if (!userAlreadyInLedger && canUseUsername(block)){
+                        availableDevices.add(block)
+                    }
+                }
                 availableDevices.sortBy { it.userName }
                 Handler(Looper.getMainLooper()).post {
                     MainActivity.updateAvailableDevices()

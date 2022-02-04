@@ -21,7 +21,7 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
 
     private var listenedForMoreThanOneSecond: Boolean = false
 
-    private val TAG = "RegistrationHandler"
+    private val TAG = "RegistrationHandler:$nonce"
 
     private val responseTimeout = Timer()
 
@@ -35,14 +35,12 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
         Log.d(TAG, "Timer started")
         GlobalScope.launch (Dispatchers.Default) {
             responseTimeout.schedule(1000) {
-                Log.d(TAG, "Response task run")
                 if (!responseTimeoutCancelled) {
                     Log.d(TAG, "Timer finished")
                     startRegistration()
                 }
             }
             acceptLedgerTimeout.schedule(1000) {
-                Log.d(TAG, "Accept ledger task run")
                 if (!acceptLedgerTimeoutCancelled) {
                     Log.d(TAG, "Acceptance timer finished")
                     listenedForMoreThanOneSecond = true
@@ -89,13 +87,15 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
         acceptLedgerTimeoutCancelled = true
         val acceptedLedger = receivedLedgers.find { it.hash == hashOfAcceptedLedger }
         if (acceptedLedger != null) {
-            Ledger.addFullLedger(acceptedLedger.ledger)
+            Log.d(TAG, "Accepted ledger from ${acceptedLedger.senderBlock.userName}: ${acceptedLedger.ledger}")
+            Ledger.addNewBlocks(acceptedLedger.ledger)
             startRegistration()
             server.registrationProcessFinished(nonce)
         } else {
             // if the most common hash is not null and does not exist in receivedLedgers
             // it must be found in hashes, therefore we can use non-null assertion
             val sentCorrectHash = hashes.find { it.hash == hashOfAcceptedLedger }!!.senderBlock.userName
+            Log.d(TAG, "Accepted hash from $sentCorrectHash: $hashOfAcceptedLedger")
             GlobalScope.launch(Dispatchers.IO) {
                 client.requestSpecificHash(
                     hashOfAcceptedLedger,
@@ -185,9 +185,10 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
         if (hashToCount.isEmpty()) return null
         val maxValue = hashToCount.values.maxOrNull()
         val mostCommonHashes = hashToCount.filterValues { it == maxValue }
-        val hashesOfReceivedLedgers = receivedLedgers.map { it.hash }
-        val mostCommonHashWithReceivedLedger = mostCommonHashes.keys.find{ hashesOfReceivedLedgers.contains(it) }
-        return mostCommonHashWithReceivedLedger ?: mostCommonHashes.entries.first().key
+        val mostCommonReceivedLedger = receivedLedgers.filter { mostCommonHashes.contains(it.hash) }.maxByOrNull { it.ledger.size }
+        // If the ledger of one or more of the most common hashes has been received, take the longest one,
+        // if not take the first of the most common hashes.
+        return mostCommonReceivedLedger?.hash ?: mostCommonHashes.entries.first().key
     }
 
     fun getHashCount(): Int {

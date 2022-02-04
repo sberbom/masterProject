@@ -55,9 +55,6 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
         responseTimeoutCancelled = true
     }
 
-    // TODO: If second ledger received equals the first, it should be stored as hash, if not it should be stored as alternative ledger
-    // TODO: Handle if too many ledgers are received
-    // TODO: Check that user has not already sent hash or ledger
     fun fullLedgerReceived(sender: LedgerEntry, ledger: List<LedgerEntry>) {
         val sortedLedger = ledger.sortedBy { it.userName }
         if (!Ledger.ledgerIsValid(ledger)) throw Exception("Ledger received by ${sender.userName} is not valid.")
@@ -140,9 +137,6 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
         }
     }
 
-    // TODO: Implement function. Ledger should be accepted if enough people has confirmed the ledger.
-    // TODO: Check if the one who sent the ledger is CA certified, if not it should not be accepted based on numberOfCACertifiedInLedger
-    // TODO: Only give sender of full ledger voting right if it is CA-certified and the others are not
     // Returns whether we can conclude that the ledger is correct
     /**
      * @return whether we can conclude that the ledger is correct
@@ -189,10 +183,6 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
         // If the ledger of one or more of the most common hashes has been received, take the longest one,
         // if not take the first of the most common hashes.
         return mostCommonReceivedLedger?.hash ?: mostCommonHashes.entries.first().key
-    }
-
-    fun getHashCount(): Int {
-        return hashes.size
     }
 
     companion object {

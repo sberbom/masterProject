@@ -55,6 +55,7 @@ class Ledger {
                         Log.d(TAG, "Created block from stored certificate.")
                         setMyLedgerEntry(myLedgerEntry)
                         availableDevices.add(myLedgerEntry)
+                        availableDevices.sortBy { it.userName }
                         Handler(Looper.getMainLooper()).post {
                             MainActivity.updateAvailableDevices()
                         }
@@ -104,6 +105,7 @@ class Ledger {
                 }
                 Log.d(TAG, "${newBlock.userName} added to ledger")
                 availableDevices.add(newBlock)
+                availableDevices.sortBy { it.userName }
                 Handler(Looper.getMainLooper()).post {
                     MainActivity.updateAvailableDevices()
                 }

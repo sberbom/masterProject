@@ -3,6 +3,7 @@ package com.example.masterproject.network
 import android.app.Service
 import android.content.Intent
 import android.os.IBinder
+import android.os.Looper
 import android.util.Log
 import com.example.masterproject.ledger.Ledger
 import com.example.masterproject.ledger.LedgerEntry
@@ -72,6 +73,7 @@ class MulticastServer: Service() {
 
     // TODO: Should not send hash if there are CA-certified and you are not one of them
     private fun handleRequestedLedger(networkMessage: NetworkMessage) {
+        startRegistrationProcess(networkMessage.nonce)
         Log.d(TAG, "Received request for ledger.")
         if (Ledger.getFullLedger().isNotEmpty() && Ledger.getMyLedgerEntry() != null) {
             GlobalScope.launch (Dispatchers.IO) {
@@ -102,11 +104,7 @@ class MulticastServer: Service() {
 
     private fun handleFullLedger(networkMessage: NetworkMessage) {
         if (networkMessage.sender == Ledger.getMyLedgerEntry()?.userName) return
-        val registrationHandler = registrationHandlers[networkMessage.nonce]
-        if (registrationHandler == null) {
-            Log.d(TAG, "Wrong nonce.")
-            return
-        }
+        val registrationHandler = registrationHandlers[networkMessage.nonce] ?: startRegistrationProcess(networkMessage.nonce)
         val ledger = networkMessage.payload
         Log.d(TAG, "Received full ledger: $ledger")
         val ledgerWithoutBrackets = ledger.substring(1, ledger.length - 1)
@@ -128,11 +126,7 @@ class MulticastServer: Service() {
     }
 
     private fun handleHash(networkMessage: NetworkMessage) {
-        val registrationHandler = registrationHandlers[networkMessage.nonce]
-        if (registrationHandler == null) {
-            Log.d(TAG, "Wrong nonce.")
-            return
-        }
+        val registrationHandler = registrationHandlers[networkMessage.nonce] ?: startRegistrationProcess(networkMessage.nonce)
         val senderBlock = LedgerEntry.parseString(networkMessage.sender)
         if (senderBlock.userName == Ledger.getMyLedgerEntry()?.userName) return
         Log.d(TAG, "Received hash from ${senderBlock.userName}")
@@ -143,12 +137,11 @@ class MulticastServer: Service() {
         }
     }
 
-    private fun startRegistrationProcess(nonce: Int) {
-        if (registrationHandlers[nonce] == null) {
-            val registrationHandler = RegistrationHandler(this, nonce)
-            registrationHandlers[nonce] = registrationHandler
-            registrationHandler.startTimers()
-        }
+    private fun startRegistrationProcess(nonce: Int): RegistrationHandler {
+        val registrationHandler = RegistrationHandler(this, nonce)
+        registrationHandlers[nonce] = registrationHandler
+        registrationHandler.startTimers()
+        return registrationHandler
     }
 
     fun registrationProcessFinished(nonce: Int) {
@@ -164,7 +157,6 @@ class MulticastServer: Service() {
     override fun onCreate() {
         Log.d(TAG, "Service started")
         val nonce = MISCUtils.generateNonce()
-        startRegistrationProcess(nonce)
         GlobalScope.launch {
             listenForData()
         }

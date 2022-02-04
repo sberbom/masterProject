@@ -8,6 +8,8 @@ import com.example.masterproject.utils.PKIUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import java.util.*
+import kotlin.concurrent.schedule
 
 class RegistrationHandler(private val server: MulticastServer, private val nonce: Int) {
 
@@ -19,66 +21,61 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
 
     private var listenedForMoreThanOneSecond: Boolean = false
 
-    private var ledgerIsInitialized: Boolean = false
-
     private val TAG = "RegistrationHandler"
 
-    // The counter is started when the request for the ledger is sent, and
-    // cancelled if we receive an answer. The counter will finish only if
-    // there is no answer in X seconds, and if so, we conclude that we are
-    // the first ones to join a group.
-    private val waitForResponseTimer = object: CountDownTimer(1000, 1000) {
-        override fun onTick(millisUntilFinished: Long) {}
+    private val responseTimeout = Timer()
 
-        override fun onFinish() {
-            Log.d(TAG, "Timer finished")
-            startRegistration()
-        }
-    }
+    private var responseTimeoutCancelled = false
 
-    private val acceptanceTimer = object: CountDownTimer(1000, 1000) {
-        override fun onTick(millisUntilFinished: Long) {}
+    private val acceptLedgerTimeout = Timer()
 
-        override fun onFinish() {
-            Log.d(TAG, "Acceptance timer finished")
-            listenedForMoreThanOneSecond = true
-            setLedgerIfAccepted()
-        }
-    }
+    private var acceptLedgerTimeoutCancelled = false
 
     fun startTimers() {
         Log.d(TAG, "Timer started")
         GlobalScope.launch (Dispatchers.Default) {
-            acceptanceTimer.start()
-            waitForResponseTimer.start()
+            responseTimeout.schedule(1000) {
+                Log.d(TAG, "Response task run")
+                if (!responseTimeoutCancelled) {
+                    Log.d(TAG, "Timer finished")
+                    startRegistration()
+                }
+            }
+            acceptLedgerTimeout.schedule(1000) {
+                Log.d(TAG, "Accept ledger task run")
+                if (!acceptLedgerTimeoutCancelled) {
+                    Log.d(TAG, "Acceptance timer finished")
+                    listenedForMoreThanOneSecond = true
+                    setLedgerIfAccepted()
+                }
+            }
         }
     }
 
     private fun stopTimer() {
         Log.d(TAG, "Timer cancelled")
-        waitForResponseTimer.cancel()
+        responseTimeoutCancelled = true
     }
 
     // TODO: If second ledger received equals the first, it should be stored as hash, if not it should be stored as alternative ledger
     // TODO: Handle if too many ledgers are received
     // TODO: Check that user has not already sent hash or ledger
     fun fullLedgerReceived(sender: LedgerEntry, ledger: List<LedgerEntry>) {
-        if (!ledgerIsInitialized) {
-            val sortedLedger = ledger.sortedBy { it.userName }
-            if (!Ledger.ledgerIsValid(ledger)) throw Exception("Ledger received by ${sender.userName} is not valid.")
-            if (userHasAlreadyResponded(sender)) {
-                Log.d(TAG, "User has already responded.")
-                return
-            }
-            stopTimer()
-            val hashOfReceivedLedger = Ledger.getHashOfLedger(sortedLedger)
-            if (receivedLedgers.map { it.hash }.contains(hashOfReceivedLedger)) {
-                addHash(sender, hashOfReceivedLedger)
-            } else {
-                receivedLedgers.add(ReceivedLedger(ledger, hashOfReceivedLedger, sender))
-            }
-            setLedgerIfAccepted()
+        val sortedLedger = ledger.sortedBy { it.userName }
+        if (!Ledger.ledgerIsValid(ledger)) throw Exception("Ledger received by ${sender.userName} is not valid.")
+        if (userHasAlreadyResponded(sender)) {
+            Log.d(TAG, "User has already responded.")
+            return
         }
+        stopTimer()
+        val hashOfReceivedLedger = Ledger.getHashOfLedger(sortedLedger)
+        if (receivedLedgers.map { it.hash }.contains(hashOfReceivedLedger)) {
+            addHash(sender, hashOfReceivedLedger)
+        } else {
+            receivedLedgers.add(ReceivedLedger(ledger, hashOfReceivedLedger, sender))
+        }
+        setLedgerIfAccepted()
+
     }
 
     private fun userHasAlreadyResponded(user: LedgerEntry): Boolean {
@@ -89,7 +86,7 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
 
     private fun setLedgerIfAccepted() {
         val hashOfAcceptedLedger = getHashOfAcceptedLedger() ?: return
-        acceptanceTimer.cancel()
+        acceptLedgerTimeoutCancelled = true
         val acceptedLedger = receivedLedgers.find { it.hash == hashOfAcceptedLedger }
         if (acceptedLedger != null) {
             Ledger.addFullLedger(acceptedLedger.ledger)

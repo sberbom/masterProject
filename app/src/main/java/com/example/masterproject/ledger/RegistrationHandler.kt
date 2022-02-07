@@ -10,8 +10,10 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.util.*
 import kotlin.concurrent.schedule
+import kotlin.concurrent.scheduleAtFixedRate
+import kotlin.random.Random.Default.nextInt
 
-class RegistrationHandler(private val server: MulticastServer, private val nonce: Int) {
+class RegistrationHandler(private val server: MulticastServer, private val nonce: Int, private val isMyRegistration: Boolean) {
 
     private var receivedLedgers: MutableList<ReceivedLedger> = mutableListOf()
 
@@ -27,11 +29,19 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
 
     private val responseTimeout = Timer()
 
+    private var acceptedHash: String? = null
+
     private var responseTimeoutCancelled = false
 
     private val acceptLedgerTimeout = Timer()
 
     private var acceptLedgerTimeoutCancelled = false
+
+    private val requestLedgerOfAcceptedHashTimer = Timer()
+
+    private var requestLedgerOfAcceptedHashTimerCancelled = false
+
+    private var requestLedgerOfAcceptedHashCounter = 0
 
     fun startTimers() {
         Log.d(TAG, "Timer started")
@@ -60,12 +70,18 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
     fun fullLedgerReceived(sender: LedgerEntry, ledger: List<LedgerEntry>) {
         val sortedLedger = ledger.sortedBy { it.userName }
         if (!Ledger.ledgerIsValid(ledger)) throw Exception("Ledger received by ${sender.userName} is not valid.")
+        val hashOfReceivedLedger = Ledger.getHashOfLedger(sortedLedger)
+        if (hashOfReceivedLedger == acceptedHash) {
+            requestLedgerOfAcceptedHashTimer.cancel()
+            requestLedgerOfAcceptedHashTimerCancelled = true
+            handleAcceptedLedger(ReceivedLedger(ledger, hashOfReceivedLedger, sender))
+            return
+        }
         if (userHasAlreadyResponded(sender)) {
             Log.d(TAG, "User has already responded.")
             return
         }
         stopTimer()
-        val hashOfReceivedLedger = Ledger.getHashOfLedger(sortedLedger)
         if (receivedLedgers.map { it.hash }.contains(hashOfReceivedLedger)) {
             addHash(sender, hashOfReceivedLedger)
         } else {
@@ -86,24 +102,42 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
         acceptLedgerTimeoutCancelled = true
         val acceptedLedger = receivedLedgers.find { it.hash == hashOfAcceptedLedger }
         if (acceptedLedger != null) {
-            Log.d(TAG, "Accepted ledger from ${acceptedLedger.senderBlock.userName}: ${acceptedLedger.ledger}")
-            Ledger.setFullLedger(acceptedLedger.ledger, broadcastBlocks)
-            startRegistration()
-            server.registrationProcessFinished(nonce)
+            handleAcceptedLedger(acceptedLedger)
         } else {
-            // if the most common hash is not null and does not exist in receivedLedgers
-            // it must be found in hashes, therefore we can use non-null assertion
-            val sentCorrectHash = hashes.find { it.hash == hashOfAcceptedLedger }!!.senderBlock.userName
-            Log.d(TAG, "Accepted hash from $sentCorrectHash: $hashOfAcceptedLedger")
-            GlobalScope.launch(Dispatchers.IO) {
-                client.requestSpecificHash(
-                    hashOfAcceptedLedger,
-                    sentCorrectHash
-                )
+            acceptedHash = hashOfAcceptedLedger
+            requestLedgerOfCorrectHash(hashOfAcceptedLedger)
+            // 0 if my registration, if not random time divided in 20 steps from 200 ms until 1000 seconds
+            val waitToRequest = if (isMyRegistration) 0 else 200 + nextInt(20) * 40
+            requestLedgerOfAcceptedHashTimer.scheduleAtFixedRate(waitToRequest.toLong(), 500) {
+                if (!requestLedgerOfAcceptedHashTimerCancelled && requestLedgerOfAcceptedHashCounter >= 3) {
+                    requestLedgerOfAcceptedHashCounter += 1
+                    requestLedgerOfCorrectHash(hashOfAcceptedLedger)
+                } else {
+                    requestLedgerOfAcceptedHashTimer.cancel()
+                    startRegistration()
+                }
             }
-
         }
 
+    }
+
+    private fun handleAcceptedLedger(acceptedLedger: ReceivedLedger) {
+        Log.d(TAG, "Accepted ledger from ${acceptedLedger.senderBlock.userName}: ${acceptedLedger.ledger}")
+        Ledger.setFullLedger(acceptedLedger.ledger, broadcastBlocks)
+        startRegistration()
+    }
+
+    private fun requestLedgerOfCorrectHash(hashOfAcceptedLedger: String) {
+        // if the most common hash is not null and does not exist in receivedLedgers
+        // it must be found in hashes, therefore we can use non-null assertion
+        val sentCorrectHash = hashes.filter { it.hash == hashOfAcceptedLedger }.random().senderBlock.userName
+        Log.d(TAG, "Accepted hash from $sentCorrectHash: $hashOfAcceptedLedger")
+        GlobalScope.launch(Dispatchers.IO) {
+            client.requestSpecificHash(
+                hashOfAcceptedLedger,
+                sentCorrectHash
+            )
+        }
     }
 
     private fun addHash(senderBlock: LedgerEntry, hash: String) {
@@ -142,6 +176,7 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
                 }
             }
         }
+        server.registrationProcessFinished(nonce)
     }
 
     // Returns whether we can conclude that the ledger is correct

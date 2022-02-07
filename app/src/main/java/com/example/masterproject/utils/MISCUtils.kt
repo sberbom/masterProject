@@ -91,10 +91,6 @@ class MISCUtils {
             return nextInt(2.0.pow(128.0).toInt())
         }
 
-        fun getMessageWithNonce(message: String, nonce: Int): String {
-            return "$message:$nonce"
-        }
-
         fun isLoggedIn(): Boolean {
             return (Firebase.auth.currentUser != null || Ledger.getMyLedgerEntry() != null)
         }

@@ -3,83 +3,74 @@ package com.example.masterproject.ledger
 import android.os.CountDownTimer
 import android.util.Log
 import com.example.masterproject.network.MulticastClient
-import com.example.masterproject.utils.MISCUtils
+import com.example.masterproject.network.MulticastServer
 import com.example.masterproject.utils.PKIUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import java.security.cert.X509Certificate
+import java.util.*
+import kotlin.concurrent.schedule
 
-class RegistrationHandler {
+class RegistrationHandler(private val server: MulticastServer, private val nonce: Int) {
 
     private var receivedLedgers: MutableList<ReceivedLedger> = mutableListOf()
 
     private var hashes: MutableList<ReceivedHash> = mutableListOf()
 
-    private val client: MulticastClient = MulticastClient()
+    private val client: MulticastClient = MulticastClient(server)
 
     private var listenedForMoreThanOneSecond: Boolean = false
 
-    private var ledgerIsInitialized: Boolean = false
+    private val TAG = "RegistrationHandler:$nonce"
 
-    private val TAG = "RegistrationHandler"
+    private val responseTimeout = Timer()
 
-    // The counter is started when the request for the ledger is sent, and
-    // cancelled if we receive an answer. The counter will finish only if
-    // there is no answer in X seconds, and if so, we conclude that we are
-    // the first ones to join a group.
-    private val waitForResponseTimer = object: CountDownTimer(1000, 1000) {
-        override fun onTick(millisUntilFinished: Long) {}
+    private var responseTimeoutCancelled = false
 
-        override fun onFinish() {
-            Log.d(TAG, "Timer finished")
-            startRegistration()
-        }
-    }
+    private val acceptLedgerTimeout = Timer()
 
-    private val acceptanceTimer = object: CountDownTimer(1000, 1000) {
-        override fun onTick(millisUntilFinished: Long) {}
+    private var acceptLedgerTimeoutCancelled = false
 
-        override fun onFinish() {
-            Log.d(TAG, "Acceptance timer finished")
-            listenedForMoreThanOneSecond = true
-            setLedgerIfAccepted()
-        }
-    }
-
-    fun startWaitForLedgerTimer() {
+    fun startTimers() {
         Log.d(TAG, "Timer started")
-        GlobalScope.launch {
-            acceptanceTimer.start()
-            waitForResponseTimer.start()
+        GlobalScope.launch (Dispatchers.Default) {
+            responseTimeout.schedule(1000) {
+                if (!responseTimeoutCancelled) {
+                    Log.d(TAG, "Timer finished")
+                    startRegistration()
+                }
+            }
+            acceptLedgerTimeout.schedule(1000) {
+                if (!acceptLedgerTimeoutCancelled) {
+                    Log.d(TAG, "Acceptance timer finished")
+                    listenedForMoreThanOneSecond = true
+                    setLedgerIfAccepted()
+                }
+            }
         }
     }
 
     private fun stopTimer() {
         Log.d(TAG, "Timer cancelled")
-        waitForResponseTimer.cancel()
+        responseTimeoutCancelled = true
     }
 
-    // TODO: If second ledger received equals the first, it should be stored as hash, if not it should be stored as alternative ledger
-    // TODO: Handle if too many ledgers are received
-    // TODO: Check that user has not already sent hash or ledger
     fun fullLedgerReceived(sender: LedgerEntry, ledger: List<LedgerEntry>) {
-        if (!ledgerIsInitialized) {
-            val sortedLedger = ledger.sortedBy { it.userName }
-            if (!Ledger.ledgerIsValid(ledger)) throw Exception("Ledger received by ${sender.userName} is not valid.")
-            if (userHasAlreadyResponded(sender)) {
-                Log.d(TAG, "User has already responded.")
-                return
-            }
-            stopTimer()
-            val hashOfReceivedLedger = Ledger.getHashOfLedger(sortedLedger)
-            if (receivedLedgers.map { it.hash }.contains(hashOfReceivedLedger)) {
-                addHash(sender, hashOfReceivedLedger)
-            } else {
-                receivedLedgers.add(ReceivedLedger(ledger, hashOfReceivedLedger, sender))
-            }
-            setLedgerIfAccepted()
+        val sortedLedger = ledger.sortedBy { it.userName }
+        if (!Ledger.ledgerIsValid(ledger)) throw Exception("Ledger received by ${sender.userName} is not valid.")
+        if (userHasAlreadyResponded(sender)) {
+            Log.d(TAG, "User has already responded.")
+            return
         }
+        stopTimer()
+        val hashOfReceivedLedger = Ledger.getHashOfLedger(sortedLedger)
+        if (receivedLedgers.map { it.hash }.contains(hashOfReceivedLedger)) {
+            addHash(sender, hashOfReceivedLedger)
+        } else {
+            receivedLedgers.add(ReceivedLedger(ledger, hashOfReceivedLedger, sender))
+        }
+        setLedgerIfAccepted()
+
     }
 
     private fun userHasAlreadyResponded(user: LedgerEntry): Boolean {
@@ -90,16 +81,18 @@ class RegistrationHandler {
 
     private fun setLedgerIfAccepted() {
         val hashOfAcceptedLedger = getHashOfAcceptedLedger() ?: return
-        acceptanceTimer.cancel()
+        acceptLedgerTimeoutCancelled = true
         val acceptedLedger = receivedLedgers.find { it.hash == hashOfAcceptedLedger }
         if (acceptedLedger != null) {
-            ledgerIsInitialized = true
-            Ledger.addFullLedger(acceptedLedger.ledger)
+            Log.d(TAG, "Accepted ledger from ${acceptedLedger.senderBlock.userName}: ${acceptedLedger.ledger}")
+            Ledger.addNewBlocks(acceptedLedger.ledger)
             startRegistration()
+            server.registrationProcessFinished(nonce)
         } else {
             // if the most common hash is not null and does not exist in receivedLedgers
             // it must be found in hashes, therefore we can use non-null assertion
             val sentCorrectHash = hashes.find { it.hash == hashOfAcceptedLedger }!!.senderBlock.userName
+            Log.d(TAG, "Accepted hash from $sentCorrectHash: $hashOfAcceptedLedger")
             GlobalScope.launch(Dispatchers.IO) {
                 client.requestSpecificHash(
                     hashOfAcceptedLedger,
@@ -108,6 +101,7 @@ class RegistrationHandler {
             }
 
         }
+
     }
 
     private fun addHash(senderBlock: LedgerEntry, hash: String) {
@@ -143,9 +137,6 @@ class RegistrationHandler {
         }
     }
 
-    // TODO: Implement function. Ledger should be accepted if enough people has confirmed the ledger.
-    // TODO: Check if the one who sent the ledger is CA certified, if not it should not be accepted based on numberOfCACertifiedInLedger
-    // TODO: Only give sender of full ledger voting right if it is CA-certified and the others are not
     // Returns whether we can conclude that the ledger is correct
     /**
      * @return whether we can conclude that the ledger is correct
@@ -188,31 +179,18 @@ class RegistrationHandler {
         if (hashToCount.isEmpty()) return null
         val maxValue = hashToCount.values.maxOrNull()
         val mostCommonHashes = hashToCount.filterValues { it == maxValue }
-        val hashesOfReceivedLedgers = receivedLedgers.map { it.hash }
-        val mostCommonHashWithReceivedLedger = mostCommonHashes.keys.find{ hashesOfReceivedLedgers.contains(it) }
-        return mostCommonHashWithReceivedLedger ?: mostCommonHashes.entries.first().key
-    }
-
-    fun getHashCount(): Int {
-        return hashes.size
+        val mostCommonReceivedLedger = receivedLedgers.filter { mostCommonHashes.contains(it.hash) }.maxByOrNull { it.ledger.size }
+        // If the ledger of one or more of the most common hashes has been received, take the longest one,
+        // if not take the first of the most common hashes.
+        return mostCommonReceivedLedger?.hash ?: mostCommonHashes.entries.first().key
     }
 
     companion object {
         private var readyForRegistration: Boolean = false
 
-        private var nonceOfRequest: Int? = null
-
-
         fun getReadyForRegistration(): Boolean {
             return readyForRegistration
         }
 
-        fun setNonce(nonce: Int) {
-            nonceOfRequest = nonce
-        }
-
-        fun getNonce(): Int? {
-            return nonceOfRequest
-        }
     }
 }

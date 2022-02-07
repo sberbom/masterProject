@@ -15,7 +15,7 @@ import java.net.DatagramPacket
 import java.net.DatagramSocket
 import java.net.InetAddress
 
-class MulticastClient {
+class MulticastClient (private val server: MulticastServer?) {
 
     private val TAG = "MulticastClient"
     private val multicastGroup: String = Constants.multicastGroup
@@ -48,9 +48,11 @@ class MulticastClient {
         }
     }
 
-    suspend fun requestLedger() {
-        val nonce = MISCUtils.generateNonce()
-        RegistrationHandler.setNonce(nonce)
+    suspend fun requestLedger(nonce: Int) {
+        if (server == null) {
+            Log.d(TAG, "Could not request ledger as server is not defined.")
+            return
+        }
         val message = NetworkMessage("", "", BroadcastMessageTypes.REQUEST_LEDGER.toString(), "", nonce)
         return withContext(Dispatchers.IO) {
             sendMulticastData(message.toString())

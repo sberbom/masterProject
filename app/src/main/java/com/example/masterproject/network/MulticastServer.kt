@@ -19,6 +19,8 @@ import kotlinx.coroutines.launch
 import java.net.DatagramPacket
 import java.net.InetAddress
 import java.net.MulticastSocket
+import java.util.*
+import kotlin.concurrent.schedule
 
 class MulticastServer: Service() {
 
@@ -26,8 +28,13 @@ class MulticastServer: Service() {
     private val socket: MulticastSocket? = null
     private val address = InetAddress.getByName(Constants.multicastGroup)
 
+    private val antiDosTimer = Timer()
+    private var shouldHandleRequests = true
+
     private val registrationHandlers: MutableMap<Int, RegistrationHandler> = mutableMapOf()
     private val client: MulticastClient = MulticastClient(this)
+
+    private val usedNonces: MutableList<Int> = mutableListOf()
 
     private fun listenForData(): MutableList<LedgerEntry>? {
         val buf = ByteArray(512 * 10)
@@ -82,7 +89,8 @@ class MulticastServer: Service() {
 
     // TODO: Should not send hash if there are CA-certified and you are not one of them
     private fun handleRequestedLedger(networkMessage: NetworkMessage) {
-        val registrationHandler = startRegistrationProcess(networkMessage.nonce, false)
+        if (!shouldHandleRequests) return
+        val registrationHandler = startRegistrationProcess(networkMessage.nonce, false) ?: return
         Log.d(TAG, "Received request for ledger with nonce: ${networkMessage.nonce}.")
         // must be a copy of the real list
         val fullLedger = Ledger.getFullLedger().toList()
@@ -99,6 +107,10 @@ class MulticastServer: Service() {
                     client.sendHash(networkMessage.nonce)
                 }
             }
+        }
+        shouldHandleRequests = false
+        antiDosTimer.schedule(500) {
+            shouldHandleRequests = true
         }
     }
 
@@ -120,7 +132,7 @@ class MulticastServer: Service() {
 
     private fun handleFullLedger(networkMessage: NetworkMessage) {
         if (networkMessage.sender == Ledger.getMyLedgerEntry()?.userName) return
-        val registrationHandler = startRegistrationProcess(networkMessage.nonce, false)
+        val registrationHandler = startRegistrationProcess(networkMessage.nonce, false) ?: return
         val ledger = networkMessage.payload
         Log.d(TAG, "Received full ledger from ${networkMessage.sender}: $ledger")
         val ledgerWithoutBrackets = ledger.substring(1, ledger.length - 1)
@@ -142,7 +154,7 @@ class MulticastServer: Service() {
     }
 
     private fun handleHash(networkMessage: NetworkMessage) {
-        val registrationHandler = startRegistrationProcess(networkMessage.nonce, false)
+        val registrationHandler = startRegistrationProcess(networkMessage.nonce, false) ?: return
         val senderBlock = LedgerEntry.parseString(networkMessage.sender)
         if (senderBlock.userName == Ledger.getMyLedgerEntry()?.userName) return
         Log.d(TAG, "Received hash from ${senderBlock.userName}: ${networkMessage.payload}")
@@ -153,9 +165,13 @@ class MulticastServer: Service() {
         }
     }
 
-    private fun startRegistrationProcess(nonce: Int, isMyRegistration: Boolean): RegistrationHandler {
+    private fun startRegistrationProcess(nonce: Int, isMyRegistration: Boolean): RegistrationHandler? {
         val existingRegistrationHandler = registrationHandlers[nonce]
         if (existingRegistrationHandler != null) return existingRegistrationHandler
+        if (usedNonces.contains(nonce)) {
+            Log.d(TAG, "Nonce $nonce has already been used.")
+            return null
+        }
         Log.d(TAG, "Registration process started with nonce: $nonce")
         val registrationHandler = RegistrationHandler(this, nonce, isMyRegistration)
         registrationHandlers[nonce] = registrationHandler

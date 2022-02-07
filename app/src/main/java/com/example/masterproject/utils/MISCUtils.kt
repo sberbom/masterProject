@@ -77,7 +77,7 @@ class MISCUtils {
             }
         }
 
-        fun getCurrentUserString(context: Context): String {
+        fun getCurrentUserString(): String {
             if (Firebase.auth.currentUser != null) {
                 return Firebase.auth.currentUser!!.email!!
             }

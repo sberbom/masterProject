@@ -1,7 +1,6 @@
 package com.example.masterproject.activities
 
 import android.os.Bundle
-import android.util.Log
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
@@ -12,7 +11,7 @@ import com.example.masterproject.R
 import com.example.masterproject.activities.adapters.ChatAdapter
 import com.example.masterproject.ledger.Ledger
 import com.example.masterproject.ledger.LedgerEntry
-import com.example.masterproject.network.*
+import com.example.masterproject.network.unicast.*
 import com.example.masterproject.types.ChatMessage
 import com.example.masterproject.utils.AESUtils
 import kotlinx.coroutines.Dispatchers

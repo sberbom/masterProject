@@ -17,8 +17,8 @@ import com.example.masterproject.R
 import com.example.masterproject.activities.adapters.DeviceAdapter
 import com.example.masterproject.ledger.Ledger
 import com.example.masterproject.network.MulticastServer
-import com.example.masterproject.network.TCPListener
-import com.example.masterproject.network.TLSListener
+import com.example.masterproject.network.unicast.TCPListener
+import com.example.masterproject.network.unicast.TLSListener
 import com.example.masterproject.utils.AESUtils
 import com.example.masterproject.utils.MISCUtils
 import com.example.masterproject.utils.PKIUtils

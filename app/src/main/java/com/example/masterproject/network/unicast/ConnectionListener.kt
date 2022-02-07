@@ -1,40 +1,52 @@
-package com.example.masterproject.network
+package com.example.masterproject.network.unicast
 
 import android.app.Service
+import android.content.Context
 import android.content.Intent
 import android.os.IBinder
 import android.util.Log
 import com.example.masterproject.App
 import com.example.masterproject.activities.ChatActivity
 import com.example.masterproject.types.NetworkMessage
-import com.example.masterproject.utils.Constants
-import com.example.masterproject.utils.PKIUtils
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.io.DataInputStream
 import java.io.DataOutputStream
 import java.io.IOException
-import javax.net.ssl.SSLServerSocket
+import java.net.ServerSocket
 
+abstract class ConnectionListener: Service() {
 
-class TLSListener: Service() {
-    private val TAG = "TLSListener"
-    private lateinit var serverSocket: SSLServerSocket
-    private val context = App.getAppContext()
+    abstract val TAG: String
+    var serverSocket: ServerSocket? = null
+    var context: Context? = App.getAppContext()
+
+    abstract fun startServer(inputStream: DataInputStream, outputStream: DataOutputStream, username: String)
+    abstract fun createSocket(): ServerSocket
+
+    override fun onCreate() {
+        try {
+            Log.d(TAG, "$TAG Started")
+            serverSocket = createSocket()
+            GlobalScope.launch {
+                listenForConnections()
+            }
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
+    }
 
     private fun listenForConnections() {
         Log.d(TAG, "Listening for connections.")
         val socket = serverSocket
-        while (!Thread.currentThread().isInterrupted && !socket.isClosed) {
+        while (!Thread.currentThread().isInterrupted && !socket!!.isClosed) {
             try {
-                val clientSocket = serverSocket.accept()
+                val clientSocket = serverSocket!!.accept()
                 val inputStream = DataInputStream(clientSocket.getInputStream())
                 val outputStream = DataOutputStream(clientSocket.getOutputStream())
                 val message = inputStream.readUTF()
                 val username = NetworkMessage.decodeNetworkMessage(message).sender
-                val tlsServer = TLSServer(outputStream, inputStream)
-                Thread(tlsServer).start()
-                ServerMap.serverMap[username] = tlsServer
+                startServer(inputStream, outputStream, username)
                 changeToChatActivity(username)
             } catch (e: IOException) {
                 e.printStackTrace()
@@ -48,29 +60,16 @@ class TLSListener: Service() {
         intent.putExtra("userName", username)
         intent.putExtra("isClient", false)
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-        context.startActivity(intent)
-    }
-
-    override fun onCreate() {
-        try {
-            Log.d(TAG, "TCPListener started")
-            serverSocket = PKIUtils.createSSLContext().serverSocketFactory.createServerSocket(Constants.TLS_SERVERPORT) as SSLServerSocket
-            serverSocket.enabledProtocols = arrayOf(Constants.TLS_VERSION)
-            serverSocket.needClientAuth = true
-            GlobalScope.launch {
-                listenForConnections()
-            }
-        } catch (e: IOException) {
-            e.printStackTrace()
-        }
+        context!!.startActivity(intent)
     }
 
     override fun onBind(intent: Intent?): IBinder? {
-        return null
+       return null
     }
 
     override fun onDestroy() {
-        serverSocket.close()
+        serverSocket!!.close()
         super.onDestroy()
     }
+
 }

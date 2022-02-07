@@ -97,12 +97,15 @@ class Ledger {
 
         fun addLedgerEntry(newBlock: LedgerEntry) {
             val myLedgerEntry = myLedgerEntry
-            if (isValidNewBlock(newBlock)) {
+            val userAlreadyInLedger =
+                availableDevices.map { it.certificate }.contains(newBlock.certificate)
+            if (isValidNewBlock(newBlock) && !userAlreadyInLedger) {
                 if (myLedgerEntry != null && !LedgerEntry.isEqual(myLedgerEntry, newBlock) && (newBlock.userName == myLedgerEntry.userName)) {
                     handleLosingUsername()
                 }
                 Log.d(TAG, "${newBlock.userName} added to ledger")
                 availableDevices.add(newBlock)
+                PKIUtils.addCertificateToTrustStore(block.userName, block.certificate)
                 availableDevices.sortBy { it.userName }
                 Handler(Looper.getMainLooper()).post {
                     MainActivity.updateAvailableDevices()
@@ -112,13 +115,12 @@ class Ledger {
             }
         }
 
-        fun addNewBlocks(ledger: List<LedgerEntry>) {
+        fun setFullLedger(ledger: List<LedgerEntry>, broadcastBlocks: List<LedgerEntry>) {
             if (ledgerIsValid(ledger)) {
-                ledger.forEach { block ->
-                    val userAlreadyInLedger = availableDevices.map { it.certificate }.contains(block.certificate)
-                    if (!userAlreadyInLedger && canUseUsername(block)){
-                        availableDevices.add(block)
-                    }
+                availableDevices.clear()
+                availableDevices.addAll(ledger)
+                broadcastBlocks.forEach {
+                    addLedgerEntry(it)
                 }
                 availableDevices.sortBy { it.userName }
                 availableDevices.forEach {

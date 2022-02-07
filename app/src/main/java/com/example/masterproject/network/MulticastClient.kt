@@ -37,12 +37,12 @@ class MulticastClient (private val server: MulticastServer?) {
     }
 
     // TODO: The hash of the full ledger should be sent together with users own block
-    suspend fun broadcastBlock() {
+    suspend fun broadcastBlock(nonce: Int) {
         if(context == null) throw Exception("Could not broadcast block, context not defined")
         val privateKey = PKIUtils.getPrivateKeyFromKeyStore() ?: throw Exception("Could not broadcast block, private key not defined")
         val block = Ledger.getMyLedgerEntry() ?: throw Exception("No block to broadcast.")
         val signature = PKIUtils.signMessage(block.toString(), privateKey, null)
-        val message = NetworkMessage(block.userName, block.toString(), BroadcastMessageTypes.BROADCAST_BLOCK.toString(), signature)
+        val message = NetworkMessage(block.userName, block.toString(), BroadcastMessageTypes.BROADCAST_BLOCK.toString(), signature, nonce)
         return withContext(Dispatchers.IO) {
             sendMulticastData(message.toString())
         }

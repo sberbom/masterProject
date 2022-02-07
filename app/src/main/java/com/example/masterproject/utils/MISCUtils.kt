@@ -88,7 +88,7 @@ class MISCUtils {
         }
 
         fun generateNonce(): Int {
-            return 2.0.pow(128.0).toInt()
+            return nextInt(2.0.pow(128.0).toInt())
         }
 
         fun getMessageWithNonce(message: String, nonce: Int): String {

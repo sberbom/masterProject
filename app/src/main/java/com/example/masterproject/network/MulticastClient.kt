@@ -15,7 +15,7 @@ import java.net.DatagramPacket
 import java.net.DatagramSocket
 import java.net.InetAddress
 
-class MulticastClient {
+class MulticastClient (private val server: MulticastServer?) {
 
     private val TAG = "MulticastClient"
     private val multicastGroup: String = Constants.multicastGroup
@@ -39,19 +39,20 @@ class MulticastClient {
     // TODO: The hash of the full ledger should be sent together with users own block
     suspend fun broadcastBlock() {
         if(context == null) throw Exception("Could not broadcast block, context not defined")
-        val privateKey = PKIUtils.getPrivateKeyFromKeyStore() ?: throw Exception("Could not broadcast block, private not defined")
-
-        val block = Ledger.getMyLedgerEntry().toString()
-        val signature = PKIUtils.signMessage(block, privateKey, null)
-        val message = NetworkMessage("", block, BroadcastMessageTypes.BROADCAST_BLOCK.toString(), signature)
+        val privateKey = PKIUtils.getPrivateKey(context) ?: throw Exception("Could not broadcast block, private key not defined")
+        val block = Ledger.getMyLedgerEntry() ?: throw Exception("No block to broadcast.")
+        val signature = PKIUtils.signMessage(block.toString(), privateKey, null)
+        val message = NetworkMessage(block.userName, block.toString(), BroadcastMessageTypes.BROADCAST_BLOCK.toString(), signature)
         return withContext(Dispatchers.IO) {
             sendMulticastData(message.toString())
         }
     }
 
-    suspend fun requestLedger() {
-        val nonce = MISCUtils.generateNonce()
-        RegistrationHandler.setNonce(nonce)
+    suspend fun requestLedger(nonce: Int) {
+        if (server == null) {
+            Log.d(TAG, "Could not request ledger as server is not defined.")
+            return
+        }
         val message = NetworkMessage("", "", BroadcastMessageTypes.REQUEST_LEDGER.toString(), "", nonce)
         return withContext(Dispatchers.IO) {
             sendMulticastData(message.toString())

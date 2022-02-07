@@ -52,7 +52,13 @@ class Ledger {
                         PKIUtils.getUsernameFromCertificate(storedCertificate),
                         ipAddress)
                     if (isValidNewBlock(myLedgerEntry)){
+                        Log.d(TAG, "Created block from stored certificate.")
                         setMyLedgerEntry(myLedgerEntry)
+                        availableDevices.add(myLedgerEntry)
+                        availableDevices.sortBy { it.userName }
+                        Handler(Looper.getMainLooper()).post {
+                            MainActivity.updateAvailableDevices()
+                        }
                         return myLedgerEntry
                     }
                 } else {
@@ -101,6 +107,7 @@ class Ledger {
                 }
                 Log.d(TAG, "${newBlock.userName} added to ledger")
                 availableDevices.add(newBlock)
+                availableDevices.sortBy { it.userName }
                 Handler(Looper.getMainLooper()).post {
                     MainActivity.updateAvailableDevices()
                 }
@@ -109,10 +116,14 @@ class Ledger {
             }
         }
 
-        fun addFullLedger(ledger: List<LedgerEntry>) {
-            if (ledgerIsValid(ledger) && availableDevices.isEmpty()) {
-                Log.d(TAG, "Ledger set to $ledger")
-                availableDevices.addAll(ledger)
+        fun addNewBlocks(ledger: List<LedgerEntry>) {
+            if (ledgerIsValid(ledger)) {
+                ledger.forEach { block ->
+                    val userAlreadyInLedger = availableDevices.map { it.certificate }.contains(block.certificate)
+                    if (!userAlreadyInLedger && canUseUsername(block)){
+                        availableDevices.add(block)
+                    }
+                }
                 availableDevices.sortBy { it.userName }
                 availableDevices.forEach {
                     PKIUtils.addCertificateToTrustStore(it.userName, it.certificate)

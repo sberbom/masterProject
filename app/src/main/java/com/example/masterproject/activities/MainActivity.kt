@@ -85,7 +85,7 @@ class MainActivity: AppCompatActivity() {
 
         //Logged in as text
         val loggedInAsText: TextView = headerView.findViewById(R.id.nav_username)
-        loggedInAsText.text = MISCUtils.getCurrentUserString(this)
+        loggedInAsText.text = MISCUtils.getCurrentUserString()
 
 
         navigationView.setNavigationItemSelectedListener { menuItem ->

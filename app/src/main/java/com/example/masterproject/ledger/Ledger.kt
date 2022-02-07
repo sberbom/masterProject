@@ -105,7 +105,7 @@ class Ledger {
                 }
                 Log.d(TAG, "${newBlock.userName} added to ledger")
                 availableDevices.add(newBlock)
-                PKIUtils.addCertificateToTrustStore(block.userName, block.certificate)
+                PKIUtils.addCertificateToTrustStore(newBlock.userName, newBlock.certificate)
                 availableDevices.sortBy { it.userName }
                 Handler(Looper.getMainLooper()).post {
                     MainActivity.updateAvailableDevices()

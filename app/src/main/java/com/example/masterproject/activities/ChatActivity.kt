@@ -64,7 +64,7 @@ class ChatActivity: AppCompatActivity() {
         val youAreChattingWithText = "You are chatting with: $username"
         youAreChattingWith.text = youAreChattingWithText
 
-        val currentKey = AESUtils.getEncryptionKey(username!!, this)
+        val currentKey = AESUtils.getEncryptionKey(username!!)
         val currentKeyText: TextView = findViewById(R.id.currentKeyText)
         currentKeyText.text = AESUtils.keyToString(currentKey)
 

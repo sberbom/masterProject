@@ -1,6 +1,7 @@
 package com.example.masterproject.network
 
 import android.app.Service
+import android.app.appsearch.GlobalSearchSession
 import android.content.Intent
 import android.os.IBinder
 import android.os.Looper
@@ -40,13 +41,15 @@ class MulticastServer: Service() {
 
                 val msgRaw = String(buf, 0, buf.size)
                 val networkMessage = NetworkMessage.decodeNetworkMessage(msgRaw)
-                when (networkMessage.messageType) {
-                    BroadcastMessageTypes.BROADCAST_BLOCK.toString() -> handleBroadcastBlock(networkMessage)
-                    BroadcastMessageTypes.REQUEST_LEDGER.toString() -> handleRequestedLedger(networkMessage)
-                    BroadcastMessageTypes.REQUEST_SPECIFIC_LEDGER.toString() -> handleSpecificLedgerRequest(networkMessage)
-                    BroadcastMessageTypes.FULL_LEDGER.toString() -> handleFullLedger(networkMessage)
-                    BroadcastMessageTypes.LEDGER_HASH.toString() -> handleHash(networkMessage)
-                    else -> Log.d(TAG, "Received unknown message type.")
+                GlobalScope.launch(Dispatchers.IO) {
+                    when (networkMessage.messageType) {
+                        BroadcastMessageTypes.BROADCAST_BLOCK.toString() -> handleBroadcastBlock(networkMessage)
+                        BroadcastMessageTypes.REQUEST_LEDGER.toString() -> handleRequestedLedger(networkMessage)
+                        BroadcastMessageTypes.REQUEST_SPECIFIC_LEDGER.toString() -> handleSpecificLedgerRequest(networkMessage)
+                        BroadcastMessageTypes.FULL_LEDGER.toString() -> handleFullLedger(networkMessage)
+                        BroadcastMessageTypes.LEDGER_HASH.toString() -> handleHash(networkMessage)
+                        else -> Log.d(TAG, "Received unknown message type.")
+                    }
                 }
             }
         }catch (e: Exception){

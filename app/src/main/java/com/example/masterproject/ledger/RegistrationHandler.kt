@@ -74,8 +74,8 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
     }
 
     private fun userHasAlreadyResponded(user: LedgerEntry): Boolean {
-        val userHasAlreadyRespondedWithHash = hashes.map { it.senderBlock.certificate.toString() }.contains(user.certificate.toString())
-        val userHasAlreadyRespondedWithLedger = receivedLedgers.map { it.senderBlock.certificate.toString() }.contains(user.certificate.toString())
+        val userHasAlreadyRespondedWithHash = hashes.map { PKIUtils.certificateToString(it.senderBlock.certificate) }.contains(PKIUtils.certificateToString(user.certificate))
+        val userHasAlreadyRespondedWithLedger = receivedLedgers.map { PKIUtils.certificateToString(it.senderBlock.certificate) }.contains(PKIUtils.certificateToString(user.certificate))
         return userHasAlreadyRespondedWithHash || userHasAlreadyRespondedWithLedger
     }
 

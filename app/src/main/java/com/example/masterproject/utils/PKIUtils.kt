@@ -141,7 +141,6 @@ class PKIUtils {
             return (keyStore?.getEntry("root", KeyStore.PasswordProtection(Constants.KEYSTORE_PASSWORD.toCharArray())) as KeyStore.PrivateKeyEntry).privateKey
         }
 
-        //TODO: Is these methods in use?
         fun signMessage(message: String, privateKey: PrivateKey, nonce: Int?): String {
             val signatureBuilder = Signature.getInstance("SHA1withECDSA")
             signatureBuilder.initSign(privateKey)

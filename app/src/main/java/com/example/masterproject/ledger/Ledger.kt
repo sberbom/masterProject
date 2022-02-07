@@ -20,7 +20,6 @@ class Ledger {
 
         fun createNewBlockFromEmail(email: String) {
             if (getLedgerEntry(email) == null) {
-                val context = App.getAppContext()
                 try {
                     val keyPair = PKIUtils.generateECKeyPair()
                     val certificate = PKIUtils.generateSelfSignedX509Certificate(email, keyPair)
@@ -41,9 +40,8 @@ class Ledger {
         }
 
         fun createNewBlockFromStoredCertificate(): LedgerEntry? {
-            val context = App.getAppContext()
             val ipAddress = MISCUtils.getMyIpAddress()
-            if (context != null && ipAddress != null) {
+            if (ipAddress != null) {
                 val storedCertificate = PKIUtils.getStoredCertificate()
                 // If the user has a stored certificate it should be broadcast if it does not conflict with ledger
                 if (storedCertificate != null){
@@ -78,7 +76,7 @@ class Ledger {
             if (context != null) {
                 val storedCertificate = PKIUtils.getStoredCertificate()
                 if (storedCertificate != null) {
-                    return availableDevices.find { it.certificate.toString() == storedCertificate.toString() }
+                    return availableDevices.find { PKIUtils.certificateToString(it.certificate) == PKIUtils.certificateToString(storedCertificate)}
                 }
             }
             return null
@@ -144,14 +142,14 @@ class Ledger {
 
         fun shouldSendFullLedger(): Boolean {
             val myLedgerEntry = getMyLedgerEntry() ?: return false
-            val myCertificateString = myLedgerEntry.certificate.toString()
-            val caSignedCertificates = availableDevices.filter { PKIUtils.isCASignedCertificate(it.certificate) }.map { it.certificate.toString() }
+            val myCertificateString = PKIUtils.certificateToString(myLedgerEntry.certificate)
+            val caSignedCertificates = availableDevices.filter { PKIUtils.isCASignedCertificate(it.certificate) }.map { PKIUtils.certificateToString(it.certificate) }
             return when {
                 caSignedCertificates.isNotEmpty() -> {
                     caSignedCertificates.takeLast(2).contains(myCertificateString)
                 }
                 else -> {
-                    availableDevices.takeLast(2).map { it.certificate.toString() }
+                    availableDevices.takeLast(2).map { PKIUtils.certificateToString(it.certificate)}
                         .contains(myCertificateString)
                 }
             }
@@ -208,12 +206,14 @@ class Ledger {
 
         private fun isValidNewBlock(newBlock: LedgerEntry): Boolean {
             val canUseUsername = canUseUsername(newBlock)
+            Log.d(TAG, "Can use username: $canUseUsername")
             return LedgerEntry.ledgerEntryIsValid(newBlock) && canUseUsername
         }
 
         private fun canUseUsername(newBlock: LedgerEntry): Boolean {
             val isCASigned = PKIUtils.isCASignedCertificate(newBlock.certificate)
             val certificateAndUsernameCorresponds = PKIUtils.getUsernameFromCertificate(newBlock.certificate) == newBlock.userName
+            Log.d(TAG, "Certificate an username corresponds, ${PKIUtils.getUsernameFromCertificate(newBlock.certificate)} == ${newBlock.userName}")
             val existingUserNames = availableDevices.map { it.userName }
             val userNameIsUnique = !existingUserNames.contains(newBlock.userName)
             return (isCASigned && certificateAndUsernameCorresponds) || userNameIsUnique

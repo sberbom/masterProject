@@ -84,6 +84,7 @@ class TCPServer(private val inputStream: DataInputStream, private val outputStre
     }
 
     private fun handleGoodbye() {
+        running = false
         AESUtils.useNextKeyForUser(username!!)
         ServerMap.serverMap.remove(username)
         inputStream.close()

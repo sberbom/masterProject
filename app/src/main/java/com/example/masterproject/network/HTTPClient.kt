@@ -23,7 +23,6 @@ class HTTPClient(private val email: String, private val context: Context): Runna
 
     private fun getCASignedCertificate(email: String, context: Context) {
         val keyPair = PKIUtils.generateECKeyPair()
-        PKIUtils.storePrivateKey(keyPair.private, context)
         PKIUtils.privateKey = keyPair.private
         val url = "https://europe-west1-master-project-337221.cloudfunctions.net/x509Certificate"
         val queue = Volley.newRequestQueue(context)
@@ -36,8 +35,8 @@ class HTTPClient(private val email: String, private val context: Context): Runna
                 Response.Listener { response ->
                     var strResp = response.toString()
                     val certificate = PKIUtils.pemToCertificate(strResp)
-                    PKIUtils.setCertificate(certificate)
-                    PKIUtils.storeCertificate(certificate, context)
+                    PKIUtils.addKeyToKeyStore(keyPair.private, certificate)
+                    PKIUtils.writeKeyStoreToFile()
                 },
                 Response.ErrorListener { error ->
                     Log.d("SIGMUND API", "error => $error")

@@ -1,4 +1,4 @@
-package com.example.masterproject.network
+package com.example.masterproject.network.unicast
 
 enum class UnicastMessageTypes {
     CLIENT_HELLO,

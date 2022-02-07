@@ -77,12 +77,12 @@ class MISCUtils {
             }
         }
 
-        fun getCurrentUserString(context: Context): String {
+        fun getCurrentUserString(): String {
             if (Firebase.auth.currentUser != null) {
                 return Firebase.auth.currentUser!!.email!!
             }
-            else if(PKIUtils.fetchStoredCertificate(context) != null){
-                return PKIUtils.getUsernameFromCertificate(PKIUtils.fetchStoredCertificate(context)!!)
+            else if(PKIUtils.getStoredCertificate() != null){
+                return PKIUtils.getUsernameFromCertificate(PKIUtils.getStoredCertificate()!!)
             }
             return "Not logged in"
         }

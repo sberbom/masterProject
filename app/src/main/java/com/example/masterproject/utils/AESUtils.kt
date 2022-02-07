@@ -4,10 +4,6 @@ import android.content.Context
 import android.util.Log
 import com.example.masterproject.ledger.Ledger
 import com.example.masterproject.ledger.LedgerEntry
-import com.example.masterproject.network.TLSClient
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import java.io.FileNotFoundException
 import java.nio.ByteBuffer
 import java.nio.charset.StandardCharsets
@@ -69,9 +65,9 @@ class AESUtils {
             keyMap[userName] = SymmetricKeyEntry(currentKey, null)
         }
 
-        fun getEncryptionKey(userName: String, context: Context): SecretKey {
+        fun getEncryptionKey(userName: String): SecretKey {
             return getCurrentKeyForUser(userName) ?: calculateAESKeyDH(
-                PKIUtils.getPrivateKey(context)!!,
+                PKIUtils.getPrivateKeyFromKeyStore()!!,
                 Ledger.getLedgerEntry(userName)!!.certificate
             )
         }

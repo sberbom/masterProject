@@ -67,7 +67,12 @@ class MulticastServer: Service() {
         val isValidSignature = PKIUtils.verifySignature(blockString, networkMessage.signature, publicKey, null)
         Log.d(TAG, "Signature is valid: $isValidSignature")
         if(isValidSignature) {
-            Ledger.addLedgerEntry(block)
+            val registrationHandler = registrationHandlers[networkMessage.nonce]
+            if (registrationHandler == null) {
+                Ledger.addLedgerEntry(block)
+            } else {
+                registrationHandler.addBroadcastBlock(block)
+            }
         }
         else {
             Log.d(TAG, "Could not add block, signature not valid")
@@ -114,7 +119,7 @@ class MulticastServer: Service() {
 
     private fun handleFullLedger(networkMessage: NetworkMessage) {
         if (networkMessage.sender == Ledger.getMyLedgerEntry()?.userName) return
-        val registrationHandler = registrationHandlers[networkMessage.nonce] ?: startRegistrationProcess(networkMessage.nonce)
+        val registrationHandler = startRegistrationProcess(networkMessage.nonce)
         val ledger = networkMessage.payload
         Log.d(TAG, "Received full ledger from ${networkMessage.sender}: $ledger")
         val ledgerWithoutBrackets = ledger.substring(1, ledger.length - 1)
@@ -136,7 +141,7 @@ class MulticastServer: Service() {
     }
 
     private fun handleHash(networkMessage: NetworkMessage) {
-        val registrationHandler = registrationHandlers[networkMessage.nonce] ?: startRegistrationProcess(networkMessage.nonce)
+        val registrationHandler = startRegistrationProcess(networkMessage.nonce)
         val senderBlock = LedgerEntry.parseString(networkMessage.sender)
         if (senderBlock.userName == Ledger.getMyLedgerEntry()?.userName) return
         Log.d(TAG, "Received hash from ${senderBlock.userName}: ${networkMessage.payload}")

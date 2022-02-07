@@ -19,6 +19,8 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
 
     private val client: MulticastClient = MulticastClient(server)
 
+    private val broadcastBlocks = mutableListOf<LedgerEntry>()
+
     private var listenedForMoreThanOneSecond: Boolean = false
 
     private val TAG = "RegistrationHandler:$nonce"
@@ -85,7 +87,7 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
         val acceptedLedger = receivedLedgers.find { it.hash == hashOfAcceptedLedger }
         if (acceptedLedger != null) {
             Log.d(TAG, "Accepted ledger from ${acceptedLedger.senderBlock.userName}: ${acceptedLedger.ledger}")
-            Ledger.addNewBlocks(acceptedLedger.ledger)
+            Ledger.setFullLedger(acceptedLedger.ledger, broadcastBlocks)
             startRegistration()
             server.registrationProcessFinished(nonce)
         } else {
@@ -119,6 +121,11 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
         addHash(senderBlock, hash)
     }
 
+    fun addBroadcastBlock(block: LedgerEntry) {
+        if (broadcastBlocks.map { it.certificate }.contains(block.certificate)) return
+        broadcastBlocks.add(block)
+    }
+
     private fun startRegistration() {
         if (Ledger.getMyLedgerEntry() == null) {
             readyForRegistration = true
@@ -130,7 +137,7 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
                 val myLedgerEntry = Ledger.createNewBlockFromStoredCertificate()
                 if (myLedgerEntry != null) {
                     GlobalScope.launch(Dispatchers.IO) {
-                        client.broadcastBlock()
+                        client.broadcastBlock(nonce)
                     }
                 }
             }

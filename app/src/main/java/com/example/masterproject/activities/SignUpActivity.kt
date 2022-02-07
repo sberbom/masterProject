@@ -91,7 +91,7 @@ class SignUpActivity: AppCompatActivity() {
             returnToMainActivity()
             Ledger.createNewBlockFromEmail(email)
             GlobalScope.launch(Dispatchers.IO) {
-                client.broadcastBlock()
+                client.broadcastBlock(0)
             }
         } else {
             Toast.makeText(baseContext, "Not ready for registration", Toast.LENGTH_SHORT)

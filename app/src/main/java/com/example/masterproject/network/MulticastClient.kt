@@ -39,7 +39,7 @@ class MulticastClient {
     // TODO: The hash of the full ledger should be sent together with users own block
     suspend fun broadcastBlock() {
         if(context == null) throw Exception("Could not broadcast block, context not defined")
-        val privateKey = PKIUtils.getPrivateKey(context) ?: throw Exception("Could not broadcast block, private not defined")
+        val privateKey = PKIUtils.getPrivateKeyFromKeyStore() ?: throw Exception("Could not broadcast block, private not defined")
 
         val block = Ledger.getMyLedgerEntry().toString()
         val signature = PKIUtils.signMessage(block, privateKey, null)
@@ -60,8 +60,8 @@ class MulticastClient {
 
     suspend fun sendLedger(nonce: Int) {
         if(context == null) throw Exception("Could not send ledger, context not defined")
-        val privateKey = PKIUtils.getPrivateKey(context) ?: throw Exception("Could not send ledger, private not defined")
-        val certificate = PKIUtils.getCertificate() ?: throw Exception("Could not send ledger, username not defined")
+        val privateKey = PKIUtils.getPrivateKeyFromKeyStore() ?: throw Exception("Could not send ledger, private not defined")
+        val certificate = PKIUtils.getStoredCertificate() ?: throw Exception("Could not send ledger, username not defined")
         val username = PKIUtils.getUsernameFromCertificate(certificate)
 
         val ledger = Ledger.getFullLedger().map {it.toString()}.toString()
@@ -74,7 +74,7 @@ class MulticastClient {
 
     suspend fun sendHash(nonce: Int) {
         if(context == null) throw Exception("Could not broadcast block, context not defined")
-        val privateKey = PKIUtils.getPrivateKey(context) ?: throw Exception("Could not send hash, private not defined")
+        val privateKey = PKIUtils.getPrivateKeyFromKeyStore() ?: throw Exception("Could not send hash, private not defined")
 
         val myBlock = Ledger.getMyLedgerEntry()
         val hash = Ledger.getHashOfStoredLedger()

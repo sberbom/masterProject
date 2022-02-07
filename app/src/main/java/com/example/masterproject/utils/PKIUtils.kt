@@ -2,6 +2,7 @@ package com.example.masterproject.utils
 
 import android.content.Context
 import android.util.Log
+import com.example.masterproject.App
 import org.bouncycastle.asn1.pkcs.PrivateKeyInfo
 import org.bouncycastle.asn1.x500.X500Name
 import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo
@@ -10,93 +11,56 @@ import org.bouncycastle.cert.X509v1CertificateBuilder
 import org.bouncycastle.cert.jcajce.JcaX509CertificateConverter
 import org.bouncycastle.openssl.jcajce.JcaPEMKeyConverter
 import org.bouncycastle.operator.jcajce.JcaContentSignerBuilder
-import java.io.ByteArrayInputStream
-import java.io.FileNotFoundException
+import java.io.*
 import java.math.BigInteger
 import java.security.*
 import java.security.cert.CertificateFactory
 import java.security.cert.X509Certificate
-import java.security.spec.PKCS8EncodedKeySpec
 import java.security.spec.X509EncodedKeySpec
 import java.util.*
-import javax.crypto.Cipher
+import javax.net.ssl.KeyManagerFactory
+import javax.net.ssl.SSLContext
+import javax.net.ssl.TrustManagerFactory
 
 
 class PKIUtils {
 
     companion object {
-        var keyPair: KeyPair? = null
         var privateKey: PrivateKey? = null
-        private var selfSignedX509Certificate: X509Certificate? = null
-        private var CASignedX509Certificate: X509Certificate? = null
         private const val TAG: String = "PKIUtils"
         var CAPublicKey: PublicKey =
             stringToEncryptionKey("MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEnbbrYnAGkcNYD72o/H7jP2z91bQyA1B8GwUzsV0NG34RhpJ6xJMLxQT0kXwnSunXz6wVndN6O/6ZDWymVCk3nw==")
-
-        fun getCertificate(): X509Certificate? {
-            return if (CASignedX509Certificate != null) {
-                CASignedX509Certificate
-            } else {
-                selfSignedX509Certificate
-            }
-        }
-
-        fun setCertificate(certificate: X509Certificate) {
-            if (isCASignedCertificate(certificate)) {
-                CASignedX509Certificate = certificate
-            } else {
-                selfSignedX509Certificate = certificate
-            }
-        }
+        var keyStore: KeyStore? = null
+        var trustStore: KeyStore = loadTrustStore()
+        private var context: Context? = App.getAppContext()
 
         fun generateECKeyPair(): KeyPair {
             val ECDSAGenerator = KeyPairGenerator.getInstance("EC");
             val keyPair = ECDSAGenerator.genKeyPair()
-            Companion.keyPair = keyPair
             privateKey = keyPair.private
             return keyPair
         }
 
-        fun storePrivateKey(key: PrivateKey, context: Context) {
-            val filename = "my_private_key"
-            val fileContents = privateKeyToString(key)
-            context.openFileOutput(filename, Context.MODE_PRIVATE).use {
-                it.write(fileContents.toByteArray())
-            }
-        }
-
-        private fun fetchStoredPrivateKey(context: Context): PrivateKey? {
+        private fun isValidSelfSignedCertificate(certificate: X509Certificate): Boolean {
             return try {
-                val filename = "my_private_key"
-                val fileContent =
-                    context.openFileInput(filename).bufferedReader().use { it.readText() }
-                val privateKey = stringToPrivateKey(fileContent)
-                Companion.privateKey = privateKey
-                privateKey
-            } catch (e: FileNotFoundException) {
-                Log.w("STORED CERTIFICATE", "No stored certificate")
-                null
+                certificate.verify(certificate.publicKey)
+                true
+            } catch (e: Error) {
+                Log.w(TAG, "INVALID SELF SIGN SIGNATURE ON CERTIFICATE")
+                e.printStackTrace()
+                false
             }
         }
 
-        fun getPrivateKey(context: Context): PrivateKey? {
-            return privateKey ?: fetchStoredPrivateKey(context)
-        }
-
-        private fun privateKeyToString(key: PrivateKey): String {
-            return Base64.getEncoder().encodeToString(key.encoded)
-        }
-
-        private fun stringToPrivateKey(string: String): PrivateKey {
-            val encKey = Base64.getDecoder().decode(string)
-            val privateKeySpec = PKCS8EncodedKeySpec(encKey)
-            val keyFactory = KeyFactory.getInstance("EC")
-            return keyFactory.generatePrivate(privateKeySpec)
-        }
-
-        fun deleteStoredPrivateKey(context: Context) {
-            val filename = "my_private_key"
-            context.deleteFile(filename)
+        private fun isValidCACertificate(certificate: X509Certificate): Boolean {
+            return try {
+                certificate.verify(CAPublicKey)
+                true
+            } catch (e: Exception) {
+                Log.w(TAG, "INVALID CA SIGNATURE ON CERTIFICATE")
+                e.printStackTrace()
+                false
+            }
         }
 
         //https://www.bouncycastle.org/docs/pkixdocs1.5on/org/bouncycastle/cert/X509v1CertificateBuilder.html
@@ -120,31 +84,7 @@ class PKIUtils {
                 JcaPEMKeyConverter().getPrivateKey(privateKeyInfo)
             )
             val holder: X509CertificateHolder = certificateBuilder.build(contentSigner)
-            val certificate = JcaX509CertificateConverter().getCertificate(holder)
-            selfSignedX509Certificate = certificate
-            return certificate
-        }
-
-        private fun isValidCACertificate(certificate: X509Certificate): Boolean {
-            return try {
-                certificate.verify(CAPublicKey)
-                true
-            } catch (e: Exception) {
-                Log.w(TAG, "INVALID CA SIGNATURE ON CERTIFICATE")
-                e.printStackTrace()
-                false
-            }
-        }
-
-        private fun isValidSelfSignedCertificate(certificate: X509Certificate): Boolean {
-            return try {
-                certificate.verify(certificate.publicKey)
-                true
-            } catch (e: Error) {
-                Log.w(TAG, "INVALID SELF SIGN SIGNATURE ON CERTIFICATE")
-                e.printStackTrace()
-                false
-            }
+            return JcaX509CertificateConverter().getCertificate(holder)
         }
 
         fun isSelfSignedCertificate(certificate: X509Certificate): Boolean {
@@ -157,64 +97,8 @@ class PKIUtils {
             )
         }
 
-        fun storeCertificate(certificate: X509Certificate, context: Context) {
-            val filename = "my_certificate"
-            val fileContents = certificateToPem(certificate)
-            context.openFileOutput(filename, Context.MODE_PRIVATE).use {
-                it.write(fileContents.toByteArray())
-            }
-        }
-
-        fun fetchStoredCertificate(context: Context): X509Certificate? {
-            return try {
-                val filename = "my_certificate"
-                val fileContent =
-                    context.openFileInput(filename).bufferedReader().use { it.readText() }
-                val certificate = pemToCertificate(fileContent)
-                setCertificate(certificate)
-                certificate
-            } catch (e: FileNotFoundException) {
-                Log.w("STORED CERTIFICATE", "No stored certificate")
-                null
-            }
-        }
-
-        fun deleteStoredCertificate(context: Context) {
-            val filename = "my_certificate"
-            context.deleteFile(filename)
-        }
-
-        private fun certificateToPem(certificate: X509Certificate): String {
-            val beginCertificate = "-----BEGIN CERTIFICATE-----";
-            val endCertificate = "-----END CERTIFICATE-----";
-            val encodedCertificate = Base64.getEncoder().encodeToString(certificate.encoded)
-            return "$beginCertificate\n$encodedCertificate\n$endCertificate"
-        }
-
-        fun pemToCertificate(pem: String): X509Certificate {
-            val beginCertificate = "-----BEGIN CERTIFICATE-----";
-            val endCertificate = "-----END CERTIFICATE-----";
-            val certificate =
-                pem.replace(beginCertificate, "").replace(endCertificate, "").replace("\n", "")
-            val decoded: ByteArray = Base64.getDecoder().decode(certificate)
-            return (CertificateFactory.getInstance("X.509")
-                .generateCertificate(ByteArrayInputStream(decoded)) as X509Certificate)
-        }
-
         fun getUsernameFromCertificate(certificate: X509Certificate): String {
             return certificate.subjectDN.toString().replace("CN=", "")
-        }
-
-        fun encryptMessage(plainText: String, publicKey: PublicKey): String {
-            val cipher = Cipher.getInstance("ECIES")
-            cipher.init(Cipher.ENCRYPT_MODE, publicKey)
-            return Base64.getEncoder().encodeToString(cipher.doFinal(plainText.toByteArray()))
-        }
-
-        fun decryptMessage(encryptedText: String?, privateKey: PrivateKey): String {
-            val cipher = Cipher.getInstance("ECIES")
-            cipher.init(Cipher.DECRYPT_MODE, privateKey)
-            return String(cipher.doFinal(Base64.getDecoder().decode(encryptedText)))
         }
 
         fun certificateToString(certificate: X509Certificate): String {
@@ -229,17 +113,6 @@ class PKIUtils {
             return certificateFactory.generateCertificate(inputStream) as X509Certificate
         }
 
-        fun encryptionKeyToPem(key: PublicKey): String {
-            val beginCertificate = "-----BEGIN CERTIFICATE-----";
-            val endCertificate = "-----END CERTIFICATE-----";
-            val encodedKey = Base64.getEncoder().encodeToString(key.encoded)
-            return "$beginCertificate\n$encodedKey\n$endCertificate"
-        }
-
-        fun encryptionKeyToString(key: PublicKey): String {
-            return Base64.getEncoder().encodeToString(key.encoded)
-        }
-
         private fun stringToEncryptionKey(key: String): PublicKey {
             val encKey = Base64.getDecoder().decode(key)
             val publicKeySpec = X509EncodedKeySpec(encKey)
@@ -247,6 +120,28 @@ class PKIUtils {
             return keyFactory.generatePublic(publicKeySpec)
         }
 
+        fun pemToCertificate(pem: String): X509Certificate {
+            val beginCertificate = "-----BEGIN CERTIFICATE-----";
+            val endCertificate = "-----END CERTIFICATE-----";
+            val certificate =
+                pem.replace(beginCertificate, "").replace(endCertificate, "").replace("\n", "")
+            val decoded: ByteArray = Base64.getDecoder().decode(certificate)
+            return (CertificateFactory.getInstance("X.509")
+                .generateCertificate(ByteArrayInputStream(decoded)) as X509Certificate)
+        }
+
+        fun encryptionKeyToPem(key: PublicKey): String {
+            val beginCertificate = "-----BEGIN CERTIFICATE-----";
+            val endCertificate = "-----END CERTIFICATE-----";
+            val encodedKey = Base64.getEncoder().encodeToString(key.encoded)
+            return "$beginCertificate\n$encodedKey\n$endCertificate"
+        }
+
+        fun getPrivateKeyFromKeyStore(): PrivateKey? {
+            return (keyStore?.getEntry("root", KeyStore.PasswordProtection(Constants.KEYSTORE_PASSWORD.toCharArray())) as KeyStore.PrivateKeyEntry).privateKey
+        }
+
+        //TODO: Is these methods in use?
         fun signMessage(message: String, privateKey: PrivateKey, nonce: Int?): String {
             val signatureBuilder = Signature.getInstance("SHA1withECDSA")
             signatureBuilder.initSign(privateKey)
@@ -260,6 +155,79 @@ class PKIUtils {
             signatureBuilder.update((if (nonce == null) message else "$message:$nonce").toByteArray())
             return signatureBuilder.verify(Base64.getDecoder().decode(signature))
 
+        }
+
+        fun loadKeyStore(): KeyStore {
+            val localKeyStore = KeyStore.getInstance("PKCS12")
+            if(context == null) throw java.lang.Exception("context is null")
+            return try{
+                val fileInputStream = FileInputStream("${context!!.filesDir}/${Constants.KEYSTORE_PATH}")
+                localKeyStore.load(fileInputStream, Constants.KEYSTORE_PASSWORD.toCharArray())
+                Log.d(TAG, "KEYSTORE LOADED")
+                localKeyStore as KeyStore
+            } catch (e: FileNotFoundException) {
+                localKeyStore.load(null, Constants.KEYSTORE_PASSWORD.toCharArray())
+                Log.d(TAG, "NEW KEYSTORE CREATED")
+                localKeyStore as KeyStore
+            } catch (e: EOFException) {
+                localKeyStore.load(null, Constants.KEYSTORE_PASSWORD.toCharArray())
+                Log.d(TAG, "NEW KEYSTORE CREATED")
+                localKeyStore as KeyStore
+            }
+        }
+
+        private fun loadTrustStore(): KeyStore {
+            val localTrustStore = KeyStore.getInstance(KeyStore.getDefaultType())
+            return try{
+                val fileInputStream = FileInputStream(Constants.TRUSTSTORE_PATH)
+                localTrustStore.load(fileInputStream, Constants.TRUSTSTORE_PATH.toCharArray())
+                Log.d(TAG, "TRUSTSTORE LOADED")
+                localTrustStore as KeyStore
+            } catch (e: FileNotFoundException) {
+                localTrustStore.load(null, Constants.TRUSTSTORE_PATH.toCharArray())
+                Log.d(TAG, "NEW TRUSTSTORE CREATED")
+                localTrustStore as KeyStore
+            }
+        }
+
+        fun createSSLContext(): SSLContext {
+            val keyMangerFactory = KeyManagerFactory.getInstance("X509")
+            keyMangerFactory.init(keyStore, Constants.KEYSTORE_PASSWORD.toCharArray())
+            val keyManagers = keyMangerFactory.keyManagers
+
+            val trustManagerFactory = TrustManagerFactory.getInstance("x509")
+            trustManagerFactory.init(trustStore)
+            val trustManagers = trustManagerFactory.trustManagers
+
+
+            val sslContext = SSLContext.getInstance("TLS")
+            sslContext.init(keyManagers, trustManagers, null)
+
+            return sslContext
+        }
+
+        fun addKeyToKeyStore(key: PrivateKey, certificate: X509Certificate) {
+            Log.d(TAG, "Added key to keystore: $key")
+            keyStore!!.setKeyEntry("root", key, Constants.KEYSTORE_PASSWORD.toCharArray(), arrayOf(certificate))
+        }
+
+        fun addCertificateToTrustStore(alias: String, certificate: X509Certificate) {
+            Log.d(TAG, "Added certificate to trustStore: $alias")
+            trustStore.setCertificateEntry(alias, certificate)
+        }
+
+        fun writeKeyStoreToFile() {
+            val outputStream = FileOutputStream("${context!!.filesDir}/${Constants.KEYSTORE_PATH}")
+            keyStore!!.store(outputStream, Constants.KEYSTORE_PASSWORD.toCharArray())
+            outputStream.close()
+            Log.d(TAG, "KEYSTORE WRITTEN TO FILE")
+        }
+
+        fun getStoredCertificate(): X509Certificate? {
+            return if(keyStore?.getCertificate("root") == null) null
+            else{
+                keyStore!!.getCertificate("root") as X509Certificate
+            }
         }
     }
 }

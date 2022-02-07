@@ -32,7 +32,7 @@ class TCPClient(private val ledgerEntry: LedgerEntry): Client() {
         else {
             try {
                 val myUsername =
-                    PKIUtils.getUsernameFromCertificate(PKIUtils.getCertificate()!!)
+                    PKIUtils.getUsernameFromCertificate(PKIUtils.getStoredCertificate()!!)
                 val messageEncrypted = AESUtils.symmetricEncryption(message, encryptionKey!!)
                 val messageToSend = NetworkMessage(myUsername, messageEncrypted, messageType).toString()
                 Log.d(TAG, "Message sendt $messageToSend")

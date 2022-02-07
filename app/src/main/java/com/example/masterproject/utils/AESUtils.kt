@@ -71,7 +71,7 @@ class AESUtils {
 
         fun getEncryptionKey(userName: String, context: Context): SecretKey {
             return getCurrentKeyForUser(userName) ?: calculateAESKeyDH(
-                PKIUtils.getPrivateKey(context)!!,
+                PKIUtils.getPrivateKeyFromKeyStore()!!,
                 Ledger.getLedgerEntry(userName)!!.certificate
             )
         }

@@ -68,7 +68,7 @@ class TCPServer(private val inputStream: DataInputStream, private val outputStre
 
     override fun sendMessage(message: String, messageType: String) {
         try {
-            val username = PKIUtils.getUsernameFromCertificate(PKIUtils.getCertificate()!!)
+            val username = PKIUtils.getUsernameFromCertificate(PKIUtils.getStoredCertificate()!!)
             val encryptedMessage = AESUtils.symmetricEncryption(message, encryptionKey!!)
             val messageToSend = NetworkMessage(username, encryptedMessage, messageType).toString()
             Log.d(TAG, "Message sendt $messageToSend")

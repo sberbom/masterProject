@@ -22,7 +22,6 @@ import com.example.masterproject.network.TLSListener
 import com.example.masterproject.utils.AESUtils
 import com.example.masterproject.utils.MISCUtils
 import com.example.masterproject.utils.PKIUtils
-import com.example.masterproject.utils.TLSUtils
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -60,8 +59,8 @@ class MainActivity: AppCompatActivity() {
 
         auth = Firebase.auth
 
-        if(TLSUtils.keyStore == null) {
-            TLSUtils.keyStore = TLSUtils.loadKeyStore()
+        if(PKIUtils.keyStore == null) {
+            PKIUtils.keyStore = PKIUtils.loadKeyStore()
         }
 
         // Start multicast server
@@ -172,8 +171,6 @@ class MainActivity: AppCompatActivity() {
     }
 
     private fun deleteStoredData() {
-        PKIUtils.deleteStoredCertificate(this)
-        PKIUtils.deleteStoredPrivateKey(this)
         AESUtils.deleteAllStoredKeys(this)
         MISCUtils.deleteCache(this)
         Toast.makeText(

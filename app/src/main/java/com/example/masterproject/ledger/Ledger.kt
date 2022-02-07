@@ -9,7 +9,6 @@ import com.example.masterproject.activities.MainActivity
 import com.example.masterproject.exceptions.UsernameTakenException
 import com.example.masterproject.utils.MISCUtils
 import com.example.masterproject.utils.PKIUtils
-import com.example.masterproject.utils.TLSUtils
 import java.lang.Exception
 
 class Ledger {
@@ -24,12 +23,10 @@ class Ledger {
                 val context = App.getAppContext()
                 try {
                     val keyPair = PKIUtils.generateECKeyPair()
-                    PKIUtils.storePrivateKey(keyPair.private, context!!)
                     val certificate = PKIUtils.generateSelfSignedX509Certificate(email, keyPair)
-                    PKIUtils.storeCertificate(certificate, context)
-                    TLSUtils.addKeyToKeyStore(keyPair.private, certificate)
-                    TLSUtils.writeKeyStoreToFile()
-                    val myLedgerEntry = LedgerEntry(PKIUtils.getCertificate()!!, email, MISCUtils.getMyIpAddress()!!)
+                    PKIUtils.addKeyToKeyStore(keyPair.private, certificate)
+                    PKIUtils.writeKeyStoreToFile()
+                    val myLedgerEntry = LedgerEntry(PKIUtils.getStoredCertificate()!!, email, MISCUtils.getMyIpAddress()!!)
                     setMyLedgerEntry(myLedgerEntry)
                     availableDevices.add(myLedgerEntry)
                     Handler(Looper.getMainLooper()).post {
@@ -47,11 +44,11 @@ class Ledger {
             val context = App.getAppContext()
             val ipAddress = MISCUtils.getMyIpAddress()
             if (context != null && ipAddress != null) {
-                val storedCertificate = PKIUtils.fetchStoredCertificate(context)
+                val storedCertificate = PKIUtils.getStoredCertificate()
                 // If the user has a stored certificate it should be broadcast if it does not conflict with ledger
                 if (storedCertificate != null){
                     val myLedgerEntry = LedgerEntry(
-                        PKIUtils.getCertificate()!!,
+                        storedCertificate,
                         PKIUtils.getUsernameFromCertificate(storedCertificate),
                         ipAddress)
                     if (isValidNewBlock(myLedgerEntry)){
@@ -73,7 +70,7 @@ class Ledger {
         fun existingBlockFromStoredCertificate(): LedgerEntry? {
             val context = App.getAppContext()
             if (context != null) {
-                val storedCertificate = PKIUtils.fetchStoredCertificate(context)
+                val storedCertificate = PKIUtils.getStoredCertificate()
                 if (storedCertificate != null) {
                     return availableDevices.find { it.certificate.toString() == storedCertificate.toString() }
                 }
@@ -97,6 +94,8 @@ class Ledger {
         fun addLedgerEntry(newBlock: LedgerEntry) {
             val myLedgerEntry = myLedgerEntry
             if (isValidNewBlock(newBlock)) {
+                Log.d(TAG, myLedgerEntry.toString())
+                Log.d(TAG, newBlock.toString())
                 if (myLedgerEntry != null && !LedgerEntry.isEqual(myLedgerEntry, newBlock) && (newBlock.userName == myLedgerEntry.userName)) {
                     handleLosingUsername()
                 }
@@ -116,7 +115,7 @@ class Ledger {
                 availableDevices.addAll(ledger)
                 availableDevices.sortBy { it.userName }
                 availableDevices.forEach {
-                    TLSUtils.addCertificateToTrustStore(it.userName, it.certificate)
+                    PKIUtils.addCertificateToTrustStore(it.userName, it.certificate)
                 }
                 Handler(Looper.getMainLooper()).post {
                     MainActivity.updateAvailableDevices()

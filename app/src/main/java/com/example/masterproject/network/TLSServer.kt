@@ -52,7 +52,7 @@ class TLSServer(private val outputStream: DataOutputStream, private val inputStr
 
     override fun sendMessage(message: String, messageType: String) {
         try {
-            val username = PKIUtils.getUsernameFromCertificate(PKIUtils.getCertificate()!!)
+            val username = PKIUtils.getUsernameFromCertificate(PKIUtils.getStoredCertificate()!!)
             val messageToSend = NetworkMessage(username, message, messageType).toString()
             Log.d(TAG, "Message sendt $messageToSend")
             outputStream.writeUTF(messageToSend)

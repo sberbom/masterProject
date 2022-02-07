@@ -9,13 +9,10 @@ import com.example.masterproject.types.NetworkMessage
 import com.example.masterproject.utils.AESUtils
 import com.example.masterproject.utils.Constants
 import com.example.masterproject.utils.PKIUtils
-import com.example.masterproject.utils.TLSUtils
 import java.io.DataInputStream
 import java.io.DataOutputStream
 import java.io.IOException
 import java.net.InetAddress
-import java.net.Socket
-import javax.net.ssl.SSLContext
 import javax.net.ssl.SSLSocket
 
 
@@ -34,7 +31,7 @@ class TLSClient(private val ledgerEntry: LedgerEntry): Client() {
         }
         else {
             try {
-                val myUsername = PKIUtils.getUsernameFromCertificate(PKIUtils.getCertificate()!!)
+                val myUsername = PKIUtils.getUsernameFromCertificate(PKIUtils.getStoredCertificate()!!)
                 val messageToSend = NetworkMessage(myUsername, message, messageType).toString()
                 Log.d(TAG, "Message sendt $messageToSend")
                 outputStream.writeUTF(messageToSend)
@@ -54,7 +51,7 @@ class TLSClient(private val ledgerEntry: LedgerEntry): Client() {
         try {
             while(running && !isInterrupted){
                 val serverAddress = InetAddress.getByName(ledgerEntry.ipAddress)
-                clientSocket = TLSUtils.createSSLContext().socketFactory.createSocket(serverAddress, Constants.TLS_SERVERPORT) as SSLSocket
+                clientSocket = PKIUtils.createSSLContext().socketFactory.createSocket(serverAddress, Constants.TLS_SERVERPORT) as SSLSocket
                 clientSocket.enabledProtocols = arrayOf(Constants.TLS_VERSION)
                 inputStream = DataInputStream(clientSocket.inputStream)
                 outputStream = DataOutputStream(clientSocket.outputStream)

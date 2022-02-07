@@ -8,7 +8,7 @@ import com.example.masterproject.App
 import com.example.masterproject.activities.ChatActivity
 import com.example.masterproject.types.NetworkMessage
 import com.example.masterproject.utils.Constants
-import com.example.masterproject.utils.TLSUtils
+import com.example.masterproject.utils.PKIUtils
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.io.DataInputStream
@@ -54,7 +54,7 @@ class TLSListener: Service() {
     override fun onCreate() {
         try {
             Log.d(TAG, "TCPListener started")
-            serverSocket = TLSUtils.createSSLContext().serverSocketFactory.createServerSocket(Constants.TLS_SERVERPORT) as SSLServerSocket
+            serverSocket = PKIUtils.createSSLContext().serverSocketFactory.createServerSocket(Constants.TLS_SERVERPORT) as SSLServerSocket
             serverSocket.enabledProtocols = arrayOf(Constants.TLS_VERSION)
             serverSocket.needClientAuth = true
             GlobalScope.launch {

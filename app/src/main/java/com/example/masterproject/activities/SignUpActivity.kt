@@ -94,7 +94,9 @@ class SignUpActivity: AppCompatActivity() {
                 client.broadcastBlock()
             }
         } else {
-            Toast.makeText(baseContext, "Not ready for registration", Toast.LENGTH_SHORT)
+            runOnUiThread(java.lang.Runnable {
+                Toast.makeText(baseContext, "Not ready for registration", Toast.LENGTH_SHORT).show()
+            })
         }
     }
 

@@ -98,8 +98,6 @@ class Ledger {
         fun addLedgerEntry(newBlock: LedgerEntry) {
             val myLedgerEntry = myLedgerEntry
             if (isValidNewBlock(newBlock)) {
-                Log.d(TAG, myLedgerEntry.toString())
-                Log.d(TAG, newBlock.toString())
                 if (myLedgerEntry != null && !LedgerEntry.isEqual(myLedgerEntry, newBlock) && (newBlock.userName == myLedgerEntry.userName)) {
                     handleLosingUsername()
                 }
@@ -206,14 +204,12 @@ class Ledger {
 
         private fun isValidNewBlock(newBlock: LedgerEntry): Boolean {
             val canUseUsername = canUseUsername(newBlock)
-            Log.d(TAG, "Can use username: $canUseUsername")
             return LedgerEntry.ledgerEntryIsValid(newBlock) && canUseUsername
         }
 
         private fun canUseUsername(newBlock: LedgerEntry): Boolean {
             val isCASigned = PKIUtils.isCASignedCertificate(newBlock.certificate)
             val certificateAndUsernameCorresponds = PKIUtils.getUsernameFromCertificate(newBlock.certificate) == newBlock.userName
-            Log.d(TAG, "Certificate an username corresponds, ${PKIUtils.getUsernameFromCertificate(newBlock.certificate)} == ${newBlock.userName}")
             val existingUserNames = availableDevices.map { it.userName }
             val userNameIsUnique = !existingUserNames.contains(newBlock.userName)
             return (isCASigned && certificateAndUsernameCorresponds) || userNameIsUnique

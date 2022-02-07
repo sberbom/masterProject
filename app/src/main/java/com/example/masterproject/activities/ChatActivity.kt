@@ -1,7 +1,6 @@
 package com.example.masterproject.activities
 
 import android.os.Bundle
-import android.util.Log
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
@@ -12,7 +11,7 @@ import com.example.masterproject.R
 import com.example.masterproject.activities.adapters.ChatAdapter
 import com.example.masterproject.ledger.Ledger
 import com.example.masterproject.ledger.LedgerEntry
-import com.example.masterproject.network.*
+import com.example.masterproject.network.unicast.*
 import com.example.masterproject.types.ChatMessage
 import com.example.masterproject.utils.AESUtils
 import kotlinx.coroutines.Dispatchers
@@ -65,7 +64,7 @@ class ChatActivity: AppCompatActivity() {
         val youAreChattingWithText = "You are chatting with: $username"
         youAreChattingWith.text = youAreChattingWithText
 
-        val currentKey = AESUtils.getEncryptionKey(username!!, this)
+        val currentKey = AESUtils.getEncryptionKey(username!!)
         val currentKeyText: TextView = findViewById(R.id.currentKeyText)
         currentKeyText.text = AESUtils.keyToString(currentKey)
 
@@ -95,7 +94,9 @@ class ChatActivity: AppCompatActivity() {
         AESUtils.useNextKeyForUser(username!!)
         if(isClient){
             sendMessage("", UnicastMessageTypes.GOODBYE.toString())
-            client!!.closeSocket()
+            GlobalScope.launch(Dispatchers.IO) {
+                client!!.closeSocket()
+            }
             client!!.interrupt()
         }
         super.onStop()

@@ -1,6 +1,7 @@
 package com.example.masterproject.activities.adapters
 
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,6 +21,8 @@ import com.example.masterproject.utils.PKIUtils
 class DeviceAdapter(private val ledger: MutableList<LedgerEntry>): RecyclerView.Adapter<RecyclerView.ViewHolder>()  {
 
     private val context = App.getAppContext()
+
+    private val TAG = "Device Adapter"
 
     private val SHOW = 0
     private val HIDE = 1

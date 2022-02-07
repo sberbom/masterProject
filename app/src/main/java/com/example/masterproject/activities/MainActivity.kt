@@ -17,7 +17,8 @@ import com.example.masterproject.R
 import com.example.masterproject.activities.adapters.DeviceAdapter
 import com.example.masterproject.ledger.Ledger
 import com.example.masterproject.network.MulticastServer
-import com.example.masterproject.network.TCPListener
+import com.example.masterproject.network.unicast.TCPListener
+import com.example.masterproject.network.unicast.TLSListener
 import com.example.masterproject.utils.AESUtils
 import com.example.masterproject.utils.MISCUtils
 import com.example.masterproject.utils.PKIUtils
@@ -51,13 +52,16 @@ class MainActivity: AppCompatActivity() {
         drawer.addDrawerListener(drawerToggle)
         drawerToggle.syncState()
 
-
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         Security.removeProvider("BC")
         Security.addProvider(BouncyCastleProvider())
 
         auth = Firebase.auth
+
+        if(PKIUtils.keyStore == null) {
+            PKIUtils.keyStore = PKIUtils.loadKeyStore()
+        }
 
         // Start multicast server
         baseContext.startService(Intent(this, MulticastServer::class.java))
@@ -70,6 +74,7 @@ class MainActivity: AppCompatActivity() {
 
         //Start network processes
         baseContext.startService(Intent(this, TCPListener::class.java))
+        baseContext.startService(Intent(this, TLSListener::class.java))
 
 
         //Find and display my IP address
@@ -80,7 +85,7 @@ class MainActivity: AppCompatActivity() {
 
         //Logged in as text
         val loggedInAsText: TextView = headerView.findViewById(R.id.nav_username)
-        loggedInAsText.text = MISCUtils.getCurrentUserString(this)
+        loggedInAsText.text = MISCUtils.getCurrentUserString()
 
 
         navigationView.setNavigationItemSelectedListener { menuItem ->
@@ -166,8 +171,6 @@ class MainActivity: AppCompatActivity() {
     }
 
     private fun deleteStoredData() {
-        PKIUtils.deleteStoredCertificate(this)
-        PKIUtils.deleteStoredPrivateKey(this)
         AESUtils.deleteAllStoredKeys(this)
         MISCUtils.deleteCache(this)
         Toast.makeText(

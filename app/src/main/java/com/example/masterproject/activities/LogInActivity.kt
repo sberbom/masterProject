@@ -55,7 +55,7 @@ class LogInActivity: AppCompatActivity() {
                             baseContext, "Sign in success.",
                             Toast.LENGTH_SHORT
                         ).show()
-                        val storedCertificate = PKIUtils.fetchStoredCertificate(this)
+                        val storedCertificate = PKIUtils.getStoredCertificate()
                         if(storedCertificate == null || !PKIUtils.isCASignedCertificate(
                                 storedCertificate
                             )

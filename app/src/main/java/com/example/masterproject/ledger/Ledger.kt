@@ -20,13 +20,12 @@ class Ledger {
 
         fun createNewBlockFromEmail(email: String) {
             if (getLedgerEntry(email) == null) {
-                val context = App.getAppContext()
                 try {
                     val keyPair = PKIUtils.generateECKeyPair()
-                    PKIUtils.storePrivateKey(keyPair.private, context!!)
                     val certificate = PKIUtils.generateSelfSignedX509Certificate(email, keyPair)
-                    PKIUtils.storeCertificate(certificate, context)
-                    val myLedgerEntry = LedgerEntry(PKIUtils.getCertificate()!!, email, MISCUtils.getMyIpAddress()!!)
+                    PKIUtils.addKeyToKeyStore(keyPair.private, certificate)
+                    PKIUtils.writeKeyStoreToFile()
+                    val myLedgerEntry = LedgerEntry(PKIUtils.getStoredCertificate()!!, email, MISCUtils.getMyIpAddress()!!)
                     setMyLedgerEntry(myLedgerEntry)
                     availableDevices.add(myLedgerEntry)
                     Handler(Looper.getMainLooper()).post {
@@ -41,14 +40,13 @@ class Ledger {
         }
 
         fun createNewBlockFromStoredCertificate(): LedgerEntry? {
-            val context = App.getAppContext()
             val ipAddress = MISCUtils.getMyIpAddress()
-            if (context != null && ipAddress != null) {
-                val storedCertificate = PKIUtils.fetchStoredCertificate(context)
+            if (ipAddress != null) {
+                val storedCertificate = PKIUtils.getStoredCertificate()
                 // If the user has a stored certificate it should be broadcast if it does not conflict with ledger
                 if (storedCertificate != null){
                     val myLedgerEntry = LedgerEntry(
-                        PKIUtils.getCertificate()!!,
+                        storedCertificate,
                         PKIUtils.getUsernameFromCertificate(storedCertificate),
                         ipAddress)
                     if (isValidNewBlock(myLedgerEntry)){
@@ -76,9 +74,9 @@ class Ledger {
         fun existingBlockFromStoredCertificate(): LedgerEntry? {
             val context = App.getAppContext()
             if (context != null) {
-                val storedCertificate = PKIUtils.fetchStoredCertificate(context)
+                val storedCertificate = PKIUtils.getStoredCertificate()
                 if (storedCertificate != null) {
-                    return availableDevices.find { it.certificate.toString() == storedCertificate.toString() }
+                    return availableDevices.find { PKIUtils.certificateToString(it.certificate) == PKIUtils.certificateToString(storedCertificate)}
                 }
             }
             return null
@@ -107,6 +105,7 @@ class Ledger {
                 }
                 Log.d(TAG, "${newBlock.userName} added to ledger")
                 availableDevices.add(newBlock)
+                PKIUtils.addCertificateToTrustStore(newBlock.userName, newBlock.certificate)
                 availableDevices.sortBy { it.userName }
                 Handler(Looper.getMainLooper()).post {
                     MainActivity.updateAvailableDevices()
@@ -124,6 +123,9 @@ class Ledger {
                     addLedgerEntry(it)
                 }
                 availableDevices.sortBy { it.userName }
+                availableDevices.forEach {
+                    PKIUtils.addCertificateToTrustStore(it.userName, it.certificate)
+                }
                 Handler(Looper.getMainLooper()).post {
                     MainActivity.updateAvailableDevices()
                 }
@@ -140,14 +142,14 @@ class Ledger {
 
         fun shouldSendFullLedger(): Boolean {
             val myLedgerEntry = getMyLedgerEntry() ?: return false
-            val myCertificateString = myLedgerEntry.certificate.toString()
-            val caSignedCertificates = availableDevices.filter { PKIUtils.isCASignedCertificate(it.certificate) }.map { it.certificate.toString() }
+            val myCertificateString = PKIUtils.certificateToString(myLedgerEntry.certificate)
+            val caSignedCertificates = availableDevices.filter { PKIUtils.isCASignedCertificate(it.certificate) }.map { PKIUtils.certificateToString(it.certificate) }
             return when {
                 caSignedCertificates.isNotEmpty() -> {
                     caSignedCertificates.takeLast(2).contains(myCertificateString)
                 }
                 else -> {
-                    availableDevices.takeLast(2).map { it.certificate.toString() }
+                    availableDevices.takeLast(2).map { PKIUtils.certificateToString(it.certificate)}
                         .contains(myCertificateString)
                 }
             }

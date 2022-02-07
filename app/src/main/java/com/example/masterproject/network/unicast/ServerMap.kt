@@ -1,4 +1,4 @@
-package com.example.masterproject.network
+package com.example.masterproject.network.unicast
 
 class ServerMap {
     companion object {

@@ -1,5 +1,6 @@
 package com.example.masterproject.ledger
 
+import android.util.Log
 import com.example.masterproject.utils.PKIUtils
 import org.json.JSONObject
 import org.json.JSONTokener
@@ -36,7 +37,7 @@ data class LedgerEntry(
 
         fun isEqual(first: LedgerEntry, second: LedgerEntry): Boolean {
             return first.userName == second.userName &&
-                    first.certificate.toString() == second.certificate.toString()
+                    PKIUtils.certificateToString(first.certificate) == PKIUtils.certificateToString(second.certificate)
         }
     }
 }

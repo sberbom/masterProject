@@ -39,6 +39,8 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
 
     private val requestLedgerOfAcceptedHashTimer = Timer()
 
+    private var requestLedgerOfAcceptedHashTimerIsActive = false
+
     private var requestLedgerOfAcceptedHashTimerCancelled = false
 
     private var requestLedgerOfAcceptedHashCounter = 0
@@ -69,11 +71,17 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
 
     fun fullLedgerReceived(sender: LedgerEntry, ledger: List<LedgerEntry>) {
         val sortedLedger = ledger.sortedBy { it.userName }
-        if (!Ledger.ledgerIsValid(ledger)) throw Exception("Ledger received by ${sender.userName} is not valid.")
+        //TODO: If ledger is not valid the system crashes
+        //if (!Ledger.ledgerIsValid(ledger)) throw Exception("Ledger received by ${sender.userName} is not valid.")
+        if(!Ledger.ledgerIsValid(ledger)) {
+            Log.d(TAG, "Ledger is not valid")
+            Log.d(TAG, ledger.toString())
+        }
         val hashOfReceivedLedger = Ledger.getHashOfLedger(sortedLedger)
         if (hashOfReceivedLedger == acceptedHash) {
             requestLedgerOfAcceptedHashTimer.cancel()
             requestLedgerOfAcceptedHashTimerCancelled = true
+            requestLedgerOfAcceptedHashTimerIsActive = false
             handleAcceptedLedger(ReceivedLedger(ledger, hashOfReceivedLedger, sender))
             return
         }
@@ -108,13 +116,17 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
             requestLedgerOfCorrectHash(hashOfAcceptedLedger)
             // 0 if my registration, if not random time divided in 20 steps from 200 ms until 1000 seconds
             val waitToRequest = if (isMyRegistration) 0 else 200 + nextInt(20) * 40
-            requestLedgerOfAcceptedHashTimer.scheduleAtFixedRate(waitToRequest.toLong(), 500) {
-                if (!requestLedgerOfAcceptedHashTimerCancelled && requestLedgerOfAcceptedHashCounter >= 3) {
-                    requestLedgerOfAcceptedHashCounter += 1
-                    requestLedgerOfCorrectHash(hashOfAcceptedLedger)
-                } else {
-                    requestLedgerOfAcceptedHashTimer.cancel()
-                    startRegistration()
+            if(!requestLedgerOfAcceptedHashTimerIsActive) {
+                requestLedgerOfAcceptedHashTimer.scheduleAtFixedRate(waitToRequest.toLong(), 500) {
+                    requestLedgerOfAcceptedHashTimerIsActive = true
+                    if (!requestLedgerOfAcceptedHashTimerCancelled && requestLedgerOfAcceptedHashCounter >= 3) {
+                        requestLedgerOfAcceptedHashCounter += 1
+                        requestLedgerOfCorrectHash(hashOfAcceptedLedger)
+                    } else {
+                        requestLedgerOfAcceptedHashTimer.cancel()
+                        requestLedgerOfAcceptedHashTimerIsActive = false
+                        startRegistration()
+                    }
                 }
             }
         }
@@ -123,7 +135,7 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
 
     private fun handleAcceptedLedger(acceptedLedger: ReceivedLedger) {
         Log.d(TAG, "Accepted ledger from ${acceptedLedger.senderBlock.userName}: ${acceptedLedger.ledger}")
-        Ledger.setFullLedger(acceptedLedger.ledger, broadcastBlocks)
+        acceptedLedger.ledger.forEach { Ledger.addLedgerEntry(it) }
         startRegistration()
     }
 

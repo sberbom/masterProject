@@ -29,7 +29,7 @@ class MulticastServer: Service() {
     private val client: MulticastClient = MulticastClient(this)
 
     private fun listenForData(): MutableList<LedgerEntry>? {
-        val buf = ByteArray(512 * 10)
+        val buf = ByteArray(512 * 12)
         try{
             val socket = MulticastSocket(Constants.multicastPort)
             socket.joinGroup(address)
@@ -40,7 +40,7 @@ class MulticastServer: Service() {
 
                 val msgRaw = String(buf, 0, buf.size)
                 val networkMessage = NetworkMessage.decodeNetworkMessage(msgRaw)
-                Log.d(TAG, "Received broadcast network message.")
+                Log.d(TAG, networkMessage.toString())
                 GlobalScope.launch(Dispatchers.IO) {
                     when (networkMessage.messageType) {
                         BroadcastMessageTypes.BROADCAST_BLOCK.toString() -> handleBroadcastBlock(networkMessage)

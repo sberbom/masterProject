@@ -14,6 +14,7 @@ import kotlinx.coroutines.withContext
 import java.net.DatagramPacket
 import java.net.DatagramSocket
 import java.net.InetAddress
+import java.util.*
 
 class MulticastClient (private val server: MulticastServer?) {
 
@@ -25,11 +26,16 @@ class MulticastClient (private val server: MulticastServer?) {
     private fun sendMulticastData(msg: String): Void? {
         val address = InetAddress.getByName(multicastGroup)
         try {
-            val serverSocket = DatagramSocket()
+            var serverSocket = DatagramSocket()
             val msgPacket = DatagramPacket(msg.toByteArray(), msg.toByteArray().size, address, multicastPort)
             serverSocket.send(msgPacket)
             serverSocket.close()
-            Log.d(TAG,msg)
+            Log.d(TAG, "Message1: $msg")
+            Thread.sleep(1000)
+            serverSocket = DatagramSocket()
+            serverSocket.send(msgPacket)
+            serverSocket.close()
+            Log.d(TAG, "Message2: $msg")
         }catch (e: Exception) {
             e.printStackTrace()
         }

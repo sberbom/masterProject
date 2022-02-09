@@ -54,6 +54,7 @@ class Ledger {
                         setMyLedgerEntry(myLedgerEntry)
                         availableDevices.add(myLedgerEntry)
                         availableDevices.sortBy { it.userName }
+                        Log.d(TAG, "Available devices: $availableDevices")
                         Handler(Looper.getMainLooper()).post {
                             MainActivity.updateAvailableDevices()
                         }

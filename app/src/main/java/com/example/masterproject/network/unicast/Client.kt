@@ -95,6 +95,8 @@ abstract class Client: Thread() {
     }
 
     open fun closeSocket() {
-        clientSocket!!.close()
+        if(clientSocket != null) {
+            clientSocket!!.close()
+        }
     }
 }

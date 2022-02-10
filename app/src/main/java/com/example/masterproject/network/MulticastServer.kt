@@ -26,10 +26,11 @@ class MulticastServer: Service() {
     private val address = InetAddress.getByName(Constants.multicastGroup)
 
     private val registrationHandlers: MutableMap<Int, RegistrationHandler> = mutableMapOf()
+    private val finishedRegistrationProcesses: MutableList<Int> = mutableListOf()
     private val client: MulticastClient = MulticastClient(this)
 
     private fun listenForData(): MutableList<LedgerEntry>? {
-        val buf = ByteArray(512 * 10)
+        val buf = ByteArray(512 * 12)
         try{
             val socket = MulticastSocket(Constants.multicastPort)
             socket.joinGroup(address)
@@ -40,7 +41,7 @@ class MulticastServer: Service() {
 
                 val msgRaw = String(buf, 0, buf.size)
                 val networkMessage = NetworkMessage.decodeNetworkMessage(msgRaw)
-                Log.d(TAG, "Received broadcast network message.")
+                Log.d(TAG, networkMessage.toString())
                 GlobalScope.launch(Dispatchers.IO) {
                     when (networkMessage.messageType) {
                         BroadcastMessageTypes.BROADCAST_BLOCK.toString() -> handleBroadcastBlock(networkMessage)
@@ -67,12 +68,7 @@ class MulticastServer: Service() {
         val isValidSignature = PKIUtils.verifySignature(blockString, networkMessage.signature, publicKey, null)
         Log.d(TAG, "Signature is valid: $isValidSignature")
         if(isValidSignature) {
-            val registrationHandler = registrationHandlers[networkMessage.nonce]
-            if (registrationHandler == null) {
-                Ledger.addLedgerEntry(block)
-            } else {
-                registrationHandler.addBroadcastBlock(block)
-            }
+            Ledger.addLedgerEntry(block)
         }
         else {
             Log.d(TAG, "Could not add block, signature not valid")
@@ -81,7 +77,7 @@ class MulticastServer: Service() {
 
     // TODO: Should not send hash if there are CA-certified and you are not one of them
     private fun handleRequestedLedger(networkMessage: NetworkMessage) {
-        val registrationHandler = startRegistrationProcess(networkMessage.nonce, false)
+        val registrationHandler = startRegistrationProcess(networkMessage.nonce, false) ?: return
         Log.d(TAG, "Received request for ledger with nonce: ${networkMessage.nonce}.")
         // must be a copy of the real list
         val fullLedger = Ledger.getFullLedger().toList()
@@ -119,7 +115,7 @@ class MulticastServer: Service() {
 
     private fun handleFullLedger(networkMessage: NetworkMessage) {
         if (networkMessage.sender == Ledger.getMyLedgerEntry()?.userName) return
-        val registrationHandler = startRegistrationProcess(networkMessage.nonce, false)
+        val registrationHandler = startRegistrationProcess(networkMessage.nonce, false) ?: return
         val ledger = networkMessage.payload
         Log.d(TAG, "Received full ledger from ${networkMessage.sender}: $ledger")
         val ledgerWithoutBrackets = ledger.substring(1, ledger.length - 1)
@@ -141,7 +137,7 @@ class MulticastServer: Service() {
     }
 
     private fun handleHash(networkMessage: NetworkMessage) {
-        val registrationHandler = startRegistrationProcess(networkMessage.nonce, false)
+        val registrationHandler = startRegistrationProcess(networkMessage.nonce, false) ?: return
         val senderBlock = LedgerEntry.parseString(networkMessage.sender)
         if (senderBlock.userName == Ledger.getMyLedgerEntry()?.userName) return
         Log.d(TAG, "Received hash from ${senderBlock.userName}: ${networkMessage.payload}")
@@ -152,18 +148,23 @@ class MulticastServer: Service() {
         }
     }
 
-    private fun startRegistrationProcess(nonce: Int, isMyRegistration: Boolean): RegistrationHandler {
-        val existingRegistrationHandler = registrationHandlers[nonce]
-        if (existingRegistrationHandler != null) return existingRegistrationHandler
-        Log.d(TAG, "Registration process started with nonce: $nonce")
-        val registrationHandler = RegistrationHandler(this, nonce, isMyRegistration)
-        registrationHandlers[nonce] = registrationHandler
-        registrationHandler.startTimers()
-        return registrationHandler
+    private fun startRegistrationProcess(nonce: Int, isMyRegistration: Boolean): RegistrationHandler? {
+        if(!finishedRegistrationProcesses.contains(nonce)) {
+            val existingRegistrationHandler = registrationHandlers[nonce]
+            if (existingRegistrationHandler != null) return existingRegistrationHandler
+            Log.d(TAG, "Registration process started with nonce: $nonce")
+            val registrationHandler = RegistrationHandler(this, nonce, isMyRegistration)
+            registrationHandlers[nonce] = registrationHandler
+            registrationHandler.startTimers()
+            return registrationHandler
+        }
+        return null
     }
 
     fun registrationProcessFinished(nonce: Int) {
         if (registrationHandlers[nonce] != null) {
+            Log.d(TAG, "Registration process finished: $nonce")
+            finishedRegistrationProcesses.add(nonce)
             registrationHandlers.remove(nonce)
         }
     }

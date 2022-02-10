@@ -100,8 +100,11 @@ class Ledger {
             val userAlreadyInLedger =
                 availableDevices.map { it.certificate }.contains(newBlock.certificate)
             if (isValidNewBlock(newBlock) && !userAlreadyInLedger) {
-                if (myLedgerEntry != null && !LedgerEntry.isEqual(myLedgerEntry, newBlock) && (newBlock.userName == myLedgerEntry.userName)) {
-                    handleLosingUsername()
+                val existingBlockWithSameUsername = availableDevices.find { it.userName == newBlock.userName }
+                if (existingBlockWithSameUsername != null && !LedgerEntry.isEqual(existingBlockWithSameUsername, newBlock)) {
+                    availableDevices.remove(existingBlockWithSameUsername)
+                    // TODO: All users should be warned that the user has been updated
+                    if (existingBlockWithSameUsername == myLedgerEntry) handleLosingUsername()
                 }
                 Log.d(TAG, "${newBlock.userName} added to ledger")
                 availableDevices.add(newBlock)
@@ -112,23 +115,6 @@ class Ledger {
                 }
             } else {
                 Log.d(TAG, "${newBlock.userName} not added to ledger")
-            }
-        }
-
-        fun setFullLedger(ledger: List<LedgerEntry>, broadcastBlocks: List<LedgerEntry>) {
-            if (ledgerIsValid(ledger)) {
-                availableDevices.clear()
-                availableDevices.addAll(ledger)
-                broadcastBlocks.forEach {
-                    addLedgerEntry(it)
-                }
-                availableDevices.sortBy { it.userName }
-                availableDevices.forEach {
-                    PKIUtils.addCertificateToTrustStore(it.userName, it.certificate)
-                }
-                Handler(Looper.getMainLooper()).post {
-                    MainActivity.updateAvailableDevices()
-                }
             }
         }
 
@@ -155,6 +141,7 @@ class Ledger {
             }
         }
 
+        // TODO: Change so that only your own block is not shown
         fun shouldBeRendered(block: LedgerEntry): Boolean {
             if(PKIUtils.isCASignedCertificate(block.certificate)) return true
             availableDevices.forEach{

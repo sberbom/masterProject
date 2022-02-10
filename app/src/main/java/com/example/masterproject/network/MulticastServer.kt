@@ -56,6 +56,7 @@ class MulticastServer: Service() {
                         BroadcastMessageTypes.REQUEST_SPECIFIC_LEDGER.toString() -> handleSpecificLedgerRequest(networkMessage)
                         BroadcastMessageTypes.FULL_LEDGER.toString() -> handleFullLedger(networkMessage)
                         BroadcastMessageTypes.LEDGER_HASH.toString() -> handleHash(networkMessage)
+                        BroadcastMessageTypes.IP_CHANGED.toString() -> handleIpChanged(networkMessage)
                         else -> Log.d(TAG, "Received unknown message type.")
                     }
                 }
@@ -157,6 +158,32 @@ class MulticastServer: Service() {
         val isValidSignature = PKIUtils.verifySignature(networkMessage.payload, networkMessage.signature, publicKey, networkMessage.nonce)
         if (isValidSignature) {
             registrationHandler.hashOfLedgerReceived(senderBlock, networkMessage.payload)
+        }
+    }
+
+    private fun handleIpChanged(networkMessage: NetworkMessage) {
+        val senderBlock = LedgerEntry.parseString(networkMessage.sender)
+        if (senderBlock.userName == Ledger.getMyLedgerEntry()?.userName) return
+        val publicKey = senderBlock.certificate.publicKey ?: throw Exception("Can not handle ip changed - Could not find public key for user")
+        val blockToChange = Ledger.getLedgerEntry(senderBlock.userName) ?: return
+        val newIp = networkMessage.payload.split(":").first()
+        val senderHasCorrectCertificate = PKIUtils.certificateToString(blockToChange.certificate) == PKIUtils.certificateToString(senderBlock.certificate)
+        val isValidSignature = PKIUtils.verifySignature(networkMessage.payload, networkMessage.signature, publicKey, null)
+        val isValidTimestamp = isValidTimestampFromIpMessage(networkMessage.payload)
+        if (senderHasCorrectCertificate && newIp != blockToChange.getIpAddress() && isValidSignature && isValidTimestamp) {
+            blockToChange.setIpAddress(newIp)
+        }
+    }
+
+    private fun isValidTimestampFromIpMessage (payload: String): Boolean {
+        return try {
+            val timestampFromMessage = payload.split(":")[1].toLong()
+            val now = System.currentTimeMillis()
+            // timestamp must be from between 1s back in time and 0.5s forward in time.
+            (now - 1000 < timestampFromMessage) && (now + 500 > timestampFromMessage)
+        } catch (e: Exception) {
+            e.printStackTrace()
+            false
         }
     }
 

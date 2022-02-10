@@ -57,7 +57,7 @@ class DeviceAdapter(private val ledger: MutableList<LedgerEntry>): RecyclerView.
         val ledgerEntry = ledger[position]
         if (holder is DeviceViewHolder) {
             holder.usernameTextView.text = ledgerEntry.userName
-            holder.ipTextView.text = ledgerEntry.ipAddress
+            holder.ipTextView.text = ledgerEntry.getIpAddress()
             holder.publicKeyTextView.text = "Certificate hash: ${ledgerEntry.certificate.hashCode()}"
             if(PKIUtils.isCASignedCertificate(ledgerEntry.certificate)){
                 holder.certificateIndication.setImageResource(R.drawable.green)

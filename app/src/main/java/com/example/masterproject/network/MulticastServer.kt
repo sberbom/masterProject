@@ -18,6 +18,8 @@ import kotlinx.coroutines.launch
 import java.net.DatagramPacket
 import java.net.InetAddress
 import java.net.MulticastSocket
+import java.util.*
+import kotlin.concurrent.schedule
 
 class MulticastServer: Service() {
 
@@ -25,9 +27,14 @@ class MulticastServer: Service() {
     private val socket: MulticastSocket? = null
     private val address = InetAddress.getByName(Constants.multicastGroup)
 
+    private val antiDosTimer = Timer()
+    private var shouldHandleRequests = true
+
     private val registrationHandlers: MutableMap<Int, RegistrationHandler> = mutableMapOf()
     private val finishedRegistrationProcesses: MutableList<Int> = mutableListOf()
     private val client: MulticastClient = MulticastClient(this)
+
+    private val usedNonces: MutableList<Int> = mutableListOf()
 
     private fun listenForData(): MutableList<LedgerEntry>? {
         val buf = ByteArray(512 * 12)
@@ -77,6 +84,7 @@ class MulticastServer: Service() {
 
     // TODO: Should not send hash if there are CA-certified and you are not one of them
     private fun handleRequestedLedger(networkMessage: NetworkMessage) {
+        if (!shouldHandleRequests) return
         val registrationHandler = startRegistrationProcess(networkMessage.nonce, false) ?: return
         Log.d(TAG, "Received request for ledger with nonce: ${networkMessage.nonce}.")
         // must be a copy of the real list
@@ -94,6 +102,10 @@ class MulticastServer: Service() {
                     client.sendHash(networkMessage.nonce)
                 }
             }
+        }
+        shouldHandleRequests = false
+        antiDosTimer.schedule(500) {
+            shouldHandleRequests = true
         }
     }
 

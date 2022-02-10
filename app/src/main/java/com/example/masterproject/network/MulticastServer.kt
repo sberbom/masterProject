@@ -31,12 +31,13 @@ class MulticastServer: Service() {
     private var shouldHandleRequests = true
 
     private val registrationHandlers: MutableMap<Int, RegistrationHandler> = mutableMapOf()
+    private val finishedRegistrationProcesses: MutableList<Int> = mutableListOf()
     private val client: MulticastClient = MulticastClient(this)
 
     private val usedNonces: MutableList<Int> = mutableListOf()
 
     private fun listenForData(): MutableList<LedgerEntry>? {
-        val buf = ByteArray(512 * 10)
+        val buf = ByteArray(512 * 12)
         try{
             val socket = MulticastSocket(Constants.multicastPort)
             socket.joinGroup(address)
@@ -47,7 +48,7 @@ class MulticastServer: Service() {
 
                 val msgRaw = String(buf, 0, buf.size)
                 val networkMessage = NetworkMessage.decodeNetworkMessage(msgRaw)
-                Log.d(TAG, "Received broadcast network message.")
+                Log.d(TAG, networkMessage.toString())
                 GlobalScope.launch(Dispatchers.IO) {
                     when (networkMessage.messageType) {
                         BroadcastMessageTypes.BROADCAST_BLOCK.toString() -> handleBroadcastBlock(networkMessage)
@@ -74,12 +75,7 @@ class MulticastServer: Service() {
         val isValidSignature = PKIUtils.verifySignature(blockString, networkMessage.signature, publicKey, null)
         Log.d(TAG, "Signature is valid: $isValidSignature")
         if(isValidSignature) {
-            val registrationHandler = registrationHandlers[networkMessage.nonce]
-            if (registrationHandler == null) {
-                Ledger.addLedgerEntry(block)
-            } else {
-                registrationHandler.addBroadcastBlock(block)
-            }
+            Ledger.addLedgerEntry(block)
         }
         else {
             Log.d(TAG, "Could not add block, signature not valid")
@@ -165,21 +161,22 @@ class MulticastServer: Service() {
     }
 
     private fun startRegistrationProcess(nonce: Int, isMyRegistration: Boolean): RegistrationHandler? {
-        val existingRegistrationHandler = registrationHandlers[nonce]
-        if (existingRegistrationHandler != null) return existingRegistrationHandler
-        if (usedNonces.contains(nonce)) {
-            Log.d(TAG, "Nonce $nonce has already been used.")
-            return null
+        if(!finishedRegistrationProcesses.contains(nonce)) {
+            val existingRegistrationHandler = registrationHandlers[nonce]
+            if (existingRegistrationHandler != null) return existingRegistrationHandler
+            Log.d(TAG, "Registration process started with nonce: $nonce")
+            val registrationHandler = RegistrationHandler(this, nonce, isMyRegistration)
+            registrationHandlers[nonce] = registrationHandler
+            registrationHandler.startTimers()
+            return registrationHandler
         }
-        Log.d(TAG, "Registration process started with nonce: $nonce")
-        val registrationHandler = RegistrationHandler(this, nonce, isMyRegistration)
-        registrationHandlers[nonce] = registrationHandler
-        registrationHandler.startTimers()
-        return registrationHandler
+        return null
     }
 
     fun registrationProcessFinished(nonce: Int) {
         if (registrationHandlers[nonce] != null) {
+            Log.d(TAG, "Registration process finished: $nonce")
+            finishedRegistrationProcesses.add(nonce)
             registrationHandlers.remove(nonce)
         }
     }

@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.masterproject.App
 import com.example.masterproject.R
@@ -31,7 +32,7 @@ class DeviceAdapter(private val ledger: MutableList<LedgerEntry>): RecyclerView.
         val usernameTextView: TextView = itemView.findViewById(R.id.usernameText)
         val ipTextView: TextView = itemView.findViewById(R.id.ipText)
         val publicKeyTextView: TextView = itemView.findViewById(R.id.publicKeyText)
-        val startChatButton: Button = itemView.findViewById(R.id.startChatButton)
+        val deviceCard: CardView = itemView.findViewById(R.id.device_card)
         val certificateIndication: ImageView = itemView.findViewById(R.id.certificateIndication)
     }
 
@@ -66,7 +67,7 @@ class DeviceAdapter(private val ledger: MutableList<LedgerEntry>): RecyclerView.
             }else {
                 holder.certificateIndication.setImageResource(R.drawable.red)
             }
-            holder.startChatButton.setOnClickListener {
+            holder.deviceCard.setOnClickListener {
                 if(context != null && MISCUtils.isLoggedIn()){
                     val intent = Intent(context, ChatActivity::class.java)
                     intent.putExtra("userName", ledgerEntry.userName) //Optional parameters

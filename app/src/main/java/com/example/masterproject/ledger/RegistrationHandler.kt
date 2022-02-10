@@ -25,12 +25,8 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
 
     private val TAG = "RegistrationHandler:$nonce"
 
-    private val responseTimeout = Timer()
-
     private var acceptedHash: String? = null
-
-    private var responseTimeoutCancelled = false
-
+    
     private val acceptLedgerTimeout = Timer()
 
     private var acceptLedgerTimeoutCancelled = false
@@ -46,12 +42,6 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
     fun startTimers() {
         Log.d(TAG, "Timer started")
         GlobalScope.launch (Dispatchers.Default) {
-            responseTimeout.schedule(1000) {
-                if (!responseTimeoutCancelled) {
-                    Log.d(TAG, "Timer finished")
-                    startRegistration()
-                }
-            }
             acceptLedgerTimeout.schedule(1000) {
                 if (!acceptLedgerTimeoutCancelled) {
                     Log.d(TAG, "Acceptance timer finished")
@@ -60,11 +50,6 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
                 }
             }
         }
-    }
-
-    private fun stopTimer() {
-        Log.d(TAG, "Timer cancelled")
-        responseTimeoutCancelled = true
     }
 
     fun fullLedgerReceived(sender: LedgerEntry, ledger: List<LedgerEntry>) {
@@ -82,7 +67,6 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
             Log.d(TAG, "User has already responded.")
             return
         }
-        stopTimer()
         if (receivedLedgers.map { it.hash }.contains(hashOfReceivedLedger)) {
             addHash(sender, hashOfReceivedLedger)
         } else {
@@ -99,6 +83,11 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
     }
 
     private fun setLedgerIfAccepted() {
+        if (listenedForMoreThanOneSecond && hashes.isEmpty() && receivedLedgers.isEmpty()) {
+            Log.d(TAG, "You are the first in the network.")
+            startRegistration()
+            return
+        }
         val hashOfAcceptedLedger = getHashOfAcceptedLedger(hashes.toList(), receivedLedgers.toList()) ?: return
         acceptLedgerTimeoutCancelled = true
         val acceptedLedger = receivedLedgers.find { it.hash == hashOfAcceptedLedger }
@@ -153,7 +142,6 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
     }
 
     fun hashOfLedgerReceived(senderBlock: LedgerEntry, hash: String) {
-        stopTimer()
         if (userHasAlreadyResponded(senderBlock, hashes.toList(), receivedLedgers.toList())) {
             Log.d(TAG, "${senderBlock.userName} has already responded.")
             return

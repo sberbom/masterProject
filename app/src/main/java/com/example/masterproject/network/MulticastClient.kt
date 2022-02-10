@@ -29,13 +29,10 @@ class MulticastClient (private val server: MulticastServer?) {
             var serverSocket = DatagramSocket()
             val msgPacket = DatagramPacket(msg.toByteArray(), msg.toByteArray().size, address, multicastPort)
             serverSocket.send(msgPacket)
-            serverSocket.close()
-            Log.d(TAG, "Message1: $msg")
             Thread.sleep(1000)
-            serverSocket = DatagramSocket()
             serverSocket.send(msgPacket)
             serverSocket.close()
-            Log.d(TAG, "Message2: $msg")
+            Log.d(TAG, "Sent message $msg")
         }catch (e: Exception) {
             e.printStackTrace()
         }

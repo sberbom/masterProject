@@ -21,8 +21,6 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
 
     private val client: MulticastClient = MulticastClient(server)
 
-    private val broadcastBlocks = mutableListOf<LedgerEntry>()
-
     private var listenedForMoreThanOneSecond: Boolean = false
 
     private val TAG = "RegistrationHandler:$nonce"
@@ -71,13 +69,7 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
 
     fun fullLedgerReceived(sender: LedgerEntry, ledger: List<LedgerEntry>) {
         val sortedLedger = ledger.sortedBy { it.userName }
-        //TODO: If ledger is not valid the system crashes
-        //if (!Ledger.ledgerIsValid(ledger)) throw Exception("Ledger received by ${sender.userName} is not valid.")
-        if(!Ledger.ledgerIsValid(ledger)) {
-            Log.d(TAG, "Ledger is not valid")
-            Log.d(TAG, ledger.toString())
-            return
-        }
+        if(!Ledger.ledgerIsValid(ledger)) return
         val hashOfReceivedLedger = Ledger.getHashOfLedger(sortedLedger)
         if (hashOfReceivedLedger == acceptedHash) {
             requestLedgerOfAcceptedHashTimer.cancel()
@@ -167,11 +159,6 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
             return
         }
         addHash(senderBlock, hash)
-    }
-
-    fun addBroadcastBlock(block: LedgerEntry) {
-        if (broadcastBlocks.map { it.certificate }.contains(block.certificate)) return
-        broadcastBlocks.add(block)
     }
 
     private fun startRegistration() {

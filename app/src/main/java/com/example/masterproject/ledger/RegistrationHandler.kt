@@ -76,6 +76,7 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
         if(!Ledger.ledgerIsValid(ledger)) {
             Log.d(TAG, "Ledger is not valid")
             Log.d(TAG, ledger.toString())
+            return
         }
         val hashOfReceivedLedger = Ledger.getHashOfLedger(sortedLedger)
         if (hashOfReceivedLedger == acceptedHash) {
@@ -85,7 +86,7 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
             handleAcceptedLedger(ReceivedLedger(ledger, hashOfReceivedLedger, sender))
             return
         }
-        if (userHasAlreadyResponded(sender)) {
+        if (userHasAlreadyResponded(sender, hashes.toList(), receivedLedgers.toList())) {
             Log.d(TAG, "User has already responded.")
             return
         }
@@ -99,14 +100,14 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
 
     }
 
-    private fun userHasAlreadyResponded(user: LedgerEntry): Boolean {
+    private fun userHasAlreadyResponded(user: LedgerEntry, hashes: List<ReceivedHash>, receivedLedgers: List<ReceivedLedger>): Boolean {
         val userHasAlreadyRespondedWithHash = hashes.map { PKIUtils.certificateToString(it.senderBlock.certificate) }.contains(PKIUtils.certificateToString(user.certificate))
         val userHasAlreadyRespondedWithLedger = receivedLedgers.map { PKIUtils.certificateToString(it.senderBlock.certificate) }.contains(PKIUtils.certificateToString(user.certificate))
         return userHasAlreadyRespondedWithHash || userHasAlreadyRespondedWithLedger
     }
 
     private fun setLedgerIfAccepted() {
-        val hashOfAcceptedLedger = getHashOfAcceptedLedger() ?: return
+        val hashOfAcceptedLedger = getHashOfAcceptedLedger(hashes.toList(), receivedLedgers.toList()) ?: return
         acceptLedgerTimeoutCancelled = true
         val acceptedLedger = receivedLedgers.find { it.hash == hashOfAcceptedLedger }
         if (acceptedLedger != null) {
@@ -161,8 +162,9 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
 
     fun hashOfLedgerReceived(senderBlock: LedgerEntry, hash: String) {
         stopTimer()
-        if (userHasAlreadyResponded(senderBlock)) {
+        if (userHasAlreadyResponded(senderBlock, hashes.toList(), receivedLedgers.toList())) {
             Log.d(TAG, "${senderBlock.userName} has already responded.")
+            return
         }
         addHash(senderBlock, hash)
     }
@@ -203,7 +205,7 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
      * (if so the hashes should not matter since they are either in favor of
      * the ledger or not CA certified) OR more than half of the hashes validate the ledger
      */
-    private fun getHashOfAcceptedLedger(): String? {
+    private fun getHashOfAcceptedLedger(hashes: List<ReceivedHash>, receivedLedgers: List<ReceivedLedger>): String? {
         val caVerifiedValidators = hashes.filter { PKIUtils.isCASignedCertificate(it.senderBlock.certificate) }
         val mostCommonHashAmongCACertified = getMostCommonHash( caVerifiedValidators, true )
         val ledgerWithMostCommonHashAmongCACertified = receivedLedgers.find { it.hash == mostCommonHashAmongCACertified }

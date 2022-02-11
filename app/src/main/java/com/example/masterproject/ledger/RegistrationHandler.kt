@@ -1,6 +1,5 @@
 package com.example.masterproject.ledger
 
-import android.os.CountDownTimer
 import android.util.Log
 import com.example.masterproject.network.MulticastClient
 import com.example.masterproject.network.MulticastServer
@@ -222,6 +221,10 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
         // If the ledger of one or more of the most common hashes has been received, take the longest one,
         // if not take the first of the most common hashes.
         return mostCommonReceivedLedger?.hash ?: mostCommonHashes.entries.first().key
+    }
+
+    fun getIsMyRegistration(): Boolean {
+        return isMyRegistration
     }
 
     companion object {

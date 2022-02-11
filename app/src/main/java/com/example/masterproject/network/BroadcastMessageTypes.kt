@@ -5,5 +5,6 @@ enum class BroadcastMessageTypes {
     REQUEST_LEDGER,
     FULL_LEDGER,
     LEDGER_HASH,
-    REQUEST_SPECIFIC_LEDGER
+    REQUEST_SPECIFIC_LEDGER,
+    IP_CHANGED
 }

@@ -4,6 +4,7 @@ import android.os.CountDownTimer
 import android.util.Log
 import com.example.masterproject.network.MulticastClient
 import com.example.masterproject.network.MulticastServer
+import com.example.masterproject.utils.MISCUtils
 import com.example.masterproject.utils.PKIUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -155,6 +156,13 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
             Log.d(TAG, "Registration started")
             val myExistingBlock = Ledger.existingBlockFromStoredCertificate()
             if (myExistingBlock != null) {
+                val currentIp = MISCUtils.getMyIpAddress()
+                if (currentIp != null && myExistingBlock.getIpAddress() != currentIp) {
+                    myExistingBlock.setIpAddress(currentIp)
+                    GlobalScope.launch(Dispatchers.IO) {
+                        client.sendIpChanged(currentIp)
+                    }
+                }
                 Ledger.setMyLedgerEntry(myExistingBlock)
             } else {
                 val myLedgerEntry = Ledger.createNewBlockFromStoredCertificate()

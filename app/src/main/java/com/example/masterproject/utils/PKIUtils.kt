@@ -216,10 +216,19 @@ class PKIUtils {
         }
 
         fun writeKeyStoreToFile() {
-            val outputStream = FileOutputStream("${context!!.filesDir}/${Constants.KEYSTORE_PATH}")
+            val outputStream = FileOutputStream("${context!!.filesDir}${Constants.KEYSTORE_PATH}")
             keyStore!!.store(outputStream, Constants.KEYSTORE_PASSWORD.toCharArray())
             outputStream.close()
             Log.d(TAG, "KEYSTORE WRITTEN TO FILE")
+        }
+
+        fun deleteRootCertificateFromKeystore() {
+            keyStore!!.deleteEntry("root")
+            writeKeyStoreToFile()
+        }
+
+        fun deleteKeyStore(context: Context) {
+            context.deleteFile("${context.filesDir}${Constants.KEYSTORE_PATH}")
         }
 
         fun getStoredCertificate(): X509Certificate? {

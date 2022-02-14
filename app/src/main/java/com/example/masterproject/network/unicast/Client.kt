@@ -33,7 +33,7 @@ abstract class Client: Thread() {
         Log.d(TAG, "Starting $TAG")
         try {
             while(running && !isInterrupted){
-                val serverAddress = InetAddress.getByName(ledgerEntry.ipAddress)
+                val serverAddress = InetAddress.getByName(ledgerEntry.getIpAddress())
                 clientSocket = createClientSocket(serverAddress)
                 outputStream = DataOutputStream(clientSocket!!.getOutputStream())
                 inputStream = DataInputStream(clientSocket!!.getInputStream())

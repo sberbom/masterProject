@@ -12,6 +12,7 @@ import java.net.Inet4Address
 import java.net.InetAddress
 import java.net.NetworkInterface
 import java.security.MessageDigest
+import java.time.LocalDateTime
 import java.util.*
 import kotlin.math.pow
 import kotlin.random.Random.Default.nextInt
@@ -39,6 +40,10 @@ class MISCUtils {
         fun isEmail(email: String): Boolean {
             return !TextUtils.isEmpty(email) && android.util.Patterns.EMAIL_ADDRESS.matcher(email)
                 .matches();
+        }
+
+        fun getIpMessageWithTimestamp(newIp: String): String {
+            return "$newIp:${System.currentTimeMillis()}"
         }
 
         fun hashString(input: String): String {

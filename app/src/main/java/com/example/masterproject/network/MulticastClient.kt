@@ -14,6 +14,7 @@ import kotlinx.coroutines.withContext
 import java.net.DatagramPacket
 import java.net.DatagramSocket
 import java.net.InetAddress
+import java.sql.Timestamp
 import java.util.*
 
 class MulticastClient (private val server: MulticastServer?) {
@@ -29,7 +30,7 @@ class MulticastClient (private val server: MulticastServer?) {
             var serverSocket = DatagramSocket()
             val msgPacket = DatagramPacket(msg.toByteArray(), msg.toByteArray().size, address, multicastPort)
             serverSocket.send(msgPacket)
-            Thread.sleep(1000)
+            Thread.sleep(800)
             serverSocket.send(msgPacket)
             serverSocket.close()
             Log.d(TAG, "Sent message $msg")
@@ -92,6 +93,16 @@ class MulticastClient (private val server: MulticastServer?) {
     suspend fun requestSpecificHash(hash: String, from: String) {
         val nonce = MISCUtils.generateNonce()
         val message = NetworkMessage("", "$from:$hash", BroadcastMessageTypes.REQUEST_SPECIFIC_LEDGER.toString(), "", nonce)
+        return withContext(Dispatchers.IO) {
+            sendMulticastData(message.toString())
+        }
+    }
+
+    suspend fun sendIpChanged(newIp: String) {
+        val payload = MISCUtils.getIpMessageWithTimestamp(newIp)
+        val privateKey = PKIUtils.getPrivateKeyFromKeyStore() ?: throw Exception("Could not send new ip address, private not defined")
+        val signature = PKIUtils.signMessage(payload, privateKey, null)
+        val message = NetworkMessage(Ledger.getMyLedgerEntry().toString(), payload, BroadcastMessageTypes.IP_CHANGED.toString(), signature)
         return withContext(Dispatchers.IO) {
             sendMulticastData(message.toString())
         }

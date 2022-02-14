@@ -28,9 +28,7 @@ class Ledger {
                     val myLedgerEntry = LedgerEntry(PKIUtils.getStoredCertificate()!!, email, MISCUtils.getMyIpAddress()!!)
                     setMyLedgerEntry(myLedgerEntry)
                     availableDevices.add(myLedgerEntry)
-                    Handler(Looper.getMainLooper()).post {
-                        MainActivity.updateAvailableDevices()
-                    }
+                    updateUI()
                 } catch (e: Exception) {
                     e.printStackTrace()
                 }
@@ -110,9 +108,7 @@ class Ledger {
                 availableDevices.add(newBlock)
                 PKIUtils.addCertificateToTrustStore(newBlock.userName, newBlock.certificate)
                 availableDevices.sortBy { it.userName }
-                Handler(Looper.getMainLooper()).post {
-                    MainActivity.updateAvailableDevices()
-                }
+                updateUI()
             } else {
                 Log.d(TAG, "${newBlock.userName} not added to ledger")
             }
@@ -194,6 +190,18 @@ class Ledger {
         private fun isValidNewBlock(newBlock: LedgerEntry): Boolean {
             val canUseUsername = canUseUsername(newBlock)
             return LedgerEntry.ledgerEntryIsValid(newBlock) && canUseUsername
+        }
+
+        private fun updateUI() {
+            Handler(Looper.getMainLooper()).post {
+                MainActivity.updateAvailableDevices()
+            }
+        }
+
+        fun clearLedger() {
+            availableDevices.clear()
+            myLedgerEntry = null
+            updateUI()
         }
 
         private fun canUseUsername(newBlock: LedgerEntry): Boolean {

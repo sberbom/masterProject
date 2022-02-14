@@ -116,7 +116,7 @@ class MainActivity: AppCompatActivity() {
                     false
                 }
                 R.id.nav_logout -> {
-                    handleLogOut(headerView)
+                    handleLogOut()
                     drawer.closeDrawer(GravityCompat.START)
                     false
                 }
@@ -155,11 +155,9 @@ class MainActivity: AppCompatActivity() {
         }
     }
 
-    private fun handleLogOut(headerView: View) {
+    private fun handleLogOut() {
         if (auth.currentUser != null) {
             auth.signOut()
-            val loggedInAsText: TextView = headerView.findViewById(R.id.nav_username)
-            loggedInAsText.text = getString(R.string.not_logged_in)
         }
         PKIUtils.deleteRootCertificateFromKeystore()
         Ledger.myLedgerEntry = null

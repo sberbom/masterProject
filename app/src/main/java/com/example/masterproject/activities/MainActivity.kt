@@ -61,13 +61,12 @@ class MainActivity: AppCompatActivity() {
         setUpUI()
     }
 
-    private fun setUIUsername(){
+    private fun setUIUsername(username: String){
         val navigationView: NavigationView = findViewById(R.id.navigation_view)
         val headerView: View = navigationView.getHeaderView(0)
 
         val loggedInAsText: TextView = headerView.findViewById(R.id.nav_username)
-        val loggedInAsText2: TextView = findViewById(R.id.usernameText)
-        val username = intent.getStringExtra("username") ?: MISCUtils.getCurrentUserString()
+        val loggedInAsText2: TextView = findViewById(R.id.usernameHeaderText)
         loggedInAsText.text = username
         loggedInAsText2.text = username
     }
@@ -100,7 +99,9 @@ class MainActivity: AppCompatActivity() {
         myIpAddressTextView.text = myIpAddressText
         myIpAddressTextView2.text = myIpAddressText
 
-        setUIUsername()
+        val username = intent.getStringExtra("username") ?: MISCUtils.getCurrentUserString()
+        setUIUsername(username)
+
 
         navigationView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
@@ -115,7 +116,7 @@ class MainActivity: AppCompatActivity() {
                     false
                 }
                 R.id.nav_logout -> {
-                    handleLogOut(headerView)
+                    handleLogOut()
                     drawer.closeDrawer(GravityCompat.START)
                     false
                 }
@@ -154,12 +155,13 @@ class MainActivity: AppCompatActivity() {
         }
     }
 
-    private fun handleLogOut(headerView: View) {
+    private fun handleLogOut() {
         if (auth.currentUser != null) {
             auth.signOut()
-            val loggedInAsText: TextView = headerView.findViewById(R.id.nav_username)
-            loggedInAsText.text = getString(R.string.not_logged_in)
         }
+        PKIUtils.deleteRootCertificateFromKeystore()
+        Ledger.myLedgerEntry = null
+        setUIUsername(getString(R.string.not_logged_in))
         Toast.makeText(
             baseContext, "Logged out",
             Toast.LENGTH_SHORT

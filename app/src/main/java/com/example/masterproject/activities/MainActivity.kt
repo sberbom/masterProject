@@ -2,6 +2,7 @@ package com.example.masterproject.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
@@ -40,19 +41,6 @@ class MainActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val navigationView: NavigationView = findViewById(R.id.navigation_view)
-        val headerView: View = navigationView.getHeaderView(0)
-
-        setSupportActionBar(findViewById(R.id.mainToolBar))
-        supportActionBar!!.setDisplayShowTitleEnabled(false);
-        findViewById<Toolbar>(R.id.mainToolBar).title = "Master Project"
-
-        drawer = findViewById(R.id.drawer)
-        val drawerToggle = ActionBarDrawerToggle(this, drawer, R.string.open, R.string.close)
-        drawer.addDrawerListener(drawerToggle)
-        drawerToggle.syncState()
-
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         Security.removeProvider("BC")
         Security.addProvider(BouncyCastleProvider())
@@ -66,27 +54,53 @@ class MainActivity: AppCompatActivity() {
         // Start multicast server
         baseContext.startService(Intent(this, MulticastServer::class.java))
 
+        //Start network processes
+        baseContext.startService(Intent(this, TCPListener::class.java))
+        baseContext.startService(Intent(this, TLSListener::class.java))
+
+        setUpUI()
+    }
+
+    private fun setUIUsername(){
+        val navigationView: NavigationView = findViewById(R.id.navigation_view)
+        val headerView: View = navigationView.getHeaderView(0)
+
+        val loggedInAsText: TextView = headerView.findViewById(R.id.nav_username)
+        val loggedInAsText2: TextView = findViewById(R.id.usernameText)
+        val username = intent.getStringExtra("username") ?: MISCUtils.getCurrentUserString()
+        loggedInAsText.text = username
+        loggedInAsText2.text = username
+    }
+
+    private fun setUpUI() {
+
+        val navigationView: NavigationView = findViewById(R.id.navigation_view)
+        val headerView: View = navigationView.getHeaderView(0)
+
+        setSupportActionBar(findViewById(R.id.mainToolBar))
+        supportActionBar!!.setDisplayShowTitleEnabled(false);
+        findViewById<Toolbar>(R.id.mainToolBar).title = "Master Project"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        drawer = findViewById(R.id.drawer)
+        val drawerToggle = ActionBarDrawerToggle(this, drawer, R.string.open, R.string.close)
+        drawer.addDrawerListener(drawerToggle)
+        drawerToggle.syncState()
+
         //Set up view
         recyclerView = findViewById(R.id.recyclerView)
         myAdapter = DeviceAdapter(Ledger.availableDevices)
         recyclerView.adapter = myAdapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        //Start network processes
-        baseContext.startService(Intent(this, TCPListener::class.java))
-        baseContext.startService(Intent(this, TLSListener::class.java))
-
-
         //Find and display my IP address
         val myIpAddressTextView: TextView = headerView.findViewById(R.id.nav_ip)
+        val myIpAddressTextView2: TextView = findViewById(R.id.ipAddressText)
         val myIpAddressText = MISCUtils.getMyIpAddress()
         myIpAddressTextView.text = myIpAddressText
+        myIpAddressTextView2.text = myIpAddressText
 
-
-        //Logged in as text
-        val loggedInAsText: TextView = headerView.findViewById(R.id.nav_username)
-        loggedInAsText.text = MISCUtils.getCurrentUserString()
-
+        setUIUsername()
 
         navigationView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
@@ -173,6 +187,7 @@ class MainActivity: AppCompatActivity() {
     private fun deleteStoredData() {
         AESUtils.deleteAllStoredKeys(this)
         MISCUtils.deleteCache(this)
+        PKIUtils.deleteRootCertificateFromKeystore()
         Toast.makeText(
             baseContext, "Stored certificate, private key and symmetric keys deleted",
             Toast.LENGTH_SHORT

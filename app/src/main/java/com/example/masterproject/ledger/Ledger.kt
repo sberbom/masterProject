@@ -16,7 +16,7 @@ class Ledger {
     companion object {
         var availableDevices: MutableList<LedgerEntry> = mutableListOf()
         private const val TAG = "Ledger"
-        private var myLedgerEntry: LedgerEntry? = null
+        var myLedgerEntry: LedgerEntry? = null
 
         fun createNewBlockFromEmail(email: String) {
             if (getLedgerEntry(email) == null) {
@@ -25,9 +25,9 @@ class Ledger {
                     val certificate = PKIUtils.generateSelfSignedX509Certificate(email, keyPair)
                     PKIUtils.addKeyToKeyStore(keyPair.private, certificate)
                     PKIUtils.writeKeyStoreToFile()
-                    val myLedgerEntry = LedgerEntry(PKIUtils.getStoredCertificate()!!, email, MISCUtils.getMyIpAddress()!!)
-                    setMyLedgerEntry(myLedgerEntry)
-                    availableDevices.add(myLedgerEntry)
+                    val ledgerEntry = LedgerEntry(PKIUtils.getStoredCertificate()!!, email, MISCUtils.getMyIpAddress()!!)
+                    myLedgerEntry = ledgerEntry
+                    availableDevices.add(ledgerEntry)
                     updateUI()
                 } catch (e: Exception) {
                     e.printStackTrace()
@@ -43,19 +43,19 @@ class Ledger {
                 val storedCertificate = PKIUtils.getStoredCertificate()
                 // If the user has a stored certificate it should be broadcast if it does not conflict with ledger
                 if (storedCertificate != null){
-                    val myLedgerEntry = LedgerEntry(
+                    val ledgerEntry = LedgerEntry(
                         storedCertificate,
                         PKIUtils.getUsernameFromCertificate(storedCertificate),
                         ipAddress)
-                    if (isValidNewBlock(myLedgerEntry)){
+                    if (isValidNewBlock(ledgerEntry)){
                         Log.d(TAG, "Created block from stored certificate.")
-                        setMyLedgerEntry(myLedgerEntry)
-                        availableDevices.add(myLedgerEntry)
+                        myLedgerEntry = ledgerEntry
+                        availableDevices.add(ledgerEntry)
                         availableDevices.sortBy { it.userName }
                         Handler(Looper.getMainLooper()).post {
                             MainActivity.updateAvailableDevices()
                         }
-                        return myLedgerEntry
+                        return ledgerEntry
                     }
                 } else {
                     Log.d(TAG, "No certificate stored.")
@@ -89,10 +89,6 @@ class Ledger {
             return null
         }
 
-        fun getFullLedger(): MutableList<LedgerEntry> {
-            return availableDevices
-        }
-
         fun addLedgerEntry(newBlock: LedgerEntry) {
             val myLedgerEntry = myLedgerEntry
             val userAlreadyInLedger =
@@ -123,8 +119,8 @@ class Ledger {
         }
 
         fun shouldSendFullLedger(): Boolean {
-            val myLedgerEntry = getMyLedgerEntry() ?: return false
-            val myCertificateString = PKIUtils.certificateToString(myLedgerEntry.certificate)
+            val ledgerEntry = myLedgerEntry ?: return false
+            val myCertificateString = PKIUtils.certificateToString(ledgerEntry.certificate)
             val caSignedCertificates = availableDevices.filter { PKIUtils.isCASignedCertificate(it.certificate) }.map { PKIUtils.certificateToString(it.certificate) }
             return when {
                 caSignedCertificates.isNotEmpty() -> {
@@ -164,14 +160,6 @@ class Ledger {
         private fun usernameInLedgerIsValid(ledger: List<LedgerEntry>, username: String): Boolean {
             val occurrencesOfUsernameInLedger = ledger.filter { it.userName == username }
             return occurrencesOfUsernameInLedger.size == 1
-        }
-
-        fun setMyLedgerEntry(entry: LedgerEntry) {
-            myLedgerEntry = entry
-        }
-
-        fun getMyLedgerEntry(): LedgerEntry? {
-            return myLedgerEntry
         }
 
         private fun handleLosingUsername() {

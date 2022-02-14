@@ -13,7 +13,7 @@ import kotlin.concurrent.schedule
 import kotlin.concurrent.scheduleAtFixedRate
 import kotlin.random.Random.Default.nextInt
 
-class RegistrationHandler(private val server: MulticastServer, private val nonce: Int, private val isMyRegistration: Boolean) {
+class RegistrationHandler(private val server: MulticastServer, private val nonce: Int, val isMyRegistration: Boolean) {
 
     private var receivedLedgers: MutableList<ReceivedLedger> = mutableListOf()
 
@@ -150,7 +150,7 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
     }
 
     private fun startRegistration() {
-        if (Ledger.getMyLedgerEntry() == null) {
+        if (Ledger.myLedgerEntry == null) {
             readyForRegistration = true
             Log.d(TAG, "Registration started")
             val myExistingBlock = Ledger.existingBlockFromStoredCertificate()
@@ -162,7 +162,7 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
                         client.sendIpChanged(currentIp)
                     }
                 }
-                Ledger.setMyLedgerEntry(myExistingBlock)
+                Ledger.myLedgerEntry = myExistingBlock
             } else {
                 val myLedgerEntry = Ledger.createNewBlockFromStoredCertificate()
                 if (myLedgerEntry != null) {
@@ -221,10 +221,6 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
         // If the ledger of one or more of the most common hashes has been received, take the longest one,
         // if not take the first of the most common hashes.
         return mostCommonReceivedLedger?.hash ?: mostCommonHashes.entries.first().key
-    }
-
-    fun getIsMyRegistration(): Boolean {
-        return isMyRegistration
     }
 
     companion object {

@@ -44,7 +44,7 @@ class MulticastClient (private val server: MulticastServer?) {
     suspend fun broadcastBlock(nonce: Int) {
         if(context == null) throw Exception("Could not broadcast block, context not defined")
         val privateKey = PKIUtils.getPrivateKeyFromKeyStore() ?: throw Exception("Could not broadcast block, private key not defined")
-        val block = Ledger.getMyLedgerEntry() ?: throw Exception("No block to broadcast.")
+        val block = Ledger.myLedgerEntry ?: throw Exception("No block to broadcast.")
         val signature = PKIUtils.signMessage(block.toString(), privateKey, null)
         val message = NetworkMessage(block.userName, block.toString(), BroadcastMessageTypes.BROADCAST_BLOCK.toString(), signature, nonce)
         return withContext(Dispatchers.IO) {
@@ -69,7 +69,7 @@ class MulticastClient (private val server: MulticastServer?) {
         val certificate = PKIUtils.getStoredCertificate() ?: throw Exception("Could not send ledger, username not defined")
         val username = PKIUtils.getUsernameFromCertificate(certificate)
 
-        val ledger = Ledger.getFullLedger().map {it.toString()}.toString()
+        val ledger = Ledger.availableDevices.map {it.toString()}.toString()
         val signature = PKIUtils.signMessage(ledger, privateKey, nonce)
         val message = NetworkMessage(username, ledger, BroadcastMessageTypes.FULL_LEDGER.toString(), signature, nonce)
         return withContext(Dispatchers.IO) {
@@ -81,7 +81,7 @@ class MulticastClient (private val server: MulticastServer?) {
         if(context == null) throw Exception("Could not broadcast block, context not defined")
         val privateKey = PKIUtils.getPrivateKeyFromKeyStore() ?: throw Exception("Could not send hash, private not defined")
 
-        val myBlock = Ledger.getMyLedgerEntry()
+        val myBlock = Ledger.myLedgerEntry
         val hash = Ledger.getHashOfStoredLedger()
         val signature = PKIUtils.signMessage(hash, privateKey, nonce)
         val message = NetworkMessage(myBlock.toString(), hash, BroadcastMessageTypes.LEDGER_HASH.toString(), signature, nonce)
@@ -102,7 +102,7 @@ class MulticastClient (private val server: MulticastServer?) {
         val payload = MISCUtils.getIpMessageWithTimestamp(newIp)
         val privateKey = PKIUtils.getPrivateKeyFromKeyStore() ?: throw Exception("Could not send new ip address, private not defined")
         val signature = PKIUtils.signMessage(payload, privateKey, null)
-        val message = NetworkMessage(Ledger.getMyLedgerEntry().toString(), payload, BroadcastMessageTypes.IP_CHANGED.toString(), signature)
+        val message = NetworkMessage(Ledger.myLedgerEntry.toString(), payload, BroadcastMessageTypes.IP_CHANGED.toString(), signature)
         return withContext(Dispatchers.IO) {
             sendMulticastData(message.toString())
         }

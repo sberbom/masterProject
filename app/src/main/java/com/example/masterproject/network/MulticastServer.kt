@@ -68,7 +68,7 @@ class MulticastServer: Service() {
     }
 
     private fun handleBroadcastBlock(networkMessage: NetworkMessage) {
-        if (networkMessage.sender == Ledger.getMyLedgerEntry()?.userName) return
+        if (networkMessage.sender == Ledger.myLedgerEntry?.userName) return
         Log.d(TAG, "Broadcast block received ${networkMessage.payload}")
         val blockString = networkMessage.payload
         val block = LedgerEntry.parseString(blockString)
@@ -88,11 +88,11 @@ class MulticastServer: Service() {
         if (!shouldHandleRequests) return
         val registrationHandler = startRegistrationProcess(networkMessage.nonce, false) ?: return
         // if I started the registration, I will not send anything
-        if (registrationHandler.getIsMyRegistration()) return
+        if (registrationHandler.isMyRegistration) return
         Log.d(TAG, "Received request for ledger with nonce: ${networkMessage.nonce}.")
         // must be a copy of the real list
-        val fullLedger = Ledger.getFullLedger().toList()
-        val myBlock = Ledger.getMyLedgerEntry()
+        val fullLedger = Ledger.availableDevices.toList()
+        val myBlock = Ledger.myLedgerEntry
         if (fullLedger.isNotEmpty() && myBlock != null) {
             GlobalScope.launch (Dispatchers.IO) {
                 if (Ledger.shouldSendFullLedger()) {
@@ -118,7 +118,7 @@ class MulticastServer: Service() {
             val usernameToReply = payloadArray[0]
             val hash = payloadArray[1]
             Log.d(TAG, "Received request for $usernameToReply to send ledger with hash $hash")
-            if (usernameToReply == Ledger.getMyLedgerEntry()?.userName && Ledger.getHashOfStoredLedger() == hash) {
+            if (usernameToReply == Ledger.myLedgerEntry?.userName && Ledger.getHashOfStoredLedger() == hash) {
                 GlobalScope.launch(Dispatchers.IO) {
                     client.sendLedger(networkMessage.nonce)
                 }
@@ -129,7 +129,7 @@ class MulticastServer: Service() {
     }
 
     private fun handleFullLedger(networkMessage: NetworkMessage) {
-        if (networkMessage.sender == Ledger.getMyLedgerEntry()?.userName) return
+        if (networkMessage.sender == Ledger.myLedgerEntry?.userName) return
         val registrationHandler = startRegistrationProcess(networkMessage.nonce, false) ?: return
         val ledger = networkMessage.payload
         Log.d(TAG, "Received full ledger from ${networkMessage.sender}: $ledger")
@@ -154,7 +154,7 @@ class MulticastServer: Service() {
     private fun handleHash(networkMessage: NetworkMessage) {
         val registrationHandler = startRegistrationProcess(networkMessage.nonce, false) ?: return
         val senderBlock = LedgerEntry.parseString(networkMessage.sender)
-        if (senderBlock.userName == Ledger.getMyLedgerEntry()?.userName) return
+        if (senderBlock.userName == Ledger.myLedgerEntry?.userName) return
         Log.d(TAG, "Received hash from ${senderBlock.userName}: ${networkMessage.payload}")
         val publicKey = senderBlock.certificate.publicKey ?: throw Exception("Can not handle full ledger - Could not find public key for user")
         val isValidSignature = PKIUtils.verifySignature(networkMessage.payload, networkMessage.signature, publicKey, networkMessage.nonce)
@@ -165,7 +165,7 @@ class MulticastServer: Service() {
 
     private fun handleIpChanged(networkMessage: NetworkMessage) {
         val senderBlock = LedgerEntry.parseString(networkMessage.sender)
-        if (senderBlock.userName == Ledger.getMyLedgerEntry()?.userName) return
+        if (senderBlock.userName == Ledger.myLedgerEntry?.userName) return
         val publicKey = senderBlock.certificate.publicKey ?: throw Exception("Can not handle ip changed - Could not find public key for user")
         val blockToChange = Ledger.getLedgerEntry(senderBlock.userName) ?: return
         val newIp = networkMessage.payload.split(":").first()

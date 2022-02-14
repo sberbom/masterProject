@@ -71,7 +71,7 @@ class SignUpActivity: AppCompatActivity() {
                 baseContext, "Please log out first",
                 Toast.LENGTH_SHORT
             ).show()
-            returnToMainActivity()
+            returnToMainActivity(MISCUtils.getCurrentUserString())
         }
     }
 
@@ -88,7 +88,7 @@ class SignUpActivity: AppCompatActivity() {
 
     private fun offlineRegistration(email: String) {
         if (RegistrationHandler.getReadyForRegistration()) {
-            returnToMainActivity()
+            returnToMainActivity(email)
             Ledger.createNewBlockFromEmail(email)
             GlobalScope.launch(Dispatchers.IO) {
                 client.broadcastBlock(0)
@@ -113,7 +113,7 @@ class SignUpActivity: AppCompatActivity() {
                         Toast.LENGTH_SHORT
                     ).show()
                     auth.signOut()
-                    returnToMainActivity()
+                    returnToMainActivity(email)
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w("FIREBASE LOGIN", "createUserWithEmail:failure", task.exception)
@@ -140,8 +140,9 @@ class SignUpActivity: AppCompatActivity() {
         }
     }
 
-    private fun returnToMainActivity() {
+    private fun returnToMainActivity(username: String) {
         val myIntent = Intent(this@SignUpActivity, MainActivity::class.java)
+        myIntent.putExtra("username", username)
         this@SignUpActivity.startActivity(myIntent)
     }
 

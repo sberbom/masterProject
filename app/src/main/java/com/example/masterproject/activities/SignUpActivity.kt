@@ -78,8 +78,7 @@ class SignUpActivity: AppCompatActivity() {
     private fun signUp(email: String, password: String) {
         if (!MISCUtils.isEmail(email)) throw InvalidEmailException("The email is not valid.")
         if (Ledger.getLedgerEntry(email) != null) throw UsernameTakenException("The username is taken.")
-        //val isOnline = networkIsOnline()
-        val isOnline = false
+        val isOnline = networkIsOnline()
         if (isOnline) {
             onlineRegistration(email, password)
         } else {

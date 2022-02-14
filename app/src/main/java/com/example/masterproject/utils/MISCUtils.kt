@@ -97,7 +97,7 @@ class MISCUtils {
         }
 
         fun isLoggedIn(): Boolean {
-            return (Firebase.auth.currentUser != null || Ledger.getMyLedgerEntry() != null)
+            return (Firebase.auth.currentUser != null || Ledger.myLedgerEntry != null)
         }
 
         fun addYear(date: Date, i: Int): Date {

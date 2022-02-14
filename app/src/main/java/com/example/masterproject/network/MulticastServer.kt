@@ -1,8 +1,9 @@
 package com.example.masterproject.network
 
 import android.app.Service
-import android.app.appsearch.GlobalSearchSession
+import android.content.Context
 import android.content.Intent
+import android.net.*
 import android.os.IBinder
 import android.util.Log
 import com.example.masterproject.ledger.Ledger
@@ -34,7 +35,7 @@ class MulticastServer: Service() {
     private val finishedRegistrationProcesses: MutableList<Int> = mutableListOf()
     private val client: MulticastClient = MulticastClient(this)
 
-    private val usedNonces: MutableList<Int> = mutableListOf()
+    private var currentNetwork: Network? = null
 
     private fun listenForData(): MutableList<LedgerEntry>? {
         val buf = ByteArray(512 * 12)
@@ -48,7 +49,6 @@ class MulticastServer: Service() {
 
                 val msgRaw = String(buf, 0, buf.size)
                 val networkMessage = NetworkMessage.decodeNetworkMessage(msgRaw)
-                Log.d(TAG, networkMessage.toString())
                 GlobalScope.launch(Dispatchers.IO) {
                     when (networkMessage.messageType) {
                         BroadcastMessageTypes.BROADCAST_BLOCK.toString() -> handleBroadcastBlock(networkMessage)
@@ -87,6 +87,8 @@ class MulticastServer: Service() {
     private fun handleRequestedLedger(networkMessage: NetworkMessage) {
         if (!shouldHandleRequests) return
         val registrationHandler = startRegistrationProcess(networkMessage.nonce, false) ?: return
+        // if I started the registration, I will not send anything
+        if (registrationHandler.getIsMyRegistration()) return
         Log.d(TAG, "Received request for ledger with nonce: ${networkMessage.nonce}.")
         // must be a copy of the real list
         val fullLedger = Ledger.getFullLedger().toList()
@@ -187,7 +189,7 @@ class MulticastServer: Service() {
         }
     }
 
-    private fun startRegistrationProcess(nonce: Int, isMyRegistration: Boolean): RegistrationHandler? {
+    fun startRegistrationProcess(nonce: Int, isMyRegistration: Boolean): RegistrationHandler? {
         if(!finishedRegistrationProcesses.contains(nonce)) {
             val existingRegistrationHandler = registrationHandlers[nonce]
             if (existingRegistrationHandler != null) return existingRegistrationHandler
@@ -214,14 +216,11 @@ class MulticastServer: Service() {
 
     override fun onCreate() {
         Log.d(TAG, "Service started")
-        val nonce = MISCUtils.generateNonce()
-        startRegistrationProcess(nonce, true)
         GlobalScope.launch {
             listenForData()
         }
-        GlobalScope.launch {
-            client.requestLedger(nonce)
-        }
+        val connMgr = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        connMgr.registerNetworkCallback(NetworkRequest.Builder().build(), NetworkCallbackImp(this))
     }
 
     override fun onDestroy() {
@@ -231,5 +230,20 @@ class MulticastServer: Service() {
         }
         super.onDestroy()
 
+    }
+
+    internal class NetworkCallbackImp(private val server: MulticastServer) : ConnectivityManager.NetworkCallback() {
+        override fun onCapabilitiesChanged(network: Network, networkCapabilities: NetworkCapabilities) {
+            val isWifi = networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)
+            if (server.currentNetwork != network) {
+                server.currentNetwork = network
+                Ledger.clearLedger()
+                val nonce = MISCUtils.generateNonce()
+                if (isWifi) server.startRegistrationProcess(nonce, true)
+                GlobalScope.launch(Dispatchers.IO) {
+                    server.client.requestLedger(nonce)
+                }
+            }
+        }
     }
 }

@@ -13,6 +13,7 @@ class Constants {
         const val TLS_VERSION = "TLSv1.3"
         const val KEYSTORE_PATH = "/keystore.pfx"
         const val TRUSTSTORE_PATH = "/truststore.pfx"
+        const val SYMMETRIC_KEYSTORE_PATH = "/symmetrickeystore.pfx"
         const val KEYSTORE_PASSWORD = "testing"
     }
 }

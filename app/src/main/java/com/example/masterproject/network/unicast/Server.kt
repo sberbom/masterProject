@@ -17,6 +17,8 @@ import java.io.DataInputStream
 import java.io.DataOutputStream
 import java.io.EOFException
 import java.io.IOException
+import java.security.PrivateKey
+import java.security.PublicKey
 import javax.crypto.SecretKey
 
 abstract class Server(): Thread() {
@@ -45,6 +47,7 @@ abstract class Server(): Thread() {
                 val messagePayload = decryptMessagePayload(networkMessage, encryptionKey, ledgerEntry!!)
                 when (networkMessage.messageType) {
                     UnicastMessageTypes.CLIENT_HELLO.toString() -> {}
+                    UnicastMessageTypes.KEY_MATERIAL.toString() -> handleKeyMaterialDelivery(messagePayload, networkMessage.sender)
                     UnicastMessageTypes.KEY_DELIVERY.toString() -> {
                         handleKeyDelivery(
                             messagePayload,
@@ -74,8 +77,10 @@ abstract class Server(): Thread() {
             Log.d(TAG, "Message sendt $messageToSend")
             outputStream.writeUTF(messageToSend)
             outputStream.flush()
-            Handler(Looper.getMainLooper()).post {
-                ChatActivity.addChat("You:", message)
+            if(messageType == UnicastMessageTypes.CHAT_MESSAGE.toString()) {
+                Handler(Looper.getMainLooper()).post {
+                    ChatActivity.addChat("You:", message)
+                }
             }
         } catch (e: IOException) {
             e.printStackTrace()
@@ -91,11 +96,41 @@ abstract class Server(): Thread() {
         context!!.startActivity(intent)
     }
 
+    private fun sendKeyMaterial(username: String) {
+        val myKeyMaterial = PKIUtils.generateECKeyPair()
+        val keyMaterialString = PKIUtils.encryptionKeyToString(myKeyMaterial.public)
+        val receivedKeyMaterial = AESUtils.keyMaterialMap[username]
+        if(receivedKeyMaterial != null) {
+            val sharedKey = AESUtils.calculateAESKeyDH(myKeyMaterial.private, receivedKeyMaterial.keyMaterial as PublicKey)
+            AESUtils.setKeyForUser(username, sharedKey)
+            AESUtils.keyMaterialMap.remove(username)
+        }
+        else{
+            AESUtils.keyMaterialMap[username] = AESUtils.KeyMaterial(myKeyMaterial.private, true)
+        }
+        sendMessage(keyMaterialString, UnicastMessageTypes.KEY_MATERIAL.toString())
+
+    }
+
+    private fun handleKeyMaterialDelivery(keyMaterialString: String, username: String) {
+        val receivedKeyMaterial = PKIUtils.stringToEncryptionKey(keyMaterialString)
+        val myKeyMaterial = AESUtils.keyMaterialMap[username]
+        if(myKeyMaterial != null) {
+            val sharedKey = AESUtils.calculateAESKeyDH(myKeyMaterial as PrivateKey, receivedKeyMaterial)
+            AESUtils.setKeyForUser(username, sharedKey)
+            AESUtils.keyMaterialMap.remove(username)
+        }
+        else {
+            AESUtils.keyMaterialMap[username] = AESUtils.KeyMaterial(receivedKeyMaterial, false)
+            sendKeyMaterial(username)
+        }
+    }
+
     private fun handleKeyDelivery(key : String, username: String) {
         try {
             Log.d(TAG, "Encryption key received $key")
             val nextKey = AESUtils.stringToKey(key)
-            AESUtils.setCurrentKeyForUser(username, nextKey)
+            AESUtils.setKeyForUser(username, nextKey)
         }
         catch (e: IllegalArgumentException) {
             Log.d(TAG, key)

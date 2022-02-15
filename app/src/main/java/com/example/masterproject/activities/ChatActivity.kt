@@ -45,7 +45,7 @@ class ChatActivity: AppCompatActivity() {
             isClient = false
         }
         else {
-            client = if(AESUtils.getCurrentKeyForUser(username!!) == null) {
+            client = if(AESUtils.getKeyForUser(username!!) == null) {
                 TLSClient(ledgerEntry)
             } else {
                 TCPClient(ledgerEntry)
@@ -63,10 +63,6 @@ class ChatActivity: AppCompatActivity() {
         val youAreChattingWith: TextView = findViewById(R.id.chatWith)
         val youAreChattingWithText = "You are chatting with: $username"
         youAreChattingWith.text = youAreChattingWithText
-
-        val currentKey = AESUtils.getEncryptionKey(username!!)
-        val currentKeyText: TextView = findViewById(R.id.currentKeyText)
-        currentKeyText.text = AESUtils.keyToString(currentKey)
 
         val sendMessageButton: ImageView = findViewById(R.id.messageSendButton)
         sendMessageButton.setOnClickListener {
@@ -91,7 +87,6 @@ class ChatActivity: AppCompatActivity() {
 
     override fun onStop() {
         messages.clear()
-        AESUtils.useNextKeyForUser(username!!)
         if(isClient){
             sendMessage("", UnicastMessageTypes.GOODBYE.toString())
             GlobalScope.launch(Dispatchers.IO) {

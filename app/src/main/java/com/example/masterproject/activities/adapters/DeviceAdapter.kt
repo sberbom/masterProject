@@ -90,8 +90,6 @@ class DeviceAdapter(private val ledger: MutableList<LedgerEntry>): RecyclerView.
     }
 
     override fun getItemViewType(position: Int): Int {
-        return SHOW
-        //TODO: Remove after testing
         return if (Ledger.shouldBeRendered(ledger[position])) {
             SHOW
         } else{

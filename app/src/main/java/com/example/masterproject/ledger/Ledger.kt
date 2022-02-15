@@ -133,13 +133,8 @@ class Ledger {
             }
         }
 
-        // TODO: Change so that only your own block is not shown
         fun shouldBeRendered(block: LedgerEntry): Boolean {
-            if(PKIUtils.isCASignedCertificate(block.certificate)) return true
-            availableDevices.forEach{
-                if ( it.userName == block.userName && PKIUtils.isCASignedCertificate(it.certificate)) return false
-            }
-            return true
+            return !(myLedgerEntry != null && myLedgerEntry!! == block)
         }
 
         fun ledgerIsValid(ledger: List<LedgerEntry>): Boolean {

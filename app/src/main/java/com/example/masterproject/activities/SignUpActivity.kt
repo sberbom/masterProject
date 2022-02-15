@@ -1,9 +1,6 @@
 package com.example.masterproject.activities
 
 import android.content.Intent
-import android.content.res.ColorStateList
-import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -11,7 +8,8 @@ import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
-import com.example.masterproject.*
+import androidx.appcompat.app.AppCompatActivity
+import com.example.masterproject.R
 import com.example.masterproject.exceptions.InvalidEmailException
 import com.example.masterproject.exceptions.UsernameTakenException
 import com.example.masterproject.ledger.Ledger
@@ -24,7 +22,6 @@ import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import java.lang.Exception
 
 
 class SignUpActivity: AppCompatActivity() {

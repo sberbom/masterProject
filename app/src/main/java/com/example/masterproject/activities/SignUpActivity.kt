@@ -3,8 +3,6 @@ package com.example.masterproject.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.util.Log
 import android.widget.Button
 import android.widget.TextView
@@ -23,7 +21,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.lang.Exception
-import java.util.*
 
 
 class SignUpActivity: AppCompatActivity() {
@@ -131,9 +128,7 @@ class SignUpActivity: AppCompatActivity() {
             val ipProcess = runtime.exec("/system/bin/ping -c 1 8.8.8.8")
             val exitValue = ipProcess.waitFor()
             ipProcess.destroy()
-            val isOnline = exitValue == 0
-            Log.d(TAG, "is Online: $isOnline")
-            return isOnline
+            return exitValue == 0
         } catch (e: Exception) {
             Log.d(TAG, e.toString())
             false

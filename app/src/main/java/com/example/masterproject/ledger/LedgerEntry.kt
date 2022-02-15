@@ -23,7 +23,6 @@ data class LedgerEntry(
 
     fun setIpAddress(ip: String) {
         ipAddress = ip
-        Log.d(TAG, "Set ip of $userName to $ip")
         Handler(Looper.getMainLooper()).post {
             MainActivity.updateAvailableDevices()
         }

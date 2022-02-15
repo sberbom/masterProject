@@ -21,7 +21,7 @@ class TCPClient(override val ledgerEntry: LedgerEntry): Client() {
 
     override fun decryptMessageSymmetric (message: String, encryptionKey: SecretKey?, ledgerEntry: LedgerEntry): String {
         if(encryptionKey == null) throw Exception("No encryption key")
-        return AESUtils.symmetricDecryption(message, encryptionKey, ledgerEntry)
+        return AESUtils.symmetricDecryption(message, encryptionKey)
     }
 
     override fun createClientSocket(serverAddress: InetAddress): Socket {

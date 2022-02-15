@@ -40,11 +40,9 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
     private var requestLedgerOfAcceptedHashCounter = 0
 
     fun startTimers() {
-        Log.d(TAG, "Timer started")
         GlobalScope.launch (Dispatchers.Default) {
             acceptLedgerTimeout.schedule(1000) {
                 if (!acceptLedgerTimeoutCancelled) {
-                    Log.d(TAG, "Acceptance timer finished")
                     listenedForMoreThanOneSecond = true
                     setLedgerIfAccepted()
                 }
@@ -63,10 +61,7 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
             handleAcceptedLedger(ReceivedLedger(ledger, hashOfReceivedLedger, sender))
             return
         }
-        if (userHasAlreadyResponded(sender, hashes.toList(), receivedLedgers.toList())) {
-            Log.d(TAG, "User has already responded.")
-            return
-        }
+        if (userHasAlreadyResponded(sender, hashes.toList(), receivedLedgers.toList())) return
         if (receivedLedgers.map { it.hash }.contains(hashOfReceivedLedger)) {
             addHash(sender, hashOfReceivedLedger)
         } else {
@@ -84,7 +79,6 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
 
     private fun setLedgerIfAccepted() {
         if (listenedForMoreThanOneSecond && hashes.isEmpty() && receivedLedgers.isEmpty()) {
-            Log.d(TAG, "You are the first in the network.")
             startRegistration()
             return
         }
@@ -142,10 +136,7 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
     }
 
     fun hashOfLedgerReceived(senderBlock: LedgerEntry, hash: String) {
-        if (userHasAlreadyResponded(senderBlock, hashes.toList(), receivedLedgers.toList())) {
-            Log.d(TAG, "${senderBlock.userName} has already responded.")
-            return
-        }
+        if (userHasAlreadyResponded(senderBlock, hashes.toList(), receivedLedgers.toList())) return
         addHash(senderBlock, hash)
     }
 

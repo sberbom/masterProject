@@ -70,7 +70,7 @@ class AESUtils {
             return SecretKeySpec(byteKey, "AES")
         }
 
-        fun deleteAllStoredKeys(context: Context) {
+        fun deleteAllStoredKeys() {
             try {
                 keyMaterialMap.clear()
                 for (alias in symmetricKeyStore.aliases()) {
@@ -109,7 +109,7 @@ class AESUtils {
 
         }
 
-        fun symmetricDecryption(cipherText: String, secretKey: SecretKey, ledgerEntry: LedgerEntry): String {
+        fun symmetricDecryption(cipherText: String, secretKey: SecretKey): String {
             try {
                 val cipherArray = Base64.getDecoder().decode(cipherText)
 

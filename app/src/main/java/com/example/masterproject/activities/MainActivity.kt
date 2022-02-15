@@ -187,7 +187,7 @@ class MainActivity: AppCompatActivity() {
     }
 
     private fun deleteStoredData() {
-        AESUtils.deleteAllStoredKeys(this)
+        AESUtils.deleteAllStoredKeys()
         MISCUtils.deleteCache(this)
         PKIUtils.deleteRootCertificateFromKeystore()
         Toast.makeText(

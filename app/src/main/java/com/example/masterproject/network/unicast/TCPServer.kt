@@ -21,7 +21,7 @@ class TCPServer(override val inputStream: DataInputStream , override val outputS
 
     override fun decryptMessagePayload(networkMessage: NetworkMessage, encryptionKey: SecretKey?, ledgerEntry: LedgerEntry): String {
         if(encryptionKey == null) throw Exception("No encryption key")
-        return  AESUtils.symmetricDecryption(networkMessage.payload, encryptionKey, ledgerEntry)
+        return  AESUtils.symmetricDecryption(networkMessage.payload, encryptionKey)
     }
 
     override fun encryptMessageSymmetric(message: String, encryptionKey: SecretKey?): String {

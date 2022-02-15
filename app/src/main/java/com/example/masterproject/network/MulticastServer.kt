@@ -74,12 +74,8 @@ class MulticastServer: Service() {
         val block = LedgerEntry.parseString(blockString)
         val publicKey = block.certificate.publicKey
         val isValidSignature = PKIUtils.verifySignature(blockString, networkMessage.signature, publicKey, null)
-        Log.d(TAG, "Signature is valid: $isValidSignature")
         if(isValidSignature) {
             Ledger.addLedgerEntry(block)
-        }
-        else {
-            Log.d(TAG, "Could not add block, signature not valid")
         }
     }
 
@@ -123,8 +119,6 @@ class MulticastServer: Service() {
                     client.sendLedger(networkMessage.nonce)
                 }
             }
-        } else {
-            Log.d(TAG, "Message received was wrong format.")
         }
     }
 
@@ -145,8 +139,6 @@ class MulticastServer: Service() {
             val isValidSignature = PKIUtils.verifySignature(ledger, networkMessage.signature, publicKey, networkMessage.nonce)
             if(isValidSignature) {
                 registrationHandler.fullLedgerReceived(blockOfSender, fullLedger)
-            } else {
-                Log.d(TAG, "Can not handle full ledger, signature not valid")
             }
         }
     }
@@ -215,7 +207,6 @@ class MulticastServer: Service() {
     }
 
     override fun onCreate() {
-        Log.d(TAG, "Service started")
         GlobalScope.launch {
             listenForData()
         }

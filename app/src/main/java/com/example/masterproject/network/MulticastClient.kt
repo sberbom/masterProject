@@ -4,7 +4,6 @@ import android.content.Context
 import android.util.Log
 import com.example.masterproject.App
 import com.example.masterproject.ledger.Ledger
-import com.example.masterproject.ledger.RegistrationHandler
 import com.example.masterproject.types.NetworkMessage
 import com.example.masterproject.utils.Constants
 import com.example.masterproject.utils.MISCUtils
@@ -14,8 +13,6 @@ import kotlinx.coroutines.withContext
 import java.net.DatagramPacket
 import java.net.DatagramSocket
 import java.net.InetAddress
-import java.sql.Timestamp
-import java.util.*
 
 class MulticastClient (private val server: MulticastServer?) {
 
@@ -53,10 +50,7 @@ class MulticastClient (private val server: MulticastServer?) {
     }
 
     suspend fun requestLedger(nonce: Int) {
-        if (server == null) {
-            Log.d(TAG, "Could not request ledger as server is not defined.")
-            return
-        }
+        if (server == null) return
         val message = NetworkMessage("", "", BroadcastMessageTypes.REQUEST_LEDGER.toString(), "", nonce)
         return withContext(Dispatchers.IO) {
             sendMulticastData(message.toString())

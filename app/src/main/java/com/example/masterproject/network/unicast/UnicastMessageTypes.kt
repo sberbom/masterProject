@@ -4,5 +4,6 @@ enum class UnicastMessageTypes {
     CLIENT_HELLO,
     KEY_DELIVERY,
     GOODBYE,
-    CHAT_MESSAGE
+    CHAT_MESSAGE,
+    KEY_MATERIAL
 }

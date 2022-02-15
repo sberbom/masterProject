@@ -14,7 +14,7 @@ class TCPServer(override val inputStream: DataInputStream , override val outputS
 
     override fun setEncryptionKeyAndUsername(networkMessage: NetworkMessage) {
         if(encryptionKey == null || username == null) {
-            encryptionKey = AESUtils.getCurrentKeyForUser(networkMessage.sender)
+            encryptionKey = AESUtils.getKeyForUser(networkMessage.sender)
             username = networkMessage.sender
         }
     }
@@ -30,7 +30,6 @@ class TCPServer(override val inputStream: DataInputStream , override val outputS
     }
 
     override fun handleGoodbye() {
-        AESUtils.useNextKeyForUser(username!!)
         inputStream.close()
         outputStream.close()
         super.handleGoodbye()

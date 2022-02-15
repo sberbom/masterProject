@@ -13,6 +13,8 @@ import java.io.DataOutputStream
 import java.io.IOException
 import java.net.InetAddress
 import java.net.Socket
+import java.security.PrivateKey
+import java.security.PublicKey
 import javax.crypto.SecretKey
 
 abstract class Client: Thread() {
@@ -39,21 +41,22 @@ abstract class Client: Thread() {
                 inputStream = DataInputStream(clientSocket!!.getInputStream())
 
                 sendMessage("", UnicastMessageTypes.CLIENT_HELLO.toString())
-                updateAndSendAESKeys()
+                sendKeyMaterial()
 
                 while (running) {
                     val receivedMessage = inputStream!!.readUTF()
                     Log.d(TAG, "Received message: $receivedMessage")
                     val networkMessage = NetworkMessage.decodeNetworkMessage(receivedMessage)
+                    val messagePayload= decryptMessageSymmetric(networkMessage.payload, encryptionKey, ledgerEntry)
                     when (networkMessage.messageType) {
                         UnicastMessageTypes.CLIENT_HELLO.toString() -> { }
                         UnicastMessageTypes.GOODBYE.toString() -> { }
+                        UnicastMessageTypes.KEY_MATERIAL.toString() -> handleKeyMaterialDelivery(messagePayload)
                         else -> {
-                            val messageDecrypted = decryptMessageSymmetric(networkMessage.payload, encryptionKey, ledgerEntry)
                             Handler(Looper.getMainLooper()).post {
                                 ChatActivity.addChat(
                                     networkMessage.sender,
-                                    messageDecrypted
+                                    messagePayload
                                 )
                             }
                         }
@@ -65,12 +68,36 @@ abstract class Client: Thread() {
         }
     }
 
-    private fun updateAndSendAESKeys() {
-        val nextKey = AESUtils.generateAESKey()
-        val nextKeyString = AESUtils.keyToString(nextKey)
-        AESUtils.setNextKeyForUser(ledgerEntry.userName, nextKey)
-        sendMessage(nextKeyString, UnicastMessageTypes.KEY_DELIVERY.toString())
-        Log.d(TAG, "Encryption key send: $nextKeyString")
+    private fun sendKeyMaterial() {
+        val myKeyMaterial = PKIUtils.generateECKeyPair()
+        val keyMaterialString = PKIUtils.encryptionKeyToString(myKeyMaterial.public)
+        val receivedKeyMaterial = AESUtils.keyMaterialMap[ledgerEntry.userName]
+        if(receivedKeyMaterial != null) {
+            val sharedKey = AESUtils.calculateAESKeyDH(myKeyMaterial.private, receivedKeyMaterial as PublicKey)
+            AESUtils.setKeyForUser(ledgerEntry.userName, sharedKey)
+            AESUtils.keyMaterialMap.remove(ledgerEntry.userName)
+        }
+        else{
+            AESUtils.keyMaterialMap[ledgerEntry.userName] =
+                AESUtils.KeyMaterial(myKeyMaterial.private, true)
+        }
+        sendMessage(keyMaterialString, UnicastMessageTypes.KEY_MATERIAL.toString())
+
+    }
+
+    private fun handleKeyMaterialDelivery(keyMaterialString: String) {
+        val receivedKeyMaterial = PKIUtils.stringToEncryptionKey(keyMaterialString)
+        val myKeyMaterial = AESUtils.keyMaterialMap[ledgerEntry.userName]
+        if(myKeyMaterial != null) {
+            val sharedKey = AESUtils.calculateAESKeyDH(myKeyMaterial.keyMaterial as PrivateKey, receivedKeyMaterial)
+            AESUtils.setKeyForUser(ledgerEntry.userName, sharedKey)
+            AESUtils.keyMaterialMap.remove(ledgerEntry.userName)
+        }
+        else {
+            AESUtils.keyMaterialMap[ledgerEntry.userName] =
+                AESUtils.KeyMaterial(receivedKeyMaterial, false)
+            sendKeyMaterial()
+        }
     }
 
     fun sendMessage(message: String, messageType: String) {
@@ -84,8 +111,10 @@ abstract class Client: Thread() {
                 Log.d(TAG, "Message sendt $messageToSend")
                 outputStream!!.writeUTF(messageToSend)
                 outputStream!!.flush()
-                Handler(Looper.getMainLooper()).post {
-                    ChatActivity.addChat("You:", message)
+                if(messageType == UnicastMessageTypes.CHAT_MESSAGE.toString()) {
+                    Handler(Looper.getMainLooper()).post {
+                        ChatActivity.addChat("You:", message)
+                    }
                 }
             } catch (e: IOException) {
                 e.printStackTrace()

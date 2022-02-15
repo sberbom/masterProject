@@ -11,7 +11,7 @@ import javax.crypto.SecretKey
 class TCPClient(override val ledgerEntry: LedgerEntry): Client() {
 
     override val TAG = "TCPClient"
-    override var encryptionKey: SecretKey? = AESUtils.getCurrentKeyForUser(ledgerEntry.userName)
+    override var encryptionKey: SecretKey? = AESUtils.getKeyForUser(ledgerEntry.userName)
     override var port = Constants.TCP_SERVERPORT
 
     override fun encryptMessageSymmetric(message: String, encryptionKey: SecretKey?): String {
@@ -26,11 +26,6 @@ class TCPClient(override val ledgerEntry: LedgerEntry): Client() {
 
     override fun createClientSocket(serverAddress: InetAddress): Socket {
         return Socket(serverAddress, Constants.TCP_SERVERPORT)
-    }
-
-    override fun closeSocket(){
-        AESUtils.useNextKeyForUser(ledgerEntry.userName)
-        super.closeSocket()
     }
 
 }

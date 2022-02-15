@@ -113,7 +113,7 @@ class PKIUtils {
             return certificateFactory.generateCertificate(inputStream) as X509Certificate
         }
 
-        private fun stringToEncryptionKey(key: String): PublicKey {
+        fun stringToEncryptionKey(key: String): PublicKey {
             val encKey = Base64.getDecoder().decode(key)
             val publicKeySpec = X509EncodedKeySpec(encKey)
             val keyFactory = KeyFactory.getInstance("EC")
@@ -135,6 +135,10 @@ class PKIUtils {
             val endCertificate = "-----END CERTIFICATE-----";
             val encodedKey = Base64.getEncoder().encodeToString(key.encoded)
             return "$beginCertificate\n$encodedKey\n$endCertificate"
+        }
+
+        fun encryptionKeyToString(key: PublicKey): String {
+            return Base64.getEncoder().encodeToString(key.encoded)
         }
 
         fun getPrivateKeyFromKeyStore(): PrivateKey? {

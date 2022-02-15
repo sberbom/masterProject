@@ -134,7 +134,7 @@ class Ledger {
         }
 
         fun shouldBeRendered(block: LedgerEntry): Boolean {
-            return !(myLedgerEntry != null && myLedgerEntry!! == block)
+            return myLedgerEntry != block
         }
 
         fun ledgerIsValid(ledger: List<LedgerEntry>): Boolean {

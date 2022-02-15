@@ -1,10 +1,14 @@
 package com.example.masterproject.activities
 
 import android.content.Intent
+import android.content.res.ColorStateList
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
+import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import com.example.masterproject.*
@@ -37,21 +41,28 @@ class SignUpActivity: AppCompatActivity() {
         auth = Firebase.auth
 
         val signUpButton: Button = findViewById(R.id.sendInSignUpButton)
+        val signUpProgressBar: ProgressBar = findViewById(R.id.signUpProgressBar)
         signUpButton.setOnClickListener {
             val emailTextView: TextView = findViewById(R.id.emailInputText)
             val passwordTextView: TextView = findViewById(R.id.passwordInputText)
             GlobalScope.launch(Dispatchers.IO) {
                 try {
+                    runOnUiThread {
+                        signUpProgressBar.visibility = View.VISIBLE
+                        signUpButton.isEnabled = false
+                    }
                     signUp(emailTextView.text.toString(), passwordTextView.text.toString())
                 } catch (e: Exception) {
                     when (e) {
-                        is UsernameTakenException, is InvalidEmailException ->
+                        is UsernameTakenException, is InvalidEmailException -> {
                             runOnUiThread(java.lang.Runnable {
+                                signUpProgressBar.visibility = View.INVISIBLE
+                                signUpButton.isEnabled = true
                                 Toast.makeText(
                                     baseContext, e.message,
                                     Toast.LENGTH_SHORT
                                 ).show()
-                            })
+                            })}
                         else -> throw e
                     }
                 }

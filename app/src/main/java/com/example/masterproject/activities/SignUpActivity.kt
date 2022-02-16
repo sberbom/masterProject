@@ -45,26 +45,15 @@ class SignUpActivity: AppCompatActivity() {
         passwordInvalidTextView = findViewById(R.id.notValidPasswordText)
         signUpButton = findViewById(R.id.sendInSignUpButton)
         signUpProgressBar = findViewById(R.id.signUpProgressBar)
+
         signUpButton.setOnClickListener {
             val emailTextView: TextView = findViewById(R.id.emailInputText)
             val passwordTextView: TextView = findViewById(R.id.passwordInputText)
             GlobalScope.launch(Dispatchers.IO) {
                 try {
-
                     signUp(emailTextView.text.toString(), passwordTextView.text.toString())
                 } catch (e: Exception) {
-                    when (e) {
-                        is UsernameTakenException, is InvalidEmailException -> {
-                            runOnUiThread(java.lang.Runnable {
-                                signUpProgressBar.visibility = View.INVISIBLE
-                                signUpButton.isEnabled = true
-                                Toast.makeText(
-                                    baseContext, e.message,
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                            })}
-                        else -> throw e
-                    }
+                   e.printStackTrace()
                 }
             }
         }
@@ -88,7 +77,6 @@ class SignUpActivity: AppCompatActivity() {
             runOnUiThread{emailInvalidTextView.visibility = View.VISIBLE}
             return
         }
-
         if (Ledger.getLedgerEntry(email) != null){
             runOnUiThread{
                 emailInvalidTextView.visibility = View.VISIBLE

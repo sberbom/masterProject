@@ -29,7 +29,7 @@ class MulticastClient (private val server: MulticastServer?) {
             serverSocket.send(msgPacket)
             Log.d(TAG, "Sent message $msg")
             Thread.sleep(800)
-            serverSocket.send(msgPacket)
+            //serverSocket.send(msgPacket)
             serverSocket.close()
         }catch (e: Exception) {
             e.printStackTrace()

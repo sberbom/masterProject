@@ -5,11 +5,9 @@ adb -s $device2 shell killall -2 logcat
 echo "" > log_device1.txt
 echo "" > log_device2.txt
 # Gets the first two connected devices and their id
-devices=$(adb devices)
-first_line=$(echo $devices | sed -n 2,2p)
-second_line=$(echo $devices | sed -n 3,3p)
-device1=$(echo $first_line | cut -f1 -d$'\t')
-device2=$(echo $second_line | cut -f1 -d$'\t')
+devices=$(echo $(adb devices))
+device1=$(echo $devices | cut -f5 -d$' ')
+device2=$(echo $devices | cut -f7 -d$' ')
 echo $device1
 echo $device2
 adb -s $device1  logcat MulticastClient:D MulticastServer:D RegistrationHandler:D \*:S >> log_device1.txt &

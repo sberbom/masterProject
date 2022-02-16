@@ -1,0 +1,764 @@
+Number of rounds: 100
+round 1 of 100
+--------- beginning of main
+02-16 13:52:48.209  1314  1397 D MulticastServer: Listening for data.
+02-16 13:52:48.211  1314  1417 D MulticastServer: Registration process started with nonce: 359065328
+02-16 13:52:48.214  1314  1402 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":359065328}
+02-16 13:52:48.617  1314  1446 D MulticastServer: FULL_LEDGER 359065328
+02-16 13:52:49.222  1314  1430 D MulticastServer: Registration process finished: 359065328
+02-16 13:52:49.227  1314  1486 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIQCM8+F9eoaPom3hP5kV6Q3zGpMH3koJ8PJYa16o3NjyBgIgGnshhvpNXTfn5j1xh+x7QC8ixuV6jFkogTKPU3ONRr8=","nonce":359065328}
+round 2 of 100
+02-16 13:52:52.542  1637  1708 D MulticastServer: Listening for data.
+02-16 13:52:52.544  1637  1710 D MulticastServer: Registration process started with nonce: 1032572381
+02-16 13:52:52.546  1637  1709 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1032572381}
+02-16 13:52:52.776  1637  1727 D MulticastServer: FULL_LEDGER 1032572381
+02-16 13:52:53.554  1637  1711 D MulticastServer: Registration process finished: 1032572381
+02-16 13:52:53.558  1637  1727 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEQCIA3S0jMv2bxT437Z+UQrwMW4PnXCz27\/MG0XYnNIBArPAiBqwCZRy0MncJPYsRde\/4XFjyhTdrE9vhKFFQn2gDufWA==","nonce":1032572381}
+round 3 of 100
+02-16 13:52:56.955  1755  1809 D MulticastServer: Listening for data.
+02-16 13:52:56.958  1755  1811 D MulticastServer: Registration process started with nonce: 544405146
+02-16 13:52:56.959  1755  1810 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":544405146}
+02-16 13:52:57.011  1755  1815 D MulticastServer: FULL_LEDGER 544405146
+02-16 13:52:57.836  1755  1815 D MulticastServer: FULL_LEDGER 544405146
+02-16 13:52:57.966  1755  1812 D MulticastServer: Registration process finished: 544405146
+02-16 13:52:57.973  1755  1815 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIDvh+aumt6+WWXSoHEkZroU8tQeENLMHESFUCIqxC6gjAiEAyAFVzR3fIs2JmAetUQR0inmKvOtUMN0WyBdn+TfybsM=","nonce":544405146}
+round 4 of 100
+02-16 13:53:01.382  1870  1924 D MulticastServer: Listening for data.
+02-16 13:53:01.384  1870  1926 D MulticastServer: Registration process started with nonce: 1350168238
+02-16 13:53:01.389  1870  1929 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1350168238}
+02-16 13:53:01.560  1870  1931 D MulticastServer: FULL_LEDGER 1350168238
+02-16 13:53:02.370  1870  1932 D MulticastServer: FULL_LEDGER 1350168238
+02-16 13:53:02.392  1870  1927 D MulticastServer: Registration process finished: 1350168238
+02-16 13:53:02.393  1870  1929 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEYCIQDGRcKHT36ac1wt6PEpV3Rh9JbaSOdyuiI6+eJvbBsU0AIhAJ4Q8hEl1McWRRzdCK+AZo2Uw51ZoXAkRriKFuylpig1","nonce":1350168238}
+round 5 of 100
+02-16 13:53:05.773  1984  2038 D MulticastServer: Listening for data.
+02-16 13:53:05.778  1984  2039 D MulticastServer: Registration process started with nonce: 1949379711
+02-16 13:53:05.785  1984  2042 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1949379711}
+02-16 13:53:05.888  1984  2044 D MulticastServer: FULL_LEDGER 1949379711
+02-16 13:53:06.723  1984  2044 D MulticastServer: FULL_LEDGER 1949379711
+02-16 13:53:06.790  1984  2040 D MulticastServer: Registration process finished: 1949379711
+02-16 13:53:06.794  1984  2044 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEYCIQDHWHWaUYNdbFACXVfrWHpiFOOWWy3aD07bpmSNwNbB0gIhAJQiz+nxG8p3KboYcXKJGqp4p\/Eq8vpGZ4lVCevHJAFP","nonce":1949379711}
+round 6 of 100
+02-16 13:53:10.190  2098  2150 D MulticastServer: Listening for data.
+02-16 13:53:10.192  2098  2152 D MulticastServer: Registration process started with nonce: 209946516
+02-16 13:53:10.197  2098  2151 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":209946516}
+02-16 13:53:10.371  2098  2157 D MulticastServer: FULL_LEDGER 209946516
+02-16 13:53:11.180  2098  2151 D MulticastServer: FULL_LEDGER 209946516
+02-16 13:53:11.200  2098  2153 D MulticastServer: Registration process finished: 209946516
+02-16 13:53:11.203  2098  2158 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIEo5+nZ7HOK0QIFLJVsOFegL9JcIdLOLRcXzzfVpDkhwAiEA+XidY5N\/mjiotiru39p4mRDivfLeEAIfoepejWjx3Xk=","nonce":209946516}
+round 7 of 100
+02-16 13:53:14.527  2208  2260 D MulticastServer: Listening for data.
+02-16 13:53:14.530  2208  2262 D MulticastServer: Registration process started with nonce: 1725156410
+02-16 13:53:14.532  2208  2261 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1725156410}
+02-16 13:53:14.668  2208  2266 D MulticastServer: FULL_LEDGER 1725156410
+02-16 13:53:15.509  2208  2261 D MulticastServer: FULL_LEDGER 1725156410
+02-16 13:53:15.535  2208  2263 D MulticastServer: Registration process finished: 1725156410
+02-16 13:53:15.540  2208  2261 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIQDVIfEpqshFXGg+1X\/8vSf2a4PgL7fdPpZUH8GMO3gLAAIgBP1MtRV3rjmBd7Q0vd9a1ZbFZ2la2WcNLGxYzZH8QQ0=","nonce":1725156410}
+round 8 of 100
+02-16 13:53:18.940  2316  2367 D MulticastServer: Listening for data.
+02-16 13:53:18.943  2316  2369 D MulticastServer: Registration process started with nonce: 1293543452
+02-16 13:53:18.945  2316  2368 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1293543452}
+02-16 13:53:19.171  2316  2373 D MulticastServer: FULL_LEDGER 1293543452
+02-16 13:53:19.953  2316  2370 D MulticastServer: Registration process finished: 1293543452
+02-16 13:53:19.959  2316  2368 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEQCIGpBrzWB6Qts4xyOpd\/ejkQ+YiQBWlJYJbIOnk8Xe+TFAiAJHxc+aUB4spvkFsKoQ6YTKJ5ktTtpIbQ1y4bFZ3ElCA==","nonce":1293543452}
+round 9 of 100
+02-16 13:53:23.341  2431  2485 D MulticastServer: Listening for data.
+02-16 13:53:23.344  2431  2487 D MulticastServer: Registration process started with nonce: 636990529
+02-16 13:53:23.351  2431  2490 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":636990529}
+02-16 13:53:24.300  2431  2490 D MulticastServer: FULL_LEDGER 636990529
+02-16 13:53:24.352  2431  2488 D MulticastServer: Registration process finished: 636990529
+02-16 13:53:24.357  2431  2490 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIQDTbj4CFJbrglovhTEqr6285hQ8NGEeOZrWzkMdQWeEPAIgf99XhlHP6Otv+DZ\/+OuaX5qoSQOs04VFUZwnimypptM=","nonce":636990529}
+round 10 of 100
+02-16 13:53:27.690  2544  2594 D MulticastServer: Listening for data.
+02-16 13:53:27.692  2544  2596 D MulticastServer: Registration process started with nonce: 1517116859
+02-16 13:53:27.697  2544  2595 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1517116859}
+02-16 13:53:27.771  2544  2601 D MulticastServer: FULL_LEDGER 1517116859
+02-16 13:53:28.575  2544  2601 D MulticastServer: FULL_LEDGER 1517116859
+02-16 13:53:28.703  2544  2597 D MulticastServer: Registration process finished: 1517116859
+02-16 13:53:28.708  2544  2601 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEQCICeW592qLD+uFnrfeuBoEYOoY6pVmybIio\/j7bP0DjbUAiB19Cp2JW09jg\/cPBy0zdTa\/H8rJty1YpJ4DmUSr2c00g==","nonce":1517116859}
+round 11 of 100
+02-16 13:53:32.096  2687  2739 D MulticastServer: Listening for data.
+02-16 13:53:32.099  2687  2741 D MulticastServer: Registration process started with nonce: 1968237406
+02-16 13:53:32.101  2687  2744 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1968237406}
+02-16 13:53:32.277  2687  2746 D MulticastServer: FULL_LEDGER 1968237406
+02-16 13:53:33.082  2687  2744 D MulticastServer: FULL_LEDGER 1968237406
+02-16 13:53:33.103  2687  2742 D MulticastServer: Registration process finished: 1968237406
+02-16 13:53:33.109  2687  2744 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIFHkdim7WD2qJz3nW7BRInxF18kKed0L5spdbEf0U5j6AiEAvdK0pDFrZXH5WjVvtGAXFxb2V9pgVKzH44+fYxFgVDo=","nonce":1968237406}
+round 12 of 100
+02-16 13:53:36.533  2801  2854 D MulticastServer: Listening for data.
+02-16 13:53:36.536  2801  2856 D MulticastServer: Registration process started with nonce: 1644560501
+02-16 13:53:36.538  2801  2855 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1644560501}
+02-16 13:53:36.949  2801  2861 D MulticastServer: FULL_LEDGER 1644560501
+02-16 13:53:37.550  2801  2857 D MulticastServer: Registration process finished: 1644560501
+02-16 13:53:37.555  2801  2861 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEQCIAWBnLf3gYct7uR4ozIy3gzzcwYgtDwqIz0q7HNlqmxyAiADht4X8JjUAPTKWgZ3MjBXs9XtjU94jchEFE+Xmq6\/gA==","nonce":1644560501}
+round 13 of 100
+02-16 13:53:40.906  2914  2965 D MulticastServer: Listening for data.
+02-16 13:53:40.909  2914  2966 D MulticastServer: Registration process started with nonce: 1175141082
+02-16 13:53:40.913  2914  2969 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1175141082}
+02-16 13:53:41.088  2914  2971 D MulticastServer: FULL_LEDGER 1175141082
+02-16 13:53:41.896  2914  2972 D MulticastServer: FULL_LEDGER 1175141082
+02-16 13:53:41.914  2914  2967 D MulticastServer: Registration process finished: 1175141082
+02-16 13:53:41.919  2914  2972 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEQCIF7eeeko2sDg6DvnzVJnk4g35NlsncSWGSBcN38EUPyFAiBEbsn6YQZI0GhbVR0zAifjAajH+xEuiCy313iVm58AKg==","nonce":1175141082}
+round 14 of 100
+02-16 13:53:45.295  3022  3171 D MulticastServer: Listening for data.
+02-16 13:53:45.298  3022  3174 D MulticastServer: Registration process started with nonce: 1698879753
+02-16 13:53:45.300  3022  3173 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1698879753}
+02-16 13:53:45.352  3022  3183 D MulticastServer: FULL_LEDGER 1698879753
+02-16 13:53:46.219  3022  3173 D MulticastServer: FULL_LEDGER 1698879753
+02-16 13:53:46.307  3022  3178 D MulticastServer: Registration process finished: 1698879753
+02-16 13:53:46.310  3022  3173 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIFsVt1aeIEQFoPjBBlfqabtdE0n1E5Cp0GKEbc19S4BnAiEA\/OKmZwF\/cXpEag51hXoTLuzdSrcYdtre2ii3uW+GPpo=","nonce":1698879753}
+round 15 of 100
+02-16 13:53:49.687  3265  3336 D MulticastServer: Listening for data.
+02-16 13:53:49.692  3265  3349 D MulticastServer: Registration process started with nonce: 467130803
+02-16 13:53:49.696  3265  3357 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":467130803}
+02-16 13:53:49.893  3265  3368 D MulticastServer: FULL_LEDGER 467130803
+02-16 13:53:50.703  3265  3368 D MulticastServer: FULL_LEDGER 467130803
+02-16 13:53:50.705  3265  3352 D MulticastServer: Registration process finished: 467130803
+02-16 13:53:50.714  3265  3357 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEYCIQDBDswKs21gK7DoZOSnSBtIAPa2jR3LA\/aJvHJO3am4tQIhAIuKprG+UcyjdKYg9y33QJSOvBeziEEPNd4iKFldaBr+","nonce":467130803}
+round 16 of 100
+02-16 13:53:54.052  3435  3500 D MulticastServer: Listening for data.
+02-16 13:53:54.054  3435  3502 D MulticastServer: Registration process started with nonce: 1880481896
+02-16 13:53:54.057  3435  3505 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1880481896}
+02-16 13:53:54.194  3435  3506 D MulticastServer: FULL_LEDGER 1880481896
+02-16 13:53:55.066  3435  3503 D MulticastServer: Registration process finished: 1880481896
+02-16 13:53:55.072  3435  3505 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIQCp1I2Ml1JpCzlJGCAZN51Cs9YOc2u+F8sug4uYmxCoagIgY9B\/sxUK9R5NrF4nGOoFaFmUmXiGxO2yy3g\/9w\/is2g=","nonce":1880481896}
+round 17 of 100
+02-16 13:53:58.404  3579  3689 D MulticastServer: Listening for data.
+02-16 13:53:58.406  3579  3701 D MulticastServer: Registration process started with nonce: 925890711
+02-16 13:53:58.409  3579  3692 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":925890711}
+02-16 13:53:58.504  3579  3707 D MulticastServer: FULL_LEDGER 925890711
+02-16 13:53:59.338  3579  3692 D MulticastServer: FULL_LEDGER 925890711
+02-16 13:53:59.418  3579  3704 D MulticastServer: Registration process finished: 925890711
+02-16 13:53:59.424  3579  3692 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCID3W04ZudKXVlXJQRG3OZV53owM0Bo40mbZ3dIYiML0GAiEAiw0aVl\/K2TiOh0L0lfMVuW\/\/pMcyjA5hG\/U9vszS54c=","nonce":925890711}
+round 18 of 100
+02-16 13:54:02.768  3821  3900 D MulticastServer: Listening for data.
+02-16 13:54:02.770  3821  3903 D MulticastServer: Registration process started with nonce: 153422593
+02-16 13:54:02.773  3821  3902 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":153422593}
+02-16 13:54:02.996  3821  3908 D MulticastServer: FULL_LEDGER 153422593
+02-16 13:54:03.780  3821  3904 D MulticastServer: Registration process finished: 153422593
+02-16 13:54:03.784  3821  3908 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIQCN3fQfs93NpC9a5VIEVEys02tnWA\/BmsuAYWJZjH0wAwIgAZ+GMGc76SVTpkMJhBGTM8KZ\/GIDAKXUf734LkPho54=","nonce":153422593}
+round 19 of 100
+02-16 13:54:07.142  4001  4142 D MulticastServer: Listening for data.
+02-16 13:54:07.145  4001  4145 D MulticastServer: Registration process started with nonce: 1225220707
+02-16 13:54:07.147  4001  4143 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1225220707}
+02-16 13:54:07.292  4001  4151 D MulticastServer: FULL_LEDGER 1225220707
+02-16 13:54:08.108  4001  4151 D MulticastServer: FULL_LEDGER 1225220707
+02-16 13:54:08.156  4001  4146 D MulticastServer: Registration process finished: 1225220707
+02-16 13:54:08.159  4001  4151 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEYCIQDF3ZWSxETmMBWgWoRx7txX593wbg7OX+CHRDiAsJK7dAIhALRYKuvtVBrtdBXvWLQFR7+oV1ofioRz2CuR6TJYNWB9","nonce":1225220707}
+round 20 of 100
+02-16 13:54:11.501  4214  4291 D MulticastServer: Listening for data.
+02-16 13:54:11.504  4214  4293 D MulticastServer: Registration process started with nonce: 705576683
+02-16 13:54:11.506  4214  4292 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":705576683}
+02-16 13:54:11.598  4214  4298 D MulticastServer: FULL_LEDGER 705576683
+02-16 13:54:12.412  4214  4292 D MulticastServer: FULL_LEDGER 705576683
+02-16 13:54:12.515  4214  4294 D MulticastServer: Registration process finished: 705576683
+02-16 13:54:12.520  4214  4292 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEQCIGN0KHewE50hWlZY9djcbblNpoh1GHahlIFXaj2Ae6w1AiAHJw0yRq\/wMKPTyiBiJ3yUwZS3WSI6tiaDKLiapnMQtA==","nonce":705576683}
+round 21 of 100
+02-16 13:54:15.923  4369  4427 D MulticastServer: Listening for data.
+02-16 13:54:15.926  4369  4429 D MulticastServer: Registration process started with nonce: 994296832
+02-16 13:54:15.929  4369  4428 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":994296832}
+02-16 13:54:16.105  4369  4434 D MulticastServer: FULL_LEDGER 994296832
+02-16 13:54:16.937  4369  4430 D MulticastServer: Registration process finished: 994296832
+02-16 13:54:16.942  4369  4455 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIBlRL748n4nVc14bw5FDLfEGcFIJJLJwVVnuFxtvuVODAiEA87NIA+2b4lEYti3ZXF1u04lOLf4P9XlqtFnI4GwlGs8=","nonce":994296832}
+round 22 of 100
+02-16 13:54:20.265  4501  4556 D MulticastServer: Listening for data.
+02-16 13:54:20.268  4501  4557 D MulticastServer: Registration process started with nonce: 1404259482
+02-16 13:54:20.273  4501  4555 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1404259482}
+02-16 13:54:20.407  4501  4562 D MulticastServer: FULL_LEDGER 1404259482
+02-16 13:54:21.214  4501  4562 D MulticastServer: FULL_LEDGER 1404259482
+02-16 13:54:21.285  4501  4562 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEQCIDfgoQpQmYXRy2Wo0kBPPjXDIECLk4peBSyvoqFRcoOSAiAHx3mhfY3BQlOSJUdF85uUH8VujzvT8bSwjM4oebSuKg==","nonce":1404259482}
+02-16 13:54:21.285  4501  4558 D MulticastServer: Registration process finished: 1404259482
+round 23 of 100
+02-16 13:54:24.681  4606  4657 D MulticastServer: Listening for data.
+02-16 13:54:24.683  4606  4658 D MulticastServer: Registration process started with nonce: 1747543895
+02-16 13:54:24.688  4606  4661 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1747543895}
+02-16 13:54:25.076  4606  4663 D MulticastServer: FULL_LEDGER 1747543895
+02-16 13:54:25.696  4606  4659 D MulticastServer: Registration process finished: 1747543895
+02-16 13:54:25.702  4606  4661 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEQCIHb42eyXfHCAEswRZcGrtQhjOoD\/sAk9xPlmY4b\/glbDAiAOgO2v7aSE1OqORUCsQQ6hJ+uRLhj9RWul9NY6CgNU4Q==","nonce":1747543895}
+round 24 of 100
+02-16 13:54:29.097  4714  4768 D MulticastServer: Listening for data.
+02-16 13:54:29.100  4714  4770 D MulticastServer: Registration process started with nonce: 1967071356
+02-16 13:54:29.102  4714  4773 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1967071356}
+02-16 13:54:29.151  4714  4769 D MulticastServer: FULL_LEDGER 1967071356
+02-16 13:54:29.956  4714  4778 D MulticastServer: FULL_LEDGER 1967071356
+02-16 13:54:30.109  4714  4771 D MulticastServer: Registration process finished: 1967071356
+02-16 13:54:30.113  4714  4778 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIQDv+uJDVlP6ktL100Ic6knRvzDPRlat005ZR7EPwdr2lwIgSDg2oWFZD45rmkALS2e2rpqQ8t89RQtEY9qLTuy0FDY=","nonce":1967071356}
+round 25 of 100
+02-16 13:54:33.508  4822  4874 D MulticastServer: Listening for data.
+02-16 13:54:33.510  4822  4876 D MulticastServer: Registration process started with nonce: 680733006
+02-16 13:54:33.515  4822  4875 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":680733006}
+02-16 13:54:33.720  4822  4881 D MulticastServer: FULL_LEDGER 680733006
+02-16 13:54:34.521  4822  4878 D MulticastServer: Registration process finished: 680733006
+02-16 13:54:34.526  4822  4875 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIGDJ+0yOwk7mdjyupQKFoaxyjzc7Pm55fb2gqVju\/DxhAiEAsdaVUpz9SkP61T73whgmb68Q9\/J96YnTkBZezl\/GgPs=","nonce":680733006}
+round 26 of 100
+02-16 13:54:37.898  4934  4992 D MulticastServer: Listening for data.
+02-16 13:54:37.901  4934  4994 D MulticastServer: Registration process started with nonce: 147385875
+02-16 13:54:37.904  4934  4993 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":147385875}
+02-16 13:54:38.020  4934  5000 D MulticastServer: FULL_LEDGER 147385875
+02-16 13:54:38.828  4934  4993 D MulticastServer: FULL_LEDGER 147385875
+02-16 13:54:38.913  4934  4995 D MulticastServer: Registration process finished: 147385875
+02-16 13:54:38.918  4934  4993 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIQCl7s90Xp1FOgLE3Al\/JX+++w47luZJNsQK\/KGquzeqRgIga8X9xRPuOT++tPsz8HicFCCyCEs9F9fiNEouRxBqPWE=","nonce":147385875}
+round 27 of 100
+02-16 13:54:42.246  5057  5107 D MulticastServer: Listening for data.
+02-16 13:54:42.249  5057  5109 D MulticastServer: Registration process started with nonce: 684605963
+02-16 13:54:42.251  5057  5108 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":684605963}
+02-16 13:54:42.320  5057  5114 D MulticastServer: FULL_LEDGER 684605963
+02-16 13:54:43.128  5057  5108 D MulticastServer: FULL_LEDGER 684605963
+02-16 13:54:43.262  5057  5110 D MulticastServer: Registration process finished: 684605963
+02-16 13:54:43.268  5057  5108 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIQCgS72zj6mOH1l0iclo\/\/jqFgHXWlUwOJjfuWMe6\/FkoQIgbjk4\/4S2khrEvwF1WN7Aw82+9+dyN\/3TKJGYquKuJSo=","nonce":684605963}
+round 28 of 100
+02-16 13:54:46.609  5166  5217 D MulticastServer: Listening for data.
+02-16 13:54:46.612  5166  5219 D MulticastServer: Registration process started with nonce: 856654795
+02-16 13:54:46.614  5166  5218 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":856654795}
+02-16 13:54:46.827  5166  5241 D MulticastServer: FULL_LEDGER 856654795
+02-16 13:54:47.626  5166  5220 D MulticastServer: Registration process finished: 856654795
+02-16 13:54:47.630  5166  5242 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEQCIGADzorYH6EPy5mDPRa5kkQtywCvLn47CJzA+CTO0RGcAiB2EbY3\/14nD8Z0EbWqLLpUmwEyombVYuDn1qVVnFaIuw==","nonce":856654795}
+round 29 of 100
+02-16 13:54:50.931  5280  5337 D MulticastServer: Listening for data.
+02-16 13:54:50.934  5280  5339 D MulticastServer: Registration process started with nonce: 486532064
+02-16 13:54:50.936  5280  5338 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":486532064}
+02-16 13:54:50.984  5280  5342 D MulticastServer: FULL_LEDGER 486532064
+02-16 13:54:51.800  5280  5338 D MulticastServer: FULL_LEDGER 486532064
+02-16 13:54:51.946  5280  5340 D MulticastServer: Registration process finished: 486532064
+02-16 13:54:51.951  5280  5338 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEQCIGYy8ipdQcE2gqWIRz4r8VThQ\/KcOaIMd1GgqqI4MLx8AiBMdIJHAcRbSdnstP40Yj+O51jwX4D3+iV+kVUaltUhmw==","nonce":486532064}
+round 30 of 100
+02-16 13:54:55.298  5437  5493 D MulticastServer: Listening for data.
+02-16 13:54:55.300  5437  5495 D MulticastServer: Registration process started with nonce: 1188187271
+02-16 13:54:55.302  5437  5494 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1188187271}
+02-16 13:54:55.422  5437  5511 D MulticastServer: FULL_LEDGER 1188187271
+02-16 13:54:56.272  5437  5511 D MulticastServer: FULL_LEDGER 1188187271
+02-16 13:54:56.310  5437  5496 D MulticastServer: Registration process finished: 1188187271
+02-16 13:54:56.313  5437  5511 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIEx6m3KcGeshtYoJdFjag2ElKqqYNbtA+JjlB8UmB39pAiEAgaOPCIeNdzmiTF0Zpkdc5pbRi0Yf5FY6OIhmoasuqfo=","nonce":1188187271}
+round 31 of 100
+02-16 13:54:59.651  5554  5616 D MulticastServer: Listening for data.
+02-16 13:54:59.655  5554  5618 D MulticastServer: Registration process started with nonce: 858674014
+02-16 13:54:59.657  5554  5617 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":858674014}
+02-16 13:54:59.739  5554  5623 D MulticastServer: FULL_LEDGER 858674014
+02-16 13:55:00.614  5554  5617 D MulticastServer: FULL_LEDGER 858674014
+02-16 13:55:00.667  5554  5619 D MulticastServer: Registration process finished: 858674014
+02-16 13:55:00.671  5554  5617 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIQC3iyTu8tt9J9RJlVx74vXvfRCfqRIashxlImXESRpZ1AIgCv0GBtsr5h2uKgfjz0mdo458Kw1Cax3U9qoAIeWrvPE=","nonce":858674014}
+round 32 of 100
+02-16 13:55:03.991  5676  5729 D MulticastServer: Listening for data.
+02-16 13:55:03.993  5676  5731 D MulticastServer: Registration process started with nonce: 138605263
+02-16 13:55:03.995  5676  5730 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":138605263}
+02-16 13:55:04.397  5676  5736 D MulticastServer: FULL_LEDGER 138605263
+02-16 13:55:05.003  5676  5732 D MulticastServer: Registration process finished: 138605263
+02-16 13:55:05.008  5676  5736 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEQCIE183izaHtmQxplnHFEJmfvttqmcCb4Rf3QR3dKTqXxEAiBHli6F4CuHRJD3RPtVzCxYxATZUzSv96ECqd1VWoohjw==","nonce":138605263}
+round 33 of 100
+02-16 13:55:08.319  5778  5847 D MulticastServer: Listening for data.
+02-16 13:55:08.322  5778  5849 D MulticastServer: Registration process started with nonce: 544355162
+02-16 13:55:08.323  5778  5848 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":544355162}
+02-16 13:55:08.532  5778  5853 D MulticastServer: FULL_LEDGER 544355162
+02-16 13:55:09.333  5778  5851 D MulticastServer: Registration process finished: 544355162
+02-16 13:55:09.340  5778  5867 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEYCIQCO3aLgp5uUPQXvquSbCT4fUbOxb8JM5UmeZ+jowGE\/MwIhAJlZwlrUoWo+SOIY427ubWNFzI0G8WPpbgNk76Hds7nX","nonce":544355162}
+round 34 of 100
+02-16 13:55:12.664  5906  5989 D MulticastServer: Listening for data.
+02-16 13:55:12.666  5906  5994 D MulticastServer: Registration process started with nonce: 106338305
+02-16 13:55:12.669  5906  5990 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":106338305}
+02-16 13:55:12.718  5906  5999 D MulticastServer: FULL_LEDGER 106338305
+02-16 13:55:13.535  5906  5999 D MulticastServer: FULL_LEDGER 106338305
+02-16 13:55:13.680  5906  5995 D MulticastServer: Registration process finished: 106338305
+02-16 13:55:13.685  5906  5999 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIQChAPYmu\/e9\/qvN3jSvrS\/BMFNIQQu6QwOrhaqqI39mOQIgeMzjzAaiZJVdUCcJPlUcYRt9MM3DIhZuf\/kUqDxX+YE=","nonce":106338305}
+round 35 of 100
+02-16 13:55:17.001  6069  6134 D MulticastServer: Listening for data.
+02-16 13:55:17.003  6069  6136 D MulticastServer: Registration process started with nonce: 1183472182
+02-16 13:55:17.005  6069  6135 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1183472182}
+02-16 13:55:17.136  6069  6141 D MulticastServer: FULL_LEDGER 1183472182
+02-16 13:55:17.939  6069  6141 D MulticastServer: FULL_LEDGER 1183472182
+02-16 13:55:18.011  6069  6137 D MulticastServer: Registration process finished: 1183472182
+02-16 13:55:18.015  6069  6141 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEYCIQChhbzNz3pXMT9PDkzWbq4KNcPow2XYQj782u+uum+8gQIhAIuFiQ1OKVk0mNFOdfo0JyqsieBLnxiQ1crMmlT8Lol9","nonce":1183472182}
+round 36 of 100
+02-16 13:55:21.384  6205  6270 D MulticastServer: Listening for data.
+02-16 13:55:21.386  6205  6272 D MulticastServer: Registration process started with nonce: 2008423567
+02-16 13:55:21.388  6205  6271 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":2008423567}
+02-16 13:55:21.594  6205  6299 D MulticastServer: FULL_LEDGER 2008423567
+02-16 13:55:22.397  6205  6273 D MulticastServer: Registration process finished: 2008423567
+02-16 13:55:22.403  6205  6299 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIHrLvSHmZci9lNyRzpxcmt801tSjuYGg6ZsgsJ0QK3a\/AiEAiguBH5LYxZz\/fKLJ9IpLCyzR2E42udb9TxvmnN3oZic=","nonce":2008423567}
+round 37 of 100
+02-16 13:55:25.816  6333  6390 D MulticastServer: Listening for data.
+02-16 13:55:25.819  6333  6392 D MulticastServer: Registration process started with nonce: 1404107741
+02-16 13:55:25.822  6333  6396 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1404107741}
+02-16 13:55:25.938  6333  6399 D MulticastServer: FULL_LEDGER 1404107741
+02-16 13:55:26.751  6333  6399 D MulticastServer: FULL_LEDGER 1404107741
+02-16 13:55:26.830  6333  6393 D MulticastServer: Registration process finished: 1404107741
+02-16 13:55:26.836  6333  6399 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIQDZtRwTg8ijvBtxqPfqvif8QAoKIQo+lu3BOzsD7EiW4wIgRXDubmoJZCPYCuv+YX5YeB6+nEm6jDJZOQytRUJcqBo=","nonce":1404107741}
+round 38 of 100
+02-16 13:55:30.152  6457  6513 D MulticastServer: Listening for data.
+02-16 13:55:30.155  6457  6515 D MulticastServer: Registration process started with nonce: 1971356995
+02-16 13:55:30.157  6457  6514 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1971356995}
+02-16 13:55:30.241  6457  6520 D MulticastServer: FULL_LEDGER 1971356995
+02-16 13:55:31.052  6457  6520 D MulticastServer: FULL_LEDGER 1971356995
+02-16 13:55:31.163  6457  6516 D MulticastServer: Registration process finished: 1971356995
+02-16 13:55:31.168  6457  6520 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCICN\/UvTvyIYouAM+jdHMtQwgntyMzHyS5aVFH+ZUZobgAiEAhoIir3JVV5HoE1VxwxtnDMRmUpCfQaHxZqXMrD6Cx34=","nonce":1971356995}
+round 39 of 100
+02-16 13:55:34.511  6569  6626 D MulticastServer: Listening for data.
+02-16 13:55:34.513  6569  6628 D MulticastServer: Registration process started with nonce: 913563034
+02-16 13:55:34.516  6569  6627 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":913563034}
+02-16 13:55:35.529  6569  6629 D MulticastServer: Registration process finished: 913563034
+02-16 13:55:35.529  6569  6627 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEYCIQCfVbfIJfKDyfqjgYe+3gvGkXkV+sw\/nLMUIP1fdWWNFgIhAJcwz1\/ylFHoiNYc2OcLMHxPVMSquGfCfmHL3iu6rNKp","nonce":913563034}
+round 40 of 100
+02-16 13:55:38.863  6685  6754 D MulticastServer: Listening for data.
+02-16 13:55:38.866  6685  6756 D MulticastServer: Registration process started with nonce: 1991827982
+02-16 13:55:38.868  6685  6755 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1991827982}
+02-16 13:55:39.052  6685  6764 D MulticastServer: FULL_LEDGER 1991827982
+02-16 13:55:39.859  6685  6784 D MulticastServer: FULL_LEDGER 1991827982
+02-16 13:55:39.870  6685  6757 D MulticastServer: Registration process finished: 1991827982
+02-16 13:55:39.876  6685  6755 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEQCIA659rSuBBIPxBVB8706MhiCh9Mp0vzoIKTH+YebSivQAiB3aX6ZeckaRxMj\/+moNIrGzcABLH+05KdnSj0YgBbIAw==","nonce":1991827982}
+round 41 of 100
+02-16 13:55:43.174  6833  6886 D MulticastServer: Listening for data.
+02-16 13:55:43.176  6833  6888 D MulticastServer: Registration process started with nonce: 181829282
+02-16 13:55:43.179  6833  6887 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":181829282}
+02-16 13:55:43.355  6833  6896 D MulticastServer: FULL_LEDGER 181829282
+02-16 13:55:44.190  6833  6889 D MulticastServer: Registration process finished: 181829282
+02-16 13:55:44.195  6833  6887 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIQDGEx6bfBhsHl4xBElikN+9xOsxm+rZ\/FJzHVovx0CbVgIgXjmpxxXXu7MIe+F+4E\/BOWUaukuNNXKP4sDsrg6guN4=","nonce":181829282}
+round 42 of 100
+02-16 13:55:47.542  6969  7028 D MulticastServer: Listening for data.
+02-16 13:55:47.544  6969  7030 D MulticastServer: Registration process started with nonce: 351865228
+02-16 13:55:47.546  6969  7029 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":351865228}
+02-16 13:55:47.656  6969  7035 D MulticastServer: FULL_LEDGER 351865228
+02-16 13:55:48.464  6969  7029 D MulticastServer: FULL_LEDGER 351865228
+02-16 13:55:48.552  6969  7031 D MulticastServer: Registration process finished: 351865228
+02-16 13:55:48.557  6969  7029 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEQCIBqtfGPHoKNrPWUj5INkc0iwPeb7DqaMcXT5h0GW6LRQAiAPKqXCw6SkjzA2JYyUdkUucNU5Nwqbx5QIQ+6EEsBZUw==","nonce":351865228}
+round 43 of 100
+02-16 13:55:51.879  7080  7141 D MulticastServer: Listening for data.
+02-16 13:55:51.883  7080  7143 D MulticastServer: Registration process started with nonce: 139188761
+02-16 13:55:51.885  7080  7147 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":139188761}
+02-16 13:55:51.972  7080  7148 D MulticastServer: FULL_LEDGER 139188761
+02-16 13:55:52.763  7080  7148 D MulticastServer: FULL_LEDGER 139188761
+02-16 13:55:52.893  7080  7144 D MulticastServer: Registration process finished: 139188761
+02-16 13:55:52.898  7080  7148 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIQDLsXTLnEl6CjCfleFyQLowNXL\/zorJ9qRHCsQeTYzlIAIgZ4hYy4lh79u+2hA5e05+ifuAeTicWruNw8FC6rnQZak=","nonce":139188761}
+round 44 of 100
+02-16 13:55:56.240  7217  7282 D MulticastServer: Listening for data.
+02-16 13:55:56.242  7217  7284 D MulticastServer: Registration process started with nonce: 1750956895
+02-16 13:55:56.250  7217  7289 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1750956895}
+02-16 13:55:56.452  7217  7291 D MulticastServer: FULL_LEDGER 1750956895
+02-16 13:55:57.254  7217  7286 D MulticastServer: Registration process finished: 1750956895
+02-16 13:55:57.285  7217  7291 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEQCIHdjc1Bt09yS\/DIc3OLEvplyl5gj5wJrEJLK7mvWtzq7AiA+8kKRopW\/\/YoXfEMGEc+XNOz\/A9b\/FBHUJqF8ucQADw==","nonce":1750956895}
+round 45 of 100
+02-16 13:56:00.602  7350  7413 D MulticastServer: Listening for data.
+02-16 13:56:00.604  7350  7419 D MulticastServer: Registration process started with nonce: 30700901
+02-16 13:56:00.606  7350  7418 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":30700901}
+02-16 13:56:00.757  7350  7426 D MulticastServer: FULL_LEDGER 30700901
+02-16 13:56:01.564  7350  7426 D MulticastServer: FULL_LEDGER 30700901
+02-16 13:56:01.614  7350  7422 D MulticastServer: Registration process finished: 30700901
+02-16 13:56:01.619  7350  7426 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEQCIFmV4nQmCb0UX8U5UKyaJzqtHfL+qVoIktBHE7DQnnEpAiBZdZPfT\/lhgx+ZsZHBPWbWjRNft0hOyIUJQisFJX86XA==","nonce":30700901}
+round 46 of 100
+02-16 13:56:04.968  7485  7581 D MulticastServer: Listening for data.
+02-16 13:56:04.970  7485  7583 D MulticastServer: Registration process started with nonce: 994456785
+02-16 13:56:04.975  7485  7582 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":994456785}
+02-16 13:56:05.020  7485  7588 D MulticastServer: FULL_LEDGER 994456785
+02-16 13:56:05.836  7485  7582 D MulticastServer: FULL_LEDGER 994456785
+02-16 13:56:05.986  7485  7582 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEQCIDsI+awzvPtnooKQlznYEKDNfZlSRDLf0tuBhJaB+yQNAiBwaTjd+qzn0iu\/epgWB5KoIbWTlItkDzVFfsxgk8dFsA==","nonce":994456785}
+02-16 13:56:05.986  7485  7584 D MulticastServer: Registration process finished: 994456785
+round 47 of 100
+02-16 13:56:09.342  7630  7691 D MulticastServer: Listening for data.
+02-16 13:56:09.345  7630  7693 D MulticastServer: Registration process started with nonce: 5218285
+02-16 13:56:09.348  7630  7692 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":5218285}
+02-16 13:56:09.568  7630  7698 D MulticastServer: FULL_LEDGER 5218285
+02-16 13:56:10.355  7630  7694 D MulticastServer: Registration process finished: 5218285
+02-16 13:56:10.358  7630  7692 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIQCgTbSZVy4P5zLBmijS\/8IfeXdzvCub35eUmfcxZxrWywIgJXIFshQntcioQ\/qY\/LO5dypt8KbCxLqDYu\/wNNAi9s8=","nonce":5218285}
+round 48 of 100
+02-16 13:56:13.755  7744  7807 D MulticastServer: Listening for data.
+02-16 13:56:13.757  7744  7810 D MulticastServer: Registration process started with nonce: 207519094
+02-16 13:56:13.760  7744  7813 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":207519094}
+02-16 13:56:13.864  7744  7815 D MulticastServer: FULL_LEDGER 207519094
+02-16 13:56:14.677  7744  7813 D MulticastServer: FULL_LEDGER 207519094
+02-16 13:56:14.771  7744  7811 D MulticastServer: Registration process finished: 207519094
+02-16 13:56:14.775  7744  7813 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEYCIQC5ye8U8aIxqLsKfRt8p9\/whKrIwhoL0yZ98L2S92FkdgIhAMk0MyFLJ3SqLsfTIXX75gOPrPCmwZiXypCt+sjbqtz5","nonce":207519094}
+round 49 of 100
+02-16 13:56:18.141  7879  7938 D MulticastServer: Listening for data.
+02-16 13:56:18.143  7879  7940 D MulticastServer: Registration process started with nonce: 96094774
+02-16 13:56:18.145  7879  7939 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":96094774}
+02-16 13:56:18.372  7879  7944 D MulticastServer: FULL_LEDGER 96094774
+02-16 13:56:19.153  7879  7941 D MulticastServer: Registration process finished: 96094774
+02-16 13:56:19.161  7879  7939 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIB23dNzn1WDlq8Oq0gXQD6emRrVzxFGICYYgPwEOC5XDAiEA1NnjxzHfq\/uPvvB1ENN3UU8zPiT8ybQ7vhs0ddGP6f0=","nonce":96094774}
+round 50 of 100
+02-16 13:56:22.487  7999  8053 D MulticastServer: Listening for data.
+02-16 13:56:22.490  7999  8055 D MulticastServer: Registration process started with nonce: 2018478608
+02-16 13:56:22.492  7999  8054 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":2018478608}
+02-16 13:56:22.692  7999  8060 D MulticastServer: FULL_LEDGER 2018478608
+02-16 13:56:23.487  7999  8060 D MulticastServer: FULL_LEDGER 2018478608
+02-16 13:56:23.497  7999  8056 D MulticastServer: Registration process finished: 2018478608
+02-16 13:56:23.523  7999  8054 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEQCIEFCqMoOC0tlUiQSnEiLKYYPb98iz6uF5XuUNA7lOkIEAiBh7CQvheY3NZQqaPXK0IW3xbdmZ4Ico+7abzLSPM3mRg==","nonce":2018478608}
+round 51 of 100
+02-16 13:56:26.909  8110  8182 D MulticastServer: Listening for data.
+02-16 13:56:26.911  8110  8185 D MulticastServer: Registration process started with nonce: 352673031
+02-16 13:56:26.913  8110  8184 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":352673031}
+02-16 13:56:27.124  8110  8190 D MulticastServer: FULL_LEDGER 352673031
+02-16 13:56:27.924  8110  8186 D MulticastServer: Registration process finished: 352673031
+02-16 13:56:27.928  8110  8184 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEYCIQDh1oOIrXPOv\/BRWWFTymiIbZUJ41l2GKnBjFnV6wXRcQIhAJttuk7mEtcGboUoMImWqtow4S7LgkWziwChnWPKOdSr","nonce":352673031}
+round 52 of 100
+02-16 13:56:31.342  8234  8286 D MulticastServer: Listening for data.
+02-16 13:56:31.344  8234  8288 D MulticastServer: Registration process started with nonce: 1430375293
+02-16 13:56:31.346  8234  8287 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1430375293}
+02-16 13:56:31.476  8234  8292 D MulticastServer: FULL_LEDGER 1430375293
+02-16 13:56:32.283  8234  8287 D MulticastServer: FULL_LEDGER 1430375293
+02-16 13:56:32.353  8234  8290 D MulticastServer: Registration process finished: 1430375293
+02-16 13:56:32.357  8234  8287 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIQCOu7lK76FERlsmgF4ayTwunb+CrHdCCpl+c2HJQ9H2DwIgTXsSxxjvUaxNP4iLlw2gxJ\/h4W\/A6v757S\/uy09qZF8=","nonce":1430375293}
+round 53 of 100
+02-16 13:56:35.686  8343  8403 D MulticastServer: Listening for data.
+02-16 13:56:35.688  8343  8405 D MulticastServer: Registration process started with nonce: 26349444
+02-16 13:56:35.690  8343  8404 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":26349444}
+02-16 13:56:35.777  8343  8410 D MulticastServer: FULL_LEDGER 26349444
+02-16 13:56:36.589  8343  8410 D MulticastServer: FULL_LEDGER 26349444
+02-16 13:56:36.700  8343  8406 D MulticastServer: Registration process finished: 26349444
+02-16 13:56:36.705  8343  8410 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIQD91k38Fni9P+9aqW8Yk7zKky6NpbJiWXEMfBekyF1Z7QIgIk88Y0\/0nCDJavt3gHhnkem7AgyHMHj8Tf9jiXYxiss=","nonce":26349444}
+round 54 of 100
+02-16 13:56:40.068  8459  8515 D MulticastServer: Listening for data.
+02-16 13:56:40.070  8459  8517 D MulticastServer: Registration process started with nonce: 1507007887
+02-16 13:56:40.073  8459  8520 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1507007887}
+02-16 13:56:40.380  8459  8521 D MulticastServer: FULL_LEDGER 1507007887
+02-16 13:56:41.081  8459  8518 D MulticastServer: Registration process finished: 1507007887
+02-16 13:56:41.087  8459  8521 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEQCIHJ4TV3hRpso6KRqUHnCR+bmaDZzIGSoSN6fON9xaM1eAiAZBuQL2HwgRcxKntI6Wy5aNsvZo0LnhfHdZoKgOJBgAw==","nonce":1507007887}
+round 55 of 100
+02-16 13:56:44.448  8576  8629 D MulticastServer: Listening for data.
+02-16 13:56:44.453  8576  8631 D MulticastServer: Registration process started with nonce: 1603178978
+02-16 13:56:44.457  8576  8634 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1603178978}
+02-16 13:56:44.593  8576  8636 D MulticastServer: FULL_LEDGER 1603178978
+02-16 13:56:45.401  8576  8637 D MulticastServer: FULL_LEDGER 1603178978
+02-16 13:56:45.464  8576  8632 D MulticastServer: Registration process finished: 1603178978
+02-16 13:56:45.468  8576  8637 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEYCIQDjmf6gBsz05BGbU4xhU+Ak2feR7M\/YCLMrlxRDEOjxHgIhAIWI09mxCq3x51aRHo3bJvzvXut4AdS7wEQKxYXj\/MTT","nonce":1603178978}
+round 56 of 100
+02-16 13:56:48.879  8687  8738 D MulticastServer: Listening for data.
+02-16 13:56:48.881  8687  8740 D MulticastServer: Registration process started with nonce: 1554370115
+02-16 13:56:48.886  8687  8743 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1554370115}
+02-16 13:56:49.092  8687  8745 D MulticastServer: FULL_LEDGER 1554370115
+02-16 13:56:49.892  8687  8741 D MulticastServer: Registration process finished: 1554370115
+02-16 13:56:49.897  8687  8745 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEQCIHtmW8NfpPWfuy0v9bXsjuaU8G0xnHIMND6Ru9V67AluAiBW9Y+y0V3fg\/vRN1vYH0mXaQPjLZpHqH\/XMm8+DTHfJw==","nonce":1554370115}
+round 57 of 100
+02-16 13:56:53.230  8790  8841 D MulticastServer: Listening for data.
+02-16 13:56:53.233  8790  8843 D MulticastServer: Registration process started with nonce: 1772292350
+02-16 13:56:53.238  8790  8842 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1772292350}
+02-16 13:56:53.400  8790  8848 D MulticastServer: FULL_LEDGER 1772292350
+02-16 13:56:54.237  8790  8842 D MulticastServer: FULL_LEDGER 1772292350
+02-16 13:56:54.242  8790  8844 D MulticastServer: Registration process finished: 1772292350
+02-16 13:56:54.247  8790  8849 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIDm6CdKPV592JimMqlF5tTACbq5hZjFC1Q8SkEmNjNQmAiEAvFVJYa6hjVFNxnKiG0QAL\/W97DciFQBHOvu2tvO5pr0=","nonce":1772292350}
+round 58 of 100
+02-16 13:56:57.720  8906  8959 D MulticastServer: Listening for data.
+02-16 13:56:57.723  8906  8961 D MulticastServer: Registration process started with nonce: 1752675691
+02-16 13:56:57.731  8906  8964 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1752675691}
+02-16 13:56:57.894  8906  8966 D MulticastServer: FULL_LEDGER 1752675691
+02-16 13:56:58.704  8906  8964 D MulticastServer: FULL_LEDGER 1752675691
+02-16 13:56:58.729  8906  8962 D MulticastServer: Registration process finished: 1752675691
+02-16 13:56:58.732  8906  8964 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIQDtH8Lh3OjoL5RkCZb7JTVmDbKOH4NqQxoD1r\/vZfkZEQIgR72XOnEiMtDqluFvwVo1aEgJaN1lBA1vhJuxO6zoy+0=","nonce":1752675691}
+round 59 of 100
+02-16 13:57:02.099  9006  9058 D MulticastServer: Listening for data.
+02-16 13:57:02.103  9006  9060 D MulticastServer: Registration process started with nonce: 1022892998
+02-16 13:57:02.107  9006  9063 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1022892998}
+02-16 13:57:02.288  9006  9066 D MulticastServer: FULL_LEDGER 1022892998
+02-16 13:57:03.006  9006  9065 D MulticastServer: FULL_LEDGER 1022892998
+02-16 13:57:03.113  9006  9061 D MulticastServer: Registration process finished: 1022892998
+02-16 13:57:03.118  9006  9065 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEYCIQDhzFaeyCoKyOph3d2p9jlhAZSf+qST26s0bWaJXefLTgIhANVa5si8Gd4kylqZT1XjXz4YPppSyjW4WXiRUwhHONP\/","nonce":1022892998}
+round 60 of 100
+02-16 13:57:06.480  9103  9156 D MulticastServer: Listening for data.
+02-16 13:57:06.482  9103  9158 D MulticastServer: Registration process started with nonce: 1894950247
+02-16 13:57:06.484  9103  9157 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1894950247}
+02-16 13:57:06.531  9103  9162 D MulticastServer: FULL_LEDGER 1894950247
+02-16 13:57:07.359  9103  9157 D MulticastServer: FULL_LEDGER 1894950247
+02-16 13:57:07.493  9103  9159 D MulticastServer: Registration process finished: 1894950247
+02-16 13:57:07.499  9103  9157 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEYCIQCxE08ahhZ0HhG2GpJMZXy3RiK5rb4s2hwxBHiS2JS76wIhAIknCpLQxHl1KxX0BgBnT937aclDGYfJAksuVdc8AbWj","nonce":1894950247}
+round 61 of 100
+02-16 13:57:10.872  9215  9270 D MulticastServer: Listening for data.
+02-16 13:57:10.874  9215  9272 D MulticastServer: Registration process started with nonce: 1961299432
+02-16 13:57:10.877  9215  9271 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1961299432}
+02-16 13:57:11.168  9215  9287 D MulticastServer: FULL_LEDGER 1961299432
+02-16 13:57:11.854  9215  9287 D MulticastServer: FULL_LEDGER 1961299432
+02-16 13:57:11.884  9215  9273 D MulticastServer: Registration process finished: 1961299432
+02-16 13:57:11.887  9215  9287 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIDYCRFZrZdQ1Hcea8vL5M6oCqHwSyyFdlSlvKbUNnqNAAiEAnY\/Kr0YM0IygfaIvT+3bu4I1wc3qksXvLdBkxR24vJY=","nonce":1961299432}
+round 62 of 100
+02-16 13:57:15.197  9314  9365 D MulticastServer: Listening for data.
+02-16 13:57:15.200  9314  9367 D MulticastServer: Registration process started with nonce: 1368152627
+02-16 13:57:15.203  9314  9370 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1368152627}
+02-16 13:57:15.308  9314  9371 D MulticastServer: FULL_LEDGER 1368152627
+02-16 13:57:16.152  9314  9371 D MulticastServer: FULL_LEDGER 1368152627
+02-16 13:57:16.212  9314  9368 D MulticastServer: Registration process finished: 1368152627
+02-16 13:57:16.219  9314  9371 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIG28CsYWmNb4VzDf0rddrCnIgEX4z2xAU10PP7mhMaDQAiEAnjjbW4Z+vTarq6EOi+hjgpivL9+hg7YdkoCVdXJXi5U=","nonce":1368152627}
+round 63 of 100
+02-16 13:57:19.628  9424  9482 D MulticastServer: Listening for data.
+02-16 13:57:19.630  9424  9484 D MulticastServer: Registration process started with nonce: 420093100
+02-16 13:57:19.632  9424  9483 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":420093100}
+02-16 13:57:19.808  9424  9489 D MulticastServer: FULL_LEDGER 420093100
+02-16 13:57:20.616  9424  9483 D MulticastServer: FULL_LEDGER 420093100
+02-16 13:57:20.636  9424  9485 D MulticastServer: Registration process finished: 420093100
+02-16 13:57:20.638  9424  9489 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIHThyLU6iwa3JzESD7KG3GsLA3BHldTOfTRU0mntz8hEAiEAjwBA\/0ioJfDkvwUbHsmsyZ1Qtzz0nNMkQCIaeNZfOZQ=","nonce":420093100}
+round 64 of 100
+02-16 13:57:24.006  9550  9605 D MulticastServer: Listening for data.
+02-16 13:57:24.009  9550  9607 D MulticastServer: Registration process started with nonce: 101734253
+02-16 13:57:24.012  9550  9606 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":101734253}
+02-16 13:57:24.316  9550  9612 D MulticastServer: FULL_LEDGER 101734253
+02-16 13:57:25.019  9550  9608 D MulticastServer: Registration process finished: 101734253
+02-16 13:57:25.024  9550  9606 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEQCIGHb0Gy+wTQ2ZzGngfmC3HBomahmpEPA6sTYELvkYeF6AiAcPJ4k1blT2jCIVSKMKWeTZOhEY4YDnpT9FAIZmqQMyQ==","nonce":101734253}
+round 65 of 100
+02-16 13:57:28.416  9661  9713 D MulticastServer: Listening for data.
+02-16 13:57:28.418  9661  9715 D MulticastServer: Registration process started with nonce: 1465634974
+02-16 13:57:28.420  9661  9714 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1465634974}
+02-16 13:57:28.472  9661  9720 D MulticastServer: FULL_LEDGER 1465634974
+02-16 13:57:29.340  9661  9720 D MulticastServer: FULL_LEDGER 1465634974
+02-16 13:57:29.429  9661  9716 D MulticastServer: Registration process finished: 1465634974
+02-16 13:57:29.434  9661  9720 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIQDYYF7bAEjVXzqtSwe6wzHDTEbiNhUpGZpj2\/ZlPeX\/+QIgdcZZYcI2ed+X81YDrYOCn0hXqs2b3XUdKDLM4ADPHWc=","nonce":1465634974}
+round 66 of 100
+02-16 13:57:32.800  9763  9816 D MulticastServer: Listening for data.
+02-16 13:57:32.802  9763  9818 D MulticastServer: Registration process started with nonce: 174154012
+02-16 13:57:32.804  9763  9817 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":174154012}
+02-16 13:57:32.992  9763  9822 D MulticastServer: FULL_LEDGER 174154012
+02-16 13:57:33.728  9763  9835 D MulticastServer: FULL_LEDGER 174154012
+02-16 13:57:33.812  9763  9819 D MulticastServer: Registration process finished: 174154012
+02-16 13:57:33.816  9763  9835 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEYCIQCNtSAGja5+0QFyEUkhqWLW\/p9rbxmnOnbAnUpVDP8y7wIhAO6QUBTCpdNqxeqXoi7a2zE1iRPqdGb0o+XY2kEMRaxN","nonce":174154012}
+round 67 of 100
+02-16 13:57:37.150  9874  9927 D MulticastServer: Listening for data.
+02-16 13:57:37.153  9874  9928 D MulticastServer: Registration process started with nonce: 2122972967
+02-16 13:57:37.155  9874  9926 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":2122972967}
+02-16 13:57:37.220  9874  9933 D MulticastServer: FULL_LEDGER 2122972967
+02-16 13:57:38.031  9874  9933 D MulticastServer: FULL_LEDGER 2122972967
+02-16 13:57:38.164  9874  9929 D MulticastServer: Registration process finished: 2122972967
+02-16 13:57:38.168  9874  9933 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEYCIQCg8JeSe5So\/fKZwHQoSnUNdcxjoPp2JwLmiGaUX8JpRgIhAOnnyH3ssc7CDDwCmhJpHbJa5hAkl02Ss\/JEdHrDOnk\/","nonce":2122972967}
+round 68 of 100
+02-16 13:57:41.556  9991 10041 D MulticastServer: Listening for data.
+02-16 13:57:41.558  9991 10043 D MulticastServer: Registration process started with nonce: 546687367
+02-16 13:57:41.560  9991 10042 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":546687367}
+02-16 13:57:41.728  9991 10047 D MulticastServer: FULL_LEDGER 546687367
+02-16 13:57:42.535  9991 10047 D MulticastServer: FULL_LEDGER 546687367
+02-16 13:57:42.566  9991 10044 D MulticastServer: Registration process finished: 546687367
+02-16 13:57:42.570  9991 10047 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIQDZ91JKE2rMFt0KRa28Rr+mWoiWQ0M2DdkZHYdLZiHoOwIgHT396zXSfUJJCtnQxcKPFsy5qOz8exrG6IMcjAEuwmI=","nonce":546687367}
+round 69 of 100
+02-16 13:57:45.925 10098 10150 D MulticastServer: Listening for data.
+02-16 13:57:45.927 10098 10152 D MulticastServer: Registration process started with nonce: 2023035568
+02-16 13:57:45.929 10098 10151 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":2023035568}
+02-16 13:57:46.397 10098 10157 D MulticastServer: FULL_LEDGER 2023035568
+02-16 13:57:46.936 10098 10153 D MulticastServer: Registration process finished: 2023035568
+02-16 13:57:46.943 10098 10157 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIQD53NGUhXpvIUYQDr6\/Y8rkmcXy36v60EDKwLVjgV7SSwIgNKzqjnoWd5TNwfC1boxyWyMquknWNYxdlrCINopfnvU=","nonce":2023035568}
+round 70 of 100
+02-16 13:57:50.356 10199 10249 D MulticastServer: Listening for data.
+02-16 13:57:50.358 10199 10251 D MulticastServer: Registration process started with nonce: 217935831
+02-16 13:57:50.360 10199 10250 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":217935831}
+02-16 13:57:50.537 10199 10255 D MulticastServer: FULL_LEDGER 217935831
+02-16 13:57:51.348 10199 10250 D MulticastServer: FULL_LEDGER 217935831
+02-16 13:57:51.369 10199 10255 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIQCVRVjINCIS8Vpvt4v8hHpowlrMVLaXHkGV2RRtRmTa2QIgLI46quV2ubHiuyqE\/xg0mDkzhLhyAxhSKGlnaf9yS9E=","nonce":217935831}
+02-16 13:57:51.369 10199 10252 D MulticastServer: Registration process finished: 217935831
+round 71 of 100
+02-16 13:57:54.788 10303 10366 D MulticastServer: Listening for data.
+02-16 13:57:54.791 10303 10371 D MulticastServer: Registration process started with nonce: 1704850653
+02-16 13:57:54.793 10303 10367 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1704850653}
+02-16 13:57:54.889 10303 10376 D MulticastServer: FULL_LEDGER 1704850653
+02-16 13:57:55.698 10303 10390 D MulticastServer: FULL_LEDGER 1704850653
+02-16 13:57:55.802 10303 10372 D MulticastServer: Registration process finished: 1704850653
+02-16 13:57:55.806 10303 10390 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEQCIEpGF6JeXsdYZcgkc7MCpvI08q9FrMERHIDhguCW5W\/CAiBgUa\/oVyvURIdjlJc25vaBcx6VeZ4iArIgmNClrulpsg==","nonce":1704850653}
+round 72 of 100
+02-16 13:57:59.107 10443 10505 D MulticastServer: Listening for data.
+02-16 13:57:59.110 10443 10507 D MulticastServer: Registration process started with nonce: 1854741545
+02-16 13:57:59.111 10443 10506 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1854741545}
+02-16 13:57:59.337 10443 10528 D MulticastServer: FULL_LEDGER 1854741545
+02-16 13:58:00.118 10443 10508 D MulticastServer: Registration process finished: 1854741545
+02-16 13:58:00.121 10443 10528 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEQCIGwDEjQftS1SniTesGCgPAdaNANt53MIOqk0ZdyF5QvRAiBts9KUtcPp9lzB17mgIuKNOCoPgwb+E8ARjR7IRaleaQ==","nonce":1854741545}
+round 73 of 100
+02-16 13:58:03.473 10566 10618 D MulticastServer: Listening for data.
+02-16 13:58:03.475 10566 10621 D MulticastServer: Registration process started with nonce: 770468905
+02-16 13:58:03.477 10566 10619 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":770468905}
+02-16 13:58:03.640 10566 10625 D MulticastServer: FULL_LEDGER 770468905
+02-16 13:58:04.447 10566 10619 D MulticastServer: FULL_LEDGER 770468905
+02-16 13:58:04.485 10566 10622 D MulticastServer: Registration process finished: 770468905
+02-16 13:58:04.490 10566 10619 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIGC1DQUCcMhcCx7lEfSH8WpKxNiCufl4ZjdqR8A9hMfRAiEAqIyGhQrSf5caMukg6g71xhaYa60mx6n22AAibfsqJKM=","nonce":770468905}
+round 74 of 100
+02-16 13:58:07.854 10667 10717 D MulticastServer: Listening for data.
+02-16 13:58:07.857 10667 10719 D MulticastServer: Registration process started with nonce: 762978222
+02-16 13:58:07.861 10667 10718 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":762978222}
+02-16 13:58:07.916 10667 10725 D MulticastServer: FULL_LEDGER 762978222
+02-16 13:58:08.731 10667 10725 D MulticastServer: FULL_LEDGER 762978222
+02-16 13:58:08.868 10667 10720 D MulticastServer: Registration process finished: 762978222
+02-16 13:58:08.872 10667 10725 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEQCIDJnS9xR9UToFIUbRegfewnVmh+\/zJO+3uQmKjoxJmFhAiBFj\/44Id54EbCyvqkpzZiP4euE4bpxAPdDGmRwE36EMQ==","nonce":762978222}
+round 75 of 100
+02-16 13:58:12.197 10780 10831 D MulticastServer: Listening for data.
+02-16 13:58:12.200 10780 10833 D MulticastServer: Registration process started with nonce: 1958600033
+02-16 13:58:12.202 10780 10832 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1958600033}
+02-16 13:58:12.609 10780 10838 D MulticastServer: FULL_LEDGER 1958600033
+02-16 13:58:13.211 10780 10834 D MulticastServer: Registration process finished: 1958600033
+02-16 13:58:13.217 10780 10855 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEQCIBl15OOuOfNj8ieOcnUjF63AtKR+HgTAyCPlrVluGKntAiAmQ6AW3g9vcF1rXmvCleB0P\/JZoUiqFfE40p5zvspKag==","nonce":1958600033}
+round 76 of 100
+02-16 13:58:16.575 10895 10945 D MulticastServer: Listening for data.
+02-16 13:58:16.577 10895 10947 D MulticastServer: Registration process started with nonce: 144510236
+02-16 13:58:16.579 10895 10946 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":144510236}
+02-16 13:58:16.744 10895 10950 D MulticastServer: FULL_LEDGER 144510236
+02-16 13:58:17.589 10895 10948 D MulticastServer: Registration process finished: 144510236
+02-16 13:58:17.591 10895 10950 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIDvim1SFrH6Rlt1wYLUa7F4ggnGAdabPLDzuQ2rd7gx0AiEAt1PXR4oAjpDc1hgrkmOQ0ioPg9VGNXFQ+rXygJBdKkE=","nonce":144510236}
+round 77 of 100
+02-16 13:58:20.933 11005 11056 D MulticastServer: Listening for data.
+02-16 13:58:20.938 11005 11058 D MulticastServer: Registration process started with nonce: 2055497945
+02-16 13:58:20.942 11005 11061 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":2055497945}
+02-16 13:58:21.039 11005 11063 D MulticastServer: FULL_LEDGER 2055497945
+02-16 13:58:21.851 11005 11061 D MulticastServer: FULL_LEDGER 2055497945
+02-16 13:58:21.947 11005 11059 D MulticastServer: Registration process finished: 2055497945
+02-16 13:58:21.952 11005 11061 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIFcuKsTPTIMGq0yZmKENJBnjOkctCVwKJi7bWJ7puKmFAiEA8qsgm90Y0aD9Jmv4s54yYYQ3qF4RD1st4AC3nBC8OsI=","nonce":2055497945}
+round 78 of 100
+02-16 13:58:25.361 11119 11169 D MulticastServer: Listening for data.
+02-16 13:58:25.363 11119 11171 D MulticastServer: Registration process started with nonce: 935677864
+02-16 13:58:25.367 11119 11170 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":935677864}
+02-16 13:58:25.564 11119 11177 D MulticastServer: FULL_LEDGER 935677864
+02-16 13:58:26.361 11119 11177 D MulticastServer: FULL_LEDGER 935677864
+02-16 13:58:26.393 11119 11172 D MulticastServer: Registration process finished: 935677864
+02-16 13:58:26.400 11119 11177 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEYCIQCnJFuZrLsmEUMWTJCYFTNU\/dynp4yT8\/RNPiZOXTH2xQIhAKubEshEIPyPDZDfhWl4xuuaIc8DM5hVFI2nif5M3o21","nonce":935677864}
+round 79 of 100
+02-16 13:58:29.766 11215 11266 D MulticastServer: Listening for data.
+02-16 13:58:29.769 11215 11268 D MulticastServer: Registration process started with nonce: 445374744
+02-16 13:58:29.774 11215 11271 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":445374744}
+02-16 13:58:29.854 11215 11273 D MulticastServer: FULL_LEDGER 445374744
+02-16 13:58:30.687 11215 11274 D MulticastServer: FULL_LEDGER 445374744
+02-16 13:58:30.782 11215 11269 D MulticastServer: Registration process finished: 445374744
+02-16 13:58:30.786 11215 11274 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEYCIQCMPYrNq1Jfv2PA+x7UveYEY165rFcsOBbq5kkq9TY5jgIhAIBxIs6sdmL9aXQUOqoUy9pbGfNLhmFUlOVlgtFbL1YP","nonce":445374744}
+round 80 of 100
+02-16 13:58:34.156 11328 11380 D MulticastServer: Listening for data.
+02-16 13:58:34.158 11328 11382 D MulticastServer: Registration process started with nonce: 824702166
+02-16 13:58:34.160 11328 11381 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":824702166}
+02-16 13:58:34.357 11328 11388 D MulticastServer: FULL_LEDGER 824702166
+02-16 13:58:35.166 11328 11386 D MulticastServer: FULL_LEDGER 824702166
+02-16 13:58:35.168 11328 11383 D MulticastServer: Registration process finished: 824702166
+02-16 13:58:35.175 11328 11381 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIC73gNAoOyDxOYF7bmX7ELgfzx4r9WTsxquGLKADfay5AiEAl1VhJ4+Y2V8su1MxUA8JIzJfraT9uqWMg0nM4iyYdiQ=","nonce":824702166}
+round 81 of 100
+02-16 13:58:38.489 11432 11483 D MulticastServer: Listening for data.
+02-16 13:58:38.491 11432 11485 D MulticastServer: Registration process started with nonce: 129120474
+02-16 13:58:38.493 11432 11484 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":129120474}
+02-16 13:58:38.657 11432 11489 D MulticastServer: FULL_LEDGER 129120474
+02-16 13:58:39.468 11432 11489 D MulticastServer: FULL_LEDGER 129120474
+02-16 13:58:39.501 11432 11486 D MulticastServer: Registration process finished: 129120474
+02-16 13:58:39.506 11432 11489 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIQDkTBbLhHj8uqK0vRUQxzif+dLsP10sAale\/EPSX0YDRAIgGNRmETxlBcJZ9Y+frHBEwJ+esHob4CaK\/s\/fcxYW094=","nonce":129120474}
+round 82 of 100
+02-16 13:58:42.919 11551 11608 D MulticastServer: Listening for data.
+02-16 13:58:42.924 11551 11610 D MulticastServer: Registration process started with nonce: 488997920
+02-16 13:58:42.930 11551 11613 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":488997920}
+02-16 13:58:43.329 11551 11615 D MulticastServer: FULL_LEDGER 488997920
+02-16 13:58:43.935 11551 11611 D MulticastServer: Registration process finished: 488997920
+02-16 13:58:43.942 11551 11613 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIHHHKdqO17ZKkuWCfhBTcm6kQbIxRy5EGdv958s\/\/mJPAiEA1SK5cX0pq502k6RsqZJztSYd7+l87+Mom\/GJGMVXk9o=","nonce":488997920}
+round 83 of 100
+02-16 13:58:47.331 11656 11707 D MulticastServer: Listening for data.
+02-16 13:58:47.333 11656 11708 D MulticastServer: Registration process started with nonce: 1294052976
+02-16 13:58:47.335 11656 11706 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1294052976}
+02-16 13:58:47.464 11656 11713 D MulticastServer: FULL_LEDGER 1294052976
+02-16 13:58:48.353 11656 11713 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIEWF+RpyUjjGnhzoyosFj35j48oOMXIDatzXhUH+pywSAiEAtU0Q0ticmRdfn1yrVt2ifMBwpgABplXUhp8tGEW9g8k=","nonce":1294052976}
+02-16 13:58:48.353 11656 11709 D MulticastServer: Registration process finished: 1294052976
+round 84 of 100
+02-16 13:58:51.724 11767 11820 D MulticastServer: Listening for data.
+02-16 13:58:51.727 11767 11822 D MulticastServer: Registration process started with nonce: 1985582458
+02-16 13:58:51.729 11767 11821 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1985582458}
+02-16 13:58:52.137 11767 11827 D MulticastServer: FULL_LEDGER 1985582458
+02-16 13:58:52.737 11767 11823 D MulticastServer: Registration process finished: 1985582458
+02-16 13:58:52.743 11767 11821 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIQC4e+8bF8vziZqeau6IsvyyeryOnTf5n\/UdNR6AKURf\/QIgBDoQhWg4EEgVg3lVb0uNrCccj7\/PESMH3ry3XRbuOoc=","nonce":1985582458}
+round 85 of 100
+02-16 13:58:56.097 11868 11918 D MulticastServer: Listening for data.
+02-16 13:58:56.099 11868 11921 D MulticastServer: Registration process started with nonce: 1641265188
+02-16 13:58:56.101 11868 11920 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1641265188}
+02-16 13:58:56.277 11868 11927 D MulticastServer: FULL_LEDGER 1641265188
+02-16 13:58:57.110 11868 11922 D MulticastServer: Registration process finished: 1641265188
+02-16 13:58:57.115 11868 11927 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIQD2Rc55zo5nuJf\/QC0kb+dhX3HY4AejlI+dcQfGqNPIugIgfz3Xl0G12EAezOcDV7bLy7GltiUCNxsEDiSi2\/B95Zk=","nonce":1641265188}
+round 86 of 100
+02-16 13:59:00.461 11980 12031 D MulticastServer: Listening for data.
+02-16 13:59:00.463 11980 12033 D MulticastServer: Registration process started with nonce: 2033477964
+02-16 13:59:00.465 11980 12032 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":2033477964}
+02-16 13:59:00.568 11980 12037 D MulticastServer: FULL_LEDGER 2033477964
+02-16 13:59:01.376 11980 12032 D MulticastServer: FULL_LEDGER 2033477964
+02-16 13:59:01.471 11980 12034 D MulticastServer: Registration process finished: 2033477964
+02-16 13:59:01.474 11980 12032 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEQCIBxblmHCkX6GCRJ3MDGjhNSjxCz9km1IFGLuqD5PMip4AiBnqfd+Kjo7JQiFmeHtJcgJAkI5gI+7GQtcO3dm+Ll94g==","nonce":2033477964}
+round 87 of 100
+02-16 13:59:04.840 12080 12131 D MulticastServer: Listening for data.
+02-16 13:59:04.842 12080 12133 D MulticastServer: Registration process started with nonce: 1639478902
+02-16 13:59:04.845 12080 12132 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1639478902}
+02-16 13:59:05.245 12080 12138 D MulticastServer: FULL_LEDGER 1639478902
+02-16 13:59:05.854 12080 12134 D MulticastServer: Registration process finished: 1639478902
+02-16 13:59:05.860 12080 12138 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEQCIBDTt8IQ6VOq5cZ9oYgyRR4OTw0HwqhhDrRVQLwU+SS5AiA40RrDxsB40XaImxwlAIl88HiAZ9oh2eZHJhYcdPe3Ig==","nonce":1639478902}
+round 88 of 100
+02-16 13:59:09.166 12191 12245 D MulticastServer: Listening for data.
+02-16 13:59:09.168 12191 12247 D MulticastServer: Registration process started with nonce: 463240467
+02-16 13:59:09.171 12191 12246 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":463240467}
+02-16 13:59:09.211 12191 12252 D MulticastServer: FULL_LEDGER 463240467
+02-16 13:59:10.022 12191 12246 D MulticastServer: FULL_LEDGER 463240467
+02-16 13:59:10.179 12191 12248 D MulticastServer: Registration process finished: 463240467
+02-16 13:59:10.185 12191 12246 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIBmnfme\/XPCv85B9S0oOg\/3PYNPPNFi+E+DJemM\/E6\/NAiEAn6Z4OrWYLVw3roIpAGJlnCQKdSqZtCE\/aL7DJ\/AV7Sk=","nonce":463240467}
+round 89 of 100
+02-16 13:59:13.506 12297 12350 D MulticastServer: Listening for data.
+02-16 13:59:13.508 12297 12351 D MulticastServer: Registration process started with nonce: 1838404301
+02-16 13:59:13.510 12297 12349 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1838404301}
+02-16 13:59:13.685 12297 12356 D MulticastServer: FULL_LEDGER 1838404301
+02-16 13:59:14.517 12297 12356 D MulticastServer: FULL_LEDGER 1838404301
+02-16 13:59:14.540 12297 12352 D MulticastServer: Registration process finished: 1838404301
+02-16 13:59:14.544 12297 12356 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIQD+yBs5h6kEyWGoJj9PKrKnmxZDeQqFiPqmbPbpvIbGRwIgCLsNlkwtLr5logtmscmNJaoXvBaKpb2joDPGrbahmsc=","nonce":1838404301}
+round 90 of 100
+02-16 13:59:17.982 12397 12447 D MulticastServer: Listening for data.
+02-16 13:59:17.987 12397 12449 D MulticastServer: Registration process started with nonce: 1097082307
+02-16 13:59:17.989 12397 12452 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1097082307}
+02-16 13:59:18.184 12397 12453 D MulticastServer: FULL_LEDGER 1097082307
+02-16 13:59:19.003 12397 12450 D MulticastServer: Registration process finished: 1097082307
+02-16 13:59:19.008 12397 12453 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIQDp6rFQ2pkJR1U64STBdLBUoc7P6kECZcDQ7z6l0u2vlAIgbMuTmq3OIklbjUJeUCo2L9ApGXABbkvk9Vm0zQfstGw=","nonce":1097082307}
+round 91 of 100
+02-16 13:59:22.395 12497 12562 D MulticastServer: Listening for data.
+02-16 13:59:22.397 12497 12564 D MulticastServer: Registration process started with nonce: 1601028956
+02-16 13:59:22.402 12497 12567 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1601028956}
+02-16 13:59:22.452 12497 12563 D MulticastServer: FULL_LEDGER 1601028956
+02-16 13:59:23.267 12497 12563 D MulticastServer: FULL_LEDGER 1601028956
+02-16 13:59:23.408 12497 12565 D MulticastServer: Registration process finished: 1601028956
+02-16 13:59:23.413 12497 12563 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIDEZglvBUgcsbWMcnA3+Tn8641n8\/y1EjdkexMqdVyyVAiEA6SPFNMlW2ZGLcwrFkM72mZRpu7in4Xfx8zeXoHfXVnE=","nonce":1601028956}
+round 92 of 100
+02-16 13:59:26.780 12608 12660 D MulticastServer: Listening for data.
+02-16 13:59:26.782 12608 12662 D MulticastServer: Registration process started with nonce: 2049042996
+02-16 13:59:26.785 12608 12665 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":2049042996}
+02-16 13:59:27.157 12608 12661 D MulticastServer: FULL_LEDGER 2049042996
+02-16 13:59:27.795 12608 12663 D MulticastServer: Registration process finished: 2049042996
+02-16 13:59:27.799 12608 12684 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIAnMQU8u85DcYVRLEx6N8q8grm4gt1GuSqnSEgaLifonAiEAzQNPKWp2JWbgvA3UDB7B\/VlZzYrz0VROFqBpctLqraI=","nonce":2049042996}
+round 93 of 100
+02-16 13:59:31.121 12718 12770 D MulticastServer: Listening for data.
+02-16 13:59:31.123 12718 12772 D MulticastServer: Registration process started with nonce: 385242747
+02-16 13:59:31.125 12718 12771 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":385242747}
+02-16 13:59:31.304 12718 12777 D MulticastServer: FULL_LEDGER 385242747
+02-16 13:59:32.122 12718 12771 D MulticastServer: FULL_LEDGER 385242747
+02-16 13:59:32.133 12718 12773 D MulticastServer: Registration process finished: 385242747
+02-16 13:59:32.137 12718 12777 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIFExTfi09fnbEzsxw7P5Z2tdn5mVzB1aoF4yNH8K0pBHAiEAt8AwMNvjZB7F+PjC7+f2HRawZeAqraEYxOqyqEDPrr8=","nonce":385242747}
+round 94 of 100
+02-16 13:59:35.524 12831 12881 D MulticastServer: Listening for data.
+02-16 13:59:35.526 12831 12883 D MulticastServer: Registration process started with nonce: 1350528961
+02-16 13:59:35.534 12831 12886 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1350528961}
+02-16 13:59:35.825 12831 12887 D MulticastServer: FULL_LEDGER 1350528961
+02-16 13:59:36.540 12831 12884 D MulticastServer: Registration process finished: 1350528961
+02-16 13:59:36.545 12831 12887 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEQCIFTxmd+ve\/EXua+WszKoBsdFZogNUx3TyDey7kky8ECtAiBpsVqAbgkz3B7YhZY1u097x0OaeDqJLJNzYvPqJRKdjw==","nonce":1350528961}
+round 95 of 100
+02-16 13:59:39.894 12940 12992 D MulticastServer: Listening for data.
+02-16 13:59:39.896 12940 12994 D MulticastServer: Registration process started with nonce: 603660591
+02-16 13:59:39.899 12940 12993 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":603660591}
+02-16 13:59:40.100 12940 12999 D MulticastServer: FULL_LEDGER 603660591
+02-16 13:59:40.905 12940 12999 D MulticastServer: FULL_LEDGER 603660591
+02-16 13:59:40.907 12940 12995 D MulticastServer: Registration process finished: 603660591
+02-16 13:59:40.914 12940 12993 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIQDijDnHnqwmUKZe8iMirb4C0snJ4czV7RUfQgA50LYYuwIgIUBtqfKXtMw1L98pb0wS7EhVWnpKRCoIqFTpKBoSYg8=","nonce":603660591}
+round 96 of 100
+02-16 13:59:44.215 13044 13094 D MulticastServer: Listening for data.
+02-16 13:59:44.218 13044 13096 D MulticastServer: Registration process started with nonce: 492676305
+02-16 13:59:44.220 13044 13095 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":492676305}
+02-16 13:59:45.213 13044 13114 D MulticastServer: FULL_LEDGER 492676305
+02-16 13:59:45.222 13044 13097 D MulticastServer: Registration process finished: 492676305
+02-16 13:59:45.228 13044 13095 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEYCIQC8j\/xL8hoGjVznpBMvnmV42cSkmfvKks\/eF6I5Nk0sZAIhAKC58EkqjMMNih0F4esFm4CL4dz6JcL0mlMS3pOX8fsG","nonce":492676305}
+round 97 of 100
+02-16 13:59:48.579 13140 13192 D MulticastServer: Listening for data.
+02-16 13:59:48.581 13140 13194 D MulticastServer: Registration process started with nonce: 1319077695
+02-16 13:59:48.583 13140 13193 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1319077695}
+02-16 13:59:48.704 13140 13197 D MulticastServer: FULL_LEDGER 1319077695
+02-16 13:59:49.504 13140 13193 D MulticastServer: FULL_LEDGER 1319077695
+02-16 13:59:49.591 13140 13195 D MulticastServer: Registration process finished: 1319077695
+02-16 13:59:49.595 13140 13193 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIQCcEVhGQJwJIAxGtAuWasb3oWNFuGNYhJlKqEjzzrW76QIgAnW29hrKv2SJJDs+vr+IiggfaNDEXpTPA0G\/sVhQPZ4=","nonce":1319077695}
+round 98 of 100
+02-16 13:59:53.024 13255 13305 D MulticastServer: Listening for data.
+02-16 13:59:53.026 13255 13307 D MulticastServer: Registration process started with nonce: 439461961
+02-16 13:59:53.028 13255 13306 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":439461961}
+02-16 13:59:53.209 13255 13322 D MulticastServer: FULL_LEDGER 439461961
+02-16 13:59:54.021 13255 13322 D MulticastServer: FULL_LEDGER 439461961
+02-16 13:59:54.035 13255 13308 D MulticastServer: Registration process finished: 439461961
+02-16 13:59:54.037 13255 13323 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIQCS2XFg1TAa8Sz0nkTZM1wm+3xNrAPZYieVkhcNlHKdlAIgMQlXCpD0eJ2rCTAr1zfx\/hU070n1XUqpDKX2s49MRQo=","nonce":439461961}
+round 99 of 100
+02-16 13:59:57.365 13351 13402 D MulticastServer: Listening for data.
+02-16 13:59:57.367 13351 13404 D MulticastServer: Registration process started with nonce: 2009342939
+02-16 13:59:57.369 13351 13403 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":2009342939}
+02-16 13:59:57.520 13351 13407 D MulticastServer: FULL_LEDGER 2009342939
+02-16 13:59:58.319 13351 13420 D MulticastServer: FULL_LEDGER 2009342939
+02-16 13:59:58.378 13351 13405 D MulticastServer: Registration process finished: 2009342939
+02-16 13:59:58.381 13351 13420 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEQCIHQhMa7J+0ubKzFzZAWub8+uIEZNcIQ4OT1hYxTgAnxWAiBk9ZK7o3LP4piZYHHMcrhtiuuzeEpPz8qE8C21BGlOQg==","nonce":2009342939}
+round 100 of 100
+02-16 14:00:01.682 13448 13503 D MulticastServer: Listening for data.
+02-16 14:00:01.684 13448 13505 D MulticastServer: Registration process started with nonce: 1241043966
+02-16 14:00:01.686 13448 13504 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1241043966}
+02-16 14:00:01.808 13448 13509 D MulticastServer: FULL_LEDGER 1241043966
+02-16 14:00:02.695 13448 13506 D MulticastServer: Registration process finished: 1241043966
+02-16 14:00:02.702 13448 13509 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIQDStFTcBF942dXxnQWboJ9MpvOe5BJhBVhRE4OXXBsPoQIgL2WABOAeDnBrFIbiLEf63StX6ENxA5kXMCUKfPGEetw=","nonce":1241043966}

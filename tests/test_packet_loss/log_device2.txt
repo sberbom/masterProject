@@ -1,8 +1,0 @@
-
---------- beginning of main
-02-16 10:56:16.451 25046 25099 D MulticastServer: Listening for data.
-02-16 10:56:16.454 25046 25101 D MulticastServer: Registration process started with nonce: 1046027691
-02-16 10:56:16.456 25046 25100 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1046027691}
-02-16 10:56:16.641 25046 25107 D MulticastServer: FULL_LEDGER 1046027691
-02-16 10:56:17.464 25046 25102 D MulticastServer: Registration process finished: 1046027691
-02-16 10:56:17.468 25046 25100 D MulticastClient: Sent message {"sender":"test1@mail.com","payload":"{\"username\":\"test1@mail.com\",\"ipAddress\":\"192.168.1.57\",\"certificate\":\"MIIBHjCBxQIGAX8B8bfoMAoGCCqGSM49BAMCMBkxFzAVBgNVBAMMDnRlc3QxQG1haWwuY29tMB4XDTIyMDIxNTA5NTEzMloXDTI0MDIxNjA5NTEzMlowGTEXMBUGA1UEAwwOdGVzdDFAbWFpbC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARA\/SgVG\/\/sjEQemt4qhVoER7I13masBZKS+jyzOk1BR77tq6v1RnMUJffg4ixEyIPePiIJCQXbFI62RWElvBe+MAoGCCqGSM49BAMCA0gAMEUCIHQXkRRAghMhqbJv+0kkWGG4JBv8eraSbc0LRPEE7uPPAiEArhnIDV9RAwFzjXtKb0DozFPfl5xi0oyXoqowTEGE8B4=\"}","messageType":"BROADCAST_BLOCK","signature":"MEUCIQC\/eyB8znWdlHUzfaacYMV8H\/IaEBk7OvrIb01aDi4VKQIgaNMEU7WyNXgPRye8lQKJhHUVE\/rmAnUadeINR8jkQgY=","nonce":1046027691}

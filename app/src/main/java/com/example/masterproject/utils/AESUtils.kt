@@ -57,17 +57,17 @@ class AESUtils {
         }
 
         fun calculateAESKeyDH(privateKey: PrivateKey, publicKey: PublicKey): SecretKey {
-            val keyAgreement = KeyAgreement.getInstance("ECDH")
+            val keyAgreement = KeyAgreement.getInstance(Constants.KEY_TYPE)
             keyAgreement.init(privateKey)
             keyAgreement.doPhase(publicKey, true)
             val sharedSecret = keyAgreement.generateSecret()
 
-            val sha256: MessageDigest = MessageDigest.getInstance("SHA-256")
+            val sha256: MessageDigest = MessageDigest.getInstance(Constants.MESSAGE_DIGEST_HASH)
             val byteKey: ByteArray = Arrays.copyOf(
                 sha256.digest(sharedSecret), AES_KEY_SIZE / java.lang.Byte.SIZE
             )
 
-            return SecretKeySpec(byteKey, "AES")
+            return SecretKeySpec(byteKey, Constants.SYMMETRIC_ENCRYPTION_ALGORITHM)
         }
 
         fun deleteAllStoredKeys() {
@@ -81,22 +81,13 @@ class AESUtils {
             }
         }
 
-        fun keyToString(key: SecretKey?): String {
-            return if(key != null) {
-                Base64.getEncoder().encodeToString(key.encoded)
-            }
-            else {
-                " "
-            }
-        }
-
         fun stringToKey(string: String): SecretKey {
             val keyString = Base64.getDecoder().decode(string)
-            return SecretKeySpec(keyString, 0, keyString.size, "AES");
+            return SecretKeySpec(keyString, 0, keyString.size, Constants.SYMMETRIC_ENCRYPTION_ALGORITHM);
         }
 
         fun symmetricEncryption(plaintext: String, secretKey: SecretKey): String {
-            val cipher = Cipher.getInstance("AES/GCM/NoPadding")
+            val cipher = Cipher.getInstance(Constants.SYMMETRIC_ENCRYPTION_TRANSFORMATION)
             cipher.init(Cipher.ENCRYPT_MODE, secretKey)
             val iv = cipher.iv.copyOf()
             val cipherText = cipher.doFinal(plaintext.toByteArray())
@@ -113,7 +104,7 @@ class AESUtils {
             try {
                 val cipherArray = Base64.getDecoder().decode(cipherText)
 
-                val cipher = Cipher.getInstance("AES/GCM/NoPadding")
+                val cipher = Cipher.getInstance(Constants.SYMMETRIC_ENCRYPTION_TRANSFORMATION)
                 //use first 12 bytes for iv
                 val gcmIv = GCMParameterSpec(GCM_TAG_LENGTH * 8, cipherArray, 0, GCM_IV_LENGTH)
                 cipher.init(Cipher.DECRYPT_MODE, secretKey, gcmIv)

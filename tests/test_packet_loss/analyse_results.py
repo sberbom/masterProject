@@ -1,5 +1,7 @@
-log_device_1 = open("./stored_result_1/log_device1.txt", "r")
-log_device_2 = open("./stored_result_1/log_device2.txt", "r")
+folder = "stored_result_2_send_1"
+
+log_device_1 = open("./{}/log_device1.txt".format(folder), "r")
+log_device_2 = open("./{}/log_device2.txt".format(folder), "r")
 
 messages_sent = 0
 
@@ -16,8 +18,6 @@ for line in log_device_1:
     number_of_rounds = int(filtered_line_list[-1])
   if len(filtered_line_list) > 8 and filtered_line_list[5] == "MulticastClient:" and "FULL_LEDGER" in filtered_line_list[8]:
     messages_sent += 1
-  else:
-    print(filtered_line_list)
 
 for line in log_device_2:
   line_list = line.split(" ")
@@ -27,15 +27,15 @@ for line in log_device_2:
     if not nonce in received_nonces:
       messages_received += 1
       received_nonces.append(nonce)
-    else:
-      print(filtered_line_list)
 
-print("Sent {0} packets. Expected to have sent {1} packets".format(messages_sent, number_of_rounds))
+print("Received {0} out of {1} requests for ledger.".format(messages_sent, number_of_rounds))
 
-print("Received {0} out of {1} packets.".format(messages_received, messages_sent))
+print("Packet loss of request ledger: {:.3f}".format(1 - messages_sent/number_of_rounds))
+
+print("Received {0} out of {1} full ledgers.".format(messages_received, messages_sent))
 
 if messages_sent > 0:
-  package_loss = 1 - (messages_received / messages_sent)
-  print("Package loss:", "{0:.3f}".format(package_loss))
+  packet_loss_ledger = 1 - (messages_received / messages_sent)
+  print("Packet loss of full ledger: {0:.3f}".format(packet_loss_ledger))
 else: 
-  print("No packets sent.")
+  print("No ledgers sent.")

@@ -1,4 +1,4 @@
-folder = "stored_result_2_send_1"
+folder = "stored_result_3_send_1"
 
 log_device_1 = open("./{}/log_device1.txt".format(folder), "r")
 log_device_2 = open("./{}/log_device2.txt".format(folder), "r")

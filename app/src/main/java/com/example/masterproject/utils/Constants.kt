@@ -1,8 +1,5 @@
 package com.example.masterproject.utils
 
-import android.annotation.SuppressLint
-import android.content.Context
-
 class Constants {
     companion object {
         const val multicastGroup: String = "224.0.0.10"
@@ -11,6 +8,7 @@ class Constants {
         const val TLS_SERVERPORT = 7001
         const val TLS_VERSION = "TLSv1.3"
         const val SSL_TYPE = "TLS"
+        const val KEYSTORE_TYPE = "PKCS12"
         const val KEYSTORE_PATH = "/keystore.pfx"
         const val TRUSTSTORE_PATH = "/truststore.pfx"
         const val SYMMETRIC_KEYSTORE_PATH = "/symmetrickeystore.pfx"
@@ -26,8 +24,6 @@ class Constants {
         const val CERTIFICATE_TYPE = "X.509"
         const val KEY_MANAGER_INSTANCE = "X509"
         const val CA_CN = "CN=TTM4905 CA"
-
-        const val KEYSTORE_TYPE = "PKCS12"
 
     }
 }

@@ -81,7 +81,7 @@ class MulticastServer: Service() {
 
     // TODO: Should not send hash if there are CA-certified and you are not one of them
     private fun handleRequestedLedger(networkMessage: NetworkMessage) {
-        if (!shouldHandleRequests) return
+        if (!shouldHandleRequests || registrationHandlers[networkMessage.nonce] != null) return
         val registrationHandler = startRegistrationProcess(networkMessage.nonce, false) ?: return
         // if I started the registration, I will not send anything
         if (registrationHandler.isMyRegistration) return
@@ -126,7 +126,7 @@ class MulticastServer: Service() {
         if (networkMessage.sender == Ledger.myLedgerEntry?.userName) return
         val registrationHandler = startRegistrationProcess(networkMessage.nonce, false) ?: return
         val ledger = networkMessage.payload
-        Log.d(TAG, "Received full ledger from ${networkMessage.sender}: $ledger")
+        Log.d(TAG, "FULL_LEDGER ${networkMessage.nonce}")
         val ledgerWithoutBrackets = ledger.substring(1, ledger.length - 1)
         if (ledgerWithoutBrackets.isNotEmpty()) {
             // split between array objects

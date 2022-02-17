@@ -11,7 +11,7 @@ adb -s $device1 logcat --clear
 adb -s $device2 logcat --clear
 adb -s $device1 logcat MulticastClient:D MulticastServer:D RegistrationHandler:D \*:S >> log_device1.txt &
 adb -s $device2 logcat MulticastClient:D MulticastServer:D RegistrationHandler:D \*:S >> log_device2.txt &
-rounds=100
+rounds=300
 echo "Number of rounds: $rounds" > log_device1.txt
 echo "Number of rounds: $rounds" > log_device2.txt
 for i in {1..$rounds}

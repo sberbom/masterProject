@@ -35,7 +35,7 @@ class PKIUtils {
         private var context: Context? = App.getAppContext()
 
         fun generateECKeyPair(): KeyPair {
-            val ECDSAGenerator = KeyPairGenerator.getInstance("EC");
+            val ECDSAGenerator = KeyPairGenerator.getInstance(Constants.ASYMMETRIC_KEY_GENERATION_ALGORITHM);
             val keyPair = ECDSAGenerator.genKeyPair()
             privateKey = keyPair.private
             return keyPair
@@ -80,7 +80,7 @@ class PKIUtils {
             )
             val privateKeyInfo = PrivateKeyInfo.getInstance(keyPair.private.encoded)
             // This function takes a lot of time
-            val contentSigner = JcaContentSignerBuilder("SHA256withECDSA").build(
+            val contentSigner = JcaContentSignerBuilder(Constants.ASYMMETRIC_SIGNATURE_ALGORITHM).build(
                 JcaPEMKeyConverter().getPrivateKey(privateKeyInfo)
             )
             val holder: X509CertificateHolder = certificateBuilder.build(contentSigner)
@@ -92,7 +92,7 @@ class PKIUtils {
         }
 
         fun isCASignedCertificate(certificate: X509Certificate): Boolean {
-            return certificate.issuerDN.toString() == "CN=TTM4905 CA" && isValidCACertificate(
+            return certificate.issuerDN.toString() == Constants.CA_CN && isValidCACertificate(
                 certificate
             )
         }
@@ -109,14 +109,14 @@ class PKIUtils {
             val encodedCertificate: ByteArray = Base64.getDecoder().decode(string)
             val inputStream = ByteArrayInputStream(encodedCertificate)
 
-            val certificateFactory: CertificateFactory = CertificateFactory.getInstance("X.509")
+            val certificateFactory: CertificateFactory = CertificateFactory.getInstance(Constants.CERTIFICATE_TYPE)
             return certificateFactory.generateCertificate(inputStream) as X509Certificate
         }
 
         fun stringToEncryptionKey(key: String): PublicKey {
             val encKey = Base64.getDecoder().decode(key)
             val publicKeySpec = X509EncodedKeySpec(encKey)
-            val keyFactory = KeyFactory.getInstance("EC")
+            val keyFactory = KeyFactory.getInstance(Constants.ASYMMETRIC_KEY_GENERATION_ALGORITHM)
             return keyFactory.generatePublic(publicKeySpec)
         }
 
@@ -126,7 +126,7 @@ class PKIUtils {
             val certificate =
                 pem.replace(beginCertificate, "").replace(endCertificate, "").replace("\n", "")
             val decoded: ByteArray = Base64.getDecoder().decode(certificate)
-            return (CertificateFactory.getInstance("X.509")
+            return (CertificateFactory.getInstance(Constants.CERTIFICATE_TYPE)
                 .generateCertificate(ByteArrayInputStream(decoded)) as X509Certificate)
         }
 
@@ -146,14 +146,14 @@ class PKIUtils {
         }
 
         fun signMessage(message: String, privateKey: PrivateKey, nonce: Int?): String {
-            val signatureBuilder = Signature.getInstance("SHA1withECDSA")
+            val signatureBuilder = Signature.getInstance(Constants.ASYMMETRIC_SIGNATURE_ALGORITHM)
             signatureBuilder.initSign(privateKey)
             signatureBuilder.update((if (nonce == null) message else "$message:$nonce").toByteArray())
             return Base64.getEncoder().encodeToString(signatureBuilder.sign())
         }
 
         fun verifySignature(message: String, signature: String, publicKey: PublicKey, nonce: Int?): Boolean {
-            val signatureBuilder = Signature.getInstance("SHA1withECDSA")
+            val signatureBuilder = Signature.getInstance(Constants.ASYMMETRIC_SIGNATURE_ALGORITHM)
             signatureBuilder.initVerify(publicKey)
             signatureBuilder.update((if (nonce == null) message else "$message:$nonce").toByteArray())
             return signatureBuilder.verify(Base64.getDecoder().decode(signature))
@@ -161,7 +161,7 @@ class PKIUtils {
         }
 
         fun loadKeyStore(): KeyStore {
-            val localKeyStore = KeyStore.getInstance("PKCS12")
+            val localKeyStore = KeyStore.getInstance(Constants.KEYSTORE_TYPE)
             if(context == null) throw java.lang.Exception("context is null")
             return try{
                 val fileInputStream = FileInputStream("${context!!.filesDir}/${Constants.KEYSTORE_PATH}")
@@ -194,16 +194,16 @@ class PKIUtils {
         }
 
         fun createSSLContext(): SSLContext {
-            val keyMangerFactory = KeyManagerFactory.getInstance("X509")
+            val keyMangerFactory = KeyManagerFactory.getInstance(Constants.KEY_MANAGER_INSTANCE)
             keyMangerFactory.init(keyStore, Constants.KEYSTORE_PASSWORD.toCharArray())
             val keyManagers = keyMangerFactory.keyManagers
 
-            val trustManagerFactory = TrustManagerFactory.getInstance("x509")
+            val trustManagerFactory = TrustManagerFactory.getInstance(Constants.KEY_MANAGER_INSTANCE)
             trustManagerFactory.init(trustStore)
             val trustManagers = trustManagerFactory.trustManagers
 
 
-            val sslContext = SSLContext.getInstance("TLS")
+            val sslContext = SSLContext.getInstance(Constants.SSL_TYPE)
             sslContext.init(keyManagers, trustManagers, null)
 
             return sslContext
@@ -229,10 +229,6 @@ class PKIUtils {
         fun deleteRootCertificateFromKeystore() {
             keyStore!!.deleteEntry("root")
             writeKeyStoreToFile()
-        }
-
-        fun deleteKeyStore(context: Context) {
-            context.deleteFile("${context.filesDir}${Constants.KEYSTORE_PATH}")
         }
 
         fun getStoredCertificate(): X509Certificate? {

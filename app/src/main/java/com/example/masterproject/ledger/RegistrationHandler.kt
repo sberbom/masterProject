@@ -95,7 +95,7 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
             if(!requestLedgerOfAcceptedHashTimerIsActive) {
                 requestLedgerOfAcceptedHashTimer.scheduleAtFixedRate(waitToRequest.toLong(), 500) {
                     requestLedgerOfAcceptedHashTimerIsActive = true
-                    if (!requestLedgerOfAcceptedHashTimerCancelled && requestLedgerOfAcceptedHashCounter >= 3) {
+                    if (!requestLedgerOfAcceptedHashTimerCancelled && requestLedgerOfAcceptedHashCounter < 3) {
                         requestLedgerOfAcceptedHashCounter += 1
                         requestLedgerOfCorrectHash(hashOfAcceptedLedger)
                     } else {

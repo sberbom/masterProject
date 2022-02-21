@@ -1,0 +1,1970 @@
+Number of rounds: 300
+round 1 of 300
+--------- beginning of main
+02-17 11:14:29.106 25202 25256 D MulticastServer: Listening for data.
+02-17 11:14:29.108 25202 25258 D MulticastServer: Registration process started with nonce: 612494779
+02-17 11:14:29.175 25202 25263 D MulticastServer: FULL_LEDGER 612494779
+02-17 11:14:29.912 25202 25257 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":612494779}
+02-17 11:14:30.033 25202 25263 D MulticastServer: FULL_LEDGER 612494779
+02-17 11:14:30.118 25202 25259 D MulticastServer: Registration process finished: 612494779
+round 2 of 300
+02-17 11:14:33.490 25306 25360 D MulticastServer: Listening for data.
+02-17 11:14:33.492 25306 25362 D MulticastServer: Registration process started with nonce: 1869806788
+02-17 11:14:33.682 25306 25367 D MulticastServer: FULL_LEDGER 1869806788
+02-17 11:14:34.297 25306 25361 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1869806788}
+02-17 11:14:34.505 25306 25363 D MulticastServer: Registration process finished: 1869806788
+round 3 of 300
+02-17 11:14:37.868 25418 25471 D MulticastServer: Listening for data.
+02-17 11:14:37.871 25418 25473 D MulticastServer: Registration process started with nonce: 894071101
+02-17 11:14:37.922 25418 25476 D MulticastServer: FULL_LEDGER 894071101
+02-17 11:14:38.676 25418 25472 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":894071101}
+02-17 11:14:38.881 25418 25474 D MulticastServer: Registration process finished: 894071101
+round 4 of 300
+02-17 11:14:42.196 25531 25585 D MulticastServer: Listening for data.
+02-17 11:14:42.198 25531 25587 D MulticastServer: Registration process started with nonce: 65098342
+02-17 11:14:42.298 25531 25590 D MulticastServer: FULL_LEDGER 65098342
+02-17 11:14:43.001 25531 25586 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":65098342}
+02-17 11:14:43.094 25531 25586 D MulticastServer: FULL_LEDGER 65098342
+02-17 11:14:43.209 25531 25588 D MulticastServer: Registration process finished: 65098342
+round 5 of 300
+02-17 11:14:46.540 25642 25695 D MulticastServer: Listening for data.
+02-17 11:14:46.545 25642 25697 D MulticastServer: Registration process started with nonce: 1371360657
+02-17 11:14:46.951 25642 25701 D MulticastServer: FULL_LEDGER 1371360657
+02-17 11:14:47.349 25642 25696 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1371360657}
+02-17 11:14:47.560 25642 25698 D MulticastServer: Registration process finished: 1371360657
+round 6 of 300
+02-17 11:14:50.950 25742 25796 D MulticastServer: Listening for data.
+02-17 11:14:50.952 25742 25798 D MulticastServer: Registration process started with nonce: 6792315
+02-17 11:14:51.109 25742 25803 D MulticastServer: FULL_LEDGER 6792315
+02-17 11:14:51.756 25742 25797 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":6792315}
+02-17 11:14:51.898 25742 25797 D MulticastServer: FULL_LEDGER 6792315
+02-17 11:14:51.964 25742 25799 D MulticastServer: Registration process finished: 6792315
+round 7 of 300
+02-17 11:14:55.327 25841 25895 D MulticastServer: Listening for data.
+02-17 11:14:55.330 25841 25897 D MulticastServer: Registration process started with nonce: 2123934320
+02-17 11:14:55.755 25841 25901 D MulticastServer: FULL_LEDGER 2123934320
+02-17 11:14:56.134 25841 25896 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":2123934320}
+02-17 11:14:56.339 25841 25898 D MulticastServer: Registration process finished: 2123934320
+round 8 of 300
+02-17 11:14:59.646 25951 26004 D MulticastServer: Listening for data.
+02-17 11:14:59.651 25951 26006 D MulticastServer: Registration process started with nonce: 554571953
+02-17 11:14:59.951 25951 26012 D MulticastServer: FULL_LEDGER 554571953
+02-17 11:15:00.461 25951 26010 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":554571953}
+02-17 11:15:00.666 25951 26007 D MulticastServer: Registration process finished: 554571953
+round 9 of 300
+02-17 11:15:04.032 26068 26134 D MulticastServer: Listening for data.
+02-17 11:15:04.035 26068 26136 D MulticastServer: Registration process started with nonce: 1386046910
+02-17 11:15:04.195 26068 26139 D MulticastServer: FULL_LEDGER 1386046910
+02-17 11:15:04.839 26068 26135 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1386046910}
+02-17 11:15:05.004 26068 26135 D MulticastServer: FULL_LEDGER 1386046910
+02-17 11:15:05.050 26068 26137 D MulticastServer: Registration process finished: 1386046910
+round 10 of 300
+02-17 11:15:08.422 26193 26246 D MulticastServer: Listening for data.
+02-17 11:15:08.424 26193 26248 D MulticastServer: Registration process started with nonce: 2035018357
+02-17 11:15:08.562 26193 26253 D MulticastServer: FULL_LEDGER 2035018357
+02-17 11:15:09.229 26193 26247 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":2035018357}
+02-17 11:15:09.346 26193 26263 D MulticastServer: FULL_LEDGER 2035018357
+02-17 11:15:09.434 26193 26249 D MulticastServer: Registration process finished: 2035018357
+round 11 of 300
+02-17 11:15:12.770 26294 26347 D MulticastServer: Listening for data.
+02-17 11:15:12.772 26294 26349 D MulticastServer: Registration process started with nonce: 1393181491
+02-17 11:15:13.063 26294 26353 D MulticastServer: FULL_LEDGER 1393181491
+02-17 11:15:13.576 26294 26348 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1393181491}
+02-17 11:15:13.813 26294 26350 D MulticastServer: Registration process finished: 1393181491
+round 12 of 300
+02-17 11:15:17.079 26405 26460 D MulticastServer: Listening for data.
+02-17 11:15:17.081 26405 26462 D MulticastServer: Registration process started with nonce: 389288104
+02-17 11:15:17.886 26405 26465 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":389288104}
+02-17 11:15:18.098 26405 26463 D MulticastServer: Registration process finished: 389288104
+round 13 of 300
+02-17 11:15:21.481 26520 26573 D MulticastServer: Listening for data.
+02-17 11:15:21.483 26520 26575 D MulticastServer: Registration process started with nonce: 154313529
+02-17 11:15:21.610 26520 26580 D MulticastServer: FULL_LEDGER 154313529
+02-17 11:15:22.289 26520 26578 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":154313529}
+02-17 11:15:22.492 26520 26580 D MulticastServer: FULL_LEDGER 154313529
+02-17 11:15:22.505 26520 26576 D MulticastServer: Registration process finished: 154313529
+round 14 of 300
+02-17 11:15:25.883 26630 26682 D MulticastServer: Listening for data.
+02-17 11:15:25.885 26630 26684 D MulticastServer: Registration process started with nonce: 521622245
+02-17 11:15:26.108 26630 26690 D MulticastServer: FULL_LEDGER 521622245
+02-17 11:15:26.689 26630 26683 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":521622245}
+02-17 11:15:26.898 26630 26685 D MulticastServer: Registration process finished: 521622245
+round 15 of 300
+02-17 11:15:30.258 26726 26787 D MulticastServer: Listening for data.
+02-17 11:15:30.261 26726 26789 D MulticastServer: Registration process started with nonce: 1145702935
+02-17 11:15:30.447 26726 26793 D MulticastServer: FULL_LEDGER 1145702935
+02-17 11:15:31.066 26726 26788 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1145702935}
+02-17 11:15:31.218 26726 26793 D MulticastServer: FULL_LEDGER 1145702935
+02-17 11:15:31.276 26726 26790 D MulticastServer: Registration process finished: 1145702935
+round 16 of 300
+02-17 11:15:34.647 26846 26923 D MulticastServer: Listening for data.
+02-17 11:15:34.650 26846 26926 D MulticastServer: Registration process started with nonce: 924651789
+02-17 11:15:35.083 26846 26930 D MulticastServer: FULL_LEDGER 924651789
+02-17 11:15:35.455 26846 26929 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":924651789}
+02-17 11:15:35.661 26846 26927 D MulticastServer: Registration process finished: 924651789
+round 17 of 300
+02-17 11:15:39.041 26969 27026 D MulticastServer: Listening for data.
+02-17 11:15:39.044 26969 27028 D MulticastServer: Registration process started with nonce: 756556732
+02-17 11:15:39.237 26969 27033 D MulticastServer: FULL_LEDGER 756556732
+02-17 11:15:39.851 26969 27031 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":756556732}
+02-17 11:15:40.027 26969 27031 D MulticastServer: FULL_LEDGER 756556732
+02-17 11:15:40.050 26969 27029 D MulticastServer: Registration process finished: 756556732
+round 18 of 300
+02-17 11:15:43.351 27084 27137 D MulticastServer: Listening for data.
+02-17 11:15:43.353 27084 27139 D MulticastServer: Registration process started with nonce: 1635311663
+02-17 11:15:43.523 27084 27144 D MulticastServer: FULL_LEDGER 1635311663
+02-17 11:15:44.157 27084 27138 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1635311663}
+02-17 11:15:44.362 27084 27156 D MulticastServer: FULL_LEDGER 1635311663
+02-17 11:15:44.372 27084 27140 D MulticastServer: Registration process finished: 1635311663
+round 19 of 300
+02-17 11:15:47.725 27185 27239 D MulticastServer: Listening for data.
+02-17 11:15:47.727 27185 27241 D MulticastServer: Registration process started with nonce: 1788730069
+02-17 11:15:47.863 27185 27244 D MulticastServer: FULL_LEDGER 1788730069
+02-17 11:15:48.531 27185 27240 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1788730069}
+02-17 11:15:48.630 27185 27240 D MulticastServer: FULL_LEDGER 1788730069
+02-17 11:15:48.741 27185 27242 D MulticastServer: Registration process finished: 1788730069
+round 20 of 300
+02-17 11:15:52.153 27284 27337 D MulticastServer: Listening for data.
+02-17 11:15:52.158 27284 27339 D MulticastServer: Registration process started with nonce: 1039021249
+02-17 11:15:52.327 27284 27344 D MulticastServer: FULL_LEDGER 1039021249
+02-17 11:15:52.965 27284 27343 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1039021249}
+02-17 11:15:53.162 27284 27343 D MulticastServer: FULL_LEDGER 1039021249
+02-17 11:15:53.170 27284 27341 D MulticastServer: Registration process finished: 1039021249
+round 21 of 300
+02-17 11:15:56.506 27395 27459 D MulticastServer: Listening for data.
+02-17 11:15:56.509 27395 27461 D MulticastServer: Registration process started with nonce: 618324094
+02-17 11:15:56.679 27395 27466 D MulticastServer: FULL_LEDGER 618324094
+02-17 11:15:57.313 27395 27460 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":618324094}
+02-17 11:15:57.434 27395 27460 D MulticastServer: FULL_LEDGER 618324094
+02-17 11:15:57.518 27395 27462 D MulticastServer: Registration process finished: 618324094
+round 22 of 300
+02-17 11:16:00.870 27527 27577 D MulticastServer: Listening for data.
+02-17 11:16:00.873 27527 27585 D MulticastServer: Registration process started with nonce: 1143185464
+02-17 11:16:01.295 27527 27589 D MulticastServer: FULL_LEDGER 1143185464
+02-17 11:16:01.681 27527 27588 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1143185464}
+02-17 11:16:01.884 27527 27586 D MulticastServer: Registration process finished: 1143185464
+round 23 of 300
+02-17 11:16:05.213 27641 27693 D MulticastServer: Listening for data.
+02-17 11:16:05.215 27641 27695 D MulticastServer: Registration process started with nonce: 1797005024
+02-17 11:16:05.595 27641 27700 D MulticastServer: FULL_LEDGER 1797005024
+02-17 11:16:06.020 27641 27698 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1797005024}
+02-17 11:16:06.226 27641 27696 D MulticastServer: Registration process finished: 1797005024
+round 24 of 300
+02-17 11:16:09.565 27752 27804 D MulticastServer: Listening for data.
+02-17 11:16:09.567 27752 27806 D MulticastServer: Registration process started with nonce: 766212743
+02-17 11:16:09.735 27752 27811 D MulticastServer: FULL_LEDGER 766212743
+02-17 11:16:10.374 27752 27809 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":766212743}
+02-17 11:16:10.543 27752 27811 D MulticastServer: FULL_LEDGER 766212743
+02-17 11:16:10.574 27752 27807 D MulticastServer: Registration process finished: 766212743
+round 25 of 300
+02-17 11:16:13.947 27864 27917 D MulticastServer: Listening for data.
+02-17 11:16:13.949 27864 27919 D MulticastServer: Registration process started with nonce: 1441308208
+02-17 11:16:14.127 27864 27924 D MulticastServer: FULL_LEDGER 1441308208
+02-17 11:16:14.754 27864 27918 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1441308208}
+02-17 11:16:14.903 27864 27935 D MulticastServer: FULL_LEDGER 1441308208
+02-17 11:16:14.961 27864 27920 D MulticastServer: Registration process finished: 1441308208
+round 26 of 300
+02-17 11:16:18.315 27964 28016 D MulticastServer: Listening for data.
+02-17 11:16:18.318 27964 28018 D MulticastServer: Registration process started with nonce: 393558045
+02-17 11:16:18.387 27964 28023 D MulticastServer: FULL_LEDGER 393558045
+02-17 11:16:19.122 27964 28017 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":393558045}
+02-17 11:16:19.241 27964 28017 D MulticastServer: FULL_LEDGER 393558045
+02-17 11:16:19.330 27964 28019 D MulticastServer: Registration process finished: 393558045
+round 27 of 300
+02-17 11:16:22.679 28086 28137 D MulticastServer: Listening for data.
+02-17 11:16:22.681 28086 28139 D MulticastServer: Registration process started with nonce: 1262533010
+02-17 11:16:22.843 28086 28144 D MulticastServer: FULL_LEDGER 1262533010
+02-17 11:16:23.486 28086 28138 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1262533010}
+02-17 11:16:23.688 28086 28155 D MulticastServer: FULL_LEDGER 1262533010
+02-17 11:16:23.696 28086 28140 D MulticastServer: Registration process finished: 1262533010
+round 28 of 300
+02-17 11:16:27.077 28196 28249 D MulticastServer: Listening for data.
+02-17 11:16:27.079 28196 28251 D MulticastServer: Registration process started with nonce: 2036430488
+02-17 11:16:27.512 28196 28255 D MulticastServer: FULL_LEDGER 2036430488
+02-17 11:16:27.884 28196 28250 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":2036430488}
+02-17 11:16:28.092 28196 28252 D MulticastServer: Registration process finished: 2036430488
+round 29 of 300
+02-17 11:16:31.437 28309 28365 D MulticastServer: Listening for data.
+02-17 11:16:31.440 28309 28367 D MulticastServer: Registration process started with nonce: 1498908498
+02-17 11:16:31.646 28309 28372 D MulticastServer: FULL_LEDGER 1498908498
+02-17 11:16:32.244 28309 28366 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1498908498}
+02-17 11:16:32.451 28309 28368 D MulticastServer: Registration process finished: 1498908498
+round 30 of 300
+02-17 11:16:35.774 28421 28472 D MulticastServer: Listening for data.
+02-17 11:16:35.776 28421 28474 D MulticastServer: Registration process started with nonce: 1504410241
+02-17 11:16:35.960 28421 28478 D MulticastServer: FULL_LEDGER 1504410241
+02-17 11:16:36.580 28421 28473 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1504410241}
+02-17 11:16:36.749 28421 28495 D MulticastServer: FULL_LEDGER 1504410241
+02-17 11:16:36.788 28421 28475 D MulticastServer: Registration process finished: 1504410241
+round 31 of 300
+02-17 11:16:40.128 28532 28582 D MulticastServer: Listening for data.
+02-17 11:16:40.132 28532 28584 D MulticastServer: Registration process started with nonce: 82676935
+02-17 11:16:40.243 28532 28589 D MulticastServer: FULL_LEDGER 82676935
+02-17 11:16:40.937 28532 28588 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":82676935}
+02-17 11:16:41.117 28532 28588 D MulticastServer: FULL_LEDGER 82676935
+02-17 11:16:41.137 28532 28585 D MulticastServer: Registration process finished: 82676935
+round 32 of 300
+02-17 11:16:44.442 28644 28696 D MulticastServer: Listening for data.
+02-17 11:16:44.444 28644 28698 D MulticastServer: Registration process started with nonce: 376962737
+02-17 11:16:44.615 28644 28702 D MulticastServer: FULL_LEDGER 376962737
+02-17 11:16:45.248 28644 28697 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":376962737}
+02-17 11:16:45.362 28644 28702 D MulticastServer: FULL_LEDGER 376962737
+02-17 11:16:45.455 28644 28699 D MulticastServer: Registration process finished: 376962737
+round 33 of 300
+02-17 11:16:48.857 28754 28805 D MulticastServer: Listening for data.
+02-17 11:16:48.860 28754 28807 D MulticastServer: Registration process started with nonce: 1161148121
+02-17 11:16:48.903 28754 28812 D MulticastServer: FULL_LEDGER 1161148121
+02-17 11:16:49.664 28754 28810 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1161148121}
+02-17 11:16:49.775 28754 28810 D MulticastServer: FULL_LEDGER 1161148121
+02-17 11:16:49.878 28754 28808 D MulticastServer: Registration process finished: 1161148121
+round 34 of 300
+02-17 11:16:53.192 28877 28928 D MulticastServer: Listening for data.
+02-17 11:16:53.193 28877 28930 D MulticastServer: Registration process started with nonce: 1842298423
+02-17 11:16:53.431 28877 28935 D MulticastServer: FULL_LEDGER 1842298423
+02-17 11:16:53.998 28877 28929 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1842298423}
+02-17 11:16:54.198 28877 28945 D MulticastServer: FULL_LEDGER 1842298423
+02-17 11:16:54.206 28877 28931 D MulticastServer: Registration process finished: 1842298423
+round 35 of 300
+02-17 11:16:57.618 28974 29028 D MulticastServer: Listening for data.
+02-17 11:16:57.619 28974 29030 D MulticastServer: Registration process started with nonce: 894339225
+02-17 11:16:57.858 28974 29035 D MulticastServer: FULL_LEDGER 894339225
+02-17 11:16:58.426 28974 29033 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":894339225}
+02-17 11:16:58.633 28974 29031 D MulticastServer: Registration process finished: 894339225
+round 36 of 300
+02-17 11:17:01.952 29090 29141 D MulticastServer: Listening for data.
+02-17 11:17:01.955 29090 29143 D MulticastServer: Registration process started with nonce: 1147452898
+02-17 11:17:02.163 29090 29146 D MulticastServer: FULL_LEDGER 1147452898
+02-17 11:17:02.759 29090 29142 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1147452898}
+02-17 11:17:02.965 29090 29144 D MulticastServer: Registration process finished: 1147452898
+02-17 11:17:02.965 29090 29159 D MulticastServer: FULL_LEDGER 1147452898
+round 37 of 300
+02-17 11:17:06.357 29188 29240 D MulticastServer: Listening for data.
+02-17 11:17:06.360 29188 29242 D MulticastServer: Registration process started with nonce: 891473333
+02-17 11:17:06.483 29188 29247 D MulticastServer: FULL_LEDGER 891473333
+02-17 11:17:07.166 29188 29241 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":891473333}
+02-17 11:17:07.274 29188 29247 D MulticastServer: FULL_LEDGER 891473333
+02-17 11:17:07.370 29188 29243 D MulticastServer: Registration process finished: 891473333
+round 38 of 300
+02-17 11:17:10.682 29285 29337 D MulticastServer: Listening for data.
+02-17 11:17:10.684 29285 29339 D MulticastServer: Registration process started with nonce: 1496803205
+02-17 11:17:10.762 29285 29345 D MulticastServer: FULL_LEDGER 1496803205
+02-17 11:17:11.492 29285 29342 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1496803205}
+02-17 11:17:11.570 29285 29345 D MulticastServer: FULL_LEDGER 1496803205
+02-17 11:17:11.695 29285 29340 D MulticastServer: Registration process finished: 1496803205
+round 39 of 300
+02-17 11:17:15.026 29400 29454 D MulticastServer: Registration process started with nonce: 359657381
+02-17 11:17:15.035 29400 29452 D MulticastServer: Listening for data.
+02-17 11:17:15.434 29400 29474 D MulticastServer: FULL_LEDGER 359657381
+02-17 11:17:15.831 29400 29453 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":359657381}
+02-17 11:17:16.035 29400 29455 D MulticastServer: Registration process finished: 359657381
+round 40 of 300
+02-17 11:17:19.392 29509 29561 D MulticastServer: Listening for data.
+02-17 11:17:19.394 29509 29563 D MulticastServer: Registration process started with nonce: 510366104
+02-17 11:17:19.732 29509 29568 D MulticastServer: FULL_LEDGER 510366104
+02-17 11:17:20.201 29509 29562 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":510366104}
+02-17 11:17:20.408 29509 29564 D MulticastServer: Registration process finished: 510366104
+round 41 of 300
+02-17 11:17:23.730 29611 29663 D MulticastServer: Listening for data.
+02-17 11:17:23.733 29611 29665 D MulticastServer: Registration process started with nonce: 491353093
+02-17 11:17:23.790 29611 29670 D MulticastServer: FULL_LEDGER 491353093
+02-17 11:17:24.537 29611 29664 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":491353093}
+02-17 11:17:24.602 29611 29664 D MulticastServer: FULL_LEDGER 491353093
+02-17 11:17:24.742 29611 29666 D MulticastServer: Registration process finished: 491353093
+round 42 of 300
+02-17 11:17:28.088 29721 29772 D MulticastServer: Listening for data.
+02-17 11:17:28.090 29721 29774 D MulticastServer: Registration process started with nonce: 117423204
+02-17 11:17:28.170 29721 29778 D MulticastServer: FULL_LEDGER 117423204
+02-17 11:17:28.896 29721 29773 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":117423204}
+02-17 11:17:29.038 29721 29773 D MulticastServer: FULL_LEDGER 117423204
+02-17 11:17:29.106 29721 29775 D MulticastServer: Registration process finished: 117423204
+round 43 of 300
+02-17 11:17:32.416 29832 29884 D MulticastServer: Listening for data.
+02-17 11:17:32.419 29832 29886 D MulticastServer: Registration process started with nonce: 148685327
+02-17 11:17:33.224 29832 29889 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":148685327}
+02-17 11:17:33.432 29832 29887 D MulticastServer: Registration process finished: 148685327
+round 44 of 300
+02-17 11:17:36.839 29943 29993 D MulticastServer: Listening for data.
+02-17 11:17:36.840 29943 29995 D MulticastServer: Registration process started with nonce: 948692996
+02-17 11:17:36.995 29943 29999 D MulticastServer: FULL_LEDGER 948692996
+02-17 11:17:37.648 29943 29994 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":948692996}
+02-17 11:17:37.851 29943 29994 D MulticastServer: FULL_LEDGER 948692996
+02-17 11:17:37.857 29943 29996 D MulticastServer: Registration process finished: 948692996
+round 45 of 300
+02-17 11:17:41.293 30051 30105 D MulticastServer: Listening for data.
+02-17 11:17:41.296 30051 30107 D MulticastServer: Registration process started with nonce: 786329672
+02-17 11:17:41.483 30051 30112 D MulticastServer: FULL_LEDGER 786329672
+02-17 11:17:42.100 30051 30106 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":786329672}
+02-17 11:17:42.290 30051 30106 D MulticastServer: FULL_LEDGER 786329672
+02-17 11:17:42.304 30051 30108 D MulticastServer: Registration process finished: 786329672
+round 46 of 300
+02-17 11:17:45.694 30166 30218 D MulticastServer: Listening for data.
+02-17 11:17:45.699 30166 30220 D MulticastServer: Registration process started with nonce: 249263766
+02-17 11:17:45.782 30166 30226 D MulticastServer: FULL_LEDGER 249263766
+02-17 11:17:46.507 30166 30224 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":249263766}
+02-17 11:17:46.660 30166 30224 D MulticastServer: FULL_LEDGER 249263766
+02-17 11:17:46.710 30166 30221 D MulticastServer: Registration process finished: 249263766
+round 47 of 300
+02-17 11:17:50.037 30264 30314 D MulticastServer: Listening for data.
+02-17 11:17:50.039 30264 30316 D MulticastServer: Registration process started with nonce: 1001871007
+02-17 11:17:50.455 30264 30319 D MulticastServer: FULL_LEDGER 1001871007
+02-17 11:17:50.843 30264 30315 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1001871007}
+02-17 11:17:51.049 30264 30317 D MulticastServer: Registration process finished: 1001871007
+round 48 of 300
+02-17 11:17:54.395 30376 30426 D MulticastServer: Listening for data.
+02-17 11:17:54.397 30376 30428 D MulticastServer: Registration process started with nonce: 1956471669
+02-17 11:17:54.592 30376 30432 D MulticastServer: FULL_LEDGER 1956471669
+02-17 11:17:55.202 30376 30427 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1956471669}
+02-17 11:17:55.409 30376 30429 D MulticastServer: Registration process finished: 1956471669
+round 49 of 300
+02-17 11:17:58.760 30483 30534 D MulticastServer: Listening for data.
+02-17 11:17:58.761 30483 30536 D MulticastServer: Registration process started with nonce: 2087328635
+02-17 11:17:58.807 30483 30541 D MulticastServer: FULL_LEDGER 2087328635
+02-17 11:17:59.566 30483 30535 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":2087328635}
+02-17 11:17:59.772 30483 30537 D MulticastServer: Registration process finished: 2087328635
+round 50 of 300
+02-17 11:18:03.099 30584 30637 D MulticastServer: Listening for data.
+02-17 11:18:03.102 30584 30639 D MulticastServer: Registration process started with nonce: 1024519184
+02-17 11:18:03.318 30584 30644 D MulticastServer: FULL_LEDGER 1024519184
+02-17 11:18:03.905 30584 30638 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1024519184}
+02-17 11:18:04.051 30584 30638 D MulticastServer: FULL_LEDGER 1024519184
+02-17 11:18:04.112 30584 30640 D MulticastServer: Registration process finished: 1024519184
+round 51 of 300
+02-17 11:18:07.456 30695 30747 D MulticastServer: Listening for data.
+02-17 11:18:07.459 30695 30749 D MulticastServer: Registration process started with nonce: 1025632526
+02-17 11:18:07.863 30695 30754 D MulticastServer: FULL_LEDGER 1025632526
+02-17 11:18:08.263 30695 30748 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1025632526}
+02-17 11:18:08.472 30695 30750 D MulticastServer: Registration process finished: 1025632526
+round 52 of 300
+02-17 11:18:11.831 30809 30859 D MulticastServer: Listening for data.
+02-17 11:18:11.833 30809 30861 D MulticastServer: Registration process started with nonce: 97461009
+02-17 11:18:12.033 30809 30865 D MulticastServer: FULL_LEDGER 97461009
+02-17 11:18:12.638 30809 30860 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":97461009}
+02-17 11:18:12.809 30809 30860 D MulticastServer: FULL_LEDGER 97461009
+02-17 11:18:12.841 30809 30862 D MulticastServer: Registration process finished: 97461009
+round 53 of 300
+02-17 11:18:16.143 30907 30957 D MulticastServer: Listening for data.
+02-17 11:18:16.146 30907 30959 D MulticastServer: Registration process started with nonce: 902836404
+02-17 11:18:16.302 30907 30964 D MulticastServer: FULL_LEDGER 902836404
+02-17 11:18:16.950 30907 30962 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":902836404}
+02-17 11:18:17.105 30907 30964 D MulticastServer: FULL_LEDGER 902836404
+02-17 11:18:17.158 30907 30960 D MulticastServer: Registration process finished: 902836404
+round 54 of 300
+02-17 11:18:20.551 31017 31071 D MulticastServer: Listening for data.
+02-17 11:18:20.553 31017 31073 D MulticastServer: Registration process started with nonce: 1781381536
+02-17 11:18:21.358 31017 31072 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1781381536}
+02-17 11:18:21.571 31017 31074 D MulticastServer: Registration process finished: 1781381536
+round 55 of 300
+02-17 11:18:24.901 31130 31180 D MulticastServer: Listening for data.
+02-17 11:18:24.905 31130 31182 D MulticastServer: Registration process started with nonce: 635370884
+02-17 11:18:25.270 31130 31188 D MulticastServer: FULL_LEDGER 635370884
+02-17 11:18:25.713 31130 31185 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":635370884}
+02-17 11:18:25.919 31130 31183 D MulticastServer: Registration process finished: 635370884
+round 56 of 300
+02-17 11:18:29.249 31244 31294 D MulticastServer: Listening for data.
+02-17 11:18:29.251 31244 31296 D MulticastServer: Registration process started with nonce: 1922414642
+02-17 11:18:29.407 31244 31300 D MulticastServer: FULL_LEDGER 1922414642
+02-17 11:18:30.055 31244 31295 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1922414642}
+02-17 11:18:30.218 31244 31295 D MulticastServer: FULL_LEDGER 1922414642
+02-17 11:18:30.260 31244 31297 D MulticastServer: Registration process finished: 1922414642
+round 57 of 300
+02-17 11:18:33.648 31355 31405 D MulticastServer: Listening for data.
+02-17 11:18:33.650 31355 31407 D MulticastServer: Registration process started with nonce: 1439632038
+02-17 11:18:33.815 31355 31412 D MulticastServer: FULL_LEDGER 1439632038
+02-17 11:18:34.455 31355 31406 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1439632038}
+02-17 11:18:34.627 31355 31412 D MulticastServer: FULL_LEDGER 1439632038
+02-17 11:18:34.660 31355 31408 D MulticastServer: Registration process finished: 1439632038
+round 58 of 300
+02-17 11:18:38.013 31470 31520 D MulticastServer: Listening for data.
+02-17 11:18:38.015 31470 31522 D MulticastServer: Registration process started with nonce: 190111422
+02-17 11:18:38.222 31470 31528 D MulticastServer: FULL_LEDGER 190111422
+02-17 11:18:38.822 31470 31525 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":190111422}
+02-17 11:18:39.021 31470 31528 D MulticastServer: FULL_LEDGER 190111422
+02-17 11:18:39.033 31470 31523 D MulticastServer: Registration process finished: 190111422
+round 59 of 300
+02-17 11:18:42.445 31586 31637 D MulticastServer: Listening for data.
+02-17 11:18:42.448 31586 31639 D MulticastServer: Registration process started with nonce: 366670463
+02-17 11:18:42.514 31586 31643 D MulticastServer: FULL_LEDGER 366670463
+02-17 11:18:43.255 31586 31638 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":366670463}
+02-17 11:18:43.321 31586 31643 D MulticastServer: FULL_LEDGER 366670463
+02-17 11:18:43.458 31586 31640 D MulticastServer: Registration process finished: 366670463
+round 60 of 300
+02-17 11:18:46.781 31692 31743 D MulticastServer: Listening for data.
+02-17 11:18:46.783 31692 31745 D MulticastServer: Registration process started with nonce: 7966333
+02-17 11:18:47.588 31692 31744 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":7966333}
+02-17 11:18:47.794 31692 31746 D MulticastServer: Registration process finished: 7966333
+round 61 of 300
+02-17 11:18:51.183 31788 31840 D MulticastServer: Listening for data.
+02-17 11:18:51.185 31788 31842 D MulticastServer: Registration process started with nonce: 770177414
+02-17 11:18:51.318 31788 31847 D MulticastServer: FULL_LEDGER 770177414
+02-17 11:18:51.992 31788 31841 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":770177414}
+02-17 11:18:52.125 31788 31847 D MulticastServer: FULL_LEDGER 770177414
+02-17 11:18:52.197 31788 31843 D MulticastServer: Registration process finished: 770177414
+round 62 of 300
+02-17 11:18:55.525 31892 31942 D MulticastServer: Listening for data.
+02-17 11:18:55.527 31892 31944 D MulticastServer: Registration process started with nonce: 155452754
+02-17 11:18:55.621 31892 31943 D MulticastServer: FULL_LEDGER 155452754
+02-17 11:18:56.335 31892 31947 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":155452754}
+02-17 11:18:56.454 31892 31943 D MulticastServer: FULL_LEDGER 155452754
+02-17 11:18:56.541 31892 31945 D MulticastServer: Registration process finished: 155452754
+round 63 of 300
+02-17 11:18:59.933 31991 32044 D MulticastServer: Listening for data.
+02-17 11:18:59.936 31991 32046 D MulticastServer: Registration process started with nonce: 1806121849
+02-17 11:19:00.127 31991 32052 D MulticastServer: FULL_LEDGER 1806121849
+02-17 11:19:00.742 31991 32045 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1806121849}
+02-17 11:19:00.934 31991 32052 D MulticastServer: FULL_LEDGER 1806121849
+02-17 11:19:00.944 31991 32047 D MulticastServer: Registration process finished: 1806121849
+round 64 of 300
+02-17 11:19:04.354 32103 32155 D MulticastServer: Listening for data.
+02-17 11:19:04.357 32103 32157 D MulticastServer: Registration process started with nonce: 633857955
+02-17 11:19:04.427 32103 32162 D MulticastServer: FULL_LEDGER 633857955
+02-17 11:19:05.162 32103 32156 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":633857955}
+02-17 11:19:05.266 32103 32167 D MulticastServer: FULL_LEDGER 633857955
+02-17 11:19:05.366 32103 32158 D MulticastServer: Registration process finished: 633857955
+round 65 of 300
+02-17 11:19:08.675 32211 32264 D MulticastServer: Listening for data.
+02-17 11:19:08.677 32211 32266 D MulticastServer: Registration process started with nonce: 550632581
+02-17 11:19:09.482 32211 32265 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":550632581}
+02-17 11:19:09.685 32211 32267 D MulticastServer: Registration process finished: 550632581
+round 66 of 300
+02-17 11:19:13.049 32323 32391 D MulticastServer: Registration process started with nonce: 394223453
+02-17 11:19:13.051 32323 32389 D MulticastServer: Listening for data.
+02-17 11:19:13.239 32323 32394 D MulticastServer: FULL_LEDGER 394223453
+02-17 11:19:13.854 32323 32390 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":394223453}
+02-17 11:19:14.062 32323 32392 D MulticastServer: Registration process finished: 394223453
+round 67 of 300
+02-17 11:19:17.382 32446 32496 D MulticastServer: Listening for data.
+02-17 11:19:17.384 32446 32498 D MulticastServer: Registration process started with nonce: 1862815265
+02-17 11:19:17.598 32446 32502 D MulticastServer: FULL_LEDGER 1862815265
+02-17 11:19:18.189 32446 32497 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1862815265}
+02-17 11:19:18.341 32446 32521 D MulticastServer: FULL_LEDGER 1862815265
+02-17 11:19:18.393 32446 32499 D MulticastServer: Registration process finished: 1862815265
+round 68 of 300
+02-17 11:19:21.747 32556 32608 D MulticastServer: Listening for data.
+02-17 11:19:21.749 32556 32610 D MulticastServer: Registration process started with nonce: 2130710902
+02-17 11:19:22.043 32556 32615 D MulticastServer: FULL_LEDGER 2130710902
+02-17 11:19:22.554 32556 32613 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":2130710902}
+02-17 11:19:22.760 32556 32611 D MulticastServer: Registration process finished: 2130710902
+round 69 of 300
+02-17 11:19:26.110 32671 32722 D MulticastServer: Listening for data.
+02-17 11:19:26.112 32671 32724 D MulticastServer: Registration process started with nonce: 278055616
+02-17 11:19:26.507 32671 32728 D MulticastServer: FULL_LEDGER 278055616
+02-17 11:19:26.917 32671 32727 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":278055616}
+02-17 11:19:27.122 32671 32725 D MulticastServer: Registration process finished: 278055616
+round 70 of 300
+02-17 11:19:30.492   456   601 D MulticastServer: Listening for data.
+02-17 11:19:30.495   456   612 D MulticastServer: Registration process started with nonce: 1196587170
+02-17 11:19:30.678   456   628 D MulticastServer: FULL_LEDGER 1196587170
+02-17 11:19:31.300   456   605 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1196587170}
+02-17 11:19:31.495   456   605 D MulticastServer: FULL_LEDGER 1196587170
+02-17 11:19:31.509   456   615 D MulticastServer: Registration process finished: 1196587170
+round 71 of 300
+02-17 11:19:34.854   811  1081 D MulticastServer: Listening for data.
+02-17 11:19:34.857   811  1084 D MulticastServer: Registration process started with nonce: 756871572
+02-17 11:19:34.945   811  1092 D MulticastServer: FULL_LEDGER 756871572
+02-17 11:19:35.661   811  1083 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":756871572}
+02-17 11:19:35.757   811  1083 D MulticastServer: FULL_LEDGER 756871572
+02-17 11:19:35.872   811  1086 D MulticastServer: Registration process finished: 756871572
+round 72 of 300
+02-17 11:19:39.263  1258  1327 D MulticastServer: Listening for data.
+02-17 11:19:39.265  1258  1328 D MulticastServer: Registration process started with nonce: 766970837
+02-17 11:19:39.322  1258  1331 D MulticastServer: FULL_LEDGER 766970837
+02-17 11:19:40.070  1258  1326 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":766970837}
+02-17 11:19:40.165  1258  1331 D MulticastServer: FULL_LEDGER 766970837
+02-17 11:19:40.278  1258  1329 D MulticastServer: Registration process finished: 766970837
+round 73 of 300
+02-17 11:19:43.618  1464  1659 D MulticastServer: Listening for data.
+02-17 11:19:43.620  1464  1661 D MulticastServer: Registration process started with nonce: 565097108
+02-17 11:19:43.751  1464  1666 D MulticastServer: FULL_LEDGER 565097108
+02-17 11:19:44.426  1464  1660 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":565097108}
+02-17 11:19:44.598  1464  1666 D MulticastServer: FULL_LEDGER 565097108
+02-17 11:19:44.629  1464  1662 D MulticastServer: Registration process finished: 565097108
+round 74 of 300
+02-17 11:19:47.997  1718  1771 D MulticastServer: Listening for data.
+02-17 11:19:48.002  1718  1773 D MulticastServer: Registration process started with nonce: 1378751616
+02-17 11:19:48.419  1718  1779 D MulticastServer: FULL_LEDGER 1378751616
+02-17 11:19:48.809  1718  1777 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1378751616}
+02-17 11:19:49.020  1718  1774 D MulticastServer: Registration process finished: 1378751616
+round 75 of 300
+02-17 11:19:52.378  1819  1874 D MulticastServer: Listening for data.
+02-17 11:19:52.381  1819  1876 D MulticastServer: Registration process started with nonce: 923137628
+02-17 11:19:52.927  1819  1881 D MulticastServer: FULL_LEDGER 923137628
+02-17 11:19:53.190  1819  1880 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":923137628}
+02-17 11:19:53.390  1819  1877 D MulticastServer: Registration process finished: 923137628
+round 76 of 300
+02-17 11:19:56.867  1933  1986 D MulticastServer: Listening for data.
+02-17 11:19:56.870  1933  1988 D MulticastServer: Registration process started with nonce: 986568847
+02-17 11:19:57.075  1933  1991 D MulticastServer: FULL_LEDGER 986568847
+02-17 11:19:57.675  1933  1987 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":986568847}
+02-17 11:19:57.881  1933  1989 D MulticastServer: Registration process finished: 986568847
+round 77 of 300
+02-17 11:20:01.200  2061  2115 D MulticastServer: Listening for data.
+02-17 11:20:01.203  2061  2117 D MulticastServer: Registration process started with nonce: 1499651006
+02-17 11:20:01.375  2061  2123 D MulticastServer: FULL_LEDGER 1499651006
+02-17 11:20:02.009  2061  2116 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1499651006}
+02-17 11:20:02.208  2061  2123 D MulticastServer: FULL_LEDGER 1499651006
+02-17 11:20:02.213  2061  2118 D MulticastServer: Registration process finished: 1499651006
+round 78 of 300
+02-17 11:20:05.514  2175  2227 D MulticastServer: Listening for data.
+02-17 11:20:05.516  2175  2229 D MulticastServer: Registration process started with nonce: 1377076106
+02-17 11:20:05.667  2175  2234 D MulticastServer: FULL_LEDGER 1377076106
+02-17 11:20:06.321  2175  2228 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1377076106}
+02-17 11:20:06.473  2175  2228 D MulticastServer: FULL_LEDGER 1377076106
+02-17 11:20:06.526  2175  2230 D MulticastServer: Registration process finished: 1377076106
+round 79 of 300
+02-17 11:20:09.854  2286  2336 D MulticastServer: Listening for data.
+02-17 11:20:09.856  2286  2338 D MulticastServer: Registration process started with nonce: 251804382
+02-17 11:20:09.962  2286  2343 D MulticastServer: FULL_LEDGER 251804382
+02-17 11:20:10.663  2286  2337 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":251804382}
+02-17 11:20:10.828  2286  2337 D MulticastServer: FULL_LEDGER 251804382
+02-17 11:20:10.867  2286  2339 D MulticastServer: Registration process finished: 251804382
+round 80 of 300
+02-17 11:20:14.206  2394  2448 D MulticastServer: Listening for data.
+02-17 11:20:14.208  2394  2450 D MulticastServer: Registration process started with nonce: 1081610427
+02-17 11:20:15.014  2394  2449 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1081610427}
+02-17 11:20:15.217  2394  2451 D MulticastServer: Registration process finished: 1081610427
+round 81 of 300
+02-17 11:20:18.542  2505  2556 D MulticastServer: Listening for data.
+02-17 11:20:18.544  2505  2558 D MulticastServer: Registration process started with nonce: 33546826
+02-17 11:20:18.771  2505  2563 D MulticastServer: FULL_LEDGER 33546826
+02-17 11:20:19.348  2505  2557 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":33546826}
+02-17 11:20:19.555  2505  2559 D MulticastServer: Registration process finished: 33546826
+round 82 of 300
+02-17 11:20:22.857  2605  2670 D MulticastServer: Listening for data.
+02-17 11:20:22.859  2605  2672 D MulticastServer: Registration process started with nonce: 510091666
+02-17 11:20:23.070  2605  2675 D MulticastServer: FULL_LEDGER 510091666
+02-17 11:20:23.665  2605  2671 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":510091666}
+02-17 11:20:23.871  2605  2673 D MulticastServer: Registration process finished: 510091666
+round 83 of 300
+02-17 11:20:27.187  2727  2777 D MulticastServer: Listening for data.
+02-17 11:20:27.190  2727  2779 D MulticastServer: Registration process started with nonce: 1202433435
+02-17 11:20:27.390  2727  2784 D MulticastServer: FULL_LEDGER 1202433435
+02-17 11:20:27.994  2727  2778 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1202433435}
+02-17 11:20:28.182  2727  2784 D MulticastServer: FULL_LEDGER 1202433435
+02-17 11:20:28.197  2727  2780 D MulticastServer: Registration process finished: 1202433435
+round 84 of 300
+02-17 11:20:31.484  2821  2872 D MulticastServer: Listening for data.
+02-17 11:20:31.486  2821  2874 D MulticastServer: Registration process started with nonce: 349773946
+02-17 11:20:31.537  2821  2877 D MulticastServer: FULL_LEDGER 349773946
+02-17 11:20:32.290  2821  2873 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":349773946}
+02-17 11:20:32.366  2821  2880 D MulticastServer: FULL_LEDGER 349773946
+02-17 11:20:32.502  2821  2875 D MulticastServer: Registration process finished: 349773946
+round 85 of 300
+02-17 11:20:35.889  2933  2986 D MulticastServer: Listening for data.
+02-17 11:20:35.891  2933  2988 D MulticastServer: Registration process started with nonce: 1945542991
+02-17 11:20:35.976  2933  2992 D MulticastServer: FULL_LEDGER 1945542991
+02-17 11:20:36.695  2933  2987 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1945542991}
+02-17 11:20:36.785  2933  2987 D MulticastServer: FULL_LEDGER 1945542991
+02-17 11:20:36.903  2933  2989 D MulticastServer: Registration process finished: 1945542991
+round 86 of 300
+02-17 11:20:40.286  3041  3202 D MulticastServer: Listening for data.
+02-17 11:20:40.288  3041  3204 D MulticastServer: Registration process started with nonce: 1134018864
+02-17 11:20:40.487  3041  3209 D MulticastServer: FULL_LEDGER 1134018864
+02-17 11:20:41.097  3041  3207 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1134018864}
+02-17 11:20:41.300  3041  3205 D MulticastServer: Registration process finished: 1134018864
+round 87 of 300
+02-17 11:20:44.600  3281  3376 D MulticastServer: Listening for data.
+02-17 11:20:44.602  3281  3378 D MulticastServer: Registration process started with nonce: 105795959
+02-17 11:20:44.775  3281  3383 D MulticastServer: FULL_LEDGER 105795959
+02-17 11:20:45.406  3281  3377 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":105795959}
+02-17 11:20:45.588  3281  3401 D MulticastServer: FULL_LEDGER 105795959
+02-17 11:20:45.607  3281  3380 D MulticastServer: Registration process finished: 105795959
+round 88 of 300
+02-17 11:20:49.002  3446  3509 D MulticastServer: Listening for data.
+02-17 11:20:49.004  3446  3511 D MulticastServer: Registration process started with nonce: 188461988
+02-17 11:20:49.082  3446  3516 D MulticastServer: FULL_LEDGER 188461988
+02-17 11:20:49.808  3446  3510 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":188461988}
+02-17 11:20:49.955  3446  3510 D MulticastServer: FULL_LEDGER 188461988
+02-17 11:20:50.014  3446  3512 D MulticastServer: Registration process finished: 188461988
+round 89 of 300
+02-17 11:20:53.425  3603  3722 D MulticastServer: Listening for data.
+02-17 11:20:53.427  3603  3738 D MulticastServer: Registration process started with nonce: 1605040160
+02-17 11:20:53.583  3603  3753 D MulticastServer: FULL_LEDGER 1605040160
+02-17 11:20:54.231  3603  3723 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1605040160}
+02-17 11:20:54.394  3603  3723 D MulticastServer: FULL_LEDGER 1605040160
+02-17 11:20:54.439  3603  3739 D MulticastServer: Registration process finished: 1605040160
+round 90 of 300
+02-17 11:20:57.780  3830  3914 D MulticastServer: Listening for data.
+02-17 11:20:57.782  3830  3916 D MulticastServer: Registration process started with nonce: 1186735900
+02-17 11:20:58.256  3830  3921 D MulticastServer: FULL_LEDGER 1186735900
+02-17 11:20:58.586  3830  3915 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1186735900}
+02-17 11:20:58.765  3830  3921 D MulticastServer: FULL_LEDGER 1186735900
+02-17 11:20:58.790  3830  3917 D MulticastServer: Registration process finished: 1186735900
+round 91 of 300
+02-17 11:21:02.157  4032  4151 D MulticastServer: Listening for data.
+02-17 11:21:02.160  4032  4153 D MulticastServer: Registration process started with nonce: 805997744
+02-17 11:21:02.384  4032  4159 D MulticastServer: FULL_LEDGER 805997744
+02-17 11:21:02.963  4032  4152 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":805997744}
+02-17 11:21:03.171  4032  4154 D MulticastServer: Registration process finished: 805997744
+round 92 of 300
+02-17 11:21:06.508  4207  4286 D MulticastServer: Listening for data.
+02-17 11:21:06.510  4207  4288 D MulticastServer: Registration process started with nonce: 1286842030
+02-17 11:21:06.695  4207  4293 D MulticastServer: FULL_LEDGER 1286842030
+02-17 11:21:07.314  4207  4287 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1286842030}
+02-17 11:21:07.514  4207  4314 D MulticastServer: FULL_LEDGER 1286842030
+02-17 11:21:07.524  4207  4289 D MulticastServer: Registration process finished: 1286842030
+round 93 of 300
+02-17 11:21:10.895  4389  4449 D MulticastServer: Listening for data.
+02-17 11:21:10.897  4389  4454 D MulticastServer: Registration process started with nonce: 785877052
+02-17 11:21:10.995  4389  4459 D MulticastServer: FULL_LEDGER 785877052
+02-17 11:21:11.702  4389  4453 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":785877052}
+02-17 11:21:11.858  4389  4453 D MulticastServer: FULL_LEDGER 785877052
+02-17 11:21:11.906  4389  4455 D MulticastServer: Registration process finished: 785877052
+round 94 of 300
+02-17 11:21:15.218  4520  4577 D MulticastServer: Listening for data.
+02-17 11:21:15.220  4520  4579 D MulticastServer: Registration process started with nonce: 1481513146
+02-17 11:21:15.324  4520  4584 D MulticastServer: FULL_LEDGER 1481513146
+02-17 11:21:16.024  4520  4578 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1481513146}
+02-17 11:21:16.103  4520  4578 D MulticastServer: FULL_LEDGER 1481513146
+02-17 11:21:16.231  4520  4580 D MulticastServer: Registration process finished: 1481513146
+round 95 of 300
+02-17 11:21:19.590  4636  4687 D MulticastServer: Listening for data.
+02-17 11:21:19.592  4636  4689 D MulticastServer: Registration process started with nonce: 1310306607
+02-17 11:21:20.398  4636  4692 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1310306607}
+02-17 11:21:20.610  4636  4690 D MulticastServer: Registration process finished: 1310306607
+round 96 of 300
+02-17 11:21:23.936  4752  4803 D MulticastServer: Listening for data.
+02-17 11:21:23.938  4752  4805 D MulticastServer: Registration process started with nonce: 194648414
+02-17 11:21:24.139  4752  4811 D MulticastServer: FULL_LEDGER 194648414
+02-17 11:21:24.743  4752  4804 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":194648414}
+02-17 11:21:24.909  4752  4828 D MulticastServer: FULL_LEDGER 194648414
+02-17 11:21:24.949  4752  4806 D MulticastServer: Registration process finished: 194648414
+round 97 of 300
+02-17 11:21:28.268  4863  4916 D MulticastServer: Listening for data.
+02-17 11:21:28.270  4863  4918 D MulticastServer: Registration process started with nonce: 42826728
+02-17 11:21:28.403  4863  4923 D MulticastServer: FULL_LEDGER 42826728
+02-17 11:21:29.074  4863  4917 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":42826728}
+02-17 11:21:29.239  4863  4933 D MulticastServer: FULL_LEDGER 42826728
+02-17 11:21:29.282  4863  4919 D MulticastServer: Registration process finished: 42826728
+round 98 of 300
+02-17 11:21:32.634  4972  5024 D MulticastServer: Listening for data.
+02-17 11:21:32.636  4972  5026 D MulticastServer: Registration process started with nonce: 836844181
+02-17 11:21:32.706  4972  5031 D MulticastServer: FULL_LEDGER 836844181
+02-17 11:21:33.440  4972  5025 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":836844181}
+02-17 11:21:33.546  4972  5025 D MulticastServer: FULL_LEDGER 836844181
+02-17 11:21:33.641  4972  5027 D MulticastServer: Registration process finished: 836844181
+round 99 of 300
+02-17 11:21:37.030  5074  5124 D MulticastServer: Listening for data.
+02-17 11:21:37.032  5074  5126 D MulticastServer: Registration process started with nonce: 1069256022
+02-17 11:21:37.208  5074  5132 D MulticastServer: FULL_LEDGER 1069256022
+02-17 11:21:37.838  5074  5125 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1069256022}
+02-17 11:21:38.044  5074  5127 D MulticastServer: Registration process finished: 1069256022
+round 100 of 300
+02-17 11:21:41.369  5186  5253 D MulticastServer: Listening for data.
+02-17 11:21:41.373  5186  5256 D MulticastServer: Registration process started with nonce: 257643611
+02-17 11:21:41.506  5186  5270 D MulticastServer: FULL_LEDGER 257643611
+02-17 11:21:42.180  5186  5259 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":257643611}
+02-17 11:21:42.315  5186  5270 D MulticastServer: FULL_LEDGER 257643611
+02-17 11:21:42.376  5186  5257 D MulticastServer: Registration process finished: 257643611
+round 101 of 300
+02-17 11:21:45.731  5321  5374 D MulticastServer: Listening for data.
+02-17 11:21:45.734  5321  5376 D MulticastServer: Registration process started with nonce: 1953857981
+02-17 11:21:45.814  5321  5379 D MulticastServer: FULL_LEDGER 1953857981
+02-17 11:21:46.540  5321  5375 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1953857981}
+02-17 11:21:46.631  5321  5388 D MulticastServer: FULL_LEDGER 1953857981
+02-17 11:21:46.744  5321  5377 D MulticastServer: Registration process finished: 1953857981
+round 102 of 300
+02-17 11:21:50.109  5479  5532 D MulticastServer: Listening for data.
+02-17 11:21:50.112  5479  5534 D MulticastServer: Registration process started with nonce: 1332576557
+02-17 11:21:50.185  5479  5539 D MulticastServer: FULL_LEDGER 1332576557
+02-17 11:21:50.916  5479  5533 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1332576557}
+02-17 11:21:51.096  5479  5533 D MulticastServer: FULL_LEDGER 1332576557
+02-17 11:21:51.118  5479  5535 D MulticastServer: Registration process finished: 1332576557
+round 103 of 300
+02-17 11:21:54.502  5602  5698 D MulticastServer: Listening for data.
+02-17 11:21:54.504  5602  5700 D MulticastServer: Registration process started with nonce: 1315292866
+02-17 11:21:54.621  5602  5705 D MulticastServer: FULL_LEDGER 1315292866
+02-17 11:21:55.308  5602  5699 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1315292866}
+02-17 11:21:55.430  5602  5699 D MulticastServer: FULL_LEDGER 1315292866
+02-17 11:21:55.515  5602  5701 D MulticastServer: Registration process finished: 1315292866
+round 104 of 300
+02-17 11:21:58.853  5754  5812 D MulticastServer: Listening for data.
+02-17 11:21:58.856  5754  5814 D MulticastServer: Registration process started with nonce: 1001703445
+02-17 11:21:59.287  5754  5819 D MulticastServer: FULL_LEDGER 1001703445
+02-17 11:21:59.661  5754  5813 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1001703445}
+02-17 11:21:59.868  5754  5815 D MulticastServer: Registration process finished: 1001703445
+round 105 of 300
+02-17 11:22:03.184  5882  5971 D MulticastServer: Listening for data.
+02-17 11:22:03.186  5882  5974 D MulticastServer: Registration process started with nonce: 2081769696
+02-17 11:22:03.990  5882  5973 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":2081769696}
+02-17 11:22:04.195  5882  5975 D MulticastServer: Registration process finished: 2081769696
+round 106 of 300
+02-17 11:22:07.575  6046  6098 D MulticastServer: Listening for data.
+02-17 11:22:07.577  6046  6100 D MulticastServer: Registration process started with nonce: 54670882
+02-17 11:22:07.727  6046  6105 D MulticastServer: FULL_LEDGER 54670882
+02-17 11:22:08.382  6046  6099 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":54670882}
+02-17 11:22:08.567  6046  6125 D MulticastServer: FULL_LEDGER 54670882
+02-17 11:22:08.621  6046  6101 D MulticastServer: Registration process finished: 54670882
+round 107 of 300
+02-17 11:22:11.948  6158  6233 D MulticastServer: Listening for data.
+02-17 11:22:11.950  6158  6235 D MulticastServer: Registration process started with nonce: 385562480
+02-17 11:22:12.075  6158  6239 D MulticastServer: FULL_LEDGER 385562480
+02-17 11:22:12.756  6158  6234 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":385562480}
+02-17 11:22:12.934  6158  6234 D MulticastServer: FULL_LEDGER 385562480
+02-17 11:22:12.954  6158  6236 D MulticastServer: Registration process finished: 385562480
+round 108 of 300
+02-17 11:22:16.337  6299  6355 D MulticastServer: Listening for data.
+02-17 11:22:16.342  6299  6357 D MulticastServer: Registration process started with nonce: 1335789362
+02-17 11:22:16.538  6299  6363 D MulticastServer: FULL_LEDGER 1335789362
+02-17 11:22:17.150  6299  6361 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1335789362}
+02-17 11:22:17.355  6299  6358 D MulticastServer: Registration process finished: 1335789362
+round 109 of 300
+02-17 11:22:20.696  6419  6474 D MulticastServer: Listening for data.
+02-17 11:22:20.698  6419  6476 D MulticastServer: Registration process started with nonce: 993745192
+02-17 11:22:20.892  6419  6481 D MulticastServer: FULL_LEDGER 993745192
+02-17 11:22:21.503  6419  6475 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":993745192}
+02-17 11:22:21.651  6419  6481 D MulticastServer: FULL_LEDGER 993745192
+02-17 11:22:21.712  6419  6477 D MulticastServer: Registration process finished: 993745192
+round 110 of 300
+02-17 11:22:25.076  6538  6589 D MulticastServer: Listening for data.
+02-17 11:22:25.079  6538  6593 D MulticastServer: Registration process started with nonce: 433477380
+02-17 11:22:25.503  6538  6598 D MulticastServer: FULL_LEDGER 433477380
+02-17 11:22:25.884  6538  6592 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":433477380}
+02-17 11:22:26.090  6538  6594 D MulticastServer: Registration process finished: 433477380
+round 111 of 300
+02-17 11:22:29.499  6650  6709 D MulticastServer: Listening for data.
+02-17 11:22:29.503  6650  6712 D MulticastServer: Registration process started with nonce: 621910070
+02-17 11:22:29.706  6650  6717 D MulticastServer: FULL_LEDGER 621910070
+02-17 11:22:30.311  6650  6715 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":621910070}
+02-17 11:22:30.454  6650  6717 D MulticastServer: FULL_LEDGER 621910070
+02-17 11:22:30.514  6650  6713 D MulticastServer: Registration process finished: 621910070
+round 112 of 300
+02-17 11:22:33.931  6795  6853 D MulticastServer: Listening for data.
+02-17 11:22:33.933  6795  6855 D MulticastServer: Registration process started with nonce: 2130695000
+02-17 11:22:34.143  6795  6860 D MulticastServer: FULL_LEDGER 2130695000
+02-17 11:22:34.737  6795  6854 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":2130695000}
+02-17 11:22:34.948  6795  6856 D MulticastServer: Registration process finished: 2130695000
+round 113 of 300
+02-17 11:22:38.230  6902  6973 D MulticastServer: Listening for data.
+02-17 11:22:38.232  6902  6975 D MulticastServer: Registration process started with nonce: 563297639
+02-17 11:22:38.611  6902  6980 D MulticastServer: FULL_LEDGER 563297639
+02-17 11:22:39.040  6902  6979 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":563297639}
+02-17 11:22:39.247  6902  6976 D MulticastServer: Registration process finished: 563297639
+round 114 of 300
+02-17 11:22:42.604  7033  7091 D MulticastServer: Listening for data.
+02-17 11:22:42.607  7033  7093 D MulticastServer: Registration process started with nonce: 1139236310
+02-17 11:22:42.751  7033  7097 D MulticastServer: FULL_LEDGER 1139236310
+02-17 11:22:43.411  7033  7092 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1139236310}
+02-17 11:22:43.558  7033  7097 D MulticastServer: FULL_LEDGER 1139236310
+02-17 11:22:43.616  7033  7094 D MulticastServer: Registration process finished: 1139236310
+round 115 of 300
+02-17 11:22:46.922  7153  7223 D MulticastServer: Listening for data.
+02-17 11:22:46.924  7153  7225 D MulticastServer: Registration process started with nonce: 1973330837
+02-17 11:22:47.051  7153  7234 D MulticastServer: FULL_LEDGER 1973330837
+02-17 11:22:47.728  7153  7224 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1973330837}
+02-17 11:22:47.860  7153  7224 D MulticastServer: FULL_LEDGER 1973330837
+02-17 11:22:47.935  7153  7226 D MulticastServer: Registration process finished: 1973330837
+round 116 of 300
+02-17 11:22:51.261  7297  7353 D MulticastServer: Listening for data.
+02-17 11:22:51.265  7297  7355 D MulticastServer: Registration process started with nonce: 1457151946
+02-17 11:22:51.347  7297  7362 D MulticastServer: FULL_LEDGER 1457151946
+02-17 11:22:52.073  7297  7359 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1457151946}
+02-17 11:22:52.160  7297  7359 D MulticastServer: FULL_LEDGER 1457151946
+02-17 11:22:52.278  7297  7356 D MulticastServer: Registration process finished: 1457151946
+round 117 of 300
+02-17 11:22:55.616  7701  7765 D MulticastServer: Listening for data.
+02-17 11:22:55.619  7701  7768 D MulticastServer: Registration process started with nonce: 1649450998
+02-17 11:22:55.851  7701  7776 D MulticastServer: FULL_LEDGER 1649450998
+02-17 11:22:56.423  7701  7766 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1649450998}
+02-17 11:22:56.632  7701  7769 D MulticastServer: Registration process finished: 1649450998
+round 118 of 300
+02-17 11:23:00.029  7856  7914 D MulticastServer: Listening for data.
+02-17 11:23:00.031  7856  7916 D MulticastServer: Registration process started with nonce: 1320319184
+02-17 11:23:00.162  7856  7921 D MulticastServer: FULL_LEDGER 1320319184
+02-17 11:23:00.837  7856  7915 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1320319184}
+02-17 11:23:00.963  7856  7915 D MulticastServer: FULL_LEDGER 1320319184
+02-17 11:23:01.045  7856  7917 D MulticastServer: Registration process finished: 1320319184
+round 119 of 300
+02-17 11:23:04.398  7981  8033 D MulticastServer: Listening for data.
+02-17 11:23:04.400  7981  8035 D MulticastServer: Registration process started with nonce: 871734627
+02-17 11:23:04.711  7981  8039 D MulticastServer: FULL_LEDGER 871734627
+02-17 11:23:05.205  7981  8038 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":871734627}
+02-17 11:23:05.410  7981  8036 D MulticastServer: Registration process finished: 871734627
+round 120 of 300
+02-17 11:23:08.721  8093  8157 D MulticastServer: Listening for data.
+02-17 11:23:08.723  8093  8159 D MulticastServer: Registration process started with nonce: 1775109749
+02-17 11:23:09.527  8093  8158 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1775109749}
+02-17 11:23:09.740  8093  8160 D MulticastServer: Registration process finished: 1775109749
+round 121 of 300
+02-17 11:23:13.041  8214  8265 D MulticastServer: Listening for data.
+02-17 11:23:13.044  8214  8267 D MulticastServer: Registration process started with nonce: 2062252840
+02-17 11:23:13.270  8214  8273 D MulticastServer: FULL_LEDGER 2062252840
+02-17 11:23:13.851  8214  8270 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":2062252840}
+02-17 11:23:14.057  8214  8268 D MulticastServer: Registration process finished: 2062252840
+round 122 of 300
+02-17 11:23:17.405  8340  8394 D MulticastServer: Listening for data.
+02-17 11:23:17.407  8340  8400 D MulticastServer: Registration process started with nonce: 1997243800
+02-17 11:23:17.559  8340  8406 D MulticastServer: FULL_LEDGER 1997243800
+02-17 11:23:18.212  8340  8399 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1997243800}
+02-17 11:23:18.414  8340  8399 D MulticastServer: FULL_LEDGER 1997243800
+02-17 11:23:18.423  8340  8402 D MulticastServer: Registration process finished: 1997243800
+round 123 of 300
+02-17 11:23:21.775  8458  8511 D MulticastServer: Listening for data.
+02-17 11:23:21.777  8458  8513 D MulticastServer: Registration process started with nonce: 37957000
+02-17 11:23:21.869  8458  8518 D MulticastServer: FULL_LEDGER 37957000
+02-17 11:23:22.581  8458  8512 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":37957000}
+02-17 11:23:22.720  8458  8512 D MulticastServer: FULL_LEDGER 37957000
+02-17 11:23:22.790  8458  8514 D MulticastServer: Registration process finished: 37957000
+round 124 of 300
+02-17 11:23:26.131  8574  8629 D MulticastServer: Listening for data.
+02-17 11:23:26.133  8574  8630 D MulticastServer: Registration process started with nonce: 1683657549
+02-17 11:23:26.530  8574  8635 D MulticastServer: FULL_LEDGER 1683657549
+02-17 11:23:26.937  8574  8628 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1683657549}
+02-17 11:23:27.145  8574  8631 D MulticastServer: Registration process finished: 1683657549
+round 125 of 300
+02-17 11:23:30.476  8671  8722 D MulticastServer: Listening for data.
+02-17 11:23:30.478  8671  8724 D MulticastServer: Registration process started with nonce: 148764294
+02-17 11:23:30.707  8671  8728 D MulticastServer: FULL_LEDGER 148764294
+02-17 11:23:31.282  8671  8723 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":148764294}
+02-17 11:23:31.478  8671  8723 D MulticastServer: FULL_LEDGER 148764294
+02-17 11:23:31.487  8671  8725 D MulticastServer: Registration process finished: 148764294
+round 126 of 300
+02-17 11:23:34.898  8791  8842 D MulticastServer: Listening for data.
+02-17 11:23:34.900  8791  8844 D MulticastServer: Registration process started with nonce: 438784830
+02-17 11:23:34.971  8791  8849 D MulticastServer: FULL_LEDGER 438784830
+02-17 11:23:35.704  8791  8843 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":438784830}
+02-17 11:23:35.820  8791  8843 D MulticastServer: FULL_LEDGER 438784830
+02-17 11:23:35.911  8791  8845 D MulticastServer: Registration process finished: 438784830
+round 127 of 300
+02-17 11:23:39.212  8903  8954 D MulticastServer: Listening for data.
+02-17 11:23:39.214  8903  8956 D MulticastServer: Registration process started with nonce: 366910407
+02-17 11:23:39.639  8903  8961 D MulticastServer: FULL_LEDGER 366910407
+02-17 11:23:40.019  8903  8955 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":366910407}
+02-17 11:23:40.225  8903  8957 D MulticastServer: Registration process finished: 366910407
+round 128 of 300
+02-17 11:23:43.552  9001  9066 D MulticastServer: Listening for data.
+02-17 11:23:43.555  9001  9068 D MulticastServer: Registration process started with nonce: 1384037659
+02-17 11:23:43.775  9001  9072 D MulticastServer: FULL_LEDGER 1384037659
+02-17 11:23:44.359  9001  9067 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1384037659}
+02-17 11:23:44.565  9001  9069 D MulticastServer: Registration process finished: 1384037659
+round 129 of 300
+02-17 11:23:47.858  9114  9165 D MulticastServer: Listening for data.
+02-17 11:23:47.860  9114  9167 D MulticastServer: Registration process started with nonce: 1385523397
+02-17 11:23:48.074  9114  9172 D MulticastServer: FULL_LEDGER 1385523397
+02-17 11:23:48.664  9114  9166 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1385523397}
+02-17 11:23:48.872  9114  9168 D MulticastServer: Registration process finished: 1385523397
+round 130 of 300
+02-17 11:23:52.283  9219  9269 D MulticastServer: Listening for data.
+02-17 11:23:52.285  9219  9271 D MulticastServer: Registration process started with nonce: 546924146
+02-17 11:23:52.383  9219  9276 D MulticastServer: FULL_LEDGER 546924146
+02-17 11:23:53.089  9219  9274 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":546924146}
+02-17 11:23:53.253  9219  9276 D MulticastServer: FULL_LEDGER 546924146
+02-17 11:23:53.293  9219  9272 D MulticastServer: Registration process finished: 546924146
+round 131 of 300
+02-17 11:23:56.604  9331  9381 D MulticastServer: Listening for data.
+02-17 11:23:56.607  9331  9383 D MulticastServer: Registration process started with nonce: 945991087
+02-17 11:23:56.678  9331  9387 D MulticastServer: FULL_LEDGER 945991087
+02-17 11:23:57.412  9331  9382 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":945991087}
+02-17 11:23:57.503  9331  9387 D MulticastServer: FULL_LEDGER 945991087
+02-17 11:23:57.617  9331  9384 D MulticastServer: Registration process finished: 945991087
+round 132 of 300
+02-17 11:24:00.933  9440  9495 D MulticastServer: Listening for data.
+02-17 11:24:00.935  9440  9497 D MulticastServer: Registration process started with nonce: 1894547929
+02-17 11:24:01.187  9440  9501 D MulticastServer: FULL_LEDGER 1894547929
+02-17 11:24:01.739  9440  9500 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1894547929}
+02-17 11:24:01.944  9440  9498 D MulticastServer: Registration process finished: 1894547929
+round 133 of 300
+02-17 11:24:05.326  9562  9613 D MulticastServer: Listening for data.
+02-17 11:24:05.328  9562  9615 D MulticastServer: Registration process started with nonce: 773528631
+02-17 11:24:05.378  9562  9620 D MulticastServer: FULL_LEDGER 773528631
+02-17 11:24:06.132  9562  9614 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":773528631}
+02-17 11:24:06.207  9562  9620 D MulticastServer: FULL_LEDGER 773528631
+02-17 11:24:06.339  9562  9616 D MulticastServer: Registration process finished: 773528631
+round 134 of 300
+02-17 11:24:09.710  9669  9721 D MulticastServer: Listening for data.
+02-17 11:24:09.712  9669  9723 D MulticastServer: Registration process started with nonce: 756448524
+02-17 11:24:09.810  9669  9729 D MulticastServer: FULL_LEDGER 756448524
+02-17 11:24:10.519  9669  9722 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":756448524}
+02-17 11:24:10.589  9669  9729 D MulticastServer: FULL_LEDGER 756448524
+02-17 11:24:10.724  9669  9724 D MulticastServer: Registration process finished: 756448524
+round 135 of 300
+02-17 11:24:14.078  9783  9837 D MulticastServer: Listening for data.
+02-17 11:24:14.081  9783  9839 D MulticastServer: Registration process started with nonce: 2033006650
+02-17 11:24:14.127  9783  9843 D MulticastServer: FULL_LEDGER 2033006650
+02-17 11:24:14.884  9783  9838 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":2033006650}
+02-17 11:24:14.998  9783  9843 D MulticastServer: FULL_LEDGER 2033006650
+02-17 11:24:15.095  9783  9840 D MulticastServer: Registration process finished: 2033006650
+round 136 of 300
+02-17 11:24:18.450  9887  9940 D MulticastServer: Listening for data.
+02-17 11:24:18.453  9887  9942 D MulticastServer: Registration process started with nonce: 1533158618
+02-17 11:24:18.622  9887  9947 D MulticastServer: FULL_LEDGER 1533158618
+02-17 11:24:19.257  9887  9941 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1533158618}
+02-17 11:24:19.398  9887  9947 D MulticastServer: FULL_LEDGER 1533158618
+02-17 11:24:19.462  9887  9943 D MulticastServer: Registration process finished: 1533158618
+round 137 of 300
+02-17 11:24:22.792  9999 10049 D MulticastServer: Listening for data.
+02-17 11:24:22.794  9999 10052 D MulticastServer: Registration process started with nonce: 748460082
+02-17 11:24:23.262  9999 10066 D MulticastServer: FULL_LEDGER 748460082
+02-17 11:24:23.599  9999 10050 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":748460082}
+02-17 11:24:23.806  9999 10053 D MulticastServer: Registration process finished: 748460082
+round 138 of 300
+02-17 11:24:27.149 10156 10214 D MulticastServer: Listening for data.
+02-17 11:24:27.151 10156 10216 D MulticastServer: Registration process started with nonce: 588414475
+02-17 11:24:27.957 10156 10215 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":588414475}
+02-17 11:24:28.159 10156 10217 D MulticastServer: Registration process finished: 588414475
+round 139 of 300
+02-17 11:24:31.546 10275 10339 D MulticastServer: Listening for data.
+02-17 11:24:31.549 10275 10341 D MulticastServer: Registration process started with nonce: 955427397
+02-17 11:24:31.703 10275 10345 D MulticastServer: FULL_LEDGER 955427397
+02-17 11:24:32.356 10275 10340 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":955427397}
+02-17 11:24:32.506 10275 10347 D MulticastServer: FULL_LEDGER 955427397
+02-17 11:24:32.560 10275 10342 D MulticastServer: Registration process finished: 955427397
+round 140 of 300
+02-17 11:24:35.908 10395 10459 D MulticastServer: Listening for data.
+02-17 11:24:35.911 10395 10461 D MulticastServer: Registration process started with nonce: 241855687
+02-17 11:24:35.958 10395 10464 D MulticastServer: FULL_LEDGER 241855687
+02-17 11:24:36.716 10395 10460 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":241855687}
+02-17 11:24:36.778 10395 10464 D MulticastServer: FULL_LEDGER 241855687
+02-17 11:24:36.922 10395 10462 D MulticastServer: Registration process finished: 241855687
+round 141 of 300
+02-17 11:24:40.275 10517 10568 D MulticastServer: Listening for data.
+02-17 11:24:40.278 10517 10570 D MulticastServer: Registration process started with nonce: 1022899684
+02-17 11:24:40.507 10517 10577 D MulticastServer: FULL_LEDGER 1022899684
+02-17 11:24:41.085 10517 10574 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1022899684}
+02-17 11:24:41.290 10517 10571 D MulticastServer: Registration process finished: 1022899684
+round 142 of 300
+02-17 11:24:44.656 10630 10684 D MulticastServer: Listening for data.
+02-17 11:24:44.660 10630 10686 D MulticastServer: Registration process started with nonce: 712623390
+02-17 11:24:44.815 10630 10689 D MulticastServer: FULL_LEDGER 712623390
+02-17 11:24:45.464 10630 10685 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":712623390}
+02-17 11:24:45.673 10630 10687 D MulticastServer: Registration process finished: 712623390
+round 143 of 300
+02-17 11:24:49.073 10743 10795 D MulticastServer: Listening for data.
+02-17 11:24:49.076 10743 10797 D MulticastServer: Registration process started with nonce: 1969643532
+02-17 11:24:49.122 10743 10802 D MulticastServer: FULL_LEDGER 1969643532
+02-17 11:24:49.881 10743 10796 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1969643532}
+02-17 11:24:50.021 10743 10796 D MulticastServer: FULL_LEDGER 1969643532
+02-17 11:24:50.085 10743 10798 D MulticastServer: Registration process finished: 1969643532
+round 144 of 300
+02-17 11:24:53.437 10857 10910 D MulticastServer: Listening for data.
+02-17 11:24:53.440 10857 10912 D MulticastServer: Registration process started with nonce: 1930677290
+02-17 11:24:53.612 10857 10917 D MulticastServer: FULL_LEDGER 1930677290
+02-17 11:24:54.244 10857 10911 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1930677290}
+02-17 11:24:54.417 10857 10911 D MulticastServer: FULL_LEDGER 1930677290
+02-17 11:24:54.448 10857 10913 D MulticastServer: Registration process finished: 1930677290
+round 145 of 300
+02-17 11:24:57.833 10959 11010 D MulticastServer: Listening for data.
+02-17 11:24:57.835 10959 11012 D MulticastServer: Registration process started with nonce: 1956054300
+02-17 11:24:57.919 10959 11018 D MulticastServer: FULL_LEDGER 1956054300
+02-17 11:24:58.641 10959 11011 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1956054300}
+02-17 11:24:58.724 10959 11018 D MulticastServer: FULL_LEDGER 1956054300
+02-17 11:24:58.846 10959 11013 D MulticastServer: Registration process finished: 1956054300
+round 146 of 300
+02-17 11:25:02.170 11073 11126 D MulticastServer: Listening for data.
+02-17 11:25:02.172 11073 11128 D MulticastServer: Registration process started with nonce: 338106415
+02-17 11:25:02.574 11073 11131 D MulticastServer: FULL_LEDGER 338106415
+02-17 11:25:02.977 11073 11127 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":338106415}
+02-17 11:25:03.184 11073 11129 D MulticastServer: Registration process finished: 338106415
+round 147 of 300
+02-17 11:25:06.563 11188 11240 D MulticastServer: Listening for data.
+02-17 11:25:06.566 11188 11242 D MulticastServer: Registration process started with nonce: 2120170810
+02-17 11:25:06.734 11188 11247 D MulticastServer: FULL_LEDGER 2120170810
+02-17 11:25:07.370 11188 11241 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":2120170810}
+02-17 11:25:07.577 11188 11243 D MulticastServer: Registration process finished: 2120170810
+round 148 of 300
+02-17 11:25:10.979 11298 11349 D MulticastServer: Listening for data.
+02-17 11:25:10.983 11298 11351 D MulticastServer: Registration process started with nonce: 600052976
+02-17 11:25:11.038 11298 11356 D MulticastServer: FULL_LEDGER 600052976
+02-17 11:25:11.790 11298 11354 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":600052976}
+02-17 11:25:11.865 11298 11354 D MulticastServer: FULL_LEDGER 600052976
+02-17 11:25:11.995 11298 11352 D MulticastServer: Registration process finished: 600052976
+round 149 of 300
+02-17 11:25:15.376 11412 11463 D MulticastServer: Listening for data.
+02-17 11:25:15.378 11412 11465 D MulticastServer: Registration process started with nonce: 875129116
+02-17 11:25:15.527 11412 11470 D MulticastServer: FULL_LEDGER 875129116
+02-17 11:25:16.183 11412 11464 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":875129116}
+02-17 11:25:16.334 11412 11464 D MulticastServer: FULL_LEDGER 875129116
+02-17 11:25:16.389 11412 11466 D MulticastServer: Registration process finished: 875129116
+round 150 of 300
+02-17 11:25:19.813 11524 11575 D MulticastServer: Listening for data.
+02-17 11:25:19.815 11524 11580 D MulticastServer: Registration process started with nonce: 135245584
+02-17 11:25:20.195 11524 11586 D MulticastServer: FULL_LEDGER 135245584
+02-17 11:25:20.622 11524 11576 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":135245584}
+02-17 11:25:20.828 11524 11581 D MulticastServer: Registration process finished: 135245584
+round 151 of 300
+02-17 11:25:24.162 11625 11676 D MulticastServer: Listening for data.
+02-17 11:25:24.164 11625 11678 D MulticastServer: Registration process started with nonce: 1115948243
+02-17 11:25:24.335 11625 11682 D MulticastServer: FULL_LEDGER 1115948243
+02-17 11:25:24.969 11625 11677 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1115948243}
+02-17 11:25:25.143 11625 11682 D MulticastServer: FULL_LEDGER 1115948243
+02-17 11:25:25.170 11625 11679 D MulticastServer: Registration process finished: 1115948243
+round 152 of 300
+02-17 11:25:28.586 11726 11777 D MulticastServer: Listening for data.
+02-17 11:25:28.589 11726 11779 D MulticastServer: Registration process started with nonce: 1645227577
+02-17 11:25:28.943 11726 11784 D MulticastServer: FULL_LEDGER 1645227577
+02-17 11:25:29.396 11726 11782 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1645227577}
+02-17 11:25:29.600 11726 11780 D MulticastServer: Registration process finished: 1645227577
+round 153 of 300
+02-17 11:25:32.955 11837 11888 D MulticastServer: Listening for data.
+02-17 11:25:32.957 11837 11890 D MulticastServer: Registration process started with nonce: 181355364
+02-17 11:25:33.143 11837 11894 D MulticastServer: FULL_LEDGER 181355364
+02-17 11:25:33.761 11837 11893 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":181355364}
+02-17 11:25:33.952 11837 11893 D MulticastServer: FULL_LEDGER 181355364
+02-17 11:25:33.966 11837 11891 D MulticastServer: Registration process finished: 181355364
+round 154 of 300
+02-17 11:25:37.398 11952 12004 D MulticastServer: Listening for data.
+02-17 11:25:37.401 11952 12006 D MulticastServer: Registration process started with nonce: 1661123295
+02-17 11:25:37.811 11952 12009 D MulticastServer: FULL_LEDGER 1661123295
+02-17 11:25:38.205 11952 12005 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1661123295}
+02-17 11:25:38.412 11952 12007 D MulticastServer: Registration process finished: 1661123295
+round 155 of 300
+02-17 11:25:41.729 12063 12113 D MulticastServer: Listening for data.
+02-17 11:25:41.732 12063 12115 D MulticastServer: Registration process started with nonce: 1982076677
+02-17 11:25:41.947 12063 12121 D MulticastServer: FULL_LEDGER 1982076677
+02-17 11:25:42.540 12063 12114 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1982076677}
+02-17 11:25:42.741 12063 12116 D MulticastServer: Registration process finished: 1982076677
+round 156 of 300
+02-17 11:25:46.091 12172 12223 D MulticastServer: Listening for data.
+02-17 11:25:46.094 12172 12226 D MulticastServer: Registration process started with nonce: 80552784
+02-17 11:25:46.203 12172 12231 D MulticastServer: FULL_LEDGER 80552784
+02-17 11:25:46.899 12172 12225 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":80552784}
+02-17 11:25:47.015 12172 12225 D MulticastServer: FULL_LEDGER 80552784
+02-17 11:25:47.111 12172 12227 D MulticastServer: Registration process finished: 80552784
+round 157 of 300
+02-17 11:25:50.474 12285 12338 D MulticastServer: Listening for data.
+02-17 11:25:50.477 12285 12340 D MulticastServer: Registration process started with nonce: 53997627
+02-17 11:25:50.622 12285 12343 D MulticastServer: FULL_LEDGER 53997627
+02-17 11:25:51.281 12285 12339 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":53997627}
+02-17 11:25:51.359 12285 12339 D MulticastServer: FULL_LEDGER 53997627
+02-17 11:25:51.485 12285 12341 D MulticastServer: Registration process finished: 53997627
+round 158 of 300
+02-17 11:25:54.820 12392 12442 D MulticastServer: Listening for data.
+02-17 11:25:54.823 12392 12444 D MulticastServer: Registration process started with nonce: 700143781
+02-17 11:25:55.055 12392 12449 D MulticastServer: FULL_LEDGER 700143781
+02-17 11:25:55.626 12392 12443 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":700143781}
+02-17 11:25:55.834 12392 12445 D MulticastServer: Registration process finished: 700143781
+round 159 of 300
+02-17 11:25:59.198 12507 12572 D MulticastServer: Listening for data.
+02-17 11:25:59.200 12507 12574 D MulticastServer: Registration process started with nonce: 637621741
+02-17 11:25:59.355 12507 12579 D MulticastServer: FULL_LEDGER 637621741
+02-17 11:26:00.004 12507 12573 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":637621741}
+02-17 11:26:00.162 12507 12579 D MulticastServer: FULL_LEDGER 637621741
+02-17 11:26:00.213 12507 12575 D MulticastServer: Registration process finished: 637621741
+round 160 of 300
+02-17 11:26:03.522 12630 12681 D MulticastServer: Listening for data.
+02-17 11:26:03.525 12630 12683 D MulticastServer: Registration process started with nonce: 1190884669
+02-17 11:26:03.783 12630 12687 D MulticastServer: FULL_LEDGER 1190884669
+02-17 11:26:04.329 12630 12682 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1190884669}
+02-17 11:26:04.514 12630 12687 D MulticastServer: FULL_LEDGER 1190884669
+02-17 11:26:04.532 12630 12684 D MulticastServer: Registration process finished: 1190884669
+round 161 of 300
+02-17 11:26:07.855 12744 12795 D MulticastServer: Listening for data.
+02-17 11:26:07.857 12744 12797 D MulticastServer: Registration process started with nonce: 406372508
+02-17 11:26:07.956 12744 12802 D MulticastServer: FULL_LEDGER 406372508
+02-17 11:26:08.662 12744 12796 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":406372508}
+02-17 11:26:08.766 12744 12811 D MulticastServer: FULL_LEDGER 406372508
+02-17 11:26:08.868 12744 12798 D MulticastServer: Registration process finished: 406372508
+round 162 of 300
+02-17 11:26:12.195 12853 12904 D MulticastServer: Listening for data.
+02-17 11:26:12.198 12853 12906 D MulticastServer: Registration process started with nonce: 941249908
+02-17 11:26:12.487 12853 12911 D MulticastServer: FULL_LEDGER 941249908
+02-17 11:26:13.004 12853 12909 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":941249908}
+02-17 11:26:13.215 12853 12907 D MulticastServer: Registration process finished: 941249908
+round 163 of 300
+02-17 11:26:16.702 13000 13051 D MulticastServer: Listening for data.
+02-17 11:26:16.704 13000 13053 D MulticastServer: Registration process started with nonce: 695502707
+02-17 11:26:16.962 13000 13056 D MulticastServer: FULL_LEDGER 695502707
+02-17 11:26:17.509 13000 13052 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":695502707}
+02-17 11:26:17.713 13000 13054 D MulticastServer: Registration process finished: 695502707
+round 164 of 300
+02-17 11:26:21.016 13103 13155 D MulticastServer: Listening for data.
+02-17 11:26:21.018 13103 13157 D MulticastServer: Registration process started with nonce: 1943877355
+02-17 11:26:21.287 13103 13162 D MulticastServer: FULL_LEDGER 1943877355
+02-17 11:26:21.822 13103 13156 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1943877355}
+02-17 11:26:22.028 13103 13158 D MulticastServer: Registration process finished: 1943877355
+round 165 of 300
+02-17 11:26:25.408 13214 13267 D MulticastServer: Listening for data.
+02-17 11:26:25.410 13214 13269 D MulticastServer: Registration process started with nonce: 446815269
+02-17 11:26:25.731 13214 13274 D MulticastServer: FULL_LEDGER 446815269
+02-17 11:26:26.217 13214 13272 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":446815269}
+02-17 11:26:26.411 13214 13272 D MulticastServer: FULL_LEDGER 446815269
+02-17 11:26:26.421 13214 13270 D MulticastServer: Registration process finished: 446815269
+round 166 of 300
+02-17 11:26:29.805 13325 13378 D MulticastServer: Listening for data.
+02-17 11:26:29.807 13325 13380 D MulticastServer: Registration process started with nonce: 658738540
+02-17 11:26:30.106 13325 13384 D MulticastServer: FULL_LEDGER 658738540
+02-17 11:26:30.611 13325 13379 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":658738540}
+02-17 11:26:30.822 13325 13381 D MulticastServer: Registration process finished: 658738540
+round 167 of 300
+02-17 11:26:34.173 13437 13491 D MulticastServer: Listening for data.
+02-17 11:26:34.175 13437 13493 D MulticastServer: Registration process started with nonce: 555955484
+02-17 11:26:34.375 13437 13498 D MulticastServer: FULL_LEDGER 555955484
+02-17 11:26:34.979 13437 13492 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":555955484}
+02-17 11:26:35.181 13437 13514 D MulticastServer: FULL_LEDGER 555955484
+02-17 11:26:35.188 13437 13494 D MulticastServer: Registration process finished: 555955484
+round 168 of 300
+02-17 11:26:38.614 13556 13608 D MulticastServer: Listening for data.
+02-17 11:26:38.616 13556 13610 D MulticastServer: Registration process started with nonce: 783175534
+02-17 11:26:39.048 13556 13615 D MulticastServer: FULL_LEDGER 783175534
+02-17 11:26:39.421 13556 13613 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":783175534}
+02-17 11:26:39.626 13556 13611 D MulticastServer: Registration process finished: 783175534
+round 169 of 300
+02-17 11:26:42.995 13678 13730 D MulticastServer: Listening for data.
+02-17 11:26:42.997 13678 13732 D MulticastServer: Registration process started with nonce: 1433982589
+02-17 11:26:43.202 13678 13735 D MulticastServer: FULL_LEDGER 1433982589
+02-17 11:26:43.805 13678 13736 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1433982589}
+02-17 11:26:44.010 13678 13736 D MulticastServer: FULL_LEDGER 1433982589
+02-17 11:26:44.011 13678 13733 D MulticastServer: Registration process finished: 1433982589
+round 170 of 300
+02-17 11:26:47.344 13794 13845 D MulticastServer: Listening for data.
+02-17 11:26:47.347 13794 13847 D MulticastServer: Registration process started with nonce: 1010465050
+02-17 11:26:48.151 13794 13846 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1010465050}
+02-17 11:26:48.357 13794 13848 D MulticastServer: Registration process finished: 1010465050
+round 171 of 300
+02-17 11:26:51.754 13903 13959 D MulticastServer: Listening for data.
+02-17 11:26:51.756 13903 13961 D MulticastServer: Registration process started with nonce: 1603087494
+02-17 11:26:51.991 13903 13965 D MulticastServer: FULL_LEDGER 1603087494
+02-17 11:26:52.560 13903 13960 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1603087494}
+02-17 11:26:52.768 13903 13962 D MulticastServer: Registration process finished: 1603087494
+round 172 of 300
+02-17 11:26:56.160 14021 14071 D MulticastServer: Listening for data.
+02-17 11:26:56.162 14021 14073 D MulticastServer: Registration process started with nonce: 1144912449
+02-17 11:26:56.287 14021 14078 D MulticastServer: FULL_LEDGER 1144912449
+02-17 11:26:56.967 14021 14072 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1144912449}
+02-17 11:26:57.094 14021 14078 D MulticastServer: FULL_LEDGER 1144912449
+02-17 11:26:57.173 14021 14074 D MulticastServer: Registration process finished: 1144912449
+round 173 of 300
+02-17 11:27:00.512 14126 14178 D MulticastServer: Listening for data.
+02-17 11:27:00.515 14126 14180 D MulticastServer: Registration process started with nonce: 1115572555
+02-17 11:27:00.566 14126 14183 D MulticastServer: FULL_LEDGER 1115572555
+02-17 11:27:01.319 14126 14179 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1115572555}
+02-17 11:27:01.370 14126 14179 D MulticastServer: FULL_LEDGER 1115572555
+02-17 11:27:01.525 14126 14181 D MulticastServer: Registration process finished: 1115572555
+round 174 of 300
+02-17 11:27:04.896 14225 14275 D MulticastServer: Listening for data.
+02-17 11:27:04.898 14225 14277 D MulticastServer: Registration process started with nonce: 1474714229
+02-17 11:27:04.996 14225 14283 D MulticastServer: FULL_LEDGER 1474714229
+02-17 11:27:05.706 14225 14280 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1474714229}
+02-17 11:27:05.779 14225 14280 D MulticastServer: FULL_LEDGER 1474714229
+02-17 11:27:05.911 14225 14278 D MulticastServer: Registration process finished: 1474714229
+round 175 of 300
+02-17 11:27:09.226 14325 14376 D MulticastServer: Listening for data.
+02-17 11:27:09.229 14325 14378 D MulticastServer: Registration process started with nonce: 851622683
+02-17 11:27:09.395 14325 14382 D MulticastServer: FULL_LEDGER 851622683
+02-17 11:27:10.036 14325 14377 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":851622683}
+02-17 11:27:10.202 14325 14377 D MulticastServer: FULL_LEDGER 851622683
+02-17 11:27:10.238 14325 14379 D MulticastServer: Registration process finished: 851622683
+round 176 of 300
+02-17 11:27:13.593 14427 14478 D MulticastServer: Listening for data.
+02-17 11:27:13.595 14427 14480 D MulticastServer: Registration process started with nonce: 1745243782
+02-17 11:27:13.698 14427 14484 D MulticastServer: FULL_LEDGER 1745243782
+02-17 11:27:14.399 14427 14479 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1745243782}
+02-17 11:27:14.519 14427 14496 D MulticastServer: FULL_LEDGER 1745243782
+02-17 11:27:14.607 14427 14481 D MulticastServer: Registration process finished: 1745243782
+round 177 of 300
+02-17 11:27:18.010 14537 14588 D MulticastServer: Listening for data.
+02-17 11:27:18.012 14537 14590 D MulticastServer: Registration process started with nonce: 1309474086
+02-17 11:27:18.203 14537 14594 D MulticastServer: FULL_LEDGER 1309474086
+02-17 11:27:18.817 14537 14589 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1309474086}
+02-17 11:27:19.023 14537 14591 D MulticastServer: Registration process finished: 1309474086
+round 178 of 300
+02-17 11:27:22.347 14637 14687 D MulticastServer: Listening for data.
+02-17 11:27:22.349 14637 14689 D MulticastServer: Registration process started with nonce: 731041930
+02-17 11:27:22.507 14637 14693 D MulticastServer: FULL_LEDGER 731041930
+02-17 11:27:23.154 14637 14688 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":731041930}
+02-17 11:27:23.341 14637 14693 D MulticastServer: FULL_LEDGER 731041930
+02-17 11:27:23.361 14637 14690 D MulticastServer: Registration process finished: 731041930
+round 179 of 300
+02-17 11:27:26.745 14754 14806 D MulticastServer: Listening for data.
+02-17 11:27:26.748 14754 14808 D MulticastServer: Registration process started with nonce: 361227895
+02-17 11:27:27.555 14754 14811 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":361227895}
+02-17 11:27:27.757 14754 14809 D MulticastServer: Registration process finished: 361227895
+round 180 of 300
+02-17 11:27:31.065 14863 14915 D MulticastServer: Listening for data.
+02-17 11:27:31.068 14863 14917 D MulticastServer: Registration process started with nonce: 562228571
+02-17 11:27:31.872 14863 14920 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":562228571}
+02-17 11:27:32.081 14863 14918 D MulticastServer: Registration process finished: 562228571
+round 181 of 300
+02-17 11:27:35.435 14965 15017 D MulticastServer: Listening for data.
+02-17 11:27:35.438 14965 15019 D MulticastServer: Registration process started with nonce: 1129351587
+02-17 11:27:35.635 14965 15024 D MulticastServer: FULL_LEDGER 1129351587
+02-17 11:27:36.241 14965 15018 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1129351587}
+02-17 11:27:36.423 14965 15018 D MulticastServer: FULL_LEDGER 1129351587
+02-17 11:27:36.445 14965 15020 D MulticastServer: Registration process finished: 1129351587
+round 182 of 300
+02-17 11:27:39.841 15079 15130 D MulticastServer: Listening for data.
+02-17 11:27:39.843 15079 15132 D MulticastServer: Registration process started with nonce: 479486882
+02-17 11:27:39.930 15079 15136 D MulticastServer: FULL_LEDGER 479486882
+02-17 11:27:40.649 15079 15131 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":479486882}
+02-17 11:27:40.743 15079 15131 D MulticastServer: FULL_LEDGER 479486882
+02-17 11:27:40.855 15079 15133 D MulticastServer: Registration process finished: 479486882
+round 183 of 300
+02-17 11:27:44.209 15178 15230 D MulticastServer: Listening for data.
+02-17 11:27:44.211 15178 15232 D MulticastServer: Registration process started with nonce: 576857537
+02-17 11:27:44.580 15178 15237 D MulticastServer: FULL_LEDGER 576857537
+02-17 11:27:45.016 15178 15235 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":576857537}
+02-17 11:27:45.228 15178 15233 D MulticastServer: Registration process finished: 576857537
+round 184 of 300
+02-17 11:27:48.563 15280 15330 D MulticastServer: Listening for data.
+02-17 11:27:48.566 15280 15332 D MulticastServer: Registration process started with nonce: 2063151422
+02-17 11:27:48.717 15280 15337 D MulticastServer: FULL_LEDGER 2063151422
+02-17 11:27:49.371 15280 15331 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":2063151422}
+02-17 11:27:49.526 15280 15337 D MulticastServer: FULL_LEDGER 2063151422
+02-17 11:27:49.579 15280 15333 D MulticastServer: Registration process finished: 2063151422
+round 185 of 300
+02-17 11:27:52.903 15394 15446 D MulticastServer: Listening for data.
+02-17 11:27:52.905 15394 15448 D MulticastServer: Registration process started with nonce: 866105415
+02-17 11:27:53.709 15394 15447 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":866105415}
+02-17 11:27:53.848 15394 15465 D MulticastServer: FULL_LEDGER 866105415
+02-17 11:27:53.916 15394 15449 D MulticastServer: Registration process finished: 866105415
+round 186 of 300
+02-17 11:27:57.340 15507 15558 D MulticastServer: Listening for data.
+02-17 11:27:57.343 15507 15560 D MulticastServer: Registration process started with nonce: 2035312843
+02-17 11:27:57.522 15507 15564 D MulticastServer: FULL_LEDGER 2035312843
+02-17 11:27:58.147 15507 15559 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":2035312843}
+02-17 11:27:58.331 15507 15582 D MulticastServer: FULL_LEDGER 2035312843
+02-17 11:27:58.350 15507 15561 D MulticastServer: Registration process finished: 2035312843
+round 187 of 300
+02-17 11:28:01.681 15615 15667 D MulticastServer: Listening for data.
+02-17 11:28:01.683 15615 15669 D MulticastServer: Registration process started with nonce: 29332765
+02-17 11:28:01.784 15615 15672 D MulticastServer: FULL_LEDGER 29332765
+02-17 11:28:02.487 15615 15668 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":29332765}
+02-17 11:28:02.600 15615 15668 D MulticastServer: FULL_LEDGER 29332765
+02-17 11:28:02.692 15615 15670 D MulticastServer: Registration process finished: 29332765
+round 188 of 300
+02-17 11:28:06.102 15749 15803 D MulticastServer: Listening for data.
+02-17 11:28:06.106 15749 15805 D MulticastServer: Registration process started with nonce: 349682867
+02-17 11:28:06.159 15749 15810 D MulticastServer: FULL_LEDGER 349682867
+02-17 11:28:06.910 15749 15804 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":349682867}
+02-17 11:28:07.048 15749 15804 D MulticastServer: FULL_LEDGER 349682867
+02-17 11:28:07.117 15749 15806 D MulticastServer: Registration process finished: 349682867
+round 189 of 300
+02-17 11:28:10.486 15876 15958 D MulticastServer: Listening for data.
+02-17 11:28:10.489 15876 15960 D MulticastServer: Registration process started with nonce: 1456960555
+02-17 11:28:10.631 15876 15965 D MulticastServer: FULL_LEDGER 1456960555
+02-17 11:28:11.293 15876 15959 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1456960555}
+02-17 11:28:11.429 15876 15959 D MulticastServer: FULL_LEDGER 1456960555
+02-17 11:28:11.498 15876 15961 D MulticastServer: Registration process finished: 1456960555
+round 190 of 300
+02-17 11:28:14.850 16017 16085 D MulticastServer: Listening for data.
+02-17 11:28:14.852 16017 16087 D MulticastServer: Registration process started with nonce: 865695490
+02-17 11:28:14.951 16017 16093 D MulticastServer: FULL_LEDGER 865695490
+02-17 11:28:15.658 16017 16086 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":865695490}
+02-17 11:28:15.767 16017 16086 D MulticastServer: FULL_LEDGER 865695490
+02-17 11:28:15.863 16017 16088 D MulticastServer: Registration process finished: 865695490
+round 191 of 300
+02-17 11:28:19.242 16145 16196 D MulticastServer: Listening for data.
+02-17 11:28:19.244 16145 16198 D MulticastServer: Registration process started with nonce: 764340949
+02-17 11:28:19.443 16145 16197 D MulticastServer: FULL_LEDGER 764340949
+02-17 11:28:20.053 16145 16201 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":764340949}
+02-17 11:28:20.250 16145 16197 D MulticastServer: FULL_LEDGER 764340949
+02-17 11:28:20.257 16145 16199 D MulticastServer: Registration process finished: 764340949
+round 192 of 300
+02-17 11:28:23.546 16244 16297 D MulticastServer: Listening for data.
+02-17 11:28:23.549 16244 16299 D MulticastServer: Registration process started with nonce: 1448595903
+02-17 11:28:23.767 16244 16304 D MulticastServer: FULL_LEDGER 1448595903
+02-17 11:28:24.354 16244 16298 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1448595903}
+02-17 11:28:24.541 16244 16298 D MulticastServer: FULL_LEDGER 1448595903
+02-17 11:28:24.557 16244 16300 D MulticastServer: Registration process finished: 1448595903
+round 193 of 300
+02-17 11:28:27.954 16348 16400 D MulticastServer: Listening for data.
+02-17 11:28:27.956 16348 16402 D MulticastServer: Registration process started with nonce: 353665344
+02-17 11:28:28.033 16348 16406 D MulticastServer: FULL_LEDGER 353665344
+02-17 11:28:28.760 16348 16401 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":353665344}
+02-17 11:28:28.898 16348 16401 D MulticastServer: FULL_LEDGER 353665344
+02-17 11:28:28.967 16348 16403 D MulticastServer: Registration process finished: 353665344
+round 194 of 300
+02-17 11:28:32.352 16463 16513 D MulticastServer: Listening for data.
+02-17 11:28:32.355 16463 16515 D MulticastServer: Registration process started with nonce: 2029107274
+02-17 11:28:32.459 16463 16519 D MulticastServer: FULL_LEDGER 2029107274
+02-17 11:28:33.159 16463 16514 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":2029107274}
+02-17 11:28:33.275 16463 16514 D MulticastServer: FULL_LEDGER 2029107274
+02-17 11:28:33.365 16463 16516 D MulticastServer: Registration process finished: 2029107274
+round 195 of 300
+02-17 11:28:36.717 16572 16626 D MulticastServer: Listening for data.
+02-17 11:28:36.720 16572 16628 D MulticastServer: Registration process started with nonce: 171185328
+02-17 11:28:36.847 16572 16631 D MulticastServer: FULL_LEDGER 171185328
+02-17 11:28:37.525 16572 16627 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":171185328}
+02-17 11:28:37.706 16572 16644 D MulticastServer: FULL_LEDGER 171185328
+02-17 11:28:37.727 16572 16629 D MulticastServer: Registration process finished: 171185328
+round 196 of 300
+02-17 11:28:41.071 16691 16743 D MulticastServer: Listening for data.
+02-17 11:28:41.074 16691 16745 D MulticastServer: Registration process started with nonce: 1714452404
+02-17 11:28:41.158 16691 16751 D MulticastServer: FULL_LEDGER 1714452404
+02-17 11:28:41.879 16691 16750 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1714452404}
+02-17 11:28:41.955 16691 16750 D MulticastServer: FULL_LEDGER 1714452404
+02-17 11:28:42.085 16691 16748 D MulticastServer: Registration process finished: 1714452404
+round 197 of 300
+02-17 11:28:45.451 16797 16864 D MulticastServer: Listening for data.
+02-17 11:28:45.453 16797 16867 D MulticastServer: Registration process started with nonce: 1358929837
+02-17 11:28:45.646 16797 16872 D MulticastServer: FULL_LEDGER 1358929837
+02-17 11:28:46.261 16797 16870 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1358929837}
+02-17 11:28:46.463 16797 16868 D MulticastServer: Registration process finished: 1358929837
+round 198 of 300
+02-17 11:28:49.878 16928 16981 D MulticastServer: Listening for data.
+02-17 11:28:49.880 16928 16983 D MulticastServer: Registration process started with nonce: 383891391
+02-17 11:28:49.958 16928 16990 D MulticastServer: FULL_LEDGER 383891391
+02-17 11:28:50.688 16928 16982 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":383891391}
+02-17 11:28:50.770 16928 16990 D MulticastServer: FULL_LEDGER 383891391
+02-17 11:28:50.891 16928 16984 D MulticastServer: Registration process finished: 383891391
+round 199 of 300
+02-17 11:28:54.182 17039 17093 D MulticastServer: Listening for data.
+02-17 11:28:54.185 17039 17095 D MulticastServer: Registration process started with nonce: 671915549
+02-17 11:28:54.993 17039 17098 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":671915549}
+02-17 11:28:55.201 17039 17096 D MulticastServer: Registration process finished: 671915549
+round 200 of 300
+02-17 11:28:58.538 17157 17208 D MulticastServer: Listening for data.
+02-17 11:28:58.541 17157 17210 D MulticastServer: Registration process started with nonce: 1269635663
+02-17 11:28:58.763 17157 17213 D MulticastServer: FULL_LEDGER 1269635663
+02-17 11:28:59.345 17157 17209 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1269635663}
+02-17 11:28:59.556 17157 17211 D MulticastServer: Registration process finished: 1269635663
+round 201 of 300
+02-17 11:29:02.929 17269 17319 D MulticastServer: Listening for data.
+02-17 11:29:02.932 17269 17321 D MulticastServer: Registration process started with nonce: 1394010244
+02-17 11:29:03.083 17269 17324 D MulticastServer: FULL_LEDGER 1394010244
+02-17 11:29:03.737 17269 17320 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1394010244}
+02-17 11:29:03.874 17269 17320 D MulticastServer: FULL_LEDGER 1394010244
+02-17 11:29:03.942 17269 17322 D MulticastServer: Registration process finished: 1394010244
+round 202 of 300
+02-17 11:29:07.281 17383 17435 D MulticastServer: Listening for data.
+02-17 11:29:07.283 17383 17437 D MulticastServer: Registration process started with nonce: 929182773
+02-17 11:29:07.734 17383 17441 D MulticastServer: FULL_LEDGER 929182773
+02-17 11:29:08.088 17383 17436 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":929182773}
+02-17 11:29:08.293 17383 17438 D MulticastServer: Registration process finished: 929182773
+round 203 of 300
+02-17 11:29:11.594 17484 17536 D MulticastServer: Listening for data.
+02-17 11:29:11.596 17484 17538 D MulticastServer: Registration process started with nonce: 1359334759
+02-17 11:29:11.646 17484 17543 D MulticastServer: FULL_LEDGER 1359334759
+02-17 11:29:12.400 17484 17537 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1359334759}
+02-17 11:29:12.476 17484 17537 D MulticastServer: FULL_LEDGER 1359334759
+02-17 11:29:12.606 17484 17539 D MulticastServer: Registration process finished: 1359334759
+round 204 of 300
+02-17 11:29:15.950 17591 17646 D MulticastServer: Listening for data.
+02-17 11:29:15.952 17591 17648 D MulticastServer: Registration process started with nonce: 1769759831
+02-17 11:29:16.165 17591 17652 D MulticastServer: FULL_LEDGER 1769759831
+02-17 11:29:16.758 17591 17647 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1769759831}
+02-17 11:29:16.971 17591 17649 D MulticastServer: Registration process finished: 1769759831
+round 205 of 300
+02-17 11:29:20.396 17711 17763 D MulticastServer: Listening for data.
+02-17 11:29:20.399 17711 17765 D MulticastServer: Registration process started with nonce: 1849993508
+02-17 11:29:20.473 17711 17768 D MulticastServer: FULL_LEDGER 1849993508
+02-17 11:29:21.204 17711 17764 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1849993508}
+02-17 11:29:21.287 17711 17764 D MulticastServer: FULL_LEDGER 1849993508
+02-17 11:29:21.407 17711 17766 D MulticastServer: Registration process finished: 1849993508
+round 206 of 300
+02-17 11:29:24.758 17822 17873 D MulticastServer: Listening for data.
+02-17 11:29:24.761 17822 17875 D MulticastServer: Registration process started with nonce: 341725714
+02-17 11:29:24.982 17822 17878 D MulticastServer: FULL_LEDGER 341725714
+02-17 11:29:25.568 17822 17879 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":341725714}
+02-17 11:29:25.771 17822 17876 D MulticastServer: Registration process finished: 341725714
+round 207 of 300
+02-17 11:29:29.102 17933 17985 D MulticastServer: Listening for data.
+02-17 11:29:29.104 17933 17987 D MulticastServer: Registration process started with nonce: 1407281837
+02-17 11:29:29.275 17933 17991 D MulticastServer: FULL_LEDGER 1407281837
+02-17 11:29:29.913 17933 17986 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1407281837}
+02-17 11:29:30.082 17933 17991 D MulticastServer: FULL_LEDGER 1407281837
+02-17 11:29:30.112 17933 17988 D MulticastServer: Registration process finished: 1407281837
+round 208 of 300
+02-17 11:29:33.469 18051 18102 D MulticastServer: Listening for data.
+02-17 11:29:33.472 18051 18104 D MulticastServer: Registration process started with nonce: 1878473234
+02-17 11:29:33.577 18051 18110 D MulticastServer: FULL_LEDGER 1878473234
+02-17 11:29:34.278 18051 18103 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1878473234}
+02-17 11:29:34.410 18051 18110 D MulticastServer: FULL_LEDGER 1878473234
+02-17 11:29:34.489 18051 18105 D MulticastServer: Registration process finished: 1878473234
+round 209 of 300
+02-17 11:29:37.829 18163 18233 D MulticastServer: Listening for data.
+02-17 11:29:37.832 18163 18235 D MulticastServer: Registration process started with nonce: 1640887642
+02-17 11:29:38.002 18163 18243 D MulticastServer: FULL_LEDGER 1640887642
+02-17 11:29:38.636 18163 18234 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1640887642}
+02-17 11:29:38.741 18163 18243 D MulticastServer: FULL_LEDGER 1640887642
+02-17 11:29:38.841 18163 18241 D MulticastServer: Registration process finished: 1640887642
+round 210 of 300
+02-17 11:29:42.177 18304 18355 D MulticastServer: Listening for data.
+02-17 11:29:42.179 18304 18357 D MulticastServer: Registration process started with nonce: 1888069145
+02-17 11:29:42.243 18304 18362 D MulticastServer: FULL_LEDGER 1888069145
+02-17 11:29:42.984 18304 18356 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1888069145}
+02-17 11:29:43.066 18304 18366 D MulticastServer: FULL_LEDGER 1888069145
+02-17 11:29:43.190 18304 18358 D MulticastServer: Registration process finished: 1888069145
+round 211 of 300
+02-17 11:29:46.515 18411 18473 D MulticastServer: Listening for data.
+02-17 11:29:46.517 18411 18475 D MulticastServer: Registration process started with nonce: 761425421
+02-17 11:29:46.687 18411 18480 D MulticastServer: FULL_LEDGER 761425421
+02-17 11:29:47.321 18411 18474 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":761425421}
+02-17 11:29:47.502 18411 18474 D MulticastServer: FULL_LEDGER 761425421
+02-17 11:29:47.528 18411 18476 D MulticastServer: Registration process finished: 761425421
+round 212 of 300
+02-17 11:29:50.798 18535 18589 D MulticastServer: Listening for data.
+02-17 11:29:50.801 18535 18591 D MulticastServer: Registration process started with nonce: 1823592139
+02-17 11:29:51.022 18535 18596 D MulticastServer: FULL_LEDGER 1823592139
+02-17 11:29:51.606 18535 18590 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1823592139}
+02-17 11:29:51.789 18535 18590 D MulticastServer: FULL_LEDGER 1823592139
+02-17 11:29:51.808 18535 18592 D MulticastServer: Registration process finished: 1823592139
+round 213 of 300
+02-17 11:29:55.167 18648 18719 D MulticastServer: Listening for data.
+02-17 11:29:55.170 18648 18721 D MulticastServer: Registration process started with nonce: 1831694209
+02-17 11:29:55.656 18648 18724 D MulticastServer: FULL_LEDGER 1831694209
+02-17 11:29:55.974 18648 18720 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1831694209}
+02-17 11:29:56.179 18648 18722 D MulticastServer: Registration process finished: 1831694209
+round 214 of 300
+02-17 11:29:59.571 18786 18838 D MulticastServer: Listening for data.
+02-17 11:29:59.573 18786 18840 D MulticastServer: Registration process started with nonce: 141695088
+02-17 11:29:59.635 18786 18844 D MulticastServer: FULL_LEDGER 141695088
+02-17 11:30:00.377 18786 18839 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":141695088}
+02-17 11:30:00.547 18786 18839 D MulticastServer: FULL_LEDGER 141695088
+02-17 11:30:00.581 18786 18841 D MulticastServer: Registration process finished: 141695088
+round 215 of 300
+02-17 11:30:03.878 18897 18964 D MulticastServer: Listening for data.
+02-17 11:30:03.880 18897 18966 D MulticastServer: Registration process started with nonce: 34012927
+02-17 11:30:04.687 18897 18973 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":34012927}
+02-17 11:30:04.890 18897 18969 D MulticastServer: Registration process finished: 34012927
+round 216 of 300
+02-17 11:30:08.259 19036 19086 D MulticastServer: Listening for data.
+02-17 11:30:08.262 19036 19088 D MulticastServer: Registration process started with nonce: 1955055954
+02-17 11:30:08.390 19036 19094 D MulticastServer: FULL_LEDGER 1955055954
+02-17 11:30:09.066 19036 19087 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1955055954}
+02-17 11:30:09.198 19036 19087 D MulticastServer: FULL_LEDGER 1955055954
+02-17 11:30:09.271 19036 19089 D MulticastServer: Registration process finished: 1955055954
+round 217 of 300
+02-17 11:30:12.589 19148 19200 D MulticastServer: Listening for data.
+02-17 11:30:12.591 19148 19202 D MulticastServer: Registration process started with nonce: 2054778718
+02-17 11:30:12.691 19148 19206 D MulticastServer: FULL_LEDGER 2054778718
+02-17 11:30:13.395 19148 19201 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":2054778718}
+02-17 11:30:13.501 19148 19206 D MulticastServer: FULL_LEDGER 2054778718
+02-17 11:30:13.600 19148 19203 D MulticastServer: Registration process finished: 2054778718
+round 218 of 300
+02-17 11:30:16.937 19248 19299 D MulticastServer: Listening for data.
+02-17 11:30:16.940 19248 19301 D MulticastServer: Registration process started with nonce: 1305271485
+02-17 11:30:17.162 19248 19304 D MulticastServer: FULL_LEDGER 1305271485
+02-17 11:30:17.743 19248 19300 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1305271485}
+02-17 11:30:17.952 19248 19302 D MulticastServer: Registration process finished: 1305271485
+round 219 of 300
+02-17 11:30:21.296 19363 19414 D MulticastServer: Listening for data.
+02-17 11:30:21.298 19363 19416 D MulticastServer: Registration process started with nonce: 375544786
+02-17 11:30:21.527 19363 19419 D MulticastServer: FULL_LEDGER 375544786
+02-17 11:30:22.103 19363 19415 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":375544786}
+02-17 11:30:22.297 19363 19415 D MulticastServer: FULL_LEDGER 375544786
+02-17 11:30:22.307 19363 19417 D MulticastServer: Registration process finished: 375544786
+round 220 of 300
+02-17 11:30:25.709 19475 19526 D MulticastServer: Listening for data.
+02-17 11:30:25.711 19475 19528 D MulticastServer: Registration process started with nonce: 1597455073
+02-17 11:30:26.515 19475 19527 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1597455073}
+02-17 11:30:26.676 19475 19559 D MulticastServer: FULL_LEDGER 1597455073
+02-17 11:30:26.722 19475 19529 D MulticastServer: Registration process finished: 1597455073
+round 221 of 300
+02-17 11:30:30.125 19591 19652 D MulticastServer: Listening for data.
+02-17 11:30:30.128 19591 19654 D MulticastServer: Registration process started with nonce: 245645007
+02-17 11:30:30.190 19591 19660 D MulticastServer: FULL_LEDGER 245645007
+02-17 11:30:30.934 19591 19653 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":245645007}
+02-17 11:30:31.006 19591 19653 D MulticastServer: FULL_LEDGER 245645007
+02-17 11:30:31.137 19591 19655 D MulticastServer: Registration process finished: 245645007
+round 222 of 300
+02-17 11:30:34.480 19720 19776 D MulticastServer: Listening for data.
+02-17 11:30:34.482 19720 19778 D MulticastServer: Registration process started with nonce: 331404760
+02-17 11:30:34.607 19720 19783 D MulticastServer: FULL_LEDGER 331404760
+02-17 11:30:35.288 19720 19777 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":331404760}
+02-17 11:30:35.442 19720 19777 D MulticastServer: FULL_LEDGER 331404760
+02-17 11:30:35.493 19720 19779 D MulticastServer: Registration process finished: 331404760
+round 223 of 300
+02-17 11:30:38.897 19842 19916 D MulticastServer: Listening for data.
+02-17 11:30:38.899 19842 19922 D MulticastServer: Registration process started with nonce: 1581451502
+02-17 11:30:39.123 19842 19931 D MulticastServer: FULL_LEDGER 1581451502
+02-17 11:30:39.704 19842 19918 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1581451502}
+02-17 11:30:39.911 19842 19923 D MulticastServer: Registration process finished: 1581451502
+round 224 of 300
+02-17 11:30:43.269 19976 20029 D MulticastServer: Listening for data.
+02-17 11:30:43.272 19976 20031 D MulticastServer: Registration process started with nonce: 677775163
+02-17 11:30:43.414 19976 20030 D MulticastServer: FULL_LEDGER 677775163
+02-17 11:30:44.079 19976 20035 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":677775163}
+02-17 11:30:44.251 19976 20035 D MulticastServer: FULL_LEDGER 677775163
+02-17 11:30:44.279 19976 20032 D MulticastServer: Registration process finished: 677775163
+round 225 of 300
+02-17 11:30:47.648 20076 20129 D MulticastServer: Listening for data.
+02-17 11:30:47.650 20076 20131 D MulticastServer: Registration process started with nonce: 1724027733
+02-17 11:30:47.774 20076 20136 D MulticastServer: FULL_LEDGER 1724027733
+02-17 11:30:48.455 20076 20130 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1724027733}
+02-17 11:30:48.527 20076 20130 D MulticastServer: FULL_LEDGER 1724027733
+02-17 11:30:48.661 20076 20132 D MulticastServer: Registration process finished: 1724027733
+round 226 of 300
+02-17 11:30:52.054 20191 20242 D MulticastServer: Listening for data.
+02-17 11:30:52.056 20191 20244 D MulticastServer: Registration process started with nonce: 1823318398
+02-17 11:30:52.239 20191 20249 D MulticastServer: FULL_LEDGER 1823318398
+02-17 11:30:52.863 20191 20243 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1823318398}
+02-17 11:30:53.060 20191 20250 D MulticastServer: FULL_LEDGER 1823318398
+02-17 11:30:53.066 20191 20245 D MulticastServer: Registration process finished: 1823318398
+round 227 of 300
+02-17 11:30:56.371 20304 20356 D MulticastServer: Listening for data.
+02-17 11:30:56.374 20304 20358 D MulticastServer: Registration process started with nonce: 1266928236
+02-17 11:30:56.580 20304 20363 D MulticastServer: FULL_LEDGER 1266928236
+02-17 11:30:57.178 20304 20357 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1266928236}
+02-17 11:30:57.330 20304 20357 D MulticastServer: FULL_LEDGER 1266928236
+02-17 11:30:57.385 20304 20359 D MulticastServer: Registration process finished: 1266928236
+round 228 of 300
+02-17 11:31:00.747 20416 20471 D MulticastServer: Listening for data.
+02-17 11:31:00.750 20416 20474 D MulticastServer: Registration process started with nonce: 437687303
+02-17 11:31:01.015 20416 20477 D MulticastServer: FULL_LEDGER 437687303
+02-17 11:31:01.555 20416 20473 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":437687303}
+02-17 11:31:01.765 20416 20475 D MulticastServer: Registration process finished: 437687303
+round 229 of 300
+02-17 11:31:05.151 20531 20582 D MulticastServer: Listening for data.
+02-17 11:31:05.153 20531 20584 D MulticastServer: Registration process started with nonce: 2046923910
+02-17 11:31:05.491 20531 20589 D MulticastServer: FULL_LEDGER 2046923910
+02-17 11:31:05.958 20531 20583 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":2046923910}
+02-17 11:31:06.164 20531 20585 D MulticastServer: Registration process finished: 2046923910
+round 230 of 300
+02-17 11:31:09.449 20635 20686 D MulticastServer: Listening for data.
+02-17 11:31:09.452 20635 20688 D MulticastServer: Registration process started with nonce: 1122831905
+02-17 11:31:09.631 20635 20693 D MulticastServer: FULL_LEDGER 1122831905
+02-17 11:31:10.257 20635 20687 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1122831905}
+02-17 11:31:10.438 20635 20693 D MulticastServer: FULL_LEDGER 1122831905
+02-17 11:31:10.462 20635 20689 D MulticastServer: Registration process finished: 1122831905
+round 231 of 300
+02-17 11:31:13.785 20772 20825 D MulticastServer: Listening for data.
+02-17 11:31:13.787 20772 20827 D MulticastServer: Registration process started with nonce: 135772346
+02-17 11:31:13.931 20772 20832 D MulticastServer: FULL_LEDGER 135772346
+02-17 11:31:14.592 20772 20826 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":135772346}
+02-17 11:31:14.738 20772 20832 D MulticastServer: FULL_LEDGER 135772346
+02-17 11:31:14.797 20772 20828 D MulticastServer: Registration process finished: 135772346
+round 232 of 300
+02-17 11:31:18.177 20889 20945 D MulticastServer: Listening for data.
+02-17 11:31:18.179 20889 20947 D MulticastServer: Registration process started with nonce: 23436960
+02-17 11:31:18.599 20889 20952 D MulticastServer: FULL_LEDGER 23436960
+02-17 11:31:18.985 20889 20950 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":23436960}
+02-17 11:31:19.200 20889 20948 D MulticastServer: Registration process finished: 23436960
+round 233 of 300
+02-17 11:31:22.545 21007 21058 D MulticastServer: Listening for data.
+02-17 11:31:22.549 21007 21060 D MulticastServer: Registration process started with nonce: 1804414272
+02-17 11:31:22.675 21007 21074 D MulticastServer: FULL_LEDGER 1804414272
+02-17 11:31:23.355 21007 21063 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1804414272}
+02-17 11:31:23.419 21007 21074 D MulticastServer: FULL_LEDGER 1804414272
+02-17 11:31:23.561 21007 21061 D MulticastServer: Registration process finished: 1804414272
+round 234 of 300
+02-17 11:31:26.939 21118 21170 D MulticastServer: Listening for data.
+02-17 11:31:26.941 21118 21172 D MulticastServer: Registration process started with nonce: 1855441637
+02-17 11:31:27.039 21118 21176 D MulticastServer: FULL_LEDGER 1855441637
+02-17 11:31:27.746 21118 21171 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1855441637}
+02-17 11:31:27.845 21118 21171 D MulticastServer: FULL_LEDGER 1855441637
+02-17 11:31:27.952 21118 21173 D MulticastServer: Registration process finished: 1855441637
+round 235 of 300
+02-17 11:31:31.269 21218 21269 D MulticastServer: Listening for data.
+02-17 11:31:31.272 21218 21271 D MulticastServer: Registration process started with nonce: 740091794
+02-17 11:31:31.386 21218 21277 D MulticastServer: FULL_LEDGER 740091794
+02-17 11:31:32.076 21218 21270 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":740091794}
+02-17 11:31:32.158 21218 21270 D MulticastServer: FULL_LEDGER 740091794
+02-17 11:31:32.283 21218 21272 D MulticastServer: Registration process finished: 740091794
+round 236 of 300
+02-17 11:31:35.601 21333 21385 D MulticastServer: Listening for data.
+02-17 11:31:35.603 21333 21387 D MulticastServer: Registration process started with nonce: 1084643543
+02-17 11:31:36.406 21333 21386 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1084643543}
+02-17 11:31:36.622 21333 21388 D MulticastServer: Registration process finished: 1084643543
+round 237 of 300
+02-17 11:31:39.961 21448 21502 D MulticastServer: Listening for data.
+02-17 11:31:39.963 21448 21504 D MulticastServer: Registration process started with nonce: 1571111802
+02-17 11:31:40.143 21448 21509 D MulticastServer: FULL_LEDGER 1571111802
+02-17 11:31:40.771 21448 21507 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1571111802}
+02-17 11:31:40.975 21448 21505 D MulticastServer: Registration process finished: 1571111802
+round 238 of 300
+02-17 11:31:44.315 21559 21613 D MulticastServer: Listening for data.
+02-17 11:31:44.317 21559 21614 D MulticastServer: Registration process started with nonce: 1829097520
+02-17 11:31:44.439 21559 21618 D MulticastServer: FULL_LEDGER 1829097520
+02-17 11:31:45.122 21559 21612 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1829097520}
+02-17 11:31:45.294 21559 21618 D MulticastServer: FULL_LEDGER 1829097520
+02-17 11:31:45.326 21559 21615 D MulticastServer: Registration process finished: 1829097520
+round 239 of 300
+02-17 11:31:48.656 21662 21713 D MulticastServer: Listening for data.
+02-17 11:31:48.658 21662 21715 D MulticastServer: Registration process started with nonce: 1273955897
+02-17 11:31:48.748 21662 21720 D MulticastServer: FULL_LEDGER 1273955897
+02-17 11:31:49.463 21662 21718 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1273955897}
+02-17 11:31:49.554 21662 21718 D MulticastServer: FULL_LEDGER 1273955897
+02-17 11:31:49.670 21662 21716 D MulticastServer: Registration process finished: 1273955897
+round 240 of 300
+02-17 11:31:53.012 21773 21824 D MulticastServer: Listening for data.
+02-17 11:31:53.014 21773 21826 D MulticastServer: Registration process started with nonce: 1217556876
+02-17 11:31:53.415 21773 21831 D MulticastServer: FULL_LEDGER 1217556876
+02-17 11:31:53.818 21773 21825 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1217556876}
+02-17 11:31:54.026 21773 21827 D MulticastServer: Registration process finished: 1217556876
+round 241 of 300
+02-17 11:31:57.400 21882 21934 D MulticastServer: Listening for data.
+02-17 11:31:57.403 21882 21936 D MulticastServer: Registration process started with nonce: 1501494646
+02-17 11:31:57.587 21882 21941 D MulticastServer: FULL_LEDGER 1501494646
+02-17 11:31:58.207 21882 21935 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1501494646}
+02-17 11:31:58.365 21882 21941 D MulticastServer: FULL_LEDGER 1501494646
+02-17 11:31:58.415 21882 21937 D MulticastServer: Registration process finished: 1501494646
+round 242 of 300
+02-17 11:32:01.801 21999 22050 D MulticastServer: Listening for data.
+02-17 11:32:01.803 21999 22052 D MulticastServer: Registration process started with nonce: 2123855028
+02-17 11:32:02.155 21999 22057 D MulticastServer: FULL_LEDGER 2123855028
+02-17 11:32:02.608 21999 22051 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":2123855028}
+02-17 11:32:02.815 21999 22053 D MulticastServer: Registration process finished: 2123855028
+round 243 of 300
+02-17 11:32:06.134 22111 22162 D MulticastServer: Listening for data.
+02-17 11:32:06.136 22111 22164 D MulticastServer: Registration process started with nonce: 1698891375
+02-17 11:32:06.523 22111 22170 D MulticastServer: FULL_LEDGER 1698891375
+02-17 11:32:06.943 22111 22163 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1698891375}
+02-17 11:32:07.146 22111 22165 D MulticastServer: Registration process finished: 1698891375
+round 244 of 300
+02-17 11:32:10.497 22209 22263 D MulticastServer: Listening for data.
+02-17 11:32:10.500 22209 22265 D MulticastServer: Registration process started with nonce: 110783022
+02-17 11:32:10.658 22209 22271 D MulticastServer: FULL_LEDGER 110783022
+02-17 11:32:11.308 22209 22268 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":110783022}
+02-17 11:32:11.466 22209 22271 D MulticastServer: FULL_LEDGER 110783022
+02-17 11:32:11.510 22209 22266 D MulticastServer: Registration process finished: 110783022
+round 245 of 300
+02-17 11:32:14.836 22322 22373 D MulticastServer: Listening for data.
+02-17 11:32:14.838 22322 22375 D MulticastServer: Registration process started with nonce: 1410900490
+02-17 11:32:15.642 22322 22374 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1410900490}
+02-17 11:32:15.775 22322 22404 D MulticastServer: FULL_LEDGER 1410900490
+02-17 11:32:15.852 22322 22376 D MulticastServer: Registration process finished: 1410900490
+round 246 of 300
+02-17 11:32:19.228 22434 22487 D MulticastServer: Registration process started with nonce: 2074410019
+02-17 11:32:19.231 22434 22485 D MulticastServer: Listening for data.
+02-17 11:32:19.455 22434 22507 D MulticastServer: FULL_LEDGER 2074410019
+02-17 11:32:20.032 22434 22486 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":2074410019}
+02-17 11:32:20.240 22434 22488 D MulticastServer: Registration process finished: 2074410019
+round 247 of 300
+02-17 11:32:23.581 22544 22595 D MulticastServer: Listening for data.
+02-17 11:32:23.583 22544 22597 D MulticastServer: Registration process started with nonce: 227248442
+02-17 11:32:23.771 22544 22602 D MulticastServer: FULL_LEDGER 227248442
+02-17 11:32:24.388 22544 22596 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":227248442}
+02-17 11:32:24.579 22544 22596 D MulticastServer: FULL_LEDGER 227248442
+02-17 11:32:24.593 22544 22598 D MulticastServer: Registration process finished: 227248442
+round 248 of 300
+02-17 11:32:27.951 22644 22694 D MulticastServer: Listening for data.
+02-17 11:32:27.953 22644 22696 D MulticastServer: Registration process started with nonce: 1570700658
+02-17 11:32:28.070 22644 22701 D MulticastServer: FULL_LEDGER 1570700658
+02-17 11:32:28.760 22644 22699 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1570700658}
+02-17 11:32:28.941 22644 22701 D MulticastServer: FULL_LEDGER 1570700658
+02-17 11:32:28.958 22644 22697 D MulticastServer: Registration process finished: 1570700658
+round 249 of 300
+02-17 11:32:32.295 22755 22807 D MulticastServer: Listening for data.
+02-17 11:32:32.297 22755 22809 D MulticastServer: Registration process started with nonce: 59576137
+02-17 11:32:32.362 22755 22814 D MulticastServer: FULL_LEDGER 59576137
+02-17 11:32:33.104 22755 22812 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":59576137}
+02-17 11:32:33.186 22755 22814 D MulticastServer: FULL_LEDGER 59576137
+02-17 11:32:33.308 22755 22810 D MulticastServer: Registration process finished: 59576137
+round 250 of 300
+02-17 11:32:36.660 22917 22969 D MulticastServer: Listening for data.
+02-17 11:32:36.662 22917 22971 D MulticastServer: Registration process started with nonce: 193855814
+02-17 11:32:37.466 22917 22970 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":193855814}
+02-17 11:32:37.671 22917 22972 D MulticastServer: Registration process finished: 193855814
+round 251 of 300
+02-17 11:32:40.983 23030 23083 D MulticastServer: Listening for data.
+02-17 11:32:40.985 23030 23094 D MulticastServer: Registration process started with nonce: 1195502412
+02-17 11:32:41.170 23030 23104 D MulticastServer: FULL_LEDGER 1195502412
+02-17 11:32:41.794 23030 23100 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1195502412}
+02-17 11:32:41.984 23030 23100 D MulticastServer: FULL_LEDGER 1195502412
+02-17 11:32:41.992 23030 23095 D MulticastServer: Registration process finished: 1195502412
+round 252 of 300
+02-17 11:32:45.424 23163 23227 D MulticastServer: Listening for data.
+02-17 11:32:45.426 23163 23229 D MulticastServer: Registration process started with nonce: 860786438
+02-17 11:32:45.686 23163 23234 D MulticastServer: FULL_LEDGER 860786438
+02-17 11:32:46.231 23163 23228 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":860786438}
+02-17 11:32:46.438 23163 23230 D MulticastServer: Registration process finished: 860786438
+round 253 of 300
+02-17 11:32:49.798 23293 23344 D MulticastServer: Listening for data.
+02-17 11:32:49.800 23293 23346 D MulticastServer: Registration process started with nonce: 207967116
+02-17 11:32:50.142 23293 23351 D MulticastServer: FULL_LEDGER 207967116
+02-17 11:32:50.605 23293 23345 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":207967116}
+02-17 11:32:50.798 23293 23351 D MulticastServer: FULL_LEDGER 207967116
+02-17 11:32:50.816 23293 23347 D MulticastServer: Registration process finished: 207967116
+round 254 of 300
+02-17 11:32:54.152 23401 23452 D MulticastServer: Listening for data.
+02-17 11:32:54.154 23401 23454 D MulticastServer: Registration process started with nonce: 1094971314
+02-17 11:32:54.315 23401 23458 D MulticastServer: FULL_LEDGER 1094971314
+02-17 11:32:54.960 23401 23453 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1094971314}
+02-17 11:32:55.095 23401 23453 D MulticastServer: FULL_LEDGER 1094971314
+02-17 11:32:55.166 23401 23455 D MulticastServer: Registration process finished: 1094971314
+round 255 of 300
+02-17 11:32:58.508 23500 23556 D MulticastServer: Listening for data.
+02-17 11:32:58.510 23500 23558 D MulticastServer: Registration process started with nonce: 647262867
+02-17 11:32:59.314 23500 23557 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":647262867}
+02-17 11:32:59.517 23500 23559 D MulticastServer: Registration process finished: 647262867
+round 256 of 300
+02-17 11:33:02.901 23607 23659 D MulticastServer: Listening for data.
+02-17 11:33:02.905 23607 23661 D MulticastServer: Registration process started with nonce: 667689277
+02-17 11:33:03.127 23607 23666 D MulticastServer: FULL_LEDGER 667689277
+02-17 11:33:03.709 23607 23660 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":667689277}
+02-17 11:33:03.897 23607 23660 D MulticastServer: FULL_LEDGER 667689277
+02-17 11:33:03.914 23607 23662 D MulticastServer: Registration process finished: 667689277
+round 257 of 300
+02-17 11:33:07.237 23721 23773 D MulticastServer: Listening for data.
+02-17 11:33:07.242 23721 23775 D MulticastServer: Registration process started with nonce: 745598627
+02-17 11:33:07.390 23721 23781 D MulticastServer: FULL_LEDGER 745598627
+02-17 11:33:08.052 23721 23779 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":745598627}
+02-17 11:33:08.194 23721 23779 D MulticastServer: FULL_LEDGER 745598627
+02-17 11:33:08.255 23721 23776 D MulticastServer: Registration process finished: 745598627
+round 258 of 300
+02-17 11:33:11.632 23833 23898 D MulticastServer: Listening for data.
+02-17 11:33:11.634 23833 23900 D MulticastServer: Registration process started with nonce: 894102480
+02-17 11:33:11.686 23833 23903 D MulticastServer: FULL_LEDGER 894102480
+02-17 11:33:12.438 23833 23899 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":894102480}
+02-17 11:33:12.502 23833 23903 D MulticastServer: FULL_LEDGER 894102480
+02-17 11:33:12.647 23833 23901 D MulticastServer: Registration process finished: 894102480
+round 259 of 300
+02-17 11:33:16.024 23956 24008 D MulticastServer: Listening for data.
+02-17 11:33:16.028 23956 24010 D MulticastServer: Registration process started with nonce: 1254901770
+02-17 11:33:16.199 23956 24014 D MulticastServer: FULL_LEDGER 1254901770
+02-17 11:33:16.832 23956 24013 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1254901770}
+02-17 11:33:17.007 23956 24013 D MulticastServer: FULL_LEDGER 1254901770
+02-17 11:33:17.035 23956 24011 D MulticastServer: Registration process finished: 1254901770
+round 260 of 300
+02-17 11:33:20.348 24070 24120 D MulticastServer: Listening for data.
+02-17 11:33:20.350 24070 24122 D MulticastServer: Registration process started with nonce: 1395451102
+02-17 11:33:20.571 24070 24128 D MulticastServer: FULL_LEDGER 1395451102
+02-17 11:33:21.154 24070 24121 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1395451102}
+02-17 11:33:21.310 24070 24121 D MulticastServer: FULL_LEDGER 1395451102
+02-17 11:33:21.361 24070 24123 D MulticastServer: Registration process finished: 1395451102
+round 261 of 300
+02-17 11:33:24.745 24181 24232 D MulticastServer: Listening for data.
+02-17 11:33:24.747 24181 24234 D MulticastServer: Registration process started with nonce: 727485931
+02-17 11:33:25.167 24181 24237 D MulticastServer: FULL_LEDGER 727485931
+02-17 11:33:25.551 24181 24233 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":727485931}
+02-17 11:33:25.758 24181 24235 D MulticastServer: Registration process finished: 727485931
+round 262 of 300
+02-17 11:33:29.066 24281 24332 D MulticastServer: Listening for data.
+02-17 11:33:29.068 24281 24334 D MulticastServer: Registration process started with nonce: 912771783
+02-17 11:33:29.451 24281 24339 D MulticastServer: FULL_LEDGER 912771783
+02-17 11:33:29.872 24281 24333 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":912771783}
+02-17 11:33:30.080 24281 24335 D MulticastServer: Registration process finished: 912771783
+round 263 of 300
+02-17 11:33:33.511 24398 24449 D MulticastServer: Listening for data.
+02-17 11:33:33.513 24398 24451 D MulticastServer: Registration process started with nonce: 1883416555
+02-17 11:33:33.562 24398 24455 D MulticastServer: FULL_LEDGER 1883416555
+02-17 11:33:34.317 24398 24450 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1883416555}
+02-17 11:33:34.387 24398 24450 D MulticastServer: FULL_LEDGER 1883416555
+02-17 11:33:34.524 24398 24452 D MulticastServer: Registration process finished: 1883416555
+round 264 of 300
+02-17 11:33:37.886 24506 24557 D MulticastServer: Listening for data.
+02-17 11:33:37.888 24506 24559 D MulticastServer: Registration process started with nonce: 167106049
+02-17 11:33:38.103 24506 24563 D MulticastServer: FULL_LEDGER 167106049
+02-17 11:33:38.692 24506 24558 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":167106049}
+02-17 11:33:38.898 24506 24560 D MulticastServer: Registration process finished: 167106049
+round 265 of 300
+02-17 11:33:42.242 24608 24660 D MulticastServer: Listening for data.
+02-17 11:33:42.244 24608 24662 D MulticastServer: Registration process started with nonce: 790691056
+02-17 11:33:42.410 24608 24665 D MulticastServer: FULL_LEDGER 790691056
+02-17 11:33:43.048 24608 24661 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":790691056}
+02-17 11:33:43.222 24608 24661 D MulticastServer: FULL_LEDGER 790691056
+02-17 11:33:43.252 24608 24663 D MulticastServer: Registration process finished: 790691056
+round 266 of 300
+02-17 11:33:46.642 24741 24826 D MulticastServer: Listening for data.
+02-17 11:33:46.645 24741 24829 D MulticastServer: Registration process started with nonce: 743461087
+02-17 11:33:47.079 24741 24836 D MulticastServer: FULL_LEDGER 743461087
+02-17 11:33:47.449 24741 24827 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":743461087}
+02-17 11:33:47.656 24741 24830 D MulticastServer: Registration process finished: 743461087
+round 267 of 300
+02-17 11:33:51.012 24927 25018 D MulticastServer: Listening for data.
+02-17 11:33:51.014 24927 25020 D MulticastServer: Registration process started with nonce: 1444564030
+02-17 11:33:51.219 24927 25026 D MulticastServer: FULL_LEDGER 1444564030
+02-17 11:33:51.819 24927 25019 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1444564030}
+02-17 11:33:52.021 24927 25019 D MulticastServer: FULL_LEDGER 1444564030
+02-17 11:33:52.028 24927 25021 D MulticastServer: Registration process finished: 1444564030
+round 268 of 300
+02-17 11:33:55.369 25079 25131 D MulticastServer: Listening for data.
+02-17 11:33:55.371 25079 25133 D MulticastServer: Registration process started with nonce: 1794941769
+02-17 11:33:55.430 25079 25138 D MulticastServer: FULL_LEDGER 1794941769
+02-17 11:33:56.175 25079 25136 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1794941769}
+02-17 11:33:56.245 25079 25138 D MulticastServer: FULL_LEDGER 1794941769
+02-17 11:33:56.381 25079 25134 D MulticastServer: Registration process finished: 1794941769
+round 269 of 300
+02-17 11:33:59.766 25199 25252 D MulticastServer: Listening for data.
+02-17 11:33:59.768 25199 25254 D MulticastServer: Registration process started with nonce: 1470316291
+02-17 11:34:00.184 25199 25260 D MulticastServer: FULL_LEDGER 1470316291
+02-17 11:34:00.574 25199 25257 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1470316291}
+02-17 11:34:00.779 25199 25255 D MulticastServer: Registration process finished: 1470316291
+round 270 of 300
+02-17 11:34:04.150 25312 25363 D MulticastServer: Listening for data.
+02-17 11:34:04.153 25312 25365 D MulticastServer: Registration process started with nonce: 1146576849
+02-17 11:34:04.322 25312 25368 D MulticastServer: FULL_LEDGER 1146576849
+02-17 11:34:04.962 25312 25369 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1146576849}
+02-17 11:34:05.165 25312 25371 D MulticastServer: FULL_LEDGER 1146576849
+02-17 11:34:05.169 25312 25366 D MulticastServer: Registration process finished: 1146576849
+round 271 of 300
+02-17 11:34:08.545 25423 25473 D MulticastServer: Listening for data.
+02-17 11:34:08.548 25423 25475 D MulticastServer: Registration process started with nonce: 230000980
+02-17 11:34:08.691 25423 25478 D MulticastServer: FULL_LEDGER 230000980
+02-17 11:34:09.352 25423 25474 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":230000980}
+02-17 11:34:09.428 25423 25474 D MulticastServer: FULL_LEDGER 230000980
+02-17 11:34:09.561 25423 25476 D MulticastServer: Registration process finished: 230000980
+round 272 of 300
+02-17 11:34:12.940 25536 25588 D MulticastServer: Listening for data.
+02-17 11:34:12.942 25536 25590 D MulticastServer: Registration process started with nonce: 1675428700
+02-17 11:34:13.127 25536 25596 D MulticastServer: FULL_LEDGER 1675428700
+02-17 11:34:13.748 25536 25589 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1675428700}
+02-17 11:34:13.952 25536 25591 D MulticastServer: Registration process finished: 1675428700
+round 273 of 300
+02-17 11:34:17.271 25649 25701 D MulticastServer: Listening for data.
+02-17 11:34:17.276 25649 25703 D MulticastServer: Registration process started with nonce: 1366035617
+02-17 11:34:17.425 25649 25709 D MulticastServer: FULL_LEDGER 1366035617
+02-17 11:34:18.083 25649 25707 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1366035617}
+02-17 11:34:18.237 25649 25707 D MulticastServer: FULL_LEDGER 1366035617
+02-17 11:34:18.290 25649 25704 D MulticastServer: Registration process finished: 1366035617
+round 274 of 300
+02-17 11:34:21.635 25763 25814 D MulticastServer: Listening for data.
+02-17 11:34:21.637 25763 25816 D MulticastServer: Registration process started with nonce: 1204815784
+02-17 11:34:21.762 25763 25821 D MulticastServer: FULL_LEDGER 1204815784
+02-17 11:34:22.442 25763 25819 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1204815784}
+02-17 11:34:22.548 25763 25819 D MulticastServer: FULL_LEDGER 1204815784
+02-17 11:34:22.648 25763 25817 D MulticastServer: Registration process finished: 1204815784
+round 275 of 300
+02-17 11:34:26.010 25872 25925 D MulticastServer: Listening for data.
+02-17 11:34:26.012 25872 25927 D MulticastServer: Registration process started with nonce: 978369337
+02-17 11:34:26.403 25872 25931 D MulticastServer: FULL_LEDGER 978369337
+02-17 11:34:26.817 25872 25930 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":978369337}
+02-17 11:34:27.023 25872 25928 D MulticastServer: Registration process finished: 978369337
+round 276 of 300
+02-17 11:34:30.390 25988 26041 D MulticastServer: Listening for data.
+02-17 11:34:30.395 25988 26043 D MulticastServer: Registration process started with nonce: 170848366
+02-17 11:34:30.546 25988 26048 D MulticastServer: FULL_LEDGER 170848366
+02-17 11:34:31.202 25988 26046 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":170848366}
+02-17 11:34:31.350 25988 26048 D MulticastServer: FULL_LEDGER 170848366
+02-17 11:34:31.406 25988 26044 D MulticastServer: Registration process finished: 170848366
+round 277 of 300
+02-17 11:34:34.763 26101 26153 D MulticastServer: Listening for data.
+02-17 11:34:34.765 26101 26155 D MulticastServer: Registration process started with nonce: 714461515
+02-17 11:34:34.843 26101 26159 D MulticastServer: FULL_LEDGER 714461515
+02-17 11:34:35.569 26101 26154 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":714461515}
+02-17 11:34:35.651 26101 26154 D MulticastServer: FULL_LEDGER 714461515
+02-17 11:34:35.774 26101 26156 D MulticastServer: Registration process finished: 714461515
+round 278 of 300
+02-17 11:34:39.050 26209 26260 D MulticastServer: Listening for data.
+02-17 11:34:39.052 26209 26262 D MulticastServer: Registration process started with nonce: 1465133631
+02-17 11:34:39.137 26209 26266 D MulticastServer: FULL_LEDGER 1465133631
+02-17 11:34:39.860 26209 26261 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1465133631}
+02-17 11:34:39.951 26209 26261 D MulticastServer: FULL_LEDGER 1465133631
+02-17 11:34:40.063 26209 26263 D MulticastServer: Registration process finished: 1465133631
+round 279 of 300
+02-17 11:34:43.402 26326 26378 D MulticastServer: Listening for data.
+02-17 11:34:43.404 26326 26380 D MulticastServer: Registration process started with nonce: 137502336
+02-17 11:34:43.755 26326 26394 D MulticastServer: FULL_LEDGER 137502336
+02-17 11:34:44.207 26326 26379 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":137502336}
+02-17 11:34:44.415 26326 26381 D MulticastServer: Registration process finished: 137502336
+round 280 of 300
+02-17 11:34:47.743 26426 26479 D MulticastServer: Listening for data.
+02-17 11:34:47.745 26426 26481 D MulticastServer: Registration process started with nonce: 121855522
+02-17 11:34:48.550 26426 26480 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":121855522}
+02-17 11:34:48.761 26426 26482 D MulticastServer: Registration process finished: 121855522
+round 281 of 300
+02-17 11:34:52.145 26539 26590 D MulticastServer: Listening for data.
+02-17 11:34:52.147 26539 26592 D MulticastServer: Registration process started with nonce: 1547398337
+02-17 11:34:52.245 26539 26597 D MulticastServer: FULL_LEDGER 1547398337
+02-17 11:34:52.954 26539 26595 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1547398337}
+02-17 11:34:53.111 26539 26597 D MulticastServer: FULL_LEDGER 1547398337
+02-17 11:34:53.158 26539 26593 D MulticastServer: Registration process finished: 1547398337
+round 282 of 300
+02-17 11:34:56.514 26652 26703 D MulticastServer: Listening for data.
+02-17 11:34:56.516 26652 26705 D MulticastServer: Registration process started with nonce: 1438193781
+02-17 11:34:56.919 26652 26709 D MulticastServer: FULL_LEDGER 1438193781
+02-17 11:34:57.321 26652 26708 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1438193781}
+02-17 11:34:57.526 26652 26706 D MulticastServer: Registration process finished: 1438193781
+round 283 of 300
+02-17 11:35:00.903 26763 26818 D MulticastServer: Listening for data.
+02-17 11:35:00.905 26763 26820 D MulticastServer: Registration process started with nonce: 2080857984
+02-17 11:35:01.055 26763 26825 D MulticastServer: FULL_LEDGER 2080857984
+02-17 11:35:01.710 26763 26819 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":2080857984}
+02-17 11:35:01.916 26763 26821 D MulticastServer: Registration process finished: 2080857984
+round 284 of 300
+02-17 11:35:05.265 26894 26945 D MulticastServer: Listening for data.
+02-17 11:35:05.268 26894 26947 D MulticastServer: Registration process started with nonce: 2042704484
+02-17 11:35:05.322 26894 26951 D MulticastServer: FULL_LEDGER 2042704484
+02-17 11:35:06.072 26894 26946 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":2042704484}
+02-17 11:35:06.149 26894 26946 D MulticastServer: FULL_LEDGER 2042704484
+02-17 11:35:06.279 26894 26948 D MulticastServer: Registration process finished: 2042704484
+round 285 of 300
+02-17 11:35:09.621 27009 27062 D MulticastServer: Listening for data.
+02-17 11:35:09.624 27009 27064 D MulticastServer: Registration process started with nonce: 1064666340
+02-17 11:35:09.807 27009 27079 D MulticastServer: FULL_LEDGER 1064666340
+02-17 11:35:10.428 27009 27063 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1064666340}
+02-17 11:35:10.627 27009 27079 D MulticastServer: FULL_LEDGER 1064666340
+02-17 11:35:10.638 27009 27065 D MulticastServer: Registration process finished: 1064666340
+round 286 of 300
+02-17 11:35:13.971 27108 27159 D MulticastServer: Listening for data.
+02-17 11:35:13.973 27108 27161 D MulticastServer: Registration process started with nonce: 106817017
+02-17 11:35:14.155 27108 27167 D MulticastServer: FULL_LEDGER 106817017
+02-17 11:35:14.780 27108 27164 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":106817017}
+02-17 11:35:14.971 27108 27167 D MulticastServer: FULL_LEDGER 106817017
+02-17 11:35:15.004 27108 27162 D MulticastServer: Registration process finished: 106817017
+round 287 of 300
+02-17 11:35:18.327 27220 27270 D MulticastServer: Listening for data.
+02-17 11:35:18.329 27220 27272 D MulticastServer: Registration process started with nonce: 968521051
+02-17 11:35:18.502 27220 27277 D MulticastServer: FULL_LEDGER 968521051
+02-17 11:35:19.135 27220 27271 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":968521051}
+02-17 11:35:19.271 27220 27271 D MulticastServer: FULL_LEDGER 968521051
+02-17 11:35:19.340 27220 27273 D MulticastServer: Registration process finished: 968521051
+round 288 of 300
+02-17 11:35:22.652 27329 27381 D MulticastServer: Listening for data.
+02-17 11:35:22.654 27329 27383 D MulticastServer: Registration process started with nonce: 2068908878
+02-17 11:35:22.967 27329 27389 D MulticastServer: FULL_LEDGER 2068908878
+02-17 11:35:23.459 27329 27386 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":2068908878}
+02-17 11:35:23.665 27329 27384 D MulticastServer: Registration process finished: 2068908878
+round 289 of 300
+02-17 11:35:27.060 27429 27491 D MulticastServer: Listening for data.
+02-17 11:35:27.062 27429 27493 D MulticastServer: Registration process started with nonce: 837758439
+02-17 11:35:27.431 27429 27498 D MulticastServer: FULL_LEDGER 837758439
+02-17 11:35:27.866 27429 27492 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":837758439}
+02-17 11:35:28.072 27429 27492 D MulticastServer: FULL_LEDGER 837758439
+02-17 11:35:28.075 27429 27494 D MulticastServer: Registration process finished: 837758439
+round 290 of 300
+02-17 11:35:31.426 27566 27623 D MulticastServer: Listening for data.
+02-17 11:35:31.431 27566 27625 D MulticastServer: Registration process started with nonce: 341800580
+02-17 11:35:31.607 27566 27629 D MulticastServer: FULL_LEDGER 341800580
+02-17 11:35:32.235 27566 27624 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":341800580}
+02-17 11:35:32.380 27566 27624 D MulticastServer: FULL_LEDGER 341800580
+02-17 11:35:32.442 27566 27626 D MulticastServer: Registration process finished: 341800580
+round 291 of 300
+02-17 11:35:35.808 27682 27735 D MulticastServer: Listening for data.
+02-17 11:35:35.810 27682 27737 D MulticastServer: Registration process started with nonce: 2087601888
+02-17 11:35:36.239 27682 27741 D MulticastServer: FULL_LEDGER 2087601888
+02-17 11:35:36.615 27682 27736 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":2087601888}
+02-17 11:35:36.823 27682 27738 D MulticastServer: Registration process finished: 2087601888
+round 292 of 300
+02-17 11:35:40.247 27797 27849 D MulticastServer: Listening for data.
+02-17 11:35:40.249 27797 27851 D MulticastServer: Registration process started with nonce: 953198137
+02-17 11:35:40.373 27797 27855 D MulticastServer: FULL_LEDGER 953198137
+02-17 11:35:41.053 27797 27850 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":953198137}
+02-17 11:35:41.222 27797 27850 D MulticastServer: FULL_LEDGER 953198137
+02-17 11:35:41.258 27797 27852 D MulticastServer: Registration process finished: 953198137
+round 293 of 300
+02-17 11:35:44.594 27913 27963 D MulticastServer: Listening for data.
+02-17 11:35:44.597 27913 27965 D MulticastServer: Registration process started with nonce: 170295806
+02-17 11:35:44.650 27913 27964 D MulticastServer: FULL_LEDGER 170295806
+02-17 11:35:45.402 27913 27968 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":170295806}
+02-17 11:35:45.518 27913 27964 D MulticastServer: FULL_LEDGER 170295806
+02-17 11:35:45.608 27913 27966 D MulticastServer: Registration process finished: 170295806
+round 294 of 300
+02-17 11:35:48.985 28079 28130 D MulticastServer: Listening for data.
+02-17 11:35:48.989 28079 28132 D MulticastServer: Registration process started with nonce: 1657233667
+02-17 11:35:49.196 28079 28138 D MulticastServer: FULL_LEDGER 1657233667
+02-17 11:35:49.794 28079 28135 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1657233667}
+02-17 11:35:49.990 28079 28135 D MulticastServer: FULL_LEDGER 1657233667
+02-17 11:35:49.997 28079 28133 D MulticastServer: Registration process finished: 1657233667
+round 295 of 300
+02-17 11:35:53.388 28195 28246 D MulticastServer: Listening for data.
+02-17 11:35:53.391 28195 28248 D MulticastServer: Registration process started with nonce: 626753739
+02-17 11:35:53.482 28195 28252 D MulticastServer: FULL_LEDGER 626753739
+02-17 11:35:54.200 28195 28247 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":626753739}
+02-17 11:35:54.303 28195 28254 D MulticastServer: FULL_LEDGER 626753739
+02-17 11:35:54.401 28195 28249 D MulticastServer: Registration process finished: 626753739
+round 296 of 300
+02-17 11:35:57.712 28306 28358 D MulticastServer: Listening for data.
+02-17 11:35:57.714 28306 28360 D MulticastServer: Registration process started with nonce: 540776628
+02-17 11:35:57.784 28306 28364 D MulticastServer: FULL_LEDGER 540776628
+02-17 11:35:58.518 28306 28359 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":540776628}
+02-17 11:35:58.596 28306 28359 D MulticastServer: FULL_LEDGER 540776628
+02-17 11:35:58.725 28306 28361 D MulticastServer: Registration process finished: 540776628
+round 297 of 300
+02-17 11:36:02.099 28424 28474 D MulticastServer: Listening for data.
+02-17 11:36:02.103 28424 28476 D MulticastServer: Registration process started with nonce: 327332627
+02-17 11:36:02.283 28424 28481 D MulticastServer: FULL_LEDGER 327332627
+02-17 11:36:02.906 28424 28475 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":327332627}
+02-17 11:36:03.094 28424 28481 D MulticastServer: FULL_LEDGER 327332627
+02-17 11:36:03.111 28424 28477 D MulticastServer: Registration process finished: 327332627
+round 298 of 300
+02-17 11:36:06.490 28534 28585 D MulticastServer: Listening for data.
+02-17 11:36:06.493 28534 28587 D MulticastServer: Registration process started with nonce: 1473404550
+02-17 11:36:06.586 28534 28592 D MulticastServer: FULL_LEDGER 1473404550
+02-17 11:36:07.296 28534 28586 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":1473404550}
+02-17 11:36:07.391 28534 28592 D MulticastServer: FULL_LEDGER 1473404550
+02-17 11:36:07.502 28534 28588 D MulticastServer: Registration process finished: 1473404550
+round 299 of 300
+02-17 11:36:10.940 28660 28712 D MulticastServer: Listening for data.
+02-17 11:36:10.943 28660 28714 D MulticastServer: Registration process started with nonce: 546250189
+02-17 11:36:11.099 28660 28719 D MulticastServer: FULL_LEDGER 546250189
+02-17 11:36:11.747 28660 28713 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":546250189}
+02-17 11:36:11.907 28660 28713 D MulticastServer: FULL_LEDGER 546250189
+02-17 11:36:11.947 28660 28715 D MulticastServer: Registration process finished: 546250189
+round 300 of 300
+02-17 11:36:15.286 28759 28810 D MulticastServer: Listening for data.
+02-17 11:36:15.289 28759 28812 D MulticastServer: Registration process started with nonce: 128850808
+02-17 11:36:15.394 28759 28818 D MulticastServer: FULL_LEDGER 128850808
+02-17 11:36:16.096 28759 28811 D MulticastClient: Sent message {"sender":"","payload":"","messageType":"REQUEST_LEDGER","signature":"","nonce":128850808}
+02-17 11:36:16.293 28759 28818 D MulticastServer: FULL_LEDGER 128850808
+02-17 11:36:16.299 28759 28813 D MulticastServer: Registration process finished: 128850808

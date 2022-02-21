@@ -29,6 +29,10 @@ class SignUpActivity: AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
 
     private val client: MulticastClient = MulticastClient(null)
+    private lateinit var emailInvalidTextView: TextView
+    private lateinit var passwordInvalidTextView: TextView
+    private lateinit var signUpButton: Button
+    private lateinit var signUpProgressBar: ProgressBar
 
     private val TAG = "SignupActivity"
 
@@ -37,31 +41,19 @@ class SignUpActivity: AppCompatActivity() {
         setContentView(R.layout.activity_sign_up)
         auth = Firebase.auth
 
-        val signUpButton: Button = findViewById(R.id.sendInSignUpButton)
-        val signUpProgressBar: ProgressBar = findViewById(R.id.signUpProgressBar)
+        emailInvalidTextView = findViewById(R.id.notValidEmailText)
+        passwordInvalidTextView = findViewById(R.id.notValidPasswordText)
+        signUpButton = findViewById(R.id.sendInSignUpButton)
+        signUpProgressBar = findViewById(R.id.signUpProgressBar)
+
         signUpButton.setOnClickListener {
             val emailTextView: TextView = findViewById(R.id.emailInputText)
             val passwordTextView: TextView = findViewById(R.id.passwordInputText)
             GlobalScope.launch(Dispatchers.IO) {
                 try {
-                    runOnUiThread {
-                        signUpProgressBar.visibility = View.VISIBLE
-                        signUpButton.isEnabled = false
-                    }
                     signUp(emailTextView.text.toString(), passwordTextView.text.toString())
                 } catch (e: Exception) {
-                    when (e) {
-                        is UsernameTakenException, is InvalidEmailException -> {
-                            runOnUiThread(java.lang.Runnable {
-                                signUpProgressBar.visibility = View.INVISIBLE
-                                signUpButton.isEnabled = true
-                                Toast.makeText(
-                                    baseContext, e.message,
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                            })}
-                        else -> throw e
-                    }
+                   e.printStackTrace()
                 }
             }
         }
@@ -81,10 +73,25 @@ class SignUpActivity: AppCompatActivity() {
     }
 
     private fun signUp(email: String, password: String) {
-        if (!MISCUtils.isEmail(email)) throw InvalidEmailException("The email is not valid.")
-        if (Ledger.getLedgerEntry(email) != null) throw UsernameTakenException("The username is taken.")
+        if (!MISCUtils.isEmail(email)) {
+            runOnUiThread{emailInvalidTextView.visibility = View.VISIBLE}
+            return
+        }
+        if (Ledger.getLedgerEntry(email) != null){
+            runOnUiThread{
+                emailInvalidTextView.visibility = View.VISIBLE
+                emailInvalidTextView.text = getString(R.string.username_taken)
+            }
+            return
+        }
+        signupLoading(true)
         val isOnline = networkIsOnline()
         if (isOnline) {
+            if(password == "") {
+                runOnUiThread{passwordInvalidTextView.visibility = View.VISIBLE}
+                signupLoading(false)
+                return
+            }
             onlineRegistration(email, password)
         } else {
             offlineRegistration(email)
@@ -99,6 +106,7 @@ class SignUpActivity: AppCompatActivity() {
                 client.broadcastBlock(0)
             }
         } else {
+            signupLoading(false)
             runOnUiThread(java.lang.Runnable {
                 Toast.makeText(baseContext, "Not ready for registration", Toast.LENGTH_SHORT).show()
             })
@@ -110,7 +118,7 @@ class SignUpActivity: AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
-                    Log.d("FIREBASE LOGIN", "createUserWithEmail:success")
+                    Log.d(TAG, "Firebase registration succeed")
                     val user = auth.currentUser
                     user!!.sendEmailVerification()
                     Toast.makeText(
@@ -118,16 +126,32 @@ class SignUpActivity: AppCompatActivity() {
                         Toast.LENGTH_SHORT
                     ).show()
                     auth.signOut()
-                    returnToMainActivity(email)
+                    returnToMainActivity(null)
                 } else {
                     // If sign in fails, display a message to the user.
-                    Log.w("FIREBASE LOGIN", "createUserWithEmail:failure", task.exception)
+                   signupLoading(false)
+                    Log.d(TAG, "Firebase registration failed")
                     Toast.makeText(
-                        baseContext, "Authentication failed.",
+                        baseContext, "Registration failed.",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
             }
+    }
+
+    private fun signupLoading(isLoading: Boolean){
+        if(isLoading) {
+            runOnUiThread {
+                signUpProgressBar.visibility = View.VISIBLE
+                signUpButton.isEnabled = false
+            }
+        }
+        else {
+            runOnUiThread {
+                signUpProgressBar.visibility = View.INVISIBLE
+                signUpButton.isEnabled = true
+            }
+        }
     }
 
     private fun networkIsOnline(): Boolean {
@@ -143,9 +167,11 @@ class SignUpActivity: AppCompatActivity() {
         }
     }
 
-    private fun returnToMainActivity(username: String) {
+    private fun returnToMainActivity(username: String?) {
         val myIntent = Intent(this@SignUpActivity, MainActivity::class.java)
-        myIntent.putExtra("username", username)
+        if(username != null) {
+            myIntent.putExtra("username", username)
+        }
         this@SignUpActivity.startActivity(myIntent)
     }
 

@@ -15,5 +15,9 @@
     <string name="next_encryption_key">Next encryption key:</string>
     <string name="current_encryption_key">Current encryption key:</string>
     <string name="send">Send</string>
+    <string name="not_valid_email">Not valid email</string>
+    <string name="not_valid_password">Not valid password</string>
+    <string name="username_taken">Username is taken</string>
+
 
 </resources>

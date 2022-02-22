@@ -25,7 +25,6 @@ class AESUtils {
 
         private const val GCM_IV_LENGTH = 12
         private const val GCM_TAG_LENGTH = 16
-        private const val AES_KEY_SIZE = 128
 
         private const val TAG = "AESUtils"
 
@@ -37,7 +36,7 @@ class AESUtils {
             return try{
                 symmetricKeyStore.getKey(username, Constants.KEYSTORE_PASSWORD.toCharArray()) as SecretKey
             } catch (e: Exception) {
-                e.printStackTrace()
+                Log.d(TAG, "Could not find key")
                 null
             }
         }
@@ -64,7 +63,7 @@ class AESUtils {
 
             val sha256: MessageDigest = MessageDigest.getInstance(Constants.MESSAGE_DIGEST_HASH)
             val byteKey: ByteArray = Arrays.copyOf(
-                sha256.digest(sharedSecret), AES_KEY_SIZE / java.lang.Byte.SIZE
+                sha256.digest(sharedSecret), Constants.AES_KEY_SIZE / java.lang.Byte.SIZE
             )
 
             return SecretKeySpec(byteKey, Constants.SYMMETRIC_ENCRYPTION_ALGORITHM)
@@ -79,6 +78,10 @@ class AESUtils {
             } catch (e: FileNotFoundException) {
                 Log.w(TAG, "keyList file not found")
             }
+        }
+
+        fun deleteKey(alias: String) {
+            symmetricKeyStore.deleteEntry(alias)
         }
 
         fun stringToKey(string: String): SecretKey {

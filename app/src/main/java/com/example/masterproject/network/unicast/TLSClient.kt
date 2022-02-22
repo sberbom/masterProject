@@ -15,11 +15,11 @@ class TLSClient(override val ledgerEntry: LedgerEntry): Client() {
     override val encryptionKey: SecretKey? = null
     override val port = Constants.TLS_SERVERPORT
 
-    override fun encryptMessageSymmetric(message: String, encryptionKey: SecretKey?): String {
+    override fun encryptMessageSymmetric(message: String ): String {
         return message
     }
 
-    override fun decryptMessageSymmetric(message: String, encryptionKey: SecretKey?, ledgerEntry: LedgerEntry): String {
+    override fun decryptMessageSymmetric(message: String, ledgerEntry: LedgerEntry, ratchatKey: Int): String {
         return message
     }
 
@@ -27,6 +27,10 @@ class TLSClient(override val ledgerEntry: LedgerEntry): Client() {
        val clientSocket = PKIUtils.createSSLContext().socketFactory.createSocket(serverAddress, Constants.TLS_SERVERPORT) as SSLSocket
         clientSocket.enabledProtocols = arrayOf(Constants.TLS_VERSION)
         return clientSocket
+    }
+
+    override fun getRatchetKeyRound(): Int {
+        return -1
     }
 
 }

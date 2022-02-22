@@ -16,12 +16,16 @@ class TLSServer(override val outputStream: DataOutputStream, override val inputS
         }
     }
 
-    override fun decryptMessagePayload(networkMessage: NetworkMessage, encryptionKey: SecretKey?, ledgerEntry: LedgerEntry): String {
+    override fun decryptMessagePayload(networkMessage: NetworkMessage, ledgerEntry: LedgerEntry): String {
         return networkMessage.payload
     }
 
-    override fun encryptMessageSymmetric(message: String, encryptionKey: SecretKey?): String {
+    override fun encryptMessageSymmetric(message: String): String {
         return message
+    }
+
+    override fun getRatchetKeyRound(): Int {
+        return -1
     }
 
 }

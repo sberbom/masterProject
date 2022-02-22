@@ -4,6 +4,7 @@ import android.os.Handler
 import android.os.Looper
 import android.util.Log
 import com.example.masterproject.activities.ChatActivity
+import com.example.masterproject.crypto.Ratchet
 import com.example.masterproject.ledger.LedgerEntry
 import com.example.masterproject.types.NetworkMessage
 import com.example.masterproject.utils.AESUtils
@@ -26,10 +27,12 @@ abstract class Client: Thread() {
     private var running: Boolean = true
     abstract val port: Int
     abstract val TAG: String
+    open var ratchet: Ratchet? = null
 
-    abstract fun encryptMessageSymmetric(message: String, encryptionKey: SecretKey?): String
-    abstract fun decryptMessageSymmetric(message: String, encryptionKey: SecretKey?, ledgerEntry: LedgerEntry): String
+    abstract fun encryptMessageSymmetric(message: String): String
+    abstract fun decryptMessageSymmetric(message: String, ledgerEntry: LedgerEntry, ratchetKey: Int): String
     abstract fun createClientSocket(serverAddress: InetAddress): Socket
+    abstract fun getRatchetKeyRound(): Int
 
     override fun run() {
         Log.d(TAG, "Starting $TAG")
@@ -47,7 +50,7 @@ abstract class Client: Thread() {
                     val receivedMessage = inputStream!!.readUTF()
                     Log.d(TAG, "Received message: $receivedMessage")
                     val networkMessage = NetworkMessage.decodeNetworkMessage(receivedMessage)
-                    val messagePayload= decryptMessageSymmetric(networkMessage.payload, encryptionKey, ledgerEntry)
+                    val messagePayload= decryptMessageSymmetric(networkMessage.payload, ledgerEntry, networkMessage.ratchetKey)
                     when (networkMessage.messageType) {
                         UnicastMessageTypes.CLIENT_HELLO.toString() -> { }
                         UnicastMessageTypes.GOODBYE.toString() -> { }
@@ -106,8 +109,9 @@ abstract class Client: Thread() {
         } else {
             try {
                 val myUsername = PKIUtils.getUsernameFromCertificate(PKIUtils.getStoredCertificate()!!)
-                val messageEncrypted = encryptMessageSymmetric(message, encryptionKey)
-                val messageToSend = NetworkMessage(myUsername, messageEncrypted, messageType).toString()
+                val ratchetKeyRound = getRatchetKeyRound()
+                val messageEncrypted = encryptMessageSymmetric(message)
+                val messageToSend = NetworkMessage(myUsername, messageEncrypted, messageType, "", 0, ratchetKeyRound).toString()
                 Log.d(TAG, "Message sendt $messageToSend")
                 outputStream!!.writeUTF(messageToSend)
                 outputStream!!.flush()
@@ -124,6 +128,7 @@ abstract class Client: Thread() {
     }
 
     open fun closeSocket() {
+        ratchet?.clean()
         if(clientSocket != null) {
             clientSocket!!.close()
         }

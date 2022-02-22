@@ -8,6 +8,7 @@ import android.util.Log
 import com.example.masterproject.App
 import com.example.masterproject.activities.ChatActivity
 import com.example.masterproject.activities.MainActivity
+import com.example.masterproject.crypto.Ratchet
 import com.example.masterproject.ledger.Ledger
 import com.example.masterproject.ledger.LedgerEntry
 import com.example.masterproject.types.NetworkMessage
@@ -30,10 +31,12 @@ abstract class Server(): Thread() {
     val context: Context? = App.getAppContext()
     abstract val inputStream: DataInputStream
     abstract val outputStream: DataOutputStream
+    var ratchet: Ratchet? = null
 
     abstract fun setEncryptionKeyAndUsername(networkMessage: NetworkMessage)
-    abstract fun decryptMessagePayload(networkMessage: NetworkMessage, encryptionKey: SecretKey?, ledgerEntry: LedgerEntry): String
-    abstract fun encryptMessageSymmetric(message: String, encryptionKey: SecretKey?): String
+    abstract fun decryptMessagePayload(networkMessage: NetworkMessage, ledgerEntry: LedgerEntry): String
+    abstract fun encryptMessageSymmetric(message: String ): String
+    abstract fun getRatchetKeyRound(): Int
 
     override fun run(){
         Log.d(TAG, "Starting $TAG")
@@ -44,7 +47,7 @@ abstract class Server(): Thread() {
                 val networkMessage = NetworkMessage.decodeNetworkMessage(receivedMessage)
                 val ledgerEntry = Ledger.getLedgerEntry(networkMessage.sender)
                 setEncryptionKeyAndUsername(networkMessage)
-                val messagePayload = decryptMessagePayload(networkMessage, encryptionKey, ledgerEntry!!)
+                val messagePayload = decryptMessagePayload(networkMessage, ledgerEntry!!)
                 when (networkMessage.messageType) {
                     UnicastMessageTypes.CLIENT_HELLO.toString() -> {}
                     UnicastMessageTypes.KEY_MATERIAL.toString() -> handleKeyMaterialDelivery(messagePayload, networkMessage.sender)
@@ -72,8 +75,9 @@ abstract class Server(): Thread() {
     fun sendMessage(message: String, messageType: String) {
         try {
             val username = PKIUtils.getUsernameFromCertificate(PKIUtils.getStoredCertificate()!!)
-            val encryptedMessage = encryptMessageSymmetric(message, encryptionKey)
-            val messageToSend = NetworkMessage(username, encryptedMessage, messageType).toString()
+            val ratchetKeyRound = getRatchetKeyRound()
+            val encryptedMessage = encryptMessageSymmetric(message)
+            val messageToSend = NetworkMessage(username, encryptedMessage, messageType, "", 0, ratchetKeyRound).toString()
             Log.d(TAG, "Message sendt $messageToSend")
             outputStream.writeUTF(messageToSend)
             outputStream.flush()
@@ -91,6 +95,7 @@ abstract class Server(): Thread() {
     open fun handleGoodbye() {
         running = false
         ServerMap.serverMap.remove(username)
+        ratchet?.clean()
         val intent = Intent(context, MainActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         context!!.startActivity(intent)

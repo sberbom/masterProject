@@ -2,7 +2,7 @@ package com.example.masterproject.types
 
 import org.json.JSONObject
 
-data class NetworkMessage(val sender: String, val payload: String, val messageType: String, val signature: String = "", val nonce: Int = 0) {
+data class NetworkMessage(val sender: String, val payload: String, val messageType: String, val signature: String = "", val nonce: Int = 0, val ratchetKey: Int = -1) {
     override fun toString(): String {
         val jsonObject = JSONObject()
         jsonObject.put("sender", sender)
@@ -10,6 +10,7 @@ data class NetworkMessage(val sender: String, val payload: String, val messageTy
         jsonObject.put("messageType", messageType)
         jsonObject.put("signature", signature)
         jsonObject.put("nonce", nonce)
+        jsonObject.put("ratchetKey", ratchetKey)
         return jsonObject.toString()
     }
 
@@ -21,7 +22,8 @@ data class NetworkMessage(val sender: String, val payload: String, val messageTy
             val messageType = jsonObject.get("messageType") as String
             val signature = jsonObject.get("signature") as String
             val nonce = jsonObject.get("nonce") as Int
-            return NetworkMessage(sender, payload, messageType, signature, nonce)
+            val ratchetKey = jsonObject.getInt("ratchetKey")
+            return NetworkMessage(sender, payload, messageType, signature, nonce, ratchetKey)
         }
     }
 }

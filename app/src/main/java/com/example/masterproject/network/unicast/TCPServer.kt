@@ -1,5 +1,6 @@
 package com.example.masterproject.network.unicast
 
+import com.example.masterproject.crypto.Ratchet
 import com.example.masterproject.ledger.LedgerEntry
 import com.example.masterproject.types.NetworkMessage
 import com.example.masterproject.utils.AESUtils
@@ -16,17 +17,22 @@ class TCPServer(override val inputStream: DataInputStream , override val outputS
         if(encryptionKey == null || username == null) {
             encryptionKey = AESUtils.getKeyForUser(networkMessage.sender)
             username = networkMessage.sender
+            ratchet = Ratchet(networkMessage.sender)
         }
     }
 
-    override fun decryptMessagePayload(networkMessage: NetworkMessage, encryptionKey: SecretKey?, ledgerEntry: LedgerEntry): String {
-        if(encryptionKey == null) throw Exception("No encryption key")
+    override fun decryptMessagePayload(networkMessage: NetworkMessage, ledgerEntry: LedgerEntry): String {
+        val encryptionKey = ratchet!!.getKey(networkMessage.ratchetKey)
         return  AESUtils.symmetricDecryption(networkMessage.payload, encryptionKey)
     }
 
-    override fun encryptMessageSymmetric(message: String, encryptionKey: SecretKey?): String {
-        if(encryptionKey == null) throw Exception("No encryption key")
+    override fun encryptMessageSymmetric(message: String ): String {
+        val encryptionKey = ratchet!!.getEncryptionKey()
         return AESUtils.symmetricEncryption(message, encryptionKey)
+    }
+
+    override fun getRatchetKeyRound(): Int {
+        return ratchet!!.sendingRatchet
     }
 
     override fun handleGoodbye() {

@@ -154,32 +154,7 @@ class MulticastServer: Service() {
             if (networkMessage.sequenceNumber == 0) {
                 return handleFirstPacket(networkMessage)
             } else {
-                val possibleCertificates = usernameToCertificates[networkMessage.sender]
-                val correctCertificate = possibleCertificates?.find { PKIUtils.verifySignature(networkMessage.payload, networkMessage.signature, it.publicKey, networkMessage.nonce) }
-                val ledgerSequenceId = if (correctCertificate != null) "${networkMessage.nonce}:${PKIUtils.certificateToString(correctCertificate)}" else null
-                val ledgerFragments = ledgerFragmentsReceived[ledgerSequenceId]
-                // if ledger fragments is null the first block in the sequence has not been received
-                // and the signature cannot be validated, so the packet should be stored as an orphan
-                // null should be returned
-                if (ledgerFragments == null || correctCertificate == null) {
-                    val existingOrphanOfSameUsername = orphanFragment[networkMessage.sender]
-                    if (existingOrphanOfSameUsername != null) {
-                        existingOrphanOfSameUsername.add(networkMessage)
-                    } else {
-                        orphanFragment[networkMessage.sender] = mutableListOf(networkMessage)
-                    }
-                    return null
-                }
-                // if we have not received this message before it should be stored
-                if (ledgerFragments[networkMessage.sequenceNumber] == null) ledgerFragments[networkMessage.sequenceNumber] = networkMessage.payload
-                Log.d(TAG, "Fragments received: $ledgerFragments")
-                // if all fragments have not yet been received, we should return
-                if (ledgerFragments.count { it == null } > 0) return null
-                // if all fragments have been received we should return the ledger
-                val senderBlock = certificateStringToSenderBlock[PKIUtils.certificateToString(correctCertificate)]
-                val ledger = formatLedgerFragments(ledgerFragments as MutableList<String>)
-                val hash = Ledger.getHashOfLedger(ledger)
-                return ReceivedLedger(ledger, hash, senderBlock!!)
+                return handleNonFirstPackets(networkMessage)
             }
             // ... if not, return the full ledger
         } else {
@@ -198,6 +173,36 @@ class MulticastServer: Service() {
         // add every entry from every fragment
         fragments.forEach { fragment -> fragment.split(", ").forEach { entry -> ledgerEntries.add(LedgerEntry.parseString(entry)) } }
         return ledgerEntries
+    }
+
+    private fun handleNonFirstPackets(networkMessage: NetworkMessage): ReceivedLedger? {
+        val possibleCertificates = usernameToCertificates[networkMessage.sender]
+        val correctCertificate = possibleCertificates?.find { PKIUtils.verifySignature(networkMessage.payload, networkMessage.signature, it.publicKey, networkMessage.nonce) }
+        val ledgerSequenceId = if (correctCertificate != null) "${networkMessage.nonce}:${PKIUtils.certificateToString(correctCertificate)}" else null
+        val ledgerFragments = ledgerFragmentsReceived[ledgerSequenceId]
+        // if ledger fragments is null the first block in the sequence has not been received
+        // and the signature cannot be validated, so the packet should be stored as an orphan
+        // null should be returned...
+        if (ledgerFragments == null || correctCertificate == null) {
+            val existingOrphanOfSameUsername = orphanFragment[networkMessage.sender]
+            if (existingOrphanOfSameUsername != null) {
+                existingOrphanOfSameUsername.add(networkMessage)
+            } else {
+                orphanFragment[networkMessage.sender] = mutableListOf(networkMessage)
+            }
+            return null
+        }
+        // ...if the first block of the sequence has been received and
+        // we have not received this message before it should be stored
+        if (ledgerFragments[networkMessage.sequenceNumber] == null) ledgerFragments[networkMessage.sequenceNumber] = networkMessage.payload
+        Log.d(TAG, "Fragments received: $ledgerFragments")
+        // if all fragments have not yet been received, we should return
+        if (ledgerFragments.count { it == null } > 0) return null
+        // if all fragments have been received we should return the ledger
+        val senderBlock = certificateStringToSenderBlock[PKIUtils.certificateToString(correctCertificate)]
+        val ledger = formatLedgerFragments(ledgerFragments as MutableList<String>)
+        val hash = Ledger.getHashOfLedger(ledger)
+        return ReceivedLedger(ledger, hash, senderBlock!!)
     }
 
     private fun handleFirstPacket(networkMessage: NetworkMessage): ReceivedLedger? {
@@ -219,6 +224,10 @@ class MulticastServer: Service() {
         } else if (ledgerFragments[networkMessage.sequenceNumber] == null) {
             ledgerFragments[networkMessage.sequenceNumber] = networkMessage.payload
         }
+        return handleOrphanBlocks(blockOfSender, ledgerSequenceId, networkMessage.payload)
+    }
+
+    private fun handleOrphanBlocks(blockOfSender: LedgerEntry, ledgerSequenceId: String, payload: String): ReceivedLedger? {
         val orphanFragmentsFromSameUsername = orphanFragment[blockOfSender.userName]
         if (orphanFragmentsFromSameUsername != null) {
             val ledgerFragments = ledgerFragmentsReceived[ledgerSequenceId] ?: return null
@@ -226,7 +235,7 @@ class MulticastServer: Service() {
                 // if block was signed by sender of this block...
                 if (PKIUtils.verifySignature(it.payload, it.signature, blockOfSender.certificate.publicKey, it.nonce)) {
                     // ... and the fragment is not already added, add it
-                    if (ledgerFragments[it.sequenceNumber] == null) ledgerFragments[it.sequenceNumber] = networkMessage.payload
+                    if (ledgerFragments[it.sequenceNumber] == null) ledgerFragments[it.sequenceNumber] = payload
                 }
             }
             if (ledgerFragments.count{it == null} == 0) {

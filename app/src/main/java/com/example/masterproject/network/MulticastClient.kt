@@ -73,7 +73,7 @@ class MulticastClient (private val server: MulticastServer?) {
         val certificate = PKIUtils.getStoredCertificate() ?: throw Exception("Could not send ledger, username not defined")
         val username = PKIUtils.getUsernameFromCertificate(certificate)
         val currentLedger = Ledger.availableDevices.toList()
-        val deconstructedLedger = currentLedger.chunked(1)
+        val deconstructedLedger = currentLedger.chunked(10)
         val networkMessages = deconstructedLedger.mapIndexed { index, fragment ->
             val fragmentString = Ledger.toString(fragment).replace("[", "").replace("]", "")
             NetworkMessage(

@@ -1,6 +1,7 @@
 package com.example.masterproject.network.unicast
 
 import com.example.masterproject.ledger.LedgerEntry
+import com.example.masterproject.types.NetworkMessage
 import com.example.masterproject.utils.Constants
 import com.example.masterproject.utils.PKIUtils
 import java.net.InetAddress
@@ -19,8 +20,8 @@ class TLSClient(override val ledgerEntry: LedgerEntry): Client() {
         return message
     }
 
-    override fun decryptMessageSymmetric(message: String, ledgerEntry: LedgerEntry, ratchatKey: Int): String {
-        return message
+    override fun decryptMessagePayload(networkMessage: NetworkMessage, ledgerEntry: LedgerEntry): String {
+        return networkMessage.payload
     }
 
     override fun createClientSocket(serverAddress: InetAddress): Socket {

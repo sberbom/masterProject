@@ -4,9 +4,8 @@ import com.example.masterproject.ledger.LedgerEntry
 import com.example.masterproject.types.NetworkMessage
 import java.io.DataInputStream
 import java.io.DataOutputStream
-import javax.crypto.SecretKey
 
-class TLSServer(override val outputStream: DataOutputStream, override val inputStream: DataInputStream): Server() {
+class TLSServer(override var outputStream: DataOutputStream?, override var inputStream: DataInputStream?): Server() {
 
     override val TAG = "TLSServer"
 

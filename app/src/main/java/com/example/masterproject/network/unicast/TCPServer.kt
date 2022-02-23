@@ -6,10 +6,8 @@ import com.example.masterproject.types.NetworkMessage
 import com.example.masterproject.utils.AESUtils
 import java.io.DataInputStream
 import java.io.DataOutputStream
-import java.lang.Exception
-import javax.crypto.SecretKey
 
-class TCPServer(override val inputStream: DataInputStream , override val outputStream: DataOutputStream): Server() {
+class TCPServer(override var inputStream: DataInputStream?, override var outputStream: DataOutputStream?): Server() {
 
     override val TAG = "TCPServer"
 
@@ -36,8 +34,8 @@ class TCPServer(override val inputStream: DataInputStream , override val outputS
     }
 
     override fun handleGoodbye() {
-        inputStream.close()
-        outputStream.close()
+        inputStream?.close()
+        outputStream?.close()
         super.handleGoodbye()
     }
 

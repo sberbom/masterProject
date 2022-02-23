@@ -1,6 +1,7 @@
 package com.example.masterproject.network.unicast
 
 import com.example.masterproject.ledger.LedgerEntry
+import com.example.masterproject.types.NetworkMessage
 import com.example.masterproject.utils.Constants
 import com.example.masterproject.utils.PKIUtils
 import java.net.InetAddress
@@ -15,18 +16,22 @@ class TLSClient(override val ledgerEntry: LedgerEntry): Client() {
     override val encryptionKey: SecretKey? = null
     override val port = Constants.TLS_SERVERPORT
 
-    override fun encryptMessageSymmetric(message: String, encryptionKey: SecretKey?): String {
+    override fun encryptMessageSymmetric(message: String ): String {
         return message
     }
 
-    override fun decryptMessageSymmetric(message: String, encryptionKey: SecretKey?, ledgerEntry: LedgerEntry): String {
-        return message
+    override fun decryptMessagePayload(networkMessage: NetworkMessage, ledgerEntry: LedgerEntry): String {
+        return networkMessage.payload
     }
 
     override fun createClientSocket(serverAddress: InetAddress): Socket {
        val clientSocket = PKIUtils.createSSLContext().socketFactory.createSocket(serverAddress, Constants.TLS_SERVERPORT) as SSLSocket
         clientSocket.enabledProtocols = arrayOf(Constants.TLS_VERSION)
         return clientSocket
+    }
+
+    override fun getRatchetKeyRound(): Int {
+        return -1
     }
 
 }

@@ -4,9 +4,8 @@ import com.example.masterproject.ledger.LedgerEntry
 import com.example.masterproject.types.NetworkMessage
 import java.io.DataInputStream
 import java.io.DataOutputStream
-import javax.crypto.SecretKey
 
-class TLSServer(override val outputStream: DataOutputStream, override val inputStream: DataInputStream): Server() {
+class TLSServer(override var outputStream: DataOutputStream?, override var inputStream: DataInputStream?): Server() {
 
     override val TAG = "TLSServer"
 
@@ -16,12 +15,16 @@ class TLSServer(override val outputStream: DataOutputStream, override val inputS
         }
     }
 
-    override fun decryptMessagePayload(networkMessage: NetworkMessage, encryptionKey: SecretKey?, ledgerEntry: LedgerEntry): String {
+    override fun decryptMessagePayload(networkMessage: NetworkMessage, ledgerEntry: LedgerEntry): String {
         return networkMessage.payload
     }
 
-    override fun encryptMessageSymmetric(message: String, encryptionKey: SecretKey?): String {
+    override fun encryptMessageSymmetric(message: String): String {
         return message
+    }
+
+    override fun getRatchetKeyRound(): Int {
+        return -1
     }
 
 }

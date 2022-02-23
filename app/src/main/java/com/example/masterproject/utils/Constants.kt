@@ -18,6 +18,7 @@ class Constants {
         const val KEY_TYPE = "ECDH"
         const val SYMMETRIC_ENCRYPTION_ALGORITHM = "AES"
         const val SYMMETRIC_ENCRYPTION_TRANSFORMATION = "AES/GCM/NoPadding"
+        const val AES_KEY_SIZE = 128
 
         const val ASYMMETRIC_KEY_GENERATION_ALGORITHM = "EC"
         const val ASYMMETRIC_SIGNATURE_ALGORITHM = "SHA256withECDSA"

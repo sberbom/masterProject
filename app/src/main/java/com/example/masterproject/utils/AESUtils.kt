@@ -1,23 +1,26 @@
 package com.example.masterproject.utils
 
-import android.content.Context
 import android.util.Log
-import com.example.masterproject.ledger.LedgerEntry
 import java.io.FileInputStream
 import java.io.FileNotFoundException
-import java.lang.Exception
 import java.nio.ByteBuffer
 import java.nio.charset.StandardCharsets
-import java.security.*
+import java.security.KeyStore
+import java.security.MessageDigest
+import java.security.PrivateKey
+import java.security.PublicKey
 import java.util.*
+import javax.crypto.AEADBadTagException
+import javax.crypto.Cipher
+import javax.crypto.KeyAgreement
+import javax.crypto.SecretKey
 import javax.crypto.spec.GCMParameterSpec
 import javax.crypto.spec.SecretKeySpec
-import javax.crypto.*
 
 
 class AESUtils {
 
-    data class KeyMaterial(val keyMaterial: Key, val isPrivateKey: Boolean)
+    data class KeyMaterial(val myPrivateKey: PrivateKey?, val peerPublicKey: PublicKey?)
 
     companion object {
         var keyMaterialMap: MutableMap<String, KeyMaterial> = mutableMapOf()
@@ -25,7 +28,6 @@ class AESUtils {
 
         private const val GCM_IV_LENGTH = 12
         private const val GCM_TAG_LENGTH = 16
-        private const val AES_KEY_SIZE = 128
 
         private const val TAG = "AESUtils"
 
@@ -37,7 +39,7 @@ class AESUtils {
             return try{
                 symmetricKeyStore.getKey(username, Constants.KEYSTORE_PASSWORD.toCharArray()) as SecretKey
             } catch (e: Exception) {
-                e.printStackTrace()
+                Log.d(TAG, "Could not find key")
                 null
             }
         }
@@ -64,7 +66,7 @@ class AESUtils {
 
             val sha256: MessageDigest = MessageDigest.getInstance(Constants.MESSAGE_DIGEST_HASH)
             val byteKey: ByteArray = Arrays.copyOf(
-                sha256.digest(sharedSecret), AES_KEY_SIZE / java.lang.Byte.SIZE
+                sha256.digest(sharedSecret), Constants.AES_KEY_SIZE / java.lang.Byte.SIZE
             )
 
             return SecretKeySpec(byteKey, Constants.SYMMETRIC_ENCRYPTION_ALGORITHM)
@@ -79,6 +81,10 @@ class AESUtils {
             } catch (e: FileNotFoundException) {
                 Log.w(TAG, "keyList file not found")
             }
+        }
+
+        fun deleteKey(alias: String) {
+            symmetricKeyStore.deleteEntry(alias)
         }
 
         fun stringToKey(string: String): SecretKey {

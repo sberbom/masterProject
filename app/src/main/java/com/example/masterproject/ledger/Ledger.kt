@@ -138,10 +138,14 @@ class Ledger {
         }
 
         fun ledgerIsValid(ledger: List<LedgerEntry>): Boolean {
+            Log.d(TAG, "Ledger is empty: ${ledger.isEmpty()}")
             if (ledger.isEmpty()) return false
             ledger.forEach{ block ->
+                Log.d(TAG, "Block: ${block.userName}")
                 val entryIsInternallyValid = LedgerEntry.ledgerEntryIsValid(block)
+                Log.d(TAG, "entry is internally valid: $entryIsInternallyValid")
                 val usernameInLedgerIsValid = usernameInLedgerIsValid(ledger, block.userName)
+                Log.d(TAG, "usernameInLedgerIsValid: $usernameInLedgerIsValid")
                 if ((!entryIsInternallyValid ||
                     !usernameInLedgerIsValid)) return false
             }

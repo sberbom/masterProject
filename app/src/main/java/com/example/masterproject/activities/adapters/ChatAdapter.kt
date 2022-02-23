@@ -40,15 +40,30 @@ class ChatAdapter(private val messages: MutableList<ChatMessage>): RecyclerView.
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val chatMessage = messages[position]
+        var shouldRenderFromText = true
+        if(position != 0) {
+            val previousChatMessage = messages[position - 1]
+            shouldRenderFromText = chatMessage.from != previousChatMessage.from
+        }
         when (holder.itemViewType) {
             YOU -> {
                 val vh1 = holder as YouChatViewHolder
-                vh1.fromTextView.text = chatMessage.from
+                if(shouldRenderFromText) {
+                    vh1.fromTextView.text = chatMessage.from
+                }
+                else {
+                    vh1.fromTextView.visibility = View.GONE
+                }
                 vh1.messageTextVew.text = chatMessage.message
             }
             else -> {
                 val vh2 = holder as OtherChatViewHolder
-                vh2.fromTextView.text = chatMessage.from
+                if(shouldRenderFromText) {
+                    vh2.fromTextView.text = chatMessage.from
+                }
+                else {
+                    vh2.fromTextView.visibility = View.GONE
+                }
                 vh2.messageTextVew.text = chatMessage.message
             }
         }

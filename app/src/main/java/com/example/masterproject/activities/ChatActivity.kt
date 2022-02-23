@@ -69,6 +69,7 @@ class ChatActivity: AppCompatActivity() {
             val messageEditText: EditText = findViewById(R.id.messageEditText)
             val messageText = messageEditText.text.toString()
             sendMessage(messageText, UnicastMessageTypes.CHAT_MESSAGE.toString())
+            messageEditText.text.clear()
         }
     }
 

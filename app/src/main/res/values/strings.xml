@@ -10,7 +10,7 @@
     <string name="menu">Menu</string>
     <string name="not_logged_in">Not logged in</string>
     <string name="you_are_chatting_with">You are chatting with:</string>
-    <string name="skriv_inn_text">Skriv inn text</string>
+    <string name="enter_text">Enter text</string>
     <string name="textview">TextView</string>
     <string name="next_encryption_key">Next encryption key:</string>
     <string name="current_encryption_key">Current encryption key:</string>

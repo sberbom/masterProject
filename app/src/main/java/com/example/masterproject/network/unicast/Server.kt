@@ -18,8 +18,6 @@ import java.io.DataInputStream
 import java.io.DataOutputStream
 import java.io.EOFException
 import java.io.IOException
-import java.security.PrivateKey
-import java.security.PublicKey
 import javax.crypto.SecretKey
 
 abstract class Server(): Thread() {
@@ -32,6 +30,7 @@ abstract class Server(): Thread() {
     abstract val inputStream: DataInputStream
     abstract val outputStream: DataOutputStream
     var ratchet: Ratchet? = null
+    private var sentKeyMaterial = false
 
     abstract fun setEncryptionKeyAndUsername(networkMessage: NetworkMessage)
     abstract fun decryptMessagePayload(networkMessage: NetworkMessage, ledgerEntry: LedgerEntry): String
@@ -47,6 +46,10 @@ abstract class Server(): Thread() {
                 val networkMessage = NetworkMessage.decodeNetworkMessage(receivedMessage)
                 val ledgerEntry = Ledger.getLedgerEntry(networkMessage.sender)
                 setEncryptionKeyAndUsername(networkMessage)
+                if (!sentKeyMaterial) {
+                    sendKeyMaterial(networkMessage.sender)
+                    sentKeyMaterial = true
+                }
                 val messagePayload = decryptMessagePayload(networkMessage, ledgerEntry!!)
                 when (networkMessage.messageType) {
                     UnicastMessageTypes.CLIENT_HELLO.toString() -> {}
@@ -102,32 +105,24 @@ abstract class Server(): Thread() {
     }
 
     private fun sendKeyMaterial(username: String) {
-        val myKeyMaterial = PKIUtils.generateECKeyPair()
-        val keyMaterialString = PKIUtils.encryptionKeyToString(myKeyMaterial.public)
-        val receivedKeyMaterial = AESUtils.keyMaterialMap[username]
-        if(receivedKeyMaterial != null) {
-            val sharedKey = AESUtils.calculateAESKeyDH(myKeyMaterial.private, receivedKeyMaterial.keyMaterial as PublicKey)
+        val peerKeyMaterial = AESUtils.keyMaterialMap[username]?.peerPublicKey
+        if(peerKeyMaterial != null) {
+            val myKeyMaterial = PKIUtils.generateECKeyPair()
+            val keyMaterialString = PKIUtils.encryptionKeyToString(myKeyMaterial.public)
+            val sharedKey = AESUtils.calculateAESKeyDH(myKeyMaterial.private, peerKeyMaterial)
             AESUtils.setKeyForUser(username, sharedKey)
-            AESUtils.keyMaterialMap.remove(username)
+            AESUtils.keyMaterialMap[username] = AESUtils.KeyMaterial(myKeyMaterial.private, null)
+            sendMessage(keyMaterialString, UnicastMessageTypes.KEY_MATERIAL.toString())
         }
-        else{
-            AESUtils.keyMaterialMap[username] = AESUtils.KeyMaterial(myKeyMaterial.private, true)
-        }
-        sendMessage(keyMaterialString, UnicastMessageTypes.KEY_MATERIAL.toString())
-
     }
 
     private fun handleKeyMaterialDelivery(keyMaterialString: String, username: String) {
         val receivedKeyMaterial = PKIUtils.stringToEncryptionKey(keyMaterialString)
-        val myKeyMaterial = AESUtils.keyMaterialMap[username]
+        val myKeyMaterial = AESUtils.keyMaterialMap[username]?.myPrivateKey
         if(myKeyMaterial != null) {
-            val sharedKey = AESUtils.calculateAESKeyDH(myKeyMaterial as PrivateKey, receivedKeyMaterial)
+            val sharedKey = AESUtils.calculateAESKeyDH(myKeyMaterial, receivedKeyMaterial)
             AESUtils.setKeyForUser(username, sharedKey)
-            AESUtils.keyMaterialMap.remove(username)
-        }
-        else {
-            AESUtils.keyMaterialMap[username] = AESUtils.KeyMaterial(receivedKeyMaterial, false)
-            sendKeyMaterial(username)
+            AESUtils.keyMaterialMap[username] = AESUtils.KeyMaterial(null, receivedKeyMaterial)
         }
     }
 

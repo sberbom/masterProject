@@ -1,23 +1,26 @@
 package com.example.masterproject.utils
 
-import android.content.Context
 import android.util.Log
-import com.example.masterproject.ledger.LedgerEntry
 import java.io.FileInputStream
 import java.io.FileNotFoundException
-import java.lang.Exception
 import java.nio.ByteBuffer
 import java.nio.charset.StandardCharsets
-import java.security.*
+import java.security.KeyStore
+import java.security.MessageDigest
+import java.security.PrivateKey
+import java.security.PublicKey
 import java.util.*
+import javax.crypto.AEADBadTagException
+import javax.crypto.Cipher
+import javax.crypto.KeyAgreement
+import javax.crypto.SecretKey
 import javax.crypto.spec.GCMParameterSpec
 import javax.crypto.spec.SecretKeySpec
-import javax.crypto.*
 
 
 class AESUtils {
 
-    data class KeyMaterial(val keyMaterial: Key, val isPrivateKey: Boolean)
+    data class KeyMaterial(val myPrivateKey: PrivateKey?, val peerPublicKey: PublicKey?)
 
     companion object {
         var keyMaterialMap: MutableMap<String, KeyMaterial> = mutableMapOf()

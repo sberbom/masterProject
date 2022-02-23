@@ -1,12 +1,10 @@
 package com.example.masterproject.crypto
 
-import android.util.Log
 import com.example.masterproject.utils.AESUtils
 import com.example.masterproject.utils.Constants
 import org.bouncycastle.crypto.digests.SHA256Digest
 import org.bouncycastle.crypto.generators.HKDFBytesGenerator
 import org.bouncycastle.crypto.params.HKDFParameters
-import java.lang.Exception
 import javax.crypto.SecretKey
 import javax.crypto.spec.SecretKeySpec
 
@@ -15,6 +13,7 @@ class Ratchet(private val username: String) {
     private var rootRatchet: Int = 1
     var sendingRatchet: Int = 1
     var lastKey: Int = 0
+    private val rootKey: SecretKey? = AESUtils.getKeyForUser(username)
     private val TAG = "Ratchet"
 
    private fun calculateNextKey(currentKey: SecretKey): SecretKey {
@@ -28,7 +27,7 @@ class Ratchet(private val username: String) {
 
     private fun generateKey(keyRound: Int): SecretKey {
         val previousKey = if(keyRound == 0 ) {
-            AESUtils.getKeyForUser(username)
+            rootKey
         }else {
             AESUtils.getKeyForUser("${username}${keyRound - 1}") ?: generateKey(keyRound - 1)
         }
@@ -53,7 +52,7 @@ class Ratchet(private val username: String) {
     fun clean() {
         for(i in 1..lastKey){
             try {
-                AESUtils.deleteKey("${username}sending$i")
+                AESUtils.deleteKey("${username}$i")
             }
             catch (e: Exception){ }
         }

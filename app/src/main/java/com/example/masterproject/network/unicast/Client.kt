@@ -72,34 +72,26 @@ abstract class Client: Thread() {
     }
 
     private fun sendKeyMaterial() {
-        val myKeyMaterial = PKIUtils.generateECKeyPair()
-        val keyMaterialString = PKIUtils.encryptionKeyToString(myKeyMaterial.public)
-        val receivedKeyMaterial = AESUtils.keyMaterialMap[ledgerEntry.userName]
-        if(receivedKeyMaterial != null) {
-            val sharedKey = AESUtils.calculateAESKeyDH(myKeyMaterial.private, receivedKeyMaterial as PublicKey)
-            AESUtils.setKeyForUser(ledgerEntry.userName, sharedKey)
-            AESUtils.keyMaterialMap.remove(ledgerEntry.userName)
+        val username = ledgerEntry.userName
+        val peerKeyMaterial = AESUtils.keyMaterialMap[username]?.peerPublicKey
+        if(peerKeyMaterial != null) {
+            val myKeyMaterial = PKIUtils.generateECKeyPair()
+            val keyMaterialString = PKIUtils.encryptionKeyToString(myKeyMaterial.public)
+            val sharedKey = AESUtils.calculateAESKeyDH(myKeyMaterial.private, peerKeyMaterial)
+            AESUtils.setKeyForUser(username, sharedKey)
+            AESUtils.keyMaterialMap[username] = AESUtils.KeyMaterial(myKeyMaterial.private, null)
+            sendMessage(keyMaterialString, UnicastMessageTypes.KEY_MATERIAL.toString())
         }
-        else{
-            AESUtils.keyMaterialMap[ledgerEntry.userName] =
-                AESUtils.KeyMaterial(myKeyMaterial.private, true)
-        }
-        sendMessage(keyMaterialString, UnicastMessageTypes.KEY_MATERIAL.toString())
-
     }
 
     private fun handleKeyMaterialDelivery(keyMaterialString: String) {
+        val username = ledgerEntry.userName
         val receivedKeyMaterial = PKIUtils.stringToEncryptionKey(keyMaterialString)
-        val myKeyMaterial = AESUtils.keyMaterialMap[ledgerEntry.userName]
+        val myKeyMaterial = AESUtils.keyMaterialMap[username]?.myPrivateKey
         if(myKeyMaterial != null) {
-            val sharedKey = AESUtils.calculateAESKeyDH(myKeyMaterial.keyMaterial as PrivateKey, receivedKeyMaterial)
-            AESUtils.setKeyForUser(ledgerEntry.userName, sharedKey)
-            AESUtils.keyMaterialMap.remove(ledgerEntry.userName)
-        }
-        else {
-            AESUtils.keyMaterialMap[ledgerEntry.userName] =
-                AESUtils.KeyMaterial(receivedKeyMaterial, false)
-            sendKeyMaterial()
+            val sharedKey = AESUtils.calculateAESKeyDH(myKeyMaterial, receivedKeyMaterial)
+            AESUtils.setKeyForUser(username, sharedKey)
+            AESUtils.keyMaterialMap[username] = AESUtils.KeyMaterial(null, receivedKeyMaterial)
         }
     }
 

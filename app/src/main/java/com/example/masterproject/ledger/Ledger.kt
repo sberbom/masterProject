@@ -138,6 +138,7 @@ class Ledger {
         }
 
         fun ledgerIsValid(ledger: List<LedgerEntry>): Boolean {
+            if (ledger.isEmpty()) return false
             ledger.forEach{ block ->
                 val entryIsInternallyValid = LedgerEntry.ledgerEntryIsValid(block)
                 val usernameInLedgerIsValid = usernameInLedgerIsValid(ledger, block.userName)

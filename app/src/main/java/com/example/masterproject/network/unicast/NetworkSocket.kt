@@ -37,7 +37,7 @@ abstract class NetworkSocket: Thread() {
                 val myUsername = PKIUtils.getUsernameFromCertificate(PKIUtils.getStoredCertificate()!!)
                 val ratchetKeyRound = getRatchetKeyRound()
                 val messageEncrypted = encryptMessageSymmetric(message)
-                val messageToSend = NetworkMessage(myUsername, messageEncrypted, messageType, "", 0, ratchetKeyRound).toString()
+                val messageToSend = NetworkMessage(myUsername, messageEncrypted, messageType, "", 0, 0, 0, ratchetKeyRound).toString()
                 Log.d(TAG, "Message sent $messageToSend")
                 outputStream!!.writeUTF(messageToSend)
                 outputStream!!.flush()

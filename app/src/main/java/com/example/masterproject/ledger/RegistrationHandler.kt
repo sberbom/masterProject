@@ -50,22 +50,20 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
         }
     }
 
-    fun fullLedgerReceived(sender: LedgerEntry, ledger: List<LedgerEntry>) {
-        val sortedLedger = ledger.sortedBy { it.userName }
-        if(!Ledger.ledgerIsValid(ledger)) return
-        val hashOfReceivedLedger = Ledger.getHashOfLedger(sortedLedger)
-        if (hashOfReceivedLedger == acceptedHash) {
+    fun fullLedgerReceived(receivedLedger: ReceivedLedger) {
+        if(!Ledger.ledgerIsValid(receivedLedger.ledger)) return
+        if (receivedLedger.hash == acceptedHash) {
             requestLedgerOfAcceptedHashTimer.cancel()
             requestLedgerOfAcceptedHashTimerCancelled = true
             requestLedgerOfAcceptedHashTimerIsActive = false
-            handleAcceptedLedger(ReceivedLedger(ledger, hashOfReceivedLedger, sender))
+            handleAcceptedLedger(receivedLedger)
             return
         }
-        if (userHasAlreadyResponded(sender, hashes.toList(), receivedLedgers.toList())) return
-        if (receivedLedgers.map { it.hash }.contains(hashOfReceivedLedger)) {
-            addHash(sender, hashOfReceivedLedger)
+        if (userHasAlreadyResponded(receivedLedger.senderBlock, hashes.toList(), receivedLedgers.toList())) return
+        if (receivedLedgers.map { it.hash }.contains(receivedLedger.hash)) {
+            addHash(receivedLedger.senderBlock, receivedLedger.hash)
         } else {
-            receivedLedgers.add(ReceivedLedger(ledger, hashOfReceivedLedger, sender))
+            receivedLedgers.add(receivedLedger)
         }
         setLedgerIfAccepted()
 

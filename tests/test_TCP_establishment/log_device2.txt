@@ -1,0 +1,26 @@
+Number of rounds: 10
+round 1 of 10
+--------- beginning of main
+--------- beginning of system
+02-24 13:54:37.408 10359 10459 D TCPServer: Starting TCPServer
+02-24 13:54:37.408 10359 10459 D TCPServer: Starting TCPServer
+02-24 13:54:37.408 10359 10459 D TCPServer: Starting TCPServer
+02-24 13:54:37.408 10359 10459 D TCPServer: Starting TCPServer
+02-24 13:54:41.783 10359 10459 D TCPServer: Stream closed unexpectedly
+02-24 13:54:41.783 10359 10459 D TCPServer: Stream closed unexpectedly
+02-24 13:54:41.783 10359 10459 D TCPServer: Stream closed unexpectedly
+02-24 13:54:41.783 10359 10459 D TCPServer: Stream closed unexpectedly
+round 2 of 10
+02-24 13:54:58.380 10182 10566 D TCPServer: Starting TCPServer
+02-24 13:54:58.380 10182 10566 D TCPServer: Starting TCPServer
+02-24 13:54:58.380 10182 10566 D TCPServer: Starting TCPServer
+02-24 13:54:58.380 10182 10566 D TCPServer: Starting TCPServer
+round 3 of 10
+02-24 13:55:24.144 10260 10678 D TCPServer: Starting TCPServer
+02-24 13:55:24.144 10260 10678 D TCPServer: Starting TCPServer
+02-24 13:55:24.144 10260 10678 D TCPServer: Starting TCPServer
+02-24 13:55:24.144 10260 10678 D TCPServer: Starting TCPServer
+02-24 13:55:25.712 10260 10678 D TCPServer: Stream closed unexpectedly
+02-24 13:55:25.712 10260 10678 D TCPServer: Stream closed unexpectedly
+02-24 13:55:25.712 10260 10678 D TCPServer: Stream closed unexpectedly
+02-24 13:55:25.712 10260 10678 D TCPServer: Stream closed unexpectedly

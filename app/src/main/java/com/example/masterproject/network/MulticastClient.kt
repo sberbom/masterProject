@@ -35,6 +35,7 @@ class MulticastClient (private val server: MulticastServer?) {
         val address = InetAddress.getByName(multicastGroup)
         try {
             var serverSocket = DatagramSocket()
+            Log.d(TAG, "Sent messages: $msgs")
             sendPacket(serverSocket, msgs, address)
             Thread.sleep(400)
             sendPacket(serverSocket, msgs, address)
@@ -75,11 +76,11 @@ class MulticastClient (private val server: MulticastServer?) {
         val username = PKIUtils.getUsernameFromCertificate(certificate)
         val currentLedger = Ledger.availableDevices.toList()
         /** Only for testing **/
-        ConstructLedgerForTest.createLedger(12)
+        ConstructLedgerForTest.createLedger(100)
         val testLedger = ConstructLedgerForTest.ledger
         /***********************/
         // next line should use testLedger when testing and currentLedger if not
-        val deconstructedLedger = testLedger.chunked(6)
+        val deconstructedLedger = testLedger.chunked(1)
         val networkMessages = deconstructedLedger.mapIndexed { index, fragment ->
             val fragmentString = Ledger.toString(fragment).replace("[", "").replace("]", "")
             NetworkMessage(

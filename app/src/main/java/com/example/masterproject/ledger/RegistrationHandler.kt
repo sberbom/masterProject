@@ -51,7 +51,7 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
 
     fun startTimers() {
         GlobalScope.launch (Dispatchers.Default) {
-            acceptLedgerTimeout.schedule(1000) {
+            acceptLedgerTimeout.schedule(15000) {
                 if (!acceptLedgerTimeoutCancelled) {
                     listenedForMoreThanOneSecond = true
                     setLedgerIfAccepted()
@@ -136,7 +136,9 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
         // we have not received this message before it should be stored
         if (ledgerFragments[networkMessage.sequenceNumber] == null) ledgerFragments[networkMessage.sequenceNumber] = networkMessage.payload
         // if all fragments have not yet been received, we should return
-        if (ledgerFragments.count { it == null } > 0) return null
+        val remainingFragments = ledgerFragments.count { it == null }
+        Log.d(TAG, "Remaining fragments: $remainingFragments")
+        if (remainingFragments > 0) return null
         // if all fragments have been received we should return the ledger
         val senderBlock = certificateStringToSenderBlock[certificateString]
         val ledger = formatLedgerFragments(ledgerFragments as MutableList<String>)

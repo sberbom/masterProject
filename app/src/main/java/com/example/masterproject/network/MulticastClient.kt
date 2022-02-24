@@ -3,6 +3,7 @@ package com.example.masterproject.network
 import android.content.Context
 import android.util.Log
 import com.example.masterproject.App
+import com.example.masterproject.ledger.ConstructLedgerForTest
 import com.example.masterproject.ledger.Ledger
 import com.example.masterproject.types.NetworkMessage
 import com.example.masterproject.utils.Constants
@@ -73,7 +74,12 @@ class MulticastClient (private val server: MulticastServer?) {
         val certificate = PKIUtils.getStoredCertificate() ?: throw Exception("Could not send ledger, username not defined")
         val username = PKIUtils.getUsernameFromCertificate(certificate)
         val currentLedger = Ledger.availableDevices.toList()
-        val deconstructedLedger = currentLedger.chunked(10)
+        /** Only for testing **/
+        ConstructLedgerForTest.createLedger(12)
+        val testLedger = ConstructLedgerForTest.ledger
+        /***********************/
+        // next line should use testLedger when testing and currentLedger if not
+        val deconstructedLedger = testLedger.chunked(6)
         val networkMessages = deconstructedLedger.mapIndexed { index, fragment ->
             val fragmentString = Ledger.toString(fragment).replace("[", "").replace("]", "")
             NetworkMessage(

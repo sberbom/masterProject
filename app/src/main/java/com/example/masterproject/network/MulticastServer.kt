@@ -131,6 +131,7 @@ class MulticastServer: Service() {
 
     private fun handleFullLedger(networkMessage: NetworkMessage) {
         if (networkMessage.sender == Ledger.myLedgerEntry?.userName) return
+        Log.d(TAG, "Received message: $networkMessage")
         val registrationHandler = startRegistrationProcess(networkMessage.nonce, false) ?: return
         registrationHandler.fullLedgerReceived(networkMessage)
     }

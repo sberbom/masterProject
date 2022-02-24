@@ -18,6 +18,12 @@ class Ledger {
         private const val TAG = "Ledger"
         var myLedgerEntry: LedgerEntry? = null
 
+        fun createOthersBlockFromEmail(email: String): LedgerEntry {
+            val keyPair = PKIUtils.generateECKeyPair()
+            val certificate = PKIUtils.generateSelfSignedX509Certificate(email, keyPair)
+            return LedgerEntry(certificate, email, MISCUtils.getMyIpAddress()!!)
+        }
+
         fun createNewBlockFromEmail(email: String) {
             if (getLedgerEntry(email) == null) {
                 try {

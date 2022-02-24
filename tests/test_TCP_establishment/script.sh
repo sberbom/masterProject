@@ -13,7 +13,7 @@ adb -s $device2 logcat --clear
 adb -s $device1 logcat TCPClient:D TCPServer:D \*:S >> log_device1.txt &
 adb -s $device2 logcat TCPClient:D TCPServer:D \*:S >> log_device2.txt &
 # Start test
-rounds=10
+rounds=100
 echo "Number of rounds: $rounds" > log_device1.txt
 echo "Number of rounds: $rounds" > log_device2.txt
 for ((i=1; i<=$rounds; i++))
@@ -26,11 +26,11 @@ do
    adb -s $device2 shell am start -n com.example.masterproject/com.example.masterproject.activities.MainActivity
    sleep 4
    adb -s $device1 shell input tap 500 750
-   sleep 4
+   sleep 3
    adb -s $device1 shell input tap 850 2350
-   sleep 4
+   sleep 2 
    adb -s $device1 shell input tap 500 750
-   sleep 4
+   sleep 3
    adb -s $device1 shell am force-stop com.example.masterproject
    adb -s $device2 shell am force-stop com.example.masterproject
 done

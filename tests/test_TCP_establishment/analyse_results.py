@@ -10,7 +10,7 @@ trail_number = 0
 for line in log_device_1:
     line_list = line.split(" ")
     filtered_line_list = list(filter(lambda el: el != "", line_list))
-    if "round" in line and "of 100" in line:
+    if "round" in line and "of 10" in line:
         trail_number = int(filtered_line_list[1])
     if "Starting TCPClient" in line:
         time_list = filtered_line_list[1].split(":")
@@ -22,7 +22,7 @@ trail_number = 0
 for line in log_device_2:
     line_list = line.split(" ")
     filtered_line_list = list(filter(lambda el: el != "", line_list))
-    if "round" in line and "of 100" in line:
+    if "round" in line and "of 10" in line:
         trail_number = int(filtered_line_list[1])
     if "Starting TCPServer" in line:
         time_list = filtered_line_list[1].split(":")
@@ -45,6 +45,8 @@ for i in range(len(startingTCPServerAt)):
         failedEstablishments += 1
 
 averageEstablishmentTime = totalEstablishmentTime / len(serverKeys)
+
+print(len(serverKeys))
 
 print("Average TCP establishment time: {:.0f}ms".format(averageEstablishmentTime))
 print("Failed TCP establishment: {}".format(failedEstablishments))

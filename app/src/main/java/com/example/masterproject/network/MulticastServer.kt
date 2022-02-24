@@ -46,13 +46,13 @@ class MulticastServer: Service() {
             socket.joinGroup(address)
             Log.d(TAG, "Listening for data.")
             while (true) {
-                val msgPacket = DatagramPacket(buf, buf.size)
+                try {
+                    val msgPacket = DatagramPacket(buf, buf.size)
                 socket.receive(msgPacket)
 
                 val msgRaw = String(buf, 0, buf.size)
                 val networkMessage = NetworkMessage.decodeNetworkMessage(msgRaw)
                 GlobalScope.launch(Dispatchers.IO) {
-                    try {
                         when (networkMessage.messageType) {
                             BroadcastMessageTypes.BROADCAST_BLOCK.toString() -> handleBroadcastBlock(networkMessage)
                             BroadcastMessageTypes.REQUEST_LEDGER.toString() -> handleRequestedLedger(networkMessage)
@@ -62,9 +62,10 @@ class MulticastServer: Service() {
                             BroadcastMessageTypes.IP_CHANGED.toString() -> handleIpChanged(networkMessage)
                             else -> Log.d(TAG, "Received unknown message type.")
                         }
-                    } catch (e: Exception) {
-                        e.printStackTrace()
+
                     }
+                } catch (e: Exception) {
+                    e.printStackTrace()
                 }
             }
         }catch (e: Exception){

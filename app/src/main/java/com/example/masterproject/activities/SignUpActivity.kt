@@ -47,6 +47,7 @@ class SignUpActivity: AppCompatActivity() {
         signUpProgressBar = findViewById(R.id.signUpProgressBar)
 
         signUpButton.setOnClickListener {
+            Log.d(TAG, "Sign up button pressed")
             val emailTextView: TextView = findViewById(R.id.emailInputText)
             val passwordTextView: TextView = findViewById(R.id.passwordInputText)
             GlobalScope.launch(Dispatchers.IO) {
@@ -105,6 +106,7 @@ class SignUpActivity: AppCompatActivity() {
             GlobalScope.launch(Dispatchers.IO) {
                 client.broadcastBlock(0)
             }
+            Log.d(TAG, "Offline registration complete")
         } else {
             signupLoading(false)
             runOnUiThread(java.lang.Runnable {

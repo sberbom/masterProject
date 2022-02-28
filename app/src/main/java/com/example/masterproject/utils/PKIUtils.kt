@@ -8,8 +8,14 @@ import org.bouncycastle.asn1.x500.X500Name
 import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo
 import org.bouncycastle.cert.X509CertificateHolder
 import org.bouncycastle.cert.X509v1CertificateBuilder
+import org.bouncycastle.cert.X509v3CertificateBuilder
 import org.bouncycastle.cert.jcajce.JcaX509CertificateConverter
+import org.bouncycastle.crypto.util.PrivateKeyFactory
 import org.bouncycastle.openssl.jcajce.JcaPEMKeyConverter
+import org.bouncycastle.operator.DefaultDigestAlgorithmIdentifierFinder
+import org.bouncycastle.operator.DefaultSignatureAlgorithmIdentifierFinder
+import org.bouncycastle.operator.bc.BcContentSignerBuilder
+import org.bouncycastle.operator.bc.BcECContentSignerBuilder
 import org.bouncycastle.operator.jcajce.JcaContentSignerBuilder
 import java.io.*
 import java.math.BigInteger
@@ -70,7 +76,7 @@ class PKIUtils {
             val certificateIssuer = X500Name("CN=$username")
             val certificateSerialNumber = BigInteger.valueOf(System.currentTimeMillis())
             val publicKeyInfo = SubjectPublicKeyInfo.getInstance(keyPair.public.encoded);
-            val certificateBuilder = X509v1CertificateBuilder(
+            val certificateBuilder = X509v3CertificateBuilder(
                 certificateIssuer,
                 certificateSerialNumber,
                 validityBeginDate,
@@ -78,11 +84,12 @@ class PKIUtils {
                 certificateIssuer,
                 publicKeyInfo
             )
-            val privateKeyInfo = PrivateKeyInfo.getInstance(keyPair.private.encoded)
-            // This function takes a lot of time
-            val contentSigner = JcaContentSignerBuilder(Constants.ASYMMETRIC_SIGNATURE_ALGORITHM).build(
-                JcaPEMKeyConverter().getPrivateKey(privateKeyInfo)
-            )
+
+            val privateKeyParameters = PrivateKeyFactory.createKey(keyPair.private.encoded)
+            val signatureAlgorithm = DefaultSignatureAlgorithmIdentifierFinder().find(Constants.ASYMMETRIC_SIGNATURE_ALGORITHM)
+            val digestAlgorithm = DefaultDigestAlgorithmIdentifierFinder().find(signatureAlgorithm)
+            val contentSigner = BcECContentSignerBuilder(signatureAlgorithm, digestAlgorithm).build(privateKeyParameters)
+
             val holder: X509CertificateHolder = certificateBuilder.build(contentSigner)
             return JcaX509CertificateConverter().getCertificate(holder)
         }

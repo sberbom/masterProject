@@ -15,9 +15,9 @@ data class UnicastPacket(val sender: String, val payload: String, val messageTyp
     companion object {
         fun decodeUnicastPacket(string: String): UnicastPacket {
             val jsonObject = JSONObject(string)
-            val sender = jsonObject.get("sender") as String
-            val payload = jsonObject.get("payload") as String
-            val messageType = jsonObject.get("mt") as String
+            val sender = jsonObject.getString("sender")
+            val payload = jsonObject.getString("payload")
+            val messageType = jsonObject.getString("mt") 
             val ratchetKey = jsonObject.getInt("rk")
             return UnicastPacket(sender, payload, messageType, ratchetKey)
         }

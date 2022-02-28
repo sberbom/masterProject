@@ -18,13 +18,13 @@ data class MulticastPacket(val sender: String, val payload: String, val messageT
     companion object {
         fun decodeMulticastPacket(string: String): MulticastPacket {
             val jsonObject = JSONObject(string)
-            val sender = jsonObject.get("sender") as String
-            val payload = jsonObject.get("payload") as String
-            val messageType = jsonObject.get("mt") as String
-            val signature = jsonObject.get("sig") as String
-            val nonce = jsonObject.get("nonce") as Int
-            val sequenceNumber = jsonObject.get("seq") as Int
-            val lastSequenceNumber = jsonObject.get("tot") as Int
+            val sender = jsonObject.getString("sender")
+            val payload = jsonObject.getString("payload")
+            val messageType = jsonObject.getString("mt")
+            val signature = jsonObject.getString("sig")
+            val nonce = jsonObject.getInt("nonce")
+            val sequenceNumber = jsonObject.getInt("seq")
+            val lastSequenceNumber = jsonObject.getInt("tot")
             return MulticastPacket(sender, payload, messageType, signature, nonce, sequenceNumber, lastSequenceNumber)
         }
     }

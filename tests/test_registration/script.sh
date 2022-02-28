@@ -33,11 +33,12 @@ do
     adb -s $device1 shell input text 'test@mail.no'
     sleep 0.5
     adb -s $device1 shell input tap 190 860 #singup button
-    sleep 15 
+    sleep 10
     adb -s $device1 shell input tap 50 170 #hamburger menu
     sleep 0.5
     adb -s $device1 shell input tap 220 880 #delete all data
     sleep 0.5
     adb -s $device1 shell am force-stop com.example.masterproject
+    sleep 2
 done
 adb -s $device1 shell killall -2 logcat

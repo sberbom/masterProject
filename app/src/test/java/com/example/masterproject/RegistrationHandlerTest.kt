@@ -3,7 +3,6 @@ package com.example.masterproject
 import android.util.Log
 import com.example.masterproject.ledger.LedgerEntry
 import com.example.masterproject.ledger.RegistrationHandler
-import com.example.masterproject.types.NetworkMessage
 import com.example.masterproject.utils.PKIUtils
 import io.mockk.*
 import org.junit.Assert.*

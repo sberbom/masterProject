@@ -3,7 +3,7 @@ package com.example.masterproject.ledger
 import android.util.Log
 import com.example.masterproject.network.MulticastClient
 import com.example.masterproject.network.MulticastServer
-import com.example.masterproject.types.NetworkMessage
+import com.example.masterproject.types.MulticastPacket
 import com.example.masterproject.utils.MISCUtils
 import com.example.masterproject.utils.PKIUtils
 import kotlinx.coroutines.Dispatchers
@@ -47,7 +47,7 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
 
     private val ledgerFragmentsReceived: MutableMap<String, MutableList<String?>> = mutableMapOf()
 
-    private val orphanFragment: MutableMap<String, MutableList<NetworkMessage>> = mutableMapOf()
+    private val orphanFragment: MutableMap<String, MutableList<MulticastPacket>> = mutableMapOf()
 
     fun startTimers() {
         GlobalScope.launch (Dispatchers.Default) {
@@ -70,10 +70,10 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
         }
     }
 
-    fun fullLedgerReceived(networkMessage: NetworkMessage) {
-        if (userHasAlreadyResponded(networkMessage, null, hashes.toList(), receivedLedgers.toList())) return
-        val receivedLedger: ReceivedLedger = handleLedgerFragment(networkMessage) ?: return
-        Log.d(TAG, "Full ledger from ${networkMessage.sender}: ${networkMessage.nonce}")
+    fun fullLedgerReceived(multicastPacket: MulticastPacket) {
+        if (userHasAlreadyResponded(multicastPacket, null, hashes.toList(), receivedLedgers.toList())) return
+        val receivedLedger: ReceivedLedger = handleLedgerFragment(multicastPacket) ?: return
+        Log.d(TAG, "Full ledger from ${multicastPacket.sender}: ${multicastPacket.nonce}")
         if(!Ledger.ledgerIsValid(receivedLedger.ledger)) return
         if (receivedLedger.hash == acceptedHash) {
             requestLedgerOfAcceptedHashTimer.cancel()
@@ -94,47 +94,47 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
     /**
      * @return if ledger is complete, the ledger is returned, if not, the fragment is stored and null is returned
      */
-    private fun handleLedgerFragment(networkMessage: NetworkMessage): ReceivedLedger? {
+    private fun handleLedgerFragment(multicastPacket: MulticastPacket): ReceivedLedger? {
         // if the ledger is separated into several packets, handle the fragment...
-        if (networkMessage.lastSequenceNumber > 0) {
-            Log.d(TAG, "Received fragment ${networkMessage.sequenceNumber} of ${networkMessage.lastSequenceNumber} from ${networkMessage.sender}: ${networkMessage.payload}")
-            return if (networkMessage.sequenceNumber == 0) {
-                handleFirstPacket(networkMessage)
+        if (multicastPacket.lastSequenceNumber > 0) {
+            Log.d(TAG, "Received fragment ${multicastPacket.sequenceNumber} of ${multicastPacket.lastSequenceNumber} from ${multicastPacket.sender}: ${multicastPacket.payload}")
+            return if (multicastPacket.sequenceNumber == 0) {
+                handleFirstPacket(multicastPacket)
             } else {
-                handleNonFirstPackets(networkMessage)
+                handleNonFirstPackets(multicastPacket)
             }
             // ... if not, return the full ledger
         } else {
-            Log.d(TAG, "Received full ledger: $networkMessage")
-            val senderBlock = LedgerEntry.parseString(networkMessage.sender)
+            Log.d(TAG, "Received full ledger: $multicastPacket")
+            val senderBlock = LedgerEntry.parseString(multicastPacket.sender)
             // return null if signature is not valid
-            if (!PKIUtils.verifySignature(networkMessage.payload, networkMessage.signature, senderBlock.certificate.publicKey, networkMessage.nonce)) return null
-            val ledger = formatLedgerFragments(mutableListOf(networkMessage.payload))
+            if (!PKIUtils.verifySignature(multicastPacket.payload, multicastPacket.signature, senderBlock.certificate.publicKey, multicastPacket.nonce)) return null
+            val ledger = formatLedgerFragments(mutableListOf(multicastPacket.payload))
             val hash = Ledger.getHashOfLedger(ledger)
             return ReceivedLedger(ledger, hash, senderBlock)
         }
     }
 
-    private fun handleNonFirstPackets(networkMessage: NetworkMessage): ReceivedLedger? {
-        val sender = getSenderBlock(null, networkMessage)
+    private fun handleNonFirstPackets(multicastPacket: MulticastPacket): ReceivedLedger? {
+        val sender = getSenderBlock(null, multicastPacket)
         val certificateString = if (sender != null) PKIUtils.certificateToString(sender.certificate) else null
-        val ledgerSequenceId = if (certificateString != null) "${networkMessage.nonce}:${certificateString}" else null
+        val ledgerSequenceId = if (certificateString != null) "${multicastPacket.nonce}:${certificateString}" else null
         val ledgerFragments = ledgerFragmentsReceived[ledgerSequenceId]
         // if ledger fragments is null the first block in the sequence has not been received
         // and the signature cannot be validated, so the packet should be stored as an orphan
         // null should be returned...
         if (ledgerFragments == null || sender == null) {
-            val existingOrphanOfSameUsername = orphanFragment[networkMessage.sender]
+            val existingOrphanOfSameUsername = orphanFragment[multicastPacket.sender]
             if (existingOrphanOfSameUsername != null) {
-                existingOrphanOfSameUsername.add(networkMessage)
+                existingOrphanOfSameUsername.add(multicastPacket)
             } else {
-                orphanFragment[networkMessage.sender] = mutableListOf(networkMessage)
+                orphanFragment[multicastPacket.sender] = mutableListOf(multicastPacket)
             }
             return null
         }
         // ...if the first block of the sequence has been received and
         // we have not received this message before it should be stored
-        if (ledgerFragments[networkMessage.sequenceNumber] == null) ledgerFragments[networkMessage.sequenceNumber] = networkMessage.payload
+        if (ledgerFragments[multicastPacket.sequenceNumber] == null) ledgerFragments[multicastPacket.sequenceNumber] = multicastPacket.payload
         // if all fragments have not yet been received, we should return
         if (ledgerFragments.count { it == null } > 0) return null
         // if all fragments have been received we should return the ledger
@@ -152,9 +152,9 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
     }
 
 
-    private fun handleFirstPacket(networkMessage: NetworkMessage): ReceivedLedger? {
-        val blockOfSender = LedgerEntry.parseString(networkMessage.sender)
-        val signatureIsValid = PKIUtils.verifySignature(networkMessage.payload, networkMessage.signature, blockOfSender.certificate.publicKey, networkMessage.nonce)
+    private fun handleFirstPacket(multicastPacket: MulticastPacket): ReceivedLedger? {
+        val blockOfSender = LedgerEntry.parseString(multicastPacket.sender)
+        val signatureIsValid = PKIUtils.verifySignature(multicastPacket.payload, multicastPacket.signature, blockOfSender.certificate.publicKey, multicastPacket.nonce)
         if (!signatureIsValid) return null
         val certificateString = PKIUtils.certificateToString(blockOfSender.certificate)
         val certificatesToUsername = usernameToCertificates[blockOfSender.userName]
@@ -165,12 +165,12 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
             certificatesToUsername.add(blockOfSender.certificate)
         }
         certificateStringToSenderBlock[certificateString] = blockOfSender
-        val ledgerSequenceId = "${networkMessage.nonce}:${certificateString}"
+        val ledgerSequenceId = "${multicastPacket.nonce}:${certificateString}"
         val ledgerFragments = ledgerFragmentsReceived[ledgerSequenceId]
         if (ledgerFragments == null) {
-            ledgerFragmentsReceived[ledgerSequenceId] = MutableList(networkMessage.lastSequenceNumber + 1) {index -> if (index == 0) networkMessage.payload else null }
-        } else if (ledgerFragments[networkMessage.sequenceNumber] == null) {
-            ledgerFragmentsReceived[ledgerSequenceId]!![networkMessage.sequenceNumber] = networkMessage.payload
+            ledgerFragmentsReceived[ledgerSequenceId] = MutableList(multicastPacket.lastSequenceNumber + 1) {index -> if (index == 0) multicastPacket.payload else null }
+        } else if (ledgerFragments[multicastPacket.sequenceNumber] == null) {
+            ledgerFragmentsReceived[ledgerSequenceId]!![multicastPacket.sequenceNumber] = multicastPacket.payload
         }
         return handleOrphanBlocks(blockOfSender, ledgerSequenceId)
     }
@@ -195,17 +195,17 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
         return null
     }
 
-    private fun getSenderBlock(sender: LedgerEntry?, networkMessage: NetworkMessage?): LedgerEntry? {
+    private fun getSenderBlock(sender: LedgerEntry?, multicastPacket: MulticastPacket?): LedgerEntry? {
         if (sender != null) return sender
-        if (networkMessage == null) return null
-        if (networkMessage.lastSequenceNumber == 0) return LedgerEntry.parseString(networkMessage.sender)
-        val possibleCertificates = usernameToCertificates[networkMessage.sender]
-        val correctCertificate = possibleCertificates?.find { PKIUtils.verifySignature(networkMessage.payload, networkMessage.signature, it.publicKey, networkMessage.nonce) } ?: return null
+        if (multicastPacket == null) return null
+        if (multicastPacket.lastSequenceNumber == 0) return LedgerEntry.parseString(multicastPacket.sender)
+        val possibleCertificates = usernameToCertificates[multicastPacket.sender]
+        val correctCertificate = possibleCertificates?.find { PKIUtils.verifySignature(multicastPacket.payload, multicastPacket.signature, it.publicKey, multicastPacket.nonce) } ?: return null
         return certificateStringToSenderBlock[PKIUtils.certificateToString(correctCertificate)]
     }
 
-    private fun userHasAlreadyResponded(networkMessage: NetworkMessage?, sender: LedgerEntry?, hashes: List<ReceivedHash>, receivedLedgers: List<ReceivedLedger>): Boolean {
-        val user = getSenderBlock(sender, networkMessage) ?: return false
+    private fun userHasAlreadyResponded(multicastPacket: MulticastPacket?, sender: LedgerEntry?, hashes: List<ReceivedHash>, receivedLedgers: List<ReceivedLedger>): Boolean {
+        val user = getSenderBlock(sender, multicastPacket) ?: return false
         val userHasAlreadyRespondedWithHash = hashes.map { PKIUtils.certificateToString(it.senderBlock.certificate) }.contains(PKIUtils.certificateToString(user.certificate))
         val userHasAlreadyRespondedWithLedger = receivedLedgers.map { PKIUtils.certificateToString(it.senderBlock.certificate) }.contains(PKIUtils.certificateToString(user.certificate))
         return userHasAlreadyRespondedWithHash || userHasAlreadyRespondedWithLedger

@@ -8,7 +8,7 @@ import com.example.masterproject.App
 import com.example.masterproject.activities.ChatActivity
 import com.example.masterproject.activities.MainActivity
 import com.example.masterproject.ledger.Ledger
-import com.example.masterproject.types.NetworkMessage
+import com.example.masterproject.types.UnicastPacket
 import java.io.EOFException
 import javax.crypto.SecretKey
 
@@ -18,7 +18,7 @@ abstract class Server: NetworkSocket() {
     var username: String? = null
     private var sentKeyMaterial = false
 
-    abstract fun setEncryptionKeyAndUsername(networkMessage: NetworkMessage)
+    abstract fun setEncryptionKeyAndUsername(unicastPacket: UnicastPacket)
 
     override fun run(){
         Log.d(TAG, "Starting $TAG")
@@ -27,21 +27,21 @@ abstract class Server: NetworkSocket() {
                 if(inputStream != null) {
                     val receivedMessage = inputStream!!.readUTF()
                     Log.d(TAG, "Message received: $receivedMessage")
-                    val networkMessage = NetworkMessage.decodeNetworkMessage(receivedMessage)
-                    val ledgerEntry = Ledger.getLedgerEntry(networkMessage.sender)
-                    setEncryptionKeyAndUsername(networkMessage)
+                    val unicastPacket = UnicastPacket.decodeUnicastPacket(receivedMessage)
+                    val ledgerEntry = Ledger.getLedgerEntry(unicastPacket.sender)
+                    setEncryptionKeyAndUsername(unicastPacket)
                     if (!sentKeyMaterial) {
-                        sendKeyMaterial(networkMessage.sender)
+                        sendKeyMaterial(unicastPacket.sender)
                         sentKeyMaterial = true
                     }
-                    val messagePayload = decryptMessagePayload(networkMessage, ledgerEntry!!)
-                    when (networkMessage.messageType) {
+                    val messagePayload = decryptMessagePayload(unicastPacket, ledgerEntry!!)
+                    when (unicastPacket.messageType) {
                         UnicastMessageTypes.CLIENT_HELLO.toString() -> { }
-                        UnicastMessageTypes.KEY_MATERIAL.toString() -> handleKeyMaterialDelivery(messagePayload, networkMessage.sender)
+                        UnicastMessageTypes.KEY_MATERIAL.toString() -> handleKeyMaterialDelivery(messagePayload, unicastPacket.sender)
                         UnicastMessageTypes.GOODBYE.toString() -> handleGoodbye()
                         else -> {
                             Handler(Looper.getMainLooper()).post {
-                                ChatActivity.addChat(networkMessage.sender, messagePayload)
+                                ChatActivity.addChat(unicastPacket.sender, messagePayload)
                             }
                         }
                     }

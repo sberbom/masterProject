@@ -5,7 +5,7 @@ import android.os.Looper
 import android.util.Log
 import com.example.masterproject.activities.ChatActivity
 import com.example.masterproject.ledger.LedgerEntry
-import com.example.masterproject.types.NetworkMessage
+import com.example.masterproject.types.UnicastPacket
 import java.io.DataInputStream
 import java.io.DataOutputStream
 import java.net.InetAddress
@@ -38,15 +38,15 @@ abstract class Client: NetworkSocket() {
                     val receivedMessage = inputStream?.readUTF()
                     if(receivedMessage != null) {
                         Log.d(TAG, "Received message: $receivedMessage")
-                        val networkMessage = NetworkMessage.decodeNetworkMessage(receivedMessage)
-                        val messagePayload = decryptMessagePayload(networkMessage, ledgerEntry)
-                        when (networkMessage.messageType) {
+                        val unicastPacket = UnicastPacket.decodeUnicastPacket(receivedMessage)
+                        val messagePayload = decryptMessagePayload(unicastPacket, ledgerEntry)
+                        when (unicastPacket.messageType) {
                             UnicastMessageTypes.CLIENT_HELLO.toString() -> { }
                             UnicastMessageTypes.GOODBYE.toString() -> { }
                             UnicastMessageTypes.KEY_MATERIAL.toString() -> handleKeyMaterialDelivery(messagePayload, ledgerEntry.userName)
                             else -> {
                                 Handler(Looper.getMainLooper()).post {
-                                    ChatActivity.addChat(networkMessage.sender, messagePayload)
+                                    ChatActivity.addChat(unicastPacket.sender, messagePayload)
                                 }
                             }
                         }

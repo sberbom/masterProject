@@ -6,7 +6,7 @@ import android.util.Log
 import com.example.masterproject.activities.ChatActivity
 import com.example.masterproject.crypto.Ratchet
 import com.example.masterproject.ledger.LedgerEntry
-import com.example.masterproject.types.NetworkMessage
+import com.example.masterproject.types.UnicastPacket
 import com.example.masterproject.utils.AESUtils
 import com.example.masterproject.utils.PKIUtils
 import java.io.DataInputStream
@@ -25,7 +25,7 @@ abstract class NetworkSocket: Thread() {
     var peerFirstKeyMaterial: PublicKey? = null
     var myFirstKeyMaterial: PrivateKey? = null
 
-    abstract fun decryptMessagePayload(networkMessage: NetworkMessage, ledgerEntry: LedgerEntry): String
+    abstract fun decryptMessagePayload(unicastPacket: UnicastPacket, ledgerEntry: LedgerEntry): String
     abstract fun encryptMessageSymmetric(message: String ): String
     abstract fun getRatchetKeyRound(): Int
 
@@ -37,7 +37,7 @@ abstract class NetworkSocket: Thread() {
                 val myUsername = PKIUtils.getUsernameFromCertificate(PKIUtils.getStoredCertificate()!!)
                 val ratchetKeyRound = getRatchetKeyRound()
                 val messageEncrypted = encryptMessageSymmetric(message)
-                val messageToSend = NetworkMessage(myUsername, messageEncrypted, messageType, "", 0, 0, 0, ratchetKeyRound).toString()
+                val messageToSend = UnicastPacket(myUsername, messageEncrypted, messageType, ratchetKeyRound).toString()
                 Log.d(TAG, "Message sent $messageToSend")
                 outputStream!!.writeUTF(messageToSend)
                 outputStream!!.flush()

@@ -28,7 +28,6 @@ class SignUpActivity: AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
 
-    private val client: MulticastClient = MulticastClient(null)
     private lateinit var emailInvalidTextView: TextView
     private lateinit var passwordInvalidTextView: TextView
     private lateinit var signUpButton: Button
@@ -104,7 +103,7 @@ class SignUpActivity: AppCompatActivity() {
             returnToMainActivity(email)
             Ledger.createNewBlockFromEmail(email)
             GlobalScope.launch(Dispatchers.IO) {
-                client.broadcastBlock(0)
+                MulticastClient.broadcastBlock(0)
             }
             Log.d(TAG, "Offline registration complete")
         } else {

@@ -6,4 +6,4 @@ for line in f:
   a = line.split(" ")[1].replace("\"", "\\" + "\"")
   entries.append(a)
 
-print("\"" + "\", \"".join(entries[0:250]).replace("\n", "") + "\"")
+print("\"" + "\", \"".join(entries).replace("\n", "") + "\"")

@@ -21,8 +21,6 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
 
     private var hashes: MutableList<ReceivedHash> = mutableListOf()
 
-    private val client: MulticastClient = MulticastClient(server)
-
     private var listenedForMoreThanOneSecond: Boolean = false
 
     private val TAG = "RegistrationHandler:$nonce"
@@ -257,7 +255,7 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
         val sentCorrectHash = hashes.filter { it.hash == hashOfAcceptedLedger }.random().senderBlock.userName
         Log.d(TAG, "Accepted hash from $sentCorrectHash: $hashOfAcceptedLedger")
         GlobalScope.launch(Dispatchers.IO) {
-            client.requestSpecificHash(
+            MulticastClient.requestSpecificHash(
                 hashOfAcceptedLedger,
                 sentCorrectHash
             )
@@ -286,7 +284,7 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
                 if (currentIp != null && myExistingBlock.getIpAddress() != currentIp) {
                     myExistingBlock.setIpAddress(currentIp)
                     GlobalScope.launch(Dispatchers.IO) {
-                        client.sendIpChanged(currentIp)
+                        MulticastClient.sendIpChanged(currentIp)
                     }
                 }
                 Ledger.myLedgerEntry = myExistingBlock
@@ -294,7 +292,7 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
                 val myLedgerEntry = Ledger.createNewBlockFromStoredCertificate()
                 if (myLedgerEntry != null) {
                     GlobalScope.launch(Dispatchers.IO) {
-                        client.broadcastBlock(nonce)
+                        MulticastClient.broadcastBlock(nonce)
                     }
                 }
             }

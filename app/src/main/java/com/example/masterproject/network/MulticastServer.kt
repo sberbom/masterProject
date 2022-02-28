@@ -10,7 +10,7 @@ import com.example.masterproject.ledger.Ledger
 import com.example.masterproject.ledger.LedgerEntry
 import com.example.masterproject.ledger.ReceivedLedger
 import com.example.masterproject.ledger.RegistrationHandler
-import com.example.masterproject.types.NetworkMessage
+import com.example.masterproject.types.MulticastPacket
 import com.example.masterproject.utils.Constants
 import com.example.masterproject.utils.MISCUtils
 import com.example.masterproject.utils.PKIUtils
@@ -20,7 +20,6 @@ import kotlinx.coroutines.launch
 import java.net.DatagramPacket
 import java.net.InetAddress
 import java.net.MulticastSocket
-import java.security.cert.X509Certificate
 import java.util.*
 import kotlin.concurrent.schedule
 
@@ -51,15 +50,15 @@ class MulticastServer: Service() {
                 socket.receive(msgPacket)
 
                 val msgRaw = String(buf, 0, buf.size)
-                val networkMessage = NetworkMessage.decodeNetworkMessage(msgRaw)
+                val multicastPacket = MulticastPacket.decodeMulticastPacket(msgRaw)
                 GlobalScope.launch(Dispatchers.IO) {
-                        when (networkMessage.messageType) {
-                            BroadcastMessageTypes.BROADCAST_BLOCK.toString() -> handleBroadcastBlock(networkMessage)
-                            BroadcastMessageTypes.REQUEST_LEDGER.toString() -> handleRequestedLedger(networkMessage)
-                            BroadcastMessageTypes.REQUEST_SPECIFIC_LEDGER.toString() -> handleSpecificLedgerRequest(networkMessage)
-                            BroadcastMessageTypes.FULL_LEDGER.toString() -> handleFullLedger(networkMessage)
-                            BroadcastMessageTypes.LEDGER_HASH.toString() -> handleHash(networkMessage)
-                            BroadcastMessageTypes.IP_CHANGED.toString() -> handleIpChanged(networkMessage)
+                        when (multicastPacket.messageType) {
+                            BroadcastMessageTypes.BROADCAST_BLOCK.toString() -> handleBroadcastBlock(multicastPacket)
+                            BroadcastMessageTypes.REQUEST_LEDGER.toString() -> handleRequestedLedger(multicastPacket)
+                            BroadcastMessageTypes.REQUEST_SPECIFIC_LEDGER.toString() -> handleSpecificLedgerRequest(multicastPacket)
+                            BroadcastMessageTypes.FULL_LEDGER.toString() -> handleFullLedger(multicastPacket)
+                            BroadcastMessageTypes.LEDGER_HASH.toString() -> handleHash(multicastPacket)
+                            BroadcastMessageTypes.IP_CHANGED.toString() -> handleIpChanged(multicastPacket)
                             else -> Log.d(TAG, "Received unknown message type.")
                         }
 
@@ -74,25 +73,25 @@ class MulticastServer: Service() {
         return null
     }
 
-    private fun handleBroadcastBlock(networkMessage: NetworkMessage) {
-        if (networkMessage.sender == Ledger.myLedgerEntry?.userName) return
-        Log.d(TAG, "Broadcast block received ${networkMessage.payload}")
-        val blockString = networkMessage.payload
+    private fun handleBroadcastBlock(multicastPacket: MulticastPacket) {
+        if (multicastPacket.sender == Ledger.myLedgerEntry?.userName) return
+        Log.d(TAG, "Broadcast block received ${multicastPacket.payload}")
+        val blockString = multicastPacket.payload
         val block = LedgerEntry.parseString(blockString)
         val publicKey = block.certificate.publicKey
-        val isValidSignature = PKIUtils.verifySignature(blockString, networkMessage.signature, publicKey, null)
+        val isValidSignature = PKIUtils.verifySignature(blockString, multicastPacket.signature, publicKey, null)
         if(isValidSignature) {
             Ledger.addLedgerEntry(block)
         }
     }
 
     // TODO: Should not send hash if there are CA-certified and you are not one of them
-    private fun handleRequestedLedger(networkMessage: NetworkMessage) {
-        if (!shouldHandleRequests || registrationHandlers[networkMessage.nonce] != null) return
-        val registrationHandler = startRegistrationProcess(networkMessage.nonce, false) ?: return
+    private fun handleRequestedLedger(multicastPacket: MulticastPacket) {
+        if (!shouldHandleRequests || registrationHandlers[multicastPacket.nonce] != null) return
+        val registrationHandler = startRegistrationProcess(multicastPacket.nonce, false) ?: return
         // if I started the registration, I will not send anything
         if (registrationHandler.isMyRegistration) return
-        Log.d(TAG, "Received request for ledger with nonce: ${networkMessage.nonce}.")
+        Log.d(TAG, "Received request for ledger with nonce: ${multicastPacket.nonce}.")
         // must be a copy of the real list
         val fullLedger = Ledger.availableDevices.toList()
         val myBlock = Ledger.myLedgerEntry
@@ -101,11 +100,11 @@ class MulticastServer: Service() {
                 if (Ledger.shouldSendFullLedger()) {
                     // register your own ledger as a vote in your own registration process
                     registrationHandler.handleSendLedger(ReceivedLedger(fullLedger, Ledger.getHashOfLedger(fullLedger) , myBlock))
-                    client.sendLedger(networkMessage.nonce)
+                    client.sendLedger(multicastPacket.nonce)
                 } else {
                     // register your own hash as a vote in your own registration process
                     registrationHandler.hashOfLedgerReceived(myBlock, Ledger.getHashOfStoredLedger())
-                    client.sendHash(networkMessage.nonce)
+                    client.sendHash(multicastPacket.nonce)
                 }
             }
         }
@@ -115,48 +114,48 @@ class MulticastServer: Service() {
         }
     }
 
-    private fun handleSpecificLedgerRequest(networkMessage: NetworkMessage) {
-        val payloadArray = networkMessage.payload.split(":")
+    private fun handleSpecificLedgerRequest(multicastPacket: MulticastPacket) {
+        val payloadArray = multicastPacket.payload.split(":")
         if (payloadArray.size > 1) {
             val usernameToReply = payloadArray[0]
             val hash = payloadArray[1]
             Log.d(TAG, "Received request for $usernameToReply to send ledger with hash $hash")
             if (usernameToReply == Ledger.myLedgerEntry?.userName && Ledger.getHashOfStoredLedger() == hash) {
                 GlobalScope.launch(Dispatchers.IO) {
-                    client.sendLedger(networkMessage.nonce)
+                    client.sendLedger(multicastPacket.nonce)
                 }
             }
         }
     }
 
-    private fun handleFullLedger(networkMessage: NetworkMessage) {
-        if ((networkMessage.sequenceNumber == 0 && networkMessage.sender == Ledger.myLedgerEntry?.toString()) ||
-            (networkMessage.sequenceNumber > 0 && networkMessage.sender == Ledger.myLedgerEntry?.userName)) return
-        val registrationHandler = startRegistrationProcess(networkMessage.nonce, false) ?: return
-        registrationHandler.fullLedgerReceived(networkMessage)
+    private fun handleFullLedger(multicastPacket: MulticastPacket) {
+        if ((multicastPacket.sequenceNumber == 0 && multicastPacket.sender == Ledger.myLedgerEntry?.toString()) ||
+            (multicastPacket.sequenceNumber > 0 && multicastPacket.sender == Ledger.myLedgerEntry?.userName)) return
+        val registrationHandler = startRegistrationProcess(multicastPacket.nonce, false) ?: return
+        registrationHandler.fullLedgerReceived(multicastPacket)
     }
 
-    private fun handleHash(networkMessage: NetworkMessage) {
-        val registrationHandler = startRegistrationProcess(networkMessage.nonce, false) ?: return
-        val senderBlock = LedgerEntry.parseString(networkMessage.sender)
+    private fun handleHash(multicastPacket: MulticastPacket) {
+        val registrationHandler = startRegistrationProcess(multicastPacket.nonce, false) ?: return
+        val senderBlock = LedgerEntry.parseString(multicastPacket.sender)
         if (senderBlock.userName == Ledger.myLedgerEntry?.userName) return
-        Log.d(TAG, "Received hash from ${senderBlock.userName}: ${networkMessage.payload}")
+        Log.d(TAG, "Received hash from ${senderBlock.userName}: ${multicastPacket.payload}")
         val publicKey = senderBlock.certificate.publicKey ?: throw Exception("Can not handle full ledger - Could not find public key for user")
-        val isValidSignature = PKIUtils.verifySignature(networkMessage.payload, networkMessage.signature, publicKey, networkMessage.nonce)
+        val isValidSignature = PKIUtils.verifySignature(multicastPacket.payload, multicastPacket.signature, publicKey, multicastPacket.nonce)
         if (isValidSignature) {
-            registrationHandler.hashOfLedgerReceived(senderBlock, networkMessage.payload)
+            registrationHandler.hashOfLedgerReceived(senderBlock, multicastPacket.payload)
         }
     }
 
-    private fun handleIpChanged(networkMessage: NetworkMessage) {
-        val senderBlock = LedgerEntry.parseString(networkMessage.sender)
+    private fun handleIpChanged(multicastPacket: MulticastPacket) {
+        val senderBlock = LedgerEntry.parseString(multicastPacket.sender)
         if (senderBlock.userName == Ledger.myLedgerEntry?.userName) return
         val publicKey = senderBlock.certificate.publicKey ?: throw Exception("Can not handle ip changed - Could not find public key for user")
         val blockToChange = Ledger.getLedgerEntry(senderBlock.userName) ?: return
-        val newIp = networkMessage.payload.split(":").first()
+        val newIp = multicastPacket.payload.split(":").first()
         val senderHasCorrectCertificate = PKIUtils.certificateToString(blockToChange.certificate) == PKIUtils.certificateToString(senderBlock.certificate)
-        val isValidSignature = PKIUtils.verifySignature(networkMessage.payload, networkMessage.signature, publicKey, null)
-        val isValidTimestamp = isValidTimestampFromIpMessage(networkMessage.payload)
+        val isValidSignature = PKIUtils.verifySignature(multicastPacket.payload, multicastPacket.signature, publicKey, null)
+        val isValidTimestamp = isValidTimestampFromIpMessage(multicastPacket.payload)
         if (senderHasCorrectCertificate && newIp != blockToChange.getIpAddress() && isValidSignature && isValidTimestamp) {
             blockToChange.setIpAddress(newIp)
         }

@@ -7,7 +7,7 @@ import android.os.IBinder
 import android.util.Log
 import com.example.masterproject.App
 import com.example.masterproject.activities.ChatActivity
-import com.example.masterproject.types.NetworkMessage
+import com.example.masterproject.types.UnicastPacket
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.io.DataInputStream
@@ -45,7 +45,7 @@ abstract class ConnectionListener: Service() {
                 val inputStream = DataInputStream(clientSocket.getInputStream())
                 val outputStream = DataOutputStream(clientSocket.getOutputStream())
                 val message = inputStream.readUTF()
-                val username = NetworkMessage.decodeNetworkMessage(message).sender
+                val username = UnicastPacket.decodeUnicastPacket(message).sender
                 startServer(inputStream, outputStream, username)
                 changeToChatActivity(username)
             } catch (e: IOException) {

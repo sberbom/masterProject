@@ -16,9 +16,8 @@ data class LedgerEntry(
     ) {
 
     override fun toString(): String {
-        return "{\"username\":\"$userName\"," +
-                "\"ipAddress\":\"$ipAddress\"," +
-                "\"certificate\":\"${PKIUtils.certificateToString(certificate)}\"}"
+        return "{\"ip\":\"$ipAddress\"," +
+                "\"cert\":\"${PKIUtils.certificateToString(certificate)}\"}"
     }
 
     fun setIpAddress(ip: String) {
@@ -37,21 +36,16 @@ data class LedgerEntry(
 
         fun parseString(ledgerEntry: String): LedgerEntry {
             val jsonObject = JSONTokener(ledgerEntry).nextValue() as JSONObject
+            val cert = PKIUtils.stringToCertificate(jsonObject.getString("cert"))
             return LedgerEntry(
-                PKIUtils.stringToCertificate(jsonObject.getString("certificate")),
-                jsonObject.getString("username"),
-                jsonObject.getString("ipAddress")
+                cert,
+                PKIUtils.getUsernameFromCertificate(cert),
+                jsonObject.getString("ip")
             )
         }
 
-        fun ledgerEntryIsValid(ledgerEntry: LedgerEntry): Boolean {
-            val userNameFromCertificate = PKIUtils.getUsernameFromCertificate(ledgerEntry.certificate)
-            return userNameFromCertificate == ledgerEntry.userName
-        }
-
         fun isEqual(first: LedgerEntry, second: LedgerEntry): Boolean {
-            return first.userName == second.userName &&
-                    PKIUtils.certificateToString(first.certificate) == PKIUtils.certificateToString(second.certificate)
+            return PKIUtils.certificateToString(first.certificate) == PKIUtils.certificateToString(second.certificate)
         }
     }
 }

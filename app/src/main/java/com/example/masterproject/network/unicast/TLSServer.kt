@@ -1,7 +1,7 @@
 package com.example.masterproject.network.unicast
 
 import com.example.masterproject.ledger.LedgerEntry
-import com.example.masterproject.types.NetworkMessage
+import com.example.masterproject.types.UnicastPacket
 import java.io.DataInputStream
 import java.io.DataOutputStream
 
@@ -9,14 +9,14 @@ class TLSServer(override var outputStream: DataOutputStream?, override var input
 
     override val TAG = "TLSServer"
 
-    override fun setEncryptionKeyAndUsername(networkMessage: NetworkMessage) {
+    override fun setEncryptionKeyAndUsername(unicastPacket: UnicastPacket) {
         if(username == null){
-            username = networkMessage.sender
+            username = unicastPacket.sender
         }
     }
 
-    override fun decryptMessagePayload(networkMessage: NetworkMessage, ledgerEntry: LedgerEntry): String {
-        return networkMessage.payload
+    override fun decryptMessagePayload(unicastPacket: UnicastPacket, ledgerEntry: LedgerEntry): String {
+        return unicastPacket.payload
     }
 
     override fun encryptMessageSymmetric(message: String): String {

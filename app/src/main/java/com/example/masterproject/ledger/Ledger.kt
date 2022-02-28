@@ -146,10 +146,7 @@ class Ledger {
         fun ledgerIsValid(ledger: List<LedgerEntry>): Boolean {
             if (ledger.isEmpty()) return false
             ledger.forEach{ block ->
-                val entryIsInternallyValid = LedgerEntry.ledgerEntryIsValid(block)
-                val usernameInLedgerIsValid = usernameInLedgerIsValid(ledger, block.userName)
-                if ((!entryIsInternallyValid ||
-                    !usernameInLedgerIsValid)) return false
+                if (!usernameInLedgerIsValid(ledger, block.userName)) return false
             }
             return true
         }
@@ -178,8 +175,7 @@ class Ledger {
         }
 
         private fun isValidNewBlock(newBlock: LedgerEntry): Boolean {
-            val canUseUsername = canUseUsername(newBlock)
-            return LedgerEntry.ledgerEntryIsValid(newBlock) && canUseUsername
+            return canUseUsername(newBlock)
         }
 
         private fun updateUI() {

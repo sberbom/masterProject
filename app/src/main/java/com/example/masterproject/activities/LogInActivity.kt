@@ -50,7 +50,10 @@ class LogInActivity: AppCompatActivity() {
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d("FIREBASE LOGIN", "signInWithEmail:success")
-                    if(auth.currentUser!!.isEmailVerified) {
+                    /** FOR TEST **/
+                    if(true) {
+                        /****/
+                        // if (auth.currentUser!!.isEmailVerified) {
                         Toast.makeText(
                             baseContext, "Sign in success.",
                             Toast.LENGTH_SHORT

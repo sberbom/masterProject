@@ -24,7 +24,7 @@ class MulticastClient  {
         private val multicastPort: Int = Constants.multicastPort
         private val context: Context? = App.getAppContext()
 
-        private val socket = DatagramSocket()
+        private var socket = DatagramSocket()
 
         private val ledgersSent: MutableMap<Int, List<String>> = mutableMapOf()
 
@@ -38,16 +38,19 @@ class MulticastClient  {
         private fun sendMulticastData(msgs: List<String>): Void? {
             val address = InetAddress.getByName(multicastGroup)
             try {
-                sendPacket(msgs, address)
-                Thread.sleep(400)
-                sendPacket(msgs, address)
-                Thread.sleep(400)
+                if (socket.isClosed) socket = DatagramSocket()
                 Log.d(TAG, "Sent messages: $msgs")
                 sendPacket(msgs, address)
+                if (Constants.NUMBER_OF_RESENDS > 0) {
+                    repeat(Constants.NUMBER_OF_RESENDS) {
+                        Thread.sleep((Constants.TOTAL_PACKET_WAIT / Constants.NUMBER_OF_RESENDS).toLong())
+                        sendPacket(msgs, address)
+                    }
+                }
             }catch (e: Exception) {
                 e.printStackTrace()
             }
-            return null
+            return null        
         }
 
         // TODO: The hash of the full ledger should be sent together with users own block
@@ -75,7 +78,14 @@ class MulticastClient  {
             val certificate = PKIUtils.getStoredCertificate() ?: throw Exception("Could not send ledger, username not defined")
             val username = PKIUtils.getUsernameFromCertificate(certificate)
             val currentLedger = Ledger.availableDevices.toList()
-            val deconstructedLedger = currentLedger.chunked(10)
+            /** Only for testing **/
+            /*
+            ConstructLedgerForTest.createLedger(75)
+            val testLedger = ConstructLedgerForTest.ledger
+            Log.d(TAG, "SENT_FULL_LEDGER")*/
+            /***********************/
+            // next line should use testLedger when testing and currentLedger if not
+            val deconstructedLedger = currentLedger.chunked(1)
             val multicastPackets = deconstructedLedger.mapIndexed { index, fragment ->
                 val fragmentString = Ledger.toString(fragment).replace("[", "").replace("]", "")
                 MulticastPacket(
@@ -123,6 +133,10 @@ class MulticastClient  {
             return withContext(Dispatchers.IO) {
                 sendMulticastData(listOf(message.toString()))
             }
+        }
+
+        fun closeSocket() {
+            socket.close()
         }
     }
 

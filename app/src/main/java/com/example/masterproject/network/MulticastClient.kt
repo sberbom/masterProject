@@ -41,11 +41,11 @@ class MulticastClient  {
             try {
                 if (socket.isClosed) socket = DatagramSocket()
                 Log.d(TAG, "Sent messages: $msgs")
-                sendPacket(serverSocket, msgs, address)
+                sendPacket(msgs, address)
                 if (Constants.NUMBER_OF_RESENDS > 0) {
                     repeat(Constants.NUMBER_OF_RESENDS) {
                         Thread.sleep((Constants.TOTAL_PACKET_WAIT / Constants.NUMBER_OF_RESENDS).toLong())
-                        sendPacket(serverSocket, msgs, address)
+                        sendPacket(msgs, address)
                     }
                 }
             }catch (e: Exception) {
@@ -80,8 +80,9 @@ class MulticastClient  {
             val username = PKIUtils.getUsernameFromCertificate(certificate)
             val currentLedger = Ledger.availableDevices.toList()
             /** Only for testing **/
-            ConstructLedgerForTest.createLedger(5)
+            ConstructLedgerForTest.createLedger(75)
             val testLedger = ConstructLedgerForTest.ledger
+            Log.d(TAG, "SENT_FULL_LEDGER")
             /***********************/
             // next line should use testLedger when testing and currentLedger if not
             val deconstructedLedger = testLedger.chunked(1)

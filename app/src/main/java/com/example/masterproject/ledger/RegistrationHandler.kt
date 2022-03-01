@@ -79,7 +79,7 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
     fun fullLedgerReceived(multicastPacket: MulticastPacket) {
         if (userHasAlreadyResponded(multicastPacket, null, hashes.toList(), receivedLedgers.toList())) return
         val receivedLedger: ReceivedLedger = handleLedgerFragment(multicastPacket) ?: return
-        Log.d(TAG, "FULL LEDGER ${multicastPacket.nonce}")
+        Log.d(TAG, "FULL_LEDGER ${multicastPacket.nonce}")
         if(!Ledger.ledgerIsValid(receivedLedger.ledger)) return
         if (receivedLedger.hash == acceptedHash) {
             requestLedgerOfAcceptedHashTimer.cancel()
@@ -140,7 +140,6 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
         if (ledgerFragments[multicastPacket.sequenceNumber] == null) ledgerFragments[multicastPacket.sequenceNumber] = multicastPacket.payload
         // if all fragments have not yet been received, we should return
         val remainingFragments = ledgerFragments.count { it == null }
-        Log.d(TAG, "Remaining fragments: $remainingFragments")
         if (remainingFragments > 0) return null
         // if all fragments have been received we should return the ledger
         val senderBlock = certificateStringToSenderBlock[certificateString]

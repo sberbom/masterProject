@@ -1,4 +1,4 @@
-folder = "stored_result_3_send_1"
+folder = "75"
 
 log_device_1 = open("./{}/log_device1.txt".format(folder), "r")
 log_device_2 = open("./{}/log_device2.txt".format(folder), "r")
@@ -14,15 +14,16 @@ requests_sent = 0
 for line in log_device_1:
   line_list = line.split(" ")
   filtered_line_list = list(filter(lambda el: el != "", line_list))
+  print(filtered_line_list)
   if "Number of rounds:" in line:
     requests_sent = int(filtered_line_list[-1])
-  if len(filtered_line_list) > 8 and filtered_line_list[5] == "MulticastClient:" and "FULL_LEDGER" in filtered_line_list[8]:
+  if len(filtered_line_list) > 6 and filtered_line_list[5] == "MulticastClient:" and "SENT_FULL_LEDGER" in filtered_line_list[6]:
     ledgers_sent += 1
 
 for line in log_device_2:
   line_list = line.split(" ")
   filtered_line_list = list(filter(lambda el: el != "", line_list))
-  if len(filtered_line_list) > 6 and filtered_line_list[5] == "MulticastServer:" and "FULL_LEDGER" in filtered_line_list[6]:
+  if len(filtered_line_list) > 7 and filtered_line_list[5] == "RegistrationHandler:" and "FULL_LEDGER" in filtered_line_list[6]:
     nonce = int(filtered_line_list[7])
     if not nonce in received_nonces:
       ledgers_received += 1

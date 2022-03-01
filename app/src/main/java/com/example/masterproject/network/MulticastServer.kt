@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.net.*
 import android.os.IBinder
+import android.provider.Settings
 import android.util.Log
 import com.example.masterproject.ledger.Ledger
 import com.example.masterproject.ledger.LedgerEntry
@@ -38,7 +39,7 @@ class MulticastServer: Service() {
     private var currentNetwork: Network? = null
 
     private fun listenForData(): MutableList<LedgerEntry>? {
-        val buf = ByteArray(512 * 12)
+        val buf = ByteArray(512 * 3)
         try{
             val socket = MulticastSocket(Constants.multicastPort)
             socket.joinGroup(address)

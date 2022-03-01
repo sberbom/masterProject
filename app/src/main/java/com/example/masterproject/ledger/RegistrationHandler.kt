@@ -23,7 +23,7 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
 
     private var listenedForMoreThanOneSecond: Boolean = false
 
-    private val TAG = "RegistrationHandler:$nonce"
+    private val TAG = "RegistrationHandler"
 
     private var acceptedHash: String? = null
 
@@ -52,7 +52,7 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
 
     fun startTimers() {
         GlobalScope.launch (Dispatchers.Default) {
-            acceptLedgerTimeout.schedule(1000) {
+            acceptLedgerTimeout.schedule(10000) {
                 if (!acceptLedgerTimeoutCancelled) {
                     listenedForMoreThanOneSecond = true
                     setLedgerIfAccepted()
@@ -79,7 +79,7 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
     fun fullLedgerReceived(multicastPacket: MulticastPacket) {
         if (userHasAlreadyResponded(multicastPacket, null, hashes.toList(), receivedLedgers.toList())) return
         val receivedLedger: ReceivedLedger = handleLedgerFragment(multicastPacket) ?: return
-        Log.d(TAG, "Full ledger from ${multicastPacket.sender}: ${multicastPacket.nonce}")
+        Log.d(TAG, "FULL_LEDGER ${multicastPacket.nonce}")
         if(!Ledger.ledgerIsValid(receivedLedger.ledger)) return
         if (receivedLedger.hash == acceptedHash) {
             requestLedgerOfAcceptedHashTimer.cancel()
@@ -94,7 +94,6 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
             receivedLedgers.add(receivedLedger)
         }
         setLedgerIfAccepted()
-
     }
 
     /**
@@ -103,7 +102,6 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
     private fun handleLedgerFragment(multicastPacket: MulticastPacket): ReceivedLedger? {
         // if the ledger is separated into several packets, handle the fragment...
         if (multicastPacket.lastSequenceNumber > 0) {
-            Log.d(TAG, "Received fragment ${multicastPacket.sequenceNumber} of ${multicastPacket.lastSequenceNumber} from ${multicastPacket.sender}: ${multicastPacket.payload}")
             return if (multicastPacket.sequenceNumber == 0) {
                 handleFirstPacket(multicastPacket)
             } else {
@@ -111,7 +109,6 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
             }
             // ... if not, return the full ledger
         } else {
-            Log.d(TAG, "Received full ledger: $multicastPacket")
             val senderBlock = LedgerEntry.parseString(multicastPacket.sender)
             // return null if signature is not valid
             if (!PKIUtils.verifySignature(multicastPacket.payload, multicastPacket.signature, senderBlock.certificate.publicKey, multicastPacket.nonce)) return null
@@ -142,7 +139,8 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
         // we have not received this message before it should be stored
         if (ledgerFragments[multicastPacket.sequenceNumber] == null) ledgerFragments[multicastPacket.sequenceNumber] = multicastPacket.payload
         // if all fragments have not yet been received, we should return
-        if (ledgerFragments.count { it == null } > 0) return null
+        val remainingFragments = ledgerFragments.count { it == null }
+        if (remainingFragments > 0) return null
         // if all fragments have been received we should return the ledger
         val senderBlock = certificateStringToSenderBlock[certificateString]
         val ledger = formatLedgerFragments(ledgerFragments as MutableList<String>)
@@ -250,7 +248,7 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
     }
 
     private fun handleAcceptedLedger(acceptedLedger: ReceivedLedger) {
-        Log.d(TAG, "Accepted ledger from ${acceptedLedger.senderBlock.userName}: ${acceptedLedger.ledger}")
+        Log.d(TAG, "$nonce Accepted ledger from ${acceptedLedger.senderBlock.userName}: ${acceptedLedger.ledger}")
         acceptedLedger.ledger.forEach { Ledger.addLedgerEntry(it) }
         startRegistration()
     }
@@ -259,7 +257,7 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
         // if the most common hash is not null and does not exist in receivedLedgers
         // it must be found in hashes, therefore we can use non-null assertion
         val sentCorrectHash = hashes.filter { it.hash == hashOfAcceptedLedger }.random().senderBlock.userName
-        Log.d(TAG, "Accepted hash from $sentCorrectHash: $hashOfAcceptedLedger")
+        Log.d(TAG, "$nonce Accepted hash from $sentCorrectHash: $hashOfAcceptedLedger")
         GlobalScope.launch(Dispatchers.IO) {
             MulticastClient.requestSpecificHash(
                 hashOfAcceptedLedger,
@@ -283,7 +281,7 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
     private fun startRegistration() {
         if (Ledger.myLedgerEntry == null) {
             readyForRegistration = true
-            Log.d(TAG, "Registration started")
+            Log.d(TAG, "$nonce Registration started")
             val myExistingBlock = Ledger.existingBlockFromStoredCertificate()
             if (myExistingBlock != null) {
                 val currentIp = MISCUtils.getMyIpAddress()

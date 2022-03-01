@@ -1,10 +1,11 @@
-# Remove all running logcats, to ensure no double logging
-adb -s $device1 shell killall -2 logcat
+
 # Gets the first two connected devices and their id
 devices=$(echo $(adb devices))
 device1=$(echo $devices | cut -f5 -d$' ')
 echo $device1
 # Set up logcat
+# Remove all running logcats, to ensure no double logging
+adb -s $device1 shell killall -2 logcat
 adb -s $device1 logcat --clear
 adb -s $device1 logcat SignupActivity:D \*:S >> log_device_s21.txt &
 # Delete stored data

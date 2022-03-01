@@ -35,7 +35,6 @@ class MulticastServer: Service() {
 
     private val registrationHandlers: MutableMap<Int, RegistrationHandler> = mutableMapOf()
     private val finishedRegistrationProcesses: MutableList<Int> = mutableListOf()
-    private val client: MulticastClient = MulticastClient(this)
 
     private var currentNetwork: Network? = null
 
@@ -101,11 +100,11 @@ class MulticastServer: Service() {
                 if (Ledger.shouldSendFullLedger()) {
                     // register your own ledger as a vote in your own registration process
                     registrationHandler.handleSendLedger(ReceivedLedger(fullLedger, Ledger.getHashOfLedger(fullLedger) , myBlock))
-                    client.sendLedger(multicastPacket.nonce)
+                    MulticastClient.sendLedger(multicastPacket.nonce)
                 } else {
                     // register your own hash as a vote in your own registration process
                     registrationHandler.hashOfLedgerReceived(myBlock, Ledger.getHashOfStoredLedger())
-                    client.sendHash(multicastPacket.nonce)
+                    MulticastClient.sendHash(multicastPacket.nonce)
                 }
             }
         }
@@ -123,7 +122,7 @@ class MulticastServer: Service() {
             Log.d(TAG, "Received request for $usernameToReply to send ledger with hash $hash")
             if (usernameToReply == Ledger.myLedgerEntry?.userName && Ledger.getHashOfStoredLedger() == hash) {
                 GlobalScope.launch(Dispatchers.IO) {
-                    client.sendLedger(multicastPacket.nonce)
+                    MulticastClient.sendLedger(multicastPacket.nonce)
                 }
             }
         }
@@ -212,6 +211,7 @@ class MulticastServer: Service() {
             socket.leaveGroup(address)
             socket.close()
         }
+        MulticastClient.closeSocket()
         super.onDestroy()
 
     }
@@ -225,7 +225,7 @@ class MulticastServer: Service() {
                 val nonce = MISCUtils.generateNonce()
                 if (isWifi) server.startRegistrationProcess(nonce, true)
                 GlobalScope.launch(Dispatchers.IO) {
-                    server.client.requestLedger(nonce)
+                    MulticastClient.requestLedger(nonce)
                 }
             }
         }

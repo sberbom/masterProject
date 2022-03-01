@@ -87,7 +87,6 @@ class SignUpActivity: AppCompatActivity() {
             return
         }
         signupLoading(true)
-        // networkIsOnline can be a slow function
         val isOnline = networkIsOnline()
         if (isOnline) {
             if(password == "") {

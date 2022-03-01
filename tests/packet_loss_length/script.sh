@@ -11,7 +11,7 @@ adb -s $device1 logcat --clear
 adb -s $device2 logcat --clear
 adb -s $device1 logcat MulticastClient:D MulticastServer:D RegistrationHandler:D \*:S >> log_device1.txt &
 adb -s $device2 logcat MulticastClient:D MulticastServer:D RegistrationHandler:D \*:S >> log_device2.txt &
-rounds=300
+rounds=5
 echo "Number of rounds: $rounds" > log_device1.txt
 echo "Number of rounds: $rounds" > log_device2.txt
 for i in {1..$rounds}
@@ -22,7 +22,7 @@ do
    adb -s $device1 shell am start -n com.example.masterproject/com.example.masterproject.activities.MainActivity
    sleep 2
    adb -s $device2 shell am start -n com.example.masterproject/com.example.masterproject.activities.MainActivity
-   sleep 2
+   sleep 15
    adb -s $device1 shell am force-stop com.example.masterproject
    adb -s $device2 shell am force-stop com.example.masterproject
 done

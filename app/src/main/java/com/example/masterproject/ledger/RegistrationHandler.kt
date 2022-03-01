@@ -25,7 +25,7 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
 
     private var listenedForMoreThanOneSecond: Boolean = false
 
-    private val TAG = "RegistrationHandler:$nonce"
+    private val TAG = "RegistrationHandler"
 
     private var acceptedHash: String? = null
     
@@ -243,7 +243,7 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
     }
 
     private fun handleAcceptedLedger(acceptedLedger: ReceivedLedger) {
-        Log.d(TAG, "Accepted ledger from ${acceptedLedger.senderBlock.userName}: ${acceptedLedger.ledger}")
+        Log.d(TAG, "$nonce Accepted ledger from ${acceptedLedger.senderBlock.userName}: ${acceptedLedger.ledger}")
         acceptedLedger.ledger.forEach { Ledger.addLedgerEntry(it) }
         startRegistration()
     }
@@ -252,7 +252,7 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
         // if the most common hash is not null and does not exist in receivedLedgers
         // it must be found in hashes, therefore we can use non-null assertion
         val sentCorrectHash = hashes.filter { it.hash == hashOfAcceptedLedger }.random().senderBlock.userName
-        Log.d(TAG, "Accepted hash from $sentCorrectHash: $hashOfAcceptedLedger")
+        Log.d(TAG, "$nonce Accepted hash from $sentCorrectHash: $hashOfAcceptedLedger")
         GlobalScope.launch(Dispatchers.IO) {
             client.requestSpecificHash(
                 hashOfAcceptedLedger,
@@ -276,7 +276,7 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
     private fun startRegistration() {
         if (Ledger.myLedgerEntry == null) {
             readyForRegistration = true
-            Log.d(TAG, "Registration started")
+            Log.d(TAG, "$nonce Registration started")
             val myExistingBlock = Ledger.existingBlockFromStoredCertificate()
             if (myExistingBlock != null) {
                 val currentIp = MISCUtils.getMyIpAddress()

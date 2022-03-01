@@ -3,7 +3,6 @@ package com.example.masterproject.network
 import android.content.Context
 import android.util.Log
 import com.example.masterproject.App
-import com.example.masterproject.ledger.ConstructLedgerForTest
 import com.example.masterproject.ledger.Ledger
 import com.example.masterproject.types.MulticastPacket
 import com.example.masterproject.utils.Constants

@@ -1,6 +1,10 @@
-package com.example.masterproject.ledger
+package com.example.masterproject.test
 
 import android.util.Log
+import com.example.masterproject.ledger.Ledger
+import com.example.masterproject.ledger.LedgerEntry
+import com.example.masterproject.utils.MISCUtils
+import com.example.masterproject.utils.PKIUtils
 
 class ConstructLedgerForTest {
     companion object {
@@ -13,7 +17,7 @@ class ConstructLedgerForTest {
          * */
         fun createLedger(length: Int) {
             /** Used to regenerate list of users if LedgerEntry.parseString is updated **/
-            /*List(length) {index -> Ledger.createOthersBlockFromEmail("$index@test.com") }.forEach {
+            /*List(length) {index -> createOthersBlockFromEmail("$index@test.com") }.forEach {
                 Log.d(TAG, it.toString())
             }*/
             /****************************************************************************/
@@ -21,6 +25,12 @@ class ConstructLedgerForTest {
                 Ledger.createNewBlockFromEmail("me@testpacketloss.com")
             }
             ledger.addAll(stored.subList(0, length).map { LedgerEntry.parseString(it) })
+        }
+
+        private fun createOthersBlockFromEmail(email: String): LedgerEntry {
+            val keyPair = PKIUtils.generateECKeyPair()
+            val certificate = PKIUtils.generateSelfSignedX509Certificate(email, keyPair)
+            return LedgerEntry(certificate, email, MISCUtils.getMyIpAddress()!!)
         }
 
         private val stored = mutableListOf(

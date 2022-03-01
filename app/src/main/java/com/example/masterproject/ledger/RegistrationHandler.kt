@@ -51,7 +51,7 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
 
     fun startTimers() {
         GlobalScope.launch (Dispatchers.Default) {
-            acceptLedgerTimeout.schedule(15000) {
+            acceptLedgerTimeout.schedule(10000) {
                 if (!acceptLedgerTimeoutCancelled) {
                     listenedForMoreThanOneSecond = true
                     setLedgerIfAccepted()
@@ -73,7 +73,7 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
     fun fullLedgerReceived(multicastPacket: MulticastPacket) {
         if (userHasAlreadyResponded(multicastPacket, null, hashes.toList(), receivedLedgers.toList())) return
         val receivedLedger: ReceivedLedger = handleLedgerFragment(multicastPacket) ?: return
-        Log.d(TAG, "Full ledger from ${multicastPacket.sender}: ${multicastPacket.nonce}")
+        Log.d(TAG, "FULL LEDGER ${multicastPacket.nonce}")
         if(!Ledger.ledgerIsValid(receivedLedger.ledger)) return
         if (receivedLedger.hash == acceptedHash) {
             requestLedgerOfAcceptedHashTimer.cancel()
@@ -88,7 +88,6 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
             receivedLedgers.add(receivedLedger)
         }
         setLedgerIfAccepted()
-
     }
 
     /**
@@ -97,7 +96,6 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
     private fun handleLedgerFragment(multicastPacket: MulticastPacket): ReceivedLedger? {
         // if the ledger is separated into several packets, handle the fragment...
         if (multicastPacket.lastSequenceNumber > 0) {
-            Log.d(TAG, "Received fragment ${multicastPacket.sequenceNumber} of ${multicastPacket.lastSequenceNumber} from ${multicastPacket.sender}: ${multicastPacket.payload}")
             return if (multicastPacket.sequenceNumber == 0) {
                 handleFirstPacket(multicastPacket)
             } else {
@@ -105,7 +103,6 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
             }
             // ... if not, return the full ledger
         } else {
-            Log.d(TAG, "Received full ledger: $multicastPacket")
             val senderBlock = LedgerEntry.parseString(multicastPacket.sender)
             // return null if signature is not valid
             if (!PKIUtils.verifySignature(multicastPacket.payload, multicastPacket.signature, senderBlock.certificate.publicKey, multicastPacket.nonce)) return null

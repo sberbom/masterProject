@@ -26,10 +26,13 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
     private val TAG = "RegistrationHandler:$nonce"
 
     private var acceptedHash: String? = null
-    
+
+
     private val acceptLedgerTimeout = Timer()
 
     private var acceptLedgerTimeoutCancelled = false
+
+    private val firstInNetworkTimer = Timer()
 
     private val requestLedgerOfAcceptedHashTimer = Timer()
 
@@ -53,6 +56,11 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
                 if (!acceptLedgerTimeoutCancelled) {
                     listenedForMoreThanOneSecond = true
                     setLedgerIfAccepted()
+                }
+            }
+            firstInNetworkTimer.schedule(1000) {
+                if (hashes.isEmpty() && receivedLedgers.isEmpty()) {
+                    startRegistration()
                 }
             }
         }

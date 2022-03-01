@@ -210,6 +210,7 @@ class MulticastServer: Service() {
             socket.leaveGroup(address)
             socket.close()
         }
+        MulticastClient.closeSocket()
         super.onDestroy()
 
     }

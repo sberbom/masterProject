@@ -24,7 +24,7 @@ class MulticastClient  {
         private val multicastPort: Int = Constants.multicastPort
         private val context: Context? = App.getAppContext()
 
-        private val socket = DatagramSocket()
+        private var socket = DatagramSocket()
 
         private val ledgersSent: MutableMap<Int, List<String>> = mutableMapOf()
 
@@ -38,6 +38,7 @@ class MulticastClient  {
         private fun sendMulticastData(msgs: List<String>): Void? {
             val address = InetAddress.getByName(multicastGroup)
             try {
+                if (socket.isClosed) socket = DatagramSocket()
                 sendPacket(msgs, address)
                 Thread.sleep(400)
                 sendPacket(msgs, address)
@@ -123,6 +124,10 @@ class MulticastClient  {
             return withContext(Dispatchers.IO) {
                 sendMulticastData(listOf(message.toString()))
             }
+        }
+
+        fun closeSocket() {
+            socket.close()
         }
     }
 

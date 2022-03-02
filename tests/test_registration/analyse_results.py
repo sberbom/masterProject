@@ -1,3 +1,4 @@
+from turtle import color
 import pylab
 
 log_device_1 = open("./log_device_a21.txt", "r")
@@ -82,13 +83,14 @@ print("Average registration time small: {:.0f}ms".format(averageRegistrationTime
 print("Failed registrations: {}".format(failedRegistrationsSmall))
 
 x_coordinates = list(range(len(registrationTimes)))
-pylab.bar(x_coordinates, registrationTimes)
-pylab.axhline(y=averageRegistrationTime, color="orange")
+pylab.bar(x_coordinates, registrationTimes, color="blue", label="Galaxy a71")
+pylab.axhline(y=averageRegistrationTime, color="darkblue")
 
 x_coordinates = list(range(len(registrationTimesSmall)))
-pylab.bar(x_coordinates, registrationTimesSmall)
+pylab.bar(x_coordinates, registrationTimesSmall, color="orange", label="Galaxy s21")
 pylab.axhline(y=averageRegistrationTimeSmall, color="red")
 
 pylab.xlabel("Trial number")
 pylab.ylabel("Registration time (ms)")
+pylab.legend()
 pylab.show()

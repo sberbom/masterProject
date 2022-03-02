@@ -1,0 +1,18 @@
+Number of rounds: 1
+round 1 of 1
+--------- beginning of main
+03-01 14:41:16.884  3301  3367 D MulticastServer: MULTICAST_SERVER_LISTENING
+03-01 14:41:16.886  3301  3369 D MulticastServer: Registration process started with nonce: 1376812092
+03-01 14:41:16.888  3301  3373 D MulticastClient: Sent messages: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1376812092,"seq":0,"tot":0}]
+03-01 14:41:17.062  3301  3376 D RegistrationHandler: FULL_LEDGER 1376812092
+03-01 14:41:17.120  3301  3376 D RegistrationHandler: FULL_LEDGER 1376812092
+03-01 14:41:17.131  3301  3376 D MulticastServer: Received hash from 2@test.com: b0011d168a9549bbaeb27800192c478099b8c6bdbcbe16ee35978d5a99d84752
+03-01 14:41:17.193  3301  3376 D MulticastServer: Received hash from 4@test.com: b0011d168a9549bbaeb27800192c478099b8c6bdbcbe16ee35978d5a99d84752
+03-01 14:41:17.815  3301  3414 D MulticastServer: Received hash from 1@test.com: b0011d168a9549bbaeb27800192c478099b8c6bdbcbe16ee35978d5a99d84752
+03-01 14:41:17.918  3301  3414 D MulticastServer: Received hash from 2@test.com: b0011d168a9549bbaeb27800192c478099b8c6bdbcbe16ee35978d5a99d84752
+03-01 14:41:17.977  3301  3414 D MulticastServer: Received hash from 4@test.com: b0011d168a9549bbaeb27800192c478099b8c6bdbcbe16ee35978d5a99d84752
+03-01 14:41:18.253  3301  3373 D MulticastServer: Received hash from 1@test.com: b0011d168a9549bbaeb27800192c478099b8c6bdbcbe16ee35978d5a99d84752
+03-01 14:41:26.892  3301  3370 D RegistrationHandler: ACCEPTED_LEDGER 1376812092 5
+03-01 14:41:26.898  3301  3370 D RegistrationHandler: 1376812092 Registration started
+03-01 14:41:26.903  3301  3370 D MulticastServer: Registration process finished: 1376812092
+03-01 14:41:26.918  3301  3373 D MulticastClient: Sent messages: [{"sender":"5@test.com","payload":"{\"ip\":\"192.168.1.57\",\"cert\":\"MIIBGzCBwqADAgECAgYBf0Wj4DcwCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKNUB0ZXN0LmNvbTAeFw0yMjAyMjgxMzIwNDJaFw0yNDAzMDExMzIwNDJaMBUxEzARBgNVBAMMCjVAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAASisuFxEG+xwT9MlSgajhTbxL4RE4hoAm9FXYs3Psebz1krWWnppE\/YMkIPzzyNeCLHqsz8RqGpZlRK9aTnjMLGMAoGCCqGSM49BAMCA0gAMEUCIFBokiZSDp\/hnwZFFvnwNMCqaLl8g\/PBcyeHgGjr3MMaAiEA40XAE95xUdLDHRr7gcl19owOWcstLizhByeTR3X2bZM=\"}","mt":"BROADCAST_BLOCK","sig":"MEUCIQD54FAnwNTqn2dYHfij4KfGxQKSn5V6TD3F1a8\/q8d+\/QIgbJOVP14+Q8axfmx7WZsg4W9hGX1aTOnGahpZwJahnkY=","nonce":1376812092,"seq":0,"tot":0}]

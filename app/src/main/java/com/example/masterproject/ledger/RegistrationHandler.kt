@@ -248,7 +248,7 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
     }
 
     private fun handleAcceptedLedger(acceptedLedger: ReceivedLedger) {
-        Log.d(TAG, "$nonce Accepted ledger from ${acceptedLedger.senderBlock.userName}: ${acceptedLedger.ledger}")
+        Log.d(TAG, "ACCEPTED_LEDGER $nonce ${acceptedLedger.ledger.size}")
         acceptedLedger.ledger.forEach { Ledger.addLedgerEntry(it) }
         startRegistration()
     }

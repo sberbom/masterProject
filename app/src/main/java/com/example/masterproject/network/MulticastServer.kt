@@ -43,7 +43,7 @@ class MulticastServer: Service() {
         try{
             val socket = MulticastSocket(Constants.multicastPort)
             socket.joinGroup(address)
-            Log.d(TAG, "Listening for data.")
+            Log.d(TAG, "MULTICAST_SERVER_LISTENING")
             while (true) {
                 try {
                     val msgPacket = DatagramPacket(buf, buf.size)

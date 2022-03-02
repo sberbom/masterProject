@@ -1,6 +1,7 @@
 import pylab
 
-log_device_1 = open("./log_device1.txt", "r")
+log_device_1 = open("./log_device_a21.txt", "r")
+log_device_small = open("./log_device_s21.txt", "r")
 
 startingRegistrationAt = {}
 endRegistrationAt = {}
@@ -22,6 +23,26 @@ for line in log_device_1:
         microsecounds = int(time_list[0])*60000*60 + int(time_list[1])*60000 + int(second_list[0]) * 1000 + int(second_list[1])
         endRegistrationAt[trail_number] = microsecounds
 
+
+startingRegistrationSmallAt = {}
+endRegistrationSmallAt = {}
+
+for line in log_device_small:
+    line_list = line.split(" ")
+    filtered_line_list = list(filter(lambda el: el != "", line_list))
+    if "round" in line and "of 10" in line:
+        trail_number = int(filtered_line_list[1])
+    if "Sign up button pressed" in line:
+        time_list = filtered_line_list[1].split(":")
+        second_list = time_list[2].split(".")
+        microsecounds = int(time_list[0])*60000*60 + int(time_list[1])*60000 + int(second_list[0]) * 1000 + int(second_list[1])
+        startingRegistrationSmallAt[trail_number] = microsecounds
+    if "Offline registration complete" in line:
+        time_list = filtered_line_list[1].split(":")
+        second_list = time_list[2].split(".")
+        microsecounds = int(time_list[0])*60000*60 + int(time_list[1])*60000 + int(second_list[0]) * 1000 + int(second_list[1])
+        endRegistrationSmallAt[trail_number] = microsecounds
+
 totalRegistrationTime = 0 
 registrationTimes = []
 failedRegistrations = 0
@@ -36,15 +57,38 @@ for i in range(len(startingRegistrationAt)):
     else:
         failedRegistrations += 1
 
-averageEstablishmentTime = totalRegistrationTime / len(registrationTimes)
+averageRegistrationTime = totalRegistrationTime / len(registrationTimes)
 
-print("Average TCP establishment time: {:.0f}ms".format(averageEstablishmentTime))
-print("Failed TCP establishment: {}".format(failedRegistrations))
+
+totalRegistrationTimeSmall = 0
+registrationTimesSmall = []
+failedRegistrationsSmall = 0
+
+startKeys = startingRegistrationSmallAt.keys()
+endKeys = endRegistrationSmallAt.keys()
+for i in range(len(startingRegistrationSmallAt)):
+    if(i in startKeys and i in endKeys):
+        establishmentTime = endRegistrationSmallAt[i] - startingRegistrationSmallAt[i]
+        registrationTimesSmall.append(establishmentTime)
+        totalRegistrationTimeSmall += establishmentTime
+    else:
+        failedRegistrationsSmall += 1
+
+averageRegistrationTimeSmall = totalRegistrationTimeSmall / len(registrationTimesSmall)
+
+print("Average registration time: {:.0f}ms".format(averageRegistrationTime))
+print("Failed registrations: {}".format(failedRegistrations))
+print("Average registration time small: {:.0f}ms".format(averageRegistrationTimeSmall))
+print("Failed registrations: {}".format(failedRegistrationsSmall))
 
 x_coordinates = list(range(len(registrationTimes)))
-
 pylab.bar(x_coordinates, registrationTimes)
-pylab.axhline(y=averageEstablishmentTime, color="orange")
-pylab.xlabel("Trail number")
-pylab.ylabel("TCP establishment time (ms)")
+pylab.axhline(y=averageRegistrationTime, color="orange")
+
+x_coordinates = list(range(len(registrationTimesSmall)))
+pylab.bar(x_coordinates, registrationTimesSmall)
+pylab.axhline(y=averageRegistrationTimeSmall, color="red")
+
+pylab.xlabel("Trial number")
+pylab.ylabel("Registration time (ms)")
 pylab.show()

@@ -22,6 +22,8 @@ import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import java.lang.IllegalStateException
+import java.util.concurrent.TimeUnit
 
 
 class SignUpActivity: AppCompatActivity() {
@@ -160,9 +162,10 @@ class SignUpActivity: AppCompatActivity() {
         return try {
             val runtime = Runtime.getRuntime()
             val ipProcess = runtime.exec("/system/bin/ping -c 1 8.8.8.8")
-            val exitValue = ipProcess.waitFor()
+            val hasFinished = ipProcess.waitFor(200, TimeUnit.MILLISECONDS)
+            val exitValue = try{ ipProcess.exitValue() } catch (e: IllegalThreadStateException) {-1}
             ipProcess.destroy()
-            return exitValue == 0
+            return hasFinished && exitValue == 0
         } catch (e: Exception) {
             Log.d(TAG, e.toString())
             false

@@ -1,0 +1,16 @@
+Number of rounds: 1
+round 1 of 1
+--------- beginning of main
+03-02 09:20:35.643 21750 21780 D MulticastServer: MULTICAST_SERVER_LISTENING
+03-02 09:20:35.645 21750 26664 D MulticastServer: Registration process started with nonce: 380241203
+03-02 09:20:35.657 21750 21781 D MulticastClient: Sent messages: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":380241203,"seq":0,"tot":0}]
+03-02 09:20:35.858 21750 26673 D RegistrationHandler: FULL_LEDGER 380241203
+03-02 09:20:35.860 21750 26672 D MulticastServer: Received hash from 2@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:20:35.943 21750 26672 D MulticastServer: Received hash from 3@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:20:35.982 21750 26672 D MulticastServer: Received hash from 1@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:20:36.435 21750 26672 D RegistrationHandler: FULL_LEDGER 380241203
+03-02 09:20:36.443 21750 26672 D RegistrationHandler: ACCEPTED_LEDGER 380241203 5
+03-02 09:20:36.446 21750 26672 D RegistrationHandler: 380241203 Registration started
+03-02 09:20:36.446 21750 26690 D MulticastServer: Received hash from 1@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:20:36.458 21750 26672 D MulticastServer: Registration process finished: 380241203
+03-02 09:20:36.459 21750 26690 D MulticastClient: Sent messages: [{"sender":"4@test.com","payload":"{\"ip\":\"192.168.1.97\",\"cert\":\"MIIBKTCB0KADAgECAhQa8Bd7lH\/BLTyi7ywd3y9YYSzkrDAKBggqhkjOPQQDAjAVMRMwEQYDVQQDDApUVE00OTA1IENBMB4XDTIyMDMwMTE0MDczNloXDTIyMDMzMTE0MDczNlowFTETMBEGA1UEAwwKNEB0ZXN0LmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABFrZCEM2z1G1fZpGXj9xAJVyw+42wNc+1Oh3OKk5VRIc59yR1r148usPgG5mreOanaKvWR1KjIOl3HTLksn8RnowCgYIKoZIzj0EAwIDSAAwRQIhAKAKAwK83UAGas8l7ThnEHKwV0I7DisWJ0yDYNVZVUusAiAzZGLYe63aJer14gingjWvIIMLb+EEx1ysVZJxKqm6iw==\"}","mt":"BROADCAST_BLOCK","sig":"MEYCIQChY4cwwRHBxNlB9eEPDT9RNjUIo79Yco30OMDIVo3shAIhANRt4hh5ImjU0tG4CNl8EHfKF1cJOT3zEG2RnfmIwun4","nonce":380241203,"seq":0,"tot":0}]

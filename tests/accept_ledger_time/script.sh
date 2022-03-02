@@ -26,6 +26,7 @@ do
    do
       adb -s "$device" shell am force-stop com.example.masterproject
    done
+   sleep 2
 done
 for device in $device1 $device2 $device3 $device4 $device5 $device6
 do

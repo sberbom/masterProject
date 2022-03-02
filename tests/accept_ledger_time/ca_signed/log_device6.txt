@@ -1,16 +1,483 @@
-Number of rounds: 1
-round 1 of 1
+Number of rounds: 10
+round 1 of 10
 --------- beginning of main
-03-02 09:20:35.643 21750 21780 D MulticastServer: MULTICAST_SERVER_LISTENING
-03-02 09:20:35.645 21750 26664 D MulticastServer: Registration process started with nonce: 380241203
-03-02 09:20:35.657 21750 21781 D MulticastClient: Sent messages: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":380241203,"seq":0,"tot":0}]
-03-02 09:20:35.858 21750 26673 D RegistrationHandler: FULL_LEDGER 380241203
-03-02 09:20:35.860 21750 26672 D MulticastServer: Received hash from 2@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
-03-02 09:20:35.943 21750 26672 D MulticastServer: Received hash from 3@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
-03-02 09:20:35.982 21750 26672 D MulticastServer: Received hash from 1@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
-03-02 09:20:36.435 21750 26672 D RegistrationHandler: FULL_LEDGER 380241203
-03-02 09:20:36.443 21750 26672 D RegistrationHandler: ACCEPTED_LEDGER 380241203 5
-03-02 09:20:36.446 21750 26672 D RegistrationHandler: 380241203 Registration started
-03-02 09:20:36.446 21750 26690 D MulticastServer: Received hash from 1@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
-03-02 09:20:36.458 21750 26672 D MulticastServer: Registration process finished: 380241203
-03-02 09:20:36.459 21750 26690 D MulticastClient: Sent messages: [{"sender":"4@test.com","payload":"{\"ip\":\"192.168.1.97\",\"cert\":\"MIIBKTCB0KADAgECAhQa8Bd7lH\/BLTyi7ywd3y9YYSzkrDAKBggqhkjOPQQDAjAVMRMwEQYDVQQDDApUVE00OTA1IENBMB4XDTIyMDMwMTE0MDczNloXDTIyMDMzMTE0MDczNlowFTETMBEGA1UEAwwKNEB0ZXN0LmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABFrZCEM2z1G1fZpGXj9xAJVyw+42wNc+1Oh3OKk5VRIc59yR1r148usPgG5mreOanaKvWR1KjIOl3HTLksn8RnowCgYIKoZIzj0EAwIDSAAwRQIhAKAKAwK83UAGas8l7ThnEHKwV0I7DisWJ0yDYNVZVUusAiAzZGLYe63aJer14gingjWvIIMLb+EEx1ysVZJxKqm6iw==\"}","mt":"BROADCAST_BLOCK","sig":"MEYCIQChY4cwwRHBxNlB9eEPDT9RNjUIo79Yco30OMDIVo3shAIhANRt4hh5ImjU0tG4CNl8EHfKF1cJOT3zEG2RnfmIwun4","nonce":380241203,"seq":0,"tot":0}]
+03-02 09:45:24.270 29006 29058 D MulticastServer: MULTICAST_SERVER_LISTENING
+03-02 09:45:24.273 29006 29060 D MulticastServer: Registration process started with nonce: 1793107288
+03-02 09:45:24.281 29006 29064 D MulticastClient: Sent messages: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1793107288,"seq":0,"tot":0}]
+03-02 09:45:24.423 29006 29067 D MulticastServer: Received hash from 1@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:45:24.431 29006 29067 D MulticastServer: Received hash from 3@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:45:24.474 29006 29067 D RegistrationHandler: FULL_LEDGER 1793107288
+03-02 09:45:24.477 29006 29066 D MulticastServer: Received hash from 2@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:45:24.924 29006 29085 D MulticastServer: Received hash from 3@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:45:25.062 29006 29067 D MulticastServer: Received hash from 1@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:45:25.336 29006 29067 D MulticastServer: Received hash from 1@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:45:25.358 29006 29067 D MulticastServer: Received hash from 2@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:45:34.283 29006 29061 D RegistrationHandler: ACCEPTED_LEDGER 1793107288 5
+03-02 09:45:34.290 29006 29061 D RegistrationHandler: 1793107288 Registration started
+03-02 09:45:34.306 29006 29061 D MulticastServer: Registration process finished: 1793107288
+03-02 09:45:34.308 29006 29067 D MulticastClient: Sent messages: [{"sender":"4@test.com","payload":"{\"ip\":\"192.168.1.97\",\"cert\":\"MIIBKTCB0KADAgECAhQa8Bd7lH\/BLTyi7ywd3y9YYSzkrDAKBggqhkjOPQQDAjAVMRMwEQYDVQQDDApUVE00OTA1IENBMB4XDTIyMDMwMTE0MDczNloXDTIyMDMzMTE0MDczNlowFTETMBEGA1UEAwwKNEB0ZXN0LmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABFrZCEM2z1G1fZpGXj9xAJVyw+42wNc+1Oh3OKk5VRIc59yR1r148usPgG5mreOanaKvWR1KjIOl3HTLksn8RnowCgYIKoZIzj0EAwIDSAAwRQIhAKAKAwK83UAGas8l7ThnEHKwV0I7DisWJ0yDYNVZVUusAiAzZGLYe63aJer14gingjWvIIMLb+EEx1ysVZJxKqm6iw==\"}","mt":"BROADCAST_BLOCK","sig":"MEQCICvzeHOKyCSEbzotXJ5pglXQX3GylaiCIbJXJBmzBoteAiAJsQVnWLEswL5MEy6KGZ+MMiDvuTr\/FY9tr4BSF66r1w==","nonce":1793107288,"seq":0,"tot":0}]
+round 2 of 10
+03-02 09:46:59.692 29213 29263 D MulticastServer: MULTICAST_SERVER_LISTENING
+03-02 09:46:59.697 29213 29265 D MulticastServer: Registration process started with nonce: 358203411
+03-02 09:46:59.701 29213 29264 D MulticastClient: Sent messages: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":358203411,"seq":0,"tot":0}]
+03-02 09:46:59.864 29213 29271 D MulticastServer: Received hash from 1@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:46:59.905 29213 29271 D MulticastServer: Received hash from 3@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:47:00.277 29213 29271 D MulticastServer: Received hash from 1@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:47:00.306 29213 29299 D RegistrationHandler: FULL_LEDGER 358203411
+03-02 09:47:00.307 29213 29289 D RegistrationHandler: FULL_LEDGER 358203411
+03-02 09:47:00.311 29213 29289 D RegistrationHandler: ACCEPTED_LEDGER 358203411 5
+03-02 09:47:00.315 29213 29289 D RegistrationHandler: 358203411 Registration started
+03-02 09:47:00.320 29213 29299 D MulticastServer: Received hash from 3@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:47:00.327 29213 29289 D MulticastServer: Registration process finished: 358203411
+03-02 09:47:00.329 29213 29289 D MulticastClient: Sent messages: [{"sender":"4@test.com","payload":"{\"ip\":\"192.168.1.97\",\"cert\":\"MIIBKTCB0KADAgECAhQa8Bd7lH\/BLTyi7ywd3y9YYSzkrDAKBggqhkjOPQQDAjAVMRMwEQYDVQQDDApUVE00OTA1IENBMB4XDTIyMDMwMTE0MDczNloXDTIyMDMzMTE0MDczNlowFTETMBEGA1UEAwwKNEB0ZXN0LmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABFrZCEM2z1G1fZpGXj9xAJVyw+42wNc+1Oh3OKk5VRIc59yR1r148usPgG5mreOanaKvWR1KjIOl3HTLksn8RnowCgYIKoZIzj0EAwIDSAAwRQIhAKAKAwK83UAGas8l7ThnEHKwV0I7DisWJ0yDYNVZVUusAiAzZGLYe63aJer14gingjWvIIMLb+EEx1ysVZJxKqm6iw==\"}","mt":"BROADCAST_BLOCK","sig":"MEQCIFZeoF4JCb1BiGIGk5M23jKc\/sQhTc5d+eZ03ioAL2gUAiANWXoKJxMnX\/s2Fycv7G9wXTomHiUmEEg1Jr0rcnVNSw==","nonce":358203411,"seq":0,"tot":0}]
+round 3 of 10
+03-02 09:48:35.262 29443 29496 D MulticastServer: MULTICAST_SERVER_LISTENING
+03-02 09:48:35.264 29443 29498 D MulticastServer: Registration process started with nonce: 10446269
+03-02 09:48:35.268 29443 29497 D MulticastClient: Sent messages: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":10446269,"seq":0,"tot":0}]
+03-02 09:48:35.410 29443 29502 D RegistrationHandler: FULL_LEDGER 10446269
+03-02 09:48:35.518 29443 29515 D RegistrationHandler: FULL_LEDGER 10446269
+03-02 09:48:35.534 29443 29515 D MulticastServer: Received hash from 3@test.com: 5e474f0105e7f1f592066cf3001ca590e6a7f132bb8914d8ffdc7dbe5851cfe1
+03-02 09:48:35.848 29443 29502 D RegistrationHandler: FULL_LEDGER 10446269
+03-02 09:48:35.856 29443 29502 D RegistrationHandler: FULL_LEDGER 10446269
+03-02 09:48:35.864 29443 29502 D RegistrationHandler: FULL_LEDGER 10446269
+03-02 09:48:35.866 29443 29502 D MulticastServer: Received hash from 2@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:48:36.248 29443 29497 D MulticastServer: Received hash from 3@test.com: 5e474f0105e7f1f592066cf3001ca590e6a7f132bb8914d8ffdc7dbe5851cfe1
+03-02 09:48:36.288 29443 29502 D RegistrationHandler: FULL_LEDGER 10446269
+03-02 09:48:36.291 29443 29497 D RegistrationHandler: FULL_LEDGER 10446269
+03-02 09:48:36.291 29443 29515 D RegistrationHandler: FULL_LEDGER 10446269
+03-02 09:48:36.299 29443 29515 D RegistrationHandler: FULL_LEDGER 10446269
+03-02 09:48:36.299 29443 29497 D RegistrationHandler: FULL_LEDGER 10446269
+03-02 09:48:45.275 29443 29499 D RegistrationHandler: ACCEPTED_LEDGER 10446269 5
+03-02 09:48:45.281 29443 29499 D RegistrationHandler: 10446269 Registration started
+03-02 09:48:45.296 29443 29499 D MulticastServer: Registration process finished: 10446269
+03-02 09:48:45.303 29443 29497 D MulticastClient: Sent messages: [{"sender":"4@test.com","payload":"{\"ip\":\"192.168.1.97\",\"cert\":\"MIIBKTCB0KADAgECAhQa8Bd7lH\/BLTyi7ywd3y9YYSzkrDAKBggqhkjOPQQDAjAVMRMwEQYDVQQDDApUVE00OTA1IENBMB4XDTIyMDMwMTE0MDczNloXDTIyMDMzMTE0MDczNlowFTETMBEGA1UEAwwKNEB0ZXN0LmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABFrZCEM2z1G1fZpGXj9xAJVyw+42wNc+1Oh3OKk5VRIc59yR1r148usPgG5mreOanaKvWR1KjIOl3HTLksn8RnowCgYIKoZIzj0EAwIDSAAwRQIhAKAKAwK83UAGas8l7ThnEHKwV0I7DisWJ0yDYNVZVUusAiAzZGLYe63aJer14gingjWvIIMLb+EEx1ysVZJxKqm6iw==\"}","mt":"BROADCAST_BLOCK","sig":"MEYCIQCRCLmFlmFVObGS5ZYF07IIlN8grtrXQ7lZKx8qjB\/IzwIhAPJDgDNAQmVFNujSnhPwfyGqOtrEeW1dR6A2s36vr43U","nonce":10446269,"seq":0,"tot":0}]
+round 4 of 10
+03-02 09:50:10.062 29654 29703 D MulticastServer: MULTICAST_SERVER_LISTENING
+03-02 09:50:10.064 29654 29705 D MulticastServer: Registration process started with nonce: 858495125
+03-02 09:50:10.067 29654 29704 D MulticastClient: Sent messages: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":858495125,"seq":0,"tot":0}]
+03-02 09:50:10.303 29654 29711 D RegistrationHandler: FULL_LEDGER 858495125
+03-02 09:50:10.309 29654 29711 D MulticastServer: Received hash from 1@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:50:10.346 29654 29711 D MulticastServer: Received hash from 3@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:50:10.358 29654 29711 D MulticastServer: Received hash from 2@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:50:10.400 29654 29711 D RegistrationHandler: FULL_LEDGER 858495125
+03-02 09:50:10.403 29654 29711 D RegistrationHandler: ACCEPTED_LEDGER 858495125 5
+03-02 09:50:10.406 29654 29711 D RegistrationHandler: 858495125 Registration started
+03-02 09:50:10.414 29654 29711 D MulticastServer: Registration process finished: 858495125
+03-02 09:50:10.415 29654 29711 D MulticastClient: Sent messages: [{"sender":"4@test.com","payload":"{\"ip\":\"192.168.1.97\",\"cert\":\"MIIBKTCB0KADAgECAhQa8Bd7lH\/BLTyi7ywd3y9YYSzkrDAKBggqhkjOPQQDAjAVMRMwEQYDVQQDDApUVE00OTA1IENBMB4XDTIyMDMwMTE0MDczNloXDTIyMDMzMTE0MDczNlowFTETMBEGA1UEAwwKNEB0ZXN0LmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABFrZCEM2z1G1fZpGXj9xAJVyw+42wNc+1Oh3OKk5VRIc59yR1r148usPgG5mreOanaKvWR1KjIOl3HTLksn8RnowCgYIKoZIzj0EAwIDSAAwRQIhAKAKAwK83UAGas8l7ThnEHKwV0I7DisWJ0yDYNVZVUusAiAzZGLYe63aJer14gingjWvIIMLb+EEx1ysVZJxKqm6iw==\"}","mt":"BROADCAST_BLOCK","sig":"MEUCIQC5rp4WW1jIVEv7l\/0WA3V+y3i5ZgetD+ShElJENiEuMAIgVRXjlUczVAFISaRgVvZxg6JyNHhvBSDJZTSjfz0MaQI=","nonce":858495125,"seq":0,"tot":0}]
+round 5 of 10
+03-02 09:51:45.253 29871 29921 D MulticastServer: MULTICAST_SERVER_LISTENING
+03-02 09:51:45.255 29871 29923 D MulticastServer: Registration process started with nonce: 1653538615
+03-02 09:51:45.259 29871 29922 D MulticastClient: Sent messages: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1653538615,"seq":0,"tot":0}]
+03-02 09:51:45.456 29871 29927 D MulticastServer: Received hash from 3@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:45.494 29871 29927 D MulticastServer: Received hash from 2@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:46.305 29871 29946 D MulticastServer: Received hash from 3@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:46.305 29871 29922 D MulticastServer: Received hash from 2@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:46.344 29871 29946 D MulticastServer: Received hash from 1@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:46.355 29871 29922 D RegistrationHandler: FULL_LEDGER 1653538615
+03-02 09:51:55.261 29871 29924 D RegistrationHandler: 1653538615 Accepted hash from 2@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:55.264 29871 29922 D MulticastClient: Sent messages: [{"sender":"","payload":"2@test.com:537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4","mt":"REQUEST_SPECIFIC_LEDGER","sig":"","nonce":164620491,"seq":0,"tot":0}]
+03-02 09:51:55.266 29871 29926 D RegistrationHandler: 1653538615 Accepted hash from 2@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:55.267 29871 29927 D MulticastServer: Received request for 2@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:55.271 29871 29927 D MulticastClient: Sent messages: [{"sender":"","payload":"2@test.com:537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4","mt":"REQUEST_SPECIFIC_LEDGER","sig":"","nonce":622025518,"seq":0,"tot":0}]
+03-02 09:51:55.273 29871 29965 D MulticastServer: Received request for 2@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:55.495 29871 29964 D MulticastServer: Received request for 1@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:55.496 29871 29964 D MulticastServer: Received request for 1@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:55.497 29871 29965 D MulticastServer: Received request for 1@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:55.507 29871 29946 D MulticastServer: Registration process started with nonce: 164620491
+03-02 09:51:55.509 29871 29965 D MulticastServer: Registration process started with nonce: 164620491
+03-02 09:51:55.535 29871 29946 D MulticastServer: Received request for 1@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:55.544 29871 29974 D MulticastServer: Registration process started with nonce: 1388327491
+03-02 09:51:55.611 29871 29946 D RegistrationHandler: FULL_LEDGER 1388327491
+03-02 09:51:55.617 29871 29946 D MulticastServer: Registration process started with nonce: 741938204
+03-02 09:51:55.619 29871 29965 D MulticastServer: Registration process started with nonce: 741938204
+03-02 09:51:55.659 29871 29946 D MulticastServer: Registration process started with nonce: 1661207760
+03-02 09:51:55.659 29871 29965 D MulticastServer: Registration process started with nonce: 1661207760
+03-02 09:51:55.667 29871 29946 D MulticastServer: Received request for 2@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:55.673 29871 29972 D MulticastServer: Received request for 2@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:55.687 29871 29972 D MulticastServer: Registration process started with nonce: 1598224573
+03-02 09:51:55.728 29871 29972 D RegistrationHandler: FULL_LEDGER 1598224573
+03-02 09:51:55.737 29871 29972 D MulticastServer: Received request for 2@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:55.763 29871 29926 D RegistrationHandler: 1653538615 Accepted hash from 3@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:55.765 29871 29946 D MulticastClient: Sent messages: [{"sender":"","payload":"3@test.com:537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4","mt":"REQUEST_SPECIFIC_LEDGER","sig":"","nonce":1622049,"seq":0,"tot":0}]
+03-02 09:51:55.767 29871 29972 D MulticastServer: Received request for 3@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:55.808 29871 29965 D MulticastServer: Registration process started with nonce: 1371322357
+03-02 09:51:55.844 29871 29974 D RegistrationHandler: FULL_LEDGER 1371322357
+03-02 09:51:55.904 29871 29974 D MulticastServer: Received request for 1@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:55.906 29871 29964 D MulticastServer: Received request for 1@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:55.908 29871 29974 D MulticastServer: Received request for 1@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:55.930 29871 29964 D RegistrationHandler: FULL_LEDGER 164620491
+03-02 09:51:55.933 29871 29974 D RegistrationHandler: FULL_LEDGER 164620491
+03-02 09:51:55.940 29871 29974 D MulticastServer: Received request for 1@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:56.046 29871 29964 D MulticastServer: Registration process started with nonce: 1622049
+03-02 09:51:56.069 29871 29922 D MulticastServer: Received request for 2@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:56.078 29871 29964 D MulticastServer: Received request for 2@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:56.105 29871 29927 D MulticastServer: Registration process started with nonce: 622025518
+03-02 09:51:56.118 29871 29927 D RegistrationHandler: FULL_LEDGER 164620491
+03-02 09:51:56.169 29871 29922 D MulticastServer: Received request for 3@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:56.186 29871 29927 D RegistrationHandler: FULL_LEDGER 741938204
+03-02 09:51:56.192 29871 29922 D RegistrationHandler: FULL_LEDGER 741938204
+03-02 09:51:56.215 29871 29922 D RegistrationHandler: FULL_LEDGER 1661207760
+03-02 09:51:56.262 29871 29926 D RegistrationHandler: 1653538615 Accepted hash from 3@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:56.263 29871 29927 D MulticastClient: Sent messages: [{"sender":"","payload":"3@test.com:537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4","mt":"REQUEST_SPECIFIC_LEDGER","sig":"","nonce":2081637384,"seq":0,"tot":0}]
+03-02 09:51:56.263 29871 29964 D MulticastServer: Received request for 3@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:56.338 29871 29964 D RegistrationHandler: FULL_LEDGER 1661207760
+03-02 09:51:56.361 29871 29964 D MulticastServer: Received request for 3@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:56.417 29871 29964 D MulticastServer: Received request for 2@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:56.419 29871 29922 D MulticastServer: Received request for 2@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:56.420 29871 29922 D MulticastServer: Received request for 2@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:56.512 29871 29968 D RegistrationHandler: 164620491 Registration started
+03-02 09:51:56.521 29871 29922 D MulticastServer: Received request for 2@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:56.530 29871 29974 D MulticastServer: Registration process started with nonce: 758137336
+03-02 09:51:56.534 29871 29968 D MulticastServer: Registration process finished: 164620491
+03-02 09:51:56.540 29871 29965 D MulticastClient: Sent messages: [{"sender":"4@test.com","payload":"{\"ip\":\"192.168.1.97\",\"cert\":\"MIIBKTCB0KADAgECAhQa8Bd7lH\/BLTyi7ywd3y9YYSzkrDAKBggqhkjOPQQDAjAVMRMwEQYDVQQDDApUVE00OTA1IENBMB4XDTIyMDMwMTE0MDczNloXDTIyMDMzMTE0MDczNlowFTETMBEGA1UEAwwKNEB0ZXN0LmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABFrZCEM2z1G1fZpGXj9xAJVyw+42wNc+1Oh3OKk5VRIc59yR1r148usPgG5mreOanaKvWR1KjIOl3HTLksn8RnowCgYIKoZIzj0EAwIDSAAwRQIhAKAKAwK83UAGas8l7ThnEHKwV0I7DisWJ0yDYNVZVUusAiAzZGLYe63aJer14gingjWvIIMLb+EEx1ysVZJxKqm6iw==\"}","mt":"BROADCAST_BLOCK","sig":"MEYCIQCl1Qg0lAsEwx27eV8CTsib73aXtd3OAVK+hzBgMxqqbQIhAIH+ezBROdzU5R48+TQYAmsW5ZebLootQP2eK4\/UGQHl","nonce":164620491,"seq":0,"tot":0}]
+03-02 09:51:56.569 29871 29946 D MulticastServer: Received request for 1@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:56.569 29871 29964 D RegistrationHandler: FULL_LEDGER 758137336
+03-02 09:51:56.576 29871 29964 D MulticastServer: Received request for 3@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:56.576 29871 29964 D MulticastServer: Received request for 1@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:56.577 29871 29946 D MulticastServer: Received request for 1@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:56.622 29871 29980 D MulticastServer: Registration process finished: 741938204
+03-02 09:51:56.650 29871 29946 D MulticastServer: Received request for 1@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:56.663 29871 29987 D MulticastServer: Registration process finished: 1661207760
+03-02 09:51:56.666 29871 29964 D MulticastServer: Received request for 3@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:56.733 29871 29964 D RegistrationHandler: FULL_LEDGER 1622049
+03-02 09:51:56.734 29871 29974 D RegistrationHandler: FULL_LEDGER 1622049
+03-02 09:51:56.763 29871 29926 D MulticastServer: Registration process finished: 1653538615
+03-02 09:51:57.067 29871 29964 D MulticastServer: Received request for 3@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:57.108 29871 30000 D MulticastServer: Registration process finished: 622025518
+03-02 09:51:57.111 29871 29964 D MulticastServer: Received request for 2@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:57.299 29871 29946 D MulticastServer: Registration process started with nonce: 1057651010
+03-02 09:51:57.389 29871 29964 D MulticastServer: Received request for 3@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:57.481 29871 29946 D MulticastServer: Received request for 2@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:57.482 29871 29927 D MulticastServer: Received request for 2@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:57.696 29871 29927 D MulticastServer: Received request for 1@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:57.724 29871 29946 D MulticastServer: Received request for 1@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:57.737 29871 29927 D MulticastServer: Received request for 1@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:57.744 29871 29927 D MulticastServer: Registration process started with nonce: 1819732316
+03-02 09:51:57.813 29871 29927 D MulticastServer: Received request for 2@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:57.820 29871 29964 D RegistrationHandler: FULL_LEDGER 1819732316
+03-02 09:51:58.054 29871 29927 D MulticastServer: Registration process started with nonce: 1857564432
+03-02 09:51:58.303 29871 30007 D MulticastServer: Registration process finished: 1057651010
+03-02 09:51:58.436 29871 29974 D MulticastServer: Received request for 1@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:58.441 29871 29974 D MulticastServer: Received request for 3@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:58.453 29871 29927 D MulticastServer: Received request for 1@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:58.459 29871 29974 D MulticastServer: Registration process started with nonce: 165256809
+03-02 09:51:58.499 29871 29974 D MulticastServer: Registration process started with nonce: 492091094
+03-02 09:51:58.582 29871 29946 D RegistrationHandler: FULL_LEDGER 492091094
+03-02 09:51:59.059 29871 30014 D MulticastServer: Registration process finished: 1857564432
+03-02 09:51:59.107 29871 29927 D MulticastServer: Received request for 2@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:59.108 29871 29927 D MulticastServer: Received request for 3@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:59.109 29871 29927 D MulticastServer: Received request for 3@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:59.144 29871 29946 D MulticastServer: Received request for 1@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:59.152 29871 29927 D RegistrationHandler: FULL_LEDGER 165256809
+03-02 09:51:59.275 29871 29946 D MulticastServer: Received request for 3@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:59.320 29871 29946 D MulticastServer: Received request for 2@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:59.322 29871 29946 D MulticastServer: Received request for 3@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:59.537 29871 29974 D MulticastServer: Registration process started with nonce: 2081637384
+03-02 09:51:59.566 29871 29927 D MulticastServer: Received request for 3@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:51:59.566 29871 29974 D RegistrationHandler: FULL_LEDGER 2081637384
+03-02 09:52:00.232 29871 29974 D MulticastServer: Registration process started with nonce: 258307756
+03-02 09:52:00.263 29871 29974 D RegistrationHandler: FULL_LEDGER 258307756
+03-02 09:52:00.324 29871 29927 D RegistrationHandler: FULL_LEDGER 2081637384
+round 6 of 10
+03-02 09:53:20.775 30137 30187 D MulticastServer: MULTICAST_SERVER_LISTENING
+03-02 09:53:20.777 30137 30189 D MulticastServer: Registration process started with nonce: 1116203658
+03-02 09:53:20.781 30137 30188 D MulticastClient: Sent messages: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1116203658,"seq":0,"tot":0}]
+03-02 09:53:20.996 30137 30194 D MulticastServer: Received hash from 1@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:53:21.003 30137 30194 D MulticastServer: Received hash from 3@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:53:21.042 30137 30194 D MulticastServer: Received hash from 2@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:53:21.055 30137 30194 D RegistrationHandler: FULL_LEDGER 1116203658
+03-02 09:53:21.057 30137 30194 D RegistrationHandler: ACCEPTED_LEDGER 1116203658 5
+03-02 09:53:21.059 30137 30194 D RegistrationHandler: 1116203658 Registration started
+03-02 09:53:21.089 30137 30194 D MulticastServer: Registration process finished: 1116203658
+03-02 09:53:21.091 30137 30213 D MulticastClient: Sent messages: [{"sender":"4@test.com","payload":"{\"ip\":\"192.168.1.97\",\"cert\":\"MIIBKTCB0KADAgECAhQa8Bd7lH\/BLTyi7ywd3y9YYSzkrDAKBggqhkjOPQQDAjAVMRMwEQYDVQQDDApUVE00OTA1IENBMB4XDTIyMDMwMTE0MDczNloXDTIyMDMzMTE0MDczNlowFTETMBEGA1UEAwwKNEB0ZXN0LmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABFrZCEM2z1G1fZpGXj9xAJVyw+42wNc+1Oh3OKk5VRIc59yR1r148usPgG5mreOanaKvWR1KjIOl3HTLksn8RnowCgYIKoZIzj0EAwIDSAAwRQIhAKAKAwK83UAGas8l7ThnEHKwV0I7DisWJ0yDYNVZVUusAiAzZGLYe63aJer14gingjWvIIMLb+EEx1ysVZJxKqm6iw==\"}","mt":"BROADCAST_BLOCK","sig":"MEQCIEDtvfwJAMixbhJf1fd2q3aZfgFQf3ftz4wBZLl0nkCOAiAAsPShe2cjGcTlGjNxtVIPk6x19oP4N5R6FbJnvxMEGQ==","nonce":1116203658,"seq":0,"tot":0}]
+round 7 of 10
+03-02 09:54:55.862 30342 30393 D MulticastServer: MULTICAST_SERVER_LISTENING
+03-02 09:54:55.868 30342 30395 D MulticastServer: Registration process started with nonce: 212980634
+03-02 09:54:55.875 30342 30399 D MulticastClient: Sent messages: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":212980634,"seq":0,"tot":0}]
+03-02 09:54:56.438 30342 30402 D MulticastServer: Received hash from 3@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:54:56.644 30342 30402 D MulticastServer: Received hash from 2@test.com: be27adff8a5ed0f040a91db4622ae1174bc3e895da677eb2b413c67351410350
+03-02 09:54:56.851 30342 30402 D MulticastServer: Received hash from 3@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:54:57.051 30342 30402 D MulticastServer: Received hash from 2@test.com: be27adff8a5ed0f040a91db4622ae1174bc3e895da677eb2b413c67351410350
+03-02 09:54:57.255 30342 30402 D MulticastServer: Received hash from 3@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:55:05.878 30342 30396 D RegistrationHandler: 212980634 Accepted hash from 3@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:55:05.882 30342 30402 D MulticastClient: Sent messages: [{"sender":"","payload":"3@test.com:537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4","mt":"REQUEST_SPECIFIC_LEDGER","sig":"","nonce":402473789,"seq":0,"tot":0}]
+03-02 09:55:05.883 30342 30398 D RegistrationHandler: 212980634 Accepted hash from 3@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:55:05.884 30342 30399 D MulticastServer: Received request for 3@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:55:05.888 30342 30401 D MulticastClient: Sent messages: [{"sender":"","payload":"3@test.com:537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4","mt":"REQUEST_SPECIFIC_LEDGER","sig":"","nonce":215381210,"seq":0,"tot":0}]
+03-02 09:55:05.890 30342 30399 D MulticastServer: Received request for 3@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:55:06.073 30342 30438 D MulticastServer: Registration process started with nonce: 215381210
+03-02 09:55:06.074 30342 30399 D MulticastServer: Registration process started with nonce: 215381210
+03-02 09:55:06.107 30342 30448 D MulticastServer: Registration process started with nonce: 402473789
+03-02 09:55:06.151 30342 30448 D RegistrationHandler: FULL_LEDGER 402473789
+03-02 09:55:06.286 30342 30448 D MulticastServer: Received request for 3@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:55:06.287 30342 30438 D MulticastServer: Received request for 2@test.com to send ledger with hash be27adff8a5ed0f040a91db4622ae1174bc3e895da677eb2b413c67351410350
+03-02 09:55:06.289 30342 30446 D MulticastServer: Received request for 3@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:55:06.303 30342 30446 D MulticastServer: Registration process started with nonce: 1567759079
+03-02 09:55:06.318 30342 30446 D RegistrationHandler: FULL_LEDGER 1567759079
+03-02 09:55:06.367 30342 30446 D MulticastServer: Received request for 2@test.com to send ledger with hash be27adff8a5ed0f040a91db4622ae1174bc3e895da677eb2b413c67351410350
+03-02 09:55:06.381 30342 30398 D RegistrationHandler: 212980634 Accepted hash from 3@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:55:06.384 30342 30448 D MulticastClient: Sent messages: [{"sender":"","payload":"3@test.com:537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4","mt":"REQUEST_SPECIFIC_LEDGER","sig":"","nonce":888431592,"seq":0,"tot":0}]
+03-02 09:55:06.388 30342 30446 D MulticastServer: Received request for 3@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:55:06.590 30342 30446 D MulticastServer: Registration process started with nonce: 212978346
+03-02 09:55:06.641 30342 30446 D RegistrationHandler: FULL_LEDGER 212978346
+03-02 09:55:06.655 30342 30446 D RegistrationHandler: FULL_LEDGER 215381210
+03-02 09:55:06.687 30342 30402 D MulticastServer: Received request for 3@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:55:06.691 30342 30401 D MulticastServer: Received request for 3@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:55:06.735 30342 30401 D MulticastServer: Registration process started with nonce: 888431592
+03-02 09:55:06.736 30342 30441 D MulticastServer: Registration process started with nonce: 888431592
+03-02 09:55:06.756 30342 30401 D MulticastServer: Received request for 2@test.com to send ledger with hash be27adff8a5ed0f040a91db4622ae1174bc3e895da677eb2b413c67351410350
+03-02 09:55:06.790 30342 30438 D MulticastServer: Received request for 3@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:55:06.871 30342 30438 D RegistrationHandler: FULL_LEDGER 1567759079
+03-02 09:55:06.880 30342 30398 D RegistrationHandler: 212980634 Accepted hash from 3@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:55:06.882 30342 30438 D MulticastClient: Sent messages: [{"sender":"","payload":"3@test.com:537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4","mt":"REQUEST_SPECIFIC_LEDGER","sig":"","nonce":1996603062,"seq":0,"tot":0}]
+03-02 09:55:06.883 30342 30401 D MulticastServer: Received request for 3@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:55:06.933 30342 30401 D MulticastServer: Received request for 2@test.com to send ledger with hash be27adff8a5ed0f040a91db4622ae1174bc3e895da677eb2b413c67351410350
+03-02 09:55:06.934 30342 30441 D MulticastServer: Received request for 2@test.com to send ledger with hash be27adff8a5ed0f040a91db4622ae1174bc3e895da677eb2b413c67351410350
+03-02 09:55:06.938 30342 30401 D MulticastServer: Received request for 3@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:55:06.945 30342 30401 D MulticastServer: Received request for 3@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:55:06.966 30342 30441 D RegistrationHandler: FULL_LEDGER 215381210
+03-02 09:55:07.076 30342 30442 D RegistrationHandler: 215381210 Registration started
+03-02 09:55:07.095 30342 30442 D MulticastServer: Registration process finished: 215381210
+03-02 09:55:07.097 30342 30441 D MulticastClient: Sent messages: [{"sender":"4@test.com","payload":"{\"ip\":\"192.168.1.97\",\"cert\":\"MIIBKTCB0KADAgECAhQa8Bd7lH\/BLTyi7ywd3y9YYSzkrDAKBggqhkjOPQQDAjAVMRMwEQYDVQQDDApUVE00OTA1IENBMB4XDTIyMDMwMTE0MDczNloXDTIyMDMzMTE0MDczNlowFTETMBEGA1UEAwwKNEB0ZXN0LmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABFrZCEM2z1G1fZpGXj9xAJVyw+42wNc+1Oh3OKk5VRIc59yR1r148usPgG5mreOanaKvWR1KjIOl3HTLksn8RnowCgYIKoZIzj0EAwIDSAAwRQIhAKAKAwK83UAGas8l7ThnEHKwV0I7DisWJ0yDYNVZVUusAiAzZGLYe63aJer14gingjWvIIMLb+EEx1ysVZJxKqm6iw==\"}","mt":"BROADCAST_BLOCK","sig":"MEUCIQDyLmKuqwGKI4Tpnajg6M9vhzcH2VOWDHRn6EMm7a7a9AIgWWdMrasd30nmkCwd0h4C1CSnPhenUdPsJcr\/zmHN5E0=","nonce":215381210,"seq":0,"tot":0}]
+03-02 09:55:07.191 30342 30448 D MulticastServer: Received request for 3@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:55:07.195 30342 30401 D RegistrationHandler: FULL_LEDGER 212978346
+03-02 09:55:07.276 30342 30401 D MulticastServer: Registration process started with nonce: 491405381
+03-02 09:55:07.284 30342 30401 D MulticastServer: Received request for 3@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:55:07.351 30342 30401 D RegistrationHandler: FULL_LEDGER 491405381
+03-02 09:55:07.362 30342 30401 D RegistrationHandler: FULL_LEDGER 212978346
+03-02 09:55:07.380 30342 30398 D MulticastServer: Registration process finished: 212980634
+03-02 09:55:07.410 30342 30402 D RegistrationHandler: FULL_LEDGER 888431592
+03-02 09:55:07.431 30342 30402 D MulticastServer: Received request for 2@test.com to send ledger with hash be27adff8a5ed0f040a91db4622ae1174bc3e895da677eb2b413c67351410350
+03-02 09:55:07.448 30342 30401 D RegistrationHandler: FULL_LEDGER 1567759079
+03-02 09:55:07.454 30342 30401 D RegistrationHandler: ACCEPTED_LEDGER 1567759079 4
+03-02 09:55:07.458 30342 30401 D MulticastServer: Registration process finished: 1567759079
+03-02 09:55:07.621 30342 30448 D MulticastServer: Registration process started with nonce: 1683572398
+03-02 09:55:07.634 30342 30402 D MulticastServer: Received request for 2@test.com to send ledger with hash be27adff8a5ed0f040a91db4622ae1174bc3e895da677eb2b413c67351410350
+03-02 09:55:07.663 30342 30446 D MulticastServer: Registration process started with nonce: 651466546
+03-02 09:55:07.664 30342 30402 D MulticastServer: Registration process started with nonce: 651466546
+03-02 09:55:07.668 30342 30448 D MulticastServer: Received request for 2@test.com to send ledger with hash be27adff8a5ed0f040a91db4622ae1174bc3e895da677eb2b413c67351410350
+03-02 09:55:07.672 30342 30402 D MulticastServer: Received request for 2@test.com to send ledger with hash be27adff8a5ed0f040a91db4622ae1174bc3e895da677eb2b413c67351410350
+03-02 09:55:07.682 30342 30402 D MulticastServer: Received request for 2@test.com to send ledger with hash be27adff8a5ed0f040a91db4622ae1174bc3e895da677eb2b413c67351410350
+03-02 09:55:07.684 30342 30475 D MulticastServer: Received request for 3@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:55:07.685 30342 30475 D MulticastServer: Received request for 3@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:55:07.685 30342 30475 D MulticastServer: Received request for 3@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:55:07.739 30342 30459 D MulticastServer: Registration process finished: 888431592
+03-02 09:55:07.844 30342 30475 D RegistrationHandler: FULL_LEDGER 212978346
+03-02 09:55:07.849 30342 30475 D RegistrationHandler: ACCEPTED_LEDGER 212978346 5
+03-02 09:55:07.853 30342 30475 D MulticastServer: Registration process finished: 212978346
+03-02 09:55:07.983 30342 30441 D RegistrationHandler: FULL_LEDGER 1683572398
+03-02 09:55:08.127 30342 30441 D MulticastServer: Received request for 2@test.com to send ledger with hash be27adff8a5ed0f040a91db4622ae1174bc3e895da677eb2b413c67351410350
+03-02 09:55:08.189 30342 30475 D RegistrationHandler: FULL_LEDGER 651466546
+03-02 09:55:08.192 30342 30475 D MulticastServer: Received request for 3@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:55:08.257 30342 30475 D MulticastServer: Received request for 2@test.com to send ledger with hash be27adff8a5ed0f040a91db4622ae1174bc3e895da677eb2b413c67351410350
+03-02 09:55:08.259 30342 30441 D MulticastServer: Received request for 2@test.com to send ledger with hash be27adff8a5ed0f040a91db4622ae1174bc3e895da677eb2b413c67351410350
+03-02 09:55:08.260 30342 30475 D MulticastServer: Received request for 2@test.com to send ledger with hash be27adff8a5ed0f040a91db4622ae1174bc3e895da677eb2b413c67351410350
+03-02 09:55:08.398 30342 30475 D MulticastServer: Received request for 2@test.com to send ledger with hash be27adff8a5ed0f040a91db4622ae1174bc3e895da677eb2b413c67351410350
+03-02 09:55:08.447 30342 30475 D MulticastServer: Registration process started with nonce: 109904623
+03-02 09:55:08.482 30342 30475 D RegistrationHandler: FULL_LEDGER 109904623
+03-02 09:55:08.483 30342 30448 D MulticastServer: Registration process started with nonce: 1996603062
+03-02 09:55:08.654 30342 30475 D MulticastServer: Received request for 2@test.com to send ledger with hash be27adff8a5ed0f040a91db4622ae1174bc3e895da677eb2b413c67351410350
+03-02 09:55:08.666 30342 30472 D MulticastServer: Registration process finished: 651466546
+03-02 09:55:08.676 30342 30402 D RegistrationHandler: FULL_LEDGER 651466546
+03-02 09:55:09.045 30342 30402 D MulticastServer: Received request for 2@test.com to send ledger with hash be27adff8a5ed0f040a91db4622ae1174bc3e895da677eb2b413c67351410350
+03-02 09:55:09.054 30342 30475 D RegistrationHandler: FULL_LEDGER 1996603062
+03-02 09:55:09.112 30342 30402 D MulticastServer: Received request for 3@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:55:09.167 30342 30475 D MulticastServer: Received request for 3@test.com to send ledger with hash 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:55:09.201 30342 30402 D RegistrationHandler: FULL_LEDGER 1683572398
+03-02 09:55:09.420 30342 30441 D MulticastServer: Received request for 2@test.com to send ledger with hash be27adff8a5ed0f040a91db4622ae1174bc3e895da677eb2b413c67351410350
+round 8 of 10
+03-02 09:56:30.817 30587 30637 D MulticastServer: MULTICAST_SERVER_LISTENING
+03-02 09:56:30.819 30587 30639 D MulticastServer: Registration process started with nonce: 656017733
+03-02 09:56:30.823 30587 30638 D MulticastClient: Sent messages: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":656017733,"seq":0,"tot":0}]
+03-02 09:56:30.952 30587 30643 D MulticastServer: Received hash from 3@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:56:30.994 30587 30643 D RegistrationHandler: FULL_LEDGER 656017733
+03-02 09:56:31.391 30587 30656 D MulticastServer: Received hash from 3@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:56:31.467 30587 30643 D MulticastServer: Received hash from 2@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:56:31.817 30587 30638 D MulticastServer: Received hash from 3@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:56:31.887 30587 30638 D MulticastServer: Received hash from 2@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:56:31.893 30587 30638 D MulticastServer: Received hash from 1@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:56:40.828 30587 30640 D RegistrationHandler: ACCEPTED_LEDGER 656017733 5
+03-02 09:56:40.835 30587 30640 D RegistrationHandler: 656017733 Registration started
+03-02 09:56:40.851 30587 30640 D MulticastServer: Registration process finished: 656017733
+03-02 09:56:40.858 30587 30638 D MulticastClient: Sent messages: [{"sender":"4@test.com","payload":"{\"ip\":\"192.168.1.97\",\"cert\":\"MIIBKTCB0KADAgECAhQa8Bd7lH\/BLTyi7ywd3y9YYSzkrDAKBggqhkjOPQQDAjAVMRMwEQYDVQQDDApUVE00OTA1IENBMB4XDTIyMDMwMTE0MDczNloXDTIyMDMzMTE0MDczNlowFTETMBEGA1UEAwwKNEB0ZXN0LmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABFrZCEM2z1G1fZpGXj9xAJVyw+42wNc+1Oh3OKk5VRIc59yR1r148usPgG5mreOanaKvWR1KjIOl3HTLksn8RnowCgYIKoZIzj0EAwIDSAAwRQIhAKAKAwK83UAGas8l7ThnEHKwV0I7DisWJ0yDYNVZVUusAiAzZGLYe63aJer14gingjWvIIMLb+EEx1ysVZJxKqm6iw==\"}","mt":"BROADCAST_BLOCK","sig":"MEUCIQCH8fJKQ7wW46zTceSao+TdSD+JlRSvI1n210n6Wxef2gIgWqyLo92EcqMmsJXWBWjXwaZR1D5ZlVoiH5AzJiMd\/JU=","nonce":656017733,"seq":0,"tot":0}]
+round 9 of 10
+03-02 09:58:05.895 30871 30928 D MulticastServer: MULTICAST_SERVER_LISTENING
+03-02 09:58:05.897 30871 30930 D MulticastServer: Registration process started with nonce: 915145448
+03-02 09:58:05.901 30871 30929 D MulticastClient: Sent messages: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":915145448,"seq":0,"tot":0}]
+03-02 09:58:06.080 30871 30934 D MulticastServer: Received hash from 1@test.com: 70916c03cdd38f856601de6492d72d542bc463c5c324b39df947826024f0f6fc
+03-02 09:58:06.122 30871 30934 D RegistrationHandler: FULL_LEDGER 915145448
+03-02 09:58:06.125 30871 30953 D MulticastServer: Received hash from 2@test.com: 70916c03cdd38f856601de6492d72d542bc463c5c324b39df947826024f0f6fc
+03-02 09:58:06.130 30871 30953 D MulticastServer: Received hash from 3@test.com: 70916c03cdd38f856601de6492d72d542bc463c5c324b39df947826024f0f6fc
+03-02 09:58:06.516 30871 30954 D MulticastServer: Received hash from 1@test.com: 70916c03cdd38f856601de6492d72d542bc463c5c324b39df947826024f0f6fc
+03-02 09:58:06.524 30871 30954 D MulticastServer: Received hash from 2@test.com: 70916c03cdd38f856601de6492d72d542bc463c5c324b39df947826024f0f6fc
+03-02 09:58:06.525 30871 30953 D MulticastServer: Received hash from 3@test.com: 70916c03cdd38f856601de6492d72d542bc463c5c324b39df947826024f0f6fc
+03-02 09:58:06.909 30871 30953 D MulticastServer: Received hash from 2@test.com: 70916c03cdd38f856601de6492d72d542bc463c5c324b39df947826024f0f6fc
+03-02 09:58:06.915 30871 30953 D MulticastServer: Received hash from 3@test.com: 70916c03cdd38f856601de6492d72d542bc463c5c324b39df947826024f0f6fc
+03-02 09:58:07.002 30871 30953 D MulticastServer: Received hash from 1@test.com: 70916c03cdd38f856601de6492d72d542bc463c5c324b39df947826024f0f6fc
+03-02 09:58:15.905 30871 30931 D RegistrationHandler: 915145448 Accepted hash from 2@test.com: 70916c03cdd38f856601de6492d72d542bc463c5c324b39df947826024f0f6fc
+03-02 09:58:15.908 30871 30953 D MulticastClient: Sent messages: [{"sender":"","payload":"2@test.com:70916c03cdd38f856601de6492d72d542bc463c5c324b39df947826024f0f6fc","mt":"REQUEST_SPECIFIC_LEDGER","sig":"","nonce":1187807731,"seq":0,"tot":0}]
+03-02 09:58:15.911 30871 30929 D MulticastServer: Received request for 2@test.com to send ledger with hash 70916c03cdd38f856601de6492d72d542bc463c5c324b39df947826024f0f6fc
+03-02 09:58:15.913 30871 30933 D RegistrationHandler: 915145448 Accepted hash from 2@test.com: 70916c03cdd38f856601de6492d72d542bc463c5c324b39df947826024f0f6fc
+03-02 09:58:15.914 30871 30934 D MulticastClient: Sent messages: [{"sender":"","payload":"2@test.com:70916c03cdd38f856601de6492d72d542bc463c5c324b39df947826024f0f6fc","mt":"REQUEST_SPECIFIC_LEDGER","sig":"","nonce":445723649,"seq":0,"tot":0}]
+03-02 09:58:15.916 30871 30929 D MulticastServer: Received request for 2@test.com to send ledger with hash 70916c03cdd38f856601de6492d72d542bc463c5c324b39df947826024f0f6fc
+03-02 09:58:16.140 30871 30929 D MulticastServer: Registration process started with nonce: 445723649
+03-02 09:58:16.230 30871 30954 D MulticastServer: Registration process started with nonce: 1514702256
+03-02 09:58:16.230 30871 30929 D MulticastServer: Registration process started with nonce: 1514702256
+03-02 09:58:16.267 30871 30929 D MulticastServer: Registration process started with nonce: 1462699079
+03-02 09:58:16.275 30871 30929 D MulticastServer: Registration process started with nonce: 1101750756
+03-02 09:58:16.316 30871 30929 D MulticastServer: Received request for 2@test.com to send ledger with hash 70916c03cdd38f856601de6492d72d542bc463c5c324b39df947826024f0f6fc
+03-02 09:58:16.316 30871 30957 D MulticastServer: Received request for 2@test.com to send ledger with hash 70916c03cdd38f856601de6492d72d542bc463c5c324b39df947826024f0f6fc
+03-02 09:58:16.372 30871 30976 D RegistrationHandler: FULL_LEDGER 1101750756
+03-02 09:58:16.382 30871 30929 D RegistrationHandler: FULL_LEDGER 1462699079
+03-02 09:58:16.408 30871 30933 D RegistrationHandler: 915145448 Accepted hash from 1@test.com: 70916c03cdd38f856601de6492d72d542bc463c5c324b39df947826024f0f6fc
+03-02 09:58:16.410 30871 30929 D MulticastClient: Sent messages: [{"sender":"","payload":"1@test.com:70916c03cdd38f856601de6492d72d542bc463c5c324b39df947826024f0f6fc","mt":"REQUEST_SPECIFIC_LEDGER","sig":"","nonce":469387924,"seq":0,"tot":0}]
+03-02 09:58:16.412 30871 30954 D MulticastServer: Received request for 1@test.com to send ledger with hash 70916c03cdd38f856601de6492d72d542bc463c5c324b39df947826024f0f6fc
+03-02 09:58:16.433 30871 30976 D MulticastServer: Received request for 2@test.com to send ledger with hash 70916c03cdd38f856601de6492d72d542bc463c5c324b39df947826024f0f6fc
+03-02 09:58:16.529 30871 30976 D MulticastServer: Registration process started with nonce: 1670846472
+03-02 09:58:16.606 30871 30954 D MulticastServer: Received request for 2@test.com to send ledger with hash 70916c03cdd38f856601de6492d72d542bc463c5c324b39df947826024f0f6fc
+03-02 09:58:16.634 30871 30957 D MulticastServer: Received request for 1@test.com to send ledger with hash 70916c03cdd38f856601de6492d72d542bc463c5c324b39df947826024f0f6fc
+03-02 09:58:16.637 30871 30954 D RegistrationHandler: FULL_LEDGER 1670846472
+03-02 09:58:16.705 30871 30954 D RegistrationHandler: FULL_LEDGER 445723649
+03-02 09:58:16.711 30871 30954 D RegistrationHandler: FULL_LEDGER 445723649
+03-02 09:58:16.716 30871 30954 D RegistrationHandler: FULL_LEDGER 445723649
+03-02 09:58:16.716 30871 30934 D MulticastServer: Received request for 2@test.com to send ledger with hash 70916c03cdd38f856601de6492d72d542bc463c5c324b39df947826024f0f6fc
+03-02 09:58:16.717 30871 30957 D MulticastServer: Received request for 2@test.com to send ledger with hash 70916c03cdd38f856601de6492d72d542bc463c5c324b39df947826024f0f6fc
+03-02 09:58:16.722 30871 30957 D RegistrationHandler: FULL_LEDGER 445723649
+03-02 09:58:16.760 30871 30954 D RegistrationHandler: FULL_LEDGER 445723649
+03-02 09:58:16.764 30871 30953 D RegistrationHandler: FULL_LEDGER 445723649
+03-02 09:58:16.764 30871 30957 D RegistrationHandler: FULL_LEDGER 445723649
+03-02 09:58:16.766 30871 30986 D RegistrationHandler: FULL_LEDGER 445723649
+03-02 09:58:16.769 30871 30957 D RegistrationHandler: FULL_LEDGER 445723649
+03-02 09:58:16.775 30871 30953 D MulticastServer: Registration process started with nonce: 1187807731
+03-02 09:58:16.815 30871 30957 D MulticastServer: Received request for 1@test.com to send ledger with hash 70916c03cdd38f856601de6492d72d542bc463c5c324b39df947826024f0f6fc
+03-02 09:58:16.862 30871 30953 D MulticastServer: Received request for 2@test.com to send ledger with hash 70916c03cdd38f856601de6492d72d542bc463c5c324b39df947826024f0f6fc
+03-02 09:58:16.884 30871 30957 D RegistrationHandler: FULL_LEDGER 1514702256
+03-02 09:58:16.889 30871 30953 D RegistrationHandler: FULL_LEDGER 1514702256
+03-02 09:58:16.891 30871 30957 D RegistrationHandler: FULL_LEDGER 1514702256
+03-02 09:58:16.895 30871 30953 D RegistrationHandler: FULL_LEDGER 1514702256
+03-02 09:58:16.905 30871 30953 D RegistrationHandler: FULL_LEDGER 1514702256
+03-02 09:58:16.907 30871 30933 D RegistrationHandler: 915145448 Accepted hash from 2@test.com: 70916c03cdd38f856601de6492d72d542bc463c5c324b39df947826024f0f6fc
+03-02 09:58:16.907 30871 30953 D MulticastClient: Sent messages: [{"sender":"","payload":"2@test.com:70916c03cdd38f856601de6492d72d542bc463c5c324b39df947826024f0f6fc","mt":"REQUEST_SPECIFIC_LEDGER","sig":"","nonce":713467973,"seq":0,"tot":0}]
+03-02 09:58:16.909 30871 30957 D MulticastServer: Received request for 2@test.com to send ledger with hash 70916c03cdd38f856601de6492d72d542bc463c5c324b39df947826024f0f6fc
+03-02 09:58:16.931 30871 30957 D RegistrationHandler: FULL_LEDGER 1101750756
+03-02 09:58:16.960 30871 30957 D RegistrationHandler: FULL_LEDGER 1101750756
+03-02 09:58:16.979 30871 30957 D RegistrationHandler: FULL_LEDGER 1101750756
+03-02 09:58:16.980 30871 30986 D RegistrationHandler: FULL_LEDGER 1462699079
+03-02 09:58:17.011 30871 30986 D RegistrationHandler: FULL_LEDGER 1101750756
+03-02 09:58:17.017 30871 30957 D RegistrationHandler: FULL_LEDGER 1101750756
+03-02 09:58:17.020 30871 30986 D RegistrationHandler: FULL_LEDGER 1462699079
+03-02 09:58:17.029 30871 30976 D RegistrationHandler: FULL_LEDGER 1462699079
+03-02 09:58:17.033 30871 30976 D RegistrationHandler: FULL_LEDGER 1462699079
+03-02 09:58:17.046 30871 30976 D RegistrationHandler: FULL_LEDGER 1462699079
+03-02 09:58:17.052 30871 30976 D MulticastServer: Received request for 3@test.com to send ledger with hash 70916c03cdd38f856601de6492d72d542bc463c5c324b39df947826024f0f6fc
+03-02 09:58:17.059 30871 30976 D MulticastServer: Registration process started with nonce: 1435239759
+03-02 09:58:17.099 30871 30986 D RegistrationHandler: FULL_LEDGER 1435239759
+03-02 09:58:17.114 30871 30986 D RegistrationHandler: FULL_LEDGER 1514702256
+03-02 09:58:17.119 30871 30976 D RegistrationHandler: FULL_LEDGER 1514702256
+03-02 09:58:17.125 30871 30976 D RegistrationHandler: FULL_LEDGER 1514702256
+03-02 09:58:17.131 30871 30934 D RegistrationHandler: FULL_LEDGER 1514702256
+03-02 09:58:17.143 30871 30968 D RegistrationHandler: 445723649 Registration started
+03-02 09:58:17.165 30871 30968 D MulticastServer: Registration process finished: 445723649
+03-02 09:58:17.167 30871 30934 D MulticastClient: Sent messages: [{"sender":"4@test.com","payload":"{\"ip\":\"192.168.1.97\",\"cert\":\"MIIBKTCB0KADAgECAhQa8Bd7lH\/BLTyi7ywd3y9YYSzkrDAKBggqhkjOPQQDAjAVMRMwEQYDVQQDDApUVE00OTA1IENBMB4XDTIyMDMwMTE0MDczNloXDTIyMDMzMTE0MDczNlowFTETMBEGA1UEAwwKNEB0ZXN0LmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABFrZCEM2z1G1fZpGXj9xAJVyw+42wNc+1Oh3OKk5VRIc59yR1r148usPgG5mreOanaKvWR1KjIOl3HTLksn8RnowCgYIKoZIzj0EAwIDSAAwRQIhAKAKAwK83UAGas8l7ThnEHKwV0I7DisWJ0yDYNVZVUusAiAzZGLYe63aJer14gingjWvIIMLb+EEx1ysVZJxKqm6iw==\"}","mt":"BROADCAST_BLOCK","sig":"MEQCIEsNj5Zd2MqdCkJqWVUlasE58FtO0sOtTHomg80Ye81YAiAaDYUV4XgiZDjhnvAYtmcL\/ir0g\/dVGp6s4XEMombJaw==","nonce":445723649,"seq":0,"tot":0}]
+03-02 09:58:17.171 30871 30954 D RegistrationHandler: FULL_LEDGER 1101750756
+03-02 09:58:17.188 30871 30954 D RegistrationHandler: FULL_LEDGER 1101750756
+03-02 09:58:17.220 30871 30954 D MulticastServer: Received request for 1@test.com to send ledger with hash 70916c03cdd38f856601de6492d72d542bc463c5c324b39df947826024f0f6fc
+03-02 09:58:17.233 30871 30972 D MulticastServer: Registration process finished: 1514702256
+03-02 09:58:17.239 30871 30986 D RegistrationHandler: FULL_LEDGER 1670846472
+03-02 09:58:17.241 30871 30957 D RegistrationHandler: FULL_LEDGER 1670846472
+03-02 09:58:17.250 30871 30957 D RegistrationHandler: FULL_LEDGER 1670846472
+03-02 09:58:17.252 30871 30929 D RegistrationHandler: FULL_LEDGER 1670846472
+03-02 09:58:17.252 30871 30954 D RegistrationHandler: FULL_LEDGER 1670846472
+03-02 09:58:17.270 30871 30978 D MulticastServer: Registration process finished: 1462699079
+03-02 09:58:17.276 30871 30981 D MulticastServer: Registration process finished: 1101750756
+03-02 09:58:17.306 30871 30986 D MulticastServer: Registration process started with nonce: 469387924
+03-02 09:58:17.310 30871 30986 D MulticastServer: Received request for 2@test.com to send ledger with hash 70916c03cdd38f856601de6492d72d542bc463c5c324b39df947826024f0f6fc
+03-02 09:58:17.358 30871 30954 D MulticastServer: Received request for 2@test.com to send ledger with hash 70916c03cdd38f856601de6492d72d542bc463c5c324b39df947826024f0f6fc
+03-02 09:58:17.363 30871 30986 D RegistrationHandler: FULL_LEDGER 469387924
+03-02 09:58:17.397 30871 30986 D MulticastServer: Received request for 2@test.com to send ledger with hash 70916c03cdd38f856601de6492d72d542bc463c5c324b39df947826024f0f6fc
+03-02 09:58:17.406 30871 30933 D MulticastServer: Registration process finished: 915145448
+03-02 09:58:17.410 30871 30929 D RegistrationHandler: FULL_LEDGER 1670846472
+03-02 09:58:17.414 30871 30986 D RegistrationHandler: FULL_LEDGER 1670846472
+03-02 09:58:17.423 30871 30929 D MulticastServer: Received request for 2@test.com to send ledger with hash 70916c03cdd38f856601de6492d72d542bc463c5c324b39df947826024f0f6fc
+03-02 09:58:17.424 30871 30929 D MulticastServer: Received request for 1@test.com to send ledger with hash 70916c03cdd38f856601de6492d72d542bc463c5c324b39df947826024f0f6fc
+03-02 09:58:17.426 30871 30986 D RegistrationHandler: FULL_LEDGER 1670846472
+03-02 09:58:17.436 30871 30986 D MulticastServer: Registration process started with nonce: 1325729984
+03-02 09:58:17.479 30871 30954 D MulticastServer: Received request for 2@test.com to send ledger with hash 70916c03cdd38f856601de6492d72d542bc463c5c324b39df947826024f0f6fc
+03-02 09:58:17.484 30871 30986 D RegistrationHandler: FULL_LEDGER 1325729984
+03-02 09:58:17.536 30871 30984 D MulticastServer: Registration process finished: 1670846472
+03-02 09:58:17.713 30871 30986 D MulticastServer: Received request for 2@test.com to send ledger with hash 70916c03cdd38f856601de6492d72d542bc463c5c324b39df947826024f0f6fc
+03-02 09:58:17.761 30871 30986 D RegistrationHandler: FULL_LEDGER 1187807731
+03-02 09:58:17.779 30871 30990 D MulticastServer: Registration process finished: 1187807731
+03-02 09:58:17.872 30871 30929 D RegistrationHandler: FULL_LEDGER 1435239759
+03-02 09:58:17.880 30871 30986 D RegistrationHandler: FULL_LEDGER 1435239759
+03-02 09:58:17.895 30871 30986 D RegistrationHandler: FULL_LEDGER 1435239759
+03-02 09:58:17.915 30871 30986 D RegistrationHandler: FULL_LEDGER 1325729984
+03-02 09:58:17.918 30871 30953 D RegistrationHandler: FULL_LEDGER 1325729984
+03-02 09:58:17.926 30871 30953 D RegistrationHandler: FULL_LEDGER 1325729984
+03-02 09:58:17.935 30871 30986 D RegistrationHandler: FULL_LEDGER 1325729984
+03-02 09:58:17.941 30871 30986 D RegistrationHandler: FULL_LEDGER 1325729984
+03-02 09:58:17.966 30871 30986 D RegistrationHandler: FULL_LEDGER 1325729984
+03-02 09:58:17.974 30871 30986 D RegistrationHandler: FULL_LEDGER 1325729984
+03-02 09:58:17.980 30871 30986 D RegistrationHandler: FULL_LEDGER 1325729984
+03-02 09:58:17.982 30871 30929 D RegistrationHandler: FULL_LEDGER 1325729984
+03-02 09:58:17.992 30871 30934 D RegistrationHandler: FULL_LEDGER 1325729984
+03-02 09:58:18.057 30871 30929 D MulticastServer: Registration process started with nonce: 919780675
+03-02 09:58:18.062 30871 30993 D MulticastServer: Registration process finished: 1435239759
+03-02 09:58:18.145 30871 30986 D RegistrationHandler: FULL_LEDGER 919780675
+03-02 09:58:18.148 30871 30986 D MulticastServer: Registration process started with nonce: 1059200673
+03-02 09:58:18.187 30871 30934 D MulticastServer: Received request for 3@test.com to send ledger with hash 70916c03cdd38f856601de6492d72d542bc463c5c324b39df947826024f0f6fc
+03-02 09:58:18.190 30871 30986 D RegistrationHandler: FULL_LEDGER 1059200673
+03-02 09:58:18.310 30871 30996 D MulticastServer: Registration process finished: 469387924
+03-02 09:58:18.354 30871 30929 D MulticastServer: Received request for 3@test.com to send ledger with hash 70916c03cdd38f856601de6492d72d542bc463c5c324b39df947826024f0f6fc
+03-02 09:58:18.438 30871 30999 D MulticastServer: Registration process finished: 1325729984
+03-02 09:58:18.645 30871 30929 D MulticastServer: Received request for 2@test.com to send ledger with hash 70916c03cdd38f856601de6492d72d542bc463c5c324b39df947826024f0f6fc
+03-02 09:58:18.648 30871 30929 D MulticastServer: Received request for 1@test.com to send ledger with hash 70916c03cdd38f856601de6492d72d542bc463c5c324b39df947826024f0f6fc
+03-02 09:58:18.671 30871 30929 D RegistrationHandler: FULL_LEDGER 919780675
+03-02 09:58:18.672 30871 30934 D RegistrationHandler: FULL_LEDGER 919780675
+03-02 09:58:18.692 30871 30934 D RegistrationHandler: FULL_LEDGER 919780675
+03-02 09:58:18.692 30871 30929 D RegistrationHandler: FULL_LEDGER 919780675
+03-02 09:58:18.800 30871 30934 D MulticastServer: Registration process started with nonce: 1882178729
+03-02 09:58:18.840 30871 30929 D MulticastServer: Received request for 1@test.com to send ledger with hash 70916c03cdd38f856601de6492d72d542bc463c5c324b39df947826024f0f6fc
+03-02 09:58:18.955 30871 30934 D MulticastServer: Received request for 1@test.com to send ledger with hash 70916c03cdd38f856601de6492d72d542bc463c5c324b39df947826024f0f6fc
+03-02 09:58:18.987 30871 30934 D RegistrationHandler: FULL_LEDGER 919780675
+03-02 09:58:18.988 30871 30929 D RegistrationHandler: FULL_LEDGER 919780675
+03-02 09:58:19.006 30871 30929 D RegistrationHandler: FULL_LEDGER 919780675
+03-02 09:58:19.015 30871 30929 D RegistrationHandler: FULL_LEDGER 919780675
+03-02 09:58:19.024 30871 30929 D RegistrationHandler: FULL_LEDGER 919780675
+03-02 09:58:19.033 30871 30929 D RegistrationHandler: FULL_LEDGER 919780675
+03-02 09:58:19.035 30871 30934 D RegistrationHandler: FULL_LEDGER 919780675
+03-02 09:58:19.060 30871 31003 D MulticastServer: Registration process finished: 919780675
+03-02 09:58:19.152 30871 31006 D MulticastServer: Registration process finished: 1059200673
+03-02 09:58:19.192 30871 30934 D RegistrationHandler: FULL_LEDGER 1882178729
+03-02 09:58:19.198 30871 30934 D RegistrationHandler: FULL_LEDGER 1882178729
+03-02 09:58:19.207 30871 30934 D RegistrationHandler: FULL_LEDGER 1882178729
+03-02 09:58:19.212 30871 30986 D RegistrationHandler: FULL_LEDGER 1882178729
+03-02 09:58:19.344 30871 30929 D RegistrationHandler: FULL_LEDGER 1882178729
+03-02 09:58:19.353 30871 30929 D MulticastServer: Received request for 1@test.com to send ledger with hash 70916c03cdd38f856601de6492d72d542bc463c5c324b39df947826024f0f6fc
+03-02 09:58:19.572 30871 30934 D MulticastServer: Received request for 1@test.com to send ledger with hash 70916c03cdd38f856601de6492d72d542bc463c5c324b39df947826024f0f6fc
+03-02 09:58:19.690 30871 30934 D MulticastServer: Registration process started with nonce: 1485789186
+03-02 09:58:19.805 30871 31010 D MulticastServer: Registration process finished: 1882178729
+03-02 09:58:20.223 30871 30953 D MulticastServer: Registration process started with nonce: 713467973
+03-02 09:58:20.223 30871 30929 D MulticastServer: Registration process started with nonce: 713467973
+03-02 09:58:20.498 30871 30953 D MulticastServer: Registration process started with nonce: 1389412762
+03-02 09:58:20.566 30871 30953 D RegistrationHandler: FULL_LEDGER 1389412762
+03-02 09:58:20.697 30871 31013 D MulticastServer: Registration process finished: 1485789186
+03-02 09:58:21.102 30871 30953 D RegistrationHandler: FULL_LEDGER 713467973
+03-02 09:58:21.104 30871 30929 D RegistrationHandler: FULL_LEDGER 713467973
+03-02 09:58:21.228 30871 31018 D MulticastServer: Registration process finished: 713467973
+03-02 09:58:21.503 30871 31023 D MulticastServer: Registration process finished: 1389412762
+round 10 of 10
+03-02 09:59:42.576 31161 31210 D MulticastServer: MULTICAST_SERVER_LISTENING
+03-02 09:59:42.577 31161 31212 D MulticastServer: Registration process started with nonce: 1929911825
+03-02 09:59:42.587 31161 31216 D MulticastClient: Sent messages: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1929911825,"seq":0,"tot":0}]
+03-02 09:59:43.266 31161 31218 D MulticastServer: Received hash from 3@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:59:43.271 31161 31219 D MulticastServer: Received hash from 1@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:59:43.311 31161 31218 D RegistrationHandler: FULL_LEDGER 1929911825
+03-02 09:59:43.345 31161 31218 D MulticastServer: Received hash from 2@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:59:43.571 31161 31218 D MulticastServer: Received hash from 1@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:59:43.578 31161 31218 D MulticastServer: Received hash from 3@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:59:43.709 31161 31218 D MulticastServer: Received hash from 2@test.com: 537b0ea31ebf925fa5c6af9ab92c308acf3f1c601d20463bf1d7cd5ee43e5ef4
+03-02 09:59:52.587 31161 31213 D RegistrationHandler: ACCEPTED_LEDGER 1929911825 5
+03-02 09:59:52.593 31161 31213 D RegistrationHandler: 1929911825 Registration started
+03-02 09:59:52.608 31161 31213 D MulticastServer: Registration process finished: 1929911825
+03-02 09:59:52.609 31161 31218 D MulticastClient: Sent messages: [{"sender":"4@test.com","payload":"{\"ip\":\"192.168.1.97\",\"cert\":\"MIIBKTCB0KADAgECAhQa8Bd7lH\/BLTyi7ywd3y9YYSzkrDAKBggqhkjOPQQDAjAVMRMwEQYDVQQDDApUVE00OTA1IENBMB4XDTIyMDMwMTE0MDczNloXDTIyMDMzMTE0MDczNlowFTETMBEGA1UEAwwKNEB0ZXN0LmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABFrZCEM2z1G1fZpGXj9xAJVyw+42wNc+1Oh3OKk5VRIc59yR1r148usPgG5mreOanaKvWR1KjIOl3HTLksn8RnowCgYIKoZIzj0EAwIDSAAwRQIhAKAKAwK83UAGas8l7ThnEHKwV0I7DisWJ0yDYNVZVUusAiAzZGLYe63aJer14gingjWvIIMLb+EEx1ysVZJxKqm6iw==\"}","mt":"BROADCAST_BLOCK","sig":"MEUCIQDSeqHrjEhj1KW+g5lRFoRJ6on55oDIGjqQOLwsOJwvGAIgKhIwwJ7cbNuetUafIGWqCOuWNTTVY2qEEJ8j1GIBpaY=","nonce":1929911825,"seq":0,"tot":0}]

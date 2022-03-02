@@ -1,8 +1,9 @@
-. ../common/initialize.sh
-# Start test
+devices=$(echo $(adb devices))
+device1=$(echo $devices | cut -f5 -d$' ')
+device2=$(echo $devices | cut -f7 -d$' ')
 rounds=100
-echo "Number of rounds: $rounds" > log_device1.txt
-echo "Number of rounds: $rounds" > log_device2.txt
+. ../common/initialize.sh $device1 $device2
+# Start test
 for ((i=1; i<=$rounds; i++))
 do
    echo "round $i of $rounds"

@@ -129,6 +129,7 @@ class SignUpActivity: AppCompatActivity() {
                     auth.signOut()
                     returnToMainActivity(null)
                 } else {
+                    Log.d(TAG, task.exception.toString())
                     // If sign in fails, display a message to the user.
                    signupLoading(false)
                     Log.d(TAG, "Firebase registration failed")

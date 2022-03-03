@@ -1,3 +1,4 @@
+from cProfile import label
 import pylab
 
 log_device_1 = open("./log_device1.txt", "r")
@@ -53,8 +54,9 @@ print("Failed TCP establishment: {}".format(failedEstablishments))
 
 x_coordinates = list(range(len(establishmentTimes)))
 
-pylab.bar(x_coordinates, establishmentTimes)
-pylab.axhline(y=averageEstablishmentTime, color="orange")
-pylab.xlabel("Trail number")
+pylab.bar(x_coordinates, establishmentTimes, label="TCP establishment time")
+pylab.axhline(y=averageEstablishmentTime, color="darkblue", label="Average TCP establishment time")
+pylab.xlabel("Trial number")
 pylab.ylabel("TCP establishment time (ms)")
+pylab.legend(loc="lower right")
 pylab.show()

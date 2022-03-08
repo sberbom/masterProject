@@ -90,7 +90,7 @@ class PKIUtils {
             return JcaX509CertificateConverter().getCertificate(holder)
         }
 
-            fun isSelfSignedCertificate(certificate: X509Certificate): Boolean {
+        fun isSelfSignedCertificate(certificate: X509Certificate): Boolean {
             return certificate.issuerDN == certificate.subjectDN && isValidSelfSignedCertificate(certificate)
         }
 

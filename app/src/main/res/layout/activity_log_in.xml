@@ -39,7 +39,7 @@
         app:layout_constraintTop_toBottomOf="@+id/passwordLogInText" />
 
     <Button
-        android:id="@+id/logInLogInButton"
+        android:id="@+id/logInButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -57,4 +57,14 @@
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="@+id/emailLogInText"
         app:layout_constraintTop_toBottomOf="@+id/emailLogInText" />
+
+    <ProgressBar
+        android:id="@+id/logInProgressBar"
+        style="?android:attr/progressBarStyle"
+        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/logInButton"
+        app:layout_constraintStart_toEndOf="@+id/logInButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>

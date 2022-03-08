@@ -2,7 +2,6 @@ package com.example.masterproject.activities
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
@@ -16,7 +15,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.masterproject.R
 import com.example.masterproject.activities.adapters.DeviceAdapter
-import com.example.masterproject.crypto.Ratchet
 import com.example.masterproject.ledger.Ledger
 import com.example.masterproject.network.MulticastServer
 import com.example.masterproject.network.unicast.TCPListener

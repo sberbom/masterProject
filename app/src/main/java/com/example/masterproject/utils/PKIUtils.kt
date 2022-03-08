@@ -3,25 +3,21 @@ package com.example.masterproject.utils
 import android.content.Context
 import android.util.Log
 import com.example.masterproject.App
-import org.bouncycastle.asn1.pkcs.PrivateKeyInfo
 import org.bouncycastle.asn1.x500.X500Name
 import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo
 import org.bouncycastle.cert.X509CertificateHolder
-import org.bouncycastle.cert.X509v1CertificateBuilder
 import org.bouncycastle.cert.X509v3CertificateBuilder
 import org.bouncycastle.cert.jcajce.JcaX509CertificateConverter
 import org.bouncycastle.crypto.util.PrivateKeyFactory
-import org.bouncycastle.openssl.jcajce.JcaPEMKeyConverter
 import org.bouncycastle.operator.DefaultDigestAlgorithmIdentifierFinder
 import org.bouncycastle.operator.DefaultSignatureAlgorithmIdentifierFinder
-import org.bouncycastle.operator.bc.BcContentSignerBuilder
 import org.bouncycastle.operator.bc.BcECContentSignerBuilder
-import org.bouncycastle.operator.jcajce.JcaContentSignerBuilder
 import java.io.*
 import java.math.BigInteger
 import java.security.*
 import java.security.cert.CertificateFactory
 import java.security.cert.X509Certificate
+import java.security.spec.PKCS8EncodedKeySpec
 import java.security.spec.X509EncodedKeySpec
 import java.util.*
 import javax.net.ssl.KeyManagerFactory
@@ -34,8 +30,8 @@ class PKIUtils {
     companion object {
         var privateKey: PrivateKey? = null
         private const val TAG: String = "PKIUtils"
-        var CAPublicKey: PublicKey =
-            stringToEncryptionKey("MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEnbbrYnAGkcNYD72o/H7jP2z91bQyA1B8GwUzsV0NG34RhpJ6xJMLxQT0kXwnSunXz6wVndN6O/6ZDWymVCk3nw==")
+        var CAPublicKey: PublicKey = stringToEncryptionKey("MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEi5TBRm/SPUihKiorK4wKzCyOjL4XvG8InzcbePZCtzziYmfGfUEOAImlW76MzYGYOIE+bCg5bo6Fj+p0JBsFgQ==")
+        var CACertificate: X509Certificate = stringToCertificate("MIIBGzCBwqADAgECAgYBf2iixnAwCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKVFRNNDkwNSBDQTAeFw0yMjAzMDcwODI2MTJaFw0yNDAzMDgwODI2MTJaMBUxEzARBgNVBAMMClRUTTQ5MDUgQ0EwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAASLlMFGb9I9SKEqKisrjArMLI6Mvhe8bwifNxt49kK3POJiZ8Z9QQ4AiaVbvozNgZg4gT5sKDlujoWP6nQkGwWBMAoGCCqGSM49BAMCA0gAMEUCIQDsPhn62hQUyRA5kHEQCVlTVQyuRXWQHG8EYPyJ/1EJfQIgZKDrxJKiZROdsW6k8NeF7420C/gOtoQnynC+1ArKU6w=")
         var keyStore: KeyStore? = null
         var trustStore: KeyStore = loadTrustStore()
         private var context: Context? = App.getAppContext()
@@ -51,8 +47,8 @@ class PKIUtils {
             return try {
                 certificate.verify(certificate.publicKey)
                 true
-            } catch (e: Error) {
-                Log.w(TAG, "INVALID SELF SIGN SIGNATURE ON CERTIFICATE")
+            } catch (e: Exception) {
+                Log.d(TAG, "INVALID SELF SIGN SIGNATURE ON CERTIFICATE")
                 e.printStackTrace()
                 false
             }
@@ -63,7 +59,7 @@ class PKIUtils {
                 certificate.verify(CAPublicKey)
                 true
             } catch (e: Exception) {
-                Log.w(TAG, "INVALID CA SIGNATURE ON CERTIFICATE")
+                Log.d(TAG, "INVALID CA SIGNATURE ON CERTIFICATE")
                 e.printStackTrace()
                 false
             }
@@ -94,7 +90,7 @@ class PKIUtils {
             return JcaX509CertificateConverter().getCertificate(holder)
         }
 
-        fun isSelfSignedCertificate(certificate: X509Certificate): Boolean {
+            fun isSelfSignedCertificate(certificate: X509Certificate): Boolean {
             return certificate.issuerDN == certificate.subjectDN && isValidSelfSignedCertificate(certificate)
         }
 
@@ -125,23 +121,6 @@ class PKIUtils {
             val publicKeySpec = X509EncodedKeySpec(encKey)
             val keyFactory = KeyFactory.getInstance(Constants.ASYMMETRIC_KEY_GENERATION_ALGORITHM)
             return keyFactory.generatePublic(publicKeySpec)
-        }
-
-        fun pemToCertificate(pem: String): X509Certificate {
-            val beginCertificate = "-----BEGIN CERTIFICATE-----";
-            val endCertificate = "-----END CERTIFICATE-----";
-            val certificate =
-                pem.replace(beginCertificate, "").replace(endCertificate, "").replace("\n", "")
-            val decoded: ByteArray = Base64.getDecoder().decode(certificate)
-            return (CertificateFactory.getInstance(Constants.CERTIFICATE_TYPE)
-                .generateCertificate(ByteArrayInputStream(decoded)) as X509Certificate)
-        }
-
-        fun encryptionKeyToPem(key: PublicKey): String {
-            val beginCertificate = "-----BEGIN CERTIFICATE-----";
-            val endCertificate = "-----END CERTIFICATE-----";
-            val encodedKey = Base64.getEncoder().encodeToString(key.encoded)
-            return "$beginCertificate\n$encodedKey\n$endCertificate"
         }
 
         fun encryptionKeyToString(key: PublicKey): String {
@@ -207,6 +186,7 @@ class PKIUtils {
 
             val trustManagerFactory = TrustManagerFactory.getInstance(Constants.KEY_MANAGER_INSTANCE)
             trustManagerFactory.init(trustStore)
+            trustStore.setCertificateEntry("CA", CACertificate)
             val trustManagers = trustManagerFactory.trustManagers
 
 
@@ -217,8 +197,9 @@ class PKIUtils {
         }
 
         fun addKeyToKeyStore(key: PrivateKey, certificate: X509Certificate) {
+            deleteRootCertificateFromKeystore()
             Log.d(TAG, "Added key to keystore: $key")
-            keyStore!!.setKeyEntry("root", key, Constants.KEYSTORE_PASSWORD.toCharArray(), arrayOf(certificate))
+            keyStore!!.setKeyEntry("root", key, Constants.KEYSTORE_PASSWORD.toCharArray(), arrayOf(certificate, CACertificate))
         }
 
         fun addCertificateToTrustStore(alias: String, certificate: X509Certificate) {

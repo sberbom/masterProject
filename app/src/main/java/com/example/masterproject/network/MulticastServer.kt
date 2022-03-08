@@ -3,9 +3,11 @@ package com.example.masterproject.network
 import android.app.Service
 import android.content.Context
 import android.content.Intent
-import android.net.*
+import android.net.ConnectivityManager
+import android.net.Network
+import android.net.NetworkCapabilities
+import android.net.NetworkRequest
 import android.os.IBinder
-import android.provider.Settings
 import android.util.Log
 import com.example.masterproject.ledger.Ledger
 import com.example.masterproject.ledger.LedgerEntry
@@ -47,22 +49,22 @@ class MulticastServer: Service() {
             while (true) {
                 try {
                     val msgPacket = DatagramPacket(buf, buf.size)
-                socket.receive(msgPacket)
+                    socket.receive(msgPacket)
 
-                val msgRaw = String(buf, 0, buf.size)
-                val multicastPacket = MulticastPacket.decodeMulticastPacket(msgRaw)
-                GlobalScope.launch(Dispatchers.IO) {
-                        when (multicastPacket.messageType) {
-                            BroadcastMessageTypes.BROADCAST_BLOCK.toString() -> handleBroadcastBlock(multicastPacket)
-                            BroadcastMessageTypes.REQUEST_LEDGER.toString() -> handleRequestedLedger(multicastPacket)
-                            BroadcastMessageTypes.REQUEST_SPECIFIC_LEDGER.toString() -> handleSpecificLedgerRequest(multicastPacket)
-                            BroadcastMessageTypes.FULL_LEDGER.toString() -> handleFullLedger(multicastPacket)
-                            BroadcastMessageTypes.LEDGER_HASH.toString() -> handleHash(multicastPacket)
-                            BroadcastMessageTypes.IP_CHANGED.toString() -> handleIpChanged(multicastPacket)
-                            else -> Log.d(TAG, "Received unknown message type.")
+                    val msgRaw = String(buf, 0, buf.size)
+                    val multicastPacket = MulticastPacket.decodeMulticastPacket(msgRaw)
+                    GlobalScope.launch(Dispatchers.IO) {
+                            when (multicastPacket.messageType) {
+                                BroadcastMessageTypes.BROADCAST_BLOCK.toString() -> handleBroadcastBlock(multicastPacket)
+                                BroadcastMessageTypes.REQUEST_LEDGER.toString() -> handleRequestedLedger(multicastPacket)
+                                BroadcastMessageTypes.REQUEST_SPECIFIC_LEDGER.toString() -> handleSpecificLedgerRequest(multicastPacket)
+                                BroadcastMessageTypes.FULL_LEDGER.toString() -> handleFullLedger(multicastPacket)
+                                BroadcastMessageTypes.LEDGER_HASH.toString() -> handleHash(multicastPacket)
+                                BroadcastMessageTypes.IP_CHANGED.toString() -> handleIpChanged(multicastPacket)
+                                else -> Log.d(TAG, "Received unknown message type.")
+                            }
+
                         }
-
-                    }
                 } catch (e: Exception) {
                     e.printStackTrace()
                 }

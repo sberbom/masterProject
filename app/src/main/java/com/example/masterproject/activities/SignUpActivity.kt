@@ -162,7 +162,7 @@ class SignUpActivity: AppCompatActivity() {
         return try {
             val runtime = Runtime.getRuntime()
             val ipProcess = runtime.exec("/system/bin/ping -c 1 8.8.8.8")
-            val hasFinished = ipProcess.waitFor(200, TimeUnit.MILLISECONDS)
+            val hasFinished = ipProcess.waitFor(500, TimeUnit.MILLISECONDS)
             val exitValue = try{ ipProcess.exitValue() } catch (e: IllegalThreadStateException) {-1}
             ipProcess.destroy()
             return hasFinished && exitValue == 0

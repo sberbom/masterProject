@@ -1,10 +1,12 @@
 package com.example.masterproject.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.masterproject.R
@@ -56,6 +58,11 @@ class ChatActivity: AppCompatActivity() {
     }
 
     private fun setUpUI(){
+        setSupportActionBar(findViewById(R.id.chatToolBar))
+        supportActionBar!!.setDisplayShowTitleEnabled(false);
+        findViewById<Toolbar>(R.id.chatToolBar).title = "Chat"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         messageView = findViewById(R.id.chatView)
         messageView.adapter = chatAdapter
         messageView.layoutManager = LinearLayoutManager(this)
@@ -96,6 +103,12 @@ class ChatActivity: AppCompatActivity() {
             client!!.interrupt()
         }
         super.onStop()
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        val myIntent = Intent(this@ChatActivity, MainActivity::class.java)
+        this@ChatActivity.startActivity(myIntent)
+        return super.onNavigateUp()
     }
 
     companion object {

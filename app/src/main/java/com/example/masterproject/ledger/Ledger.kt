@@ -48,6 +48,12 @@ class Ledger {
                         PKIUtils.getUsernameFromCertificate(storedCertificate),
                         ipAddress)
                     if (isValidNewBlock(ledgerEntry)){
+                        // If there is already a user in the ledger with your username and we know
+                        // that our ledger entry is valid, it means we have a CA signed certificate
+                        // The entry with our username should therefore be removed before our entry
+                        // is added
+                        val existingBlockWithSameUsername = availableDevices.find { it.userName == ledgerEntry.userName && PKIUtils.certificateToString(it.certificate) != PKIUtils.certificateToString(ledgerEntry.certificate) }
+                        if (existingBlockWithSameUsername != null) availableDevices.remove(existingBlockWithSameUsername)
                         Log.d(TAG, "Created block from stored certificate.")
                         myLedgerEntry = ledgerEntry
                         availableDevices.add(ledgerEntry)

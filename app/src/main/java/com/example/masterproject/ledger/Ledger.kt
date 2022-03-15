@@ -104,7 +104,19 @@ class Ledger {
                 if (existingBlockWithSameUsername != null && !LedgerEntry.isEqual(existingBlockWithSameUsername, newBlock)) {
                     availableDevices.remove(existingBlockWithSameUsername)
                     // TODO: All users should be warned that the user has been updated
-                    if (existingBlockWithSameUsername == myLedgerEntry) handleLosingUsername()
+                    if (existingBlockWithSameUsername == myLedgerEntry) {
+                        handleLosingUsername()
+                    } else {
+                        val context = App.getAppContext()
+                        if (context != null)
+                        Handler(Looper.getMainLooper()).post {
+                            Toast.makeText(
+                                context,
+                                "${existingBlockWithSameUsername.userName} has been replaced by a user with a CA signed certificate.",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
                 }
                 Log.d(TAG, "${newBlock.userName} added to ledger")
                 availableDevices.add(newBlock)

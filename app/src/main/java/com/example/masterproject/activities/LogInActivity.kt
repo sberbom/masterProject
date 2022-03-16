@@ -3,12 +3,14 @@ package com.example.masterproject.activities
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuItem
 import android.view.View
 import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import com.example.masterproject.network.HTTPClient
 import com.example.masterproject.R
 import com.example.masterproject.utils.PKIUtils
@@ -28,6 +30,11 @@ class LogInActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_log_in)
         auth = Firebase.auth
+
+        setSupportActionBar(findViewById(R.id.logInToolBar))
+        supportActionBar!!.setDisplayShowTitleEnabled(false);
+        findViewById<Toolbar>(R.id.logInToolBar).title = "Log In"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         logInButton = findViewById(R.id.logInButton)
         logInProgressBar = findViewById(R.id.logInProgressBar)
@@ -106,6 +113,11 @@ class LogInActivity : AppCompatActivity() {
                 logInButton.isEnabled = true
             }
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        returnToMainActivity()
+        return super.onNavigateUp()
     }
 
 }

@@ -5,6 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/logInToolBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue_700"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/ToolBarStyle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleTextColor="@color/white" />
+
     <TextView
         android:id="@+id/emailLogInText"
         android:layout_width="wrap_content"
@@ -14,7 +25,7 @@
         android:text="Email:"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/logInToolBar" />
 
     <TextView
         android:id="@+id/passwordLogInText"

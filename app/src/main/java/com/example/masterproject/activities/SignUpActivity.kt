@@ -9,6 +9,7 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import com.example.masterproject.R
 import com.example.masterproject.exceptions.InvalidEmailException
 import com.example.masterproject.exceptions.UsernameTakenException
@@ -41,6 +42,11 @@ class SignUpActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
         auth = Firebase.auth
+
+        setSupportActionBar(findViewById(R.id.singUpToolBar))
+        supportActionBar!!.setDisplayShowTitleEnabled(false);
+        findViewById<Toolbar>(R.id.singUpToolBar).title = "Sign Up"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         emailInvalidTextView = findViewById(R.id.notValidEmailText)
         passwordInvalidTextView = findViewById(R.id.notValidPasswordText)
@@ -178,6 +184,11 @@ class SignUpActivity: AppCompatActivity() {
             myIntent.putExtra("username", username)
         }
         this@SignUpActivity.startActivity(myIntent)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        returnToMainActivity(null)
+        return super.onNavigateUp()
     }
 
 

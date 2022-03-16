@@ -87,17 +87,12 @@ class SignUpActivity: AppCompatActivity() {
             return
         }
         signupLoading(true)
-        val isOnline = networkIsOnline()
-        if (isOnline) {
-            if(password == "") {
-                runOnUiThread{passwordInvalidTextView.visibility = View.VISIBLE}
-                signupLoading(false)
-                return
-            }
-            onlineRegistration(email, password)
-        } else {
-            offlineRegistration(email)
+        if(password == "") {
+            runOnUiThread{passwordInvalidTextView.visibility = View.VISIBLE}
+            signupLoading(false)
+            return
         }
+        register(email, password)
     }
 
     private fun offlineRegistration(email: String) {
@@ -116,7 +111,8 @@ class SignUpActivity: AppCompatActivity() {
         }
     }
 
-    private fun onlineRegistration(email: String, password: String) {
+    private fun register(email: String, password: String) {
+        // try registering online first
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
@@ -132,13 +128,18 @@ class SignUpActivity: AppCompatActivity() {
                     returnToMainActivity(null)
                 } else {
                     Log.d(TAG, task.exception.toString())
-                    // If sign in fails, display a message to the user.
-                   signupLoading(false)
-                    Log.d(TAG, "Firebase registration failed")
-                    Toast.makeText(
-                        baseContext, "Registration failed.",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    // if error contains failed to connect to, the network is offline and we do offline registration
+                    if (task.exception.toString().lowercase().contains("failed to connect to")) {
+                        offlineRegistration(email)
+                    } else {
+                        // If sign in fails, display a message to the user.
+                       signupLoading(false)
+                        Log.d(TAG, "Firebase registration failed")
+                        Toast.makeText(
+                            baseContext, "Registration failed.",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
                 }
             }
     }
@@ -155,20 +156,6 @@ class SignUpActivity: AppCompatActivity() {
                 signUpProgressBar.visibility = View.INVISIBLE
                 signUpButton.isEnabled = true
             }
-        }
-    }
-
-    private fun networkIsOnline(): Boolean {
-        return try {
-            val runtime = Runtime.getRuntime()
-            val ipProcess = runtime.exec("/system/bin/ping -c 1 8.8.8.8")
-            val hasFinished = ipProcess.waitFor(500, TimeUnit.MILLISECONDS)
-            val exitValue = try{ ipProcess.exitValue() } catch (e: IllegalThreadStateException) {-1}
-            ipProcess.destroy()
-            return hasFinished && exitValue == 0
-        } catch (e: Exception) {
-            Log.d(TAG, e.toString())
-            false
         }
     }
 

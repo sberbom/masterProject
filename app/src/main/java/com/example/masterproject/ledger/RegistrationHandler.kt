@@ -58,7 +58,7 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
                     setLedgerIfAccepted()
                 }
             }
-            firstInNetworkTimer.schedule(1000) {
+            firstInNetworkTimer.schedule(2000) {
                 if (hashes.isEmpty() && receivedLedgers.isEmpty()) {
                     startRegistration()
                 }

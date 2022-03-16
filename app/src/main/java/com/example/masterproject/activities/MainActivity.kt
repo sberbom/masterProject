@@ -72,8 +72,10 @@ class MainActivity: AppCompatActivity() {
 
     private fun setUpUI() {
 
-        val navigationView: NavigationView = findViewById(R.id.navigation_view)
+        navigationView = findViewById(R.id.navigation_view)
         val headerView: View = navigationView.getHeaderView(0)
+
+        loggedInAsText2 = findViewById(R.id.usernameHeaderText)
 
         setSupportActionBar(findViewById(R.id.mainToolBar))
         supportActionBar!!.setDisplayShowTitleEnabled(false);
@@ -199,6 +201,8 @@ class MainActivity: AppCompatActivity() {
 
     companion object {
         private lateinit var recyclerView: RecyclerView
+        private lateinit var navigationView: NavigationView
+        private lateinit var loggedInAsText2: TextView
         private val TAG = "MainActivity"
         private lateinit var myAdapter: DeviceAdapter
 
@@ -206,6 +210,13 @@ class MainActivity: AppCompatActivity() {
         fun updateAvailableDevices() {
             myAdapter.notifyDataSetChanged()
             recyclerView.scrollToPosition(myAdapter.itemCount-1)
+        }
+
+        fun updateMyLedgerEntry() {
+            val headerView: View = navigationView.getHeaderView(0)
+            val loggedInAsText: TextView = headerView.findViewById(R.id.nav_username)
+            loggedInAsText.text = "Not logged in"
+            loggedInAsText2.text = "Not logged in"
         }
 
     }

@@ -103,7 +103,6 @@ class Ledger {
                 val existingBlockWithSameUsername = availableDevices.find { it.userName == newBlock.userName }
                 if (existingBlockWithSameUsername != null && !LedgerEntry.isEqual(existingBlockWithSameUsername, newBlock)) {
                     availableDevices.remove(existingBlockWithSameUsername)
-                    // TODO: All users should be warned that the user has been updated
                     if (existingBlockWithSameUsername == myLedgerEntry) {
                         handleLosingUsername()
                     } else {
@@ -178,6 +177,7 @@ class Ledger {
             Log.d(TAG, "Your ledger entry has been overwritten due to username conflict.")
             val context = App.getAppContext()
             Handler(Looper.getMainLooper()).post {
+                MainActivity.updateMyLedgerEntry()
                 Toast.makeText(
                     context,
                     "Someone with valid certificate has claimed your username. Please register again.",

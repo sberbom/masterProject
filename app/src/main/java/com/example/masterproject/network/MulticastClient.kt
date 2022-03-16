@@ -66,6 +66,7 @@ class MulticastClient  {
         }
 
         suspend fun requestLedger(nonce: Int) {
+            Log.d(TAG, "REQUEST_LEDGER $nonce")
             val message = MulticastPacket("", "", BroadcastMessageTypes.REQUEST_LEDGER.toString(), "", nonce)
             return withContext(Dispatchers.IO) {
                 sendMulticastData(listOf(message.toString()))
@@ -117,8 +118,7 @@ class MulticastClient  {
             }
         }
 
-        suspend fun requestSpecificHash(hash: String, from: String) {
-            val nonce = MISCUtils.generateNonce()
+        suspend fun requestSpecificHash(hash: String, from: String, nonce: Int) {
             val message = MulticastPacket("", "$from:$hash", BroadcastMessageTypes.REQUEST_SPECIFIC_LEDGER.toString(), "", nonce)
             return withContext(Dispatchers.IO) {
                 sendMulticastData(listOf(message.toString()))

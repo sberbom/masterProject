@@ -77,8 +77,15 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
     }
 
     fun fullLedgerReceived(multicastPacket: MulticastPacket) {
-        if (userHasAlreadyResponded(multicastPacket, null, hashes.toList(), receivedLedgers.toList())) return
+        val user = getSenderBlock(null, multicastPacket)
+        // If user has already sent full ledger, there is no need to handle packet
+        if (user != null && receivedLedgers.map { PKIUtils.certificateToString(it.senderBlock.certificate) }.contains(PKIUtils.certificateToString(user.certificate))) return
         val receivedLedger: ReceivedLedger = handleLedgerFragment(multicastPacket) ?: return
+        val receivedHashOfSender = hashes.find { PKIUtils.certificateToString(it.senderBlock.certificate) == PKIUtils.certificateToString(receivedLedger.senderBlock.certificate) }
+        if (receivedHashOfSender != null) {
+            hashes.remove(receivedHashOfSender)
+            receivedLedgers.add(receivedLedger)
+        }
         Log.d(TAG, "FULL_LEDGER ${multicastPacket.nonce}")
         if(!Ledger.ledgerIsValid(receivedLedger.ledger)) return
         if (receivedLedger.hash == acceptedHash) {
@@ -227,7 +234,8 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
             handleAcceptedLedger(acceptedLedger)
         } else {
             acceptedHash = hashOfAcceptedLedger
-            requestLedgerOfCorrectHash(hashOfAcceptedLedger)
+            // If the accepted hash is the same is the hash of my ledger, I have the correct ledger and do not need to do anything
+            if (acceptedHash == Ledger.getHashOfStoredLedger()) return
             // 0 if my registration, if not random time divided in 20 steps from 200 ms until 1000 seconds
             val waitToRequest = if (isMyRegistration) 0 else 200 + nextInt(20) * 40
             if(!requestLedgerOfAcceptedHashTimerIsActive) {
@@ -248,7 +256,7 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
     }
 
     private fun handleAcceptedLedger(acceptedLedger: ReceivedLedger) {
-        Log.d(TAG, "ACCEPTED_LEDGER $nonce ${acceptedLedger.ledger.size}")
+        Log.d(TAG, "ACCEPTED_LEDGER $nonce ${acceptedLedger.ledger.map { it.userName }.toSet().size}")
         acceptedLedger.ledger.forEach { Ledger.addLedgerEntry(it) }
         startRegistration()
     }
@@ -261,7 +269,8 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
         GlobalScope.launch(Dispatchers.IO) {
             MulticastClient.requestSpecificHash(
                 hashOfAcceptedLedger,
-                sentCorrectHash
+                sentCorrectHash,
+                nonce
             )
         }
     }
@@ -275,6 +284,7 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
 
     fun hashOfLedgerReceived(senderBlock: LedgerEntry, hash: String) {
         if (userHasAlreadyResponded(null, senderBlock, hashes.toList(), receivedLedgers.toList())) return
+        Log.d(TAG, "Received hash from ${senderBlock.userName}: $hash")
         addHash(senderBlock, hash)
     }
 

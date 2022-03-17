@@ -94,9 +94,7 @@ class MulticastServer: Service() {
         Log.d(TAG, "Received request for ledger with nonce: ${multicastPacket.nonce}.")
         // must be a copy of the real list
         val fullLedger = Ledger.availableDevices.toList()
-        Log.d(TAG, "$fullLedger")
-        val myBlock = Ledger.myLedgerEntry
-        Log.d(TAG, "$myBlock")
+        val myBlock = Ledger.myLedgerEntry?.copy()
         if (fullLedger.isNotEmpty() && myBlock != null) {
             GlobalScope.launch (Dispatchers.IO) {
                 if (Ledger.shouldSendFullLedger()) {

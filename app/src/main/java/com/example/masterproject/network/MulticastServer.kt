@@ -143,7 +143,6 @@ class MulticastServer: Service() {
         val registrationHandler = registrationHandlers[multicastPacket.nonce] ?: return
         val senderBlock = LedgerEntry.parseString(multicastPacket.sender)
         if (senderBlock.userName == Ledger.myLedgerEntry?.userName) return
-        Log.d(TAG, "Received hash from ${senderBlock.userName}: ${multicastPacket.payload}")
         val publicKey = senderBlock.certificate.publicKey ?: throw Exception("Can not handle full ledger - Could not find public key for user")
         val isValidSignature = PKIUtils.verifySignature(multicastPacket.payload, multicastPacket.signature, publicKey, multicastPacket.nonce)
         if (isValidSignature) {

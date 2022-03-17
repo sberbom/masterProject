@@ -89,14 +89,15 @@ class MulticastServer: Service() {
     }
 
     private fun handleRequestedLedger(multicastPacket: MulticastPacket) {
-        if (!shouldHandleRequests || registrationHandlers[multicastPacket.nonce] != null || finishedRegistrationProcesses.contains(multicastPacket.nonce)) return
-        val registrationHandler = RegistrationHandler(this, multicastPacket.nonce, false);
-        registrationHandlers[multicastPacket.nonce] = registrationHandler
+        if (!shouldHandleRequests) return
+        val registrationHandler = startRegistrationProcess(multicastPacket.nonce, false) ?: return
         // if I started the registration, I will not send anything
         Log.d(TAG, "Received request for ledger with nonce: ${multicastPacket.nonce}.")
         // must be a copy of the real list
         val fullLedger = Ledger.availableDevices.toList()
+        Log.d(TAG, "$fullLedger")
         val myBlock = Ledger.myLedgerEntry
+        Log.d(TAG, "$myBlock")
         if (fullLedger.isNotEmpty() && myBlock != null) {
             GlobalScope.launch (Dispatchers.IO) {
                 if (Ledger.shouldSendFullLedger()) {
@@ -176,6 +177,16 @@ class MulticastServer: Service() {
         }
     }
 
+    fun startRegistrationProcess(nonce: Int, isMyRegistration: Boolean): RegistrationHandler? {
+        if (!finishedRegistrationProcesses.contains(nonce) && registrationHandlers[nonce] == null) {
+            val registrationHandler = RegistrationHandler(this, nonce, isMyRegistration)
+            registrationHandler.startTimers()
+            registrationHandlers[nonce] = registrationHandler
+            return registrationHandler
+        }
+        return null
+    }
+
     fun registrationProcessFinished(nonce: Int) {
         if (registrationHandlers[nonce] != null) {
             Log.d(TAG, "Registration process finished: $nonce")
@@ -217,7 +228,7 @@ class MulticastServer: Service() {
                 Ledger.clearLedger()
                 val nonce = MISCUtils.generateNonce()
                 if (isWifi) {
-                    server.registrationHandlers[nonce] = RegistrationHandler(server, nonce, true)
+                    server.startRegistrationProcess(nonce, true)
                     GlobalScope.launch(Dispatchers.IO) {
                         MulticastClient.requestLedger(nonce)
                     }

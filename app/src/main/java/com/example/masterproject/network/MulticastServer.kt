@@ -88,12 +88,11 @@ class MulticastServer: Service() {
         }
     }
 
-    // TODO: Should not send hash if there are CA-certified and you are not one of them
     private fun handleRequestedLedger(multicastPacket: MulticastPacket) {
-        if (!shouldHandleRequests || registrationHandlers[multicastPacket.nonce] != null) return
-        val registrationHandler = startRegistrationProcess(multicastPacket.nonce, false) ?: return
+        if (!shouldHandleRequests || registrationHandlers[multicastPacket.nonce] != null || finishedRegistrationProcesses.contains(multicastPacket.nonce)) return
+        val registrationHandler = RegistrationHandler(this, multicastPacket.nonce, false);
+        registrationHandlers[multicastPacket.nonce] = registrationHandler
         // if I started the registration, I will not send anything
-        if (registrationHandler.isMyRegistration) return
         Log.d(TAG, "Received request for ledger with nonce: ${multicastPacket.nonce}.")
         // must be a copy of the real list
         val fullLedger = Ledger.availableDevices.toList()
@@ -120,6 +119,7 @@ class MulticastServer: Service() {
     private fun handleSpecificLedgerRequest(multicastPacket: MulticastPacket) {
         val payloadArray = multicastPacket.payload.split(":")
         if (payloadArray.size > 1) {
+            if (registrationHandlers[multicastPacket.nonce] == null) return
             val usernameToReply = payloadArray[0]
             val hash = payloadArray[1]
             Log.d(TAG, "Received request for $usernameToReply to send ledger with hash $hash")
@@ -134,12 +134,12 @@ class MulticastServer: Service() {
     private fun handleFullLedger(multicastPacket: MulticastPacket) {
         if ((multicastPacket.sequenceNumber == 0 && multicastPacket.sender == Ledger.myLedgerEntry?.toString()) ||
             (multicastPacket.sequenceNumber > 0 && multicastPacket.sender == Ledger.myLedgerEntry?.userName)) return
-        val registrationHandler = startRegistrationProcess(multicastPacket.nonce, false) ?: return
+        val registrationHandler = registrationHandlers[multicastPacket.nonce] ?: return
         registrationHandler.fullLedgerReceived(multicastPacket)
     }
 
     private fun handleHash(multicastPacket: MulticastPacket) {
-        val registrationHandler = startRegistrationProcess(multicastPacket.nonce, false) ?: return
+        val registrationHandler = registrationHandlers[multicastPacket.nonce] ?: return
         val senderBlock = LedgerEntry.parseString(multicastPacket.sender)
         if (senderBlock.userName == Ledger.myLedgerEntry?.userName) return
         Log.d(TAG, "Received hash from ${senderBlock.userName}: ${multicastPacket.payload}")
@@ -176,19 +176,6 @@ class MulticastServer: Service() {
         }
     }
 
-    fun startRegistrationProcess(nonce: Int, isMyRegistration: Boolean): RegistrationHandler? {
-        if(!finishedRegistrationProcesses.contains(nonce)) {
-            val existingRegistrationHandler = registrationHandlers[nonce]
-            if (existingRegistrationHandler != null) return existingRegistrationHandler
-            Log.d(TAG, "Registration process started with nonce: $nonce")
-            val registrationHandler = RegistrationHandler(this, nonce, isMyRegistration)
-            registrationHandlers[nonce] = registrationHandler
-            registrationHandler.startTimers()
-            return registrationHandler
-        }
-        return null
-    }
-
     fun registrationProcessFinished(nonce: Int) {
         if (registrationHandlers[nonce] != null) {
             Log.d(TAG, "Registration process finished: $nonce")
@@ -223,12 +210,17 @@ class MulticastServer: Service() {
         override fun onCapabilitiesChanged(network: Network, networkCapabilities: NetworkCapabilities) {
             val isWifi = networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)
             if (server.currentNetwork != network) {
+                // When joining a new network, information from the previous network should be reset
+                server.registrationHandlers.clear()
+                server.finishedRegistrationProcesses.clear()
                 server.currentNetwork = network
                 Ledger.clearLedger()
                 val nonce = MISCUtils.generateNonce()
-                if (isWifi) server.startRegistrationProcess(nonce, true)
-                GlobalScope.launch(Dispatchers.IO) {
-                    MulticastClient.requestLedger(nonce)
+                if (isWifi) {
+                    server.registrationHandlers[nonce] = RegistrationHandler(server, nonce, true)
+                    GlobalScope.launch(Dispatchers.IO) {
+                        MulticastClient.requestLedger(nonce)
+                    }
                 }
             }
         }

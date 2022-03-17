@@ -63,7 +63,6 @@ class MulticastServer: Service() {
                                 BroadcastMessageTypes.IP_CHANGED.toString() -> handleIpChanged(multicastPacket)
                                 else -> Log.d(TAG, "Received unknown message type.")
                             }
-
                         }
                 } catch (e: Exception) {
                     e.printStackTrace()
@@ -95,9 +94,7 @@ class MulticastServer: Service() {
         Log.d(TAG, "Received request for ledger with nonce: ${multicastPacket.nonce}.")
         // must be a copy of the real list
         val fullLedger = Ledger.availableDevices.toList()
-        Log.d(TAG, "$fullLedger")
-        val myBlock = Ledger.myLedgerEntry
-        Log.d(TAG, "$myBlock")
+        val myBlock = Ledger.myLedgerEntry?.copy()
         if (fullLedger.isNotEmpty() && myBlock != null) {
             GlobalScope.launch (Dispatchers.IO) {
                 if (Ledger.shouldSendFullLedger()) {
@@ -120,7 +117,6 @@ class MulticastServer: Service() {
     private fun handleSpecificLedgerRequest(multicastPacket: MulticastPacket) {
         val payloadArray = multicastPacket.payload.split(":")
         if (payloadArray.size > 1) {
-            if (registrationHandlers[multicastPacket.nonce] == null) return
             val usernameToReply = payloadArray[0]
             val hash = payloadArray[1]
             Log.d(TAG, "Received request for $usernameToReply to send ledger with hash $hash")
@@ -177,7 +173,8 @@ class MulticastServer: Service() {
     }
 
     fun startRegistrationProcess(nonce: Int, isMyRegistration: Boolean): RegistrationHandler? {
-        if (!finishedRegistrationProcesses.contains(nonce) && registrationHandlers[nonce] == null) {
+        if (!finishedRegistrationProcesses.contains(nonce) && !registrationHandlers.containsKey(nonce)) {
+            Log.d(TAG, "Registration process started with nonce $nonce")
             val registrationHandler = RegistrationHandler(this, nonce, isMyRegistration)
             registrationHandler.startTimers()
             registrationHandlers[nonce] = registrationHandler

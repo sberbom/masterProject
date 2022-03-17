@@ -31,6 +31,10 @@ data class LedgerEntry(
         return ipAddress
     }
 
+    fun copy(): LedgerEntry {
+        return LedgerEntry(certificate, userName, ipAddress)
+    }
+
     companion object {
         private const val TAG = "LedgerEntry"
 

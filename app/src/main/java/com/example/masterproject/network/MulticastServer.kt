@@ -175,7 +175,8 @@ class MulticastServer: Service() {
     }
 
     fun startRegistrationProcess(nonce: Int, isMyRegistration: Boolean): RegistrationHandler? {
-        if (!finishedRegistrationProcesses.contains(nonce) && registrationHandlers.containsKey(nonce)) {
+        if (!finishedRegistrationProcesses.contains(nonce) && !registrationHandlers.containsKey(nonce)) {
+            Log.d(TAG, "Registration process started with nonce $nonce")
             val registrationHandler = RegistrationHandler(this, nonce, isMyRegistration)
             registrationHandler.startTimers()
             registrationHandlers[nonce] = registrationHandler

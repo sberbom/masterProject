@@ -84,7 +84,11 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
         // If the received ledger is the ledger with the accepted hash, accept it
         if (receivedLedger.hash == acceptedHash) {
             Log.d(TAG, "$nonce Received ledger of accepted hash from ${user?.userName}")
+            requestLedgerOfAcceptedHashTimer.cancel()
+            requestLedgerOfAcceptedHashTimerCancelled = true
+            requestLedgerOfAcceptedHashTimerIsActive = false
             handleAcceptedLedger(receivedLedger)
+            return
         }
         // If the you have previously received a hash from the user that sent the ledger, remove the hash and store the ledger
         // as this is probably a ledger that has been accepted by someone else and will therefore also be accepted by you
@@ -96,13 +100,6 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
         Log.d(TAG, "Received full ledger from ${receivedLedger.senderBlock.userName} with nonce ${multicastPacket.nonce}")
         Log.d(TAG, "FULL_LEDGER ${multicastPacket.nonce}")
         if(!Ledger.ledgerIsValid(receivedLedger.ledger)) return
-        if (receivedLedger.hash == acceptedHash) {
-            requestLedgerOfAcceptedHashTimer.cancel()
-            requestLedgerOfAcceptedHashTimerCancelled = true
-            requestLedgerOfAcceptedHashTimerIsActive = false
-            handleAcceptedLedger(receivedLedger)
-            return
-        }
         if (receivedLedgers.map { it.hash }.contains(receivedLedger.hash)) {
             addHash(receivedLedger.senderBlock, receivedLedger.hash)
         } else {

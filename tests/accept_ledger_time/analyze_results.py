@@ -1,26 +1,12 @@
 from datetime import datetime
 from statistics import mean
-"""
+
 log_device_1 = open("non_ca_signed/log_device1.txt", "r")
 log_device_2 = open("non_ca_signed/log_device2.txt", "r")
 log_device_3 = open("non_ca_signed/log_device3.txt", "r")
 log_device_4 = open("non_ca_signed/log_device4.txt", "r")
 log_device_5 = open("non_ca_signed/log_device5.txt", "r")
 log_device_6 = open("non_ca_signed/log_device6.txt", "r")
-"""
-
-log_device_1 = open("log_device1.txt", "r")
-log_device_2 = open("log_device2.txt", "r")
-log_device_3 = open("log_device3.txt", "r")
-log_device_4 = open("log_device4.txt", "r")
-log_device_5 = open("log_device5.txt", "r")
-log_device_6 = open("log_device6.txt", "r")
-
-
-"""
-TODO: This does not see if the a ledger is accepted as the result of an accepted hash and a request
-for the ledger of that hash.
-"""
 
 
 # Maps the index of a device, to a dictionary mapping the round number to the time it took to

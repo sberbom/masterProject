@@ -81,6 +81,10 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
         // If user has already sent full ledger, there is no need to handle packet
         if (user != null && receivedLedgers.map { PKIUtils.certificateToString(it.senderBlock.certificate) }.contains(PKIUtils.certificateToString(user.certificate))) return
         val receivedLedger: ReceivedLedger = handleLedgerFragment(multicastPacket) ?: return
+        // If the received ledger is the ledger with the accepted hash, accept it
+        if (receivedLedger.hash == acceptedHash) handleAcceptedLedger(receivedLedger)
+        // If the you have previously received a hash from the user that sent the ledger, remove the hash and store the ledger
+        // as this is probably a ledger that has been accepted by someone else and will therefore also be accepted by you
         val receivedHashOfSender = hashes.find { PKIUtils.certificateToString(it.senderBlock.certificate) == PKIUtils.certificateToString(receivedLedger.senderBlock.certificate) }
         if (receivedHashOfSender != null) {
             hashes.remove(receivedHashOfSender)

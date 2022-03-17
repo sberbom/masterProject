@@ -9,12 +9,12 @@ log_device_5 = open("non_ca_signed/log_device5.txt", "r")
 log_device_6 = open("non_ca_signed/log_device6.txt", "r")
 """
 
-log_device_1 = open("non_ca_signed/log_device1.txt", "r")
-log_device_2 = open("non_ca_signed/log_device2.txt", "r")
-log_device_3 = open("non_ca_signed/log_device3.txt", "r")
-log_device_4 = open("non_ca_signed/log_device4.txt", "r")
-log_device_5 = open("non_ca_signed/log_device5.txt", "r")
-log_device_6 = open("non_ca_signed/log_device6.txt", "r")
+log_device_1 = open("log_device1.txt", "r")
+log_device_2 = open("log_device2.txt", "r")
+log_device_3 = open("log_device3.txt", "r")
+log_device_4 = open("log_device4.txt", "r")
+log_device_5 = open("log_device5.txt", "r")
+log_device_6 = open("log_device6.txt", "r")
 
 
 """
@@ -66,7 +66,7 @@ def search_file(index):
   rounds_checked[index] = []
   incorrect_ledgers[index] = []
   rounds_with_missing_ledger[index] = []
-  current_round_number = 0
+  current_round_number = -1
   for line in log_device:
     line_list = line.split(" ")
     filtered_line_list = list(filter(lambda el: el != "", line_list))
@@ -79,7 +79,7 @@ def search_file(index):
     # If this is the first line of this round...
     elif "round" == filtered_line_list[0]:
       # ... and a ledger was not accepted last round...
-      if current_round_number not in rounds_checked[index] and current_round_number != 0:
+      if current_round_number not in rounds_checked[index] and current_round_number != -1:
         #... we update the number of ledgers missed
         ledgers_missing[index] += 1
         rounds_with_missing_ledger[index].append(current_round_number)

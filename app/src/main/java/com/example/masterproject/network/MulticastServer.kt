@@ -63,7 +63,6 @@ class MulticastServer: Service() {
                                 BroadcastMessageTypes.IP_CHANGED.toString() -> handleIpChanged(multicastPacket)
                                 else -> Log.d(TAG, "Received unknown message type.")
                             }
-
                         }
                 } catch (e: Exception) {
                     e.printStackTrace()
@@ -120,7 +119,6 @@ class MulticastServer: Service() {
     private fun handleSpecificLedgerRequest(multicastPacket: MulticastPacket) {
         val payloadArray = multicastPacket.payload.split(":")
         if (payloadArray.size > 1) {
-            if (registrationHandlers[multicastPacket.nonce] == null) return
             val usernameToReply = payloadArray[0]
             val hash = payloadArray[1]
             Log.d(TAG, "Received request for $usernameToReply to send ledger with hash $hash")
@@ -177,7 +175,7 @@ class MulticastServer: Service() {
     }
 
     fun startRegistrationProcess(nonce: Int, isMyRegistration: Boolean): RegistrationHandler? {
-        if (!finishedRegistrationProcesses.contains(nonce) && registrationHandlers[nonce] == null) {
+        if (!finishedRegistrationProcesses.contains(nonce) && registrationHandlers.containsKey(nonce)) {
             val registrationHandler = RegistrationHandler(this, nonce, isMyRegistration)
             registrationHandler.startTimers()
             registrationHandlers[nonce] = registrationHandler

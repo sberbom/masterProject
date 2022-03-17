@@ -1,0 +1,126 @@
+Number of rounds: 3
+--------- beginning of system
+--------- beginning of main
+round 1 of 3
+03-17 13:04:52.602  8955  9669 D MulticastServer: MULTICAST_SERVER_LISTENING
+03-17 13:04:52.614  8955  9675 D MulticastClient: REQUEST_LEDGER 1302289179
+03-17 13:04:52.617  8955  9675 D MulticastClient: Sent messages: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1302289179,"seq":0,"tot":0}]
+03-17 13:04:52.928  8955  9680 D RegistrationHandler: 1302289179 Received hash from 4@test.com: 6d8d07807216bbdc7bb98965843ab58cabc87e3c05d9ea7402f5bdc57aea2d8b
+03-17 13:05:02.639  8955  9674 D RegistrationHandler: 1302289179 Accepted hash from 4@test.com: 6d8d07807216bbdc7bb98965843ab58cabc87e3c05d9ea7402f5bdc57aea2d8b
+03-17 13:05:02.644  8955  9680 D MulticastClient: Sent messages: [{"sender":"","payload":"4@test.com:6d8d07807216bbdc7bb98965843ab58cabc87e3c05d9ea7402f5bdc57aea2d8b","mt":"REQUEST_SPECIFIC_LEDGER","sig":"","nonce":1302289179,"seq":0,"tot":0}]
+03-17 13:05:02.646  8955  9688 D MulticastServer: Received request for 4@test.com to send ledger with hash 6d8d07807216bbdc7bb98965843ab58cabc87e3c05d9ea7402f5bdc57aea2d8b
+03-17 13:05:03.052  8955  9688 D MulticastServer: Received request for 4@test.com to send ledger with hash 6d8d07807216bbdc7bb98965843ab58cabc87e3c05d9ea7402f5bdc57aea2d8b
+03-17 13:05:03.140  8955  9674 D RegistrationHandler: 1302289179 Accepted hash from 4@test.com: 6d8d07807216bbdc7bb98965843ab58cabc87e3c05d9ea7402f5bdc57aea2d8b
+03-17 13:05:03.145  8955  9688 D MulticastClient: Sent messages: [{"sender":"","payload":"4@test.com:6d8d07807216bbdc7bb98965843ab58cabc87e3c05d9ea7402f5bdc57aea2d8b","mt":"REQUEST_SPECIFIC_LEDGER","sig":"","nonce":1302289179,"seq":0,"tot":0}]
+03-17 13:05:03.149  8955  9675 D MulticastServer: Received request for 4@test.com to send ledger with hash 6d8d07807216bbdc7bb98965843ab58cabc87e3c05d9ea7402f5bdc57aea2d8b
+03-17 13:05:03.334  8955  9677 D RegistrationHandler: 1302289179 Received ledger of accepted hash from 4@test.com
+03-17 13:05:03.335  8955  9687 D RegistrationHandler: 1302289179 Received ledger of accepted hash from null
+03-17 13:05:03.335  8955  9675 D RegistrationHandler: 1302289179 Received ledger of accepted hash from 4@test.com
+03-17 13:05:03.335  8955  9677 D RegistrationHandler: ACCEPTED_LEDGER 1302289179 4
+03-17 13:05:03.336  8955  9675 D RegistrationHandler: ACCEPTED_LEDGER 1302289179 4
+03-17 13:05:03.336  8955  9687 D RegistrationHandler: ACCEPTED_LEDGER 1302289179 4
+03-17 13:05:03.338  8955  9677 D RegistrationHandler: 1302289179 The accepted ledger contains: [1@test.com, 4@test.com, 5@test.com, 6@test.com]
+03-17 13:05:03.338  8955  9677 D RegistrationHandler: 1302289179 Registration started
+03-17 13:05:03.341  8955  9678 D RegistrationHandler: 1302289179 Received ledger of accepted hash from 4@test.com
+03-17 13:05:03.342  8955  9678 D RegistrationHandler: ACCEPTED_LEDGER 1302289179 4
+03-17 13:05:03.343  8955  9677 D MulticastServer: Registration process finished: 1302289179
+03-17 13:05:03.343  8955  9677 D RegistrationHandler: Received full ledger from 4@test.com with nonce 1302289179
+03-17 13:05:03.343  8955  9677 D RegistrationHandler: FULL_LEDGER 1302289179
+03-17 13:05:03.343  8955  9677 D RegistrationHandler: ACCEPTED_LEDGER 1302289179 4
+03-17 13:05:03.345  8955  9677 D RegistrationHandler: 1302289179 The accepted ledger contains: [1@test.com, 4@test.com, 5@test.com, 6@test.com]
+03-17 13:05:03.345  8955  9687 D RegistrationHandler: 1302289179 The accepted ledger contains: [1@test.com, 4@test.com, 5@test.com, 6@test.com]
+03-17 13:05:03.345  8955  9687 D RegistrationHandler: Received full ledger from 4@test.com with nonce 1302289179
+03-17 13:05:03.345  8955  9687 D RegistrationHandler: FULL_LEDGER 1302289179
+03-17 13:05:03.345  8955  9687 D RegistrationHandler: ACCEPTED_LEDGER 1302289179 4
+03-17 13:05:03.346  8955  9793 D MulticastClient: Sent messages: [{"sender":"3@test.com","payload":"{\"ip\":\"192.168.1.96\",\"cert\":\"MIIBGzCBwqADAgECAgYBf5LiwL8wCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKM0B0ZXN0LmNvbTAeFw0yMjAzMTUxMzIwMDhaFw0yNDAzMTYxMzIwMDhaMBUxEzARBgNVBAMMCjNAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAASVCbfTenGFrkV9EIzy1bj8oa9Kure0STvEaqW08piH20aw3fmYZgxXkpSqhmqcMv5bQ1Q7k2Owa5TUgUt5pf9QMAoGCCqGSM49BAMCA0gAMEUCICG\/Ut+mqCXXju+5r5KDo0B+pu+YksxTTzSLgyUZSTRUAiEAlwZEGNVmCgZ+irOjElk8DvNZcTI0AqLoFjB0QLBClB8=\"}","mt":"BROADCAST_BLOCK","sig":"MEYCIQD7mxWtM3uwILqEtv1uHmC+4dBrWaM+sigDVIaD7BFBiQIhAMu5e7WqtYtblYfDvEF3miLkZ43x3tXvA2pwPXio\/pkb","nonce":1302289179,"seq":0,"tot":0}]
+03-17 13:05:03.348  8955  9678 D RegistrationHandler: 1302289179 The accepted ledger contains: [1@test.com, 4@test.com, 5@test.com, 6@test.com]
+03-17 13:05:03.348  8955  9678 D RegistrationHandler: Received full ledger from 4@test.com with nonce 1302289179
+03-17 13:05:03.348  8955  9678 D RegistrationHandler: FULL_LEDGER 1302289179
+03-17 13:05:03.348  8955  9678 D RegistrationHandler: ACCEPTED_LEDGER 1302289179 4
+03-17 13:05:03.350  8955  9678 D RegistrationHandler: 1302289179 The accepted ledger contains: [1@test.com, 4@test.com, 5@test.com, 6@test.com]
+03-17 13:05:03.350  8955  9687 D RegistrationHandler: 1302289179 The accepted ledger contains: [1@test.com, 4@test.com, 5@test.com, 6@test.com]
+03-17 13:05:03.352  8955  9679 D RegistrationHandler: 1302289179 Received ledger of accepted hash from 4@test.com
+03-17 13:05:03.353  8955  9679 D RegistrationHandler: ACCEPTED_LEDGER 1302289179 4
+03-17 13:05:03.354  8955  9679 D RegistrationHandler: 1302289179 The accepted ledger contains: [1@test.com, 4@test.com, 5@test.com, 6@test.com]
+03-17 13:05:03.354  8955  9679 D RegistrationHandler: Received full ledger from 4@test.com with nonce 1302289179
+03-17 13:05:03.355  8955  9679 D RegistrationHandler: FULL_LEDGER 1302289179
+03-17 13:05:03.355  8955  9679 D RegistrationHandler: ACCEPTED_LEDGER 1302289179 4
+03-17 13:05:03.356  8955  9679 D RegistrationHandler: 1302289179 The accepted ledger contains: [1@test.com, 4@test.com, 5@test.com, 6@test.com]
+--------- beginning of crash
+round 2 of 3
+03-17 13:06:47.268  9426  9934 D MulticastServer: MULTICAST_SERVER_LISTENING
+03-17 13:06:47.277  9426  9935 D MulticastClient: REQUEST_LEDGER 1006100466
+03-17 13:06:47.281  9426  9935 D MulticastClient: Sent messages: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1006100466,"seq":0,"tot":0}]
+03-17 13:06:47.526  9426  9941 D RegistrationHandler: 1006100466 Received hash from 4@test.com: 6d8d07807216bbdc7bb98965843ab58cabc87e3c05d9ea7402f5bdc57aea2d8b
+03-17 13:06:47.817  9426  9941 D RegistrationHandler: 1006100466 Received hash from 1@test.com: 6d8d07807216bbdc7bb98965843ab58cabc87e3c05d9ea7402f5bdc57aea2d8b
+03-17 13:06:47.856  9426  9941 D RegistrationHandler: Received full ledger from 6@test.com with nonce 1006100466
+03-17 13:06:47.856  9426  9941 D RegistrationHandler: FULL_LEDGER 1006100466
+03-17 13:06:47.859  9426  9949 D RegistrationHandler: Received full ledger from 6@test.com with nonce 1006100466
+03-17 13:06:47.859  9426  9949 D RegistrationHandler: FULL_LEDGER 1006100466
+03-17 13:06:48.291  9426  9941 D RegistrationHandler: Received full ledger from 6@test.com with nonce 1006100466
+03-17 13:06:48.291  9426  9941 D RegistrationHandler: FULL_LEDGER 1006100466
+03-17 13:06:48.362  9426  9941 D RegistrationHandler: Received full ledger from 5@test.com with nonce 1006100466
+03-17 13:06:48.362  9426  9941 D RegistrationHandler: FULL_LEDGER 1006100466
+03-17 13:06:48.376  9426  9952 D RegistrationHandler: Received full ledger from 5@test.com with nonce 1006100466
+03-17 13:06:48.376  9426  9949 D RegistrationHandler: Received full ledger from 5@test.com with nonce 1006100466
+03-17 13:06:48.376  9426  9952 D RegistrationHandler: FULL_LEDGER 1006100466
+03-17 13:06:48.376  9426  9949 D RegistrationHandler: FULL_LEDGER 1006100466
+03-17 13:06:57.281  9426  9937 D RegistrationHandler: ACCEPTED_LEDGER 1006100466 4
+03-17 13:06:57.287  9426  9937 D RegistrationHandler: 1006100466 The accepted ledger contains: [1@test.com, 4@test.com, 5@test.com, 6@test.com]
+03-17 13:06:57.287  9426  9937 D RegistrationHandler: 1006100466 Registration started
+03-17 13:06:57.295  9426  9937 D MulticastServer: Registration process finished: 1006100466
+03-17 13:06:57.300  9426  9952 D MulticastClient: Sent messages: [{"sender":"3@test.com","payload":"{\"ip\":\"192.168.1.96\",\"cert\":\"MIIBGzCBwqADAgECAgYBf5LiwL8wCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKM0B0ZXN0LmNvbTAeFw0yMjAzMTUxMzIwMDhaFw0yNDAzMTYxMzIwMDhaMBUxEzARBgNVBAMMCjNAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAASVCbfTenGFrkV9EIzy1bj8oa9Kure0STvEaqW08piH20aw3fmYZgxXkpSqhmqcMv5bQ1Q7k2Owa5TUgUt5pf9QMAoGCCqGSM49BAMCA0gAMEUCICG\/Ut+mqCXXju+5r5KDo0B+pu+YksxTTzSLgyUZSTRUAiEAlwZEGNVmCgZ+irOjElk8DvNZcTI0AqLoFjB0QLBClB8=\"}","mt":"BROADCAST_BLOCK","sig":"MEUCIH6zVtPQuwB77Rv2U6VyHDTAUDPbu3kpuZZtGYmOIYyeAiEA5cIcevDbzcG7qz9yJKPlvGbwNHQ8WDswkYZOm2JKBqg=","nonce":1006100466,"seq":0,"tot":0}]
+03-17 13:07:06.866  9426  9941 D MulticastServer: Received request for ledger with nonce: 684812802.
+03-17 13:07:06.867  9426  9941 D MulticastServer: [{"ip":"192.168.1.126","cert":"MIIBHDCBwqADAgECAgYBf5LhKoUwCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKMUB0ZXN0LmNvbTAeFw0yMjAzMTUxMzE4MjRaFw0yNDAzMTYxMzE4MjRaMBUxEzARBgNVBAMMCjFAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARygid4IUjQcO5q061zUYi/H7lvnalm9LjGvCXUiUKNjFkRZCQQHkQr3g5NSREvlv8eDTjoMpzkwAR2X7BGjdlzMAoGCCqGSM49BAMCA0kAMEYCIQCiHMll2QZaqlteytfUXQC9N+f0vW3g05QfhOXX51uZkQIhAOqRAe/npOy8z8s0m0jcslsGFJ4m0z8mdDgpGZNaRRtS"}, {"ip":"192.168.1.96","cert":"MIIBGzCBwqADAgECAgYBf5LiwL8wCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKM0B0ZXN0LmNvbTAeFw0yMjAzMTUxMzIwMDhaFw0yNDAzMTYxMzIwMDhaMBUxEzARBgNVBAMMCjNAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAASVCbfTenGFrkV9EIzy1bj8oa9Kure0STvEaqW08piH20aw3fmYZgxXkpSqhmqcMv5bQ1Q7k2Owa5TUgUt5pf9QMAoGCCqGSM49BAMCA0gAMEUCICG/Ut+mqCXXju+5r5KDo0B+pu+YksxTTzSLgyUZSTRUAiEAlwZEGNVmCgZ+irOjElk8DvNZcTI0AqLoFjB0QLBClB8="}, {"ip":"192.168.1.102","cert":"MIIBHDCBwqADAgECAgYBf5LjjlwwCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKNEB0ZXN0LmNvbTAeFw0yMjAzMTUxMzIxMDBaFw0yNDAzMTYxMzIxMDBaMBUxEzARBgNVBAMMCjRAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAASSliUweWkBcg8dWJcPaZ4t+tliwMepoSM+VwpX6w8yGTWjTlICGhj5SdoTv4ekjnO3/l6v7gLDegapmtwYeG/3MAoGCCqGSM49BAMCA0kAMEYCIQDK7lH7afWvwtTqc/4/4Hgwk5maPvIqyqRaQ8+tb958ggIhAJVeNWTe06qpdnlqQbbihOtTcnnwBkJo3G7r/k/zCIAh"}, {"ip":"192.168.1.97","cert":"MIIBHDCBwqADAgECAgYBf5Ll+aQwCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKNUB0ZXN0LmNvbTAeFw0yMjAzMTUxMzIzMzlaFw0yNDAzMTYxMzIzMzlaMBUxEzARBgNVBAMMCjVAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAS9OhThI4D6g/iEXxfGklrIeXd9Z0M+diiJ9ljAgsIg42aeRti+qPdLXU1/D9cRSqQkfwr3bPWV3oF684Iqni4MMAoGCCqGSM49BAMCA0kAMEYCIQDvSgAgKBB22Z/ooyqUg64EcQUigPLpb+EEue5bwGydWgIhAKus7fYnj5hLAUwnPrCw9vZZ/j2+Hst7+b4ASLL75Nl9"}, {"ip":"192.168.1.150","cert":"MIIBGjCBwqADAgECAgYBf5LodqIwCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKNkB0ZXN0LmNvbTAeFw0yMjAzMTUxMzI2MjJaFw0yNDAzMTYxMzI2MjJaMBUxEzARBgNVBAMMCjZAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARqJJy4N2hgpUaU+/pNPqTyqeLxd2bLD5idvvjxcZkR/FU1EnFaMuGevM+E2XKdeDvcPwZaMeY7BoVek0A5J4ptMAoGCCqGSM49BAMCA0cAMEQCIC911LrmrV6wiZsXHz7RPSc6/GC0XfjHHoimPU7mZSxOAiBPewX5RpN4CLq47U/AkxoxbBKiRfraRL4ACOYPjDKD7A=="}]
+03-17 13:07:06.867  9426  9941 D MulticastServer: {"ip":"192.168.1.96","cert":"MIIBGzCBwqADAgECAgYBf5LiwL8wCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKM0B0ZXN0LmNvbTAeFw0yMjAzMTUxMzIwMDhaFw0yNDAzMTYxMzIwMDhaMBUxEzARBgNVBAMMCjNAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAASVCbfTenGFrkV9EIzy1bj8oa9Kure0STvEaqW08piH20aw3fmYZgxXkpSqhmqcMv5bQ1Q7k2Owa5TUgUt5pf9QMAoGCCqGSM49BAMCA0gAMEUCICG/Ut+mqCXXju+5r5KDo0B+pu+YksxTTzSLgyUZSTRUAiEAlwZEGNVmCgZ+irOjElk8DvNZcTI0AqLoFjB0QLBClB8="}
+03-17 13:07:06.896  9426  9952 D RegistrationHandler: 684812802 Received hash from 3@test.com: 93fe4a08b23de93401800aadc9fc72f7c1a98a808dc4be8c7137f7c7f1df8662
+03-17 13:07:06.956  9426  9952 D MulticastClient: Sent messages: [{"sender":"{\"ip\":\"192.168.1.96\",\"cert\":\"MIIBGzCBwqADAgECAgYBf5LiwL8wCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKM0B0ZXN0LmNvbTAeFw0yMjAzMTUxMzIwMDhaFw0yNDAzMTYxMzIwMDhaMBUxEzARBgNVBAMMCjNAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAASVCbfTenGFrkV9EIzy1bj8oa9Kure0STvEaqW08piH20aw3fmYZgxXkpSqhmqcMv5bQ1Q7k2Owa5TUgUt5pf9QMAoGCCqGSM49BAMCA0gAMEUCICG\/Ut+mqCXXju+5r5KDo0B+pu+YksxTTzSLgyUZSTRUAiEAlwZEGNVmCgZ+irOjElk8DvNZcTI0AqLoFjB0QLBClB8=\"}","payload":"93fe4a08b23de93401800aadc9fc72f7c1a98a808dc4be8c7137f7c7f1df8662","mt":"LEDGER_HASH","sig":"MEUCIH\/0GVW0CmLimfmDSVrHLvdRe4oWKvBdgQ2hfhDAgRgNAiEAv1qshYvBb\/6QhZfmF2pAI\/KDfRX5nz2koMZJpY5uiLM=","nonce":684812802,"seq":0,"tot":0}]
+03-17 13:07:07.038  9426  9935 D RegistrationHandler: 684812802 Received hash from 4@test.com: 93fe4a08b23de93401800aadc9fc72f7c1a98a808dc4be8c7137f7c7f1df8662
+03-17 13:07:07.856  9426  9935 D RegistrationHandler: Received full ledger from 6@test.com with nonce 684812802
+03-17 13:07:07.856  9426  9935 D RegistrationHandler: FULL_LEDGER 684812802
+03-17 13:07:07.890  9426  9935 D RegistrationHandler: 684812802 Received hash from 1@test.com: 93fe4a08b23de93401800aadc9fc72f7c1a98a808dc4be8c7137f7c7f1df8662
+03-17 13:07:16.872  9426  9963 D RegistrationHandler: ACCEPTED_LEDGER 684812802 5
+03-17 13:07:16.881  9426  9963 D RegistrationHandler: 684812802 The accepted ledger contains: [1@test.com, 3@test.com, 4@test.com, 5@test.com, 6@test.com]
+03-17 13:07:16.882  9426  9963 D MulticastServer: Registration process finished: 684812802
+03-17 13:07:16.922  9426  9935 D MulticastServer: Broadcast block received {"ip":"192.168.1.90","cert":"MIIBGzCBwqADAgECAgYBf5Lh/YgwCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKMkB0ZXN0LmNvbTAeFw0yMjAzMTUxMzE5MThaFw0yNDAzMTYxMzE5MThaMBUxEzARBgNVBAMMCjJAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAS+Y1FtdGs8Ucfiq/zWhVaVn4ZBowDRf+LHkKkDUQijyqT6F1OlcBHKlpSdutzah71G6VCq62b3AWQkp086ORMGMAoGCCqGSM49BAMCA0gAMEUCIHH+qCw7c9P4WGmGxr+Z6u3tdZRz/XeTlZiocA09UDaoAiEA977yY+pelaDu67wtccznceHBT4wGLWjjfzyxyDdr/lY="}
+03-17 13:07:17.319  9426  9935 D MulticastServer: Broadcast block received {"ip":"192.168.1.90","cert":"MIIBGzCBwqADAgECAgYBf5Lh/YgwCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKMkB0ZXN0LmNvbTAeFw0yMjAzMTUxMzE5MThaFw0yNDAzMTYxMzE5MThaMBUxEzARBgNVBAMMCjJAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAS+Y1FtdGs8Ucfiq/zWhVaVn4ZBowDRf+LHkKkDUQijyqT6F1OlcBHKlpSdutzah71G6VCq62b3AWQkp086ORMGMAoGCCqGSM49BAMCA0gAMEUCIHH+qCw7c9P4WGmGxr+Z6u3tdZRz/XeTlZiocA09UDaoAiEA977yY+pelaDu67wtccznceHBT4wGLWjjfzyxyDdr/lY="}
+03-17 13:07:17.724  9426  9935 D MulticastServer: Broadcast block received {"ip":"192.168.1.90","cert":"MIIBGzCBwqADAgECAgYBf5Lh/YgwCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKMkB0ZXN0LmNvbTAeFw0yMjAzMTUxMzE5MThaFw0yNDAzMTYxMzE5MThaMBUxEzARBgNVBAMMCjJAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAS+Y1FtdGs8Ucfiq/zWhVaVn4ZBowDRf+LHkKkDUQijyqT6F1OlcBHKlpSdutzah71G6VCq62b3AWQkp086ORMGMAoGCCqGSM49BAMCA0gAMEUCIHH+qCw7c9P4WGmGxr+Z6u3tdZRz/XeTlZiocA09UDaoAiEA977yY+pelaDu67wtccznceHBT4wGLWjjfzyxyDdr/lY="}
+round 3 of 3
+03-17 13:08:41.836  9692 10032 D MulticastServer: MULTICAST_SERVER_LISTENING
+03-17 13:08:41.846  9692 10033 D MulticastClient: REQUEST_LEDGER 1988511391
+03-17 13:08:41.850  9692 10033 D MulticastClient: Sent messages: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1988511391,"seq":0,"tot":0}]
+03-17 13:08:42.061  9692 10039 D RegistrationHandler: Received full ledger from 5@test.com with nonce 1988511391
+03-17 13:08:42.061  9692 10039 D RegistrationHandler: FULL_LEDGER 1988511391
+03-17 13:08:42.094  9692 10039 D RegistrationHandler: 1988511391 Received hash from 4@test.com: 6d8d07807216bbdc7bb98965843ab58cabc87e3c05d9ea7402f5bdc57aea2d8b
+03-17 13:08:42.403  9692 10039 D RegistrationHandler: 1988511391 Received hash from 1@test.com: 6d8d07807216bbdc7bb98965843ab58cabc87e3c05d9ea7402f5bdc57aea2d8b
+03-17 13:08:42.443  9692 10039 D RegistrationHandler: Received full ledger from 6@test.com with nonce 1988511391
+03-17 13:08:42.444  9692 10039 D RegistrationHandler: FULL_LEDGER 1988511391
+03-17 13:08:51.850  9692 10035 D RegistrationHandler: ACCEPTED_LEDGER 1988511391 4
+03-17 13:08:51.856  9692 10035 D RegistrationHandler: 1988511391 The accepted ledger contains: [1@test.com, 4@test.com, 5@test.com, 6@test.com]
+03-17 13:08:51.856  9692 10035 D RegistrationHandler: 1988511391 Registration started
+03-17 13:08:51.865  9692 10035 D MulticastServer: Registration process finished: 1988511391
+03-17 13:08:51.877  9692 10039 D MulticastClient: Sent messages: [{"sender":"3@test.com","payload":"{\"ip\":\"192.168.1.96\",\"cert\":\"MIIBGzCBwqADAgECAgYBf5LiwL8wCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKM0B0ZXN0LmNvbTAeFw0yMjAzMTUxMzIwMDhaFw0yNDAzMTYxMzIwMDhaMBUxEzARBgNVBAMMCjNAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAASVCbfTenGFrkV9EIzy1bj8oa9Kure0STvEaqW08piH20aw3fmYZgxXkpSqhmqcMv5bQ1Q7k2Owa5TUgUt5pf9QMAoGCCqGSM49BAMCA0gAMEUCICG\/Ut+mqCXXju+5r5KDo0B+pu+YksxTTzSLgyUZSTRUAiEAlwZEGNVmCgZ+irOjElk8DvNZcTI0AqLoFjB0QLBClB8=\"}","mt":"BROADCAST_BLOCK","sig":"MEUCIQCefj2c0Ul3xrCtSUAAwuPmgYWGIXVpbyJcseOFemtmiwIgZvSaIkqOHk1iaxqADFcJgOnC2kdk\/koWb+A9QoayNpM=","nonce":1988511391,"seq":0,"tot":0}]
+03-17 13:08:53.051  9692 10039 D MulticastServer: Received request for 1@test.com to send ledger with hash 6d8d07807216bbdc7bb98965843ab58cabc87e3c05d9ea7402f5bdc57aea2d8b
+03-17 13:08:53.462  9692 10039 D MulticastServer: Received request for 1@test.com to send ledger with hash 6d8d07807216bbdc7bb98965843ab58cabc87e3c05d9ea7402f5bdc57aea2d8b
+03-17 13:08:53.560  9692 10039 D MulticastServer: Received request for 1@test.com to send ledger with hash 6d8d07807216bbdc7bb98965843ab58cabc87e3c05d9ea7402f5bdc57aea2d8b
+03-17 13:08:53.970  9692 10039 D MulticastServer: Received request for 1@test.com to send ledger with hash 6d8d07807216bbdc7bb98965843ab58cabc87e3c05d9ea7402f5bdc57aea2d8b
+03-17 13:08:53.972  9692 10039 D MulticastServer: Received request for 1@test.com to send ledger with hash 6d8d07807216bbdc7bb98965843ab58cabc87e3c05d9ea7402f5bdc57aea2d8b
+03-17 13:08:54.073  9692 10039 D MulticastServer: Received request for 1@test.com to send ledger with hash 6d8d07807216bbdc7bb98965843ab58cabc87e3c05d9ea7402f5bdc57aea2d8b
+03-17 13:08:54.381  9692 10039 D MulticastServer: Received request for 1@test.com to send ledger with hash 6d8d07807216bbdc7bb98965843ab58cabc87e3c05d9ea7402f5bdc57aea2d8b
+03-17 13:08:54.482  9692 10039 D MulticastServer: Received request for 1@test.com to send ledger with hash 6d8d07807216bbdc7bb98965843ab58cabc87e3c05d9ea7402f5bdc57aea2d8b
+03-17 13:08:54.896  9692 10039 D MulticastServer: Received request for 1@test.com to send ledger with hash 6d8d07807216bbdc7bb98965843ab58cabc87e3c05d9ea7402f5bdc57aea2d8b
+03-17 13:09:01.248  9692 10039 D MulticastServer: Received request for ledger with nonce: 862022760.
+03-17 13:09:01.250  9692 10039 D MulticastServer: [{"ip":"192.168.1.126","cert":"MIIBHDCBwqADAgECAgYBf5LhKoUwCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKMUB0ZXN0LmNvbTAeFw0yMjAzMTUxMzE4MjRaFw0yNDAzMTYxMzE4MjRaMBUxEzARBgNVBAMMCjFAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARygid4IUjQcO5q061zUYi/H7lvnalm9LjGvCXUiUKNjFkRZCQQHkQr3g5NSREvlv8eDTjoMpzkwAR2X7BGjdlzMAoGCCqGSM49BAMCA0kAMEYCIQCiHMll2QZaqlteytfUXQC9N+f0vW3g05QfhOXX51uZkQIhAOqRAe/npOy8z8s0m0jcslsGFJ4m0z8mdDgpGZNaRRtS"}, {"ip":"192.168.1.96","cert":"MIIBGzCBwqADAgECAgYBf5LiwL8wCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKM0B0ZXN0LmNvbTAeFw0yMjAzMTUxMzIwMDhaFw0yNDAzMTYxMzIwMDhaMBUxEzARBgNVBAMMCjNAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAASVCbfTenGFrkV9EIzy1bj8oa9Kure0STvEaqW08piH20aw3fmYZgxXkpSqhmqcMv5bQ1Q7k2Owa5TUgUt5pf9QMAoGCCqGSM49BAMCA0gAMEUCICG/Ut+mqCXXju+5r5KDo0B+pu+YksxTTzSLgyUZSTRUAiEAlwZEGNVmCgZ+irOjElk8DvNZcTI0AqLoFjB0QLBClB8="}, {"ip":"192.168.1.102","cert":"MIIBHDCBwqADAgECAgYBf5LjjlwwCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKNEB0ZXN0LmNvbTAeFw0yMjAzMTUxMzIxMDBaFw0yNDAzMTYxMzIxMDBaMBUxEzARBgNVBAMMCjRAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAASSliUweWkBcg8dWJcPaZ4t+tliwMepoSM+VwpX6w8yGTWjTlICGhj5SdoTv4ekjnO3/l6v7gLDegapmtwYeG/3MAoGCCqGSM49BAMCA0kAMEYCIQDK7lH7afWvwtTqc/4/4Hgwk5maPvIqyqRaQ8+tb958ggIhAJVeNWTe06qpdnlqQbbihOtTcnnwBkJo3G7r/k/zCIAh"}, {"ip":"192.168.1.97","cert":"MIIBHDCBwqADAgECAgYBf5Ll+aQwCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKNUB0ZXN0LmNvbTAeFw0yMjAzMTUxMzIzMzlaFw0yNDAzMTYxMzIzMzlaMBUxEzARBgNVBAMMCjVAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAS9OhThI4D6g/iEXxfGklrIeXd9Z0M+diiJ9ljAgsIg42aeRti+qPdLXU1/D9cRSqQkfwr3bPWV3oF684Iqni4MMAoGCCqGSM49BAMCA0kAMEYCIQDvSgAgKBB22Z/ooyqUg64EcQUigPLpb+EEue5bwGydWgIhAKus7fYnj5hLAUwnPrCw9vZZ/j2+Hst7+b4ASLL75Nl9"}, {"ip":"192.168.1.150","cert":"MIIBGjCBwqADAgECAgYBf5LodqIwCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKNkB0ZXN0LmNvbTAeFw0yMjAzMTUxMzI2MjJaFw0yNDAzMTYxMzI2MjJaMBUxEzARBgNVBAMMCjZAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARqJJy4N2hgpUaU+/pNPqTyqeLxd2bLD5idvvjxcZkR/FU1EnFaMuGevM+E2XKdeDvcPwZaMeY7BoVek0A5J4ptMAoGCCqGSM49BAMCA0cAMEQCIC911LrmrV6wiZsXHz7RPSc6/GC0XfjHHoimPU7mZSxOAiBPewX5RpN4CLq47U/AkxoxbBKiRfraRL4ACOYPjDKD7A=="}]
+03-17 13:09:01.250  9692 10039 D MulticastServer: {"ip":"192.168.1.96","cert":"MIIBGzCBwqADAgECAgYBf5LiwL8wCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKM0B0ZXN0LmNvbTAeFw0yMjAzMTUxMzIwMDhaFw0yNDAzMTYxMzIwMDhaMBUxEzARBgNVBAMMCjNAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAASVCbfTenGFrkV9EIzy1bj8oa9Kure0STvEaqW08piH20aw3fmYZgxXkpSqhmqcMv5bQ1Q7k2Owa5TUgUt5pf9QMAoGCCqGSM49BAMCA0gAMEUCICG/Ut+mqCXXju+5r5KDo0B+pu+YksxTTzSLgyUZSTRUAiEAlwZEGNVmCgZ+irOjElk8DvNZcTI0AqLoFjB0QLBClB8="}
+03-17 13:09:01.282  9692 10049 D RegistrationHandler: 862022760 Received hash from 3@test.com: 93fe4a08b23de93401800aadc9fc72f7c1a98a808dc4be8c7137f7c7f1df8662
+03-17 13:09:01.338  9692 10049 D MulticastClient: Sent messages: [{"sender":"{\"ip\":\"192.168.1.96\",\"cert\":\"MIIBGzCBwqADAgECAgYBf5LiwL8wCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKM0B0ZXN0LmNvbTAeFw0yMjAzMTUxMzIwMDhaFw0yNDAzMTYxMzIwMDhaMBUxEzARBgNVBAMMCjNAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAASVCbfTenGFrkV9EIzy1bj8oa9Kure0STvEaqW08piH20aw3fmYZgxXkpSqhmqcMv5bQ1Q7k2Owa5TUgUt5pf9QMAoGCCqGSM49BAMCA0gAMEUCICG\/Ut+mqCXXju+5r5KDo0B+pu+YksxTTzSLgyUZSTRUAiEAlwZEGNVmCgZ+irOjElk8DvNZcTI0AqLoFjB0QLBClB8=\"}","payload":"93fe4a08b23de93401800aadc9fc72f7c1a98a808dc4be8c7137f7c7f1df8662","mt":"LEDGER_HASH","sig":"MEYCIQD8csyaRAlflboUjz2i9vzrbOrI31n9N4OUojrn5pwWaQIhAJ08nUG7T21YkJa0Wd5LjYaejBcNYMtm\/Y21yQA\/pO8P","nonce":862022760,"seq":0,"tot":0}]
+03-17 13:09:01.458  9692 10033 D RegistrationHandler: 862022760 Received hash from 1@test.com: 93fe4a08b23de93401800aadc9fc72f7c1a98a808dc4be8c7137f7c7f1df8662
+03-17 13:09:02.243  9692 10049 D RegistrationHandler: 862022760 Received hash from 4@test.com: 93fe4a08b23de93401800aadc9fc72f7c1a98a808dc4be8c7137f7c7f1df8662
+03-17 13:09:02.331  9692 10049 D RegistrationHandler: Received full ledger from 5@test.com with nonce 862022760
+03-17 13:09:02.332  9692 10049 D RegistrationHandler: FULL_LEDGER 862022760
+03-17 13:09:11.254  9692 10061 D RegistrationHandler: ACCEPTED_LEDGER 862022760 5
+03-17 13:09:11.264  9692 10061 D RegistrationHandler: 862022760 The accepted ledger contains: [1@test.com, 3@test.com, 4@test.com, 5@test.com, 6@test.com]
+03-17 13:09:11.264  9692 10061 D MulticastServer: Registration process finished: 862022760
+03-17 13:09:11.290  9692 10049 D MulticastServer: Broadcast block received {"ip":"192.168.1.90","cert":"MIIBGzCBwqADAgECAgYBf5Lh/YgwCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKMkB0ZXN0LmNvbTAeFw0yMjAzMTUxMzE5MThaFw0yNDAzMTYxMzE5MThaMBUxEzARBgNVBAMMCjJAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAS+Y1FtdGs8Ucfiq/zWhVaVn4ZBowDRf+LHkKkDUQijyqT6F1OlcBHKlpSdutzah71G6VCq62b3AWQkp086ORMGMAoGCCqGSM49BAMCA0gAMEUCIHH+qCw7c9P4WGmGxr+Z6u3tdZRz/XeTlZiocA09UDaoAiEA977yY+pelaDu67wtccznceHBT4wGLWjjfzyxyDdr/lY="}
+03-17 13:09:11.696  9692 10049 D MulticastServer: Broadcast block received {"ip":"192.168.1.90","cert":"MIIBGzCBwqADAgECAgYBf5Lh/YgwCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKMkB0ZXN0LmNvbTAeFw0yMjAzMTUxMzE5MThaFw0yNDAzMTYxMzE5MThaMBUxEzARBgNVBAMMCjJAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAS+Y1FtdGs8Ucfiq/zWhVaVn4ZBowDRf+LHkKkDUQijyqT6F1OlcBHKlpSdutzah71G6VCq62b3AWQkp086ORMGMAoGCCqGSM49BAMCA0gAMEUCIHH+qCw7c9P4WGmGxr+Z6u3tdZRz/XeTlZiocA09UDaoAiEA977yY+pelaDu67wtccznceHBT4wGLWjjfzyxyDdr/lY="}
+03-17 13:09:12.211  9692 10049 D MulticastServer: Broadcast block received {"ip":"192.168.1.90","cert":"MIIBGzCBwqADAgECAgYBf5Lh/YgwCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKMkB0ZXN0LmNvbTAeFw0yMjAzMTUxMzE5MThaFw0yNDAzMTYxMzE5MThaMBUxEzARBgNVBAMMCjJAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAS+Y1FtdGs8Ucfiq/zWhVaVn4ZBowDRf+LHkKkDUQijyqT6F1OlcBHKlpSdutzah71G6VCq62b3AWQkp086ORMGMAoGCCqGSM49BAMCA0gAMEUCIHH+qCw7c9P4WGmGxr+Z6u3tdZRz/XeTlZiocA09UDaoAiEA977yY+pelaDu67wtccznceHBT4wGLWjjfzyxyDdr/lY="}

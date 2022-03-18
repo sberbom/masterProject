@@ -78,7 +78,6 @@ for i in range(len(startingRegistrationSmallAt)):
 
 averageRegistrationTimeSmall = totalRegistrationTimeSmall / len(registrationTimesSmall)
 
-print("NUMBER OF REGISTRATION SMALL: {}".format(len(registrationTimesSmall)))
 print("Average registration time: {:.0f}ms".format(averageRegistrationTime))
 print("Failed registrations: {}".format(failedRegistrations))
 print("Average registration time small: {:.0f}ms".format(averageRegistrationTimeSmall))

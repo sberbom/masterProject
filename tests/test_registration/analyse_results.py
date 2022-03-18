@@ -78,20 +78,22 @@ for i in range(len(startingRegistrationSmallAt)):
 
 averageRegistrationTimeSmall = totalRegistrationTimeSmall / len(registrationTimesSmall)
 
+print("NUMBER OF REGISTRATION SMALL: {}".format(len(registrationTimesSmall)))
 print("Average registration time: {:.0f}ms".format(averageRegistrationTime))
 print("Failed registrations: {}".format(failedRegistrations))
 print("Average registration time small: {:.0f}ms".format(averageRegistrationTimeSmall))
 print("Failed registrations: {}".format(failedRegistrationsSmall))
 
-x_coordinates = list(range(len(registrationTimes)))
+x_coordinates = pylab.arange(len(registrationTimes))
 pylab.bar(x_coordinates, registrationTimes, color="blue", label="Galaxy a71")
 pylab.axhline(y=averageRegistrationTime, color="darkblue", label="Galaxy a71 average")
 
-x_coordinates = list(range(len(registrationTimesSmall)))
+x_coordinates = pylab.arange(len(registrationTimesSmall))
 pylab.bar(x_coordinates, registrationTimesSmall, color="orange", label="Galaxy s21")
 pylab.axhline(y=averageRegistrationTimeSmall, color="red", label="Galaxy s21 average")
 
 pylab.xlabel("Trial number")
 pylab.ylabel("Registration time (ms)")
+pylab.xticks([0, 20, 40, 60, 80, 99], [1, 20, 40, 60, 80, 100])
 pylab.legend()
 pylab.show()

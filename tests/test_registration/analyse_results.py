@@ -84,11 +84,11 @@ print("Failed registrations: {}".format(failedRegistrations))
 print("Average registration time small: {:.0f}ms".format(averageRegistrationTimeSmall))
 print("Failed registrations: {}".format(failedRegistrationsSmall))
 
-x_coordinates = pylab.arange(len(registrationTimes))
+x_coordinates = list(range(len(registrationTimes)))
 pylab.bar(x_coordinates, registrationTimes, color="blue", label="Galaxy a71")
 pylab.axhline(y=averageRegistrationTime, color="darkblue", label="Galaxy a71 average")
 
-x_coordinates = pylab.arange(len(registrationTimesSmall))
+x_coordinates = list(range(len(registrationTimesSmall)))
 pylab.bar(x_coordinates, registrationTimesSmall, color="orange", label="Galaxy s21")
 pylab.axhline(y=averageRegistrationTimeSmall, color="red", label="Galaxy s21 average")
 

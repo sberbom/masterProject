@@ -1,8 +1,7 @@
 import pylab
 
 folders = ["5", "75"]
-ledgers_sent_total = []
-ledgers_received_total = [] 
+packet_loss_total = []
 
 for folder in folders:
   log_device_1 = open("./{}/log_device1.txt".format(folder), "r")
@@ -42,9 +41,6 @@ for folder in folders:
 
   print("Received {0} out of {1} full ledgers.".format(ledgers_received, ledgers_sent))
 
-  ledgers_sent_total.append(ledgers_sent)
-  ledgers_received_total.append(ledgers_received)
-
   if ledgers_sent > 0:
     packet_loss_ledger = 1 - (ledgers_received / ledgers_sent)
     print("Packet loss of full ledger: {0:.3f}".format(packet_loss_ledger))
@@ -59,13 +55,20 @@ for folder in folders:
 
   print("Total packet loss: {}".format(1 - total_received / total_sent))
 
-x_coordinates = pylab.arange(len(folders))
-width = 0.4
+  packet_loss_total.append(1 - ledgers_received / ledgers_sent)
 
-pylab.bar(x_coordinates - width/2, ledgers_sent_total, width, label="Ledgers sent")
-pylab.bar(x_coordinates + width/2, ledgers_received_total, width, label="Ledgers received")
+def valuelabel(x,y, offset=0):
+    for i in range(len(x)):
+        value = round(round(y[i], 3) * 100, 1)
+        value_string = str(value) + "%"
+        pylab.text(i+offset, y[i] + 0.0005, value_string, ha = 'center')
+        
+x_coordinates = pylab.arange(len(folders))
+
+valuelabel(x_coordinates, packet_loss_total)
+
+pylab.bar(x_coordinates, packet_loss_total)
 pylab.xlabel("Number of ledger entries")
-pylab.ylabel("Received/sent ledgers")
-pylab.legend(loc="lower right")
+pylab.ylabel("Packets loss %")
 pylab.xticks(x_coordinates, folders)
 pylab.show()

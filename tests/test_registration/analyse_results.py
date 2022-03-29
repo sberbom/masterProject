@@ -93,6 +93,6 @@ pylab.axhline(y=averageRegistrationTimeSmall, color="red", label="Galaxy s21 ave
 
 pylab.xlabel("Trial number")
 pylab.ylabel("Registration time (ms)")
-pylab.xticks([0,20,40,60,80,98], [1, 20,40,60,80,100])
+pylab.xticks([0, 20, 40, 60, 80, 99], [1, 20, 40, 60, 80, 100])
 pylab.legend()
 pylab.show()

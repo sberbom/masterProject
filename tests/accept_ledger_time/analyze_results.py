@@ -44,7 +44,7 @@ rounds_with_missing_ledger = {}
 incorrect_ledgers = {}
 
 def search_file(index):
-  log_device = open("./log_device{}.txt".format(index), "r")
+  log_device = open("non_ca_signed/log_device{}.txt".format(index), "r")
   # Initialize some counters and dicts for this device
   total_ledgers[index] = 0
   correct_ledger[index] = 0

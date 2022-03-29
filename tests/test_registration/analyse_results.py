@@ -2,7 +2,7 @@ from cProfile import label
 from turtle import color
 import pylab
 
-log_device_1 = open("./log_device_a21.txt", "r")
+log_device_1 = open("./log_device_a71.txt", "r")
 log_device_small = open("./log_device_s21.txt", "r")
 
 startingRegistrationAt = {}

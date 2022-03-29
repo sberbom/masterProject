@@ -6,7 +6,7 @@ device3=$(echo $devices | cut -f9 -d$' ')
 device4=$(echo $devices | cut -f11 -d$' ')
 device5=$(echo $devices | cut -f13 -d$' ')
 device6=$(echo $devices | cut -f15 -d$' ')
-rounds=3
+rounds=100
 . ../common/initialize.sh "$device1" "$device2" "$device3" "$device4" "$device5" "$device6"
 for round in {1..$rounds}
 do

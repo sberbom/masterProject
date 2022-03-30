@@ -39,7 +39,7 @@ class MulticastClient  {
             val address = InetAddress.getByName(multicastGroup)
             try {
                 if (socket.isClosed) socket = DatagramSocket()
-                Log.d(TAG, "Sent messages: $msgs")
+                Log.d(TAG, "Sent messages with ${Constants.NUMBER_OF_RESENDS} resends: $msgs")
                 sendPacket(msgs, address)
                 if (Constants.NUMBER_OF_RESENDS > 0) {
                     repeat(Constants.NUMBER_OF_RESENDS) {

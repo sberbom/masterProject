@@ -14,7 +14,6 @@ import java.security.cert.X509Certificate
 import java.util.*
 import kotlin.concurrent.schedule
 import kotlin.concurrent.scheduleAtFixedRate
-import kotlin.contracts.contract
 import kotlin.random.Random.Default.nextInt
 
 class RegistrationHandler(private val server: MulticastServer, private val nonce: Int, val isMyRegistration: Boolean) {

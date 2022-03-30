@@ -28,5 +28,7 @@ class Constants {
 
         const val TOTAL_PACKET_WAIT = 900
         const val NUMBER_OF_RESENDS = 1
+
+        const val INTER_PACKET_TIME = 5
     }
 }

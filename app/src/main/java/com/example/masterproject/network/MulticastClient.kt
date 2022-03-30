@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.Log
 import com.example.masterproject.App
 import com.example.masterproject.ledger.Ledger
+import com.example.masterproject.test.ConstructLedgerForTest
 import com.example.masterproject.types.MulticastPacket
 import com.example.masterproject.utils.Constants
 import com.example.masterproject.utils.MISCUtils
@@ -32,6 +33,7 @@ class MulticastClient  {
             msgs.forEach { msg ->
                 val msgPacket = DatagramPacket(msg.toByteArray(), msg.toByteArray().size, address, multicastPort)
                 socket.send(msgPacket)
+                Thread.sleep(Constants.INTER_PACKET_TIME.toLong())
             }
         }
 

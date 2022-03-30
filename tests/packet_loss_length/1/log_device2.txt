@@ -1,0 +1,62 @@
+Number of rounds: 5
+round 1 of 5
+--------- beginning of main
+03-30 12:44:14.938 16372 16420 D MulticastServer: MULTICAST_SERVER_LISTENING
+03-30 12:44:14.942 16372 16422 D MulticastServer: Registration process started with nonce 1765791268
+03-30 12:44:14.944 16372 16426 D MulticastClient: REQUEST_LEDGER 1765791268
+03-30 12:44:14.946 16372 16426 D MulticastClient: Sent messages with 2 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1765791268,"seq":0,"tot":0}]
+03-30 12:44:15.141 16372 16429 D RegistrationHandler: Received full ledger from 1@test.com with nonce 1765791268
+03-30 12:44:15.141 16372 16429 D RegistrationHandler: FULL_LEDGER 1765791268
+03-30 12:44:24.949 16372 16423 D RegistrationHandler: ACCEPTED_LEDGER 1765791268 1
+03-30 12:44:24.950 16372 16423 D RegistrationHandler: 1765791268 The accepted ledger contains: [1@test.com]
+03-30 12:44:24.950 16372 16423 D RegistrationHandler: 1765791268 Registration started
+03-30 12:44:24.957 16372 16423 D MulticastServer: Registration process finished: 1765791268
+03-30 12:44:24.960 16372 16429 D MulticastClient: Sent messages with 2 resends: [{"sender":"5@test.com","payload":"{\"ip\":\"192.168.1.97\",\"cert\":\"MIIBHDCBwqADAgECAgYBf5Ll+aQwCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKNUB0ZXN0LmNvbTAeFw0yMjAzMTUxMzIzMzlaFw0yNDAzMTYxMzIzMzlaMBUxEzARBgNVBAMMCjVAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAS9OhThI4D6g\/iEXxfGklrIeXd9Z0M+diiJ9ljAgsIg42aeRti+qPdLXU1\/D9cRSqQkfwr3bPWV3oF684Iqni4MMAoGCCqGSM49BAMCA0kAMEYCIQDvSgAgKBB22Z\/ooyqUg64EcQUigPLpb+EEue5bwGydWgIhAKus7fYnj5hLAUwnPrCw9vZZ\/j2+Hst7+b4ASLL75Nl9\"}","mt":"BROADCAST_BLOCK","sig":"MEUCIQC+YxcX5JYJoDG4827n02327tqXuMKDRARm4qEqRjk3CwIgBWGwg80a2JWpxV4nmTJmhlj5Ad+D9Zr\/sw\/MiWTrUOQ=","nonce":1765791268,"seq":0,"tot":0}]
+round 2 of 5
+03-30 12:44:35.636 16489 16540 D MulticastServer: MULTICAST_SERVER_LISTENING
+03-30 12:44:35.640 16489 16542 D MulticastServer: Registration process started with nonce 946954891
+03-30 12:44:35.642 16489 16541 D MulticastClient: REQUEST_LEDGER 946954891
+03-30 12:44:35.643 16489 16541 D MulticastClient: Sent messages with 2 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":946954891,"seq":0,"tot":0}]
+03-30 12:44:35.824 16489 16549 D RegistrationHandler: Received full ledger from 1@test.com with nonce 946954891
+03-30 12:44:35.824 16489 16549 D RegistrationHandler: FULL_LEDGER 946954891
+03-30 12:44:45.646 16489 16543 D RegistrationHandler: ACCEPTED_LEDGER 946954891 1
+03-30 12:44:45.647 16489 16543 D RegistrationHandler: 946954891 The accepted ledger contains: [1@test.com]
+03-30 12:44:45.647 16489 16543 D RegistrationHandler: 946954891 Registration started
+03-30 12:44:45.654 16489 16543 D MulticastServer: Registration process finished: 946954891
+03-30 12:44:45.661 16489 16548 D MulticastClient: Sent messages with 2 resends: [{"sender":"5@test.com","payload":"{\"ip\":\"192.168.1.97\",\"cert\":\"MIIBHDCBwqADAgECAgYBf5Ll+aQwCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKNUB0ZXN0LmNvbTAeFw0yMjAzMTUxMzIzMzlaFw0yNDAzMTYxMzIzMzlaMBUxEzARBgNVBAMMCjVAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAS9OhThI4D6g\/iEXxfGklrIeXd9Z0M+diiJ9ljAgsIg42aeRti+qPdLXU1\/D9cRSqQkfwr3bPWV3oF684Iqni4MMAoGCCqGSM49BAMCA0kAMEYCIQDvSgAgKBB22Z\/ooyqUg64EcQUigPLpb+EEue5bwGydWgIhAKus7fYnj5hLAUwnPrCw9vZZ\/j2+Hst7+b4ASLL75Nl9\"}","mt":"BROADCAST_BLOCK","sig":"MEUCIQCbzT72\/eFCfiJ2mSclQw4XTdFMM5Cw2dxlWSvJkvj9MAIgUYx\/jTFyjX4AoA3q+e89OYuwp4QyS4Wi45F4lwrsU0I=","nonce":946954891,"seq":0,"tot":0}]
+round 3 of 5
+03-30 12:44:56.272 16600 16650 D MulticastServer: MULTICAST_SERVER_LISTENING
+03-30 12:44:56.277 16600 16652 D MulticastServer: Registration process started with nonce 1044333644
+03-30 12:44:56.280 16600 16651 D MulticastClient: REQUEST_LEDGER 1044333644
+03-30 12:44:56.281 16600 16651 D MulticastClient: Sent messages with 2 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1044333644,"seq":0,"tot":0}]
+03-30 12:44:56.509 16600 16656 D RegistrationHandler: Received full ledger from 1@test.com with nonce 1044333644
+03-30 12:44:56.509 16600 16656 D RegistrationHandler: FULL_LEDGER 1044333644
+03-30 12:45:06.284 16600 16653 D RegistrationHandler: ACCEPTED_LEDGER 1044333644 1
+03-30 12:45:06.286 16600 16653 D RegistrationHandler: 1044333644 The accepted ledger contains: [1@test.com]
+03-30 12:45:06.286 16600 16653 D RegistrationHandler: 1044333644 Registration started
+03-30 12:45:06.292 16600 16653 D MulticastServer: Registration process finished: 1044333644
+03-30 12:45:06.297 16600 16669 D MulticastClient: Sent messages with 2 resends: [{"sender":"5@test.com","payload":"{\"ip\":\"192.168.1.97\",\"cert\":\"MIIBHDCBwqADAgECAgYBf5Ll+aQwCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKNUB0ZXN0LmNvbTAeFw0yMjAzMTUxMzIzMzlaFw0yNDAzMTYxMzIzMzlaMBUxEzARBgNVBAMMCjVAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAS9OhThI4D6g\/iEXxfGklrIeXd9Z0M+diiJ9ljAgsIg42aeRti+qPdLXU1\/D9cRSqQkfwr3bPWV3oF684Iqni4MMAoGCCqGSM49BAMCA0kAMEYCIQDvSgAgKBB22Z\/ooyqUg64EcQUigPLpb+EEue5bwGydWgIhAKus7fYnj5hLAUwnPrCw9vZZ\/j2+Hst7+b4ASLL75Nl9\"}","mt":"BROADCAST_BLOCK","sig":"MEQCIEUiWGjYCfryiW5vLYvnTNhcYKkRDFhM9bhJge1gRBV6AiBh3qxC+z9S5gGYNj2oP1Tgj5YBaYpG49OC4GhBQiEeeA==","nonce":1044333644,"seq":0,"tot":0}]
+round 4 of 5
+03-30 12:45:16.906 16699 16746 D MulticastServer: MULTICAST_SERVER_LISTENING
+03-30 12:45:16.908 16699 16748 D MulticastServer: Registration process started with nonce 662559120
+03-30 12:45:16.910 16699 16747 D MulticastClient: REQUEST_LEDGER 662559120
+03-30 12:45:16.912 16699 16747 D MulticastClient: Sent messages with 2 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":662559120,"seq":0,"tot":0}]
+03-30 12:45:17.090 16699 16754 D RegistrationHandler: Received full ledger from 1@test.com with nonce 662559120
+03-30 12:45:17.090 16699 16754 D RegistrationHandler: FULL_LEDGER 662559120
+03-30 12:45:26.914 16699 16749 D RegistrationHandler: ACCEPTED_LEDGER 662559120 1
+03-30 12:45:26.916 16699 16749 D RegistrationHandler: 662559120 The accepted ledger contains: [1@test.com]
+03-30 12:45:26.916 16699 16749 D RegistrationHandler: 662559120 Registration started
+03-30 12:45:26.923 16699 16749 D MulticastServer: Registration process finished: 662559120
+03-30 12:45:26.927 16699 16755 D MulticastClient: Sent messages with 2 resends: [{"sender":"5@test.com","payload":"{\"ip\":\"192.168.1.97\",\"cert\":\"MIIBHDCBwqADAgECAgYBf5Ll+aQwCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKNUB0ZXN0LmNvbTAeFw0yMjAzMTUxMzIzMzlaFw0yNDAzMTYxMzIzMzlaMBUxEzARBgNVBAMMCjVAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAS9OhThI4D6g\/iEXxfGklrIeXd9Z0M+diiJ9ljAgsIg42aeRti+qPdLXU1\/D9cRSqQkfwr3bPWV3oF684Iqni4MMAoGCCqGSM49BAMCA0kAMEYCIQDvSgAgKBB22Z\/ooyqUg64EcQUigPLpb+EEue5bwGydWgIhAKus7fYnj5hLAUwnPrCw9vZZ\/j2+Hst7+b4ASLL75Nl9\"}","mt":"BROADCAST_BLOCK","sig":"MEQCIDnkTX1NH6GRCAFLF32GbIp0sw2uUoTklLSmx41IDL0CAiByKtqRCGVwr6qxl9eVFfM7X54F\/V3\/6VpycRu\/thK8wg==","nonce":662559120,"seq":0,"tot":0}]
+round 5 of 5
+03-30 12:45:37.517 16815 16864 D MulticastServer: MULTICAST_SERVER_LISTENING
+03-30 12:45:37.519 16815 16866 D MulticastServer: Registration process started with nonce 566848820
+03-30 12:45:37.523 16815 16870 D MulticastClient: REQUEST_LEDGER 566848820
+03-30 12:45:37.527 16815 16870 D MulticastClient: Sent messages with 2 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":566848820,"seq":0,"tot":0}]
+03-30 12:45:38.617 16815 16873 D RegistrationHandler: Received full ledger from 1@test.com with nonce 566848820
+03-30 12:45:38.617 16815 16873 D RegistrationHandler: FULL_LEDGER 566848820
+03-30 12:45:47.524 16815 16867 D RegistrationHandler: ACCEPTED_LEDGER 566848820 1
+03-30 12:45:47.526 16815 16867 D RegistrationHandler: 566848820 The accepted ledger contains: [1@test.com]
+03-30 12:45:47.526 16815 16867 D RegistrationHandler: 566848820 Registration started
+03-30 12:45:47.532 16815 16867 D MulticastServer: Registration process finished: 566848820
+03-30 12:45:47.536 16815 16873 D MulticastClient: Sent messages with 2 resends: [{"sender":"5@test.com","payload":"{\"ip\":\"192.168.1.97\",\"cert\":\"MIIBHDCBwqADAgECAgYBf5Ll+aQwCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKNUB0ZXN0LmNvbTAeFw0yMjAzMTUxMzIzMzlaFw0yNDAzMTYxMzIzMzlaMBUxEzARBgNVBAMMCjVAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAS9OhThI4D6g\/iEXxfGklrIeXd9Z0M+diiJ9ljAgsIg42aeRti+qPdLXU1\/D9cRSqQkfwr3bPWV3oF684Iqni4MMAoGCCqGSM49BAMCA0kAMEYCIQDvSgAgKBB22Z\/ooyqUg64EcQUigPLpb+EEue5bwGydWgIhAKus7fYnj5hLAUwnPrCw9vZZ\/j2+Hst7+b4ASLL75Nl9\"}","mt":"BROADCAST_BLOCK","sig":"MEUCIQDLkmXAdntZ56uW4gDEzAMjRVZYWuPT57BThSnFzpzSkwIgT2c8jWfC5Q\/QuhiYSMdJ14NRGy12PBP4MSU\/zqZljII=","nonce":566848820,"seq":0,"tot":0}]

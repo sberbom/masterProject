@@ -1,0 +1,408 @@
+Number of rounds: 5
+round 1 of 5
+--------- beginning of main
+03-30 15:34:59.406 31757 31808 D MulticastServer: Registration process started with nonce 1603596482
+03-30 15:34:59.410 31757 31807 D MulticastClient: REQUEST_LEDGER 1603596482
+03-30 15:34:59.411 31757 31807 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1603596482,"seq":0,"tot":0}]
+03-30 15:34:59.416 31757 31806 D MulticastServer: MULTICAST_SERVER_LISTENING
+03-30 15:34:59.635 31757 31830 D RegistrationHandler: Has received 1 of 50 fragments from 1@test.com
+03-30 15:34:59.637 31757 31830 D RegistrationHandler: Has received 2 of 50 from 1@test.com
+03-30 15:34:59.643 31757 31830 D RegistrationHandler: Has received 3 of 50 from 1@test.com
+03-30 15:34:59.647 31757 31830 D RegistrationHandler: Has received 4 of 50 from 1@test.com
+03-30 15:34:59.654 31757 31830 D RegistrationHandler: Has received 5 of 50 from 1@test.com
+03-30 15:34:59.658 31757 31830 D RegistrationHandler: Has received 6 of 50 from 1@test.com
+03-30 15:34:59.666 31757 31830 D RegistrationHandler: Has received 7 of 50 from 1@test.com
+03-30 15:34:59.674 31757 31830 D RegistrationHandler: Has received 8 of 50 from 1@test.com
+03-30 15:34:59.730 31757 31830 D RegistrationHandler: Has received 9 of 50 from 1@test.com
+03-30 15:34:59.742 31757 31830 D RegistrationHandler: Has received 10 of 50 from 1@test.com
+03-30 15:34:59.746 31757 31830 D RegistrationHandler: Has received 11 of 50 from 1@test.com
+03-30 15:34:59.754 31757 31830 D RegistrationHandler: Has received 12 of 50 from 1@test.com
+03-30 15:34:59.762 31757 31830 D RegistrationHandler: Has received 13 of 50 from 1@test.com
+03-30 15:34:59.766 31757 31830 D RegistrationHandler: Has received 14 of 50 from 1@test.com
+03-30 15:34:59.773 31757 31830 D RegistrationHandler: Has received 15 of 50 from 1@test.com
+03-30 15:34:59.779 31757 31830 D RegistrationHandler: Has received 16 of 50 from 1@test.com
+03-30 15:34:59.790 31757 31830 D RegistrationHandler: Has received 17 of 50 from 1@test.com
+03-30 15:34:59.794 31757 31830 D RegistrationHandler: Has received 18 of 50 from 1@test.com
+03-30 15:34:59.800 31757 31830 D RegistrationHandler: Has received 19 of 50 from 1@test.com
+03-30 15:34:59.810 31757 31830 D RegistrationHandler: Has received 20 of 50 from 1@test.com
+03-30 15:34:59.812 31757 31830 D RegistrationHandler: Has received 21 of 50 from 1@test.com
+03-30 15:34:59.820 31757 31830 D RegistrationHandler: Has received 22 of 50 from 1@test.com
+03-30 15:34:59.826 31757 31830 D RegistrationHandler: Has received 23 of 50 from 1@test.com
+03-30 15:34:59.834 31757 31830 D RegistrationHandler: Has received 24 of 50 from 1@test.com
+03-30 15:34:59.844 31757 31830 D RegistrationHandler: Has received 25 of 50 from 1@test.com
+03-30 15:34:59.850 31757 31830 D RegistrationHandler: Has received 26 of 50 from 1@test.com
+03-30 15:34:59.855 31757 31830 D RegistrationHandler: Has received 27 of 50 from 1@test.com
+03-30 15:34:59.863 31757 31830 D RegistrationHandler: Has received 28 of 50 from 1@test.com
+03-30 15:34:59.871 31757 31830 D RegistrationHandler: Has received 29 of 50 from 1@test.com
+03-30 15:34:59.873 31757 31831 D RegistrationHandler: Has received 30 of 50 from 1@test.com
+03-30 15:34:59.876 31757 31831 D RegistrationHandler: Has received 31 of 50 from 1@test.com
+03-30 15:34:59.884 31757 31831 D RegistrationHandler: Has received 32 of 50 from 1@test.com
+03-30 15:34:59.894 31757 31831 D RegistrationHandler: Has received 33 of 50 from 1@test.com
+03-30 15:34:59.896 31757 31831 D RegistrationHandler: Has received 34 of 50 from 1@test.com
+03-30 15:34:59.904 31757 31831 D RegistrationHandler: Has received 35 of 50 from 1@test.com
+03-30 15:34:59.907 31757 31832 D RegistrationHandler: Has received 36 of 50 from 1@test.com
+03-30 15:34:59.913 31757 31832 D RegistrationHandler: Has received 37 of 50 from 1@test.com
+03-30 15:34:59.920 31757 31832 D RegistrationHandler: Has received 38 of 50 from 1@test.com
+03-30 15:34:59.928 31757 31832 D RegistrationHandler: Has received 39 of 50 from 1@test.com
+03-30 15:34:59.934 31757 31830 D RegistrationHandler: Has received 40 of 50 from 1@test.com
+03-30 15:34:59.944 31757 31832 D RegistrationHandler: Has received 41 of 50 from 1@test.com
+03-30 15:34:59.947 31757 31832 D RegistrationHandler: Has received 42 of 50 from 1@test.com
+03-30 15:34:59.951 31757 31832 D RegistrationHandler: Has received 43 of 50 from 1@test.com
+03-30 15:34:59.957 31757 31832 D RegistrationHandler: Has received 44 of 50 from 1@test.com
+03-30 15:34:59.964 31757 31832 D RegistrationHandler: Has received 45 of 50 from 1@test.com
+03-30 15:34:59.972 31757 31832 D RegistrationHandler: Has received 46 of 50 from 1@test.com
+03-30 15:34:59.980 31757 31832 D RegistrationHandler: Has received 47 of 50 from 1@test.com
+03-30 15:34:59.983 31757 31832 D RegistrationHandler: Has received 48 of 50 from 1@test.com
+03-30 15:34:59.990 31757 31832 D RegistrationHandler: Has received 49 of 50 from 1@test.com
+03-30 15:35:00.276 31757 31832 D RegistrationHandler: Has received 49 of 50 from 1@test.com
+03-30 15:35:00.279 31757 31830 D RegistrationHandler: Has received 49 of 50 from 1@test.com
+03-30 15:35:00.283 31757 31830 D RegistrationHandler: Has received 49 of 50 from 1@test.com
+03-30 15:35:00.285 31757 31831 D RegistrationHandler: Has received 49 of 50 from 1@test.com
+03-30 15:35:00.297 31757 31831 D RegistrationHandler: Has received 49 of 50 from 1@test.com
+03-30 15:35:00.300 31757 31830 D RegistrationHandler: Has received 49 of 50 from 1@test.com
+03-30 15:35:00.304 31757 31830 D RegistrationHandler: Has received 49 of 50 from 1@test.com
+03-30 15:35:00.310 31757 31830 D RegistrationHandler: Has received 49 of 50 from 1@test.com
+03-30 15:35:00.319 31757 31830 D RegistrationHandler: Has received 50 of 50 from 1@test.com
+03-30 15:35:00.345 31757 31830 D RegistrationHandler: Received full ledger from 1@test.com with nonce 1603596482
+03-30 15:35:00.345 31757 31830 D RegistrationHandler: FULL_LEDGER 1603596482
+03-30 15:35:00.871 31757 31830 D RegistrationHandler: Has received 50 of 50 fragments from 1@test.com
+03-30 15:35:01.378 31757 31831 D RegistrationHandler: Has received 50 of 50 fragments from 1@test.com
+03-30 15:35:09.415 31757 31809 D RegistrationHandler: ACCEPTED_LEDGER 1603596482 50
+03-30 15:35:09.435 31757 31809 D RegistrationHandler: 1603596482 The accepted ledger contains: [0@test.com, 1@test.com, 2@test.com, 3@test.com, 4@test.com, 5@test.com, 6@test.com, 7@test.com, 8@test.com, 9@test.com, 10@test.com, 11@test.com, 12@test.com, 13@test.com, 14@test.com, 15@test.com, 16@test.com, 17@test.com, 18@test.com, 19@test.com, 20@test.com, 21@test.com, 22@test.com, 23@test.com, 24@test.com, 25@test.com, 26@test.com, 27@test.com, 28@test.com, 29@test.com, 30@test.com, 31@test.com, 32@test.com, 33@test.com, 34@test.com, 35@test.com, 36@test.com, 37@test.com, 38@test.com, 39@test.com, 40@test.com, 41@test.com, 42@test.com, 43@test.com, 44@test.com, 45@test.com, 46@test.com, 47@test.com, 48@test.com, 49@test.com]
+03-30 15:35:09.435 31757 31809 D RegistrationHandler: 1603596482 Registration started
+03-30 15:35:09.437 31757 31809 D MulticastServer: Registration process finished: 1603596482
+round 2 of 5
+03-30 15:35:19.149 31865 31913 D MulticastServer: MULTICAST_SERVER_LISTENING
+03-30 15:35:19.153 31865 31915 D MulticastServer: Registration process started with nonce 407769026
+03-30 15:35:19.156 31865 31914 D MulticastClient: REQUEST_LEDGER 407769026
+03-30 15:35:19.157 31865 31914 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":407769026,"seq":0,"tot":0}]
+03-30 15:35:19.296 31865 31922 D RegistrationHandler: Has received 1 of 50 fragments from 1@test.com
+03-30 15:35:19.298 31865 31922 D RegistrationHandler: Has received 2 of 50 from 1@test.com
+03-30 15:35:19.302 31865 31922 D RegistrationHandler: Has received 3 of 50 from 1@test.com
+03-30 15:35:19.310 31865 31922 D RegistrationHandler: Has received 4 of 50 from 1@test.com
+03-30 15:35:19.314 31865 31922 D RegistrationHandler: Has received 5 of 50 from 1@test.com
+03-30 15:35:19.322 31865 31922 D RegistrationHandler: Has received 6 of 50 from 1@test.com
+03-30 15:35:19.455 31865 31922 D RegistrationHandler: Has received 7 of 50 from 1@test.com
+03-30 15:35:19.458 31865 31922 D RegistrationHandler: Has received 8 of 50 from 1@test.com
+03-30 15:35:19.464 31865 31921 D RegistrationHandler: Has received 9 of 50 from 1@test.com
+03-30 15:35:19.470 31865 31921 D RegistrationHandler: Has received 10 of 50 from 1@test.com
+03-30 15:35:19.478 31865 31921 D RegistrationHandler: Has received 11 of 50 from 1@test.com
+03-30 15:35:19.482 31865 31921 D RegistrationHandler: Has received 12 of 50 from 1@test.com
+03-30 15:35:19.490 31865 31921 D RegistrationHandler: Has received 13 of 50 from 1@test.com
+03-30 15:35:19.498 31865 31921 D RegistrationHandler: Has received 14 of 50 from 1@test.com
+03-30 15:35:19.506 31865 31921 D RegistrationHandler: Has received 15 of 50 from 1@test.com
+03-30 15:35:19.510 31865 31921 D RegistrationHandler: Has received 16 of 50 from 1@test.com
+03-30 15:35:19.518 31865 31921 D RegistrationHandler: Has received 17 of 50 from 1@test.com
+03-30 15:35:19.522 31865 31921 D RegistrationHandler: Has received 18 of 50 from 1@test.com
+03-30 15:35:19.530 31865 31921 D RegistrationHandler: Has received 19 of 50 from 1@test.com
+03-30 15:35:19.538 31865 31921 D RegistrationHandler: Has received 20 of 50 from 1@test.com
+03-30 15:35:19.545 31865 31921 D RegistrationHandler: Has received 21 of 50 from 1@test.com
+03-30 15:35:19.555 31865 31921 D RegistrationHandler: Has received 22 of 50 from 1@test.com
+03-30 15:35:19.557 31865 31934 D RegistrationHandler: Has received 23 of 50 from 1@test.com
+03-30 15:35:19.565 31865 31934 D RegistrationHandler: Has received 24 of 50 from 1@test.com
+03-30 15:35:19.568 31865 31934 D RegistrationHandler: Has received 25 of 50 from 1@test.com
+03-30 15:35:19.580 31865 31934 D RegistrationHandler: Has received 26 of 50 from 1@test.com
+03-30 15:35:19.585 31865 31934 D RegistrationHandler: Has received 27 of 50 from 1@test.com
+03-30 15:35:19.585 31865 31933 D RegistrationHandler: Has received 28 of 50 from 1@test.com
+03-30 15:35:19.593 31865 31933 D RegistrationHandler: Has received 29 of 50 from 1@test.com
+03-30 15:35:19.601 31865 31933 D RegistrationHandler: Has received 30 of 50 from 1@test.com
+03-30 15:35:19.609 31865 31933 D RegistrationHandler: Has received 31 of 50 from 1@test.com
+03-30 15:35:19.615 31865 31933 D RegistrationHandler: Has received 32 of 50 from 1@test.com
+03-30 15:35:19.619 31865 31933 D RegistrationHandler: Has received 33 of 50 from 1@test.com
+03-30 15:35:19.633 31865 31933 D RegistrationHandler: Has received 34 of 50 from 1@test.com
+03-30 15:35:19.638 31865 31933 D RegistrationHandler: Has received 35 of 50 from 1@test.com
+03-30 15:35:19.640 31865 31933 D RegistrationHandler: Has received 36 of 50 from 1@test.com
+03-30 15:35:19.647 31865 31933 D RegistrationHandler: Has received 37 of 50 from 1@test.com
+03-30 15:35:19.655 31865 31933 D RegistrationHandler: Has received 38 of 50 from 1@test.com
+03-30 15:35:19.662 31865 31934 D RegistrationHandler: Has received 39 of 50 from 1@test.com
+03-30 15:35:19.666 31865 31934 D RegistrationHandler: Has received 40 of 50 from 1@test.com
+03-30 15:35:19.671 31865 31933 D RegistrationHandler: Has received 41 of 50 from 1@test.com
+03-30 15:35:19.679 31865 31934 D RegistrationHandler: Has received 42 of 50 from 1@test.com
+03-30 15:35:19.683 31865 31934 D RegistrationHandler: Has received 43 of 50 from 1@test.com
+03-30 15:35:19.691 31865 31934 D RegistrationHandler: Has received 44 of 50 from 1@test.com
+03-30 15:35:19.695 31865 31934 D RegistrationHandler: Has received 45 of 50 from 1@test.com
+03-30 15:35:19.703 31865 31934 D RegistrationHandler: Has received 46 of 50 from 1@test.com
+03-30 15:35:19.714 31865 31934 D RegistrationHandler: Has received 47 of 50 from 1@test.com
+03-30 15:35:19.920 31865 31934 D RegistrationHandler: Has received 47 of 50 fragments from 1@test.com
+03-30 15:35:19.920 31865 31921 D RegistrationHandler: Has received 47 of 50 from 1@test.com
+03-30 15:35:19.925 31865 31933 D RegistrationHandler: Has received 47 of 50 from 1@test.com
+03-30 15:35:19.933 31865 31933 D RegistrationHandler: Has received 47 of 50 from 1@test.com
+03-30 15:35:19.939 31865 31933 D RegistrationHandler: Has received 47 of 50 from 1@test.com
+03-30 15:35:19.941 31865 31921 D RegistrationHandler: Has received 47 of 50 from 1@test.com
+03-30 15:35:19.949 31865 31921 D RegistrationHandler: Has received 48 of 50 from 1@test.com
+03-30 15:35:19.959 31865 31921 D RegistrationHandler: Has received 49 of 50 from 1@test.com
+03-30 15:35:19.965 31865 31921 D RegistrationHandler: Has received 50 of 50 from 1@test.com
+03-30 15:35:19.966 31865 31934 D RegistrationHandler: Has received 50 of 50 from 1@test.com
+03-30 15:35:19.993 31865 31934 D RegistrationHandler: Received full ledger from 1@test.com with nonce 407769026
+03-30 15:35:19.993 31865 31934 D RegistrationHandler: FULL_LEDGER 407769026
+03-30 15:35:19.995 31865 31921 D RegistrationHandler: Received full ledger from 1@test.com with nonce 407769026
+03-30 15:35:19.995 31865 31921 D RegistrationHandler: FULL_LEDGER 407769026
+03-30 15:35:20.531 31865 31921 D RegistrationHandler: Has received 50 of 50 fragments from 1@test.com
+03-30 15:35:29.160 31865 31916 D RegistrationHandler: ACCEPTED_LEDGER 407769026 50
+03-30 15:35:29.180 31865 31916 D RegistrationHandler: 407769026 The accepted ledger contains: [0@test.com, 1@test.com, 2@test.com, 3@test.com, 4@test.com, 5@test.com, 6@test.com, 7@test.com, 8@test.com, 9@test.com, 10@test.com, 11@test.com, 12@test.com, 13@test.com, 14@test.com, 15@test.com, 16@test.com, 17@test.com, 18@test.com, 19@test.com, 20@test.com, 21@test.com, 22@test.com, 23@test.com, 24@test.com, 25@test.com, 26@test.com, 27@test.com, 28@test.com, 29@test.com, 30@test.com, 31@test.com, 32@test.com, 33@test.com, 34@test.com, 35@test.com, 36@test.com, 37@test.com, 38@test.com, 39@test.com, 40@test.com, 41@test.com, 42@test.com, 43@test.com, 44@test.com, 45@test.com, 46@test.com, 47@test.com, 48@test.com, 49@test.com]
+03-30 15:35:29.180 31865 31916 D RegistrationHandler: 407769026 Registration started
+03-30 15:35:29.182 31865 31916 D MulticastServer: Registration process finished: 407769026
+round 3 of 5
+03-30 15:35:38.940 31966 32012 D MulticastServer: MULTICAST_SERVER_LISTENING
+03-30 15:35:38.942 31966 32014 D MulticastServer: Registration process started with nonce 1393897042
+03-30 15:35:38.947 31966 32018 D MulticastClient: REQUEST_LEDGER 1393897042
+03-30 15:35:38.952 31966 32018 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1393897042,"seq":0,"tot":0}]
+03-30 15:35:39.790 31966 32021 D RegistrationHandler: Has received 1 of 50 fragments from 1@test.com
+03-30 15:35:39.791 31966 32047 D RegistrationHandler: Has received 2 of 50 from 1@test.com
+03-30 15:35:39.792 31966 32047 D RegistrationHandler: Has received 3 of 50 from 1@test.com
+03-30 15:35:39.942 31966 32018 D RegistrationHandler: Has received 4 of 50 from 1@test.com
+03-30 15:35:39.942 31966 32047 D RegistrationHandler: Has received 5 of 50 from 1@test.com
+03-30 15:35:39.943 31966 32021 D RegistrationHandler: Has received 6 of 50 from 1@test.com
+03-30 15:35:39.954 31966 32021 D RegistrationHandler: Has received 7 of 50 from 1@test.com
+03-30 15:35:39.961 31966 32021 D RegistrationHandler: Has received 8 of 50 from 1@test.com
+03-30 15:35:39.965 31966 32021 D RegistrationHandler: Has received 9 of 50 from 1@test.com
+03-30 15:35:39.975 31966 32021 D RegistrationHandler: Has received 10 of 50 from 1@test.com
+03-30 15:35:39.982 31966 32021 D RegistrationHandler: Has received 11 of 50 from 1@test.com
+03-30 15:35:39.984 31966 32018 D RegistrationHandler: Has received 12 of 50 from 1@test.com
+03-30 15:35:39.994 31966 32018 D RegistrationHandler: Has received 13 of 50 from 1@test.com
+03-30 15:35:39.996 31966 32018 D RegistrationHandler: Has received 14 of 50 from 1@test.com
+03-30 15:35:40.006 31966 32018 D RegistrationHandler: Has received 15 of 50 from 1@test.com
+03-30 15:35:40.012 31966 32018 D RegistrationHandler: Has received 16 of 50 from 1@test.com
+03-30 15:35:40.017 31966 32018 D RegistrationHandler: Has received 17 of 50 from 1@test.com
+03-30 15:35:40.030 31966 32018 D RegistrationHandler: Has received 18 of 50 from 1@test.com
+03-30 15:35:40.030 31966 32020 D RegistrationHandler: Has received 19 of 50 from 1@test.com
+03-30 15:35:40.035 31966 32021 D RegistrationHandler: Has received 20 of 50 from 1@test.com
+03-30 15:35:40.046 31966 32021 D RegistrationHandler: Has received 21 of 50 from 1@test.com
+03-30 15:35:40.049 31966 32021 D RegistrationHandler: Has received 22 of 50 from 1@test.com
+03-30 15:35:40.052 31966 32021 D RegistrationHandler: Has received 23 of 50 from 1@test.com
+03-30 15:35:40.063 31966 32021 D RegistrationHandler: Has received 24 of 50 from 1@test.com
+03-30 15:35:40.068 31966 32021 D RegistrationHandler: Has received 25 of 50 from 1@test.com
+03-30 15:35:40.074 31966 32021 D RegistrationHandler: Has received 26 of 50 from 1@test.com
+03-30 15:35:40.085 31966 32021 D RegistrationHandler: Has received 27 of 50 from 1@test.com
+03-30 15:35:40.088 31966 32021 D RegistrationHandler: Has received 28 of 50 from 1@test.com
+03-30 15:35:40.095 31966 32021 D RegistrationHandler: Has received 29 of 50 from 1@test.com
+03-30 15:35:40.101 31966 32021 D RegistrationHandler: Has received 30 of 50 from 1@test.com
+03-30 15:35:40.107 31966 32021 D RegistrationHandler: Has received 31 of 50 from 1@test.com
+03-30 15:35:40.113 31966 32021 D RegistrationHandler: Has received 32 of 50 from 1@test.com
+03-30 15:35:40.118 31966 32021 D RegistrationHandler: Has received 33 of 50 from 1@test.com
+03-30 15:35:40.126 31966 32021 D RegistrationHandler: Has received 34 of 50 from 1@test.com
+03-30 15:35:40.134 31966 32021 D RegistrationHandler: Has received 35 of 50 from 1@test.com
+03-30 15:35:40.137 31966 32021 D RegistrationHandler: Has received 36 of 50 from 1@test.com
+03-30 15:35:40.146 31966 32021 D RegistrationHandler: Has received 37 of 50 from 1@test.com
+03-30 15:35:40.155 31966 32021 D RegistrationHandler: Has received 38 of 50 from 1@test.com
+03-30 15:35:40.156 31966 32021 D RegistrationHandler: Has received 39 of 50 from 1@test.com
+03-30 15:35:40.165 31966 32021 D RegistrationHandler: Has received 40 of 50 from 1@test.com
+03-30 15:35:40.170 31966 32021 D RegistrationHandler: Has received 41 of 50 from 1@test.com
+03-30 15:35:40.175 31966 32021 D RegistrationHandler: Has received 42 of 50 from 1@test.com
+03-30 15:35:40.185 31966 32021 D RegistrationHandler: Has received 43 of 50 from 1@test.com
+03-30 15:35:40.189 31966 32021 D RegistrationHandler: Has received 44 of 50 from 1@test.com
+03-30 15:35:40.198 31966 32021 D RegistrationHandler: Has received 45 of 50 from 1@test.com
+03-30 15:35:40.201 31966 32021 D RegistrationHandler: Has received 46 of 50 from 1@test.com
+03-30 15:35:40.391 31966 32021 D RegistrationHandler: Has received 46 of 50 fragments from 1@test.com
+03-30 15:35:40.397 31966 32047 D RegistrationHandler: Has received 47 of 50 from 1@test.com
+03-30 15:35:40.400 31966 32020 D RegistrationHandler: Has received 47 of 50 from 1@test.com
+03-30 15:35:40.404 31966 32020 D RegistrationHandler: Has received 47 of 50 from 1@test.com
+03-30 15:35:40.411 31966 32047 D RegistrationHandler: Has received 48 of 50 from 1@test.com
+03-30 15:35:40.415 31966 32021 D RegistrationHandler: Has received 49 of 50 from 1@test.com
+03-30 15:35:40.425 31966 32021 D RegistrationHandler: Has received 50 of 50 from 1@test.com
+03-30 15:35:40.432 31966 32020 D RegistrationHandler: Has received 50 of 50 from 1@test.com
+03-30 15:35:40.435 31966 32047 D RegistrationHandler: Has received 50 of 50 from 1@test.com
+03-30 15:35:40.439 31966 32018 D RegistrationHandler: Has received 50 of 50 from 1@test.com
+03-30 15:35:40.447 31966 32021 D RegistrationHandler: Received full ledger from 1@test.com with nonce 1393897042
+03-30 15:35:40.447 31966 32021 D RegistrationHandler: FULL_LEDGER 1393897042
+03-30 15:35:40.456 31966 32047 D RegistrationHandler: Received full ledger from 1@test.com with nonce 1393897042
+03-30 15:35:40.456 31966 32047 D RegistrationHandler: FULL_LEDGER 1393897042
+03-30 15:35:40.460 31966 32020 D RegistrationHandler: Received full ledger from 1@test.com with nonce 1393897042
+03-30 15:35:40.460 31966 32020 D RegistrationHandler: FULL_LEDGER 1393897042
+03-30 15:35:40.464 31966 32018 D RegistrationHandler: Received full ledger from 1@test.com with nonce 1393897042
+03-30 15:35:40.464 31966 32018 D RegistrationHandler: FULL_LEDGER 1393897042
+03-30 15:35:41.010 31966 32047 D RegistrationHandler: Has received 50 of 50 fragments from 1@test.com
+03-30 15:35:41.045 31966 32047 D RegistrationHandler: Received full ledger from 1@test.com with nonce 1393897042
+03-30 15:35:41.045 31966 32047 D RegistrationHandler: FULL_LEDGER 1393897042
+03-30 15:35:48.951 31966 32015 D RegistrationHandler: ACCEPTED_LEDGER 1393897042 50
+03-30 15:35:48.970 31966 32015 D RegistrationHandler: 1393897042 The accepted ledger contains: [0@test.com, 1@test.com, 2@test.com, 3@test.com, 4@test.com, 5@test.com, 6@test.com, 7@test.com, 8@test.com, 9@test.com, 10@test.com, 11@test.com, 12@test.com, 13@test.com, 14@test.com, 15@test.com, 16@test.com, 17@test.com, 18@test.com, 19@test.com, 20@test.com, 21@test.com, 22@test.com, 23@test.com, 24@test.com, 25@test.com, 26@test.com, 27@test.com, 28@test.com, 29@test.com, 30@test.com, 31@test.com, 32@test.com, 33@test.com, 34@test.com, 35@test.com, 36@test.com, 37@test.com, 38@test.com, 39@test.com, 40@test.com, 41@test.com, 42@test.com, 43@test.com, 44@test.com, 45@test.com, 46@test.com, 47@test.com, 48@test.com, 49@test.com]
+03-30 15:35:48.970 31966 32015 D RegistrationHandler: 1393897042 Registration started
+03-30 15:35:49.050 31966 32015 D MulticastServer: Registration process finished: 1393897042
+round 4 of 5
+03-30 15:35:58.731 32073 32120 D MulticastServer: MULTICAST_SERVER_LISTENING
+03-30 15:35:58.734 32073 32122 D MulticastServer: Registration process started with nonce 441821390
+03-30 15:35:58.737 32073 32121 D MulticastClient: REQUEST_LEDGER 441821390
+03-30 15:35:58.738 32073 32121 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":441821390,"seq":0,"tot":0}]
+03-30 15:35:59.551 32073 32128 D RegistrationHandler: Has received 1 of 50 fragments from 1@test.com
+03-30 15:35:59.552 32073 32146 D RegistrationHandler: Has received 2 of 50 from 1@test.com
+03-30 15:35:59.554 32073 32146 D RegistrationHandler: Has received 3 of 50 from 1@test.com
+03-30 15:35:59.559 32073 32146 D RegistrationHandler: Has received 4 of 50 from 1@test.com
+03-30 15:35:59.568 32073 32128 D RegistrationHandler: Has received 5 of 50 from 1@test.com
+03-30 15:35:59.571 32073 32128 D RegistrationHandler: Has received 6 of 50 from 1@test.com
+03-30 15:35:59.580 32073 32128 D RegistrationHandler: Has received 7 of 50 from 1@test.com
+03-30 15:35:59.583 32073 32128 D RegistrationHandler: Has received 8 of 50 from 1@test.com
+03-30 15:35:59.593 32073 32128 D RegistrationHandler: Has received 9 of 50 from 1@test.com
+03-30 15:35:59.597 32073 32128 D RegistrationHandler: Has received 10 of 50 from 1@test.com
+03-30 15:35:59.643 32073 32128 D RegistrationHandler: Has received 11 of 50 from 1@test.com
+03-30 15:35:59.645 32073 32128 D RegistrationHandler: Has received 12 of 50 from 1@test.com
+03-30 15:35:59.649 32073 32128 D RegistrationHandler: Has received 13 of 50 from 1@test.com
+03-30 15:35:59.657 32073 32128 D RegistrationHandler: Has received 14 of 50 from 1@test.com
+03-30 15:35:59.660 32073 32146 D RegistrationHandler: Has received 15 of 50 from 1@test.com
+03-30 15:35:59.670 32073 32121 D RegistrationHandler: Has received 16 of 50 from 1@test.com
+03-30 15:35:59.676 32073 32121 D RegistrationHandler: Has received 17 of 50 from 1@test.com
+03-30 15:35:59.680 32073 32121 D RegistrationHandler: Has received 18 of 50 from 1@test.com
+03-30 15:35:59.691 32073 32121 D RegistrationHandler: Has received 19 of 50 from 1@test.com
+03-30 15:35:59.693 32073 32121 D RegistrationHandler: Has received 20 of 50 from 1@test.com
+03-30 15:35:59.698 32073 32121 D RegistrationHandler: Has received 21 of 50 from 1@test.com
+03-30 15:35:59.706 32073 32121 D RegistrationHandler: Has received 22 of 50 from 1@test.com
+03-30 15:35:59.712 32073 32121 D RegistrationHandler: Has received 23 of 50 from 1@test.com
+03-30 15:35:59.717 32073 32121 D RegistrationHandler: Has received 24 of 50 from 1@test.com
+03-30 15:35:59.727 32073 32121 D RegistrationHandler: Has received 25 of 50 from 1@test.com
+03-30 15:35:59.730 32073 32121 D RegistrationHandler: Has received 26 of 50 from 1@test.com
+03-30 15:35:59.742 32073 32121 D RegistrationHandler: Has received 27 of 50 from 1@test.com
+03-30 15:35:59.748 32073 32121 D RegistrationHandler: Has received 28 of 50 from 1@test.com
+03-30 15:35:59.753 32073 32121 D RegistrationHandler: Has received 29 of 50 from 1@test.com
+03-30 15:35:59.759 32073 32121 D RegistrationHandler: Has received 30 of 50 from 1@test.com
+03-30 15:35:59.763 32073 32121 D RegistrationHandler: Has received 31 of 50 from 1@test.com
+03-30 15:35:59.774 32073 32121 D RegistrationHandler: Has received 32 of 50 from 1@test.com
+03-30 15:35:59.777 32073 32121 D RegistrationHandler: Has received 33 of 50 from 1@test.com
+03-30 15:35:59.786 32073 32121 D RegistrationHandler: Has received 34 of 50 from 1@test.com
+03-30 15:35:59.788 32073 32121 D RegistrationHandler: Has received 35 of 50 from 1@test.com
+03-30 15:35:59.796 32073 32146 D RegistrationHandler: Has received 36 of 50 from 1@test.com
+03-30 15:35:59.806 32073 32146 D RegistrationHandler: Has received 37 of 50 from 1@test.com
+03-30 15:35:59.811 32073 32146 D RegistrationHandler: Has received 38 of 50 from 1@test.com
+03-30 15:35:59.817 32073 32146 D RegistrationHandler: Has received 39 of 50 from 1@test.com
+03-30 15:35:59.823 32073 32146 D RegistrationHandler: Has received 40 of 50 from 1@test.com
+03-30 15:35:59.825 32073 32146 D RegistrationHandler: Has received 41 of 50 from 1@test.com
+03-30 15:35:59.833 32073 32146 D RegistrationHandler: Has received 42 of 50 from 1@test.com
+03-30 15:35:59.842 32073 32146 D RegistrationHandler: Has received 43 of 50 from 1@test.com
+03-30 15:35:59.846 32073 32146 D RegistrationHandler: Has received 44 of 50 from 1@test.com
+03-30 15:35:59.853 32073 32146 D RegistrationHandler: Has received 45 of 50 from 1@test.com
+03-30 15:35:59.862 32073 32146 D RegistrationHandler: Has received 46 of 50 from 1@test.com
+03-30 15:35:59.870 32073 32146 D RegistrationHandler: Has received 47 of 50 from 1@test.com
+03-30 15:35:59.871 32073 32121 D RegistrationHandler: Has received 48 of 50 from 1@test.com
+03-30 15:35:59.881 32073 32121 D RegistrationHandler: Has received 49 of 50 from 1@test.com
+03-30 15:36:00.161 32073 32146 D RegistrationHandler: Has received 50 of 50 from 1@test.com
+03-30 15:36:00.162 32073 32128 D RegistrationHandler: Has received 50 of 50 from 1@test.com
+03-30 15:36:00.165 32073 32121 D RegistrationHandler: Has received 50 of 50 fragments from 1@test.com
+03-30 15:36:00.168 32073 32165 D RegistrationHandler: Has received 50 of 50 from 1@test.com
+03-30 15:36:00.175 32073 32166 D RegistrationHandler: Has received 50 of 50 from 1@test.com
+03-30 15:36:00.179 32073 32167 D RegistrationHandler: Has received 50 of 50 from 1@test.com
+03-30 15:36:00.190 32073 32168 D RegistrationHandler: Has received 50 of 50 from 1@test.com
+03-30 15:36:00.193 32073 32169 D RegistrationHandler: Has received 50 of 50 from 1@test.com
+03-30 15:36:00.194 32073 32166 D RegistrationHandler: Received full ledger from 1@test.com with nonce 441821390
+03-30 15:36:00.194 32073 32166 D RegistrationHandler: FULL_LEDGER 441821390
+03-30 15:36:00.199 32073 32146 D RegistrationHandler: Received full ledger from 1@test.com with nonce 441821390
+03-30 15:36:00.199 32073 32146 D RegistrationHandler: FULL_LEDGER 441821390
+03-30 15:36:00.202 32073 32165 D RegistrationHandler: Received full ledger from 1@test.com with nonce 441821390
+03-30 15:36:00.202 32073 32165 D RegistrationHandler: FULL_LEDGER 441821390
+03-30 15:36:00.204 32073 32128 D RegistrationHandler: Received full ledger from 1@test.com with nonce 441821390
+03-30 15:36:00.204 32073 32128 D RegistrationHandler: FULL_LEDGER 441821390
+03-30 15:36:00.214 32073 32169 D RegistrationHandler: Received full ledger from 1@test.com with nonce 441821390
+03-30 15:36:00.214 32073 32169 D RegistrationHandler: FULL_LEDGER 441821390
+03-30 15:36:00.218 32073 32167 D RegistrationHandler: Received full ledger from 1@test.com with nonce 441821390
+03-30 15:36:00.218 32073 32167 D RegistrationHandler: FULL_LEDGER 441821390
+03-30 15:36:00.219 32073 32168 D RegistrationHandler: Received full ledger from 1@test.com with nonce 441821390
+03-30 15:36:00.219 32073 32168 D RegistrationHandler: FULL_LEDGER 441821390
+03-30 15:36:00.219 32073 32121 D RegistrationHandler: Received full ledger from 1@test.com with nonce 441821390
+03-30 15:36:00.219 32073 32121 D RegistrationHandler: FULL_LEDGER 441821390
+03-30 15:36:00.672 32073 32167 D RegistrationHandler: Has received 50 of 50 fragments from 1@test.com
+03-30 15:36:00.706 32073 32167 D RegistrationHandler: Received full ledger from 1@test.com with nonce 441821390
+03-30 15:36:00.706 32073 32167 D RegistrationHandler: FULL_LEDGER 441821390
+03-30 15:36:08.742 32073 32123 D RegistrationHandler: ACCEPTED_LEDGER 441821390 50
+03-30 15:36:08.757 32073 32123 D RegistrationHandler: 441821390 The accepted ledger contains: [0@test.com, 1@test.com, 2@test.com, 3@test.com, 4@test.com, 5@test.com, 6@test.com, 7@test.com, 8@test.com, 9@test.com, 10@test.com, 11@test.com, 12@test.com, 13@test.com, 14@test.com, 15@test.com, 16@test.com, 17@test.com, 18@test.com, 19@test.com, 20@test.com, 21@test.com, 22@test.com, 23@test.com, 24@test.com, 25@test.com, 26@test.com, 27@test.com, 28@test.com, 29@test.com, 30@test.com, 31@test.com, 32@test.com, 33@test.com, 34@test.com, 35@test.com, 36@test.com, 37@test.com, 38@test.com, 39@test.com, 40@test.com, 41@test.com, 42@test.com, 43@test.com, 44@test.com, 45@test.com, 46@test.com, 47@test.com, 48@test.com, 49@test.com]
+03-30 15:36:08.757 32073 32123 D RegistrationHandler: 441821390 Registration started
+03-30 15:36:08.759 32073 32123 D MulticastServer: Registration process finished: 441821390
+round 5 of 5
+03-30 15:36:18.391 32207 32267 D MulticastServer: MULTICAST_SERVER_LISTENING
+03-30 15:36:18.393 32207 32269 D MulticastServer: Registration process started with nonce 1635959064
+03-30 15:36:18.396 32207 32268 D MulticastClient: REQUEST_LEDGER 1635959064
+03-30 15:36:18.397 32207 32268 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1635959064,"seq":0,"tot":0}]
+03-30 15:36:18.688 32207 32274 D RegistrationHandler: Has received 1 of 50 fragments from 1@test.com
+03-30 15:36:18.690 32207 32274 D RegistrationHandler: Has received 2 of 50 from 1@test.com
+03-30 15:36:18.694 32207 32274 D RegistrationHandler: Has received 3 of 50 from 1@test.com
+03-30 15:36:18.702 32207 32274 D RegistrationHandler: Has received 4 of 50 from 1@test.com
+03-30 15:36:18.706 32207 32274 D RegistrationHandler: Has received 5 of 50 from 1@test.com
+03-30 15:36:18.711 32207 32274 D RegistrationHandler: Has received 6 of 50 from 1@test.com
+03-30 15:36:18.719 32207 32274 D RegistrationHandler: Has received 7 of 50 from 1@test.com
+03-30 15:36:18.727 32207 32274 D RegistrationHandler: Has received 8 of 50 from 1@test.com
+03-30 15:36:18.730 32207 32274 D RegistrationHandler: Has received 9 of 50 from 1@test.com
+03-30 15:36:18.738 32207 32274 D RegistrationHandler: Has received 10 of 50 from 1@test.com
+03-30 15:36:18.742 32207 32274 D RegistrationHandler: Has received 11 of 50 from 1@test.com
+03-30 15:36:18.750 32207 32274 D RegistrationHandler: Has received 12 of 50 from 1@test.com
+03-30 15:36:18.762 32207 32274 D RegistrationHandler: Has received 13 of 50 from 1@test.com
+03-30 15:36:18.786 32207 32274 D RegistrationHandler: Has received 14 of 50 from 1@test.com
+03-30 15:36:18.793 32207 32274 D RegistrationHandler: Has received 15 of 50 from 1@test.com
+03-30 15:36:18.798 32207 32274 D RegistrationHandler: Has received 16 of 50 from 1@test.com
+03-30 15:36:18.805 32207 32274 D RegistrationHandler: Has received 17 of 50 from 1@test.com
+03-30 15:36:18.814 32207 32274 D RegistrationHandler: Has received 18 of 50 from 1@test.com
+03-30 15:36:18.818 32207 32274 D RegistrationHandler: Has received 19 of 50 from 1@test.com
+03-30 15:36:18.824 32207 32274 D RegistrationHandler: Has received 20 of 50 from 1@test.com
+03-30 15:36:18.831 32207 32274 D RegistrationHandler: Has received 21 of 50 from 1@test.com
+03-30 15:36:18.839 32207 32274 D RegistrationHandler: Has received 22 of 50 from 1@test.com
+03-30 15:36:18.841 32207 32300 D RegistrationHandler: Has received 23 of 50 from 1@test.com
+03-30 15:36:18.844 32207 32301 D RegistrationHandler: Has received 24 of 50 from 1@test.com
+03-30 15:36:18.854 32207 32301 D RegistrationHandler: Has received 25 of 50 from 1@test.com
+03-30 15:36:18.863 32207 32301 D RegistrationHandler: Has received 26 of 50 from 1@test.com
+03-30 15:36:18.863 32207 32300 D RegistrationHandler: Has received 27 of 50 from 1@test.com
+03-30 15:36:18.875 32207 32274 D RegistrationHandler: Has received 28 of 50 from 1@test.com
+03-30 15:36:18.880 32207 32274 D RegistrationHandler: Has received 29 of 50 from 1@test.com
+03-30 15:36:18.883 32207 32274 D RegistrationHandler: Has received 30 of 50 from 1@test.com
+03-30 15:36:18.891 32207 32274 D RegistrationHandler: Has received 31 of 50 from 1@test.com
+03-30 15:36:18.896 32207 32274 D RegistrationHandler: Has received 32 of 50 from 1@test.com
+03-30 15:36:18.912 32207 32274 D RegistrationHandler: Has received 33 of 50 from 1@test.com
+03-30 15:36:18.915 32207 32274 D RegistrationHandler: Has received 34 of 50 from 1@test.com
+03-30 15:36:18.928 32207 32274 D RegistrationHandler: Has received 35 of 50 from 1@test.com
+03-30 15:36:18.933 32207 32274 D RegistrationHandler: Has received 36 of 50 from 1@test.com
+03-30 15:36:18.940 32207 32274 D RegistrationHandler: Has received 37 of 50 from 1@test.com
+03-30 15:36:18.963 32207 32274 D RegistrationHandler: Has received 38 of 50 from 1@test.com
+03-30 15:36:19.010 32207 32274 D RegistrationHandler: Has received 39 of 50 from 1@test.com
+03-30 15:36:19.016 32207 32274 D RegistrationHandler: Has received 40 of 50 from 1@test.com
+03-30 15:36:19.316 32207 32274 D RegistrationHandler: Has received 40 of 50 fragments from 1@test.com
+03-30 15:36:19.319 32207 32274 D RegistrationHandler: Has received 40 of 50 from 1@test.com
+03-30 15:36:19.321 32207 32274 D RegistrationHandler: Has received 40 of 50 from 1@test.com
+03-30 15:36:19.325 32207 32274 D RegistrationHandler: Has received 40 of 50 from 1@test.com
+03-30 15:36:19.335 32207 32274 D RegistrationHandler: Has received 40 of 50 from 1@test.com
+03-30 15:36:19.337 32207 32274 D RegistrationHandler: Has received 40 of 50 from 1@test.com
+03-30 15:36:19.347 32207 32274 D RegistrationHandler: Has received 40 of 50 from 1@test.com
+03-30 15:36:19.348 32207 32274 D RegistrationHandler: Has received 40 of 50 from 1@test.com
+03-30 15:36:19.360 32207 32274 D RegistrationHandler: Has received 40 of 50 from 1@test.com
+03-30 15:36:19.366 32207 32274 D RegistrationHandler: Has received 40 of 50 from 1@test.com
+03-30 15:36:19.374 32207 32274 D RegistrationHandler: Has received 40 of 50 from 1@test.com
+03-30 15:36:19.376 32207 32311 D RegistrationHandler: Has received 40 of 50 from 1@test.com
+03-30 15:36:19.382 32207 32268 D RegistrationHandler: Has received 41 of 50 from 1@test.com
+03-30 15:36:19.391 32207 32268 D RegistrationHandler: Has received 41 of 50 from 1@test.com
+03-30 15:36:19.395 32207 32268 D RegistrationHandler: Has received 41 of 50 from 1@test.com
+03-30 15:36:19.406 32207 32268 D RegistrationHandler: Has received 41 of 50 from 1@test.com
+03-30 15:36:19.412 32207 32268 D RegistrationHandler: Has received 41 of 50 from 1@test.com
+03-30 15:36:19.417 32207 32268 D RegistrationHandler: Has received 41 of 50 from 1@test.com
+03-30 15:36:19.427 32207 32268 D RegistrationHandler: Has received 41 of 50 from 1@test.com
+03-30 15:36:19.430 32207 32311 D RegistrationHandler: Has received 41 of 50 from 1@test.com
+03-30 15:36:19.436 32207 32274 D RegistrationHandler: Has received 41 of 50 from 1@test.com
+03-30 15:36:19.440 32207 32274 D RegistrationHandler: Has received 41 of 50 from 1@test.com
+03-30 15:36:19.449 32207 32274 D RegistrationHandler: Has received 41 of 50 from 1@test.com
+03-30 15:36:19.456 32207 32274 D RegistrationHandler: Has received 41 of 50 from 1@test.com
+03-30 15:36:19.460 32207 32274 D RegistrationHandler: Has received 41 of 50 from 1@test.com
+03-30 15:36:19.465 32207 32274 D RegistrationHandler: Has received 41 of 50 from 1@test.com
+03-30 15:36:19.474 32207 32274 D RegistrationHandler: Has received 41 of 50 from 1@test.com
+03-30 15:36:19.476 32207 32274 D RegistrationHandler: Has received 41 of 50 from 1@test.com
+03-30 15:36:19.486 32207 32274 D RegistrationHandler: Has received 41 of 50 from 1@test.com
+03-30 15:36:19.491 32207 32274 D RegistrationHandler: Has received 41 of 50 from 1@test.com
+03-30 15:36:19.495 32207 32274 D RegistrationHandler: Has received 41 of 50 from 1@test.com
+03-30 15:36:19.505 32207 32274 D RegistrationHandler: Has received 41 of 50 from 1@test.com
+03-30 15:36:19.510 32207 32274 D RegistrationHandler: Has received 41 of 50 from 1@test.com
+03-30 15:36:19.516 32207 32274 D RegistrationHandler: Has received 42 of 50 from 1@test.com
+03-30 15:36:19.526 32207 32274 D RegistrationHandler: Has received 42 of 50 from 1@test.com
+03-30 15:36:19.530 32207 32274 D RegistrationHandler: Has received 42 of 50 from 1@test.com
+03-30 15:36:19.535 32207 32274 D RegistrationHandler: Has received 43 of 50 from 1@test.com
+03-30 15:36:19.552 32207 32274 D RegistrationHandler: Has received 43 of 50 from 1@test.com
+03-30 15:36:19.552 32207 32268 D RegistrationHandler: Has received 43 of 50 from 1@test.com
+03-30 15:36:19.554 32207 32300 D RegistrationHandler: Has received 43 of 50 from 1@test.com
+03-30 15:36:19.556 32207 32301 D RegistrationHandler: Has received 43 of 50 from 1@test.com
+03-30 15:36:19.566 32207 32301 D RegistrationHandler: Has received 44 of 50 from 1@test.com
+03-30 15:36:19.570 32207 32301 D RegistrationHandler: Has received 45 of 50 from 1@test.com
+03-30 15:36:19.578 32207 32301 D RegistrationHandler: Has received 46 of 50 from 1@test.com
+03-30 15:36:19.582 32207 32301 D RegistrationHandler: Has received 47 of 50 from 1@test.com
+03-30 15:36:19.588 32207 32301 D RegistrationHandler: Has received 48 of 50 from 1@test.com
+03-30 15:36:19.594 32207 32301 D RegistrationHandler: Has received 49 of 50 from 1@test.com
+03-30 15:36:19.602 32207 32301 D RegistrationHandler: Has received 50 of 50 from 1@test.com
+03-30 15:36:19.609 32207 32300 D RegistrationHandler: Has received 50 of 50 from 1@test.com
+03-30 15:36:19.629 32207 32301 D RegistrationHandler: Received full ledger from 1@test.com with nonce 1635959064
+03-30 15:36:19.629 32207 32301 D RegistrationHandler: FULL_LEDGER 1635959064
+03-30 15:36:19.630 32207 32300 D RegistrationHandler: Received full ledger from 1@test.com with nonce 1635959064
+03-30 15:36:19.630 32207 32300 D RegistrationHandler: FULL_LEDGER 1635959064
+03-30 15:36:19.824 32207 32300 D RegistrationHandler: Has received 50 of 50 fragments from 1@test.com
+03-30 15:36:28.398 32207 32271 D RegistrationHandler: ACCEPTED_LEDGER 1635959064 50
+03-30 15:36:28.418 32207 32271 D RegistrationHandler: 1635959064 The accepted ledger contains: [0@test.com, 1@test.com, 2@test.com, 3@test.com, 4@test.com, 5@test.com, 6@test.com, 7@test.com, 8@test.com, 9@test.com, 10@test.com, 11@test.com, 12@test.com, 13@test.com, 14@test.com, 15@test.com, 16@test.com, 17@test.com, 18@test.com, 19@test.com, 20@test.com, 21@test.com, 22@test.com, 23@test.com, 24@test.com, 25@test.com, 26@test.com, 27@test.com, 28@test.com, 29@test.com, 30@test.com, 31@test.com, 32@test.com, 33@test.com, 34@test.com, 35@test.com, 36@test.com, 37@test.com, 38@test.com, 39@test.com, 40@test.com, 41@test.com, 42@test.com, 43@test.com, 44@test.com, 45@test.com, 46@test.com, 47@test.com, 48@test.com, 49@test.com]
+03-30 15:36:28.418 32207 32271 D RegistrationHandler: 1635959064 Registration started
+03-30 15:36:28.419 32207 32271 D MulticastServer: Registration process finished: 1635959064

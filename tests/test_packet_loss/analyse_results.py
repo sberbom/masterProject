@@ -73,20 +73,14 @@ def valuelabel(x,y, offset=0):
         pylab.text(i+offset, y[i] + 0.0005, value_string, ha = 'center')
 
 x_coordinates = pylab.arange(len(folders))
-width = 0.3
 
-request_ledger_bar = pylab.bar(x_coordinates-width, packet_loss_request_ledger_total, width, label="Request ledger")
-ledgers_receved_bar = pylab.bar(x_coordinates, packet_loss_full_ledger_total, width, label="Ledgers received")
-total_bar = pylab.bar(x_coordinates+width, packet_loss_total, width, label="Total")
+total_bar = pylab.bar(x_coordinates, packet_loss_total)
 
 
-valuelabel(x_coordinates, packet_loss_request_ledger_total, offset=-width)
-valuelabel(x_coordinates, packet_loss_full_ledger_total)
-valuelabel(x_coordinates, packet_loss_total, offset=width+0.05)
+valuelabel(x_coordinates, packet_loss_total )
 
 pylab.xlabel("Number of multicast messages")
 pylab.ylabel("Packet loss %")
 pylab.xticks(x_coordinates, x_coordinates+1)
-pylab.legend(loc="upper right")
 pylab.show()
 

@@ -1,0 +1,301 @@
+Number of rounds: 100
+round 1 of 100
+03-18 13:13:29.677 16210 16210 D SignupActivity: Sign up button pressed
+03-18 13:13:30.732 16210 21076 D SignupActivity: Offline registration complete
+round 2 of 100
+03-18 13:13:56.314 21000 21000 D SignupActivity: Sign up button pressed
+03-18 13:13:57.355 21000 21353 D SignupActivity: Offline registration complete
+round 3 of 100
+03-18 13:14:23.018 21109 21109 D SignupActivity: Sign up button pressed
+03-18 13:14:24.706 21109 21561 D SignupActivity: Offline registration complete
+round 4 of 100
+03-18 13:14:49.661 21385 21385 D SignupActivity: Sign up button pressed
+03-18 13:14:50.699 21385 21820 D SignupActivity: Offline registration complete
+round 5 of 100
+03-18 13:15:16.317 21597 21597 D SignupActivity: Sign up button pressed
+03-18 13:15:17.360 21597 22074 D SignupActivity: Offline registration complete
+round 6 of 100
+03-18 13:15:42.785 21863 21863 D SignupActivity: Sign up button pressed
+03-18 13:15:43.844 21863 22344 D SignupActivity: Offline registration complete
+round 7 of 100
+03-18 13:16:09.491 22117 22117 D SignupActivity: Sign up button pressed
+03-18 13:16:10.532 22117 22555 D SignupActivity: Offline registration complete
+round 8 of 100
+03-18 13:16:36.199 22371 22371 D SignupActivity: Sign up button pressed
+03-18 13:16:37.265 22371 22777 D SignupActivity: Offline registration complete
+round 9 of 100
+03-18 13:17:02.848 22583 22583 D SignupActivity: Sign up button pressed
+03-18 13:17:03.903 22583 22989 D SignupActivity: Offline registration complete
+round 10 of 100
+03-18 13:17:29.628 22809 22809 D SignupActivity: Sign up button pressed
+03-18 13:17:30.748 22809 23217 D SignupActivity: Offline registration complete
+round 11 of 100
+03-18 13:17:56.148 23024 23024 D SignupActivity: Sign up button pressed
+03-18 13:17:57.172 23024 23434 D SignupActivity: Offline registration complete
+round 12 of 100
+03-18 13:18:22.813 23249 23249 D SignupActivity: Sign up button pressed
+03-18 13:18:23.833 23249 23661 D SignupActivity: Offline registration complete
+round 13 of 100
+03-18 13:18:49.397 23485 23485 D SignupActivity: Sign up button pressed
+03-18 13:18:50.516 23485 23882 D SignupActivity: Offline registration complete
+round 14 of 100
+03-18 13:19:16.013 23693 23693 D SignupActivity: Sign up button pressed
+03-18 13:19:16.661 23693 24094 D SignupActivity: Offline registration complete
+round 15 of 100
+03-18 13:19:42.620 23907 23907 D SignupActivity: Sign up button pressed
+03-18 13:19:43.723 23907 24333 D SignupActivity: Offline registration complete
+round 16 of 100
+03-18 13:20:09.176 24120 24120 D SignupActivity: Sign up button pressed
+03-18 13:20:10.221 24120 24549 D SignupActivity: Offline registration complete
+round 17 of 100
+03-18 13:20:35.848 24366 24366 D SignupActivity: Sign up button pressed
+03-18 13:20:36.893 24366 24774 D SignupActivity: Offline registration complete
+round 18 of 100
+03-18 13:21:02.441 24581 24581 D SignupActivity: Sign up button pressed
+03-18 13:21:04.148 24581 24988 D SignupActivity: Offline registration complete
+round 19 of 100
+03-18 13:21:29.102 24806 24806 D SignupActivity: Sign up button pressed
+03-18 13:21:30.145 24806 25197 D SignupActivity: Offline registration complete
+round 20 of 100
+03-18 13:21:55.641 25019 25019 D SignupActivity: Sign up button pressed
+03-18 13:21:57.322 25019 25409 D SignupActivity: Offline registration complete
+round 21 of 100
+03-18 13:22:22.260 25228 25228 D SignupActivity: Sign up button pressed
+03-18 13:22:23.359 25228 25619 D SignupActivity: Offline registration complete
+round 22 of 100
+03-18 13:22:48.937 25437 25437 D SignupActivity: Sign up button pressed
+03-18 13:22:49.990 25437 25835 D SignupActivity: Offline registration complete
+round 23 of 100
+03-18 13:23:15.592 25657 25657 D SignupActivity: Sign up button pressed
+03-18 13:23:16.640 25657 26045 D SignupActivity: Offline registration complete
+round 24 of 100
+03-18 13:23:42.218 25867 25867 D SignupActivity: Sign up button pressed
+03-18 13:23:43.256 25867 26269 D SignupActivity: Offline registration complete
+round 25 of 100
+03-18 13:24:08.957 26077 26077 D SignupActivity: Sign up button pressed
+03-18 13:24:10.079 26077 26549 D SignupActivity: Offline registration complete
+round 26 of 100
+03-18 13:24:35.726 26325 26325 D SignupActivity: Sign up button pressed
+03-18 13:24:36.816 26325 26766 D SignupActivity: Offline registration complete
+round 27 of 100
+03-18 13:25:02.350 26582 26582 D SignupActivity: Sign up button pressed
+03-18 13:25:03.389 26582 26970 D SignupActivity: Offline registration complete
+round 28 of 100
+03-18 13:25:29.023 26792 26792 D SignupActivity: Sign up button pressed
+03-18 13:25:30.122 26792 27198 D SignupActivity: Offline registration complete
+round 29 of 100
+03-18 13:25:55.704 26998 26998 D SignupActivity: Sign up button pressed
+03-18 13:25:56.723 26998 27413 D SignupActivity: Offline registration complete
+round 30 of 100
+03-18 13:26:22.253 27223 27223 D SignupActivity: Sign up button pressed
+03-18 13:26:23.298 27223 27614 D SignupActivity: Offline registration complete
+round 31 of 100
+03-18 13:26:48.951 27436 27436 D SignupActivity: Sign up button pressed
+03-18 13:26:50.656 27436 27828 D SignupActivity: Offline registration complete
+round 32 of 100
+03-18 13:27:15.689 27645 27645 D SignupActivity: Sign up button pressed
+03-18 13:27:16.728 27645 28035 D SignupActivity: Offline registration complete
+round 33 of 100
+03-18 13:27:42.349 27854 27854 D SignupActivity: Sign up button pressed
+03-18 13:27:43.391 27854 28243 D SignupActivity: Offline registration complete
+round 34 of 100
+03-18 13:28:08.941 28067 28067 D SignupActivity: Sign up button pressed
+03-18 13:28:10.067 28067 28450 D SignupActivity: Offline registration complete
+round 35 of 100
+03-18 13:28:35.699 28274 28274 D SignupActivity: Sign up button pressed
+03-18 13:28:36.783 28274 28663 D SignupActivity: Offline registration complete
+round 36 of 100
+03-18 13:29:02.267 28481 28481 D SignupActivity: Sign up button pressed
+03-18 13:29:03.319 28481 28863 D SignupActivity: Offline registration complete
+round 37 of 100
+03-18 13:29:28.956 28690 28690 D SignupActivity: Sign up button pressed
+03-18 13:29:29.997 28690 29073 D SignupActivity: Offline registration complete
+round 38 of 100
+03-18 13:29:55.634 28896 28896 D SignupActivity: Sign up button pressed
+03-18 13:29:56.732 28896 29280 D SignupActivity: Offline registration complete
+round 39 of 100
+03-18 13:30:22.377 29105 29105 D SignupActivity: Sign up button pressed
+03-18 13:30:23.381 29105 29494 D SignupActivity: Offline registration complete
+round 40 of 100
+03-18 13:30:49.064 29311 29311 D SignupActivity: Sign up button pressed
+03-18 13:30:50.108 29311 29697 D SignupActivity: Offline registration complete
+round 41 of 100
+03-18 13:31:15.825 29520 29520 D SignupActivity: Sign up button pressed
+03-18 13:31:16.954 29520 29913 D SignupActivity: Offline registration complete
+round 42 of 100
+03-18 13:31:42.449 29728 29728 D SignupActivity: Sign up button pressed
+03-18 13:31:43.487 29728 30117 D SignupActivity: Offline registration complete
+round 43 of 100
+03-18 13:32:09.100 29937 29937 D SignupActivity: Sign up button pressed
+03-18 13:32:10.180 29937 30320 D SignupActivity: Offline registration complete
+round 44 of 100
+03-18 13:32:35.741 30144 30144 D SignupActivity: Sign up button pressed
+03-18 13:32:36.796 30144 30537 D SignupActivity: Offline registration complete
+round 45 of 100
+03-18 13:33:02.359 30351 30351 D SignupActivity: Sign up button pressed
+03-18 13:33:03.486 30351 30756 D SignupActivity: Offline registration complete
+round 46 of 100
+03-18 13:33:29.056 30572 30572 D SignupActivity: Sign up button pressed
+03-18 13:33:30.098 30572 31015 D SignupActivity: Offline registration complete
+round 47 of 100
+03-18 13:33:55.687 30787 30787 D SignupActivity: Sign up button pressed
+03-18 13:33:56.797 30787 31228 D SignupActivity: Offline registration complete
+round 48 of 100
+03-18 13:34:22.234 31047 31047 D SignupActivity: Sign up button pressed
+03-18 13:34:23.298 31047 31450 D SignupActivity: Offline registration complete
+round 49 of 100
+03-18 13:34:48.818 31259 31259 D SignupActivity: Sign up button pressed
+03-18 13:34:49.907 31259 31653 D SignupActivity: Offline registration complete
+round 50 of 100
+03-18 13:35:15.425 31477 31477 D SignupActivity: Sign up button pressed
+03-18 13:35:16.448 31477 31878 D SignupActivity: Offline registration complete
+round 51 of 100
+03-18 13:35:42.246 31684 31684 D SignupActivity: Sign up button pressed
+03-18 13:35:43.334 31684 32086 D SignupActivity: Offline registration complete
+round 52 of 100
+03-18 13:36:08.939 31909 31909 D SignupActivity: Sign up button pressed
+03-18 13:36:09.982 31909 32304 D SignupActivity: Offline registration complete
+round 53 of 100
+03-18 13:36:35.546 32119 32119 D SignupActivity: Sign up button pressed
+03-18 13:36:36.588 32119 32503 D SignupActivity: Offline registration complete
+round 54 of 100
+03-18 13:37:02.018 32330 32330 D SignupActivity: Sign up button pressed
+03-18 13:37:03.054 32330 32712 D SignupActivity: Offline registration complete
+round 55 of 100
+03-18 13:37:28.718 32535 32535 D SignupActivity: Sign up button pressed
+03-18 13:37:29.737 32535   767 D SignupActivity: Offline registration complete
+round 56 of 100
+03-18 13:37:55.381 32743 32743 D SignupActivity: Sign up button pressed
+03-18 13:37:57.334 32743  1306 D SignupActivity: Offline registration complete
+round 57 of 100
+03-18 13:38:22.028   872   872 D SignupActivity: Sign up button pressed
+03-18 13:38:23.154   872  1734 D SignupActivity: Offline registration complete
+round 58 of 100
+03-18 13:38:48.772  1345  1345 D SignupActivity: Sign up button pressed
+03-18 13:38:49.826  1345  2220 D SignupActivity: Offline registration complete
+round 59 of 100
+03-18 13:39:15.473  1833  1833 D SignupActivity: Sign up button pressed
+03-18 13:39:16.576  1833  2624 D SignupActivity: Offline registration complete
+round 60 of 100
+03-18 13:39:42.265  2280  2280 D SignupActivity: Sign up button pressed
+03-18 13:39:43.373  2280  2950 D SignupActivity: Offline registration complete
+round 61 of 100
+03-18 13:40:08.907  2678  2678 D SignupActivity: Sign up button pressed
+03-18 13:40:10.032  2678  3212 D SignupActivity: Offline registration complete
+round 62 of 100
+03-18 13:40:35.539  2982  2982 D SignupActivity: Sign up button pressed
+03-18 13:40:36.686  2982  3512 D SignupActivity: Offline registration complete
+round 63 of 100
+03-18 13:41:02.289  3275  3275 D SignupActivity: Sign up button pressed
+03-18 13:41:03.338  3275  3761 D SignupActivity: Offline registration complete
+round 64 of 100
+03-18 13:41:28.957  3544  3544 D SignupActivity: Sign up button pressed
+03-18 13:41:29.988  3544  4088 D SignupActivity: Offline registration complete
+round 65 of 100
+03-18 13:41:55.582  3809  3809 D SignupActivity: Sign up button pressed
+03-18 13:41:56.625  3809  4353 D SignupActivity: Offline registration complete
+round 66 of 100
+03-18 13:42:22.138  4126  4126 D SignupActivity: Sign up button pressed
+03-18 13:42:23.272  4126  4605 D SignupActivity: Offline registration complete
+round 67 of 100
+03-18 13:42:48.922  4381  4381 D SignupActivity: Sign up button pressed
+03-18 13:42:50.039  4381  4866 D SignupActivity: Offline registration complete
+round 68 of 100
+03-18 13:43:15.500  4643  4643 D SignupActivity: Sign up button pressed
+03-18 13:43:16.525  4643  5100 D SignupActivity: Offline registration complete
+round 69 of 100
+03-18 13:43:42.266  4896  4896 D SignupActivity: Sign up button pressed
+03-18 13:43:43.310  4896  5319 D SignupActivity: Offline registration complete
+round 70 of 100
+03-18 13:44:08.790  5132  5132 D SignupActivity: Sign up button pressed
+03-18 13:44:09.861  5132  5527 D SignupActivity: Offline registration complete
+round 71 of 100
+03-18 13:44:35.430  5345  5345 D SignupActivity: Sign up button pressed
+03-18 13:44:36.541  5345  5742 D SignupActivity: Offline registration complete
+round 72 of 100
+03-18 13:45:02.106  5560  5560 D SignupActivity: Sign up button pressed
+03-18 13:45:03.142  5560  5996 D SignupActivity: Offline registration complete
+round 73 of 100
+03-18 13:45:28.693  5775  5775 D SignupActivity: Sign up button pressed
+03-18 13:45:29.730  5775  6209 D SignupActivity: Offline registration complete
+round 74 of 100
+03-18 13:45:55.332  6027  6027 D SignupActivity: Sign up button pressed
+03-18 13:45:56.381  6027  6422 D SignupActivity: Offline registration complete
+round 75 of 100
+03-18 13:46:22.006  6241  6241 D SignupActivity: Sign up button pressed
+03-18 13:46:23.071  6241  6628 D SignupActivity: Offline registration complete
+round 76 of 100
+03-18 13:46:48.738  6454  6454 D SignupActivity: Sign up button pressed
+03-18 13:46:50.711  6454  6835 D SignupActivity: Offline registration complete
+round 77 of 100
+03-18 13:47:15.394  6660  6660 D SignupActivity: Sign up button pressed
+03-18 13:47:16.442  6660  7041 D SignupActivity: Offline registration complete
+round 78 of 100
+03-18 13:47:42.066  6867  6867 D SignupActivity: Sign up button pressed
+03-18 13:47:43.173  6867  7249 D SignupActivity: Offline registration complete
+round 79 of 100
+03-18 13:48:08.787  7073  7073 D SignupActivity: Sign up button pressed
+03-18 13:48:09.818  7073  7462 D SignupActivity: Offline registration complete
+round 80 of 100
+03-18 13:48:35.318  7280  7280 D SignupActivity: Sign up button pressed
+03-18 13:48:36.457  7280  7686 D SignupActivity: Offline registration complete
+round 81 of 100
+03-18 13:49:01.887  7507  7507 D SignupActivity: Sign up button pressed
+03-18 13:49:02.932  7507  7895 D SignupActivity: Offline registration complete
+round 82 of 100
+03-18 13:49:28.579  7718  7718 D SignupActivity: Sign up button pressed
+03-18 13:49:29.624  7718  8103 D SignupActivity: Offline registration complete
+round 83 of 100
+03-18 13:49:55.117  7926  7926 D SignupActivity: Sign up button pressed
+03-18 13:49:56.163  7926  8321 D SignupActivity: Offline registration complete
+round 84 of 100
+03-18 13:50:21.772  8134  8134 D SignupActivity: Sign up button pressed
+03-18 13:50:22.808  8134  8532 D SignupActivity: Offline registration complete
+round 85 of 100
+03-18 13:50:48.410  8354  8354 D SignupActivity: Sign up button pressed
+03-18 13:50:49.440  8354  8764 D SignupActivity: Offline registration complete
+round 86 of 100
+03-18 13:51:14.989  8564  8564 D SignupActivity: Sign up button pressed
+03-18 13:51:16.034  8564  8967 D SignupActivity: Offline registration complete
+round 87 of 100
+03-18 13:51:41.776  8787  8787 D SignupActivity: Sign up button pressed
+03-18 13:51:42.816  8787  9184 D SignupActivity: Offline registration complete
+round 88 of 100
+03-18 13:52:08.430  8998  8998 D SignupActivity: Sign up button pressed
+03-18 13:52:09.471  8998  9388 D SignupActivity: Offline registration complete
+round 89 of 100
+03-18 13:52:35.161  9207  9207 D SignupActivity: Sign up button pressed
+03-18 13:52:36.217  9207  9587 D SignupActivity: Offline registration complete
+round 90 of 100
+03-18 13:53:01.897  9414  9414 D SignupActivity: Sign up button pressed
+03-18 13:53:05.562  9414  9809 D SignupActivity: Offline registration complete
+round 91 of 100
+03-18 13:53:28.422  9619  9619 D SignupActivity: Sign up button pressed
+03-18 13:53:30.124  9619 10027 D SignupActivity: Offline registration complete
+round 92 of 100
+03-18 13:53:55.110  9846  9846 D SignupActivity: Sign up button pressed
+03-18 13:53:56.171  9846 10231 D SignupActivity: Offline registration complete
+round 93 of 100
+03-18 13:54:21.834 10054 10054 D SignupActivity: Sign up button pressed
+03-18 13:54:22.881 10054 10457 D SignupActivity: Offline registration complete
+round 94 of 100
+03-18 13:54:48.501 10272 10272 D SignupActivity: Sign up button pressed
+03-18 13:54:49.568 10272 10664 D SignupActivity: Offline registration complete
+round 95 of 100
+03-18 13:55:15.157 10490 10490 D SignupActivity: Sign up button pressed
+03-18 13:55:16.202 10490 10872 D SignupActivity: Offline registration complete
+round 96 of 100
+03-18 13:55:41.737 10696 10696 D SignupActivity: Sign up button pressed
+03-18 13:55:42.843 10696 11091 D SignupActivity: Offline registration complete
+round 97 of 100
+03-18 13:56:08.255 10903 10903 D SignupActivity: Sign up button pressed
+03-18 13:56:09.290 10903 11296 D SignupActivity: Offline registration complete
+round 98 of 100
+03-18 13:56:34.932 11117 11117 D SignupActivity: Sign up button pressed
+03-18 13:56:35.994 11117 11505 D SignupActivity: Offline registration complete
+round 99 of 100
+03-18 13:57:01.500 11327 11327 D SignupActivity: Sign up button pressed
+03-18 13:57:02.560 11327 11739 D SignupActivity: Offline registration complete
+round 100 of 100
+03-18 13:57:28.172 11536 11536 D SignupActivity: Sign up button pressed
+03-18 13:57:29.220 11536 12011 D SignupActivity: Offline registration complete

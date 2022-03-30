@@ -2,7 +2,7 @@ from cProfile import label
 from turtle import color
 import pylab
 
-log_device_1 = open("./log_device_a21.txt", "r")
+log_device_1 = open("./log_device_a71.txt", "r")
 log_device_small = open("./log_device_s21.txt", "r")
 
 startingRegistrationAt = {}
@@ -93,5 +93,6 @@ pylab.axhline(y=averageRegistrationTimeSmall, color="red", label="Galaxy s21 ave
 
 pylab.xlabel("Trial number")
 pylab.ylabel("Registration time (ms)")
+pylab.xticks([0, 20, 40, 60, 80, 99], [1, 20, 40, 60, 80, 100])
 pylab.legend()
 pylab.show()

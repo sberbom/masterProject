@@ -16,6 +16,7 @@ import com.example.masterproject.exceptions.UsernameTakenException
 import com.example.masterproject.ledger.Ledger
 import com.example.masterproject.ledger.RegistrationHandler
 import com.example.masterproject.network.MulticastClient
+import com.example.masterproject.utils.Constants
 import com.example.masterproject.utils.MISCUtils
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -168,7 +169,7 @@ class SignUpActivity: AppCompatActivity() {
         return try {
             val runtime = Runtime.getRuntime()
             val ipProcess = runtime.exec("/system/bin/ping -c 1 8.8.8.8")
-            val hasFinished = ipProcess.waitFor(500, TimeUnit.MILLISECONDS)
+            val hasFinished = ipProcess.waitFor(Constants.CHECK_NETWORK_AVAILABILITY_TIME, TimeUnit.MILLISECONDS)
             val exitValue = try{ ipProcess.exitValue() } catch (e: IllegalThreadStateException) {-1}
             ipProcess.destroy()
             return hasFinished && exitValue == 0

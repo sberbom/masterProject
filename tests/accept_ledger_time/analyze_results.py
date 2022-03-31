@@ -1,14 +1,6 @@
 from datetime import datetime
 from statistics import mean
 
-log_device_1 = open("non_ca_signed/log_device1.txt", "r")
-log_device_2 = open("non_ca_signed/log_device2.txt", "r")
-log_device_3 = open("non_ca_signed/log_device3.txt", "r")
-log_device_4 = open("non_ca_signed/log_device4.txt", "r")
-log_device_5 = open("non_ca_signed/log_device5.txt", "r")
-log_device_6 = open("non_ca_signed/log_device6.txt", "r")
-
-
 # Maps the index of a device, to a dictionary mapping the round number to the time it took to
 # accept the ledger that round
 accept_ledger_times = {}
@@ -43,8 +35,8 @@ rounds_with_missing_ledger = {}
 # Maps the index of a device to the rounds where the ledger was incorrect
 incorrect_ledgers = {}
 
-def search_file(index):
-  log_device = open("non_ca_signed/log_device{}.txt".format(index), "r")
+def search_file(index, folder):
+  log_device = open("{0}/log_device{1}.txt".format(folder, index), "r")
   # Initialize some counters and dicts for this device
   total_ledgers[index] = 0
   correct_ledger[index] = 0
@@ -129,6 +121,6 @@ def search_file(index):
   print("Rounds with incorrect ledger (0-indexed rounds): {}".format(incorrect_ledgers[index]))
 
 for i in range(2, 7):
-  search_file(i)
+  search_file(i, "ca_signed")
 
 

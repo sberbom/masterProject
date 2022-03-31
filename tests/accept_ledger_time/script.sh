@@ -13,14 +13,14 @@ do
    echo "round $round of $rounds"
    echo "round $round of $rounds" >> log_device1.txt
    adb -s "$device1" shell am start -n com.example.masterproject/com.example.masterproject.activities.MainActivity
-   sleep 10
+   sleep 5
    device_counter=2
    for device in $device2 $device3 $device4 $device5 $device6
    do
       echo "round $round of $rounds" >> log_device$device_counter.txt
       adb -s "$device" shell am start -n com.example.masterproject/com.example.masterproject.activities.MainActivity
       device_counter=$((device_counter+1))
-      sleep 20
+      sleep 15
    done
    for device in $device1 $device2 $device3 $device4 $device5 $device6
    do

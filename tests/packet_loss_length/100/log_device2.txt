@@ -1,0 +1,756 @@
+Number of rounds: 5
+round 1 of 5
+--------- beginning of main
+03-30 15:41:56.781  1745  1846 D MulticastServer: MULTICAST_SERVER_LISTENING
+03-30 15:41:56.783  1745  1848 D MulticastServer: Registration process started with nonce 987201307
+03-30 15:41:56.786  1745  1847 D MulticastClient: REQUEST_LEDGER 987201307
+03-30 15:41:56.787  1745  1847 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":987201307,"seq":0,"tot":0}]
+03-30 15:41:58.786  1745  1850 D RegistrationHandler: I am the first in the network
+03-30 15:41:58.787  1745  1850 D RegistrationHandler: 987201307 Registration started
+03-30 15:41:58.793  1745  1850 D MulticastServer: Registration process finished: 987201307
+03-30 15:41:58.798  1745  1871 D MulticastClient: Sent messages with 3 resends: [{"sender":"5@test.com","payload":"{\"ip\":\"192.168.1.97\",\"cert\":\"MIIBHDCBwqADAgECAgYBf5Ll+aQwCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKNUB0ZXN0LmNvbTAeFw0yMjAzMTUxMzIzMzlaFw0yNDAzMTYxMzIzMzlaMBUxEzARBgNVBAMMCjVAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAS9OhThI4D6g\/iEXxfGklrIeXd9Z0M+diiJ9ljAgsIg42aeRti+qPdLXU1\/D9cRSqQkfwr3bPWV3oF684Iqni4MMAoGCCqGSM49BAMCA0kAMEYCIQDvSgAgKBB22Z\/ooyqUg64EcQUigPLpb+EEue5bwGydWgIhAKus7fYnj5hLAUwnPrCw9vZZ\/j2+Hst7+b4ASLL75Nl9\"}","mt":"BROADCAST_BLOCK","sig":"MEUCIESULDlLwJC3oEEG8jAKlxpfw3Y+GbljU7Qcg4VD6hbtAiEAz1x4Am48D0LMF596vKNJQEiHxg4y7tAhfk7EvQSy8yE=","nonce":987201307,"seq":0,"tot":0}]
+round 2 of 5
+03-30 15:42:17.121  1922  2014 D MulticastServer: MULTICAST_SERVER_LISTENING
+03-30 15:42:17.124  1922  2016 D MulticastServer: Registration process started with nonce 555026672
+03-30 15:42:17.126  1922  2015 D MulticastClient: REQUEST_LEDGER 555026672
+03-30 15:42:17.127  1922  2015 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":555026672,"seq":0,"tot":0}]
+03-30 15:42:17.295  1922  2020 D RegistrationHandler: Has received 1 of 100 fragments from 1@test.com
+03-30 15:42:17.392  1922  2020 D RegistrationHandler: Has received 2 of 100 from 1@test.com
+03-30 15:42:17.395  1922  2020 D RegistrationHandler: Has received 3 of 100 from 1@test.com
+03-30 15:42:17.402  1922  2020 D RegistrationHandler: Has received 4 of 100 from 1@test.com
+03-30 15:42:17.409  1922  2020 D RegistrationHandler: Has received 5 of 100 from 1@test.com
+03-30 15:42:17.422  1922  2020 D RegistrationHandler: Has received 6 of 100 from 1@test.com
+03-30 15:42:17.434  1922  2020 D RegistrationHandler: Has received 7 of 100 from 1@test.com
+03-30 15:42:17.450  1922  2044 D RegistrationHandler: Has received 8 of 100 from 1@test.com
+03-30 15:42:17.458  1922  2044 D RegistrationHandler: Has received 9 of 100 from 1@test.com
+03-30 15:42:17.470  1922  2044 D RegistrationHandler: Has received 10 of 100 from 1@test.com
+03-30 15:42:17.474  1922  2044 D RegistrationHandler: Has received 11 of 100 from 1@test.com
+03-30 15:42:17.482  1922  2044 D RegistrationHandler: Has received 12 of 100 from 1@test.com
+03-30 15:42:17.486  1922  2044 D RegistrationHandler: Has received 13 of 100 from 1@test.com
+03-30 15:42:17.494  1922  2044 D RegistrationHandler: Has received 14 of 100 from 1@test.com
+03-30 15:42:17.502  1922  2044 D RegistrationHandler: Has received 15 of 100 from 1@test.com
+03-30 15:42:17.509  1922  2038 D RegistrationHandler: Has received 16 of 100 from 1@test.com
+03-30 15:42:17.515  1922  2038 D RegistrationHandler: Has received 17 of 100 from 1@test.com
+03-30 15:42:17.530  1922  2044 D RegistrationHandler: Has received 18 of 100 from 1@test.com
+03-30 15:42:17.536  1922  2044 D RegistrationHandler: Has received 19 of 100 from 1@test.com
+03-30 15:42:17.540  1922  2044 D RegistrationHandler: Has received 20 of 100 from 1@test.com
+03-30 15:42:17.548  1922  2044 D RegistrationHandler: Has received 21 of 100 from 1@test.com
+03-30 15:42:17.575  1922  2044 D RegistrationHandler: Has received 22 of 100 from 1@test.com
+03-30 15:42:17.583  1922  2044 D RegistrationHandler: Has received 23 of 100 from 1@test.com
+03-30 15:42:17.595  1922  2044 D RegistrationHandler: Has received 24 of 100 from 1@test.com
+03-30 15:42:17.601  1922  2044 D RegistrationHandler: Has received 25 of 100 from 1@test.com
+03-30 15:42:17.607  1922  2044 D RegistrationHandler: Has received 26 of 100 from 1@test.com
+03-30 15:42:17.612  1922  2044 D RegistrationHandler: Has received 27 of 100 from 1@test.com
+03-30 15:42:17.641  1922  2044 D RegistrationHandler: Has received 28 of 100 from 1@test.com
+03-30 15:42:17.648  1922  2044 D RegistrationHandler: Has received 29 of 100 from 1@test.com
+03-30 15:42:17.651  1922  2044 D RegistrationHandler: Has received 30 of 100 from 1@test.com
+03-30 15:42:17.660  1922  2044 D RegistrationHandler: Has received 31 of 100 from 1@test.com
+03-30 15:42:17.668  1922  2044 D RegistrationHandler: Has received 32 of 100 from 1@test.com
+03-30 15:42:17.676  1922  2044 D RegistrationHandler: Has received 33 of 100 from 1@test.com
+03-30 15:42:17.690  1922  2044 D RegistrationHandler: Has received 34 of 100 from 1@test.com
+03-30 15:42:17.692  1922  2044 D RegistrationHandler: Has received 35 of 100 from 1@test.com
+03-30 15:42:17.697  1922  2044 D RegistrationHandler: Has received 36 of 100 from 1@test.com
+03-30 15:42:17.705  1922  2044 D RegistrationHandler: Has received 37 of 100 from 1@test.com
+03-30 15:42:17.713  1922  2044 D RegistrationHandler: Has received 38 of 100 from 1@test.com
+03-30 15:42:17.718  1922  2044 D RegistrationHandler: Has received 39 of 100 from 1@test.com
+03-30 15:42:17.726  1922  2044 D RegistrationHandler: Has received 40 of 100 from 1@test.com
+03-30 15:42:17.747  1922  2044 D RegistrationHandler: Has received 41 of 100 from 1@test.com
+03-30 15:42:17.753  1922  2044 D RegistrationHandler: Has received 42 of 100 from 1@test.com
+03-30 15:42:17.757  1922  2044 D RegistrationHandler: Has received 43 of 100 from 1@test.com
+03-30 15:42:17.767  1922  2044 D RegistrationHandler: Has received 44 of 100 from 1@test.com
+03-30 15:42:17.770  1922  2044 D RegistrationHandler: Has received 45 of 100 from 1@test.com
+03-30 15:42:17.774  1922  2044 D RegistrationHandler: Has received 46 of 100 from 1@test.com
+03-30 15:42:17.781  1922  2044 D RegistrationHandler: Has received 47 of 100 from 1@test.com
+03-30 15:42:17.786  1922  2044 D RegistrationHandler: Has received 48 of 100 from 1@test.com
+03-30 15:42:17.793  1922  2044 D RegistrationHandler: Has received 49 of 100 from 1@test.com
+03-30 15:42:17.802  1922  2044 D RegistrationHandler: Has received 50 of 100 from 1@test.com
+03-30 15:42:17.860  1922  2044 D RegistrationHandler: Has received 51 of 100 from 1@test.com
+03-30 15:42:17.867  1922  2044 D RegistrationHandler: Has received 52 of 100 from 1@test.com
+03-30 15:42:17.875  1922  2044 D RegistrationHandler: Has received 53 of 100 from 1@test.com
+03-30 15:42:17.880  1922  2044 D RegistrationHandler: Has received 54 of 100 from 1@test.com
+03-30 15:42:17.930  1922  2044 D RegistrationHandler: Has received 55 of 100 from 1@test.com
+03-30 15:42:17.932  1922  2038 D RegistrationHandler: Has received 56 of 100 from 1@test.com
+03-30 15:42:17.935  1922  2038 D RegistrationHandler: Has received 57 of 100 from 1@test.com
+03-30 15:42:17.938  1922  2038 D RegistrationHandler: Has received 58 of 100 from 1@test.com
+03-30 15:42:17.945  1922  2038 D RegistrationHandler: Has received 59 of 100 from 1@test.com
+03-30 15:42:17.953  1922  2038 D RegistrationHandler: Has received 60 of 100 from 1@test.com
+03-30 15:42:17.966  1922  2038 D RegistrationHandler: Has received 61 of 100 from 1@test.com
+03-30 15:42:17.969  1922  2038 D RegistrationHandler: Has received 62 of 100 from 1@test.com
+03-30 15:42:17.978  1922  2038 D RegistrationHandler: Has received 63 of 100 from 1@test.com
+03-30 15:42:18.040  1922  2044 D RegistrationHandler: Has received 64 of 100 from 1@test.com
+03-30 15:42:18.042  1922  2038 D RegistrationHandler: Has received 65 of 100 from 1@test.com
+03-30 15:42:18.048  1922  2038 D RegistrationHandler: Has received 66 of 100 from 1@test.com
+03-30 15:42:18.056  1922  2015 D RegistrationHandler: Has received 67 of 100 from 1@test.com
+03-30 15:42:18.057  1922  2038 D RegistrationHandler: Has received 68 of 100 from 1@test.com
+03-30 15:42:18.067  1922  2038 D RegistrationHandler: Has received 69 of 100 from 1@test.com
+03-30 15:42:18.071  1922  2015 D RegistrationHandler: Has received 70 of 100 from 1@test.com
+03-30 15:42:18.224  1922  2015 D RegistrationHandler: Has received 70 of 100 fragments from 1@test.com
+03-30 15:42:18.225  1922  2038 D RegistrationHandler: Has received 70 of 100 from 1@test.com
+03-30 15:42:18.231  1922  2044 D RegistrationHandler: Has received 70 of 100 from 1@test.com
+03-30 15:42:18.233  1922  2038 D RegistrationHandler: Has received 70 of 100 from 1@test.com
+03-30 15:42:18.240  1922  2038 D RegistrationHandler: Has received 70 of 100 from 1@test.com
+03-30 15:42:18.249  1922  2038 D RegistrationHandler: Has received 71 of 100 from 1@test.com
+03-30 15:42:18.249  1922  2044 D RegistrationHandler: Has received 71 of 100 from 1@test.com
+03-30 15:42:18.259  1922  2015 D RegistrationHandler: Has received 72 of 100 from 1@test.com
+03-30 15:42:18.318  1922  2015 D RegistrationHandler: Has received 72 of 100 from 1@test.com
+03-30 15:42:18.324  1922  2015 D RegistrationHandler: Has received 73 of 100 from 1@test.com
+03-30 15:42:18.331  1922  2015 D RegistrationHandler: Has received 74 of 100 from 1@test.com
+03-30 15:42:18.334  1922  2015 D RegistrationHandler: Has received 74 of 100 from 1@test.com
+03-30 15:42:18.341  1922  2015 D RegistrationHandler: Has received 74 of 100 from 1@test.com
+03-30 15:42:18.348  1922  2015 D RegistrationHandler: Has received 75 of 100 from 1@test.com
+03-30 15:42:18.374  1922  2015 D RegistrationHandler: Has received 75 of 100 from 1@test.com
+03-30 15:42:18.383  1922  2015 D RegistrationHandler: Has received 75 of 100 from 1@test.com
+03-30 15:42:18.385  1922  2015 D RegistrationHandler: Has received 75 of 100 from 1@test.com
+03-30 15:42:18.393  1922  2015 D RegistrationHandler: Has received 75 of 100 from 1@test.com
+03-30 15:42:18.397  1922  2015 D RegistrationHandler: Has received 75 of 100 from 1@test.com
+03-30 15:42:18.405  1922  2015 D RegistrationHandler: Has received 76 of 100 from 1@test.com
+03-30 15:42:18.409  1922  2015 D RegistrationHandler: Has received 76 of 100 from 1@test.com
+03-30 15:42:18.417  1922  2015 D RegistrationHandler: Has received 76 of 100 from 1@test.com
+03-30 15:42:18.426  1922  2015 D RegistrationHandler: Has received 76 of 100 from 1@test.com
+03-30 15:42:18.430  1922  2015 D RegistrationHandler: Has received 76 of 100 from 1@test.com
+03-30 15:42:18.566  1922  2015 D RegistrationHandler: Has received 76 of 100 from 1@test.com
+03-30 15:42:18.570  1922  2044 D RegistrationHandler: Has received 76 of 100 from 1@test.com
+03-30 15:42:18.576  1922  2015 D RegistrationHandler: Has received 77 of 100 from 1@test.com
+03-30 15:42:18.582  1922  2044 D RegistrationHandler: Has received 78 of 100 from 1@test.com
+03-30 15:42:18.588  1922  2015 D RegistrationHandler: Has received 79 of 100 from 1@test.com
+03-30 15:42:18.597  1922  2044 D RegistrationHandler: Has received 79 of 100 from 1@test.com
+03-30 15:42:18.604  1922  2015 D RegistrationHandler: Has received 79 of 100 from 1@test.com
+03-30 15:42:18.610  1922  2015 D RegistrationHandler: Has received 79 of 100 from 1@test.com
+03-30 15:42:18.619  1922  2015 D RegistrationHandler: Has received 79 of 100 from 1@test.com
+03-30 15:42:18.625  1922  2015 D RegistrationHandler: Has received 79 of 100 from 1@test.com
+03-30 15:42:18.630  1922  2015 D RegistrationHandler: Has received 80 of 100 from 1@test.com
+03-30 15:42:18.637  1922  2015 D RegistrationHandler: Has received 80 of 100 from 1@test.com
+03-30 15:42:18.647  1922  2015 D RegistrationHandler: Has received 80 of 100 from 1@test.com
+03-30 15:42:18.650  1922  2015 D RegistrationHandler: Has received 80 of 100 from 1@test.com
+03-30 15:42:18.652  1922  2015 D RegistrationHandler: Has received 80 of 100 from 1@test.com
+03-30 15:42:18.662  1922  2015 D RegistrationHandler: Has received 80 of 100 from 1@test.com
+03-30 15:42:18.666  1922  2015 D RegistrationHandler: Has received 80 of 100 from 1@test.com
+03-30 15:42:18.672  1922  2015 D RegistrationHandler: Has received 80 of 100 from 1@test.com
+03-30 15:42:18.678  1922  2015 D RegistrationHandler: Has received 80 of 100 from 1@test.com
+03-30 15:42:18.685  1922  2015 D RegistrationHandler: Has received 81 of 100 from 1@test.com
+03-30 15:42:18.692  1922  2015 D RegistrationHandler: Has received 82 of 100 from 1@test.com
+03-30 15:42:18.698  1922  2015 D RegistrationHandler: Has received 82 of 100 from 1@test.com
+03-30 15:42:18.705  1922  2015 D RegistrationHandler: Has received 82 of 100 from 1@test.com
+03-30 15:42:18.707  1922  2015 D RegistrationHandler: Has received 82 of 100 from 1@test.com
+03-30 15:42:18.717  1922  2015 D RegistrationHandler: Has received 82 of 100 from 1@test.com
+03-30 15:42:18.755  1922  2015 D RegistrationHandler: Has received 83 of 100 from 1@test.com
+03-30 15:42:18.756  1922  2044 D RegistrationHandler: Has received 84 of 100 from 1@test.com
+03-30 15:42:18.758  1922  2015 D RegistrationHandler: Has received 85 of 100 from 1@test.com
+03-30 15:42:18.766  1922  2015 D RegistrationHandler: Has received 86 of 100 from 1@test.com
+03-30 15:42:18.769  1922  2015 D RegistrationHandler: Has received 87 of 100 from 1@test.com
+03-30 15:42:18.779  1922  2015 D RegistrationHandler: Has received 88 of 100 from 1@test.com
+03-30 15:42:18.781  1922  2015 D RegistrationHandler: Has received 89 of 100 from 1@test.com
+03-30 15:42:18.790  1922  2015 D RegistrationHandler: Has received 89 of 100 from 1@test.com
+03-30 15:42:18.792  1922  2015 D RegistrationHandler: Has received 89 of 100 from 1@test.com
+03-30 15:42:18.802  1922  2015 D RegistrationHandler: Has received 89 of 100 from 1@test.com
+03-30 15:42:18.806  1922  2015 D RegistrationHandler: Has received 89 of 100 from 1@test.com
+03-30 15:42:18.810  1922  2015 D RegistrationHandler: Has received 89 of 100 from 1@test.com
+03-30 15:42:18.817  1922  2015 D RegistrationHandler: Has received 89 of 100 from 1@test.com
+03-30 15:42:18.825  1922  2015 D RegistrationHandler: Has received 89 of 100 from 1@test.com
+03-30 15:42:18.844  1922  2015 D RegistrationHandler: Has received 89 of 100 from 1@test.com
+03-30 15:42:18.846  1922  2044 D RegistrationHandler: Has received 89 of 100 from 1@test.com
+03-30 15:42:18.854  1922  2038 D RegistrationHandler: Has received 90 of 100 from 1@test.com
+03-30 15:42:18.856  1922  2044 D RegistrationHandler: Has received 90 of 100 from 1@test.com
+03-30 15:42:18.860  1922  2015 D RegistrationHandler: Has received 90 of 100 from 1@test.com
+03-30 15:42:18.869  1922  2015 D RegistrationHandler: Has received 90 of 100 from 1@test.com
+03-30 15:42:18.873  1922  2015 D RegistrationHandler: Has received 91 of 100 from 1@test.com
+03-30 15:42:18.878  1922  2015 D RegistrationHandler: Has received 92 of 100 from 1@test.com
+03-30 15:42:18.885  1922  2015 D RegistrationHandler: Has received 93 of 100 from 1@test.com
+03-30 15:42:18.890  1922  2015 D RegistrationHandler: Has received 94 of 100 from 1@test.com
+03-30 15:42:18.911  1922  2015 D RegistrationHandler: Has received 94 of 100 from 1@test.com
+03-30 15:42:18.916  1922  2015 D RegistrationHandler: Has received 94 of 100 from 1@test.com
+03-30 15:42:18.986  1922  2015 D RegistrationHandler: Has received 94 of 100 from 1@test.com
+03-30 15:42:19.167  1922  2015 D RegistrationHandler: Has received 94 of 100 from 1@test.com
+03-30 15:42:19.169  1922  2044 D RegistrationHandler: Has received 94 of 100 from 1@test.com
+03-30 15:42:19.202  1922  2038 D RegistrationHandler: Has received 94 of 100 from 1@test.com
+03-30 15:42:19.207  1922  2038 D RegistrationHandler: Has received 94 of 100 from 1@test.com
+03-30 15:42:19.210  1922  2038 D RegistrationHandler: Has received 94 of 100 from 1@test.com
+03-30 15:42:19.235  1922  2038 D RegistrationHandler: Has received 94 of 100 from 1@test.com
+03-30 15:42:19.235  1922  2015 D RegistrationHandler: Has received 94 of 100 from 1@test.com
+03-30 15:42:19.241  1922  2015 D RegistrationHandler: Has received 94 of 100 from 1@test.com
+03-30 15:42:19.308  1922  2015 D RegistrationHandler: Has received 94 of 100 from 1@test.com
+03-30 15:42:19.309  1922  2038 D RegistrationHandler: Has received 94 of 100 from 1@test.com
+03-30 15:42:19.324  1922  2038 D RegistrationHandler: Has received 94 of 100 from 1@test.com
+03-30 15:42:19.338  1922  2038 D RegistrationHandler: Has received 94 of 100 from 1@test.com
+03-30 15:42:19.354  1922  2038 D RegistrationHandler: Has received 94 of 100 from 1@test.com
+03-30 15:42:19.362  1922  2038 D RegistrationHandler: Has received 95 of 100 from 1@test.com
+03-30 15:42:19.369  1922  2038 D RegistrationHandler: Has received 96 of 100 from 1@test.com
+03-30 15:42:19.370  1922  2015 D RegistrationHandler: Has received 97 of 100 from 1@test.com
+03-30 15:42:19.381  1922  2044 D RegistrationHandler: Has received 97 of 100 from 1@test.com
+03-30 15:42:19.397  1922  2044 D RegistrationHandler: Has received 98 of 100 from 1@test.com
+03-30 15:42:19.398  1922  2015 D RegistrationHandler: Has received 98 of 100 from 1@test.com
+03-30 15:42:19.411  1922  2015 D RegistrationHandler: Has received 98 of 100 from 1@test.com
+03-30 15:42:19.425  1922  2015 D RegistrationHandler: Has received 98 of 100 from 1@test.com
+03-30 15:42:19.433  1922  2015 D RegistrationHandler: Has received 98 of 100 from 1@test.com
+03-30 15:42:19.433  1922  2038 D RegistrationHandler: Has received 98 of 100 from 1@test.com
+03-30 15:42:19.462  1922  2044 D RegistrationHandler: Has received 98 of 100 from 1@test.com
+03-30 15:42:19.464  1922  2038 D RegistrationHandler: Has received 98 of 100 from 1@test.com
+03-30 15:42:19.469  1922  2038 D RegistrationHandler: Has received 98 of 100 from 1@test.com
+03-30 15:42:19.496  1922  2038 D RegistrationHandler: Has received 98 of 100 from 1@test.com
+03-30 15:42:19.503  1922  2015 D RegistrationHandler: Has received 98 of 100 from 1@test.com
+03-30 15:42:19.511  1922  2015 D RegistrationHandler: Has received 98 of 100 from 1@test.com
+03-30 15:42:19.528  1922  2015 D RegistrationHandler: Has received 98 of 100 from 1@test.com
+03-30 15:42:19.529  1922  2044 D RegistrationHandler: Has received 98 of 100 from 1@test.com
+03-30 15:42:19.549  1922  2038 D RegistrationHandler: Has received 98 of 100 from 1@test.com
+03-30 15:42:19.557  1922  2038 D RegistrationHandler: Has received 98 of 100 from 1@test.com
+03-30 15:42:19.572  1922  2038 D RegistrationHandler: Has received 98 of 100 from 1@test.com
+03-30 15:42:19.576  1922  2038 D RegistrationHandler: Has received 98 of 100 from 1@test.com
+03-30 15:42:19.592  1922  2038 D RegistrationHandler: Has received 98 of 100 from 1@test.com
+03-30 15:42:19.598  1922  2038 D RegistrationHandler: Has received 98 of 100 from 1@test.com
+03-30 15:42:19.607  1922  2038 D RegistrationHandler: Has received 99 of 100 from 1@test.com
+03-30 15:42:19.619  1922  2038 D RegistrationHandler: Has received 99 of 100 from 1@test.com
+03-30 15:42:19.632  1922  2038 D RegistrationHandler: Has received 99 of 100 from 1@test.com
+03-30 15:42:19.664  1922  2038 D RegistrationHandler: Has received 99 of 100 from 1@test.com
+03-30 15:42:19.672  1922  2038 D RegistrationHandler: Has received 99 of 100 from 1@test.com
+03-30 15:42:19.685  1922  2038 D RegistrationHandler: Has received 99 of 100 from 1@test.com
+03-30 15:42:19.696  1922  2038 D RegistrationHandler: Has received 99 of 100 from 1@test.com
+03-30 15:42:19.697  1922  2015 D RegistrationHandler: Has received 99 of 100 from 1@test.com
+03-30 15:42:19.713  1922  2015 D RegistrationHandler: Has received 99 of 100 from 1@test.com
+03-30 15:42:19.719  1922  2015 D RegistrationHandler: Has received 99 of 100 from 1@test.com
+03-30 15:42:19.721  1922  2038 D RegistrationHandler: Has received 99 of 100 from 1@test.com
+03-30 15:42:19.731  1922  2038 D RegistrationHandler: Has received 99 of 100 from 1@test.com
+03-30 15:42:19.736  1922  2038 D RegistrationHandler: Has received 99 of 100 from 1@test.com
+03-30 15:42:19.761  1922  2038 D RegistrationHandler: Has received 99 of 100 from 1@test.com
+03-30 15:42:19.764  1922  2015 D RegistrationHandler: Has received 99 of 100 from 1@test.com
+03-30 15:42:19.769  1922  2015 D RegistrationHandler: Has received 100 of 100 from 1@test.com
+03-30 15:42:19.785  1922  2038 D RegistrationHandler: Has received 100 of 100 from 1@test.com
+03-30 15:42:19.805  1922  2015 D RegistrationHandler: Received full ledger from 1@test.com with nonce 555026672
+03-30 15:42:19.805  1922  2015 D RegistrationHandler: FULL_LEDGER 555026672
+03-30 15:42:19.812  1922  2038 D RegistrationHandler: Received full ledger from 1@test.com with nonce 555026672
+03-30 15:42:19.812  1922  2038 D RegistrationHandler: FULL_LEDGER 555026672
+03-30 15:42:19.970  1922  2038 D RegistrationHandler: Has received 100 of 100 fragments from 1@test.com
+03-30 15:42:27.130  1922  2017 D RegistrationHandler: ACCEPTED_LEDGER 555026672 100
+03-30 15:42:27.159  1922  2017 D RegistrationHandler: 555026672 The accepted ledger contains: [0@test.com, 1@test.com, 2@test.com, 3@test.com, 4@test.com, 5@test.com, 6@test.com, 7@test.com, 8@test.com, 9@test.com, 10@test.com, 11@test.com, 12@test.com, 13@test.com, 14@test.com, 15@test.com, 16@test.com, 17@test.com, 18@test.com, 19@test.com, 20@test.com, 21@test.com, 22@test.com, 23@test.com, 24@test.com, 25@test.com, 26@test.com, 27@test.com, 28@test.com, 29@test.com, 30@test.com, 31@test.com, 32@test.com, 33@test.com, 34@test.com, 35@test.com, 36@test.com, 37@test.com, 38@test.com, 39@test.com, 40@test.com, 41@test.com, 42@test.com, 43@test.com, 44@test.com, 45@test.com, 46@test.com, 47@test.com, 48@test.com, 49@test.com, 50@test.com, 51@test.com, 52@test.com, 53@test.com, 54@test.com, 55@test.com, 56@test.com, 57@test.com, 58@test.com, 59@test.com, 60@test.com, 61@test.com, 62@test.com, 63@test.com, 64@test.com, 65@test.com, 66@test.com, 67@test.com, 68@test.com, 69@test.com, 70@test.com, 71@test.com, 72@test.com, 73@test.com, 74@test.com, 75@test.com, 76@test.com, 77@test.com, 78@test.com, 79@test.com, 80@test.com, 81@test.com, 82@test.com, 83@test.com, 84@test.com, 85@test.com, 86@test.com, 87@test.com, 88@test.com, 89@test.com, 90@test.com, 91@test.com, 92@test.com, 93@test.com, 94@test.com, 95@test.com, 96@test.com, 97@test.com, 98@test.com, 99@test.com]
+03-30 15:42:27.159  1922  2017 D RegistrationHandler: 555026672 Registration started
+03-30 15:42:27.164  1922  2017 D MulticastServer: Registration process finished: 555026672
+round 3 of 5
+03-30 15:42:36.728  2112  2231 D MulticastServer: MULTICAST_SERVER_LISTENING
+03-30 15:42:36.730  2112  2233 D MulticastServer: Registration process started with nonce 1917054894
+03-30 15:42:36.733  2112  2242 D MulticastClient: REQUEST_LEDGER 1917054894
+03-30 15:42:36.734  2112  2242 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1917054894,"seq":0,"tot":0}]
+03-30 15:42:37.886  2112  2273 D RegistrationHandler: Has received 1 of 100 fragments from 1@test.com
+03-30 15:42:37.892  2112  2242 D RegistrationHandler: Has received 2 of 100 from 1@test.com
+03-30 15:42:37.895  2112  2242 D RegistrationHandler: Has received 3 of 100 from 1@test.com
+03-30 15:42:37.903  2112  2242 D RegistrationHandler: Has received 4 of 100 from 1@test.com
+03-30 15:42:38.027  2112  2273 D RegistrationHandler: Has received 5 of 100 from 1@test.com
+03-30 15:42:38.028  2112  2273 D RegistrationHandler: Has received 6 of 100 from 1@test.com
+03-30 15:42:38.029  2112  2273 D RegistrationHandler: Has received 7 of 100 from 1@test.com
+03-30 15:42:38.038  2112  2273 D RegistrationHandler: Has received 8 of 100 from 1@test.com
+03-30 15:42:38.046  2112  2273 D RegistrationHandler: Has received 9 of 100 from 1@test.com
+03-30 15:42:38.054  2112  2273 D RegistrationHandler: Has received 10 of 100 from 1@test.com
+03-30 15:42:38.057  2112  2273 D RegistrationHandler: Has received 11 of 100 from 1@test.com
+03-30 15:42:38.061  2112  2273 D RegistrationHandler: Has received 12 of 100 from 1@test.com
+03-30 15:42:38.070  2112  2273 D RegistrationHandler: Has received 13 of 100 from 1@test.com
+03-30 15:42:38.078  2112  2273 D RegistrationHandler: Has received 14 of 100 from 1@test.com
+03-30 15:42:38.085  2112  2273 D RegistrationHandler: Has received 15 of 100 from 1@test.com
+03-30 15:42:38.089  2112  2273 D RegistrationHandler: Has received 16 of 100 from 1@test.com
+03-30 15:42:38.098  2112  2242 D RegistrationHandler: Has received 17 of 100 from 1@test.com
+03-30 15:42:38.100  2112  2242 D RegistrationHandler: Has received 18 of 100 from 1@test.com
+03-30 15:42:38.104  2112  2242 D RegistrationHandler: Has received 19 of 100 from 1@test.com
+03-30 15:42:38.114  2112  2242 D RegistrationHandler: Has received 20 of 100 from 1@test.com
+03-30 15:42:38.122  2112  2242 D RegistrationHandler: Has received 21 of 100 from 1@test.com
+03-30 15:42:38.124  2112  2273 D RegistrationHandler: Has received 22 of 100 from 1@test.com
+03-30 15:42:38.132  2112  2273 D RegistrationHandler: Has received 23 of 100 from 1@test.com
+03-30 15:42:38.142  2112  2273 D RegistrationHandler: Has received 24 of 100 from 1@test.com
+03-30 15:42:38.146  2112  2273 D RegistrationHandler: Has received 25 of 100 from 1@test.com
+03-30 15:42:38.153  2112  2273 D RegistrationHandler: Has received 26 of 100 from 1@test.com
+03-30 15:42:38.157  2112  2273 D RegistrationHandler: Has received 27 of 100 from 1@test.com
+03-30 15:42:38.163  2112  2273 D RegistrationHandler: Has received 28 of 100 from 1@test.com
+03-30 15:42:38.172  2112  2273 D RegistrationHandler: Has received 29 of 100 from 1@test.com
+03-30 15:42:38.179  2112  2273 D RegistrationHandler: Has received 30 of 100 from 1@test.com
+03-30 15:42:38.184  2112  2273 D RegistrationHandler: Has received 31 of 100 from 1@test.com
+03-30 15:42:38.193  2112  2273 D RegistrationHandler: Has received 32 of 100 from 1@test.com
+03-30 15:42:38.196  2112  2273 D RegistrationHandler: Has received 33 of 100 from 1@test.com
+03-30 15:42:38.206  2112  2273 D RegistrationHandler: Has received 34 of 100 from 1@test.com
+03-30 15:42:38.209  2112  2273 D RegistrationHandler: Has received 35 of 100 from 1@test.com
+03-30 15:42:38.218  2112  2273 D RegistrationHandler: Has received 36 of 100 from 1@test.com
+03-30 15:42:38.222  2112  2273 D RegistrationHandler: Has received 37 of 100 from 1@test.com
+03-30 15:42:38.230  2112  2273 D RegistrationHandler: Has received 38 of 100 from 1@test.com
+03-30 15:42:38.238  2112  2273 D RegistrationHandler: Has received 39 of 100 from 1@test.com
+03-30 15:42:38.240  2112  2273 D RegistrationHandler: Has received 40 of 100 from 1@test.com
+03-30 15:42:38.248  2112  2273 D RegistrationHandler: Has received 41 of 100 from 1@test.com
+03-30 15:42:38.254  2112  2273 D RegistrationHandler: Has received 42 of 100 from 1@test.com
+03-30 15:42:38.260  2112  2273 D RegistrationHandler: Has received 43 of 100 from 1@test.com
+03-30 15:42:38.264  2112  2273 D RegistrationHandler: Has received 44 of 100 from 1@test.com
+03-30 15:42:38.273  2112  2273 D RegistrationHandler: Has received 45 of 100 from 1@test.com
+03-30 15:42:38.280  2112  2273 D RegistrationHandler: Has received 46 of 100 from 1@test.com
+03-30 15:42:38.290  2112  2273 D RegistrationHandler: Has received 47 of 100 from 1@test.com
+03-30 15:42:38.292  2112  2273 D RegistrationHandler: Has received 48 of 100 from 1@test.com
+03-30 15:42:38.302  2112  2273 D RegistrationHandler: Has received 49 of 100 from 1@test.com
+03-30 15:42:38.359  2112  2273 D RegistrationHandler: Has received 50 of 100 from 1@test.com
+03-30 15:42:38.362  2112  2242 D RegistrationHandler: Has received 51 of 100 from 1@test.com
+03-30 15:42:38.373  2112  2232 D RegistrationHandler: Has received 52 of 100 from 1@test.com
+03-30 15:42:38.381  2112  2232 D RegistrationHandler: Has received 53 of 100 from 1@test.com
+03-30 15:42:38.382  2112  2273 D RegistrationHandler: Has received 54 of 100 from 1@test.com
+03-30 15:42:38.391  2112  2273 D RegistrationHandler: Has received 55 of 100 from 1@test.com
+03-30 15:42:38.397  2112  2273 D RegistrationHandler: Has received 56 of 100 from 1@test.com
+03-30 15:42:38.402  2112  2273 D RegistrationHandler: Has received 57 of 100 from 1@test.com
+03-30 15:42:38.410  2112  2273 D RegistrationHandler: Has received 58 of 100 from 1@test.com
+03-30 15:42:38.413  2112  2273 D RegistrationHandler: Has received 59 of 100 from 1@test.com
+03-30 15:42:38.423  2112  2273 D RegistrationHandler: Has received 60 of 100 from 1@test.com
+03-30 15:42:38.424  2112  2232 D RegistrationHandler: Has received 61 of 100 from 1@test.com
+03-30 15:42:38.434  2112  2242 D RegistrationHandler: Has received 62 of 100 from 1@test.com
+03-30 15:42:38.438  2112  2242 D RegistrationHandler: Has received 63 of 100 from 1@test.com
+03-30 15:42:38.441  2112  2242 D RegistrationHandler: Has received 64 of 100 from 1@test.com
+03-30 15:42:38.449  2112  2242 D RegistrationHandler: Has received 65 of 100 from 1@test.com
+03-30 15:42:38.453  2112  2242 D RegistrationHandler: Has received 66 of 100 from 1@test.com
+03-30 15:42:38.462  2112  2242 D RegistrationHandler: Has received 67 of 100 from 1@test.com
+03-30 15:42:38.467  2112  2242 D RegistrationHandler: Has received 68 of 100 from 1@test.com
+03-30 15:42:38.470  2112  2242 D RegistrationHandler: Has received 69 of 100 from 1@test.com
+03-30 15:42:38.479  2112  2242 D RegistrationHandler: Has received 70 of 100 from 1@test.com
+03-30 15:42:38.499  2112  2242 D RegistrationHandler: Has received 71 of 100 from 1@test.com
+03-30 15:42:38.501  2112  2232 D RegistrationHandler: Has received 72 of 100 from 1@test.com
+03-30 15:42:38.507  2112  2273 D RegistrationHandler: Has received 73 of 100 from 1@test.com
+03-30 15:42:38.517  2112  2273 D RegistrationHandler: Has received 74 of 100 from 1@test.com
+03-30 15:42:38.519  2112  2232 D RegistrationHandler: Has received 75 of 100 from 1@test.com
+03-30 15:42:38.525  2112  2232 D RegistrationHandler: Has received 76 of 100 from 1@test.com
+03-30 15:42:38.530  2112  2232 D RegistrationHandler: Has received 77 of 100 from 1@test.com
+03-30 15:42:38.537  2112  2232 D RegistrationHandler: Has received 78 of 100 from 1@test.com
+03-30 15:42:38.542  2112  2232 D RegistrationHandler: Has received 79 of 100 from 1@test.com
+03-30 15:42:38.547  2112  2232 D RegistrationHandler: Has received 80 of 100 from 1@test.com
+03-30 15:42:38.559  2112  2232 D RegistrationHandler: Has received 81 of 100 from 1@test.com
+03-30 15:42:38.560  2112  2273 D RegistrationHandler: Has received 82 of 100 from 1@test.com
+03-30 15:42:38.566  2112  2242 D RegistrationHandler: Has received 83 of 100 from 1@test.com
+03-30 15:42:38.574  2112  2242 D RegistrationHandler: Has received 84 of 100 from 1@test.com
+03-30 15:42:38.578  2112  2242 D RegistrationHandler: Has received 85 of 100 from 1@test.com
+03-30 15:42:38.585  2112  2242 D RegistrationHandler: Has received 86 of 100 from 1@test.com
+03-30 15:42:38.592  2112  2242 D RegistrationHandler: Has received 87 of 100 from 1@test.com
+03-30 15:42:38.602  2112  2242 D RegistrationHandler: Has received 88 of 100 from 1@test.com
+03-30 15:42:38.606  2112  2242 D RegistrationHandler: Has received 89 of 100 from 1@test.com
+03-30 15:42:38.611  2112  2242 D RegistrationHandler: Has received 90 of 100 from 1@test.com
+03-30 15:42:38.621  2112  2242 D RegistrationHandler: Has received 91 of 100 from 1@test.com
+03-30 15:42:38.623  2112  2242 D RegistrationHandler: Has received 92 of 100 from 1@test.com
+03-30 15:42:38.633  2112  2242 D RegistrationHandler: Has received 93 of 100 from 1@test.com
+03-30 15:42:38.638  2112  2242 D RegistrationHandler: Has received 94 of 100 from 1@test.com
+03-30 15:42:38.643  2112  2242 D RegistrationHandler: Has received 95 of 100 from 1@test.com
+03-30 15:42:38.649  2112  2242 D RegistrationHandler: Has received 96 of 100 from 1@test.com
+03-30 15:42:38.656  2112  2242 D RegistrationHandler: Has received 97 of 100 from 1@test.com
+03-30 15:42:38.662  2112  2242 D RegistrationHandler: Has received 98 of 100 from 1@test.com
+03-30 15:42:38.803  2112  2242 D RegistrationHandler: Has received 98 of 100 fragments from 1@test.com
+03-30 15:42:38.806  2112  2273 D RegistrationHandler: Has received 99 of 100 from 1@test.com
+03-30 15:42:38.809  2112  2232 D RegistrationHandler: Has received 99 of 100 from 1@test.com
+03-30 15:42:38.815  2112  2272 D RegistrationHandler: Has received 99 of 100 from 1@test.com
+03-30 15:42:38.820  2112  2232 D RegistrationHandler: Has received 99 of 100 from 1@test.com
+03-30 15:42:38.827  2112  2272 D RegistrationHandler: Has received 99 of 100 from 1@test.com
+03-30 15:42:38.829  2112  2232 D RegistrationHandler: Has received 99 of 100 from 1@test.com
+03-30 15:42:38.836  2112  2272 D RegistrationHandler: Has received 99 of 100 from 1@test.com
+03-30 15:42:38.844  2112  2272 D RegistrationHandler: Has received 99 of 100 from 1@test.com
+03-30 15:42:38.850  2112  2272 D RegistrationHandler: Has received 99 of 100 from 1@test.com
+03-30 15:42:38.857  2112  2272 D RegistrationHandler: Has received 99 of 100 from 1@test.com
+03-30 15:42:38.861  2112  2242 D RegistrationHandler: Received full ledger from 1@test.com with nonce 1917054894
+03-30 15:42:38.861  2112  2242 D RegistrationHandler: FULL_LEDGER 1917054894
+03-30 15:42:39.620  2112  2232 D RegistrationHandler: Has received 99 of 100 fragments from 1@test.com
+03-30 15:42:39.675  2112  2232 D RegistrationHandler: Received full ledger from 1@test.com with nonce 1917054894
+03-30 15:42:39.675  2112  2232 D RegistrationHandler: FULL_LEDGER 1917054894
+03-30 15:42:46.739  2112  2234 D RegistrationHandler: ACCEPTED_LEDGER 1917054894 100
+03-30 15:42:46.767  2112  2234 D RegistrationHandler: 1917054894 The accepted ledger contains: [0@test.com, 1@test.com, 2@test.com, 3@test.com, 4@test.com, 5@test.com, 6@test.com, 7@test.com, 8@test.com, 9@test.com, 10@test.com, 11@test.com, 12@test.com, 13@test.com, 14@test.com, 15@test.com, 16@test.com, 17@test.com, 18@test.com, 19@test.com, 20@test.com, 21@test.com, 22@test.com, 23@test.com, 24@test.com, 25@test.com, 26@test.com, 27@test.com, 28@test.com, 29@test.com, 30@test.com, 31@test.com, 32@test.com, 33@test.com, 34@test.com, 35@test.com, 36@test.com, 37@test.com, 38@test.com, 39@test.com, 40@test.com, 41@test.com, 42@test.com, 43@test.com, 44@test.com, 45@test.com, 46@test.com, 47@test.com, 48@test.com, 49@test.com, 50@test.com, 51@test.com, 52@test.com, 53@test.com, 54@test.com, 55@test.com, 56@test.com, 57@test.com, 58@test.com, 59@test.com, 60@test.com, 61@test.com, 62@test.com, 63@test.com, 64@test.com, 65@test.com, 66@test.com, 67@test.com, 68@test.com, 69@test.com, 70@test.com, 71@test.com, 72@test.com, 73@test.com, 74@test.com, 75@test.com, 76@test.com, 77@test.com, 78@test.com, 79@test.com, 80@test.com, 81@test.com, 82@test.com, 83@test.com, 84@test.com, 85@test.com, 86@test.com, 87@test.com, 88@test.com, 89@test.com, 90@test.com, 91@test.com, 92@test.com, 93@test.com, 94@test.com, 95@test.com, 96@test.com, 97@test.com, 98@test.com, 99@test.com]
+03-30 15:42:46.767  2112  2234 D RegistrationHandler: 1917054894 Registration started
+03-30 15:42:46.769  2112  2234 D MulticastServer: Registration process finished: 1917054894
+round 4 of 5
+03-30 15:42:56.764  2314  2381 D MulticastServer: MULTICAST_SERVER_LISTENING
+03-30 15:42:56.768  2314  2384 D MulticastServer: Registration process started with nonce 1689195045
+03-30 15:42:56.770  2314  2382 D MulticastClient: REQUEST_LEDGER 1689195045
+03-30 15:42:56.772  2314  2382 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1689195045,"seq":0,"tot":0}]
+03-30 15:42:57.025  2314  2393 D RegistrationHandler: Has received 1 of 100 fragments from 1@test.com
+03-30 15:42:57.030  2314  2393 D RegistrationHandler: Has received 2 of 100 from 1@test.com
+03-30 15:42:57.035  2314  2393 D RegistrationHandler: Has received 3 of 100 from 1@test.com
+03-30 15:42:57.042  2314  2393 D RegistrationHandler: Has received 4 of 100 from 1@test.com
+03-30 15:42:57.046  2314  2393 D RegistrationHandler: Has received 5 of 100 from 1@test.com
+03-30 15:42:57.054  2314  2393 D RegistrationHandler: Has received 6 of 100 from 1@test.com
+03-30 15:42:57.066  2314  2393 D RegistrationHandler: Has received 7 of 100 from 1@test.com
+03-30 15:42:57.071  2314  2393 D RegistrationHandler: Has received 8 of 100 from 1@test.com
+03-30 15:42:57.078  2314  2393 D RegistrationHandler: Has received 9 of 100 from 1@test.com
+03-30 15:42:57.090  2314  2393 D RegistrationHandler: Has received 10 of 100 from 1@test.com
+03-30 15:42:57.098  2314  2393 D RegistrationHandler: Has received 11 of 100 from 1@test.com
+03-30 15:42:57.102  2314  2393 D RegistrationHandler: Has received 12 of 100 from 1@test.com
+03-30 15:42:57.122  2314  2393 D RegistrationHandler: Has received 13 of 100 from 1@test.com
+03-30 15:42:57.126  2314  2393 D RegistrationHandler: Has received 14 of 100 from 1@test.com
+03-30 15:42:57.134  2314  2393 D RegistrationHandler: Has received 15 of 100 from 1@test.com
+03-30 15:42:57.143  2314  2393 D RegistrationHandler: Has received 16 of 100 from 1@test.com
+03-30 15:42:57.147  2314  2425 D RegistrationHandler: Has received 17 of 100 from 1@test.com
+03-30 15:42:57.154  2314  2425 D RegistrationHandler: Has received 18 of 100 from 1@test.com
+03-30 15:42:57.161  2314  2425 D RegistrationHandler: Has received 19 of 100 from 1@test.com
+03-30 15:42:57.169  2314  2425 D RegistrationHandler: Has received 20 of 100 from 1@test.com
+03-30 15:42:57.172  2314  2425 D RegistrationHandler: Has received 21 of 100 from 1@test.com
+03-30 15:42:57.181  2314  2425 D RegistrationHandler: Has received 22 of 100 from 1@test.com
+03-30 15:42:57.187  2314  2425 D RegistrationHandler: Has received 23 of 100 from 1@test.com
+03-30 15:42:57.192  2314  2425 D RegistrationHandler: Has received 24 of 100 from 1@test.com
+03-30 15:42:57.207  2314  2425 D RegistrationHandler: Has received 25 of 100 from 1@test.com
+03-30 15:42:57.213  2314  2425 D RegistrationHandler: Has received 26 of 100 from 1@test.com
+03-30 15:42:57.217  2314  2425 D RegistrationHandler: Has received 27 of 100 from 1@test.com
+03-30 15:42:57.231  2314  2425 D RegistrationHandler: Has received 28 of 100 from 1@test.com
+03-30 15:42:57.234  2314  2425 D RegistrationHandler: Has received 29 of 100 from 1@test.com
+03-30 15:42:57.241  2314  2425 D RegistrationHandler: Has received 30 of 100 from 1@test.com
+03-30 15:42:57.252  2314  2425 D RegistrationHandler: Has received 31 of 100 from 1@test.com
+03-30 15:42:57.253  2314  2424 D RegistrationHandler: Has received 32 of 100 from 1@test.com
+03-30 15:42:57.257  2314  2393 D RegistrationHandler: Has received 33 of 100 from 1@test.com
+03-30 15:42:57.272  2314  2393 D RegistrationHandler: Has received 34 of 100 from 1@test.com
+03-30 15:42:57.276  2314  2393 D RegistrationHandler: Has received 35 of 100 from 1@test.com
+03-30 15:42:57.283  2314  2393 D RegistrationHandler: Has received 36 of 100 from 1@test.com
+03-30 15:42:57.291  2314  2393 D RegistrationHandler: Has received 37 of 100 from 1@test.com
+03-30 15:42:57.295  2314  2393 D RegistrationHandler: Has received 38 of 100 from 1@test.com
+03-30 15:42:57.305  2314  2393 D RegistrationHandler: Has received 39 of 100 from 1@test.com
+03-30 15:42:57.309  2314  2393 D RegistrationHandler: Has received 40 of 100 from 1@test.com
+03-30 15:42:57.320  2314  2393 D RegistrationHandler: Has received 41 of 100 from 1@test.com
+03-30 15:42:57.334  2314  2393 D RegistrationHandler: Has received 42 of 100 from 1@test.com
+03-30 15:42:57.359  2314  2393 D RegistrationHandler: Has received 43 of 100 from 1@test.com
+03-30 15:42:57.363  2314  2393 D RegistrationHandler: Has received 44 of 100 from 1@test.com
+03-30 15:42:57.373  2314  2393 D RegistrationHandler: Has received 45 of 100 from 1@test.com
+03-30 15:42:57.385  2314  2393 D RegistrationHandler: Has received 46 of 100 from 1@test.com
+03-30 15:42:57.394  2314  2393 D RegistrationHandler: Has received 47 of 100 from 1@test.com
+03-30 15:42:57.397  2314  2424 D RegistrationHandler: Has received 48 of 100 from 1@test.com
+03-30 15:42:57.410  2314  2425 D RegistrationHandler: Has received 49 of 100 from 1@test.com
+03-30 15:42:57.416  2314  2425 D RegistrationHandler: Has received 50 of 100 from 1@test.com
+03-30 15:42:57.427  2314  2425 D RegistrationHandler: Has received 51 of 100 from 1@test.com
+03-30 15:42:57.434  2314  2425 D RegistrationHandler: Has received 52 of 100 from 1@test.com
+03-30 15:42:57.437  2314  2425 D RegistrationHandler: Has received 53 of 100 from 1@test.com
+03-30 15:42:57.446  2314  2425 D RegistrationHandler: Has received 54 of 100 from 1@test.com
+03-30 15:42:57.453  2314  2425 D RegistrationHandler: Has received 55 of 100 from 1@test.com
+03-30 15:42:57.458  2314  2425 D RegistrationHandler: Has received 56 of 100 from 1@test.com
+03-30 15:42:57.468  2314  2425 D RegistrationHandler: Has received 57 of 100 from 1@test.com
+03-30 15:42:57.476  2314  2425 D RegistrationHandler: Has received 58 of 100 from 1@test.com
+03-30 15:42:57.479  2314  2425 D RegistrationHandler: Has received 59 of 100 from 1@test.com
+03-30 15:42:57.485  2314  2425 D RegistrationHandler: Has received 60 of 100 from 1@test.com
+03-30 15:42:57.494  2314  2425 D RegistrationHandler: Has received 61 of 100 from 1@test.com
+03-30 15:42:57.514  2314  2425 D RegistrationHandler: Has received 62 of 100 from 1@test.com
+03-30 15:42:57.526  2314  2425 D RegistrationHandler: Has received 63 of 100 from 1@test.com
+03-30 15:42:57.530  2314  2425 D RegistrationHandler: Has received 64 of 100 from 1@test.com
+03-30 15:42:57.548  2314  2425 D RegistrationHandler: Has received 65 of 100 from 1@test.com
+03-30 15:42:57.549  2314  2393 D RegistrationHandler: Has received 66 of 100 from 1@test.com
+03-30 15:42:57.558  2314  2393 D RegistrationHandler: Has received 67 of 100 from 1@test.com
+03-30 15:42:57.561  2314  2393 D RegistrationHandler: Has received 68 of 100 from 1@test.com
+03-30 15:42:57.593  2314  2393 D RegistrationHandler: Has received 69 of 100 from 1@test.com
+03-30 15:42:57.599  2314  2393 D RegistrationHandler: Has received 70 of 100 from 1@test.com
+03-30 15:42:57.604  2314  2393 D RegistrationHandler: Has received 71 of 100 from 1@test.com
+03-30 15:42:57.615  2314  2393 D RegistrationHandler: Has received 72 of 100 from 1@test.com
+03-30 15:42:57.620  2314  2393 D RegistrationHandler: Has received 73 of 100 from 1@test.com
+03-30 15:42:57.627  2314  2393 D RegistrationHandler: Has received 74 of 100 from 1@test.com
+03-30 15:42:57.639  2314  2393 D RegistrationHandler: Has received 75 of 100 from 1@test.com
+03-30 15:42:57.647  2314  2393 D RegistrationHandler: Has received 76 of 100 from 1@test.com
+03-30 15:42:57.651  2314  2393 D RegistrationHandler: Has received 77 of 100 from 1@test.com
+03-30 15:42:57.656  2314  2393 D RegistrationHandler: Has received 78 of 100 from 1@test.com
+03-30 15:42:57.685  2314  2393 D RegistrationHandler: Has received 79 of 100 from 1@test.com
+03-30 15:42:57.690  2314  2393 D RegistrationHandler: Has received 80 of 100 from 1@test.com
+03-30 15:42:57.699  2314  2382 D RegistrationHandler: Has received 81 of 100 from 1@test.com
+03-30 15:42:57.701  2314  2382 D RegistrationHandler: Has received 82 of 100 from 1@test.com
+03-30 15:42:57.710  2314  2382 D RegistrationHandler: Has received 83 of 100 from 1@test.com
+03-30 15:42:57.721  2314  2382 D RegistrationHandler: Has received 84 of 100 from 1@test.com
+03-30 15:42:57.725  2314  2382 D RegistrationHandler: Has received 85 of 100 from 1@test.com
+03-30 15:42:57.729  2314  2382 D RegistrationHandler: Has received 86 of 100 from 1@test.com
+03-30 15:42:57.852  2314  2382 D RegistrationHandler: Has received 86 of 100 fragments from 1@test.com
+03-30 15:42:57.856  2314  2382 D RegistrationHandler: Has received 86 of 100 from 1@test.com
+03-30 15:42:57.858  2314  2393 D RegistrationHandler: Has received 86 of 100 from 1@test.com
+03-30 15:42:57.860  2314  2382 D RegistrationHandler: Has received 86 of 100 from 1@test.com
+03-30 15:42:57.871  2314  2382 D RegistrationHandler: Has received 86 of 100 from 1@test.com
+03-30 15:42:57.873  2314  2382 D RegistrationHandler: Has received 86 of 100 from 1@test.com
+03-30 15:42:57.949  2314  2382 D RegistrationHandler: Has received 87 of 100 from 1@test.com
+03-30 15:42:57.963  2314  2382 D RegistrationHandler: Has received 87 of 100 from 1@test.com
+03-30 15:42:57.965  2314  2393 D RegistrationHandler: Has received 87 of 100 from 1@test.com
+03-30 15:42:57.967  2314  2382 D RegistrationHandler: Has received 88 of 100 from 1@test.com
+03-30 15:42:57.973  2314  2382 D RegistrationHandler: Has received 88 of 100 from 1@test.com
+03-30 15:42:57.981  2314  2382 D RegistrationHandler: Has received 88 of 100 from 1@test.com
+03-30 15:42:57.986  2314  2382 D RegistrationHandler: Has received 88 of 100 from 1@test.com
+03-30 15:42:57.992  2314  2382 D RegistrationHandler: Has received 88 of 100 from 1@test.com
+03-30 15:42:57.996  2314  2382 D RegistrationHandler: Has received 88 of 100 from 1@test.com
+03-30 15:42:58.005  2314  2382 D RegistrationHandler: Has received 88 of 100 from 1@test.com
+03-30 15:42:58.013  2314  2382 D RegistrationHandler: Has received 88 of 100 from 1@test.com
+03-30 15:42:58.016  2314  2382 D RegistrationHandler: Has received 88 of 100 from 1@test.com
+03-30 15:42:58.022  2314  2382 D RegistrationHandler: Has received 88 of 100 from 1@test.com
+03-30 15:42:58.031  2314  2382 D RegistrationHandler: Has received 88 of 100 from 1@test.com
+03-30 15:42:58.038  2314  2382 D RegistrationHandler: Has received 88 of 100 from 1@test.com
+03-30 15:42:58.046  2314  2382 D RegistrationHandler: Has received 88 of 100 from 1@test.com
+03-30 15:42:58.054  2314  2382 D RegistrationHandler: Has received 88 of 100 from 1@test.com
+03-30 15:42:58.058  2314  2382 D RegistrationHandler: Has received 88 of 100 from 1@test.com
+03-30 15:42:58.064  2314  2382 D RegistrationHandler: Has received 88 of 100 from 1@test.com
+03-30 15:42:58.069  2314  2382 D RegistrationHandler: Has received 89 of 100 from 1@test.com
+03-30 15:42:58.078  2314  2382 D RegistrationHandler: Has received 89 of 100 from 1@test.com
+03-30 15:42:58.080  2314  2382 D RegistrationHandler: Has received 89 of 100 from 1@test.com
+03-30 15:42:58.088  2314  2382 D RegistrationHandler: Has received 89 of 100 from 1@test.com
+03-30 15:42:58.091  2314  2382 D RegistrationHandler: Has received 89 of 100 from 1@test.com
+03-30 15:42:58.106  2314  2382 D RegistrationHandler: Has received 89 of 100 from 1@test.com
+03-30 15:42:58.108  2314  2424 D RegistrationHandler: Has received 89 of 100 from 1@test.com
+03-30 15:42:58.113  2314  2424 D RegistrationHandler: Has received 89 of 100 from 1@test.com
+03-30 15:42:58.120  2314  2424 D RegistrationHandler: Has received 89 of 100 from 1@test.com
+03-30 15:42:58.131  2314  2424 D RegistrationHandler: Has received 89 of 100 from 1@test.com
+03-30 15:42:58.133  2314  2382 D RegistrationHandler: Has received 90 of 100 from 1@test.com
+03-30 15:42:58.143  2314  2382 D RegistrationHandler: Has received 90 of 100 from 1@test.com
+03-30 15:42:58.150  2314  2382 D RegistrationHandler: Has received 90 of 100 from 1@test.com
+03-30 15:42:58.157  2314  2382 D RegistrationHandler: Has received 90 of 100 from 1@test.com
+03-30 15:42:58.160  2314  2382 D RegistrationHandler: Has received 90 of 100 from 1@test.com
+03-30 15:42:58.169  2314  2382 D RegistrationHandler: Has received 90 of 100 from 1@test.com
+03-30 15:42:58.173  2314  2382 D RegistrationHandler: Has received 90 of 100 from 1@test.com
+03-30 15:42:58.180  2314  2382 D RegistrationHandler: Has received 90 of 100 from 1@test.com
+03-30 15:42:58.187  2314  2382 D RegistrationHandler: Has received 91 of 100 from 1@test.com
+03-30 15:42:58.192  2314  2382 D RegistrationHandler: Has received 91 of 100 from 1@test.com
+03-30 15:42:58.195  2314  2382 D RegistrationHandler: Has received 91 of 100 from 1@test.com
+03-30 15:42:58.204  2314  2382 D RegistrationHandler: Has received 92 of 100 from 1@test.com
+03-30 15:42:58.212  2314  2382 D RegistrationHandler: Has received 93 of 100 from 1@test.com
+03-30 15:42:58.249  2314  2382 D RegistrationHandler: Has received 94 of 100 from 1@test.com
+03-30 15:42:58.257  2314  2382 D RegistrationHandler: Has received 94 of 100 from 1@test.com
+03-30 15:42:58.260  2314  2382 D RegistrationHandler: Has received 94 of 100 from 1@test.com
+03-30 15:42:58.270  2314  2382 D RegistrationHandler: Has received 94 of 100 from 1@test.com
+03-30 15:42:58.275  2314  2382 D RegistrationHandler: Has received 95 of 100 from 1@test.com
+03-30 15:42:58.278  2314  2382 D RegistrationHandler: Has received 95 of 100 from 1@test.com
+03-30 15:42:58.285  2314  2382 D RegistrationHandler: Has received 95 of 100 from 1@test.com
+03-30 15:42:58.294  2314  2382 D RegistrationHandler: Has received 95 of 100 from 1@test.com
+03-30 15:42:58.296  2314  2382 D RegistrationHandler: Has received 96 of 100 from 1@test.com
+03-30 15:42:58.304  2314  2382 D RegistrationHandler: Has received 96 of 100 from 1@test.com
+03-30 15:42:58.309  2314  2382 D RegistrationHandler: Has received 96 of 100 from 1@test.com
+03-30 15:42:58.318  2314  2382 D RegistrationHandler: Has received 96 of 100 from 1@test.com
+03-30 15:42:58.322  2314  2382 D RegistrationHandler: Has received 96 of 100 from 1@test.com
+03-30 15:42:58.329  2314  2382 D RegistrationHandler: Has received 96 of 100 from 1@test.com
+03-30 15:42:58.332  2314  2382 D RegistrationHandler: Has received 96 of 100 from 1@test.com
+03-30 15:42:58.342  2314  2382 D RegistrationHandler: Has received 96 of 100 from 1@test.com
+03-30 15:42:58.345  2314  2382 D RegistrationHandler: Has received 96 of 100 from 1@test.com
+03-30 15:42:58.361  2314  2382 D RegistrationHandler: Has received 96 of 100 from 1@test.com
+03-30 15:42:58.362  2314  2424 D RegistrationHandler: Has received 96 of 100 from 1@test.com
+03-30 15:42:58.371  2314  2393 D RegistrationHandler: Has received 96 of 100 from 1@test.com
+03-30 15:42:58.373  2314  2393 D RegistrationHandler: Has received 96 of 100 from 1@test.com
+03-30 15:42:58.383  2314  2393 D RegistrationHandler: Has received 96 of 100 from 1@test.com
+03-30 15:42:58.385  2314  2393 D RegistrationHandler: Has received 96 of 100 from 1@test.com
+03-30 15:42:58.392  2314  2393 D RegistrationHandler: Has received 97 of 100 from 1@test.com
+03-30 15:42:58.397  2314  2393 D RegistrationHandler: Has received 97 of 100 from 1@test.com
+03-30 15:42:58.408  2314  2393 D RegistrationHandler: Has received 97 of 100 from 1@test.com
+03-30 15:42:58.409  2314  2424 D RegistrationHandler: Has received 98 of 100 from 1@test.com
+03-30 15:42:58.418  2314  2382 D RegistrationHandler: Has received 98 of 100 from 1@test.com
+03-30 15:42:58.422  2314  2382 D RegistrationHandler: Has received 98 of 100 from 1@test.com
+03-30 15:42:58.428  2314  2382 D RegistrationHandler: Has received 98 of 100 from 1@test.com
+03-30 15:42:58.431  2314  2382 D RegistrationHandler: Has received 98 of 100 from 1@test.com
+03-30 15:42:58.443  2314  2382 D RegistrationHandler: Has received 98 of 100 from 1@test.com
+03-30 15:42:58.445  2314  2382 D RegistrationHandler: Has received 98 of 100 from 1@test.com
+03-30 15:42:58.449  2314  2382 D RegistrationHandler: Has received 98 of 100 from 1@test.com
+03-30 15:42:58.458  2314  2382 D RegistrationHandler: Has received 99 of 100 from 1@test.com
+03-30 15:42:58.465  2314  2382 D RegistrationHandler: Has received 99 of 100 from 1@test.com
+03-30 15:42:58.474  2314  2382 D RegistrationHandler: Has received 99 of 100 from 1@test.com
+03-30 15:42:58.476  2314  2393 D RegistrationHandler: Has received 99 of 100 from 1@test.com
+03-30 15:42:58.488  2314  2393 D RegistrationHandler: Has received 99 of 100 from 1@test.com
+03-30 15:42:58.489  2314  2393 D RegistrationHandler: Has received 99 of 100 from 1@test.com
+03-30 15:42:58.494  2314  2393 D RegistrationHandler: Has received 99 of 100 from 1@test.com
+03-30 15:42:58.500  2314  2393 D RegistrationHandler: Has received 99 of 100 from 1@test.com
+03-30 15:42:58.511  2314  2393 D RegistrationHandler: Has received 99 of 100 from 1@test.com
+03-30 15:42:58.519  2314  2393 D RegistrationHandler: Has received 100 of 100 from 1@test.com
+03-30 15:42:58.522  2314  2382 D RegistrationHandler: Has received 100 of 100 from 1@test.com
+03-30 15:42:58.527  2314  2424 D RegistrationHandler: Has received 100 of 100 from 1@test.com
+03-30 15:42:58.534  2314  2425 D RegistrationHandler: Has received 100 of 100 from 1@test.com
+03-30 15:42:58.536  2314  2431 D RegistrationHandler: Has received 100 of 100 from 1@test.com
+03-30 15:42:58.543  2314  2455 D RegistrationHandler: Has received 100 of 100 from 1@test.com
+03-30 15:42:58.545  2314  2456 D RegistrationHandler: Has received 100 of 100 from 1@test.com
+03-30 15:42:58.556  2314  2457 D RegistrationHandler: Has received 100 of 100 from 1@test.com
+03-30 15:42:58.563  2314  2393 D RegistrationHandler: Received full ledger from 1@test.com with nonce 1689195045
+03-30 15:42:58.563  2314  2393 D RegistrationHandler: FULL_LEDGER 1689195045
+03-30 15:42:58.581  2314  2425 D RegistrationHandler: Received full ledger from 1@test.com with nonce 1689195045
+03-30 15:42:58.582  2314  2425 D RegistrationHandler: FULL_LEDGER 1689195045
+03-30 15:42:58.584  2314  2424 D RegistrationHandler: Received full ledger from 1@test.com with nonce 1689195045
+03-30 15:42:58.584  2314  2424 D RegistrationHandler: FULL_LEDGER 1689195045
+03-30 15:42:58.586  2314  2382 D RegistrationHandler: Received full ledger from 1@test.com with nonce 1689195045
+03-30 15:42:58.586  2314  2382 D RegistrationHandler: FULL_LEDGER 1689195045
+03-30 15:42:58.589  2314  2455 D RegistrationHandler: Received full ledger from 1@test.com with nonce 1689195045
+03-30 15:42:58.589  2314  2455 D RegistrationHandler: FULL_LEDGER 1689195045
+03-30 15:42:58.589  2314  2456 D RegistrationHandler: Received full ledger from 1@test.com with nonce 1689195045
+03-30 15:42:58.589  2314  2456 D RegistrationHandler: FULL_LEDGER 1689195045
+03-30 15:42:58.594  2314  2431 D RegistrationHandler: Received full ledger from 1@test.com with nonce 1689195045
+03-30 15:42:58.594  2314  2431 D RegistrationHandler: FULL_LEDGER 1689195045
+03-30 15:42:58.609  2314  2457 D RegistrationHandler: Received full ledger from 1@test.com with nonce 1689195045
+03-30 15:42:58.609  2314  2457 D RegistrationHandler: FULL_LEDGER 1689195045
+03-30 15:42:58.775  2314  2457 D RegistrationHandler: Has received 100 of 100 fragments from 1@test.com
+03-30 15:43:06.783  2314  2385 D RegistrationHandler: ACCEPTED_LEDGER 1689195045 100
+03-30 15:43:06.820  2314  2385 D RegistrationHandler: 1689195045 The accepted ledger contains: [0@test.com, 1@test.com, 2@test.com, 3@test.com, 4@test.com, 5@test.com, 6@test.com, 7@test.com, 8@test.com, 9@test.com, 10@test.com, 11@test.com, 12@test.com, 13@test.com, 14@test.com, 15@test.com, 16@test.com, 17@test.com, 18@test.com, 19@test.com, 20@test.com, 21@test.com, 22@test.com, 23@test.com, 24@test.com, 25@test.com, 26@test.com, 27@test.com, 28@test.com, 29@test.com, 30@test.com, 31@test.com, 32@test.com, 33@test.com, 34@test.com, 35@test.com, 36@test.com, 37@test.com, 38@test.com, 39@test.com, 40@test.com, 41@test.com, 42@test.com, 43@test.com, 44@test.com, 45@test.com, 46@test.com, 47@test.com, 48@test.com, 49@test.com, 50@test.com, 51@test.com, 52@test.com, 53@test.com, 54@test.com, 55@test.com, 56@test.com, 57@test.com, 58@test.com, 59@test.com, 60@test.com, 61@test.com, 62@test.com, 63@test.com, 64@test.com, 65@test.com, 66@test.com, 67@test.com, 68@test.com, 69@test.com, 70@test.com, 71@test.com, 72@test.com, 73@test.com, 74@test.com, 75@test.com, 76@test.com, 77@test.com, 78@test.com, 79@test.com, 80@test.com, 81@test.com, 82@test.com, 83@test.com, 84@test.com, 85@test.com, 86@test.com, 87@test.com, 88@test.com, 89@test.com, 90@test.com, 91@test.com, 92@test.com, 93@test.com, 94@test.com, 95@test.com, 96@test.com, 97@test.com, 98@test.com, 99@test.com]
+03-30 15:43:06.820  2314  2385 D RegistrationHandler: 1689195045 Registration started
+03-30 15:43:06.823  2314  2385 D MulticastServer: Registration process finished: 1689195045
+round 5 of 5
+03-30 15:43:16.493  2492  2564 D MulticastServer: Registration process started with nonce 1070067053
+03-30 15:43:16.496  2492  2568 D MulticastClient: REQUEST_LEDGER 1070067053
+03-30 15:43:16.497  2492  2568 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1070067053,"seq":0,"tot":0}]
+03-30 15:43:16.498  2492  2561 D MulticastServer: MULTICAST_SERVER_LISTENING
+03-30 15:43:17.624  2492  2568 D RegistrationHandler: Has received 1 of 100 fragments from 1@test.com
+03-30 15:43:17.626  2492  2584 D RegistrationHandler: Has received 2 of 100 from 1@test.com
+03-30 15:43:17.626  2492  2585 D RegistrationHandler: Has received 3 of 100 from 1@test.com
+03-30 15:43:17.628  2492  2585 D RegistrationHandler: Has received 4 of 100 from 1@test.com
+03-30 15:43:17.635  2492  2585 D RegistrationHandler: Has received 5 of 100 from 1@test.com
+03-30 15:43:17.661  2492  2568 D RegistrationHandler: Has received 6 of 100 from 1@test.com
+03-30 15:43:17.815  2492  2568 D RegistrationHandler: Has received 7 of 100 from 1@test.com
+03-30 15:43:17.816  2492  2585 D RegistrationHandler: Has received 8 of 100 from 1@test.com
+03-30 15:43:17.821  2492  2584 D RegistrationHandler: Has received 9 of 100 from 1@test.com
+03-30 15:43:17.831  2492  2584 D RegistrationHandler: Has received 10 of 100 from 1@test.com
+03-30 15:43:17.835  2492  2585 D RegistrationHandler: Has received 11 of 100 from 1@test.com
+03-30 15:43:17.841  2492  2585 D RegistrationHandler: Has received 12 of 100 from 1@test.com
+03-30 15:43:17.850  2492  2585 D RegistrationHandler: Has received 13 of 100 from 1@test.com
+03-30 15:43:17.852  2492  2584 D RegistrationHandler: Has received 14 of 100 from 1@test.com
+03-30 15:43:17.856  2492  2584 D RegistrationHandler: Has received 15 of 100 from 1@test.com
+03-30 15:43:17.865  2492  2584 D RegistrationHandler: Has received 16 of 100 from 1@test.com
+03-30 15:43:17.869  2492  2584 D RegistrationHandler: Has received 17 of 100 from 1@test.com
+03-30 15:43:17.878  2492  2584 D RegistrationHandler: Has received 18 of 100 from 1@test.com
+03-30 15:43:17.881  2492  2584 D RegistrationHandler: Has received 19 of 100 from 1@test.com
+03-30 15:43:17.885  2492  2584 D RegistrationHandler: Has received 20 of 100 from 1@test.com
+03-30 15:43:17.892  2492  2584 D RegistrationHandler: Has received 21 of 100 from 1@test.com
+03-30 15:43:17.900  2492  2584 D RegistrationHandler: Has received 22 of 100 from 1@test.com
+03-30 15:43:17.903  2492  2584 D RegistrationHandler: Has received 23 of 100 from 1@test.com
+03-30 15:43:17.918  2492  2584 D RegistrationHandler: Has received 24 of 100 from 1@test.com
+03-30 15:43:17.924  2492  2584 D RegistrationHandler: Has received 25 of 100 from 1@test.com
+03-30 15:43:17.929  2492  2584 D RegistrationHandler: Has received 26 of 100 from 1@test.com
+03-30 15:43:17.931  2492  2584 D RegistrationHandler: Has received 27 of 100 from 1@test.com
+03-30 15:43:17.941  2492  2584 D RegistrationHandler: Has received 28 of 100 from 1@test.com
+03-30 15:43:17.944  2492  2584 D RegistrationHandler: Has received 29 of 100 from 1@test.com
+03-30 15:43:17.952  2492  2584 D RegistrationHandler: Has received 30 of 100 from 1@test.com
+03-30 15:43:17.956  2492  2584 D RegistrationHandler: Has received 31 of 100 from 1@test.com
+03-30 15:43:17.965  2492  2584 D RegistrationHandler: Has received 32 of 100 from 1@test.com
+03-30 15:43:17.968  2492  2584 D RegistrationHandler: Has received 33 of 100 from 1@test.com
+03-30 15:43:17.977  2492  2584 D RegistrationHandler: Has received 34 of 100 from 1@test.com
+03-30 15:43:17.980  2492  2584 D RegistrationHandler: Has received 35 of 100 from 1@test.com
+03-30 15:43:17.993  2492  2584 D RegistrationHandler: Has received 36 of 100 from 1@test.com
+03-30 15:43:18.000  2492  2584 D RegistrationHandler: Has received 37 of 100 from 1@test.com
+03-30 15:43:18.004  2492  2584 D RegistrationHandler: Has received 38 of 100 from 1@test.com
+03-30 15:43:18.015  2492  2584 D RegistrationHandler: Has received 39 of 100 from 1@test.com
+03-30 15:43:18.018  2492  2584 D RegistrationHandler: Has received 40 of 100 from 1@test.com
+03-30 15:43:18.026  2492  2584 D RegistrationHandler: Has received 41 of 100 from 1@test.com
+03-30 15:43:18.034  2492  2584 D RegistrationHandler: Has received 42 of 100 from 1@test.com
+03-30 15:43:18.036  2492  2584 D RegistrationHandler: Has received 43 of 100 from 1@test.com
+03-30 15:43:18.045  2492  2584 D RegistrationHandler: Has received 44 of 100 from 1@test.com
+03-30 15:43:18.071  2492  2584 D RegistrationHandler: Has received 45 of 100 from 1@test.com
+03-30 15:43:18.079  2492  2584 D RegistrationHandler: Has received 46 of 100 from 1@test.com
+03-30 15:43:18.095  2492  2584 D RegistrationHandler: Has received 47 of 100 from 1@test.com
+03-30 15:43:18.097  2492  2584 D RegistrationHandler: Has received 48 of 100 from 1@test.com
+03-30 15:43:18.114  2492  2584 D RegistrationHandler: Has received 49 of 100 from 1@test.com
+03-30 15:43:18.165  2492  2568 D RegistrationHandler: Has received 50 of 100 from 1@test.com
+03-30 15:43:18.165  2492  2584 D RegistrationHandler: Has received 51 of 100 from 1@test.com
+03-30 15:43:18.178  2492  2568 D RegistrationHandler: Has received 52 of 100 from 1@test.com
+03-30 15:43:18.180  2492  2585 D RegistrationHandler: Has received 53 of 100 from 1@test.com
+03-30 15:43:18.184  2492  2587 D RegistrationHandler: Has received 54 of 100 from 1@test.com
+03-30 15:43:18.191  2492  2587 D RegistrationHandler: Has received 55 of 100 from 1@test.com
+03-30 15:43:18.201  2492  2587 D RegistrationHandler: Has received 56 of 100 from 1@test.com
+03-30 15:43:18.206  2492  2587 D RegistrationHandler: Has received 57 of 100 from 1@test.com
+03-30 15:43:18.214  2492  2587 D RegistrationHandler: Has received 58 of 100 from 1@test.com
+03-30 15:43:18.221  2492  2587 D RegistrationHandler: Has received 59 of 100 from 1@test.com
+03-30 15:43:18.230  2492  2587 D RegistrationHandler: Has received 60 of 100 from 1@test.com
+03-30 15:43:18.242  2492  2587 D RegistrationHandler: Has received 61 of 100 from 1@test.com
+03-30 15:43:18.246  2492  2587 D RegistrationHandler: Has received 62 of 100 from 1@test.com
+03-30 15:43:18.253  2492  2587 D RegistrationHandler: Has received 63 of 100 from 1@test.com
+03-30 15:43:18.259  2492  2587 D RegistrationHandler: Has received 64 of 100 from 1@test.com
+03-30 15:43:18.266  2492  2587 D RegistrationHandler: Has received 65 of 100 from 1@test.com
+03-30 15:43:18.269  2492  2587 D RegistrationHandler: Has received 66 of 100 from 1@test.com
+03-30 15:43:18.277  2492  2587 D RegistrationHandler: Has received 67 of 100 from 1@test.com
+03-30 15:43:18.286  2492  2587 D RegistrationHandler: Has received 68 of 100 from 1@test.com
+03-30 15:43:18.288  2492  2585 D RegistrationHandler: Has received 69 of 100 from 1@test.com
+03-30 15:43:18.297  2492  2584 D RegistrationHandler: Has received 70 of 100 from 1@test.com
+03-30 15:43:18.302  2492  2584 D RegistrationHandler: Has received 71 of 100 from 1@test.com
+03-30 15:43:18.310  2492  2584 D RegistrationHandler: Has received 72 of 100 from 1@test.com
+03-30 15:43:18.311  2492  2584 D RegistrationHandler: Has received 73 of 100 from 1@test.com
+03-30 15:43:18.324  2492  2584 D RegistrationHandler: Has received 74 of 100 from 1@test.com
+03-30 15:43:18.330  2492  2584 D RegistrationHandler: Has received 75 of 100 from 1@test.com
+03-30 15:43:18.332  2492  2587 D RegistrationHandler: Has received 76 of 100 from 1@test.com
+03-30 15:43:18.342  2492  2587 D RegistrationHandler: Has received 77 of 100 from 1@test.com
+03-30 15:43:18.345  2492  2587 D RegistrationHandler: Has received 78 of 100 from 1@test.com
+03-30 15:43:18.353  2492  2587 D RegistrationHandler: Has received 79 of 100 from 1@test.com
+03-30 15:43:18.357  2492  2587 D RegistrationHandler: Has received 80 of 100 from 1@test.com
+03-30 15:43:18.365  2492  2587 D RegistrationHandler: Has received 81 of 100 from 1@test.com
+03-30 15:43:18.368  2492  2587 D RegistrationHandler: Has received 82 of 100 from 1@test.com
+03-30 15:43:18.377  2492  2587 D RegistrationHandler: Has received 83 of 100 from 1@test.com
+03-30 15:43:18.534  2492  2587 D RegistrationHandler: Has received 83 of 100 from 1@test.com
+03-30 15:43:18.535  2492  2585 D RegistrationHandler: Has received 83 of 100 from 1@test.com
+03-30 15:43:18.539  2492  2584 D RegistrationHandler: Has received 83 of 100 from 1@test.com
+03-30 15:43:18.553  2492  2584 D RegistrationHandler: Has received 84 of 100 from 1@test.com
+03-30 15:43:18.556  2492  2584 D RegistrationHandler: Has received 85 of 100 from 1@test.com
+03-30 15:43:18.567  2492  2584 D RegistrationHandler: Has received 85 of 100 from 1@test.com
+03-30 15:43:18.573  2492  2584 D RegistrationHandler: Has received 85 of 100 from 1@test.com
+03-30 15:43:18.577  2492  2584 D RegistrationHandler: Has received 85 of 100 from 1@test.com
+03-30 15:43:18.586  2492  2584 D RegistrationHandler: Has received 85 of 100 from 1@test.com
+03-30 15:43:18.589  2492  2584 D RegistrationHandler: Has received 85 of 100 from 1@test.com
+03-30 15:43:18.596  2492  2584 D RegistrationHandler: Has received 85 of 100 from 1@test.com
+03-30 15:43:18.601  2492  2584 D RegistrationHandler: Has received 85 of 100 from 1@test.com
+03-30 15:43:18.610  2492  2584 D RegistrationHandler: Has received 85 of 100 from 1@test.com
+03-30 15:43:18.612  2492  2585 D RegistrationHandler: Has received 85 of 100 from 1@test.com
+03-30 15:43:18.620  2492  2587 D RegistrationHandler: Has received 85 of 100 from 1@test.com
+03-30 15:43:18.626  2492  2585 D RegistrationHandler: Has received 85 of 100 from 1@test.com
+03-30 15:43:18.634  2492  2585 D RegistrationHandler: Has received 85 of 100 from 1@test.com
+03-30 15:43:18.640  2492  2585 D RegistrationHandler: Has received 85 of 100 from 1@test.com
+03-30 15:43:18.651  2492  2585 D RegistrationHandler: Has received 85 of 100 from 1@test.com
+03-30 15:43:18.655  2492  2585 D RegistrationHandler: Has received 85 of 100 from 1@test.com
+03-30 15:43:18.660  2492  2585 D RegistrationHandler: Has received 85 of 100 from 1@test.com
+03-30 15:43:18.666  2492  2585 D RegistrationHandler: Has received 85 of 100 from 1@test.com
+03-30 15:43:18.673  2492  2585 D RegistrationHandler: Has received 85 of 100 from 1@test.com
+03-30 15:43:18.679  2492  2585 D RegistrationHandler: Has received 85 of 100 from 1@test.com
+03-30 15:43:18.682  2492  2585 D RegistrationHandler: Has received 85 of 100 from 1@test.com
+03-30 15:43:18.689  2492  2585 D RegistrationHandler: Has received 85 of 100 from 1@test.com
+03-30 15:43:18.698  2492  2585 D RegistrationHandler: Has received 85 of 100 from 1@test.com
+03-30 15:43:18.700  2492  2585 D RegistrationHandler: Has received 85 of 100 from 1@test.com
+03-30 15:43:18.711  2492  2585 D RegistrationHandler: Has received 85 of 100 from 1@test.com
+03-30 15:43:18.731  2492  2585 D RegistrationHandler: Has received 85 of 100 from 1@test.com
+03-30 15:43:18.739  2492  2585 D RegistrationHandler: Has received 85 of 100 from 1@test.com
+03-30 15:43:18.746  2492  2585 D RegistrationHandler: Has received 85 of 100 from 1@test.com
+03-30 15:43:18.748  2492  2585 D RegistrationHandler: Has received 85 of 100 from 1@test.com
+03-30 15:43:18.757  2492  2585 D RegistrationHandler: Has received 85 of 100 from 1@test.com
+03-30 15:43:18.762  2492  2585 D RegistrationHandler: Has received 85 of 100 from 1@test.com
+03-30 15:43:18.768  2492  2585 D RegistrationHandler: Has received 86 of 100 from 1@test.com
+03-30 15:43:18.773  2492  2585 D RegistrationHandler: Has received 86 of 100 from 1@test.com
+03-30 15:43:18.777  2492  2585 D RegistrationHandler: Has received 86 of 100 from 1@test.com
+03-30 15:43:18.784  2492  2585 D RegistrationHandler: Has received 87 of 100 from 1@test.com
+03-30 15:43:18.795  2492  2585 D RegistrationHandler: Has received 88 of 100 from 1@test.com
+03-30 15:43:18.801  2492  2585 D RegistrationHandler: Has received 89 of 100 from 1@test.com
+03-30 15:43:18.803  2492  2585 D RegistrationHandler: Has received 90 of 100 from 1@test.com
+03-30 15:43:18.813  2492  2585 D RegistrationHandler: Has received 91 of 100 from 1@test.com
+03-30 15:43:18.817  2492  2585 D RegistrationHandler: Has received 92 of 100 from 1@test.com
+03-30 15:43:18.826  2492  2585 D RegistrationHandler: Has received 92 of 100 from 1@test.com
+03-30 15:43:18.833  2492  2585 D RegistrationHandler: Has received 92 of 100 from 1@test.com
+03-30 15:43:18.841  2492  2585 D RegistrationHandler: Has received 92 of 100 from 1@test.com
+03-30 15:43:18.845  2492  2585 D RegistrationHandler: Has received 92 of 100 from 1@test.com
+03-30 15:43:18.850  2492  2585 D RegistrationHandler: Has received 92 of 100 from 1@test.com
+03-30 15:43:18.856  2492  2585 D RegistrationHandler: Has received 92 of 100 from 1@test.com
+03-30 15:43:18.867  2492  2585 D RegistrationHandler: Has received 92 of 100 from 1@test.com
+03-30 15:43:18.872  2492  2585 D RegistrationHandler: Has received 92 of 100 from 1@test.com
+03-30 15:43:18.878  2492  2585 D RegistrationHandler: Has received 92 of 100 from 1@test.com
+03-30 15:43:18.885  2492  2585 D RegistrationHandler: Has received 92 of 100 from 1@test.com
+03-30 15:43:18.887  2492  2585 D RegistrationHandler: Has received 92 of 100 from 1@test.com
+03-30 15:43:18.896  2492  2585 D RegistrationHandler: Has received 93 of 100 from 1@test.com
+03-30 15:43:18.899  2492  2585 D RegistrationHandler: Has received 93 of 100 from 1@test.com
+03-30 15:43:18.909  2492  2585 D RegistrationHandler: Has received 94 of 100 from 1@test.com
+03-30 15:43:18.913  2492  2585 D RegistrationHandler: Has received 95 of 100 from 1@test.com
+03-30 15:43:18.922  2492  2585 D RegistrationHandler: Has received 96 of 100 from 1@test.com
+03-30 15:43:18.924  2492  2584 D RegistrationHandler: Has received 96 of 100 from 1@test.com
+03-30 15:43:18.938  2492  2584 D RegistrationHandler: Has received 96 of 100 from 1@test.com
+03-30 15:43:18.943  2492  2584 D RegistrationHandler: Has received 96 of 100 from 1@test.com
+03-30 15:43:18.947  2492  2584 D RegistrationHandler: Has received 96 of 100 from 1@test.com
+03-30 15:43:18.953  2492  2584 D RegistrationHandler: Has received 96 of 100 from 1@test.com
+03-30 15:43:18.959  2492  2584 D RegistrationHandler: Has received 96 of 100 from 1@test.com
+03-30 15:43:18.966  2492  2584 D RegistrationHandler: Has received 97 of 100 from 1@test.com
+03-30 15:43:18.973  2492  2584 D RegistrationHandler: Has received 97 of 100 from 1@test.com
+03-30 15:43:18.980  2492  2584 D RegistrationHandler: Has received 97 of 100 from 1@test.com
+03-30 15:43:18.985  2492  2584 D RegistrationHandler: Has received 97 of 100 from 1@test.com
+03-30 15:43:18.993  2492  2584 D RegistrationHandler: Has received 97 of 100 from 1@test.com
+03-30 15:43:18.997  2492  2584 D RegistrationHandler: Has received 97 of 100 from 1@test.com
+03-30 15:43:19.004  2492  2584 D RegistrationHandler: Has received 98 of 100 from 1@test.com
+03-30 15:43:19.008  2492  2584 D RegistrationHandler: Has received 98 of 100 from 1@test.com
+03-30 15:43:19.018  2492  2584 D RegistrationHandler: Has received 98 of 100 from 1@test.com
+03-30 15:43:19.020  2492  2587 D RegistrationHandler: Has received 98 of 100 from 1@test.com
+03-30 15:43:19.031  2492  2585 D RegistrationHandler: Has received 98 of 100 from 1@test.com
+03-30 15:43:19.034  2492  2587 D RegistrationHandler: Has received 98 of 100 from 1@test.com
+03-30 15:43:19.041  2492  2587 D RegistrationHandler: Has received 98 of 100 from 1@test.com
+03-30 15:43:19.048  2492  2587 D RegistrationHandler: Has received 98 of 100 from 1@test.com
+03-30 15:43:19.052  2492  2587 D RegistrationHandler: Has received 98 of 100 from 1@test.com
+03-30 15:43:19.062  2492  2587 D RegistrationHandler: Has received 98 of 100 from 1@test.com
+03-30 15:43:19.066  2492  2587 D RegistrationHandler: Has received 98 of 100 from 1@test.com
+03-30 15:43:19.072  2492  2587 D RegistrationHandler: Has received 98 of 100 from 1@test.com
+03-30 15:43:19.076  2492  2587 D RegistrationHandler: Has received 98 of 100 from 1@test.com
+03-30 15:43:19.085  2492  2587 D RegistrationHandler: Has received 98 of 100 from 1@test.com
+03-30 15:43:19.089  2492  2587 D RegistrationHandler: Has received 98 of 100 from 1@test.com
+03-30 15:43:19.094  2492  2587 D RegistrationHandler: Has received 98 of 100 from 1@test.com
+03-30 15:43:19.100  2492  2587 D RegistrationHandler: Has received 98 of 100 from 1@test.com
+03-30 15:43:19.110  2492  2587 D RegistrationHandler: Has received 98 of 100 from 1@test.com
+03-30 15:43:19.113  2492  2587 D RegistrationHandler: Has received 98 of 100 from 1@test.com
+03-30 15:43:19.120  2492  2587 D RegistrationHandler: Has received 98 of 100 from 1@test.com
+03-30 15:43:19.124  2492  2587 D RegistrationHandler: Has received 98 of 100 from 1@test.com
+03-30 15:43:19.130  2492  2587 D RegistrationHandler: Has received 98 of 100 from 1@test.com
+03-30 15:43:19.137  2492  2587 D RegistrationHandler: Has received 98 of 100 from 1@test.com
+03-30 15:43:19.145  2492  2587 D RegistrationHandler: Has received 98 of 100 from 1@test.com
+03-30 15:43:19.363  2492  2587 D RegistrationHandler: Has received 98 of 100 fragments from 1@test.com
+03-30 15:43:19.364  2492  2585 D RegistrationHandler: Has received 99 of 100 from 1@test.com
+03-30 15:43:19.373  2492  2584 D RegistrationHandler: Has received 99 of 100 from 1@test.com
+03-30 15:43:19.380  2492  2585 D RegistrationHandler: Has received 99 of 100 from 1@test.com
+03-30 15:43:19.383  2492  2584 D RegistrationHandler: Has received 99 of 100 from 1@test.com
+03-30 15:43:19.392  2492  2585 D RegistrationHandler: Has received 99 of 100 from 1@test.com
+03-30 15:43:19.395  2492  2584 D RegistrationHandler: Has received 100 of 100 from 1@test.com
+03-30 15:43:19.422  2492  2584 D RegistrationHandler: Received full ledger from 1@test.com with nonce 1070067053
+03-30 15:43:19.422  2492  2584 D RegistrationHandler: FULL_LEDGER 1070067053
+03-30 15:43:26.501  2492  2565 D RegistrationHandler: ACCEPTED_LEDGER 1070067053 100
+03-30 15:43:26.530  2492  2565 D RegistrationHandler: 1070067053 The accepted ledger contains: [0@test.com, 1@test.com, 2@test.com, 3@test.com, 4@test.com, 5@test.com, 6@test.com, 7@test.com, 8@test.com, 9@test.com, 10@test.com, 11@test.com, 12@test.com, 13@test.com, 14@test.com, 15@test.com, 16@test.com, 17@test.com, 18@test.com, 19@test.com, 20@test.com, 21@test.com, 22@test.com, 23@test.com, 24@test.com, 25@test.com, 26@test.com, 27@test.com, 28@test.com, 29@test.com, 30@test.com, 31@test.com, 32@test.com, 33@test.com, 34@test.com, 35@test.com, 36@test.com, 37@test.com, 38@test.com, 39@test.com, 40@test.com, 41@test.com, 42@test.com, 43@test.com, 44@test.com, 45@test.com, 46@test.com, 47@test.com, 48@test.com, 49@test.com, 50@test.com, 51@test.com, 52@test.com, 53@test.com, 54@test.com, 55@test.com, 56@test.com, 57@test.com, 58@test.com, 59@test.com, 60@test.com, 61@test.com, 62@test.com, 63@test.com, 64@test.com, 65@test.com, 66@test.com, 67@test.com, 68@test.com, 69@test.com, 70@test.com, 71@test.com, 72@test.com, 73@test.com, 74@test.com, 75@test.com, 76@test.com, 77@test.com, 78@test.com, 79@test.com, 80@test.com, 81@test.com, 82@test.com, 83@test.com, 84@test.com, 85@test.com, 86@test.com, 87@test.com, 88@test.com, 89@test.com, 90@test.com, 91@test.com, 92@test.com, 93@test.com, 94@test.com, 95@test.com, 96@test.com, 97@test.com, 98@test.com, 99@test.com]
+03-30 15:43:26.530  2492  2565 D RegistrationHandler: 1070067053 Registration started
+03-30 15:43:26.532  2492  2565 D MulticastServer: Registration process finished: 1070067053

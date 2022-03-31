@@ -4,6 +4,7 @@ import android.util.Log
 import com.example.masterproject.network.MulticastClient
 import com.example.masterproject.network.MulticastServer
 import com.example.masterproject.types.MulticastPacket
+import com.example.masterproject.utils.Constants
 import com.example.masterproject.utils.MISCUtils
 import com.example.masterproject.utils.PKIUtils
 import kotlinx.coroutines.Dispatchers
@@ -51,13 +52,13 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
 
     fun startTimers() {
         GlobalScope.launch (Dispatchers.Default) {
-            acceptLedgerTimeout.schedule(10000) {
+            acceptLedgerTimeout.schedule(Constants.LEDGER_ACCEPTANCE_TIME) {
                 if (!acceptLedgerTimeoutCancelled) {
                     listenedForMoreThanOneSecond = true
                     setLedgerIfAccepted()
                 }
             }
-            firstInNetworkTimer.schedule(2000) {
+            firstInNetworkTimer.schedule(Constants.ALONE_IN_NETWORK_TIME) {
                 if (hashes.isEmpty() && receivedLedgers.isEmpty() && ledgerFragmentsReceived.isEmpty()) {
                     Log.d(TAG, "I am the first in the network")
                     startRegistration()
@@ -246,7 +247,7 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
             // 0 if my registration, if not random time divided in 20 steps from 200 ms until 1000 seconds
             val waitToRequest = if (isMyRegistration) 0 else 200 + nextInt(20) * 40
             if(!requestLedgerOfAcceptedHashTimerIsActive) {
-                requestLedgerOfAcceptedHashTimer.scheduleAtFixedRate(waitToRequest.toLong(), 500) {
+                requestLedgerOfAcceptedHashTimer.scheduleAtFixedRate(waitToRequest.toLong(), Constants.BACKOFF_TIME) {
                     requestLedgerOfAcceptedHashTimerIsActive = true
                     if (!requestLedgerOfAcceptedHashTimerCancelled && requestLedgerOfAcceptedHashCounter < 3) {
                         requestLedgerOfAcceptedHashCounter += 1

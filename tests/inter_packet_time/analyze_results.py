@@ -1,6 +1,6 @@
 import pylab
 
-folders = ["5", "10", "15", "20", "30"]
+folders = ["10", "15", "20", "30", "35", "40"]
 packet_loss_total = []
 
 for folder in folders:

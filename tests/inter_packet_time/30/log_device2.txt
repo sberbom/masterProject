@@ -1,0 +1,1043 @@
+Number of rounds: 15
+round 1 of 15
+--------- beginning of main
+04-21 12:45:34.236  1307  1691 W System.err: java.io.FileNotFoundException: https://play.google.com/store/apps/details?id=com.example.masterproject&hl=en
+04-21 12:45:34.237  1307  1691 W System.err: 	at com.android.okhttp.internal.huc.HttpURLConnectionImpl.getInputStream(HttpURLConnectionImpl.java:255)
+04-21 12:45:34.237  1307  1691 W System.err: 	at com.android.okhttp.internal.huc.DelegatingHttpsURLConnection.getInputStream(DelegatingHttpsURLConnection.java:211)
+04-21 12:45:34.237  1307  1691 W System.err: 	at com.android.okhttp.internal.huc.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:30)
+04-21 12:45:34.237  1307  1691 W System.err: 	at com.samsung.android.server.wifi.tcp.SemWifiTransportLayerUtils.getApplicationCategory(SemWifiTransportLayerUtils.java:103)
+04-21 12:45:34.237  1307  1691 W System.err: 	at com.samsung.android.server.wifi.tcp.SemWifiTransportLayerMonitor$TcpMonitorHandler.handleMessage(SemWifiTransportLayerMonitor.java:241)
+04-21 12:45:34.237  1307  1691 W System.err: 	at android.os.Handler.dispatchMessage(Handler.java:106)
+04-21 12:45:34.237  1307  1691 W System.err: 	at android.os.Looper.loopOnce(Looper.java:226)
+04-21 12:45:34.237  1307  1691 W System.err: 	at android.os.Looper.loop(Looper.java:313)
+04-21 12:45:34.237  1307  1691 W System.err: 	at android.os.HandlerThread.run(HandlerThread.java:67)
+04-21 12:45:40.582  1307  1691 W System.err: java.io.FileNotFoundException: https://play.google.com/store/apps/details?id=com.example.masterproject&hl=en
+04-21 12:45:40.582  1307  1691 W System.err: 	at com.android.okhttp.internal.huc.HttpURLConnectionImpl.getInputStream(HttpURLConnectionImpl.java:255)
+04-21 12:45:40.582  1307  1691 W System.err: 	at com.android.okhttp.internal.huc.DelegatingHttpsURLConnection.getInputStream(DelegatingHttpsURLConnection.java:211)
+04-21 12:45:40.582  1307  1691 W System.err: 	at com.android.okhttp.internal.huc.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:30)
+04-21 12:45:40.582  1307  1691 W System.err: 	at com.samsung.android.server.wifi.tcp.SemWifiTransportLayerUtils.getApplicationCategory(SemWifiTransportLayerUtils.java:103)
+04-21 12:45:40.582  1307  1691 W System.err: 	at com.samsung.android.server.wifi.tcp.SemWifiTransportLayerMonitor$TcpMonitorHandler.handleMessage(SemWifiTransportLayerMonitor.java:241)
+04-21 12:45:40.582  1307  1691 W System.err: 	at android.os.Handler.dispatchMessage(Handler.java:106)
+04-21 12:45:40.582  1307  1691 W System.err: 	at android.os.Looper.loopOnce(Looper.java:226)
+04-21 12:45:40.583  1307  1691 W System.err: 	at android.os.Looper.loop(Looper.java:313)
+04-21 12:45:40.583  1307  1691 W System.err: 	at android.os.HandlerThread.run(HandlerThread.java:67)
+04-21 12:45:40.872 18024 18076 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-21 12:45:40.874 18024 18078 D MulticastServer: Registration process started with nonce 1804481444
+04-21 12:45:40.877 18024 18077 D MulticastClient: REQUEST_LEDGER 1804481444
+04-21 12:45:40.878 18024 18077 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1804481444,"seq":0,"tot":0}]
+04-21 12:45:43.932 18024 18084 D RegistrationHandler: Has received 1 of 75 fragments from 1@test.com
+04-21 12:45:44.019 18024 18084 D RegistrationHandler: Has received 2 of 75 from 1@test.com
+04-21 12:45:44.120 18024 18084 D RegistrationHandler: Has received 3 of 75 from 1@test.com
+04-21 12:45:44.132 18024 18084 D RegistrationHandler: Has received 4 of 75 from 1@test.com
+04-21 12:45:44.134 18024 18084 D RegistrationHandler: Has received 5 of 75 from 1@test.com
+04-21 12:45:44.138 18024 18084 D RegistrationHandler: Has received 6 of 75 from 1@test.com
+04-21 12:45:44.219 18024 18084 D RegistrationHandler: Has received 7 of 75 from 1@test.com
+04-21 12:45:44.222 18024 18084 D RegistrationHandler: Has received 8 of 75 from 1@test.com
+04-21 12:45:44.233 18024 18084 D RegistrationHandler: Has received 9 of 75 from 1@test.com
+04-21 12:45:44.239 18024 18084 D RegistrationHandler: Has received 10 of 75 from 1@test.com
+04-21 12:45:44.317 18024 18084 D RegistrationHandler: Has received 11 of 75 from 1@test.com
+04-21 12:45:44.328 18024 18084 D RegistrationHandler: Has received 12 of 75 from 1@test.com
+04-21 12:45:44.426 18024 18084 D RegistrationHandler: Has received 13 of 75 from 1@test.com
+04-21 12:45:44.542 18024 18084 D RegistrationHandler: Has received 14 of 75 from 1@test.com
+04-21 12:45:44.547 18024 18084 D RegistrationHandler: Has received 15 of 75 from 1@test.com
+04-21 12:45:44.634 18024 18084 D RegistrationHandler: Has received 16 of 75 from 1@test.com
+04-21 12:45:44.640 18024 18084 D RegistrationHandler: Has received 17 of 75 from 1@test.com
+04-21 12:45:44.643 18024 18084 D RegistrationHandler: Has received 18 of 75 from 1@test.com
+04-21 12:45:44.646 18024 18084 D RegistrationHandler: Has received 19 of 75 from 1@test.com
+04-21 12:45:44.736 18024 18084 D RegistrationHandler: Has received 20 of 75 from 1@test.com
+04-21 12:45:44.741 18024 18084 D RegistrationHandler: Has received 21 of 75 from 1@test.com
+04-21 12:45:44.745 18024 18084 D RegistrationHandler: Has received 22 of 75 from 1@test.com
+04-21 12:45:44.840 18024 18084 D RegistrationHandler: Has received 23 of 75 from 1@test.com
+04-21 12:45:44.846 18024 18084 D RegistrationHandler: Has received 24 of 75 from 1@test.com
+04-21 12:45:44.937 18024 18084 D RegistrationHandler: Has received 25 of 75 from 1@test.com
+04-21 12:45:44.941 18024 18084 D RegistrationHandler: Has received 26 of 75 from 1@test.com
+04-21 12:45:44.944 18024 18084 D RegistrationHandler: Has received 27 of 75 from 1@test.com
+04-21 12:45:45.041 18024 18084 D RegistrationHandler: Has received 28 of 75 from 1@test.com
+04-21 12:45:45.048 18024 18084 D RegistrationHandler: Has received 29 of 75 from 1@test.com
+04-21 12:45:45.052 18024 18084 D RegistrationHandler: Has received 30 of 75 from 1@test.com
+04-21 12:45:45.140 18024 18084 D RegistrationHandler: Has received 31 of 75 from 1@test.com
+04-21 12:45:45.246 18024 18084 D RegistrationHandler: Has received 32 of 75 from 1@test.com
+04-21 12:45:45.251 18024 18084 D RegistrationHandler: Has received 33 of 75 from 1@test.com
+04-21 12:45:45.254 18024 18084 D RegistrationHandler: Has received 34 of 75 from 1@test.com
+04-21 12:45:45.348 18024 18084 D RegistrationHandler: Has received 35 of 75 from 1@test.com
+04-21 12:45:45.355 18024 18084 D RegistrationHandler: Has received 36 of 75 from 1@test.com
+04-21 12:45:45.359 18024 18084 D RegistrationHandler: Has received 37 of 75 from 1@test.com
+04-21 12:45:45.552 18024 18084 D RegistrationHandler: Has received 38 of 75 from 1@test.com
+04-21 12:45:45.557 18024 18084 D RegistrationHandler: Has received 39 of 75 from 1@test.com
+04-21 12:45:45.561 18024 18084 D RegistrationHandler: Has received 40 of 75 from 1@test.com
+04-21 12:45:45.564 18024 18084 D RegistrationHandler: Has received 41 of 75 from 1@test.com
+04-21 12:45:45.570 18024 18084 D RegistrationHandler: Has received 42 of 75 from 1@test.com
+04-21 12:45:45.580 18024 18084 D RegistrationHandler: Has received 43 of 75 from 1@test.com
+04-21 12:45:45.584 18024 18084 D RegistrationHandler: Has received 44 of 75 from 1@test.com
+04-21 12:45:45.652 18024 18084 D RegistrationHandler: Has received 45 of 75 from 1@test.com
+04-21 12:45:45.659 18024 18084 D RegistrationHandler: Has received 46 of 75 from 1@test.com
+04-21 12:45:45.663 18024 18084 D RegistrationHandler: Has received 47 of 75 from 1@test.com
+04-21 12:45:45.757 18024 18084 D RegistrationHandler: Has received 48 of 75 from 1@test.com
+04-21 12:45:45.762 18024 18084 D RegistrationHandler: Has received 49 of 75 from 1@test.com
+04-21 12:45:45.865 18024 18084 D RegistrationHandler: Has received 50 of 75 from 1@test.com
+04-21 12:45:45.961 18024 18084 D RegistrationHandler: Has received 51 of 75 from 1@test.com
+04-21 12:45:45.967 18024 18084 D RegistrationHandler: Has received 52 of 75 from 1@test.com
+04-21 12:45:45.971 18024 18084 D RegistrationHandler: Has received 53 of 75 from 1@test.com
+04-21 12:45:45.973 18024 18084 D RegistrationHandler: Has received 54 of 75 from 1@test.com
+04-21 12:45:46.066 18024 18084 D RegistrationHandler: Has received 55 of 75 from 1@test.com
+04-21 12:45:46.072 18024 18084 D RegistrationHandler: Has received 56 of 75 from 1@test.com
+04-21 12:45:46.077 18024 18084 D RegistrationHandler: Has received 57 of 75 from 1@test.com
+04-21 12:45:46.181 18024 18084 D RegistrationHandler: Has received 58 of 75 from 1@test.com
+04-21 12:45:46.271 18024 18084 D RegistrationHandler: Has received 59 of 75 from 1@test.com
+04-21 12:45:46.276 18024 18084 D RegistrationHandler: Has received 60 of 75 from 1@test.com
+04-21 12:45:46.279 18024 18084 D RegistrationHandler: Has received 61 of 75 from 1@test.com
+04-21 12:45:46.695 18024 18084 D RegistrationHandler: Has received 62 of 75 from 1@test.com
+04-21 12:45:47.503 18024 18084 D RegistrationHandler: Has received 63 of 75 from 1@test.com
+04-21 12:45:47.811 18024 18084 D RegistrationHandler: Has received 64 of 75 from 1@test.com
+04-21 12:45:47.815 18024 18084 D RegistrationHandler: Has received 65 of 75 from 1@test.com
+04-21 12:45:47.910 18024 18084 D RegistrationHandler: Has received 66 of 75 from 1@test.com
+04-21 12:45:48.434 18024 18084 D RegistrationHandler: Has received 67 of 75 from 1@test.com
+04-21 12:45:48.526 18024 18084 D RegistrationHandler: Has received 68 of 75 from 1@test.com
+04-21 12:45:48.530 18024 18084 D RegistrationHandler: Has received 69 of 75 from 1@test.com
+04-21 12:45:48.836 18024 18084 D RegistrationHandler: Has received 70 of 75 from 1@test.com
+04-21 12:45:48.838 18024 18084 D RegistrationHandler: Has received 71 of 75 from 1@test.com
+04-21 12:45:49.851 18024 18084 D RegistrationHandler: Has received 72 of 75 from 1@test.com
+04-21 12:45:49.861 18024 18084 D RegistrationHandler: Has received 73 of 75 from 1@test.com
+round 2 of 15
+04-21 12:46:02.948  1307  1691 W System.err: java.io.FileNotFoundException: https://play.google.com/store/apps/details?id=com.example.masterproject&hl=en
+04-21 12:46:02.948  1307  1691 W System.err: 	at com.android.okhttp.internal.huc.HttpURLConnectionImpl.getInputStream(HttpURLConnectionImpl.java:255)
+04-21 12:46:02.948  1307  1691 W System.err: 	at com.android.okhttp.internal.huc.DelegatingHttpsURLConnection.getInputStream(DelegatingHttpsURLConnection.java:211)
+04-21 12:46:02.948  1307  1691 W System.err: 	at com.android.okhttp.internal.huc.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:30)
+04-21 12:46:02.948  1307  1691 W System.err: 	at com.samsung.android.server.wifi.tcp.SemWifiTransportLayerUtils.getApplicationCategory(SemWifiTransportLayerUtils.java:103)
+04-21 12:46:02.948  1307  1691 W System.err: 	at com.samsung.android.server.wifi.tcp.SemWifiTransportLayerMonitor$TcpMonitorHandler.handleMessage(SemWifiTransportLayerMonitor.java:241)
+04-21 12:46:02.948  1307  1691 W System.err: 	at android.os.Handler.dispatchMessage(Handler.java:106)
+04-21 12:46:02.948  1307  1691 W System.err: 	at android.os.Looper.loopOnce(Looper.java:226)
+04-21 12:46:02.948  1307  1691 W System.err: 	at android.os.Looper.loop(Looper.java:313)
+04-21 12:46:02.948  1307  1691 W System.err: 	at android.os.HandlerThread.run(HandlerThread.java:67)
+04-21 12:46:03.269 18146 18196 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-21 12:46:03.272 18146 18198 D MulticastServer: Registration process started with nonce 1911635118
+04-21 12:46:03.274 18146 18197 D MulticastClient: REQUEST_LEDGER 1911635118
+04-21 12:46:03.276 18146 18197 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1911635118,"seq":0,"tot":0}]
+04-21 12:46:03.574 18146 18205 D RegistrationHandler: Has received 1 of 75 fragments from 1@test.com
+04-21 12:46:03.580 18146 18205 D RegistrationHandler: Has received 2 of 75 from 1@test.com
+04-21 12:46:03.669 18146 18205 D RegistrationHandler: Has received 3 of 75 from 1@test.com
+04-21 12:46:03.673 18146 18205 D RegistrationHandler: Has received 4 of 75 from 1@test.com
+04-21 12:46:03.680 18146 18205 D RegistrationHandler: Has received 5 of 75 from 1@test.com
+04-21 12:46:03.771 18146 18205 D RegistrationHandler: Has received 6 of 75 from 1@test.com
+04-21 12:46:03.779 18146 18205 D RegistrationHandler: Has received 7 of 75 from 1@test.com
+04-21 12:46:03.782 18146 18205 D RegistrationHandler: Has received 8 of 75 from 1@test.com
+04-21 12:46:03.791 18146 18205 D RegistrationHandler: Has received 9 of 75 from 1@test.com
+04-21 12:46:03.875 18146 18205 D RegistrationHandler: Has received 10 of 75 from 1@test.com
+04-21 12:46:03.879 18146 18205 D RegistrationHandler: Has received 11 of 75 from 1@test.com
+04-21 12:46:03.884 18146 18205 D RegistrationHandler: Has received 12 of 75 from 1@test.com
+04-21 12:46:03.894 18146 18205 D RegistrationHandler: Has received 13 of 75 from 1@test.com
+04-21 12:46:03.995 18146 18205 D RegistrationHandler: Has received 14 of 75 from 1@test.com
+04-21 12:46:04.028 18146 18205 D RegistrationHandler: Has received 15 of 75 from 1@test.com
+04-21 12:46:04.120 18146 18205 D RegistrationHandler: Has received 16 of 75 from 1@test.com
+04-21 12:46:04.125 18146 18205 D RegistrationHandler: Has received 17 of 75 from 1@test.com
+04-21 12:46:04.129 18146 18205 D RegistrationHandler: Has received 18 of 75 from 1@test.com
+04-21 12:46:04.322 18146 18205 D RegistrationHandler: Has received 19 of 75 from 1@test.com
+04-21 12:46:04.357 18146 18205 D RegistrationHandler: Has received 20 of 75 from 1@test.com
+04-21 12:46:04.382 18146 18205 D RegistrationHandler: Has received 21 of 75 from 1@test.com
+04-21 12:46:04.478 18146 18205 D RegistrationHandler: Has received 22 of 75 from 1@test.com
+04-21 12:46:04.484 18146 18205 D RegistrationHandler: Has received 23 of 75 from 1@test.com
+04-21 12:46:04.488 18146 18205 D RegistrationHandler: Has received 24 of 75 from 1@test.com
+04-21 12:46:04.604 18146 18205 D RegistrationHandler: Has received 25 of 75 from 1@test.com
+04-21 12:46:04.608 18146 18205 D RegistrationHandler: Has received 26 of 75 from 1@test.com
+04-21 12:46:04.910 18146 18205 D RegistrationHandler: Has received 27 of 75 from 1@test.com
+04-21 12:46:05.009 18146 18205 D RegistrationHandler: Has received 28 of 75 from 1@test.com
+04-21 12:46:05.114 18146 18205 D RegistrationHandler: Has received 29 of 75 from 1@test.com
+04-21 12:46:05.120 18146 18205 D RegistrationHandler: Has received 30 of 75 from 1@test.com
+04-21 12:46:05.124 18146 18205 D RegistrationHandler: Has received 31 of 75 from 1@test.com
+04-21 12:46:05.321 18146 18205 D RegistrationHandler: Has received 32 of 75 from 1@test.com
+04-21 12:46:05.326 18146 18205 D RegistrationHandler: Has received 33 of 75 from 1@test.com
+04-21 12:46:05.330 18146 18205 D RegistrationHandler: Has received 34 of 75 from 1@test.com
+04-21 12:46:05.333 18146 18205 D RegistrationHandler: Has received 35 of 75 from 1@test.com
+04-21 12:46:05.416 18146 18205 D RegistrationHandler: Has received 36 of 75 from 1@test.com
+04-21 12:46:05.420 18146 18205 D RegistrationHandler: Has received 37 of 75 from 1@test.com
+04-21 12:46:05.423 18146 18205 D RegistrationHandler: Has received 38 of 75 from 1@test.com
+04-21 12:46:05.526 18146 18205 D RegistrationHandler: Has received 39 of 75 from 1@test.com
+04-21 12:46:05.629 18146 18205 D RegistrationHandler: Has received 40 of 75 from 1@test.com
+04-21 12:46:05.641 18146 18205 D RegistrationHandler: Has received 41 of 75 from 1@test.com
+04-21 12:46:05.647 18146 18205 D RegistrationHandler: Has received 42 of 75 from 1@test.com
+04-21 12:46:05.651 18146 18205 D RegistrationHandler: Has received 43 of 75 from 1@test.com
+04-21 12:46:05.723 18146 18205 D RegistrationHandler: Has received 44 of 75 from 1@test.com
+04-21 12:46:05.729 18146 18205 D RegistrationHandler: Has received 45 of 75 from 1@test.com
+04-21 12:46:05.732 18146 18205 D RegistrationHandler: Has received 46 of 75 from 1@test.com
+04-21 12:46:05.830 18146 18205 D RegistrationHandler: Has received 47 of 75 from 1@test.com
+04-21 12:46:05.835 18146 18205 D RegistrationHandler: Has received 48 of 75 from 1@test.com
+04-21 12:46:05.838 18146 18205 D RegistrationHandler: Has received 49 of 75 from 1@test.com
+04-21 12:46:06.739 18146 18205 D RegistrationHandler: Has received 50 of 75 from 1@test.com
+04-21 12:46:06.952 18146 18205 D RegistrationHandler: Has received 51 of 75 from 1@test.com
+04-21 12:46:07.062 18146 18205 D RegistrationHandler: Has received 52 of 75 from 1@test.com
+04-21 12:46:07.269 18146 18205 D RegistrationHandler: Has received 53 of 75 from 1@test.com
+04-21 12:46:07.381 18146 18205 D RegistrationHandler: Has received 54 of 75 from 1@test.com
+04-21 12:46:07.467 18146 18205 D RegistrationHandler: Has received 55 of 75 from 1@test.com
+04-21 12:46:07.473 18146 18205 D RegistrationHandler: Has received 56 of 75 from 1@test.com
+04-21 12:46:07.478 18146 18205 D RegistrationHandler: Has received 57 of 75 from 1@test.com
+04-21 12:46:07.774 18146 18205 D RegistrationHandler: Has received 58 of 75 from 1@test.com
+04-21 12:46:07.883 18146 18205 D RegistrationHandler: Has received 59 of 75 from 1@test.com
+04-21 12:46:07.887 18146 18205 D RegistrationHandler: Has received 60 of 75 from 1@test.com
+04-21 12:46:07.892 18146 18205 D RegistrationHandler: Has received 61 of 75 from 1@test.com
+04-21 12:46:08.287 18146 18205 D RegistrationHandler: Has received 62 of 75 from 1@test.com
+04-21 12:46:08.592 18146 18205 D RegistrationHandler: Has received 63 of 75 from 1@test.com
+04-21 12:46:08.598 18146 18205 D RegistrationHandler: Has received 64 of 75 from 1@test.com
+04-21 12:46:09.000 18146 18205 D RegistrationHandler: Has received 65 of 75 from 1@test.com
+04-21 12:46:09.409 18146 18205 D RegistrationHandler: Has received 66 of 75 from 1@test.com
+04-21 12:46:09.622 18146 18205 D RegistrationHandler: Has received 67 of 75 from 1@test.com
+04-21 12:46:09.626 18146 18205 D RegistrationHandler: Has received 68 of 75 from 1@test.com
+04-21 12:46:09.718 18146 18205 D RegistrationHandler: Has received 69 of 75 from 1@test.com
+04-21 12:46:09.935 18146 18205 D RegistrationHandler: Has received 70 of 75 from 1@test.com
+04-21 12:46:10.128 18146 18205 D RegistrationHandler: Has received 71 of 75 from 1@test.com
+04-21 12:46:10.240 18146 18205 D RegistrationHandler: Has received 72 of 75 from 1@test.com
+04-21 12:46:10.244 18146 18205 D RegistrationHandler: Has received 73 of 75 from 1@test.com
+04-21 12:46:10.333 18146 18205 D RegistrationHandler: Has received 74 of 75 from 1@test.com
+04-21 12:46:10.347 18146 18205 D RegistrationHandler: Has received 75 of 75 from 1@test.com
+04-21 12:46:10.377 18146 18205 D RegistrationHandler: Received full ledger from 1@test.com with nonce 1911635118
+04-21 12:46:10.377 18146 18205 D RegistrationHandler: FULL_LEDGER 1911635118
+round 3 of 15
+04-21 12:46:25.348  1307  1691 W System.err: java.io.FileNotFoundException: https://play.google.com/store/apps/details?id=com.example.masterproject&hl=en
+04-21 12:46:25.348  1307  1691 W System.err: 	at com.android.okhttp.internal.huc.HttpURLConnectionImpl.getInputStream(HttpURLConnectionImpl.java:255)
+04-21 12:46:25.348  1307  1691 W System.err: 	at com.android.okhttp.internal.huc.DelegatingHttpsURLConnection.getInputStream(DelegatingHttpsURLConnection.java:211)
+04-21 12:46:25.348  1307  1691 W System.err: 	at com.android.okhttp.internal.huc.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:30)
+04-21 12:46:25.348  1307  1691 W System.err: 	at com.samsung.android.server.wifi.tcp.SemWifiTransportLayerUtils.getApplicationCategory(SemWifiTransportLayerUtils.java:103)
+04-21 12:46:25.348  1307  1691 W System.err: 	at com.samsung.android.server.wifi.tcp.SemWifiTransportLayerMonitor$TcpMonitorHandler.handleMessage(SemWifiTransportLayerMonitor.java:241)
+04-21 12:46:25.348  1307  1691 W System.err: 	at android.os.Handler.dispatchMessage(Handler.java:106)
+04-21 12:46:25.348  1307  1691 W System.err: 	at android.os.Looper.loopOnce(Looper.java:226)
+04-21 12:46:25.348  1307  1691 W System.err: 	at android.os.Looper.loop(Looper.java:313)
+04-21 12:46:25.348  1307  1691 W System.err: 	at android.os.HandlerThread.run(HandlerThread.java:67)
+04-21 12:46:25.699 18258 18306 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-21 12:46:25.701 18258 18308 D MulticastServer: Registration process started with nonce 2013962296
+04-21 12:46:25.704 18258 18312 D MulticastClient: REQUEST_LEDGER 2013962296
+04-21 12:46:25.705 18258 18312 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":2013962296,"seq":0,"tot":0}]
+04-21 12:46:28.776 18258 18315 D RegistrationHandler: Has received 1 of 75 fragments from 1@test.com
+04-21 12:46:28.791 18258 18315 D RegistrationHandler: Has received 2 of 75 from 1@test.com
+04-21 12:46:28.970 18258 18315 D RegistrationHandler: Has received 3 of 75 from 1@test.com
+04-21 12:46:28.972 18258 18315 D RegistrationHandler: Has received 4 of 75 from 1@test.com
+04-21 12:46:28.976 18258 18315 D RegistrationHandler: Has received 5 of 75 from 1@test.com
+04-21 12:46:29.074 18258 18315 D RegistrationHandler: Has received 6 of 75 from 1@test.com
+04-21 12:46:29.081 18258 18315 D RegistrationHandler: Has received 7 of 75 from 1@test.com
+04-21 12:46:29.086 18258 18315 D RegistrationHandler: Has received 8 of 75 from 1@test.com
+04-21 12:46:29.183 18258 18315 D RegistrationHandler: Has received 9 of 75 from 1@test.com
+04-21 12:46:29.279 18258 18315 D RegistrationHandler: Has received 10 of 75 from 1@test.com
+04-21 12:46:29.285 18258 18315 D RegistrationHandler: Has received 11 of 75 from 1@test.com
+04-21 12:46:29.288 18258 18315 D RegistrationHandler: Has received 12 of 75 from 1@test.com
+04-21 12:46:29.381 18258 18315 D RegistrationHandler: Has received 13 of 75 from 1@test.com
+04-21 12:46:29.387 18258 18315 D RegistrationHandler: Has received 14 of 75 from 1@test.com
+04-21 12:46:29.391 18258 18315 D RegistrationHandler: Has received 15 of 75 from 1@test.com
+04-21 12:46:29.480 18258 18315 D RegistrationHandler: Has received 16 of 75 from 1@test.com
+04-21 12:46:29.687 18258 18315 D RegistrationHandler: Has received 17 of 75 from 1@test.com
+04-21 12:46:29.693 18258 18315 D RegistrationHandler: Has received 18 of 75 from 1@test.com
+04-21 12:46:29.697 18258 18315 D RegistrationHandler: Has received 19 of 75 from 1@test.com
+04-21 12:46:29.789 18258 18315 D RegistrationHandler: Has received 20 of 75 from 1@test.com
+04-21 12:46:29.796 18258 18315 D RegistrationHandler: Has received 21 of 75 from 1@test.com
+04-21 12:46:30.005 18258 18315 D RegistrationHandler: Has received 22 of 75 from 1@test.com
+04-21 12:46:30.011 18258 18315 D RegistrationHandler: Has received 23 of 75 from 1@test.com
+04-21 12:46:30.099 18258 18315 D RegistrationHandler: Has received 24 of 75 from 1@test.com
+04-21 12:46:30.105 18258 18315 D RegistrationHandler: Has received 25 of 75 from 1@test.com
+04-21 12:46:30.112 18258 18315 D RegistrationHandler: Has received 26 of 75 from 1@test.com
+04-21 12:46:30.196 18258 18315 D RegistrationHandler: Has received 27 of 75 from 1@test.com
+04-21 12:46:30.300 18258 18315 D RegistrationHandler: Has received 28 of 75 from 1@test.com
+04-21 12:46:30.306 18258 18315 D RegistrationHandler: Has received 29 of 75 from 1@test.com
+04-21 12:46:30.310 18258 18315 D RegistrationHandler: Has received 30 of 75 from 1@test.com
+04-21 12:46:30.314 18258 18315 D RegistrationHandler: Has received 31 of 75 from 1@test.com
+04-21 12:46:30.318 18258 18315 D RegistrationHandler: Has received 32 of 75 from 1@test.com
+04-21 12:46:30.326 18258 18315 D RegistrationHandler: Has received 33 of 75 from 1@test.com
+04-21 12:46:30.403 18258 18315 D RegistrationHandler: Has received 34 of 75 from 1@test.com
+04-21 12:46:30.409 18258 18315 D RegistrationHandler: Has received 35 of 75 from 1@test.com
+04-21 12:46:30.412 18258 18315 D RegistrationHandler: Has received 36 of 75 from 1@test.com
+04-21 12:46:30.508 18258 18315 D RegistrationHandler: Has received 37 of 75 from 1@test.com
+04-21 12:46:30.514 18258 18315 D RegistrationHandler: Has received 38 of 75 from 1@test.com
+04-21 12:46:30.518 18258 18315 D RegistrationHandler: Has received 39 of 75 from 1@test.com
+04-21 12:46:30.709 18258 18315 D RegistrationHandler: Has received 40 of 75 from 1@test.com
+04-21 12:46:30.716 18258 18315 D RegistrationHandler: Has received 41 of 75 from 1@test.com
+04-21 12:46:30.722 18258 18315 D RegistrationHandler: Has received 42 of 75 from 1@test.com
+04-21 12:46:30.724 18258 18315 D RegistrationHandler: Has received 43 of 75 from 1@test.com
+04-21 12:46:30.813 18258 18315 D RegistrationHandler: Has received 44 of 75 from 1@test.com
+04-21 12:46:30.816 18258 18315 D RegistrationHandler: Has received 45 of 75 from 1@test.com
+04-21 12:46:30.822 18258 18315 D RegistrationHandler: Has received 46 of 75 from 1@test.com
+04-21 12:46:30.913 18258 18315 D RegistrationHandler: Has received 47 of 75 from 1@test.com
+04-21 12:46:30.919 18258 18315 D RegistrationHandler: Has received 48 of 75 from 1@test.com
+04-21 12:46:31.017 18258 18315 D RegistrationHandler: Has received 49 of 75 from 1@test.com
+04-21 12:46:31.023 18258 18315 D RegistrationHandler: Has received 50 of 75 from 1@test.com
+04-21 12:46:31.027 18258 18315 D RegistrationHandler: Has received 51 of 75 from 1@test.com
+04-21 12:46:31.121 18258 18315 D RegistrationHandler: Has received 52 of 75 from 1@test.com
+04-21 12:46:31.448 18258 18315 D RegistrationHandler: Has received 53 of 75 from 1@test.com
+04-21 12:46:31.529 18258 18315 D RegistrationHandler: Has received 54 of 75 from 1@test.com
+04-21 12:46:31.535 18258 18315 D RegistrationHandler: Has received 55 of 75 from 1@test.com
+04-21 12:46:31.539 18258 18315 D RegistrationHandler: Has received 56 of 75 from 1@test.com
+04-21 12:46:31.845 18258 18315 D RegistrationHandler: Has received 57 of 75 from 1@test.com
+04-21 12:46:31.854 18258 18315 D RegistrationHandler: Has received 58 of 75 from 1@test.com
+04-21 12:46:31.939 18258 18315 D RegistrationHandler: Has received 59 of 75 from 1@test.com
+04-21 12:46:32.160 18258 18315 D RegistrationHandler: Has received 60 of 75 from 1@test.com
+04-21 12:46:32.251 18258 18315 D RegistrationHandler: Has received 61 of 75 from 1@test.com
+04-21 12:46:32.258 18258 18315 D RegistrationHandler: Has received 62 of 75 from 1@test.com
+04-21 12:46:32.263 18258 18315 D RegistrationHandler: Has received 63 of 75 from 1@test.com
+04-21 12:46:32.457 18258 18315 D RegistrationHandler: Has received 64 of 75 from 1@test.com
+04-21 12:46:32.553 18258 18315 D RegistrationHandler: Has received 65 of 75 from 1@test.com
+04-21 12:46:32.559 18258 18315 D RegistrationHandler: Has received 66 of 75 from 1@test.com
+04-21 12:46:32.564 18258 18315 D RegistrationHandler: Has received 67 of 75 from 1@test.com
+04-21 12:46:32.656 18258 18315 D RegistrationHandler: Has received 68 of 75 from 1@test.com
+04-21 12:46:32.661 18258 18315 D RegistrationHandler: Has received 69 of 75 from 1@test.com
+04-21 12:46:33.272 18258 18315 D RegistrationHandler: Has received 70 of 75 from 1@test.com
+04-21 12:46:33.279 18258 18315 D RegistrationHandler: Has received 71 of 75 from 1@test.com
+04-21 12:46:33.690 18258 18315 D RegistrationHandler: Has received 72 of 75 from 1@test.com
+04-21 12:46:34.308 18258 18315 D RegistrationHandler: Has received 73 of 75 from 1@test.com
+04-21 12:46:35.012 18258 18315 D RegistrationHandler: Has received 74 of 75 from 1@test.com
+04-21 12:46:36.035 18258 18315 D RegistrationHandler: Has received 75 of 75 from 1@test.com
+04-21 12:46:36.068 18258 18315 D RegistrationHandler: Received full ledger from 1@test.com with nonce 2013962296
+04-21 12:46:36.068 18258 18315 D RegistrationHandler: FULL_LEDGER 2013962296
+round 4 of 15
+04-21 12:46:48.083 18365 18412 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-21 12:46:48.085 18365 18414 D MulticastServer: Registration process started with nonce 1073525285
+04-21 12:46:48.088 18365 18418 D MulticastClient: REQUEST_LEDGER 1073525285
+04-21 12:46:48.089 18365 18418 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1073525285,"seq":0,"tot":0}]
+04-21 12:46:48.427 18365 18421 D RegistrationHandler: Has received 1 of 75 fragments from 1@test.com
+04-21 12:46:48.555 18365 18421 D RegistrationHandler: Has received 2 of 75 from 1@test.com
+04-21 12:46:48.630 18365 18421 D RegistrationHandler: Has received 3 of 75 from 1@test.com
+04-21 12:46:48.631 18365 18421 D RegistrationHandler: Has received 4 of 75 from 1@test.com
+04-21 12:46:48.644 18365 18421 D RegistrationHandler: Has received 5 of 75 from 1@test.com
+04-21 12:46:48.648 18365 18421 D RegistrationHandler: Has received 6 of 75 from 1@test.com
+04-21 12:46:48.731 18365 18421 D RegistrationHandler: Has received 7 of 75 from 1@test.com
+04-21 12:46:48.737 18365 18421 D RegistrationHandler: Has received 8 of 75 from 1@test.com
+04-21 12:46:48.741 18365 18421 D RegistrationHandler: Has received 9 of 75 from 1@test.com
+04-21 12:46:48.743 18365 18421 D RegistrationHandler: Has received 10 of 75 from 1@test.com
+04-21 12:46:48.834 18365 18421 D RegistrationHandler: Has received 11 of 75 from 1@test.com
+04-21 12:46:48.839 18365 18421 D RegistrationHandler: Has received 12 of 75 from 1@test.com
+04-21 12:46:49.041 18365 18421 D RegistrationHandler: Has received 13 of 75 from 1@test.com
+04-21 12:46:49.046 18365 18421 D RegistrationHandler: Has received 14 of 75 from 1@test.com
+04-21 12:46:49.050 18365 18421 D RegistrationHandler: Has received 15 of 75 from 1@test.com
+04-21 12:46:49.142 18365 18421 D RegistrationHandler: Has received 16 of 75 from 1@test.com
+04-21 12:46:49.148 18365 18421 D RegistrationHandler: Has received 17 of 75 from 1@test.com
+04-21 12:46:49.152 18365 18421 D RegistrationHandler: Has received 18 of 75 from 1@test.com
+04-21 12:46:49.155 18365 18421 D RegistrationHandler: Has received 19 of 75 from 1@test.com
+04-21 12:46:49.247 18365 18421 D RegistrationHandler: Has received 20 of 75 from 1@test.com
+04-21 12:46:49.253 18365 18421 D RegistrationHandler: Has received 21 of 75 from 1@test.com
+04-21 12:46:49.257 18365 18421 D RegistrationHandler: Has received 22 of 75 from 1@test.com
+04-21 12:46:49.349 18365 18421 D RegistrationHandler: Has received 23 of 75 from 1@test.com
+04-21 12:46:49.356 18365 18421 D RegistrationHandler: Has received 24 of 75 from 1@test.com
+04-21 12:46:49.358 18365 18421 D RegistrationHandler: Has received 25 of 75 from 1@test.com
+04-21 12:46:49.448 18365 18421 D RegistrationHandler: Has received 26 of 75 from 1@test.com
+04-21 12:46:49.453 18365 18421 D RegistrationHandler: Has received 27 of 75 from 1@test.com
+04-21 12:46:49.460 18365 18421 D RegistrationHandler: Has received 28 of 75 from 1@test.com
+04-21 12:46:49.553 18365 18421 D RegistrationHandler: Has received 29 of 75 from 1@test.com
+04-21 12:46:49.559 18365 18421 D RegistrationHandler: Has received 30 of 75 from 1@test.com
+04-21 12:46:49.754 18365 18421 D RegistrationHandler: Has received 31 of 75 from 1@test.com
+04-21 12:46:49.760 18365 18421 D RegistrationHandler: Has received 32 of 75 from 1@test.com
+04-21 12:46:49.762 18365 18421 D RegistrationHandler: Has received 33 of 75 from 1@test.com
+04-21 12:46:49.859 18365 18421 D RegistrationHandler: Has received 34 of 75 from 1@test.com
+04-21 12:46:49.866 18365 18421 D RegistrationHandler: Has received 35 of 75 from 1@test.com
+04-21 12:46:49.868 18365 18421 D RegistrationHandler: Has received 36 of 75 from 1@test.com
+04-21 12:46:49.966 18365 18421 D RegistrationHandler: Has received 37 of 75 from 1@test.com
+04-21 12:46:50.066 18365 18421 D RegistrationHandler: Has received 38 of 75 from 1@test.com
+04-21 12:46:50.071 18365 18421 D RegistrationHandler: Has received 39 of 75 from 1@test.com
+04-21 12:46:50.075 18365 18421 D RegistrationHandler: Has received 40 of 75 from 1@test.com
+04-21 12:46:50.078 18365 18421 D RegistrationHandler: Has received 41 of 75 from 1@test.com
+04-21 12:46:50.164 18365 18421 D RegistrationHandler: Has received 42 of 75 from 1@test.com
+04-21 12:46:50.170 18365 18421 D RegistrationHandler: Has received 43 of 75 from 1@test.com
+04-21 12:46:50.174 18365 18421 D RegistrationHandler: Has received 44 of 75 from 1@test.com
+04-21 12:46:50.270 18365 18421 D RegistrationHandler: Has received 45 of 75 from 1@test.com
+04-21 12:46:50.482 18365 18421 D RegistrationHandler: Has received 46 of 75 from 1@test.com
+04-21 12:46:50.488 18365 18421 D RegistrationHandler: Has received 47 of 75 from 1@test.com
+04-21 12:46:50.493 18365 18421 D RegistrationHandler: Has received 48 of 75 from 1@test.com
+04-21 12:46:50.577 18365 18421 D RegistrationHandler: Has received 49 of 75 from 1@test.com
+04-21 12:46:50.583 18365 18421 D RegistrationHandler: Has received 50 of 75 from 1@test.com
+04-21 12:46:50.586 18365 18421 D RegistrationHandler: Has received 51 of 75 from 1@test.com
+04-21 12:46:50.590 18365 18421 D RegistrationHandler: Has received 52 of 75 from 1@test.com
+04-21 12:46:50.779 18365 18421 D RegistrationHandler: Has received 53 of 75 from 1@test.com
+04-21 12:46:50.784 18365 18421 D RegistrationHandler: Has received 54 of 75 from 1@test.com
+04-21 12:46:50.791 18365 18421 D RegistrationHandler: Has received 55 of 75 from 1@test.com
+04-21 12:46:51.292 18365 18421 D RegistrationHandler: Has received 56 of 75 from 1@test.com
+04-21 12:46:51.608 18365 18421 D RegistrationHandler: Has received 57 of 75 from 1@test.com
+04-21 12:46:51.615 18365 18421 D RegistrationHandler: Has received 58 of 75 from 1@test.com
+04-21 12:46:51.620 18365 18421 D RegistrationHandler: Has received 59 of 75 from 1@test.com
+04-21 12:46:51.705 18365 18421 D RegistrationHandler: Has received 60 of 75 from 1@test.com
+04-21 12:46:52.232 18365 18421 D RegistrationHandler: Has received 61 of 75 from 1@test.com
+04-21 12:46:52.315 18365 18421 D RegistrationHandler: Has received 62 of 75 from 1@test.com
+04-21 12:46:52.321 18365 18421 D RegistrationHandler: Has received 63 of 75 from 1@test.com
+04-21 12:46:52.328 18365 18421 D RegistrationHandler: Has received 64 of 75 from 1@test.com
+04-21 12:46:52.630 18365 18421 D RegistrationHandler: Has received 65 of 75 from 1@test.com
+04-21 12:46:52.638 18365 18421 D RegistrationHandler: Has received 66 of 75 from 1@test.com
+04-21 12:46:52.944 18365 18421 D RegistrationHandler: Has received 67 of 75 from 1@test.com
+04-21 12:46:53.036 18365 18421 D RegistrationHandler: Has received 68 of 75 from 1@test.com
+04-21 12:46:53.041 18365 18421 D RegistrationHandler: Has received 69 of 75 from 1@test.com
+04-21 12:46:53.044 18365 18421 D RegistrationHandler: Has received 70 of 75 from 1@test.com
+04-21 12:46:53.046 18365 18421 D RegistrationHandler: Has received 71 of 75 from 1@test.com
+04-21 12:46:53.347 18365 18421 D RegistrationHandler: Has received 72 of 75 from 1@test.com
+04-21 12:46:53.351 18365 18421 D RegistrationHandler: Has received 73 of 75 from 1@test.com
+04-21 12:46:53.448 18365 18421 D RegistrationHandler: Has received 74 of 75 from 1@test.com
+04-21 12:46:55.089 18365 18421 D RegistrationHandler: Has received 75 of 75 from 1@test.com
+04-21 12:46:55.118 18365 18421 D RegistrationHandler: Received full ledger from 1@test.com with nonce 1073525285
+04-21 12:46:55.119 18365 18421 D RegistrationHandler: FULL_LEDGER 1073525285
+round 5 of 15
+04-21 12:47:10.569 18475 18521 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-21 12:47:10.571 18475 18523 D MulticastServer: Registration process started with nonce 592413209
+04-21 12:47:10.573 18475 18522 D MulticastClient: REQUEST_LEDGER 592413209
+04-21 12:47:10.574 18475 18522 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":592413209,"seq":0,"tot":0}]
+04-21 12:47:13.831 18475 18529 D RegistrationHandler: Has received 1 of 75 fragments from 1@test.com
+04-21 12:47:13.919 18475 18529 D RegistrationHandler: Has received 2 of 75 from 1@test.com
+04-21 12:47:13.920 18475 18529 D RegistrationHandler: Has received 3 of 75 from 1@test.com
+04-21 12:47:13.927 18475 18529 D RegistrationHandler: Has received 4 of 75 from 1@test.com
+04-21 12:47:14.019 18475 18529 D RegistrationHandler: Has received 5 of 75 from 1@test.com
+04-21 12:47:14.020 18475 18529 D RegistrationHandler: Has received 6 of 75 from 1@test.com
+04-21 12:47:14.030 18475 18529 D RegistrationHandler: Has received 7 of 75 from 1@test.com
+04-21 12:47:14.133 18475 18529 D RegistrationHandler: Has received 8 of 75 from 1@test.com
+04-21 12:47:14.140 18475 18529 D RegistrationHandler: Has received 9 of 75 from 1@test.com
+04-21 12:47:14.233 18475 18529 D RegistrationHandler: Has received 10 of 75 from 1@test.com
+04-21 12:47:14.240 18475 18529 D RegistrationHandler: Has received 11 of 75 from 1@test.com
+04-21 12:47:14.436 18475 18529 D RegistrationHandler: Has received 12 of 75 from 1@test.com
+04-21 12:47:14.442 18475 18529 D RegistrationHandler: Has received 13 of 75 from 1@test.com
+04-21 12:47:14.446 18475 18529 D RegistrationHandler: Has received 14 of 75 from 1@test.com
+04-21 12:47:14.539 18475 18529 D RegistrationHandler: Has received 15 of 75 from 1@test.com
+04-21 12:47:14.544 18475 18529 D RegistrationHandler: Has received 16 of 75 from 1@test.com
+04-21 12:47:14.549 18475 18529 D RegistrationHandler: Has received 17 of 75 from 1@test.com
+04-21 12:47:14.551 18475 18529 D RegistrationHandler: Has received 18 of 75 from 1@test.com
+04-21 12:47:14.744 18475 18529 D RegistrationHandler: Has received 19 of 75 from 1@test.com
+04-21 12:47:14.753 18475 18529 D RegistrationHandler: Has received 20 of 75 from 1@test.com
+04-21 12:47:14.755 18475 18529 D RegistrationHandler: Has received 21 of 75 from 1@test.com
+04-21 12:47:14.846 18475 18529 D RegistrationHandler: Has received 22 of 75 from 1@test.com
+04-21 12:47:14.850 18475 18529 D RegistrationHandler: Has received 23 of 75 from 1@test.com
+04-21 12:47:14.856 18475 18529 D RegistrationHandler: Has received 24 of 75 from 1@test.com
+04-21 12:47:14.950 18475 18529 D RegistrationHandler: Has received 25 of 75 from 1@test.com
+04-21 12:47:14.956 18475 18529 D RegistrationHandler: Has received 26 of 75 from 1@test.com
+04-21 12:47:15.061 18475 18529 D RegistrationHandler: Has received 27 of 75 from 1@test.com
+04-21 12:47:15.068 18475 18529 D RegistrationHandler: Has received 28 of 75 from 1@test.com
+04-21 12:47:15.073 18475 18529 D RegistrationHandler: Has received 29 of 75 from 1@test.com
+04-21 12:47:15.154 18475 18529 D RegistrationHandler: Has received 30 of 75 from 1@test.com
+04-21 12:47:15.160 18475 18529 D RegistrationHandler: Has received 31 of 75 from 1@test.com
+04-21 12:47:15.165 18475 18529 D RegistrationHandler: Has received 32 of 75 from 1@test.com
+04-21 12:47:15.250 18475 18529 D RegistrationHandler: Has received 33 of 75 from 1@test.com
+04-21 12:47:15.254 18475 18529 D RegistrationHandler: Has received 34 of 75 from 1@test.com
+04-21 12:47:15.366 18475 18529 D RegistrationHandler: Has received 35 of 75 from 1@test.com
+04-21 12:47:15.372 18475 18529 D RegistrationHandler: Has received 36 of 75 from 1@test.com
+04-21 12:47:15.459 18475 18529 D RegistrationHandler: Has received 37 of 75 from 1@test.com
+04-21 12:47:15.464 18475 18529 D RegistrationHandler: Has received 38 of 75 from 1@test.com
+04-21 12:47:15.468 18475 18529 D RegistrationHandler: Has received 39 of 75 from 1@test.com
+04-21 12:47:15.475 18475 18529 D RegistrationHandler: Has received 40 of 75 from 1@test.com
+04-21 12:47:15.561 18475 18529 D RegistrationHandler: Has received 41 of 75 from 1@test.com
+04-21 12:47:15.567 18475 18529 D RegistrationHandler: Has received 42 of 75 from 1@test.com
+04-21 12:47:15.572 18475 18529 D RegistrationHandler: Has received 43 of 75 from 1@test.com
+04-21 12:47:15.664 18475 18529 D RegistrationHandler: Has received 44 of 75 from 1@test.com
+04-21 12:47:15.773 18475 18529 D RegistrationHandler: Has received 45 of 75 from 1@test.com
+04-21 12:47:15.779 18475 18529 D RegistrationHandler: Has received 46 of 75 from 1@test.com
+04-21 12:47:15.784 18475 18529 D RegistrationHandler: Has received 47 of 75 from 1@test.com
+04-21 12:47:15.788 18475 18529 D RegistrationHandler: Has received 48 of 75 from 1@test.com
+04-21 12:47:15.868 18475 18529 D RegistrationHandler: Has received 49 of 75 from 1@test.com
+04-21 12:47:15.874 18475 18529 D RegistrationHandler: Has received 50 of 75 from 1@test.com
+04-21 12:47:15.878 18475 18529 D RegistrationHandler: Has received 51 of 75 from 1@test.com
+04-21 12:47:15.881 18475 18529 D RegistrationHandler: Has received 52 of 75 from 1@test.com
+04-21 12:47:15.974 18475 18529 D RegistrationHandler: Has received 53 of 75 from 1@test.com
+04-21 12:47:15.980 18475 18529 D RegistrationHandler: Has received 54 of 75 from 1@test.com
+04-21 12:47:16.176 18475 18529 D RegistrationHandler: Has received 55 of 75 from 1@test.com
+04-21 12:47:16.181 18475 18529 D RegistrationHandler: Has received 56 of 75 from 1@test.com
+04-21 12:47:16.186 18475 18529 D RegistrationHandler: Has received 57 of 75 from 1@test.com
+04-21 12:47:16.808 18475 18529 D RegistrationHandler: Has received 58 of 75 from 1@test.com
+04-21 12:47:17.000 18475 18529 D RegistrationHandler: Has received 59 of 75 from 1@test.com
+04-21 12:47:17.006 18475 18529 D RegistrationHandler: Has received 60 of 75 from 1@test.com
+04-21 12:47:17.010 18475 18529 D RegistrationHandler: Has received 61 of 75 from 1@test.com
+04-21 12:47:17.012 18475 18529 D RegistrationHandler: Has received 62 of 75 from 1@test.com
+04-21 12:47:17.312 18475 18529 D RegistrationHandler: Has received 63 of 75 from 1@test.com
+04-21 12:47:17.409 18475 18529 D RegistrationHandler: Has received 64 of 75 from 1@test.com
+04-21 12:47:17.624 18475 18529 D RegistrationHandler: Has received 65 of 75 from 1@test.com
+04-21 12:47:17.712 18475 18529 D RegistrationHandler: Has received 66 of 75 from 1@test.com
+04-21 12:47:17.928 18475 18529 D RegistrationHandler: Has received 67 of 75 from 1@test.com
+04-21 12:47:18.026 18475 18529 D RegistrationHandler: Has received 68 of 75 from 1@test.com
+04-21 12:47:18.331 18475 18529 D RegistrationHandler: Has received 69 of 75 from 1@test.com
+04-21 12:47:18.739 18475 18529 D RegistrationHandler: Has received 70 of 75 from 1@test.com
+04-21 12:47:18.745 18475 18529 D RegistrationHandler: Has received 71 of 75 from 1@test.com
+04-21 12:47:18.748 18475 18529 D RegistrationHandler: Has received 72 of 75 from 1@test.com
+04-21 12:47:18.750 18475 18529 D RegistrationHandler: Has received 73 of 75 from 1@test.com
+04-21 12:47:19.452 18475 18529 D RegistrationHandler: Has received 74 of 75 from 1@test.com
+round 6 of 15
+04-21 12:47:32.992 18569 18615 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-21 12:47:32.994 18569 18617 D MulticastServer: Registration process started with nonce 1521686653
+04-21 12:47:32.996 18569 18616 D MulticastClient: REQUEST_LEDGER 1521686653
+04-21 12:47:32.998 18569 18616 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1521686653,"seq":0,"tot":0}]
+04-21 12:47:36.367 18569 18624 D RegistrationHandler: Has received 1 of 75 fragments from 1@test.com
+04-21 12:47:36.443 18569 18624 D RegistrationHandler: Has received 2 of 75 from 1@test.com
+04-21 12:47:36.450 18569 18624 D RegistrationHandler: Has received 3 of 75 from 1@test.com
+04-21 12:47:36.552 18569 18624 D RegistrationHandler: Has received 4 of 75 from 1@test.com
+04-21 12:47:36.565 18569 18624 D RegistrationHandler: Has received 5 of 75 from 1@test.com
+04-21 12:47:36.569 18569 18624 D RegistrationHandler: Has received 6 of 75 from 1@test.com
+04-21 12:47:36.572 18569 18624 D RegistrationHandler: Has received 7 of 75 from 1@test.com
+04-21 12:47:36.655 18569 18624 D RegistrationHandler: Has received 8 of 75 from 1@test.com
+04-21 12:47:36.661 18569 18624 D RegistrationHandler: Has received 9 of 75 from 1@test.com
+04-21 12:47:36.665 18569 18624 D RegistrationHandler: Has received 10 of 75 from 1@test.com
+04-21 12:47:36.762 18569 18624 D RegistrationHandler: Has received 11 of 75 from 1@test.com
+04-21 12:47:36.774 18569 18624 D RegistrationHandler: Has received 12 of 75 from 1@test.com
+04-21 12:47:36.962 18569 18624 D RegistrationHandler: Has received 13 of 75 from 1@test.com
+04-21 12:47:36.968 18569 18624 D RegistrationHandler: Has received 14 of 75 from 1@test.com
+04-21 12:47:36.973 18569 18624 D RegistrationHandler: Has received 15 of 75 from 1@test.com
+04-21 12:47:37.068 18569 18624 D RegistrationHandler: Has received 16 of 75 from 1@test.com
+04-21 12:47:37.074 18569 18624 D RegistrationHandler: Has received 17 of 75 from 1@test.com
+04-21 12:47:37.078 18569 18624 D RegistrationHandler: Has received 18 of 75 from 1@test.com
+04-21 12:47:37.273 18569 18624 D RegistrationHandler: Has received 19 of 75 from 1@test.com
+04-21 12:47:37.277 18569 18624 D RegistrationHandler: Has received 20 of 75 from 1@test.com
+04-21 12:47:37.281 18569 18624 D RegistrationHandler: Has received 21 of 75 from 1@test.com
+04-21 12:47:37.285 18569 18624 D RegistrationHandler: Has received 22 of 75 from 1@test.com
+04-21 12:47:37.287 18569 18624 D RegistrationHandler: Has received 23 of 75 from 1@test.com
+04-21 12:47:37.292 18569 18624 D RegistrationHandler: Has received 24 of 75 from 1@test.com
+04-21 12:47:37.370 18569 18624 D RegistrationHandler: Has received 25 of 75 from 1@test.com
+04-21 12:47:37.378 18569 18624 D RegistrationHandler: Has received 26 of 75 from 1@test.com
+04-21 12:47:37.383 18569 18624 D RegistrationHandler: Has received 27 of 75 from 1@test.com
+04-21 12:47:37.474 18569 18624 D RegistrationHandler: Has received 28 of 75 from 1@test.com
+04-21 12:47:37.480 18569 18624 D RegistrationHandler: Has received 29 of 75 from 1@test.com
+04-21 12:47:37.484 18569 18624 D RegistrationHandler: Has received 30 of 75 from 1@test.com
+04-21 12:47:37.686 18569 18624 D RegistrationHandler: Has received 31 of 75 from 1@test.com
+04-21 12:47:37.693 18569 18624 D RegistrationHandler: Has received 32 of 75 from 1@test.com
+04-21 12:47:37.698 18569 18624 D RegistrationHandler: Has received 33 of 75 from 1@test.com
+04-21 12:47:37.702 18569 18624 D RegistrationHandler: Has received 34 of 75 from 1@test.com
+04-21 12:47:37.784 18569 18624 D RegistrationHandler: Has received 35 of 75 from 1@test.com
+04-21 12:47:37.789 18569 18624 D RegistrationHandler: Has received 36 of 75 from 1@test.com
+04-21 12:47:37.793 18569 18624 D RegistrationHandler: Has received 37 of 75 from 1@test.com
+04-21 12:47:37.883 18569 18624 D RegistrationHandler: Has received 38 of 75 from 1@test.com
+04-21 12:47:37.991 18569 18624 D RegistrationHandler: Has received 39 of 75 from 1@test.com
+04-21 12:47:37.997 18569 18624 D RegistrationHandler: Has received 40 of 75 from 1@test.com
+04-21 12:47:38.001 18569 18624 D RegistrationHandler: Has received 41 of 75 from 1@test.com
+04-21 12:47:38.003 18569 18624 D RegistrationHandler: Has received 42 of 75 from 1@test.com
+04-21 12:47:38.007 18569 18624 D RegistrationHandler: Has received 43 of 75 from 1@test.com
+04-21 12:47:38.088 18569 18624 D RegistrationHandler: Has received 44 of 75 from 1@test.com
+04-21 12:47:38.094 18569 18624 D RegistrationHandler: Has received 45 of 75 from 1@test.com
+04-21 12:47:38.098 18569 18624 D RegistrationHandler: Has received 46 of 75 from 1@test.com
+04-21 12:47:38.101 18569 18624 D RegistrationHandler: Has received 47 of 75 from 1@test.com
+04-21 12:47:38.192 18569 18624 D RegistrationHandler: Has received 48 of 75 from 1@test.com
+04-21 12:47:38.198 18569 18624 D RegistrationHandler: Has received 49 of 75 from 1@test.com
+04-21 12:47:38.403 18569 18624 D RegistrationHandler: Has received 50 of 75 from 1@test.com
+04-21 12:47:38.411 18569 18624 D RegistrationHandler: Has received 51 of 75 from 1@test.com
+04-21 12:47:38.416 18569 18624 D RegistrationHandler: Has received 52 of 75 from 1@test.com
+04-21 12:47:38.497 18569 18624 D RegistrationHandler: Has received 53 of 75 from 1@test.com
+04-21 12:47:38.502 18569 18624 D RegistrationHandler: Has received 54 of 75 from 1@test.com
+04-21 12:47:38.505 18569 18624 D RegistrationHandler: Has received 55 of 75 from 1@test.com
+04-21 12:47:38.600 18569 18624 D RegistrationHandler: Has received 56 of 75 from 1@test.com
+04-21 12:47:38.704 18569 18624 D RegistrationHandler: Has received 57 of 75 from 1@test.com
+04-21 12:47:38.710 18569 18624 D RegistrationHandler: Has received 58 of 75 from 1@test.com
+04-21 12:47:39.216 18569 18624 D RegistrationHandler: Has received 59 of 75 from 1@test.com
+04-21 12:47:39.430 18569 18624 D RegistrationHandler: Has received 60 of 75 from 1@test.com
+04-21 12:47:39.523 18569 18624 D RegistrationHandler: Has received 61 of 75 from 1@test.com
+04-21 12:47:39.529 18569 18624 D RegistrationHandler: Has received 62 of 75 from 1@test.com
+04-21 12:47:39.533 18569 18624 D RegistrationHandler: Has received 63 of 75 from 1@test.com
+04-21 12:47:39.628 18569 18624 D RegistrationHandler: Has received 64 of 75 from 1@test.com
+04-21 12:47:39.840 18569 18624 D RegistrationHandler: Has received 65 of 75 from 1@test.com
+04-21 12:47:40.246 18569 18624 D RegistrationHandler: Has received 66 of 75 from 1@test.com
+04-21 12:47:40.250 18569 18624 D RegistrationHandler: Has received 67 of 75 from 1@test.com
+04-21 12:47:40.254 18569 18624 D RegistrationHandler: Has received 68 of 75 from 1@test.com
+04-21 12:47:40.957 18569 18624 D RegistrationHandler: Has received 69 of 75 from 1@test.com
+04-21 12:47:40.962 18569 18624 D RegistrationHandler: Has received 70 of 75 from 1@test.com
+04-21 12:47:40.965 18569 18624 D RegistrationHandler: Has received 71 of 75 from 1@test.com
+04-21 12:47:41.063 18569 18624 D RegistrationHandler: Has received 72 of 75 from 1@test.com
+04-21 12:47:41.271 18569 18624 D RegistrationHandler: Has received 73 of 75 from 1@test.com
+04-21 12:47:41.274 18569 18624 D RegistrationHandler: Has received 74 of 75 from 1@test.com
+04-21 12:47:41.368 18569 18624 D RegistrationHandler: Has received 75 of 75 from 1@test.com
+04-21 12:47:41.402 18569 18624 D RegistrationHandler: Received full ledger from 1@test.com with nonce 1521686653
+04-21 12:47:41.403 18569 18624 D RegistrationHandler: FULL_LEDGER 1521686653
+round 7 of 15
+04-21 12:47:55.501 18675 18723 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-21 12:47:55.503 18675 18725 D MulticastServer: Registration process started with nonce 2105730823
+04-21 12:47:55.506 18675 18724 D MulticastClient: REQUEST_LEDGER 2105730823
+04-21 12:47:55.507 18675 18724 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":2105730823,"seq":0,"tot":0}]
+04-21 12:47:58.793 18675 18731 D RegistrationHandler: Has received 1 of 75 fragments from 1@test.com
+04-21 12:47:58.875 18675 18731 D RegistrationHandler: Has received 2 of 75 from 1@test.com
+04-21 12:47:58.879 18675 18731 D RegistrationHandler: Has received 3 of 75 from 1@test.com
+04-21 12:47:58.881 18675 18731 D RegistrationHandler: Has received 4 of 75 from 1@test.com
+04-21 12:47:58.982 18675 18731 D RegistrationHandler: Has received 5 of 75 from 1@test.com
+04-21 12:47:58.994 18675 18731 D RegistrationHandler: Has received 6 of 75 from 1@test.com
+04-21 12:47:59.088 18675 18731 D RegistrationHandler: Has received 7 of 75 from 1@test.com
+04-21 12:47:59.185 18675 18731 D RegistrationHandler: Has received 8 of 75 from 1@test.com
+04-21 12:47:59.192 18675 18731 D RegistrationHandler: Has received 9 of 75 from 1@test.com
+04-21 12:47:59.197 18675 18731 D RegistrationHandler: Has received 10 of 75 from 1@test.com
+04-21 12:47:59.291 18675 18731 D RegistrationHandler: Has received 11 of 75 from 1@test.com
+04-21 12:47:59.304 18675 18731 D RegistrationHandler: Has received 12 of 75 from 1@test.com
+04-21 12:47:59.491 18675 18731 D RegistrationHandler: Has received 13 of 75 from 1@test.com
+04-21 12:47:59.498 18675 18731 D RegistrationHandler: Has received 14 of 75 from 1@test.com
+04-21 12:47:59.504 18675 18731 D RegistrationHandler: Has received 15 of 75 from 1@test.com
+04-21 12:47:59.508 18675 18731 D RegistrationHandler: Has received 16 of 75 from 1@test.com
+04-21 12:47:59.509 18675 18731 D RegistrationHandler: Has received 17 of 75 from 1@test.com
+04-21 12:47:59.514 18675 18731 D RegistrationHandler: Has received 18 of 75 from 1@test.com
+04-21 12:47:59.594 18675 18731 D RegistrationHandler: Has received 19 of 75 from 1@test.com
+04-21 12:47:59.600 18675 18731 D RegistrationHandler: Has received 20 of 75 from 1@test.com
+04-21 12:47:59.605 18675 18731 D RegistrationHandler: Has received 21 of 75 from 1@test.com
+04-21 12:47:59.695 18675 18731 D RegistrationHandler: Has received 22 of 75 from 1@test.com
+04-21 12:47:59.905 18675 18731 D RegistrationHandler: Has received 23 of 75 from 1@test.com
+04-21 12:47:59.912 18675 18731 D RegistrationHandler: Has received 24 of 75 from 1@test.com
+04-21 12:47:59.916 18675 18731 D RegistrationHandler: Has received 25 of 75 from 1@test.com
+04-21 12:47:59.920 18675 18731 D RegistrationHandler: Has received 26 of 75 from 1@test.com
+04-21 12:48:00.004 18675 18731 D RegistrationHandler: Has received 27 of 75 from 1@test.com
+04-21 12:48:00.012 18675 18731 D RegistrationHandler: Has received 28 of 75 from 1@test.com
+04-21 12:48:00.109 18675 18731 D RegistrationHandler: Has received 29 of 75 from 1@test.com
+04-21 12:48:00.115 18675 18731 D RegistrationHandler: Has received 30 of 75 from 1@test.com
+04-21 12:48:00.219 18675 18731 D RegistrationHandler: Has received 31 of 75 from 1@test.com
+04-21 12:48:00.225 18675 18731 D RegistrationHandler: Has received 32 of 75 from 1@test.com
+04-21 12:48:00.229 18675 18731 D RegistrationHandler: Has received 33 of 75 from 1@test.com
+04-21 12:48:00.313 18675 18731 D RegistrationHandler: Has received 34 of 75 from 1@test.com
+04-21 12:48:00.319 18675 18731 D RegistrationHandler: Has received 35 of 75 from 1@test.com
+04-21 12:48:00.323 18675 18731 D RegistrationHandler: Has received 36 of 75 from 1@test.com
+04-21 12:48:00.422 18675 18731 D RegistrationHandler: Has received 37 of 75 from 1@test.com
+04-21 12:48:00.519 18675 18731 D RegistrationHandler: Has received 38 of 75 from 1@test.com
+04-21 12:48:00.625 18675 18731 D RegistrationHandler: Has received 39 of 75 from 1@test.com
+04-21 12:48:00.631 18675 18731 D RegistrationHandler: Has received 40 of 75 from 1@test.com
+04-21 12:48:00.722 18675 18731 D RegistrationHandler: Has received 41 of 75 from 1@test.com
+04-21 12:48:00.728 18675 18731 D RegistrationHandler: Has received 42 of 75 from 1@test.com
+04-21 12:48:00.732 18675 18731 D RegistrationHandler: Has received 43 of 75 from 1@test.com
+04-21 12:48:00.735 18675 18731 D RegistrationHandler: Has received 44 of 75 from 1@test.com
+04-21 12:48:00.828 18675 18731 D RegistrationHandler: Has received 45 of 75 from 1@test.com
+04-21 12:48:00.925 18675 18731 D RegistrationHandler: Has received 46 of 75 from 1@test.com
+04-21 12:48:00.930 18675 18731 D RegistrationHandler: Has received 47 of 75 from 1@test.com
+04-21 12:48:00.934 18675 18731 D RegistrationHandler: Has received 48 of 75 from 1@test.com
+04-21 12:48:01.028 18675 18731 D RegistrationHandler: Has received 49 of 75 from 1@test.com
+04-21 12:48:01.034 18675 18731 D RegistrationHandler: Has received 50 of 75 from 1@test.com
+04-21 12:48:01.039 18675 18731 D RegistrationHandler: Has received 51 of 75 from 1@test.com
+04-21 12:48:01.129 18675 18731 D RegistrationHandler: Has received 52 of 75 from 1@test.com
+04-21 12:48:01.135 18675 18731 D RegistrationHandler: Has received 53 of 75 from 1@test.com
+04-21 12:48:01.704 18675 18731 D RegistrationHandler: Has received 54 of 75 from 1@test.com
+04-21 12:48:01.745 18675 18731 D RegistrationHandler: Has received 55 of 75 from 1@test.com
+04-21 12:48:01.749 18675 18731 D RegistrationHandler: Has received 56 of 75 from 1@test.com
+04-21 12:48:01.845 18675 18731 D RegistrationHandler: Has received 57 of 75 from 1@test.com
+04-21 12:48:01.966 18675 18731 D RegistrationHandler: Has received 58 of 75 from 1@test.com
+04-21 12:48:01.975 18675 18731 D RegistrationHandler: Has received 59 of 75 from 1@test.com
+04-21 12:48:02.370 18675 18731 D RegistrationHandler: Has received 60 of 75 from 1@test.com
+04-21 12:48:02.375 18675 18731 D RegistrationHandler: Has received 61 of 75 from 1@test.com
+04-21 12:48:02.461 18675 18731 D RegistrationHandler: Has received 62 of 75 from 1@test.com
+04-21 12:48:02.467 18675 18731 D RegistrationHandler: Has received 63 of 75 from 1@test.com
+04-21 12:48:02.472 18675 18731 D RegistrationHandler: Has received 64 of 75 from 1@test.com
+04-21 12:48:02.674 18675 18731 D RegistrationHandler: Has received 65 of 75 from 1@test.com
+04-21 12:48:02.772 18675 18731 D RegistrationHandler: Has received 66 of 75 from 1@test.com
+04-21 12:48:02.873 18675 18731 D RegistrationHandler: Has received 67 of 75 from 1@test.com
+04-21 12:48:03.087 18675 18731 D RegistrationHandler: Has received 68 of 75 from 1@test.com
+04-21 12:48:03.185 18675 18731 D RegistrationHandler: Has received 69 of 75 from 1@test.com
+04-21 12:48:03.196 18675 18731 D RegistrationHandler: Has received 70 of 75 from 1@test.com
+04-21 12:48:03.492 18675 18731 D RegistrationHandler: Has received 71 of 75 from 1@test.com
+04-21 12:48:03.590 18675 18731 D RegistrationHandler: Has received 72 of 75 from 1@test.com
+04-21 12:48:03.806 18675 18731 D RegistrationHandler: Has received 73 of 75 from 1@test.com
+04-21 12:48:05.850 18675 18731 D RegistrationHandler: Has received 74 of 75 from 1@test.com
+04-21 12:48:05.949 18675 18731 D RegistrationHandler: Has received 75 of 75 from 1@test.com
+04-21 12:48:05.979 18675 18731 D RegistrationHandler: Received full ledger from 1@test.com with nonce 2105730823
+04-21 12:48:05.979 18675 18731 D RegistrationHandler: FULL_LEDGER 2105730823
+round 8 of 15
+04-21 12:48:17.839 18786 18834 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-21 12:48:17.841 18786 18836 D MulticastServer: Registration process started with nonce 1028942139
+04-21 12:48:17.844 18786 18835 D MulticastClient: REQUEST_LEDGER 1028942139
+04-21 12:48:17.845 18786 18835 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1028942139,"seq":0,"tot":0}]
+04-21 12:48:21.844 18786 18838 D RegistrationHandler: I am the first in the network
+04-21 12:48:21.845 18786 18838 D RegistrationHandler: 1028942139 Registration started
+04-21 12:48:21.866 18786 18835 D MulticastClient: Sent messages with 3 resends: [{"sender":"2@test.com","payload":"{\"ip\":\"192.168.1.97\",\"cert\":\"MIIBGjCBwqADAgECAgYBgEtMKvwwCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKVFRNNDkwNSBDQTAeFw0yMjA0MjAwODQ1MjRaFw0yMjA1MjEwODQ1MjRaMBUxEzARBgNVBAMMCjJAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARuziVeqczih9y2IwSJ3AZuLzxwpY2VwkjEcfE8yVLxCF1qtw21\/iMvxrk2q4BpbgHrUX5EWSAEi7qJDXIS4c\/wMAoGCCqGSM49BAMCA0cAMEQCIG3JN+NQlClPB+thJTrGjfia7cfGbMyyWhJH4K0X7YymAiAUuEhh7Ol8fxrjxPTDnAemav8GQj3kHaLUj1oJ3XJ+Tg==\"}","mt":"BROADCAST_BLOCK","sig":"MEQCICI7OrbmFedEeZ619QpgV3YeqHs1VWXjXjl7J\/tsSLiFAiAPWE5qPZfPH8r4kSkayTb8Tczzzu207vknI4bLZ68SvQ==","nonce":1028942139,"seq":0,"tot":0}]
+04-21 12:48:21.866 18786 18838 D MulticastServer: Registration process finished: 1028942139
+round 9 of 15
+04-21 12:48:40.215 18880 18927 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-21 12:48:40.218 18880 18929 D MulticastServer: Registration process started with nonce 2037139862
+04-21 12:48:40.221 18880 18934 D MulticastClient: REQUEST_LEDGER 2037139862
+04-21 12:48:40.222 18880 18934 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":2037139862,"seq":0,"tot":0}]
+04-21 12:48:40.559 18880 18936 D RegistrationHandler: Has received 1 of 75 fragments from 1@test.com
+04-21 12:48:40.753 18880 18936 D RegistrationHandler: Has received 2 of 75 from 1@test.com
+04-21 12:48:40.756 18880 18936 D RegistrationHandler: Has received 3 of 75 from 1@test.com
+04-21 12:48:40.861 18880 18936 D RegistrationHandler: Has received 4 of 75 from 1@test.com
+04-21 12:48:40.868 18880 18936 D RegistrationHandler: Has received 5 of 75 from 1@test.com
+04-21 12:48:40.871 18880 18936 D RegistrationHandler: Has received 6 of 75 from 1@test.com
+04-21 12:48:40.873 18880 18936 D RegistrationHandler: Has received 7 of 75 from 1@test.com
+04-21 12:48:40.962 18880 18936 D RegistrationHandler: Has received 8 of 75 from 1@test.com
+04-21 12:48:41.065 18880 18936 D RegistrationHandler: Has received 9 of 75 from 1@test.com
+04-21 12:48:41.072 18880 18936 D RegistrationHandler: Has received 10 of 75 from 1@test.com
+04-21 12:48:41.075 18880 18936 D RegistrationHandler: Has received 11 of 75 from 1@test.com
+04-21 12:48:41.083 18880 18936 D RegistrationHandler: Has received 12 of 75 from 1@test.com
+04-21 12:48:41.174 18880 18936 D RegistrationHandler: Has received 13 of 75 from 1@test.com
+04-21 12:48:41.273 18880 18936 D RegistrationHandler: Has received 14 of 75 from 1@test.com
+04-21 12:48:41.279 18880 18936 D RegistrationHandler: Has received 15 of 75 from 1@test.com
+04-21 12:48:41.477 18880 18936 D RegistrationHandler: Has received 16 of 75 from 1@test.com
+04-21 12:48:41.484 18880 18936 D RegistrationHandler: Has received 17 of 75 from 1@test.com
+04-21 12:48:41.488 18880 18936 D RegistrationHandler: Has received 18 of 75 from 1@test.com
+04-21 12:48:41.577 18880 18936 D RegistrationHandler: Has received 19 of 75 from 1@test.com
+04-21 12:48:41.583 18880 18936 D RegistrationHandler: Has received 20 of 75 from 1@test.com
+04-21 12:48:41.588 18880 18936 D RegistrationHandler: Has received 21 of 75 from 1@test.com
+04-21 12:48:41.678 18880 18936 D RegistrationHandler: Has received 22 of 75 from 1@test.com
+04-21 12:48:41.785 18880 18936 D RegistrationHandler: Has received 23 of 75 from 1@test.com
+04-21 12:48:41.791 18880 18936 D RegistrationHandler: Has received 24 of 75 from 1@test.com
+04-21 12:48:41.794 18880 18936 D RegistrationHandler: Has received 25 of 75 from 1@test.com
+04-21 12:48:41.796 18880 18936 D RegistrationHandler: Has received 26 of 75 from 1@test.com
+04-21 12:48:41.799 18880 18936 D RegistrationHandler: Has received 27 of 75 from 1@test.com
+04-21 12:48:41.806 18880 18936 D RegistrationHandler: Has received 28 of 75 from 1@test.com
+04-21 12:48:41.884 18880 18936 D RegistrationHandler: Has received 29 of 75 from 1@test.com
+04-21 12:48:41.890 18880 18936 D RegistrationHandler: Has received 30 of 75 from 1@test.com
+04-21 12:48:41.894 18880 18936 D RegistrationHandler: Has received 31 of 75 from 1@test.com
+04-21 12:48:41.988 18880 18936 D RegistrationHandler: Has received 32 of 75 from 1@test.com
+04-21 12:48:41.993 18880 18936 D RegistrationHandler: Has received 33 of 75 from 1@test.com
+04-21 12:48:42.195 18880 18936 D RegistrationHandler: Has received 34 of 75 from 1@test.com
+04-21 12:48:42.201 18880 18936 D RegistrationHandler: Has received 35 of 75 from 1@test.com
+04-21 12:48:42.204 18880 18936 D RegistrationHandler: Has received 36 of 75 from 1@test.com
+04-21 12:48:42.298 18880 18936 D RegistrationHandler: Has received 37 of 75 from 1@test.com
+04-21 12:48:42.303 18880 18936 D RegistrationHandler: Has received 38 of 75 from 1@test.com
+04-21 12:48:42.307 18880 18936 D RegistrationHandler: Has received 39 of 75 from 1@test.com
+04-21 12:48:42.310 18880 18936 D RegistrationHandler: Has received 40 of 75 from 1@test.com
+04-21 12:48:42.397 18880 18936 D RegistrationHandler: Has received 41 of 75 from 1@test.com
+04-21 12:48:42.403 18880 18936 D RegistrationHandler: Has received 42 of 75 from 1@test.com
+04-21 12:48:42.507 18880 18936 D RegistrationHandler: Has received 43 of 75 from 1@test.com
+04-21 12:48:42.514 18880 18936 D RegistrationHandler: Has received 44 of 75 from 1@test.com
+04-21 12:48:42.597 18880 18936 D RegistrationHandler: Has received 45 of 75 from 1@test.com
+04-21 12:48:42.601 18880 18936 D RegistrationHandler: Has received 46 of 75 from 1@test.com
+04-21 12:48:42.609 18880 18936 D RegistrationHandler: Has received 47 of 75 from 1@test.com
+04-21 12:48:42.709 18880 18936 D RegistrationHandler: Has received 48 of 75 from 1@test.com
+04-21 12:48:42.714 18880 18936 D RegistrationHandler: Has received 49 of 75 from 1@test.com
+04-21 12:48:42.814 18880 18936 D RegistrationHandler: Has received 50 of 75 from 1@test.com
+04-21 12:48:42.825 18880 18936 D RegistrationHandler: Has received 51 of 75 from 1@test.com
+04-21 12:48:42.913 18880 18936 D RegistrationHandler: Has received 52 of 75 from 1@test.com
+04-21 12:48:42.919 18880 18936 D RegistrationHandler: Has received 53 of 75 from 1@test.com
+04-21 12:48:42.925 18880 18936 D RegistrationHandler: Has received 54 of 75 from 1@test.com
+04-21 12:48:43.339 18880 18936 D RegistrationHandler: Has received 55 of 75 from 1@test.com
+04-21 12:48:43.421 18880 18936 D RegistrationHandler: Has received 56 of 75 from 1@test.com
+04-21 12:48:43.428 18880 18936 D RegistrationHandler: Has received 57 of 75 from 1@test.com
+04-21 12:48:43.640 18880 18936 D RegistrationHandler: Has received 58 of 75 from 1@test.com
+04-21 12:48:43.838 18880 18936 D RegistrationHandler: Has received 59 of 75 from 1@test.com
+04-21 12:48:43.937 18880 18936 D RegistrationHandler: Has received 60 of 75 from 1@test.com
+04-21 12:48:43.948 18880 18936 D RegistrationHandler: Has received 61 of 75 from 1@test.com
+04-21 12:48:44.036 18880 18936 D RegistrationHandler: Has received 62 of 75 from 1@test.com
+04-21 12:48:44.044 18880 18936 D RegistrationHandler: Has received 63 of 75 from 1@test.com
+04-21 12:48:44.048 18880 18936 D RegistrationHandler: Has received 64 of 75 from 1@test.com
+04-21 12:48:44.142 18880 18936 D RegistrationHandler: Has received 65 of 75 from 1@test.com
+04-21 12:48:44.761 18880 18936 D RegistrationHandler: Has received 66 of 75 from 1@test.com
+04-21 12:48:44.766 18880 18936 D RegistrationHandler: Has received 67 of 75 from 1@test.com
+04-21 12:48:44.770 18880 18936 D RegistrationHandler: Has received 68 of 75 from 1@test.com
+04-21 12:48:44.772 18880 18936 D RegistrationHandler: Has received 69 of 75 from 1@test.com
+04-21 12:48:45.162 18880 18936 D RegistrationHandler: Has received 70 of 75 from 1@test.com
+04-21 12:48:45.168 18880 18936 D RegistrationHandler: Has received 71 of 75 from 1@test.com
+04-21 12:48:45.476 18880 18936 D RegistrationHandler: Has received 72 of 75 from 1@test.com
+04-21 12:48:45.479 18880 18936 D RegistrationHandler: Has received 73 of 75 from 1@test.com
+04-21 12:48:45.989 18880 18936 D RegistrationHandler: Has received 74 of 75 from 1@test.com
+04-21 12:48:48.144 18880 18936 D RegistrationHandler: Has received 75 of 75 from 1@test.com
+04-21 12:48:48.173 18880 18936 D RegistrationHandler: Received full ledger from 1@test.com with nonce 2037139862
+04-21 12:48:48.173 18880 18936 D RegistrationHandler: FULL_LEDGER 2037139862
+round 10 of 15
+04-21 12:49:02.650 19016 19064 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-21 12:49:02.652 19016 19066 D MulticastServer: Registration process started with nonce 107996889
+04-21 12:49:02.654 19016 19065 D MulticastClient: REQUEST_LEDGER 107996889
+04-21 12:49:02.656 19016 19065 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":107996889,"seq":0,"tot":0}]
+04-21 12:49:05.659 19016 19073 D RegistrationHandler: Has received 1 of 75 fragments from 1@test.com
+04-21 12:49:05.748 19016 19073 D RegistrationHandler: Has received 2 of 75 from 1@test.com
+04-21 12:49:05.750 19016 19073 D RegistrationHandler: Has received 3 of 75 from 1@test.com
+04-21 12:49:05.751 19016 19073 D RegistrationHandler: Has received 4 of 75 from 1@test.com
+04-21 12:49:05.754 19016 19073 D RegistrationHandler: Has received 5 of 75 from 1@test.com
+04-21 12:49:05.764 19016 19073 D RegistrationHandler: Has received 6 of 75 from 1@test.com
+04-21 12:49:05.846 19016 19073 D RegistrationHandler: Has received 7 of 75 from 1@test.com
+04-21 12:49:05.859 19016 19073 D RegistrationHandler: Has received 8 of 75 from 1@test.com
+04-21 12:49:05.866 19016 19073 D RegistrationHandler: Has received 9 of 75 from 1@test.com
+04-21 12:49:05.952 19016 19073 D RegistrationHandler: Has received 10 of 75 from 1@test.com
+04-21 12:49:05.958 19016 19073 D RegistrationHandler: Has received 11 of 75 from 1@test.com
+04-21 12:49:05.962 19016 19073 D RegistrationHandler: Has received 12 of 75 from 1@test.com
+04-21 12:49:06.065 19016 19073 D RegistrationHandler: Has received 13 of 75 from 1@test.com
+04-21 12:49:06.157 19016 19073 D RegistrationHandler: Has received 14 of 75 from 1@test.com
+04-21 12:49:06.164 19016 19073 D RegistrationHandler: Has received 15 of 75 from 1@test.com
+04-21 12:49:06.168 19016 19073 D RegistrationHandler: Has received 16 of 75 from 1@test.com
+04-21 12:49:06.262 19016 19073 D RegistrationHandler: Has received 17 of 75 from 1@test.com
+04-21 12:49:06.268 19016 19073 D RegistrationHandler: Has received 18 of 75 from 1@test.com
+04-21 12:49:06.271 19016 19073 D RegistrationHandler: Has received 19 of 75 from 1@test.com
+04-21 12:49:06.274 19016 19073 D RegistrationHandler: Has received 20 of 75 from 1@test.com
+04-21 12:49:06.360 19016 19073 D RegistrationHandler: Has received 21 of 75 from 1@test.com
+04-21 12:49:06.460 19016 19073 D RegistrationHandler: Has received 22 of 75 from 1@test.com
+04-21 12:49:06.465 19016 19073 D RegistrationHandler: Has received 23 of 75 from 1@test.com
+04-21 12:49:06.469 19016 19073 D RegistrationHandler: Has received 24 of 75 from 1@test.com
+04-21 12:49:06.483 19016 19073 D RegistrationHandler: Has received 25 of 75 from 1@test.com
+04-21 12:49:06.567 19016 19073 D RegistrationHandler: Has received 26 of 75 from 1@test.com
+04-21 12:49:06.572 19016 19073 D RegistrationHandler: Has received 27 of 75 from 1@test.com
+04-21 12:49:06.576 19016 19073 D RegistrationHandler: Has received 28 of 75 from 1@test.com
+04-21 12:49:06.671 19016 19073 D RegistrationHandler: Has received 29 of 75 from 1@test.com
+04-21 12:49:06.678 19016 19073 D RegistrationHandler: Has received 30 of 75 from 1@test.com
+04-21 12:49:06.682 19016 19073 D RegistrationHandler: Has received 31 of 75 from 1@test.com
+04-21 12:49:06.874 19016 19073 D RegistrationHandler: Has received 32 of 75 from 1@test.com
+04-21 12:49:06.880 19016 19073 D RegistrationHandler: Has received 33 of 75 from 1@test.com
+04-21 12:49:06.884 19016 19073 D RegistrationHandler: Has received 34 of 75 from 1@test.com
+04-21 12:49:06.974 19016 19073 D RegistrationHandler: Has received 35 of 75 from 1@test.com
+04-21 12:49:06.989 19016 19073 D RegistrationHandler: Has received 36 of 75 from 1@test.com
+04-21 12:49:07.072 19016 19073 D RegistrationHandler: Has received 37 of 75 from 1@test.com
+04-21 12:49:07.078 19016 19073 D RegistrationHandler: Has received 38 of 75 from 1@test.com
+04-21 12:49:07.175 19016 19073 D RegistrationHandler: Has received 39 of 75 from 1@test.com
+04-21 12:49:07.180 19016 19073 D RegistrationHandler: Has received 40 of 75 from 1@test.com
+04-21 12:49:07.195 19016 19073 D RegistrationHandler: Has received 41 of 75 from 1@test.com
+04-21 12:49:07.282 19016 19073 D RegistrationHandler: Has received 42 of 75 from 1@test.com
+04-21 12:49:07.288 19016 19073 D RegistrationHandler: Has received 43 of 75 from 1@test.com
+04-21 12:49:07.292 19016 19073 D RegistrationHandler: Has received 44 of 75 from 1@test.com
+04-21 12:49:07.384 19016 19073 D RegistrationHandler: Has received 45 of 75 from 1@test.com
+04-21 12:49:07.390 19016 19073 D RegistrationHandler: Has received 46 of 75 from 1@test.com
+04-21 12:49:07.593 19016 19073 D RegistrationHandler: Has received 47 of 75 from 1@test.com
+04-21 12:49:07.606 19016 19073 D RegistrationHandler: Has received 48 of 75 from 1@test.com
+04-21 12:49:07.614 19016 19073 D RegistrationHandler: Has received 49 of 75 from 1@test.com
+04-21 12:49:07.618 19016 19073 D RegistrationHandler: Has received 50 of 75 from 1@test.com
+04-21 12:49:07.689 19016 19073 D RegistrationHandler: Has received 51 of 75 from 1@test.com
+04-21 12:49:07.695 19016 19073 D RegistrationHandler: Has received 52 of 75 from 1@test.com
+04-21 12:49:07.699 19016 19073 D RegistrationHandler: Has received 53 of 75 from 1@test.com
+04-21 12:49:07.900 19016 19073 D RegistrationHandler: Has received 54 of 75 from 1@test.com
+04-21 12:49:07.906 19016 19073 D RegistrationHandler: Has received 55 of 75 from 1@test.com
+04-21 12:49:08.723 19016 19073 D RegistrationHandler: Has received 56 of 75 from 1@test.com
+04-21 12:49:08.732 19016 19073 D RegistrationHandler: Has received 57 of 75 from 1@test.com
+04-21 12:49:09.135 19016 19073 D RegistrationHandler: Has received 58 of 75 from 1@test.com
+04-21 12:49:09.435 19016 19073 D RegistrationHandler: Has received 59 of 75 from 1@test.com
+04-21 12:49:09.441 19016 19073 D RegistrationHandler: Has received 60 of 75 from 1@test.com
+04-21 12:49:09.445 19016 19073 D RegistrationHandler: Has received 61 of 75 from 1@test.com
+04-21 12:49:09.653 19016 19073 D RegistrationHandler: Has received 62 of 75 from 1@test.com
+04-21 12:49:09.752 19016 19073 D RegistrationHandler: Has received 63 of 75 from 1@test.com
+04-21 12:49:10.057 19016 19073 D RegistrationHandler: Has received 64 of 75 from 1@test.com
+04-21 12:49:10.153 19016 19073 D RegistrationHandler: Has received 65 of 75 from 1@test.com
+04-21 12:49:10.158 19016 19073 D RegistrationHandler: Has received 66 of 75 from 1@test.com
+04-21 12:49:10.160 19016 19073 D RegistrationHandler: Has received 67 of 75 from 1@test.com
+04-21 12:49:10.461 19016 19073 D RegistrationHandler: Has received 68 of 75 from 1@test.com
+04-21 12:49:10.466 19016 19073 D RegistrationHandler: Has received 69 of 75 from 1@test.com
+04-21 12:49:10.469 19016 19073 D RegistrationHandler: Has received 70 of 75 from 1@test.com
+04-21 12:49:11.276 19016 19073 D RegistrationHandler: Has received 71 of 75 from 1@test.com
+04-21 12:49:12.195 19016 19073 D RegistrationHandler: Has received 72 of 75 from 1@test.com
+04-21 12:49:12.516 19016 19073 D RegistrationHandler: Has received 73 of 75 from 1@test.com
+04-21 12:49:13.236 19016 19073 D RegistrationHandler: Has received 74 of 75 from 1@test.com
+04-21 12:49:13.326 19016 19073 D RegistrationHandler: Has received 75 of 75 from 1@test.com
+04-21 12:49:13.358 19016 19073 D RegistrationHandler: Received full ledger from 1@test.com with nonce 107996889
+04-21 12:49:13.358 19016 19073 D RegistrationHandler: FULL_LEDGER 107996889
+round 11 of 15
+04-21 12:49:25.086 19127 19173 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-21 12:49:25.088 19127 19175 D MulticastServer: Registration process started with nonce 2089391778
+04-21 12:49:25.091 19127 19174 D MulticastClient: REQUEST_LEDGER 2089391778
+04-21 12:49:25.092 19127 19174 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":2089391778,"seq":0,"tot":0}]
+04-21 12:49:28.096 19127 19182 D RegistrationHandler: Has received 1 of 75 fragments from 1@test.com
+04-21 12:49:28.174 19127 19182 D RegistrationHandler: Has received 2 of 75 from 1@test.com
+04-21 12:49:28.177 19127 19182 D RegistrationHandler: Has received 3 of 75 from 1@test.com
+04-21 12:49:28.180 19127 19182 D RegistrationHandler: Has received 4 of 75 from 1@test.com
+04-21 12:49:28.380 19127 19182 D RegistrationHandler: Has received 5 of 75 from 1@test.com
+04-21 12:49:28.383 19127 19182 D RegistrationHandler: Has received 6 of 75 from 1@test.com
+04-21 12:49:28.477 19127 19182 D RegistrationHandler: Has received 7 of 75 from 1@test.com
+04-21 12:49:28.482 19127 19182 D RegistrationHandler: Has received 8 of 75 from 1@test.com
+04-21 12:49:28.486 19127 19182 D RegistrationHandler: Has received 9 of 75 from 1@test.com
+04-21 12:49:28.689 19127 19182 D RegistrationHandler: Has received 10 of 75 from 1@test.com
+04-21 12:49:28.696 19127 19182 D RegistrationHandler: Has received 11 of 75 from 1@test.com
+04-21 12:49:28.700 19127 19182 D RegistrationHandler: Has received 12 of 75 from 1@test.com
+04-21 12:49:28.702 19127 19182 D RegistrationHandler: Has received 13 of 75 from 1@test.com
+04-21 12:49:28.785 19127 19182 D RegistrationHandler: Has received 14 of 75 from 1@test.com
+04-21 12:49:28.791 19127 19182 D RegistrationHandler: Has received 15 of 75 from 1@test.com
+04-21 12:49:28.794 19127 19182 D RegistrationHandler: Has received 16 of 75 from 1@test.com
+04-21 12:49:28.890 19127 19182 D RegistrationHandler: Has received 17 of 75 from 1@test.com
+04-21 12:49:28.896 19127 19182 D RegistrationHandler: Has received 18 of 75 from 1@test.com
+04-21 12:49:29.005 19127 19182 D RegistrationHandler: Has received 19 of 75 from 1@test.com
+04-21 12:49:29.095 19127 19182 D RegistrationHandler: Has received 20 of 75 from 1@test.com
+04-21 12:49:29.104 19127 19182 D RegistrationHandler: Has received 21 of 75 from 1@test.com
+04-21 12:49:29.108 19127 19182 D RegistrationHandler: Has received 22 of 75 from 1@test.com
+04-21 12:49:29.197 19127 19182 D RegistrationHandler: Has received 23 of 75 from 1@test.com
+04-21 12:49:29.204 19127 19182 D RegistrationHandler: Has received 24 of 75 from 1@test.com
+04-21 12:49:29.208 19127 19182 D RegistrationHandler: Has received 25 of 75 from 1@test.com
+04-21 12:49:29.212 19127 19182 D RegistrationHandler: Has received 26 of 75 from 1@test.com
+04-21 12:49:29.305 19127 19182 D RegistrationHandler: Has received 27 of 75 from 1@test.com
+04-21 12:49:29.402 19127 19182 D RegistrationHandler: Has received 28 of 75 from 1@test.com
+04-21 12:49:29.409 19127 19182 D RegistrationHandler: Has received 29 of 75 from 1@test.com
+04-21 12:49:29.503 19127 19182 D RegistrationHandler: Has received 30 of 75 from 1@test.com
+04-21 12:49:29.509 19127 19182 D RegistrationHandler: Has received 31 of 75 from 1@test.com
+04-21 12:49:29.515 19127 19182 D RegistrationHandler: Has received 32 of 75 from 1@test.com
+04-21 12:49:29.603 19127 19182 D RegistrationHandler: Has received 33 of 75 from 1@test.com
+04-21 12:49:29.608 19127 19182 D RegistrationHandler: Has received 34 of 75 from 1@test.com
+04-21 12:49:29.820 19127 19182 D RegistrationHandler: Has received 35 of 75 from 1@test.com
+04-21 12:49:29.917 19127 19182 D RegistrationHandler: Has received 36 of 75 from 1@test.com
+04-21 12:49:29.921 19127 19182 D RegistrationHandler: Has received 37 of 75 from 1@test.com
+04-21 12:49:29.925 19127 19182 D RegistrationHandler: Has received 38 of 75 from 1@test.com
+04-21 12:49:30.122 19127 19182 D RegistrationHandler: Has received 39 of 75 from 1@test.com
+04-21 12:49:30.128 19127 19182 D RegistrationHandler: Has received 40 of 75 from 1@test.com
+04-21 12:49:30.132 19127 19182 D RegistrationHandler: Has received 41 of 75 from 1@test.com
+04-21 12:49:30.222 19127 19182 D RegistrationHandler: Has received 42 of 75 from 1@test.com
+04-21 12:49:30.228 19127 19182 D RegistrationHandler: Has received 43 of 75 from 1@test.com
+04-21 12:49:30.232 19127 19182 D RegistrationHandler: Has received 44 of 75 from 1@test.com
+04-21 12:49:30.320 19127 19182 D RegistrationHandler: Has received 45 of 75 from 1@test.com
+04-21 12:49:30.438 19127 19182 D RegistrationHandler: Has received 46 of 75 from 1@test.com
+04-21 12:49:30.445 19127 19182 D RegistrationHandler: Has received 47 of 75 from 1@test.com
+04-21 12:49:30.449 19127 19182 D RegistrationHandler: Has received 48 of 75 from 1@test.com
+04-21 12:49:30.452 19127 19182 D RegistrationHandler: Has received 49 of 75 from 1@test.com
+04-21 12:49:30.941 19127 19182 D RegistrationHandler: Has received 50 of 75 from 1@test.com
+04-21 12:49:30.948 19127 19182 D RegistrationHandler: Has received 51 of 75 from 1@test.com
+04-21 12:49:30.952 19127 19182 D RegistrationHandler: Has received 52 of 75 from 1@test.com
+04-21 12:49:31.036 19127 19182 D RegistrationHandler: Has received 53 of 75 from 1@test.com
+04-21 12:49:31.251 19127 19182 D RegistrationHandler: Has received 54 of 75 from 1@test.com
+04-21 12:49:31.257 19127 19182 D RegistrationHandler: Has received 55 of 75 from 1@test.com
+04-21 12:49:31.265 19127 19182 D RegistrationHandler: Has received 56 of 75 from 1@test.com
+04-21 12:49:31.652 19127 19182 D RegistrationHandler: Has received 57 of 75 from 1@test.com
+04-21 12:49:31.657 19127 19182 D RegistrationHandler: Has received 58 of 75 from 1@test.com
+04-21 12:49:31.751 19127 19182 D RegistrationHandler: Has received 59 of 75 from 1@test.com
+04-21 12:49:31.964 19127 19182 D RegistrationHandler: Has received 60 of 75 from 1@test.com
+04-21 12:49:32.061 19127 19182 D RegistrationHandler: Has received 61 of 75 from 1@test.com
+04-21 12:49:32.284 19127 19182 D RegistrationHandler: Has received 62 of 75 from 1@test.com
+04-21 12:49:32.374 19127 19182 D RegistrationHandler: Has received 63 of 75 from 1@test.com
+04-21 12:49:32.575 19127 19182 D RegistrationHandler: Has received 64 of 75 from 1@test.com
+04-21 12:49:32.682 19127 19182 D RegistrationHandler: Has received 65 of 75 from 1@test.com
+04-21 12:49:32.686 19127 19182 D RegistrationHandler: Has received 66 of 75 from 1@test.com
+04-21 12:49:32.689 19127 19182 D RegistrationHandler: Has received 67 of 75 from 1@test.com
+04-21 12:49:32.779 19127 19182 D RegistrationHandler: Has received 68 of 75 from 1@test.com
+04-21 12:49:33.000 19127 19182 D RegistrationHandler: Has received 69 of 75 from 1@test.com
+04-21 12:49:33.803 19127 19182 D RegistrationHandler: Has received 70 of 75 from 1@test.com
+04-21 12:49:34.826 19127 19182 D RegistrationHandler: Has received 71 of 75 from 1@test.com
+04-21 12:49:35.037 19127 19182 D RegistrationHandler: Has received 72 of 75 from 1@test.com
+04-21 12:49:35.045 19127 19182 D RegistrationHandler: Has received 73 of 75 from 1@test.com
+04-21 12:49:35.130 19127 19182 D RegistrationHandler: Has received 74 of 75 from 1@test.com
+04-21 12:49:35.136 19127 19182 D RegistrationHandler: Has received 75 of 75 from 1@test.com
+04-21 12:49:35.167 19127 19182 D RegistrationHandler: Received full ledger from 1@test.com with nonce 2089391778
+04-21 12:49:35.167 19127 19182 D RegistrationHandler: FULL_LEDGER 2089391778
+round 12 of 15
+04-21 12:49:47.536 19220 19266 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-21 12:49:47.538 19220 19268 D MulticastServer: Registration process started with nonce 777824204
+04-21 12:49:47.540 19220 19267 D MulticastClient: REQUEST_LEDGER 777824204
+04-21 12:49:47.542 19220 19267 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":777824204,"seq":0,"tot":0}]
+04-21 12:49:47.838 19220 19275 D RegistrationHandler: Has received 1 of 75 fragments from 1@test.com
+04-21 12:49:47.840 19220 19275 D RegistrationHandler: Has received 2 of 75 from 1@test.com
+04-21 12:49:47.925 19220 19275 D RegistrationHandler: Has received 3 of 75 from 1@test.com
+04-21 12:49:47.928 19220 19275 D RegistrationHandler: Has received 4 of 75 from 1@test.com
+04-21 12:49:48.051 19220 19275 D RegistrationHandler: Has received 5 of 75 from 1@test.com
+04-21 12:49:48.241 19220 19275 D RegistrationHandler: Has received 6 of 75 from 1@test.com
+04-21 12:49:48.246 19220 19275 D RegistrationHandler: Has received 7 of 75 from 1@test.com
+04-21 12:49:48.249 19220 19275 D RegistrationHandler: Has received 8 of 75 from 1@test.com
+04-21 12:49:48.349 19220 19275 D RegistrationHandler: Has received 9 of 75 from 1@test.com
+04-21 12:49:48.355 19220 19275 D RegistrationHandler: Has received 10 of 75 from 1@test.com
+04-21 12:49:48.449 19220 19275 D RegistrationHandler: Has received 11 of 75 from 1@test.com
+04-21 12:49:48.455 19220 19275 D RegistrationHandler: Has received 12 of 75 from 1@test.com
+04-21 12:49:48.460 19220 19275 D RegistrationHandler: Has received 13 of 75 from 1@test.com
+04-21 12:49:48.548 19220 19275 D RegistrationHandler: Has received 14 of 75 from 1@test.com
+04-21 12:49:48.553 19220 19275 D RegistrationHandler: Has received 15 of 75 from 1@test.com
+04-21 12:49:48.557 19220 19275 D RegistrationHandler: Has received 16 of 75 from 1@test.com
+04-21 12:49:48.560 19220 19275 D RegistrationHandler: Has received 17 of 75 from 1@test.com
+04-21 12:49:48.652 19220 19275 D RegistrationHandler: Has received 18 of 75 from 1@test.com
+04-21 12:49:48.757 19220 19275 D RegistrationHandler: Has received 19 of 75 from 1@test.com
+04-21 12:49:48.763 19220 19275 D RegistrationHandler: Has received 20 of 75 from 1@test.com
+04-21 12:49:48.769 19220 19275 D RegistrationHandler: Has received 21 of 75 from 1@test.com
+04-21 12:49:48.773 19220 19275 D RegistrationHandler: Has received 22 of 75 from 1@test.com
+04-21 12:49:48.775 19220 19275 D RegistrationHandler: Has received 23 of 75 from 1@test.com
+04-21 12:49:48.855 19220 19275 D RegistrationHandler: Has received 24 of 75 from 1@test.com
+04-21 12:49:48.861 19220 19275 D RegistrationHandler: Has received 25 of 75 from 1@test.com
+04-21 12:49:48.961 19220 19275 D RegistrationHandler: Has received 26 of 75 from 1@test.com
+04-21 12:49:48.968 19220 19275 D RegistrationHandler: Has received 27 of 75 from 1@test.com
+04-21 12:49:48.973 19220 19275 D RegistrationHandler: Has received 28 of 75 from 1@test.com
+04-21 12:49:49.073 19220 19275 D RegistrationHandler: Has received 29 of 75 from 1@test.com
+04-21 12:49:49.169 19220 19275 D RegistrationHandler: Has received 30 of 75 from 1@test.com
+04-21 12:49:49.175 19220 19275 D RegistrationHandler: Has received 31 of 75 from 1@test.com
+04-21 12:49:49.179 19220 19275 D RegistrationHandler: Has received 32 of 75 from 1@test.com
+04-21 12:49:49.265 19220 19275 D RegistrationHandler: Has received 33 of 75 from 1@test.com
+04-21 12:49:49.271 19220 19275 D RegistrationHandler: Has received 34 of 75 from 1@test.com
+04-21 12:49:49.276 19220 19275 D RegistrationHandler: Has received 35 of 75 from 1@test.com
+04-21 12:49:49.367 19220 19275 D RegistrationHandler: Has received 36 of 75 from 1@test.com
+04-21 12:49:49.371 19220 19275 D RegistrationHandler: Has received 37 of 75 from 1@test.com
+04-21 12:49:49.374 19220 19275 D RegistrationHandler: Has received 38 of 75 from 1@test.com
+04-21 12:49:49.472 19220 19275 D RegistrationHandler: Has received 39 of 75 from 1@test.com
+04-21 12:49:49.478 19220 19275 D RegistrationHandler: Has received 40 of 75 from 1@test.com
+04-21 12:49:49.484 19220 19275 D RegistrationHandler: Has received 41 of 75 from 1@test.com
+04-21 12:49:49.573 19220 19275 D RegistrationHandler: Has received 42 of 75 from 1@test.com
+04-21 12:49:49.580 19220 19275 D RegistrationHandler: Has received 43 of 75 from 1@test.com
+04-21 12:49:49.585 19220 19275 D RegistrationHandler: Has received 44 of 75 from 1@test.com
+04-21 12:49:49.588 19220 19275 D RegistrationHandler: Has received 45 of 75 from 1@test.com
+04-21 12:49:49.673 19220 19275 D RegistrationHandler: Has received 46 of 75 from 1@test.com
+04-21 12:49:49.681 19220 19275 D RegistrationHandler: Has received 47 of 75 from 1@test.com
+04-21 12:49:49.775 19220 19275 D RegistrationHandler: Has received 48 of 75 from 1@test.com
+04-21 12:49:49.886 19220 19275 D RegistrationHandler: Has received 49 of 75 from 1@test.com
+04-21 12:49:49.893 19220 19275 D RegistrationHandler: Has received 50 of 75 from 1@test.com
+04-21 12:49:49.897 19220 19275 D RegistrationHandler: Has received 51 of 75 from 1@test.com
+04-21 12:49:49.981 19220 19275 D RegistrationHandler: Has received 52 of 75 from 1@test.com
+04-21 12:49:49.987 19220 19275 D RegistrationHandler: Has received 53 of 75 from 1@test.com
+04-21 12:49:49.992 19220 19275 D RegistrationHandler: Has received 54 of 75 from 1@test.com
+04-21 12:49:49.995 19220 19275 D RegistrationHandler: Has received 55 of 75 from 1@test.com
+04-21 12:49:50.085 19220 19275 D RegistrationHandler: Has received 56 of 75 from 1@test.com
+04-21 12:49:50.091 19220 19275 D RegistrationHandler: Has received 57 of 75 from 1@test.com
+04-21 12:49:50.191 19220 19275 D RegistrationHandler: Has received 58 of 75 from 1@test.com
+04-21 12:49:50.197 19220 19275 D RegistrationHandler: Has received 59 of 75 from 1@test.com
+04-21 12:49:50.610 19220 19275 D RegistrationHandler: Has received 60 of 75 from 1@test.com
+04-21 12:49:50.700 19220 19275 D RegistrationHandler: Has received 61 of 75 from 1@test.com
+04-21 12:49:50.707 19220 19275 D RegistrationHandler: Has received 62 of 75 from 1@test.com
+04-21 12:49:50.711 19220 19275 D RegistrationHandler: Has received 63 of 75 from 1@test.com
+04-21 12:49:50.904 19220 19275 D RegistrationHandler: Has received 64 of 75 from 1@test.com
+04-21 12:49:51.004 19220 19275 D RegistrationHandler: Has received 65 of 75 from 1@test.com
+04-21 12:49:51.725 19220 19275 D RegistrationHandler: Has received 66 of 75 from 1@test.com
+04-21 12:49:51.731 19220 19275 D RegistrationHandler: Has received 67 of 75 from 1@test.com
+04-21 12:49:51.825 19220 19275 D RegistrationHandler: Has received 68 of 75 from 1@test.com
+04-21 12:49:52.439 19220 19275 D RegistrationHandler: Has received 69 of 75 from 1@test.com
+04-21 12:49:52.445 19220 19275 D RegistrationHandler: Has received 70 of 75 from 1@test.com
+04-21 12:49:52.451 19220 19275 D RegistrationHandler: Has received 71 of 75 from 1@test.com
+04-21 12:49:52.848 19220 19275 D RegistrationHandler: Has received 72 of 75 from 1@test.com
+04-21 12:49:53.476 19220 19275 D RegistrationHandler: Has received 73 of 75 from 1@test.com
+04-21 12:49:53.479 19220 19275 D RegistrationHandler: Has received 74 of 75 from 1@test.com
+04-21 12:49:54.284 19220 19275 D RegistrationHandler: Has received 75 of 75 from 1@test.com
+04-21 12:49:54.319 19220 19275 D RegistrationHandler: Received full ledger from 1@test.com with nonce 777824204
+04-21 12:49:54.319 19220 19275 D RegistrationHandler: FULL_LEDGER 777824204
+round 13 of 15
+04-21 12:50:09.933 19327 19374 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-21 12:50:09.935 19327 19376 D MulticastServer: Registration process started with nonce 1278134440
+04-21 12:50:09.938 19327 19375 D MulticastClient: REQUEST_LEDGER 1278134440
+04-21 12:50:09.939 19327 19375 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1278134440,"seq":0,"tot":0}]
+04-21 12:50:13.937 19327 19378 D RegistrationHandler: I am the first in the network
+04-21 12:50:13.938 19327 19378 D RegistrationHandler: 1278134440 Registration started
+04-21 12:50:13.963 19327 19378 D MulticastServer: Registration process finished: 1278134440
+04-21 12:50:13.963 19327 19375 D MulticastClient: Sent messages with 3 resends: [{"sender":"2@test.com","payload":"{\"ip\":\"192.168.1.97\",\"cert\":\"MIIBGjCBwqADAgECAgYBgEtMKvwwCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKVFRNNDkwNSBDQTAeFw0yMjA0MjAwODQ1MjRaFw0yMjA1MjEwODQ1MjRaMBUxEzARBgNVBAMMCjJAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARuziVeqczih9y2IwSJ3AZuLzxwpY2VwkjEcfE8yVLxCF1qtw21\/iMvxrk2q4BpbgHrUX5EWSAEi7qJDXIS4c\/wMAoGCCqGSM49BAMCA0cAMEQCIG3JN+NQlClPB+thJTrGjfia7cfGbMyyWhJH4K0X7YymAiAUuEhh7Ol8fxrjxPTDnAemav8GQj3kHaLUj1oJ3XJ+Tg==\"}","mt":"BROADCAST_BLOCK","sig":"MEYCIQCwU7ydMurt26vQE\/lBJXeFkF5y1mCTuoocX4eMTkcm\/QIhALY5UW7Kv0XiON\/WbhO5OJTHCi5q1KejvrggkXOL4Rtl","nonce":1278134440,"seq":0,"tot":0}]
+round 14 of 15
+04-21 12:50:32.359 19434 19482 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-21 12:50:32.361 19434 19484 D MulticastServer: Registration process started with nonce 982951644
+04-21 12:50:32.364 19434 19483 D MulticastClient: REQUEST_LEDGER 982951644
+04-21 12:50:32.365 19434 19483 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":982951644,"seq":0,"tot":0}]
+04-21 12:50:35.362 19434 19491 D RegistrationHandler: Has received 1 of 75 fragments from 1@test.com
+04-21 12:50:35.385 19434 19491 D RegistrationHandler: Has received 2 of 75 from 1@test.com
+04-21 12:50:35.446 19434 19491 D RegistrationHandler: Has received 3 of 75 from 1@test.com
+04-21 12:50:35.449 19434 19491 D RegistrationHandler: Has received 4 of 75 from 1@test.com
+04-21 12:50:35.452 19434 19491 D RegistrationHandler: Has received 5 of 75 from 1@test.com
+04-21 12:50:35.550 19434 19491 D RegistrationHandler: Has received 6 of 75 from 1@test.com
+04-21 12:50:35.554 19434 19491 D RegistrationHandler: Has received 7 of 75 from 1@test.com
+04-21 12:50:35.565 19434 19491 D RegistrationHandler: Has received 8 of 75 from 1@test.com
+04-21 12:50:35.652 19434 19491 D RegistrationHandler: Has received 9 of 75 from 1@test.com
+04-21 12:50:35.658 19434 19491 D RegistrationHandler: Has received 10 of 75 from 1@test.com
+04-21 12:50:35.662 19434 19491 D RegistrationHandler: Has received 11 of 75 from 1@test.com
+04-21 12:50:35.757 19434 19491 D RegistrationHandler: Has received 12 of 75 from 1@test.com
+04-21 12:50:35.764 19434 19491 D RegistrationHandler: Has received 13 of 75 from 1@test.com
+04-21 12:50:35.767 19434 19491 D RegistrationHandler: Has received 14 of 75 from 1@test.com
+04-21 12:50:35.862 19434 19491 D RegistrationHandler: Has received 15 of 75 from 1@test.com
+04-21 12:50:35.868 19434 19491 D RegistrationHandler: Has received 16 of 75 from 1@test.com
+04-21 12:50:36.064 19434 19491 D RegistrationHandler: Has received 17 of 75 from 1@test.com
+04-21 12:50:36.072 19434 19491 D RegistrationHandler: Has received 18 of 75 from 1@test.com
+04-21 12:50:36.077 19434 19491 D RegistrationHandler: Has received 19 of 75 from 1@test.com
+04-21 12:50:36.164 19434 19491 D RegistrationHandler: Has received 20 of 75 from 1@test.com
+04-21 12:50:36.171 19434 19491 D RegistrationHandler: Has received 21 of 75 from 1@test.com
+04-21 12:50:36.174 19434 19491 D RegistrationHandler: Has received 22 of 75 from 1@test.com
+04-21 12:50:36.268 19434 19491 D RegistrationHandler: Has received 23 of 75 from 1@test.com
+04-21 12:50:36.368 19434 19491 D RegistrationHandler: Has received 24 of 75 from 1@test.com
+04-21 12:50:36.385 19434 19491 D RegistrationHandler: Has received 25 of 75 from 1@test.com
+04-21 12:50:36.391 19434 19491 D RegistrationHandler: Has received 26 of 75 from 1@test.com
+04-21 12:50:36.477 19434 19491 D RegistrationHandler: Has received 27 of 75 from 1@test.com
+04-21 12:50:36.482 19434 19491 D RegistrationHandler: Has received 28 of 75 from 1@test.com
+04-21 12:50:36.487 19434 19491 D RegistrationHandler: Has received 29 of 75 from 1@test.com
+04-21 12:50:36.577 19434 19491 D RegistrationHandler: Has received 30 of 75 from 1@test.com
+04-21 12:50:36.582 19434 19491 D RegistrationHandler: Has received 31 of 75 from 1@test.com
+04-21 12:50:36.685 19434 19491 D RegistrationHandler: Has received 32 of 75 from 1@test.com
+04-21 12:50:36.691 19434 19491 D RegistrationHandler: Has received 33 of 75 from 1@test.com
+04-21 12:50:36.695 19434 19491 D RegistrationHandler: Has received 34 of 75 from 1@test.com
+04-21 12:50:36.780 19434 19491 D RegistrationHandler: Has received 35 of 75 from 1@test.com
+04-21 12:50:36.786 19434 19491 D RegistrationHandler: Has received 36 of 75 from 1@test.com
+04-21 12:50:36.791 19434 19491 D RegistrationHandler: Has received 37 of 75 from 1@test.com
+04-21 12:50:36.793 19434 19491 D RegistrationHandler: Has received 38 of 75 from 1@test.com
+04-21 12:50:36.881 19434 19491 D RegistrationHandler: Has received 39 of 75 from 1@test.com
+04-21 12:50:36.886 19434 19491 D RegistrationHandler: Has received 40 of 75 from 1@test.com
+04-21 12:50:36.889 19434 19491 D RegistrationHandler: Has received 41 of 75 from 1@test.com
+04-21 12:50:36.994 19434 19491 D RegistrationHandler: Has received 42 of 75 from 1@test.com
+04-21 12:50:37.092 19434 19491 D RegistrationHandler: Has received 43 of 75 from 1@test.com
+04-21 12:50:37.100 19434 19491 D RegistrationHandler: Has received 44 of 75 from 1@test.com
+04-21 12:50:37.105 19434 19491 D RegistrationHandler: Has received 45 of 75 from 1@test.com
+04-21 12:50:37.188 19434 19491 D RegistrationHandler: Has received 46 of 75 from 1@test.com
+04-21 12:50:37.196 19434 19491 D RegistrationHandler: Has received 47 of 75 from 1@test.com
+04-21 12:50:37.199 19434 19491 D RegistrationHandler: Has received 48 of 75 from 1@test.com
+04-21 12:50:37.202 19434 19491 D RegistrationHandler: Has received 49 of 75 from 1@test.com
+04-21 12:50:37.292 19434 19491 D RegistrationHandler: Has received 50 of 75 from 1@test.com
+04-21 12:50:37.403 19434 19491 D RegistrationHandler: Has received 51 of 75 from 1@test.com
+04-21 12:50:37.410 19434 19491 D RegistrationHandler: Has received 52 of 75 from 1@test.com
+04-21 12:50:37.415 19434 19491 D RegistrationHandler: Has received 53 of 75 from 1@test.com
+04-21 12:50:37.418 19434 19491 D RegistrationHandler: Has received 54 of 75 from 1@test.com
+04-21 12:50:37.501 19434 19491 D RegistrationHandler: Has received 55 of 75 from 1@test.com
+04-21 12:50:37.507 19434 19491 D RegistrationHandler: Has received 56 of 75 from 1@test.com
+04-21 12:50:37.600 19434 19491 D RegistrationHandler: Has received 57 of 75 from 1@test.com
+04-21 12:50:37.606 19434 19491 D RegistrationHandler: Has received 58 of 75 from 1@test.com
+04-21 12:50:37.610 19434 19491 D RegistrationHandler: Has received 59 of 75 from 1@test.com
+04-21 12:50:37.700 19434 19491 D RegistrationHandler: Has received 60 of 75 from 1@test.com
+04-21 12:50:38.287 19434 19491 D RegistrationHandler: Has received 61 of 75 from 1@test.com
+04-21 12:50:38.532 19434 19491 D RegistrationHandler: Has received 62 of 75 from 1@test.com
+04-21 12:50:38.623 19434 19491 D RegistrationHandler: Has received 63 of 75 from 1@test.com
+04-21 12:50:38.633 19434 19491 D RegistrationHandler: Has received 64 of 75 from 1@test.com
+04-21 12:50:38.638 19434 19491 D RegistrationHandler: Has received 65 of 75 from 1@test.com
+04-21 12:50:38.723 19434 19491 D RegistrationHandler: Has received 66 of 75 from 1@test.com
+04-21 12:50:38.940 19434 19491 D RegistrationHandler: Has received 67 of 75 from 1@test.com
+04-21 12:50:39.040 19434 19491 D RegistrationHandler: Has received 68 of 75 from 1@test.com
+04-21 12:50:39.248 19434 19491 D RegistrationHandler: Has received 69 of 75 from 1@test.com
+04-21 12:50:39.643 19434 19491 D RegistrationHandler: Has received 70 of 75 from 1@test.com
+04-21 12:50:39.651 19434 19491 D RegistrationHandler: Has received 71 of 75 from 1@test.com
+04-21 12:50:39.974 19434 19491 D RegistrationHandler: Has received 72 of 75 from 1@test.com
+04-21 12:50:40.371 19434 19491 D RegistrationHandler: Has received 73 of 75 from 1@test.com
+04-21 12:50:42.826 19434 19491 D RegistrationHandler: Has received 74 of 75 from 1@test.com
+round 15 of 15
+04-21 12:50:54.740 19528 19576 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-21 12:50:54.742 19528 19578 D MulticastServer: Registration process started with nonce 1354314662
+04-21 12:50:54.745 19528 19577 D MulticastClient: REQUEST_LEDGER 1354314662
+04-21 12:50:54.746 19528 19577 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1354314662,"seq":0,"tot":0}]
+04-21 12:50:58.746 19528 19580 D RegistrationHandler: I am the first in the network
+04-21 12:50:58.746 19528 19580 D RegistrationHandler: 1354314662 Registration started
+04-21 12:50:58.769 19528 19577 D MulticastClient: Sent messages with 3 resends: [{"sender":"2@test.com","payload":"{\"ip\":\"192.168.1.97\",\"cert\":\"MIIBGjCBwqADAgECAgYBgEtMKvwwCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKVFRNNDkwNSBDQTAeFw0yMjA0MjAwODQ1MjRaFw0yMjA1MjEwODQ1MjRaMBUxEzARBgNVBAMMCjJAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARuziVeqczih9y2IwSJ3AZuLzxwpY2VwkjEcfE8yVLxCF1qtw21\/iMvxrk2q4BpbgHrUX5EWSAEi7qJDXIS4c\/wMAoGCCqGSM49BAMCA0cAMEQCIG3JN+NQlClPB+thJTrGjfia7cfGbMyyWhJH4K0X7YymAiAUuEhh7Ol8fxrjxPTDnAemav8GQj3kHaLUj1oJ3XJ+Tg==\"}","mt":"BROADCAST_BLOCK","sig":"MEYCIQCbciY6BzEXCR9\/EQYEi3P8ObQK6z273Bife\/E\/U+y1DwIhAOudtJt6prVeCipLMF8ctEZpNdktZ0eA7ceQA6PpF\/D9","nonce":1354314662,"seq":0,"tot":0}]
+04-21 12:50:58.769 19528 19580 D MulticastServer: Registration process finished: 1354314662

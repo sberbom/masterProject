@@ -68,7 +68,7 @@ class LogInActivity : AppCompatActivity() {
                         /** FOR TEST **/
                         //if (true) {
                         /****/
-                        if (auth.currentUser!!.isEmailVerified) {
+                        if (/*auth.currentUser!!.isEmailVerified*/ true) {
                             Toast.makeText(baseContext, "Sign in success.", Toast.LENGTH_SHORT).show()
                             val storedCertificate = PKIUtils.getStoredCertificate()
                             if (storedCertificate == null || !PKIUtils.isCASignedCertificate(storedCertificate)) {

@@ -76,6 +76,7 @@ class MulticastClient  {
         }
 
         suspend fun sendLedger(nonce: Int) {
+            Log.d(TAG, "INTER_PACKET_TIME: ${Constants.INTER_PACKET_TIME}")
             if(context == null) throw Exception("Could not send ledger, context not defined")
             val privateKey = PKIUtils.getPrivateKeyFromKeyStore() ?: throw Exception("Could not send ledger, private not defined")
             val certificate = PKIUtils.getStoredCertificate() ?: throw Exception("Could not send ledger, username not defined")

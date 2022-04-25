@@ -2,7 +2,7 @@ devices=$(echo $(adb devices))
 device1=$(echo $devices | cut -f5 -d$' ')
 device2=$(echo $devices | cut -f7 -d$' ')
 test_path="tests/inter_packet_time"
-rounds=500
+rounds=15
 for var in "$@"
 do
    git checkout test/inter_packet_time/"$var"

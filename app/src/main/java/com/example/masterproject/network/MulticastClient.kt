@@ -88,7 +88,7 @@ class MulticastClient  {
             Log.d(TAG, "SENT_FULL_LEDGER")
             /***********************/
             // next line should use testLedger when testing and currentLedger if not
-            val deconstructedLedger = testLedger.chunked(1)
+            val deconstructedLedger = testLedger.chunked(4)
             val multicastPackets = deconstructedLedger.mapIndexed { index, fragment ->
                 val fragmentString = Ledger.toString(fragment).replace("[", "").replace("]", "")
                 MulticastPacket(

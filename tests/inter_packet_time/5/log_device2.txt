@@ -1,2 +1,210 @@
 Number of rounds: 500
 round 1 of 500
+--------- beginning of main
+04-25 11:09:06.881  1281  1696 W System.err: java.net.ConnectException: Failed to connect to play.google.com/192.168.1.1:443
+04-25 11:09:06.881  1281  1696 W System.err: 	at com.android.okhttp.internal.io.RealConnection.connectSocket(RealConnection.java:147)
+04-25 11:09:06.881  1281  1696 W System.err: 	at com.android.okhttp.internal.io.RealConnection.connect(RealConnection.java:116)
+04-25 11:09:06.881  1281  1696 W System.err: 	at com.android.okhttp.internal.http.StreamAllocation.findConnection(StreamAllocation.java:186)
+04-25 11:09:06.881  1281  1696 W System.err: 	at com.android.okhttp.internal.http.StreamAllocation.findHealthyConnection(StreamAllocation.java:128)
+04-25 11:09:06.881  1281  1696 W System.err: 	at com.android.okhttp.internal.http.StreamAllocation.newStream(StreamAllocation.java:97)
+04-25 11:09:06.881  1281  1696 W System.err: 	at com.android.okhttp.internal.http.HttpEngine.connect(HttpEngine.java:289)
+04-25 11:09:06.881  1281  1696 W System.err: 	at com.android.okhttp.internal.http.HttpEngine.sendRequest(HttpEngine.java:232)
+04-25 11:09:06.881  1281  1696 W System.err: 	at com.android.okhttp.internal.huc.HttpURLConnectionImpl.execute(HttpURLConnectionImpl.java:465)
+04-25 11:09:06.881  1281  1696 W System.err: 	at com.android.okhttp.internal.huc.HttpURLConnectionImpl.getResponse(HttpURLConnectionImpl.java:411)
+04-25 11:09:06.881  1281  1696 W System.err: 	at com.android.okhttp.internal.huc.HttpURLConnectionImpl.getInputStream(HttpURLConnectionImpl.java:248)
+04-25 11:09:06.881  1281  1696 W System.err: 	at com.android.okhttp.internal.huc.DelegatingHttpsURLConnection.getInputStream(DelegatingHttpsURLConnection.java:211)
+04-25 11:09:06.882  1281  1696 W System.err: 	at com.android.okhttp.internal.huc.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:30)
+04-25 11:09:06.882  1281  1696 W System.err: 	at com.samsung.android.server.wifi.tcp.SemWifiTransportLayerUtils.getApplicationCategory(SemWifiTransportLayerUtils.java:103)
+04-25 11:09:06.882  1281  1696 W System.err: 	at com.samsung.android.server.wifi.tcp.SemWifiTransportLayerMonitor$TcpMonitorHandler.handleMessage(SemWifiTransportLayerMonitor.java:241)
+04-25 11:09:06.882  1281  1696 W System.err: 	at android.os.Handler.dispatchMessage(Handler.java:106)
+04-25 11:09:06.882  1281  1696 W System.err: 	at android.os.Looper.loopOnce(Looper.java:226)
+04-25 11:09:06.882  1281  1696 W System.err: 	at android.os.Looper.loop(Looper.java:313)
+04-25 11:09:06.882  1281  1696 W System.err: 	at android.os.HandlerThread.run(HandlerThread.java:67)
+04-25 11:09:07.370 26238 26291 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-25 11:09:07.373 26238 26293 D MulticastServer: Registration process started with nonce 116984052
+04-25 11:09:07.375 26238 26297 D MulticastClient: REQUEST_LEDGER 116984052
+04-25 11:09:07.377 26238 26297 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":116984052,"seq":0,"tot":0}]
+04-25 11:09:07.500 26238 26299 D RegistrationHandler: Has received 1 of 75 fragments from 1@test.com
+04-25 11:09:07.502 26238 26299 D RegistrationHandler: Has received 2 of 75 from 1@test.com
+04-25 11:09:07.512 26238 26299 D RegistrationHandler: Has received 3 of 75 from 1@test.com
+04-25 11:09:07.518 26238 26299 D RegistrationHandler: Has received 4 of 75 from 1@test.com
+04-25 11:09:07.523 26238 26299 D RegistrationHandler: Has received 5 of 75 from 1@test.com
+04-25 11:09:07.528 26238 26299 D RegistrationHandler: Has received 6 of 75 from 1@test.com
+04-25 11:09:07.535 26238 26299 D RegistrationHandler: Has received 7 of 75 from 1@test.com
+04-25 11:09:07.543 26238 26299 D RegistrationHandler: Has received 8 of 75 from 1@test.com
+04-25 11:09:07.551 26238 26299 D RegistrationHandler: Has received 9 of 75 from 1@test.com
+04-25 11:09:07.559 26238 26299 D RegistrationHandler: Has received 10 of 75 from 1@test.com
+04-25 11:09:07.561 26238 26299 D RegistrationHandler: Has received 11 of 75 from 1@test.com
+04-25 11:09:07.573 26238 26299 D RegistrationHandler: Has received 12 of 75 from 1@test.com
+04-25 11:09:07.578 26238 26299 D RegistrationHandler: Has received 13 of 75 from 1@test.com
+04-25 11:09:07.586 26238 26299 D RegistrationHandler: Has received 14 of 75 from 1@test.com
+04-25 11:09:07.590 26238 26299 D RegistrationHandler: Has received 15 of 75 from 1@test.com
+04-25 11:09:07.599 26238 26299 D RegistrationHandler: Has received 16 of 75 from 1@test.com
+04-25 11:09:07.651 26238 26299 D RegistrationHandler: Has received 17 of 75 from 1@test.com
+04-25 11:09:07.658 26238 26299 D RegistrationHandler: Has received 18 of 75 from 1@test.com
+04-25 11:09:07.663 26238 26299 D RegistrationHandler: Has received 19 of 75 from 1@test.com
+04-25 11:09:07.670 26238 26299 D RegistrationHandler: Has received 20 of 75 from 1@test.com
+04-25 11:09:07.679 26238 26299 D RegistrationHandler: Has received 21 of 75 from 1@test.com
+04-25 11:09:07.681 26238 26299 D RegistrationHandler: Has received 22 of 75 from 1@test.com
+04-25 11:09:07.694 26238 26299 D RegistrationHandler: Has received 23 of 75 from 1@test.com
+04-25 11:09:07.703 26238 26299 D RegistrationHandler: Has received 24 of 75 from 1@test.com
+04-25 11:09:07.704 26238 26299 D RegistrationHandler: Has received 25 of 75 from 1@test.com
+04-25 11:09:07.715 26238 26299 D RegistrationHandler: Has received 26 of 75 from 1@test.com
+04-25 11:09:07.721 26238 26299 D RegistrationHandler: Has received 27 of 75 from 1@test.com
+04-25 11:09:07.729 26238 26299 D RegistrationHandler: Has received 28 of 75 from 1@test.com
+04-25 11:09:07.734 26238 26299 D RegistrationHandler: Has received 29 of 75 from 1@test.com
+04-25 11:09:07.742 26238 26299 D RegistrationHandler: Has received 30 of 75 from 1@test.com
+04-25 11:09:07.750 26238 26299 D RegistrationHandler: Has received 31 of 75 from 1@test.com
+04-25 11:09:07.758 26238 26299 D RegistrationHandler: Has received 32 of 75 from 1@test.com
+04-25 11:09:07.762 26238 26299 D RegistrationHandler: Has received 33 of 75 from 1@test.com
+04-25 11:09:07.770 26238 26299 D RegistrationHandler: Has received 34 of 75 from 1@test.com
+04-25 11:09:07.774 26238 26299 D RegistrationHandler: Has received 35 of 75 from 1@test.com
+04-25 11:09:07.782 26238 26299 D RegistrationHandler: Has received 36 of 75 from 1@test.com
+04-25 11:09:07.788 26238 26299 D RegistrationHandler: Has received 37 of 75 from 1@test.com
+04-25 11:09:07.797 26238 26299 D RegistrationHandler: Has received 38 of 75 from 1@test.com
+04-25 11:09:07.803 26238 26299 D RegistrationHandler: Has received 39 of 75 from 1@test.com
+04-25 11:09:07.811 26238 26299 D RegistrationHandler: Has received 40 of 75 from 1@test.com
+04-25 11:09:07.814 26238 26299 D RegistrationHandler: Has received 41 of 75 from 1@test.com
+04-25 11:09:07.823 26238 26299 D RegistrationHandler: Has received 42 of 75 from 1@test.com
+04-25 11:09:07.826 26238 26299 D RegistrationHandler: Has received 43 of 75 from 1@test.com
+04-25 11:09:07.836 26238 26299 D RegistrationHandler: Has received 44 of 75 from 1@test.com
+04-25 11:09:07.839 26238 26299 D RegistrationHandler: Has received 45 of 75 from 1@test.com
+04-25 11:09:07.848 26238 26299 D RegistrationHandler: Has received 46 of 75 from 1@test.com
+04-25 11:09:07.858 26238 26299 D RegistrationHandler: Has received 47 of 75 from 1@test.com
+04-25 11:09:07.870 26238 26299 D RegistrationHandler: Has received 48 of 75 from 1@test.com
+04-25 11:09:07.872 26238 26299 D RegistrationHandler: Has received 49 of 75 from 1@test.com
+04-25 11:09:07.877 26238 26299 D RegistrationHandler: Has received 50 of 75 from 1@test.com
+04-25 11:09:07.881 26238 26299 D RegistrationHandler: Has received 51 of 75 from 1@test.com
+04-25 11:09:07.888 26238 26299 D RegistrationHandler: Has received 52 of 75 from 1@test.com
+04-25 11:09:07.896 26238 26299 D RegistrationHandler: Has received 53 of 75 from 1@test.com
+04-25 11:09:08.009 26238 26299 D RegistrationHandler: Has received 54 of 75 from 1@test.com
+04-25 11:09:08.016 26238 26299 D RegistrationHandler: Has received 55 of 75 from 1@test.com
+04-25 11:09:08.024 26238 26299 D RegistrationHandler: Has received 56 of 75 from 1@test.com
+04-25 11:09:08.033 26238 26299 D RegistrationHandler: Has received 57 of 75 from 1@test.com
+04-25 11:09:08.037 26238 26299 D RegistrationHandler: Has received 58 of 75 from 1@test.com
+04-25 11:09:08.041 26238 26299 D RegistrationHandler: Has received 59 of 75 from 1@test.com
+04-25 11:09:08.050 26238 26299 D RegistrationHandler: Has received 60 of 75 from 1@test.com
+04-25 11:09:08.054 26238 26299 D RegistrationHandler: Has received 61 of 75 from 1@test.com
+04-25 11:09:08.066 26238 26299 D RegistrationHandler: Has received 62 of 75 from 1@test.com
+04-25 11:09:08.078 26238 26299 D RegistrationHandler: Has received 63 of 75 from 1@test.com
+04-25 11:09:08.081 26238 26299 D RegistrationHandler: Has received 64 of 75 from 1@test.com
+04-25 11:09:08.084 26238 26299 D RegistrationHandler: Has received 65 of 75 from 1@test.com
+04-25 11:09:08.095 26238 26299 D RegistrationHandler: Has received 66 of 75 from 1@test.com
+04-25 11:09:08.097 26238 26299 D RegistrationHandler: Has received 67 of 75 from 1@test.com
+04-25 11:09:08.102 26238 26299 D RegistrationHandler: Has received 68 of 75 from 1@test.com
+04-25 11:09:08.112 26238 26299 D RegistrationHandler: Has received 69 of 75 from 1@test.com
+04-25 11:09:08.118 26238 26299 D RegistrationHandler: Has received 70 of 75 from 1@test.com
+04-25 11:09:08.129 26238 26299 D RegistrationHandler: Has received 71 of 75 from 1@test.com
+04-25 11:09:08.132 26238 26299 D RegistrationHandler: Has received 72 of 75 from 1@test.com
+04-25 11:09:08.147 26238 26299 D RegistrationHandler: Has received 73 of 75 from 1@test.com
+04-25 11:09:08.150 26238 26299 D RegistrationHandler: Has received 74 of 75 from 1@test.com
+04-25 11:09:08.397 26238 26299 D RegistrationHandler: Has received 75 of 75 from 1@test.com
+04-25 11:09:08.427 26238 26299 D RegistrationHandler: Received full ledger from 1@test.com with nonce 116984052
+04-25 11:09:08.427 26238 26299 D RegistrationHandler: FULL_LEDGER 116984052
+round 2 of 500
+04-25 11:09:21.193  1281  1696 W System.err: java.net.ConnectException: Failed to connect to play.google.com/192.168.1.1:443
+04-25 11:09:21.193  1281  1696 W System.err: 	at com.android.okhttp.internal.io.RealConnection.connectSocket(RealConnection.java:147)
+04-25 11:09:21.193  1281  1696 W System.err: 	at com.android.okhttp.internal.io.RealConnection.connect(RealConnection.java:116)
+04-25 11:09:21.193  1281  1696 W System.err: 	at com.android.okhttp.internal.http.StreamAllocation.findConnection(StreamAllocation.java:186)
+04-25 11:09:21.193  1281  1696 W System.err: 	at com.android.okhttp.internal.http.StreamAllocation.findHealthyConnection(StreamAllocation.java:128)
+04-25 11:09:21.193  1281  1696 W System.err: 	at com.android.okhttp.internal.http.StreamAllocation.newStream(StreamAllocation.java:97)
+04-25 11:09:21.193  1281  1696 W System.err: 	at com.android.okhttp.internal.http.HttpEngine.connect(HttpEngine.java:289)
+04-25 11:09:21.193  1281  1696 W System.err: 	at com.android.okhttp.internal.http.HttpEngine.sendRequest(HttpEngine.java:232)
+04-25 11:09:21.193  1281  1696 W System.err: 	at com.android.okhttp.internal.huc.HttpURLConnectionImpl.execute(HttpURLConnectionImpl.java:465)
+04-25 11:09:21.193  1281  1696 W System.err: 	at com.android.okhttp.internal.huc.HttpURLConnectionImpl.getResponse(HttpURLConnectionImpl.java:411)
+04-25 11:09:21.193  1281  1696 W System.err: 	at com.android.okhttp.internal.huc.HttpURLConnectionImpl.getInputStream(HttpURLConnectionImpl.java:248)
+04-25 11:09:21.193  1281  1696 W System.err: 	at com.android.okhttp.internal.huc.DelegatingHttpsURLConnection.getInputStream(DelegatingHttpsURLConnection.java:211)
+04-25 11:09:21.193  1281  1696 W System.err: 	at com.android.okhttp.internal.huc.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:30)
+04-25 11:09:21.193  1281  1696 W System.err: 	at com.samsung.android.server.wifi.tcp.SemWifiTransportLayerUtils.getApplicationCategory(SemWifiTransportLayerUtils.java:103)
+04-25 11:09:21.193  1281  1696 W System.err: 	at com.samsung.android.server.wifi.tcp.SemWifiTransportLayerMonitor$TcpMonitorHandler.handleMessage(SemWifiTransportLayerMonitor.java:241)
+04-25 11:09:21.193  1281  1696 W System.err: 	at android.os.Handler.dispatchMessage(Handler.java:106)
+04-25 11:09:21.193  1281  1696 W System.err: 	at android.os.Looper.loopOnce(Looper.java:226)
+04-25 11:09:21.193  1281  1696 W System.err: 	at android.os.Looper.loop(Looper.java:313)
+04-25 11:09:21.193  1281  1696 W System.err: 	at android.os.HandlerThread.run(HandlerThread.java:67)
+04-25 11:09:21.726 26370 26421 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-25 11:09:21.728 26370 26423 D MulticastServer: Registration process started with nonce 170669524
+04-25 11:09:21.733 26370 26422 D MulticastClient: REQUEST_LEDGER 170669524
+04-25 11:09:21.736 26370 26422 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":170669524,"seq":0,"tot":0}]
+04-25 11:09:21.751 26370 26430 D MulticastServer: Broadcast block received {"ip":"192.168.1.66","cert":"MIIBGzCBwqADAgECAgYBgEtLsMUwCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKVFRNNDkwNSBDQTAeFw0yMjA0MjAwODQ0NTNaFw0yMjA1MjEwODQ0NTNaMBUxEzARBgNVBAMMCjFAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQHFNOCHx/BBFYqT41UW1M6slehFXn+9LK4VDhtASjKBd51QxSRtYZAl+/IpTuOnQdMVvlGCMMWkSeEGOgyfwh1MAoGCCqGSM49BAMCA0gAMEUCIQD1OXIEAO1fI6+XpR936a5Ef365WnXPvrbzl8oxr0/Z8QIgV5LWkYufM8V0VqpcYcHXyI2fCScD24nJMtVWnrVtOU8="}
+04-25 11:09:21.850 26370 26430 D RegistrationHandler: Has received 1 of 75 fragments from 1@test.com
+04-25 11:09:21.854 26370 26430 D RegistrationHandler: Has received 2 of 75 from 1@test.com
+04-25 11:09:21.863 26370 26430 D RegistrationHandler: Has received 3 of 75 from 1@test.com
+04-25 11:09:21.866 26370 26430 D RegistrationHandler: Has received 4 of 75 from 1@test.com
+04-25 11:09:21.875 26370 26430 D RegistrationHandler: Has received 5 of 75 from 1@test.com
+04-25 11:09:21.879 26370 26430 D RegistrationHandler: Has received 6 of 75 from 1@test.com
+04-25 11:09:21.891 26370 26430 D RegistrationHandler: Has received 7 of 75 from 1@test.com
+04-25 11:09:21.894 26370 26430 D RegistrationHandler: Has received 8 of 75 from 1@test.com
+04-25 11:09:21.903 26370 26430 D RegistrationHandler: Has received 9 of 75 from 1@test.com
+04-25 11:09:21.910 26370 26430 D RegistrationHandler: Has received 10 of 75 from 1@test.com
+04-25 11:09:21.914 26370 26430 D RegistrationHandler: Has received 11 of 75 from 1@test.com
+04-25 11:09:21.922 26370 26430 D RegistrationHandler: Has received 12 of 75 from 1@test.com
+04-25 11:09:21.930 26370 26430 D RegistrationHandler: Has received 13 of 75 from 1@test.com
+04-25 11:09:21.932 26370 26430 D RegistrationHandler: Has received 14 of 75 from 1@test.com
+04-25 11:09:21.943 26370 26430 D RegistrationHandler: Has received 15 of 75 from 1@test.com
+04-25 11:09:21.945 26370 26430 D RegistrationHandler: Has received 16 of 75 from 1@test.com
+04-25 11:09:21.954 26370 26430 D RegistrationHandler: Has received 17 of 75 from 1@test.com
+04-25 11:09:21.958 26370 26430 D RegistrationHandler: Has received 18 of 75 from 1@test.com
+04-25 11:09:21.987 26370 26430 D RegistrationHandler: Has received 19 of 75 from 1@test.com
+04-25 11:09:21.994 26370 26430 D RegistrationHandler: Has received 20 of 75 from 1@test.com
+04-25 11:09:22.062 26370 26430 D RegistrationHandler: Has received 21 of 75 from 1@test.com
+04-25 11:09:22.204 26370 26430 D RegistrationHandler: Has received 22 of 75 from 1@test.com
+04-25 11:09:22.212 26370 26430 D RegistrationHandler: Has received 23 of 75 from 1@test.com
+04-25 11:09:22.214 26370 26430 D RegistrationHandler: Has received 24 of 75 from 1@test.com
+04-25 11:09:22.217 26370 26430 D RegistrationHandler: Has received 25 of 75 from 1@test.com
+04-25 11:09:22.219 26370 26430 D RegistrationHandler: Has received 26 of 75 from 1@test.com
+04-25 11:09:22.221 26370 26430 D RegistrationHandler: Has received 27 of 75 from 1@test.com
+04-25 11:09:22.232 26370 26430 D RegistrationHandler: Has received 28 of 75 from 1@test.com
+04-25 11:09:22.248 26370 26430 D RegistrationHandler: Has received 29 of 75 from 1@test.com
+04-25 11:09:22.256 26370 26430 D RegistrationHandler: Has received 30 of 75 from 1@test.com
+04-25 11:09:22.259 26370 26430 D RegistrationHandler: Has received 31 of 75 from 1@test.com
+04-25 11:09:22.265 26370 26430 D RegistrationHandler: Has received 32 of 75 from 1@test.com
+04-25 11:09:22.273 26370 26430 D RegistrationHandler: Has received 33 of 75 from 1@test.com
+04-25 11:09:22.279 26370 26430 D RegistrationHandler: Has received 34 of 75 from 1@test.com
+04-25 11:09:22.283 26370 26430 D RegistrationHandler: Has received 35 of 75 from 1@test.com
+04-25 11:09:22.292 26370 26430 D RegistrationHandler: Has received 36 of 75 from 1@test.com
+04-25 11:09:22.300 26370 26430 D RegistrationHandler: Has received 37 of 75 from 1@test.com
+04-25 11:09:22.306 26370 26430 D RegistrationHandler: Has received 38 of 75 from 1@test.com
+04-25 11:09:22.312 26370 26430 D RegistrationHandler: Has received 39 of 75 from 1@test.com
+04-25 11:09:22.317 26370 26430 D RegistrationHandler: Has received 40 of 75 from 1@test.com
+04-25 11:09:22.324 26370 26430 D RegistrationHandler: Has received 41 of 75 from 1@test.com
+04-25 11:09:22.329 26370 26430 D RegistrationHandler: Has received 42 of 75 from 1@test.com
+04-25 11:09:22.338 26370 26430 D RegistrationHandler: Has received 43 of 75 from 1@test.com
+04-25 11:09:22.340 26370 26430 D RegistrationHandler: Has received 44 of 75 from 1@test.com
+04-25 11:09:22.349 26370 26430 D RegistrationHandler: Has received 45 of 75 from 1@test.com
+04-25 11:09:22.357 26370 26430 D RegistrationHandler: Has received 46 of 75 from 1@test.com
+04-25 11:09:22.361 26370 26430 D RegistrationHandler: Has received 47 of 75 from 1@test.com
+04-25 11:09:22.368 26370 26430 D RegistrationHandler: Has received 48 of 75 from 1@test.com
+04-25 11:09:22.376 26370 26430 D RegistrationHandler: Has received 49 of 75 from 1@test.com
+04-25 11:09:22.380 26370 26430 D RegistrationHandler: Has received 50 of 75 from 1@test.com
+04-25 11:09:22.389 26370 26430 D RegistrationHandler: Has received 51 of 75 from 1@test.com
+04-25 11:09:22.391 26370 26430 D RegistrationHandler: Has received 52 of 75 from 1@test.com
+04-25 11:09:22.414 26370 26430 D RegistrationHandler: Has received 53 of 75 from 1@test.com
+04-25 11:09:22.421 26370 26430 D RegistrationHandler: Has received 54 of 75 from 1@test.com
+04-25 11:09:22.428 26370 26430 D RegistrationHandler: Has received 55 of 75 from 1@test.com
+04-25 11:09:22.431 26370 26430 D RegistrationHandler: Has received 56 of 75 from 1@test.com
+04-25 11:09:22.434 26370 26430 D RegistrationHandler: Has received 57 of 75 from 1@test.com
+04-25 11:09:22.437 26370 26430 D RegistrationHandler: Has received 58 of 75 from 1@test.com
+04-25 11:09:22.445 26370 26430 D RegistrationHandler: Has received 59 of 75 from 1@test.com
+04-25 11:09:22.448 26370 26430 D RegistrationHandler: Has received 60 of 75 from 1@test.com
+04-25 11:09:22.456 26370 26430 D RegistrationHandler: Has received 61 of 75 from 1@test.com
+04-25 11:09:22.604 26370 26430 D RegistrationHandler: Has received 62 of 75 from 1@test.com
+04-25 11:09:22.612 26370 26430 D RegistrationHandler: Has received 63 of 75 from 1@test.com
+04-25 11:09:22.628 26370 26430 D RegistrationHandler: Has received 64 of 75 from 1@test.com
+04-25 11:09:22.649 26370 26430 D RegistrationHandler: Has received 65 of 75 from 1@test.com
+04-25 11:09:22.650 26370 26430 D RegistrationHandler: Has received 66 of 75 from 1@test.com
+04-25 11:09:22.837 26370 26430 D RegistrationHandler: Has received 67 of 75 from 1@test.com
+04-25 11:09:22.843 26370 26430 D RegistrationHandler: Has received 68 of 75 from 1@test.com
+04-25 11:09:22.848 26370 26430 D RegistrationHandler: Has received 69 of 75 from 1@test.com
+04-25 11:09:22.859 26370 26430 D RegistrationHandler: Has received 70 of 75 from 1@test.com
+04-25 11:09:22.862 26370 26430 D RegistrationHandler: Has received 71 of 75 from 1@test.com
+04-25 11:09:22.874 26370 26430 D RegistrationHandler: Has received 72 of 75 from 1@test.com
+04-25 11:09:23.045 26370 26430 D RegistrationHandler: Has received 73 of 75 from 1@test.com
+04-25 11:09:23.752 26370 26430 D RegistrationHandler: Has received 74 of 75 from 1@test.com
+04-25 11:09:23.784 26370 26430 D RegistrationHandler: Has received 75 of 75 from 1@test.com
+04-25 11:09:23.814 26370 26430 D RegistrationHandler: Received full ledger from 1@test.com with nonce 170669524
+04-25 11:09:23.814 26370 26430 D RegistrationHandler: FULL_LEDGER 170669524
+04-25 11:09:36.740 26370 26424 D RegistrationHandler: ACCEPTED_LEDGER 170669524 75
+04-25 11:09:36.766 26370 26424 D RegistrationHandler: 170669524 The accepted ledger contains: [0@test.com, 1@test.com, 2@test.com, 3@test.com, 4@test.com, 5@test.com, 6@test.com, 7@test.com, 8@test.com, 9@test.com, 10@test.com, 11@test.com, 12@test.com, 13@test.com, 14@test.com, 15@test.com, 16@test.com, 17@test.com, 18@test.com, 19@test.com, 20@test.com, 21@test.com, 22@test.com, 23@test.com, 24@test.com, 25@test.com, 26@test.com, 27@test.com, 28@test.com, 29@test.com, 30@test.com, 31@test.com, 32@test.com, 33@test.com, 34@test.com, 35@test.com, 36@test.com, 37@test.com, 38@test.com, 39@test.com, 40@test.com, 41@test.com, 42@test.com, 43@test.com, 44@test.com, 45@test.com, 46@test.com, 47@test.com, 48@test.com, 49@test.com, 50@test.com, 51@test.com, 52@test.com, 53@test.com, 54@test.com, 55@test.com, 56@test.com, 57@test.com, 58@test.com, 59@test.com, 60@test.com, 61@test.com, 62@test.com, 63@test.com, 64@test.com, 65@test.com, 66@test.com, 67@test.com, 68@test.com, 69@test.com, 70@test.com, 71@test.com, 72@test.com, 73@test.com, 74@test.com]
+04-25 11:09:36.766 26370 26424 D RegistrationHandler: 170669524 Registration started
+04-25 11:09:36.772 26370 26424 D MulticastServer: Registration process finished: 170669524
+04-25 11:09:36.777 26370 26422 D MulticastClient: Sent messages with 3 resends: [{"sender":"2@test.com","payload":"{\"ip\":\"192.168.1.57\",\"cert\":\"MIIBGjCBwqADAgECAgYBgEtMKvwwCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKVFRNNDkwNSBDQTAeFw0yMjA0MjAwODQ1MjRaFw0yMjA1MjEwODQ1MjRaMBUxEzARBgNVBAMMCjJAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARuziVeqczih9y2IwSJ3AZuLzxwpY2VwkjEcfE8yVLxCF1qtw21\/iMvxrk2q4BpbgHrUX5EWSAEi7qJDXIS4c\/wMAoGCCqGSM49BAMCA0cAMEQCIG3JN+NQlClPB+thJTrGjfia7cfGbMyyWhJH4K0X7YymAiAUuEhh7Ol8fxrjxPTDnAemav8GQj3kHaLUj1oJ3XJ+Tg==\"}","mt":"BROADCAST_BLOCK","sig":"MEUCIH3TZEwxgJM3ShxJvpp0ozInApvYCwiZBnPt2fLrSAusAiEAm4ZdBOLLDj2Id\/KWC7Md8v14K0YRMD8ZbZ\/aaZE17wU=","nonce":170669524,"seq":0,"tot":0}]

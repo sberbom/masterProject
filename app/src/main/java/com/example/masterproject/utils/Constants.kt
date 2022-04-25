@@ -29,7 +29,7 @@ class Constants {
         const val TOTAL_PACKET_WAIT = 900
         const val NUMBER_OF_RESENDS = 3
 
-        const val INTER_PACKET_TIME = 5
+        const val INTER_PACKET_TIME = 15
         const val LEDGER_ACCEPTANCE_TIME: Long = 15000
         const val ALONE_IN_NETWORK_TIME: Long = 4000
         const val BACKOFF_TIME: Long = 500

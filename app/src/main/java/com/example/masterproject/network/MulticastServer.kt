@@ -41,7 +41,7 @@ class MulticastServer: Service() {
     private val handleMessagesContext = newSingleThreadContext("handleIncoming")
 
     private fun listenForData(): MutableList<LedgerEntry>? {
-        val buf = ByteArray(512 * 5)
+        val buf = ByteArray(512 * 3)
         try{
             val socket = MulticastSocket(Constants.multicastPort)
             socket.joinGroup(address)

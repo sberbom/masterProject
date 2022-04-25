@@ -1,14 +1,14 @@
 devices=$(echo $(adb devices))
 device1=$(echo $devices | cut -f5 -d$' ')
 device2=$(echo $devices | cut -f7 -d$' ')
-test_path="tests/inter_packet_time"
+test_path="tests/fragmentation"
 rounds=500
 for var in "$@"
 do
-   git checkout test/inter_packet_time/"$var"
+   git checkout test/fragmentation/"$var"
    ./gradlew assembleDebug
    adb -s $device1 install app/build/outputs/apk/debug/app-debug.apk
-   adb -s $device2 install app/build/outputs/apk/debug/app-debug.apk
+   adb -s $device2 install app/build/outputs/apk/debug/ap-debug.apk
    # Gets the first two connected devices and their id
    counter=1
    for i in "$device1" "$device2"

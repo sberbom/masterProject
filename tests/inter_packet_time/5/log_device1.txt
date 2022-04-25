@@ -1,0 +1,27 @@
+Number of rounds: 500
+round 1 of 500
+--------- beginning of main
+04-25 10:59:59.248 25743 25878 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-25 10:59:59.251 25743 25880 D MulticastServer: Registration process started with nonce 1927015241
+04-25 10:59:59.255 25743 25885 D MulticastClient: REQUEST_LEDGER 1927015241
+04-25 10:59:59.260 25743 25885 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1927015241,"seq":0,"tot":0}]
+04-25 11:00:04.161 25941 25973 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-25 11:00:04.181 25941 25975 D MulticastServer: Registration process started with nonce 1596926270
+04-25 11:00:04.189 25941 25974 D MulticastClient: REQUEST_LEDGER 1596926270
+04-25 11:00:04.199 25941 25974 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1596926270,"seq":0,"tot":0}]
+--------- beginning of crash
+04-25 11:00:04.208 25941 25941 E AndroidRuntime: FATAL EXCEPTION: main
+04-25 11:00:04.208 25941 25941 E AndroidRuntime: Process: com.example.masterproject, PID: 25941
+04-25 11:00:04.208 25941 25941 E AndroidRuntime: kotlin.UninitializedPropertyAccessException: lateinit property myAdapter has not been initialized
+04-25 11:00:04.208 25941 25941 E AndroidRuntime: 	at com.example.masterproject.activities.MainActivity$Companion.updateAvailableDevices(MainActivity.kt:211)
+04-25 11:00:04.208 25941 25941 E AndroidRuntime: 	at com.example.masterproject.ledger.Ledger$Companion.updateUI$lambda-15(Ledger.kt:195)
+04-25 11:00:04.208 25941 25941 E AndroidRuntime: 	at com.example.masterproject.ledger.Ledger$Companion.$r8$lambda$2wK2otj6NG96qKnVO-thoALrjoo(Unknown Source:0)
+04-25 11:00:04.208 25941 25941 E AndroidRuntime: 	at com.example.masterproject.ledger.Ledger$Companion$$ExternalSyntheticLambda2.run(Unknown Source:0)
+04-25 11:00:04.208 25941 25941 E AndroidRuntime: 	at android.os.Handler.handleCallback(Handler.java:938)
+04-25 11:00:04.208 25941 25941 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:99)
+04-25 11:00:04.208 25941 25941 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:226)
+04-25 11:00:04.208 25941 25941 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:313)
+04-25 11:00:04.208 25941 25941 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:8582)
+04-25 11:00:04.208 25941 25941 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+04-25 11:00:04.208 25941 25941 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:563)
+04-25 11:00:04.208 25941 25941 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1133)

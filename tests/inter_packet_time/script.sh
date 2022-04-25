@@ -18,7 +18,8 @@ do
       adb -s "$i" shell killall -2 logcat
       adb -s "$i" logcat --clear
       mkdir ./"$test_path"/"$var"
-      adb -s "$i" logcat MulticastClient:D MulticastServer:D RegistrationHandler:D System.err:W AndroidRuntime:E \*:S >> ./"$test_path"/"$var"/log_device$counter.txt &
+      # adb -s "$i" logcat MulticastClient:D MulticastServer:D RegistrationHandler:D System.err:W AndroidRuntime:E \*:S >> ./"$test_path"/"$var"/log_device$counter.txt &
+      adb -s "$i" logcat MulticastClient:D MulticastServer:D RegistrationHandler:D AndroidRuntime:E \*:S >> ./"$test_path"/"$var"/log_device$counter.txt &
       echo "Number of rounds: $rounds" > ./"$test_path"/"$var"/log_device$counter.txt
       counter=$(($counter+1))
    done

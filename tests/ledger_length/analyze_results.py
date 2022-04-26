@@ -1,6 +1,6 @@
 import pylab
 
-folders = ["0", "300", "600", "900", "1200", "1500"]
+folders = ["1", "30", "60", "90", "120", "150", "180"]
 packet_loss_total = []
 
 for folder in folders:
@@ -68,7 +68,7 @@ x_coordinates = pylab.arange(len(folders))
 valuelabel(x_coordinates, packet_loss_total)
 
 pylab.bar(x_coordinates, packet_loss_total)
-pylab.xlabel("Total packet wait (ms)")
+pylab.xlabel("Number of ledger entries")
 pylab.ylabel("Packets loss %")
 pylab.xticks(x_coordinates, folders)
 pylab.show()

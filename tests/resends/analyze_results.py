@@ -68,7 +68,7 @@ x_coordinates = pylab.arange(len(folders))
 valuelabel(x_coordinates, packet_loss_total)
 
 pylab.bar(x_coordinates, packet_loss_total)
-pylab.xlabel("Number of ledger entries")
+pylab.xlabel("Number of resends")
 pylab.ylabel("Packets loss %")
 pylab.xticks(x_coordinates, folders)
 pylab.show()

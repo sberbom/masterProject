@@ -1,0 +1,860 @@
+Number of rounds: 40
+round 1 of 40
+--------- beginning of main
+04-26 14:37:48.265 14993 15043 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-26 14:37:48.268 14993 15045 D MulticastServer: Registration process started with nonce 2015988609
+04-26 14:37:48.270 14993 15049 D MulticastClient: REQUEST_LEDGER 2015988609
+04-26 14:37:48.272 14993 15049 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":2015988609,"seq":0,"tot":0}]
+04-26 14:37:48.288 14993 15051 D MulticastServer: Broadcast block received {"ip":"192.168.1.66","cert":"MIIBGzCBwqADAgECAgYBgEtLsMUwCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKVFRNNDkwNSBDQTAeFw0yMjA0MjAwODQ0NTNaFw0yMjA1MjEwODQ0NTNaMBUxEzARBgNVBAMMCjFAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQHFNOCHx/BBFYqT41UW1M6slehFXn+9LK4VDhtASjKBd51QxSRtYZAl+/IpTuOnQdMVvlGCMMWkSeEGOgyfwh1MAoGCCqGSM49BAMCA0gAMEUCIQD1OXIEAO1fI6+XpR936a5Ef365WnXPvrbzl8oxr0/Z8QIgV5LWkYufM8V0VqpcYcHXyI2fCScD24nJMtVWnrVtOU8="}
+04-26 14:37:48.422 14993 15051 D RegistrationHandler: Has received 1 of 15 fragments from 1@test.com
+04-26 14:37:48.433 14993 15051 D RegistrationHandler: Has received 2 of 15 from 1@test.com
+04-26 14:37:48.453 14993 15051 D RegistrationHandler: Has received 3 of 15 from 1@test.com
+04-26 14:37:48.468 14993 15051 D RegistrationHandler: Has received 4 of 15 from 1@test.com
+04-26 14:37:48.485 14993 15051 D RegistrationHandler: Has received 5 of 15 from 1@test.com
+04-26 14:37:48.633 14993 15051 D RegistrationHandler: Has received 6 of 15 from 1@test.com
+04-26 14:37:48.652 14993 15051 D RegistrationHandler: Has received 7 of 15 from 1@test.com
+04-26 14:37:48.697 14993 15051 D RegistrationHandler: Has received 8 of 15 from 1@test.com
+04-26 14:37:48.717 14993 15051 D RegistrationHandler: Has received 9 of 15 from 1@test.com
+04-26 14:37:48.738 14993 15051 D RegistrationHandler: Has received 10 of 15 from 1@test.com
+04-26 14:37:48.782 14993 15051 D RegistrationHandler: Has received 11 of 15 from 1@test.com
+04-26 14:37:48.904 14993 15051 D RegistrationHandler: Has received 12 of 15 from 1@test.com
+04-26 14:37:48.925 14993 15051 D RegistrationHandler: Has received 13 of 15 from 1@test.com
+04-26 14:37:48.938 14993 15051 D RegistrationHandler: Has received 14 of 15 from 1@test.com
+04-26 14:37:49.274 14993 15051 D RegistrationHandler: Has received 15 of 15 from 1@test.com
+04-26 14:37:49.301 14993 15051 D RegistrationHandler: Received full ledger from 1@test.com with nonce 2015988609
+04-26 14:37:49.301 14993 15051 D RegistrationHandler: FULL_LEDGER 2015988609
+round 2 of 40
+04-26 14:38:02.719 15113 15162 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-26 14:38:02.723 15113 15164 D MulticastServer: Registration process started with nonce 1318627986
+04-26 14:38:02.725 15113 15163 D MulticastClient: REQUEST_LEDGER 1318627986
+04-26 14:38:02.726 15113 15163 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1318627986,"seq":0,"tot":0}]
+04-26 14:38:02.899 15113 15170 D RegistrationHandler: Has received 1 of 15 fragments from 1@test.com
+04-26 14:38:02.908 15113 15170 D RegistrationHandler: Has received 2 of 15 from 1@test.com
+04-26 14:38:02.929 15113 15170 D RegistrationHandler: Has received 3 of 15 from 1@test.com
+04-26 14:38:03.101 15113 15170 D RegistrationHandler: Has received 4 of 15 from 1@test.com
+04-26 14:38:03.223 15113 15170 D RegistrationHandler: Has received 5 of 15 from 1@test.com
+04-26 14:38:03.257 15113 15170 D RegistrationHandler: Has received 6 of 15 from 1@test.com
+04-26 14:38:03.276 15113 15170 D RegistrationHandler: Has received 7 of 15 from 1@test.com
+04-26 14:38:03.360 15113 15170 D RegistrationHandler: Has received 8 of 15 from 1@test.com
+04-26 14:38:03.459 15113 15170 D RegistrationHandler: Has received 9 of 15 from 1@test.com
+04-26 14:38:03.479 15113 15170 D RegistrationHandler: Has received 10 of 15 from 1@test.com
+04-26 14:38:03.674 15113 15170 D RegistrationHandler: Has received 11 of 15 from 1@test.com
+04-26 14:38:03.693 15113 15170 D RegistrationHandler: Has received 12 of 15 from 1@test.com
+04-26 14:38:03.716 15113 15170 D RegistrationHandler: Has received 13 of 15 from 1@test.com
+04-26 14:38:03.725 15113 15170 D RegistrationHandler: Has received 14 of 15 from 1@test.com
+04-26 14:38:03.810 15113 15170 D RegistrationHandler: Has received 15 of 15 from 1@test.com
+04-26 14:38:03.838 15113 15170 D RegistrationHandler: Received full ledger from 1@test.com with nonce 1318627986
+04-26 14:38:03.838 15113 15170 D RegistrationHandler: FULL_LEDGER 1318627986
+round 3 of 40
+04-26 14:38:17.128 15221 15273 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-26 14:38:17.132 15221 15275 D MulticastServer: Registration process started with nonce 126490139
+04-26 14:38:17.134 15221 15279 D MulticastClient: REQUEST_LEDGER 126490139
+04-26 14:38:17.136 15221 15279 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":126490139,"seq":0,"tot":0}]
+04-26 14:38:17.313 15221 15282 D RegistrationHandler: Has received 1 of 15 fragments from 1@test.com
+04-26 14:38:17.346 15221 15282 D RegistrationHandler: Has received 2 of 15 from 1@test.com
+04-26 14:38:17.365 15221 15282 D RegistrationHandler: Has received 3 of 15 from 1@test.com
+04-26 14:38:17.380 15221 15282 D RegistrationHandler: Has received 4 of 15 from 1@test.com
+04-26 14:38:17.456 15221 15282 D RegistrationHandler: Has received 5 of 15 from 1@test.com
+04-26 14:38:17.484 15221 15282 D RegistrationHandler: Has received 6 of 15 from 1@test.com
+04-26 14:38:17.592 15221 15282 D RegistrationHandler: Has received 7 of 15 from 1@test.com
+04-26 14:38:17.608 15221 15282 D RegistrationHandler: Has received 8 of 15 from 1@test.com
+04-26 14:38:17.662 15221 15282 D RegistrationHandler: Has received 9 of 15 from 1@test.com
+04-26 14:38:17.785 15221 15282 D RegistrationHandler: Has received 10 of 15 from 1@test.com
+04-26 14:38:17.808 15221 15282 D RegistrationHandler: Has received 11 of 15 from 1@test.com
+04-26 14:38:17.901 15221 15282 D RegistrationHandler: Has received 12 of 15 from 1@test.com
+04-26 14:38:17.913 15221 15282 D RegistrationHandler: Has received 13 of 15 from 1@test.com
+04-26 14:38:18.169 15221 15282 D RegistrationHandler: Has received 14 of 15 from 1@test.com
+04-26 14:38:18.178 15221 15282 D RegistrationHandler: Has received 15 of 15 from 1@test.com
+04-26 14:38:18.209 15221 15282 D RegistrationHandler: Received full ledger from 1@test.com with nonce 126490139
+04-26 14:38:18.209 15221 15282 D RegistrationHandler: FULL_LEDGER 126490139
+round 4 of 40
+04-26 14:38:31.529 15333 15407 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-26 14:38:31.531 15333 15409 D MulticastServer: Registration process started with nonce 928567784
+04-26 14:38:31.533 15333 15408 D MulticastClient: REQUEST_LEDGER 928567784
+04-26 14:38:31.535 15333 15408 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":928567784,"seq":0,"tot":0}]
+04-26 14:38:32.020 15333 15415 D RegistrationHandler: Has received 1 of 15 fragments from 1@test.com
+04-26 14:38:32.029 15333 15415 D RegistrationHandler: Has received 2 of 15 from 1@test.com
+04-26 14:38:32.118 15333 15415 D RegistrationHandler: Has received 3 of 15 from 1@test.com
+04-26 14:38:32.131 15333 15415 D RegistrationHandler: Has received 4 of 15 from 1@test.com
+04-26 14:38:32.147 15333 15415 D RegistrationHandler: Has received 5 of 15 from 1@test.com
+04-26 14:38:32.174 15333 15415 D RegistrationHandler: Has received 6 of 15 from 1@test.com
+04-26 14:38:32.193 15333 15415 D RegistrationHandler: Has received 7 of 15 from 1@test.com
+04-26 14:38:32.227 15333 15415 D RegistrationHandler: Has received 8 of 15 from 1@test.com
+04-26 14:38:32.248 15333 15415 D RegistrationHandler: Has received 9 of 15 from 1@test.com
+04-26 14:38:32.268 15333 15415 D RegistrationHandler: Has received 10 of 15 from 1@test.com
+04-26 14:38:32.584 15333 15415 D RegistrationHandler: Has received 11 of 15 from 1@test.com
+04-26 14:38:32.957 15333 15415 D RegistrationHandler: Has received 12 of 15 from 1@test.com
+04-26 14:38:32.968 15333 15415 D RegistrationHandler: Has received 13 of 15 from 1@test.com
+04-26 14:38:33.792 15333 15415 D RegistrationHandler: Has received 14 of 15 from 1@test.com
+round 5 of 40
+04-26 14:38:45.965 15469 15517 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-26 14:38:45.967 15469 15519 D MulticastServer: Registration process started with nonce 369204945
+04-26 14:38:45.969 15469 15518 D MulticastClient: REQUEST_LEDGER 369204945
+04-26 14:38:45.971 15469 15518 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":369204945,"seq":0,"tot":0}]
+04-26 14:38:46.108 15469 15525 D RegistrationHandler: Has received 1 of 15 fragments from 1@test.com
+04-26 14:38:46.121 15469 15525 D RegistrationHandler: Has received 2 of 15 from 1@test.com
+04-26 14:38:46.245 15469 15525 D RegistrationHandler: Has received 3 of 15 from 1@test.com
+04-26 14:38:46.261 15469 15525 D RegistrationHandler: Has received 4 of 15 from 1@test.com
+04-26 14:38:46.276 15469 15525 D RegistrationHandler: Has received 5 of 15 from 1@test.com
+04-26 14:38:46.320 15469 15525 D RegistrationHandler: Has received 6 of 15 from 1@test.com
+04-26 14:38:46.336 15469 15525 D RegistrationHandler: Has received 7 of 15 from 1@test.com
+04-26 14:38:46.356 15469 15525 D RegistrationHandler: Has received 8 of 15 from 1@test.com
+04-26 14:38:46.451 15469 15525 D RegistrationHandler: Has received 9 of 15 from 1@test.com
+04-26 14:38:46.467 15469 15525 D RegistrationHandler: Has received 10 of 15 from 1@test.com
+04-26 14:38:46.486 15469 15525 D RegistrationHandler: Has received 11 of 15 from 1@test.com
+04-26 14:38:46.615 15469 15525 D RegistrationHandler: Has received 12 of 15 from 1@test.com
+04-26 14:38:46.631 15469 15525 D RegistrationHandler: Has received 13 of 15 from 1@test.com
+04-26 14:38:46.653 15469 15525 D RegistrationHandler: Has received 14 of 15 from 1@test.com
+04-26 14:38:46.899 15469 15525 D RegistrationHandler: Has received 15 of 15 from 1@test.com
+04-26 14:38:46.930 15469 15525 D RegistrationHandler: Received full ledger from 1@test.com with nonce 369204945
+04-26 14:38:46.930 15469 15525 D RegistrationHandler: FULL_LEDGER 369204945
+round 6 of 40
+04-26 14:39:00.381 15577 15627 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-26 14:39:00.383 15577 15629 D MulticastServer: Registration process started with nonce 365419685
+04-26 14:39:00.385 15577 15633 D MulticastClient: REQUEST_LEDGER 365419685
+04-26 14:39:00.387 15577 15633 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":365419685,"seq":0,"tot":0}]
+04-26 14:39:00.949 15577 15636 D RegistrationHandler: Has received 1 of 15 fragments from 1@test.com
+04-26 14:39:01.005 15577 15636 D RegistrationHandler: Has received 2 of 15 from 1@test.com
+04-26 14:39:01.023 15577 15636 D RegistrationHandler: Has received 3 of 15 from 1@test.com
+04-26 14:39:01.045 15577 15636 D RegistrationHandler: Has received 4 of 15 from 1@test.com
+04-26 14:39:01.064 15577 15636 D RegistrationHandler: Has received 5 of 15 from 1@test.com
+04-26 14:39:01.080 15577 15636 D RegistrationHandler: Has received 6 of 15 from 1@test.com
+04-26 14:39:01.097 15577 15636 D RegistrationHandler: Has received 7 of 15 from 1@test.com
+04-26 14:39:01.118 15577 15636 D RegistrationHandler: Has received 8 of 15 from 1@test.com
+04-26 14:39:01.141 15577 15636 D RegistrationHandler: Has received 9 of 15 from 1@test.com
+04-26 14:39:01.157 15577 15636 D RegistrationHandler: Has received 10 of 15 from 1@test.com
+04-26 14:39:01.263 15577 15636 D RegistrationHandler: Has received 11 of 15 from 1@test.com
+04-26 14:39:01.283 15577 15636 D RegistrationHandler: Has received 12 of 15 from 1@test.com
+04-26 14:39:01.627 15577 15636 D RegistrationHandler: Has received 13 of 15 from 1@test.com
+04-26 14:39:01.646 15577 15636 D RegistrationHandler: Has received 14 of 15 from 1@test.com
+04-26 14:39:02.860 15577 15636 D RegistrationHandler: Has received 15 of 15 from 1@test.com
+04-26 14:39:02.888 15577 15636 D RegistrationHandler: Received full ledger from 1@test.com with nonce 365419685
+04-26 14:39:02.888 15577 15636 D RegistrationHandler: FULL_LEDGER 365419685
+round 7 of 40
+04-26 14:39:14.787 15676 15725 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-26 14:39:14.790 15676 15727 D MulticastServer: Registration process started with nonce 1389268539
+04-26 14:39:14.794 15676 15731 D MulticastClient: REQUEST_LEDGER 1389268539
+04-26 14:39:14.801 15676 15731 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1389268539,"seq":0,"tot":0}]
+04-26 14:39:15.030 15676 15734 D RegistrationHandler: Has received 1 of 15 fragments from 1@test.com
+04-26 14:39:15.120 15676 15734 D RegistrationHandler: Has received 2 of 15 from 1@test.com
+04-26 14:39:15.137 15676 15734 D RegistrationHandler: Has received 3 of 15 from 1@test.com
+04-26 14:39:15.156 15676 15734 D RegistrationHandler: Has received 4 of 15 from 1@test.com
+04-26 14:39:15.172 15676 15734 D RegistrationHandler: Has received 5 of 15 from 1@test.com
+04-26 14:39:15.188 15676 15734 D RegistrationHandler: Has received 6 of 15 from 1@test.com
+04-26 14:39:15.204 15676 15734 D RegistrationHandler: Has received 7 of 15 from 1@test.com
+04-26 14:39:15.226 15676 15734 D RegistrationHandler: Has received 8 of 15 from 1@test.com
+04-26 14:39:15.249 15676 15734 D RegistrationHandler: Has received 9 of 15 from 1@test.com
+04-26 14:39:15.265 15676 15734 D RegistrationHandler: Has received 10 of 15 from 1@test.com
+04-26 14:39:15.365 15676 15734 D RegistrationHandler: Has received 11 of 15 from 1@test.com
+04-26 14:39:15.475 15676 15734 D RegistrationHandler: Has received 12 of 15 from 1@test.com
+04-26 14:39:15.774 15676 15734 D RegistrationHandler: Has received 13 of 15 from 1@test.com
+04-26 14:39:15.865 15676 15734 D RegistrationHandler: Has received 14 of 15 from 1@test.com
+round 8 of 40
+04-26 14:39:29.199 15784 15833 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-26 14:39:29.203 15784 15835 D MulticastServer: Registration process started with nonce 1792356869
+04-26 14:39:29.205 15784 15839 D MulticastClient: REQUEST_LEDGER 1792356869
+04-26 14:39:29.207 15784 15839 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1792356869,"seq":0,"tot":0}]
+04-26 14:39:29.225 15784 15841 D MulticastServer: Broadcast block received {"ip":"192.168.1.66","cert":"MIIBGzCBwqADAgECAgYBgEtLsMUwCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKVFRNNDkwNSBDQTAeFw0yMjA0MjAwODQ0NTNaFw0yMjA1MjEwODQ0NTNaMBUxEzARBgNVBAMMCjFAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQHFNOCHx/BBFYqT41UW1M6slehFXn+9LK4VDhtASjKBd51QxSRtYZAl+/IpTuOnQdMVvlGCMMWkSeEGOgyfwh1MAoGCCqGSM49BAMCA0gAMEUCIQD1OXIEAO1fI6+XpR936a5Ef365WnXPvrbzl8oxr0/Z8QIgV5LWkYufM8V0VqpcYcHXyI2fCScD24nJMtVWnrVtOU8="}
+04-26 14:39:29.328 15784 15841 D RegistrationHandler: Has received 1 of 15 fragments from 1@test.com
+04-26 14:39:29.346 15784 15841 D RegistrationHandler: Has received 2 of 15 from 1@test.com
+04-26 14:39:29.360 15784 15841 D RegistrationHandler: Has received 3 of 15 from 1@test.com
+04-26 14:39:29.380 15784 15841 D RegistrationHandler: Has received 4 of 15 from 1@test.com
+04-26 14:39:29.570 15784 15841 D RegistrationHandler: Has received 5 of 15 from 1@test.com
+04-26 14:39:29.588 15784 15841 D RegistrationHandler: Has received 6 of 15 from 1@test.com
+04-26 14:39:29.681 15784 15841 D RegistrationHandler: Has received 7 of 15 from 1@test.com
+04-26 14:39:29.692 15784 15841 D RegistrationHandler: Has received 8 of 15 from 1@test.com
+04-26 14:39:29.711 15784 15841 D RegistrationHandler: Has received 9 of 15 from 1@test.com
+04-26 14:39:29.731 15784 15841 D RegistrationHandler: Has received 10 of 15 from 1@test.com
+04-26 14:39:29.848 15784 15841 D RegistrationHandler: Has received 11 of 15 from 1@test.com
+04-26 14:39:29.962 15784 15841 D RegistrationHandler: Has received 12 of 15 from 1@test.com
+04-26 14:39:29.981 15784 15841 D RegistrationHandler: Has received 13 of 15 from 1@test.com
+04-26 14:39:30.093 15784 15841 D RegistrationHandler: Has received 14 of 15 from 1@test.com
+04-26 14:39:30.106 15784 15841 D RegistrationHandler: Has received 15 of 15 from 1@test.com
+04-26 14:39:30.135 15784 15841 D RegistrationHandler: Received full ledger from 1@test.com with nonce 1792356869
+04-26 14:39:30.135 15784 15841 D RegistrationHandler: FULL_LEDGER 1792356869
+round 9 of 40
+04-26 14:39:43.649 15881 15930 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-26 14:39:43.651 15881 15932 D MulticastServer: Registration process started with nonce 1093586370
+04-26 14:39:43.653 15881 15931 D MulticastClient: REQUEST_LEDGER 1093586370
+04-26 14:39:43.655 15881 15931 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1093586370,"seq":0,"tot":0}]
+04-26 14:39:44.004 15881 15938 D RegistrationHandler: Has received 1 of 15 fragments from 1@test.com
+04-26 14:39:44.017 15881 15938 D RegistrationHandler: Has received 2 of 15 from 1@test.com
+04-26 14:39:44.033 15881 15938 D RegistrationHandler: Has received 3 of 15 from 1@test.com
+04-26 14:39:44.051 15881 15938 D RegistrationHandler: Has received 4 of 15 from 1@test.com
+04-26 14:39:44.093 15881 15938 D RegistrationHandler: Has received 5 of 15 from 1@test.com
+04-26 14:39:44.112 15881 15938 D RegistrationHandler: Has received 6 of 15 from 1@test.com
+04-26 14:39:44.128 15881 15938 D RegistrationHandler: Has received 7 of 15 from 1@test.com
+04-26 14:39:44.141 15881 15938 D RegistrationHandler: Has received 8 of 15 from 1@test.com
+04-26 14:39:44.162 15881 15938 D RegistrationHandler: Has received 9 of 15 from 1@test.com
+04-26 14:39:44.183 15881 15938 D RegistrationHandler: Has received 10 of 15 from 1@test.com
+04-26 14:39:44.301 15881 15938 D RegistrationHandler: Has received 11 of 15 from 1@test.com
+04-26 14:39:44.394 15881 15938 D RegistrationHandler: Has received 12 of 15 from 1@test.com
+04-26 14:39:46.275 15881 15938 D RegistrationHandler: Has received 13 of 15 from 1@test.com
+round 10 of 40
+04-26 14:39:58.052 15989 16038 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-26 14:39:58.055 15989 16040 D MulticastServer: Registration process started with nonce 1176711011
+04-26 14:39:58.057 15989 16039 D MulticastClient: REQUEST_LEDGER 1176711011
+04-26 14:39:58.059 15989 16039 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1176711011,"seq":0,"tot":0}]
+04-26 14:39:58.108 15989 16046 D MulticastServer: Broadcast block received {"ip":"192.168.1.66","cert":"MIIBGzCBwqADAgECAgYBgEtLsMUwCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKVFRNNDkwNSBDQTAeFw0yMjA0MjAwODQ0NTNaFw0yMjA1MjEwODQ0NTNaMBUxEzARBgNVBAMMCjFAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQHFNOCHx/BBFYqT41UW1M6slehFXn+9LK4VDhtASjKBd51QxSRtYZAl+/IpTuOnQdMVvlGCMMWkSeEGOgyfwh1MAoGCCqGSM49BAMCA0gAMEUCIQD1OXIEAO1fI6+XpR936a5Ef365WnXPvrbzl8oxr0/Z8QIgV5LWkYufM8V0VqpcYcHXyI2fCScD24nJMtVWnrVtOU8="}
+04-26 14:39:58.228 15989 16046 D RegistrationHandler: Has received 1 of 15 fragments from 1@test.com
+04-26 14:39:58.245 15989 16046 D RegistrationHandler: Has received 2 of 15 from 1@test.com
+04-26 14:39:58.261 15989 16046 D RegistrationHandler: Has received 3 of 15 from 1@test.com
+04-26 14:39:58.333 15989 16046 D RegistrationHandler: Has received 4 of 15 from 1@test.com
+04-26 14:39:58.388 15989 16046 D RegistrationHandler: Has received 5 of 15 from 1@test.com
+04-26 14:39:58.472 15989 16046 D RegistrationHandler: Has received 6 of 15 from 1@test.com
+04-26 14:39:58.496 15989 16046 D RegistrationHandler: Has received 7 of 15 from 1@test.com
+04-26 14:39:58.552 15989 16046 D RegistrationHandler: Has received 8 of 15 from 1@test.com
+04-26 14:39:58.567 15989 16046 D RegistrationHandler: Has received 9 of 15 from 1@test.com
+04-26 14:39:58.714 15989 16046 D RegistrationHandler: Has received 10 of 15 from 1@test.com
+04-26 14:39:58.729 15989 16046 D RegistrationHandler: Has received 11 of 15 from 1@test.com
+04-26 14:39:58.899 15989 16046 D RegistrationHandler: Has received 12 of 15 from 1@test.com
+04-26 14:39:58.921 15989 16046 D RegistrationHandler: Has received 13 of 15 from 1@test.com
+04-26 14:39:59.096 15989 16046 D RegistrationHandler: Has received 14 of 15 from 1@test.com
+04-26 14:39:59.160 15989 16046 D RegistrationHandler: Has received 15 of 15 from 1@test.com
+04-26 14:39:59.187 15989 16046 D RegistrationHandler: Received full ledger from 1@test.com with nonce 1176711011
+04-26 14:39:59.187 15989 16046 D RegistrationHandler: FULL_LEDGER 1176711011
+round 11 of 40
+04-26 14:40:12.464 16098 16165 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-26 14:40:12.466 16098 16171 D MulticastServer: Registration process started with nonce 24366050
+04-26 14:40:12.468 16098 16166 D MulticastClient: REQUEST_LEDGER 24366050
+04-26 14:40:12.470 16098 16166 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":24366050,"seq":0,"tot":0}]
+04-26 14:40:12.830 16098 16181 D RegistrationHandler: Has received 1 of 15 fragments from 1@test.com
+04-26 14:40:12.845 16098 16181 D RegistrationHandler: Has received 2 of 15 from 1@test.com
+04-26 14:40:12.885 16098 16181 D RegistrationHandler: Has received 3 of 15 from 1@test.com
+04-26 14:40:12.909 16098 16181 D RegistrationHandler: Has received 4 of 15 from 1@test.com
+04-26 14:40:12.942 16098 16181 D RegistrationHandler: Has received 5 of 15 from 1@test.com
+04-26 14:40:12.955 16098 16181 D RegistrationHandler: Has received 6 of 15 from 1@test.com
+04-26 14:40:12.973 16098 16181 D RegistrationHandler: Has received 7 of 15 from 1@test.com
+04-26 14:40:12.992 16098 16181 D RegistrationHandler: Has received 8 of 15 from 1@test.com
+04-26 14:40:13.010 16098 16181 D RegistrationHandler: Has received 9 of 15 from 1@test.com
+04-26 14:40:13.082 16098 16181 D RegistrationHandler: Has received 10 of 15 from 1@test.com
+04-26 14:40:13.310 16098 16181 D RegistrationHandler: Has received 11 of 15 from 1@test.com
+04-26 14:40:13.316 16098 16181 D RegistrationHandler: Has received 12 of 15 from 1@test.com
+04-26 14:40:14.746 16098 16181 D RegistrationHandler: Has received 13 of 15 from 1@test.com
+round 12 of 40
+04-26 14:40:26.867 16235 16281 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-26 14:40:26.869 16235 16283 D MulticastServer: Registration process started with nonce 1430719635
+04-26 14:40:26.872 16235 16282 D MulticastClient: REQUEST_LEDGER 1430719635
+04-26 14:40:26.873 16235 16282 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1430719635,"seq":0,"tot":0}]
+04-26 14:40:27.299 16235 16289 D RegistrationHandler: Has received 1 of 15 fragments from 1@test.com
+04-26 14:40:27.380 16235 16289 D RegistrationHandler: Has received 2 of 15 from 1@test.com
+04-26 14:40:27.399 16235 16289 D RegistrationHandler: Has received 3 of 15 from 1@test.com
+04-26 14:40:27.504 16235 16289 D RegistrationHandler: Has received 4 of 15 from 1@test.com
+04-26 14:40:27.523 16235 16289 D RegistrationHandler: Has received 5 of 15 from 1@test.com
+04-26 14:40:27.545 16235 16289 D RegistrationHandler: Has received 6 of 15 from 1@test.com
+04-26 14:40:27.628 16235 16289 D RegistrationHandler: Has received 7 of 15 from 1@test.com
+04-26 14:40:27.643 16235 16289 D RegistrationHandler: Has received 8 of 15 from 1@test.com
+04-26 14:40:27.734 16235 16289 D RegistrationHandler: Has received 9 of 15 from 1@test.com
+04-26 14:40:27.768 16235 16289 D RegistrationHandler: Has received 10 of 15 from 1@test.com
+04-26 14:40:27.782 16235 16289 D RegistrationHandler: Has received 11 of 15 from 1@test.com
+04-26 14:40:27.801 16235 16289 D RegistrationHandler: Has received 12 of 15 from 1@test.com
+04-26 14:40:27.824 16235 16289 D RegistrationHandler: Has received 13 of 15 from 1@test.com
+04-26 14:40:27.839 16235 16289 D RegistrationHandler: Has received 14 of 15 from 1@test.com
+04-26 14:40:29.503 16235 16289 D RegistrationHandler: Has received 15 of 15 from 1@test.com
+04-26 14:40:29.533 16235 16289 D RegistrationHandler: Received full ledger from 1@test.com with nonce 1430719635
+04-26 14:40:29.533 16235 16289 D RegistrationHandler: FULL_LEDGER 1430719635
+round 13 of 40
+04-26 14:40:41.282 16341 16388 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-26 14:40:41.284 16341 16390 D MulticastServer: Registration process started with nonce 553413620
+04-26 14:40:41.287 16341 16389 D MulticastClient: REQUEST_LEDGER 553413620
+04-26 14:40:41.288 16341 16389 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":553413620,"seq":0,"tot":0}]
+04-26 14:40:41.305 16341 16396 D MulticastServer: Broadcast block received {"ip":"192.168.1.66","cert":"MIIBGzCBwqADAgECAgYBgEtLsMUwCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKVFRNNDkwNSBDQTAeFw0yMjA0MjAwODQ0NTNaFw0yMjA1MjEwODQ0NTNaMBUxEzARBgNVBAMMCjFAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQHFNOCHx/BBFYqT41UW1M6slehFXn+9LK4VDhtASjKBd51QxSRtYZAl+/IpTuOnQdMVvlGCMMWkSeEGOgyfwh1MAoGCCqGSM49BAMCA0gAMEUCIQD1OXIEAO1fI6+XpR936a5Ef365WnXPvrbzl8oxr0/Z8QIgV5LWkYufM8V0VqpcYcHXyI2fCScD24nJMtVWnrVtOU8="}
+04-26 14:40:41.484 16341 16396 D RegistrationHandler: Has received 1 of 15 fragments from 1@test.com
+04-26 14:40:41.521 16341 16396 D RegistrationHandler: Has received 2 of 15 from 1@test.com
+04-26 14:40:41.537 16341 16396 D RegistrationHandler: Has received 3 of 15 from 1@test.com
+04-26 14:40:41.556 16341 16396 D RegistrationHandler: Has received 4 of 15 from 1@test.com
+04-26 14:40:41.624 16341 16396 D RegistrationHandler: Has received 5 of 15 from 1@test.com
+04-26 14:40:41.719 16341 16396 D RegistrationHandler: Has received 6 of 15 from 1@test.com
+04-26 14:40:41.733 16341 16396 D RegistrationHandler: Has received 7 of 15 from 1@test.com
+04-26 14:40:41.770 16341 16396 D RegistrationHandler: Has received 8 of 15 from 1@test.com
+04-26 14:40:41.782 16341 16396 D RegistrationHandler: Has received 9 of 15 from 1@test.com
+04-26 14:40:41.943 16341 16396 D RegistrationHandler: Has received 10 of 15 from 1@test.com
+04-26 14:40:41.973 16341 16396 D RegistrationHandler: Has received 11 of 15 from 1@test.com
+04-26 14:40:41.992 16341 16396 D RegistrationHandler: Has received 12 of 15 from 1@test.com
+04-26 14:40:42.085 16341 16396 D RegistrationHandler: Has received 13 of 15 from 1@test.com
+04-26 14:40:42.341 16341 16396 D RegistrationHandler: Has received 14 of 15 from 1@test.com
+04-26 14:40:44.434 16341 16396 D RegistrationHandler: Has received 15 of 15 from 1@test.com
+04-26 14:40:44.461 16341 16396 D RegistrationHandler: Received full ledger from 1@test.com with nonce 553413620
+04-26 14:40:44.461 16341 16396 D RegistrationHandler: FULL_LEDGER 553413620
+round 14 of 40
+04-26 14:40:55.668 16437 16484 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-26 14:40:55.670 16437 16486 D MulticastServer: Registration process started with nonce 1253845445
+04-26 14:40:55.672 16437 16485 D MulticastClient: REQUEST_LEDGER 1253845445
+04-26 14:40:55.674 16437 16485 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1253845445,"seq":0,"tot":0}]
+04-26 14:40:56.201 16437 16493 D RegistrationHandler: Has received 1 of 15 fragments from 1@test.com
+04-26 14:40:56.294 16437 16493 D RegistrationHandler: Has received 2 of 15 from 1@test.com
+04-26 14:40:56.311 16437 16493 D RegistrationHandler: Has received 3 of 15 from 1@test.com
+04-26 14:40:56.327 16437 16493 D RegistrationHandler: Has received 4 of 15 from 1@test.com
+04-26 14:40:56.350 16437 16493 D RegistrationHandler: Has received 5 of 15 from 1@test.com
+04-26 14:40:56.367 16437 16493 D RegistrationHandler: Has received 6 of 15 from 1@test.com
+04-26 14:40:56.385 16437 16493 D RegistrationHandler: Has received 7 of 15 from 1@test.com
+04-26 14:40:56.408 16437 16493 D RegistrationHandler: Has received 8 of 15 from 1@test.com
+04-26 14:40:56.538 16437 16493 D RegistrationHandler: Has received 9 of 15 from 1@test.com
+04-26 14:40:56.630 16437 16493 D RegistrationHandler: Has received 10 of 15 from 1@test.com
+04-26 14:40:56.655 16437 16493 D RegistrationHandler: Has received 11 of 15 from 1@test.com
+04-26 14:40:56.682 16437 16493 D RegistrationHandler: Has received 12 of 15 from 1@test.com
+04-26 14:40:57.132 16437 16493 D RegistrationHandler: Has received 13 of 15 from 1@test.com
+04-26 14:40:58.359 16437 16493 D RegistrationHandler: Has received 14 of 15 from 1@test.com
+04-26 14:40:58.383 16437 16493 D RegistrationHandler: Has received 15 of 15 from 1@test.com
+04-26 14:40:58.411 16437 16493 D RegistrationHandler: Received full ledger from 1@test.com with nonce 1253845445
+04-26 14:40:58.411 16437 16493 D RegistrationHandler: FULL_LEDGER 1253845445
+round 15 of 40
+04-26 14:41:10.041 16549 16597 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-26 14:41:10.044 16549 16599 D MulticastServer: Registration process started with nonce 7725197
+04-26 14:41:10.047 16549 16598 D MulticastClient: REQUEST_LEDGER 7725197
+04-26 14:41:10.048 16549 16598 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":7725197,"seq":0,"tot":0}]
+04-26 14:41:10.313 16549 16605 D RegistrationHandler: Has received 1 of 15 fragments from 1@test.com
+04-26 14:41:10.385 16549 16605 D RegistrationHandler: Has received 2 of 15 from 1@test.com
+04-26 14:41:10.401 16549 16605 D RegistrationHandler: Has received 3 of 15 from 1@test.com
+04-26 14:41:10.416 16549 16605 D RegistrationHandler: Has received 4 of 15 from 1@test.com
+04-26 14:41:10.437 16549 16605 D RegistrationHandler: Has received 5 of 15 from 1@test.com
+04-26 14:41:10.460 16549 16605 D RegistrationHandler: Has received 6 of 15 from 1@test.com
+04-26 14:41:10.486 16549 16605 D RegistrationHandler: Has received 7 of 15 from 1@test.com
+04-26 14:41:10.505 16549 16605 D RegistrationHandler: Has received 8 of 15 from 1@test.com
+04-26 14:41:10.522 16549 16605 D RegistrationHandler: Has received 9 of 15 from 1@test.com
+04-26 14:41:10.636 16549 16605 D RegistrationHandler: Has received 10 of 15 from 1@test.com
+04-26 14:41:10.646 16549 16605 D RegistrationHandler: Has received 11 of 15 from 1@test.com
+04-26 14:41:10.662 16549 16605 D RegistrationHandler: Has received 12 of 15 from 1@test.com
+04-26 14:41:10.756 16549 16605 D RegistrationHandler: Has received 13 of 15 from 1@test.com
+04-26 14:41:11.110 16549 16605 D RegistrationHandler: Has received 14 of 15 from 1@test.com
+04-26 14:41:11.121 16549 16605 D RegistrationHandler: Has received 15 of 15 from 1@test.com
+04-26 14:41:11.149 16549 16605 D RegistrationHandler: Received full ledger from 1@test.com with nonce 7725197
+04-26 14:41:11.149 16549 16605 D RegistrationHandler: FULL_LEDGER 7725197
+round 16 of 40
+04-26 14:41:24.465 16665 16713 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-26 14:41:24.467 16665 16715 D MulticastServer: Registration process started with nonce 687391467
+04-26 14:41:24.469 16665 16714 D MulticastClient: REQUEST_LEDGER 687391467
+04-26 14:41:24.471 16665 16714 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":687391467,"seq":0,"tot":0}]
+04-26 14:41:24.528 16665 16722 D MulticastServer: Broadcast block received {"ip":"192.168.1.66","cert":"MIIBGzCBwqADAgECAgYBgEtLsMUwCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKVFRNNDkwNSBDQTAeFw0yMjA0MjAwODQ0NTNaFw0yMjA1MjEwODQ0NTNaMBUxEzARBgNVBAMMCjFAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQHFNOCHx/BBFYqT41UW1M6slehFXn+9LK4VDhtASjKBd51QxSRtYZAl+/IpTuOnQdMVvlGCMMWkSeEGOgyfwh1MAoGCCqGSM49BAMCA0gAMEUCIQD1OXIEAO1fI6+XpR936a5Ef365WnXPvrbzl8oxr0/Z8QIgV5LWkYufM8V0VqpcYcHXyI2fCScD24nJMtVWnrVtOU8="}
+04-26 14:41:24.716 16665 16722 D RegistrationHandler: Has received 1 of 15 fragments from 1@test.com
+04-26 14:41:24.760 16665 16722 D RegistrationHandler: Has received 2 of 15 from 1@test.com
+04-26 14:41:24.778 16665 16722 D RegistrationHandler: Has received 3 of 15 from 1@test.com
+04-26 14:41:24.820 16665 16722 D RegistrationHandler: Has received 4 of 15 from 1@test.com
+04-26 14:41:24.840 16665 16722 D RegistrationHandler: Has received 5 of 15 from 1@test.com
+04-26 14:41:24.856 16665 16722 D RegistrationHandler: Has received 6 of 15 from 1@test.com
+04-26 14:41:24.876 16665 16722 D RegistrationHandler: Has received 7 of 15 from 1@test.com
+04-26 14:41:24.892 16665 16722 D RegistrationHandler: Has received 8 of 15 from 1@test.com
+04-26 14:41:24.921 16665 16722 D RegistrationHandler: Has received 9 of 15 from 1@test.com
+04-26 14:41:24.937 16665 16722 D RegistrationHandler: Has received 10 of 15 from 1@test.com
+04-26 14:41:24.967 16665 16722 D RegistrationHandler: Has received 11 of 15 from 1@test.com
+04-26 14:41:24.982 16665 16722 D RegistrationHandler: Has received 12 of 15 from 1@test.com
+04-26 14:41:24.998 16665 16722 D RegistrationHandler: Has received 13 of 15 from 1@test.com
+04-26 14:41:25.189 16665 16722 D RegistrationHandler: Has received 14 of 15 from 1@test.com
+04-26 14:41:25.236 16665 16722 D RegistrationHandler: Has received 15 of 15 from 1@test.com
+04-26 14:41:25.265 16665 16722 D RegistrationHandler: Received full ledger from 1@test.com with nonce 687391467
+04-26 14:41:25.265 16665 16722 D RegistrationHandler: FULL_LEDGER 687391467
+round 17 of 40
+04-26 14:41:38.886 16765 16813 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-26 14:41:38.888 16765 16815 D MulticastServer: Registration process started with nonce 1038055408
+04-26 14:41:38.892 16765 16819 D MulticastClient: REQUEST_LEDGER 1038055408
+04-26 14:41:38.892 16765 16819 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1038055408,"seq":0,"tot":0}]
+04-26 14:41:38.895 16765 16822 D MulticastServer: Broadcast block received {"ip":"192.168.1.66","cert":"MIIBGzCBwqADAgECAgYBgEtLsMUwCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKVFRNNDkwNSBDQTAeFw0yMjA0MjAwODQ0NTNaFw0yMjA1MjEwODQ0NTNaMBUxEzARBgNVBAMMCjFAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQHFNOCHx/BBFYqT41UW1M6slehFXn+9LK4VDhtASjKBd51QxSRtYZAl+/IpTuOnQdMVvlGCMMWkSeEGOgyfwh1MAoGCCqGSM49BAMCA0gAMEUCIQD1OXIEAO1fI6+XpR936a5Ef365WnXPvrbzl8oxr0/Z8QIgV5LWkYufM8V0VqpcYcHXyI2fCScD24nJMtVWnrVtOU8="}
+04-26 14:41:39.004 16765 16822 D RegistrationHandler: Has received 1 of 15 fragments from 1@test.com
+04-26 14:41:39.027 16765 16822 D RegistrationHandler: Has received 2 of 15 from 1@test.com
+04-26 14:41:39.040 16765 16822 D RegistrationHandler: Has received 3 of 15 from 1@test.com
+04-26 14:41:39.063 16765 16822 D RegistrationHandler: Has received 4 of 15 from 1@test.com
+04-26 14:41:39.301 16765 16822 D RegistrationHandler: Has received 5 of 15 from 1@test.com
+04-26 14:41:39.320 16765 16822 D RegistrationHandler: Has received 6 of 15 from 1@test.com
+04-26 14:41:39.338 16765 16822 D RegistrationHandler: Has received 7 of 15 from 1@test.com
+04-26 14:41:39.400 16765 16822 D RegistrationHandler: Has received 8 of 15 from 1@test.com
+04-26 14:41:39.641 16765 16822 D RegistrationHandler: Has received 9 of 15 from 1@test.com
+04-26 14:41:39.646 16765 16822 D RegistrationHandler: Has received 10 of 15 from 1@test.com
+04-26 14:41:39.904 16765 16822 D RegistrationHandler: Has received 11 of 15 from 1@test.com
+04-26 14:41:39.933 16765 16822 D RegistrationHandler: Has received 12 of 15 from 1@test.com
+04-26 14:41:39.996 16765 16822 D RegistrationHandler: Has received 13 of 15 from 1@test.com
+04-26 14:41:40.011 16765 16822 D RegistrationHandler: Has received 14 of 15 from 1@test.com
+04-26 14:41:40.032 16765 16822 D RegistrationHandler: Has received 15 of 15 from 1@test.com
+04-26 14:41:40.061 16765 16822 D RegistrationHandler: Received full ledger from 1@test.com with nonce 1038055408
+04-26 14:41:40.061 16765 16822 D RegistrationHandler: FULL_LEDGER 1038055408
+round 18 of 40
+04-26 14:41:53.240 16890 16937 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-26 14:41:53.242 16890 16939 D MulticastServer: Registration process started with nonce 2064477255
+04-26 14:41:53.244 16890 16938 D MulticastClient: REQUEST_LEDGER 2064477255
+04-26 14:41:53.246 16890 16938 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":2064477255,"seq":0,"tot":0}]
+04-26 14:41:53.403 16890 16945 D RegistrationHandler: Has received 1 of 15 fragments from 1@test.com
+04-26 14:41:53.413 16890 16945 D RegistrationHandler: Has received 2 of 15 from 1@test.com
+04-26 14:41:53.433 16890 16945 D RegistrationHandler: Has received 3 of 15 from 1@test.com
+04-26 14:41:53.448 16890 16945 D RegistrationHandler: Has received 4 of 15 from 1@test.com
+04-26 14:41:53.568 16890 16945 D RegistrationHandler: Has received 5 of 15 from 1@test.com
+04-26 14:41:53.756 16890 16945 D RegistrationHandler: Has received 6 of 15 from 1@test.com
+04-26 14:41:53.757 16890 16945 D RegistrationHandler: Has received 7 of 15 from 1@test.com
+04-26 14:41:53.774 16890 16945 D RegistrationHandler: Has received 8 of 15 from 1@test.com
+04-26 14:41:53.800 16890 16945 D RegistrationHandler: Has received 9 of 15 from 1@test.com
+04-26 14:41:53.816 16890 16945 D RegistrationHandler: Has received 10 of 15 from 1@test.com
+04-26 14:41:53.848 16890 16945 D RegistrationHandler: Has received 11 of 15 from 1@test.com
+04-26 14:41:53.861 16890 16945 D RegistrationHandler: Has received 12 of 15 from 1@test.com
+04-26 14:41:53.879 16890 16945 D RegistrationHandler: Has received 13 of 15 from 1@test.com
+04-26 14:41:53.903 16890 16945 D RegistrationHandler: Has received 14 of 15 from 1@test.com
+04-26 14:41:53.992 16890 16945 D RegistrationHandler: Has received 15 of 15 from 1@test.com
+04-26 14:41:54.019 16890 16945 D RegistrationHandler: Received full ledger from 1@test.com with nonce 2064477255
+04-26 14:41:54.019 16890 16945 D RegistrationHandler: FULL_LEDGER 2064477255
+round 19 of 40
+04-26 14:42:07.601 16988 17034 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-26 14:42:07.603 16988 17036 D MulticastServer: Registration process started with nonce 2077652245
+04-26 14:42:07.606 16988 17035 D MulticastClient: REQUEST_LEDGER 2077652245
+04-26 14:42:07.607 16988 17035 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":2077652245,"seq":0,"tot":0}]
+04-26 14:42:07.854 16988 17043 D RegistrationHandler: Has received 1 of 15 fragments from 1@test.com
+04-26 14:42:07.872 16988 17043 D RegistrationHandler: Has received 2 of 15 from 1@test.com
+04-26 14:42:07.945 16988 17043 D RegistrationHandler: Has received 3 of 15 from 1@test.com
+04-26 14:42:07.960 16988 17043 D RegistrationHandler: Has received 4 of 15 from 1@test.com
+04-26 14:42:07.980 16988 17043 D RegistrationHandler: Has received 5 of 15 from 1@test.com
+04-26 14:42:07.996 16988 17043 D RegistrationHandler: Has received 6 of 15 from 1@test.com
+04-26 14:42:08.087 16988 17043 D RegistrationHandler: Has received 7 of 15 from 1@test.com
+04-26 14:42:08.120 16988 17043 D RegistrationHandler: Has received 8 of 15 from 1@test.com
+04-26 14:42:08.198 16988 17043 D RegistrationHandler: Has received 9 of 15 from 1@test.com
+04-26 14:42:08.212 16988 17043 D RegistrationHandler: Has received 10 of 15 from 1@test.com
+04-26 14:42:08.253 16988 17043 D RegistrationHandler: Has received 11 of 15 from 1@test.com
+04-26 14:42:08.272 16988 17043 D RegistrationHandler: Has received 12 of 15 from 1@test.com
+04-26 14:42:08.451 16988 17043 D RegistrationHandler: Has received 13 of 15 from 1@test.com
+04-26 14:42:08.645 16988 17043 D RegistrationHandler: Has received 14 of 15 from 1@test.com
+04-26 14:42:08.656 16988 17043 D RegistrationHandler: Has received 15 of 15 from 1@test.com
+04-26 14:42:08.687 16988 17043 D RegistrationHandler: Received full ledger from 1@test.com with nonce 2077652245
+04-26 14:42:08.687 16988 17043 D RegistrationHandler: FULL_LEDGER 2077652245
+round 20 of 40
+04-26 14:42:21.946 17096 17143 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-26 14:42:21.948 17096 17145 D MulticastServer: Registration process started with nonce 1055350682
+04-26 14:42:21.951 17096 17144 D MulticastClient: REQUEST_LEDGER 1055350682
+04-26 14:42:21.952 17096 17144 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1055350682,"seq":0,"tot":0}]
+04-26 14:42:22.066 17096 17151 D RegistrationHandler: Has received 1 of 15 fragments from 1@test.com
+04-26 14:42:22.077 17096 17151 D RegistrationHandler: Has received 2 of 15 from 1@test.com
+04-26 14:42:22.092 17096 17151 D RegistrationHandler: Has received 3 of 15 from 1@test.com
+04-26 14:42:22.169 17096 17151 D RegistrationHandler: Has received 4 of 15 from 1@test.com
+04-26 14:42:22.292 17096 17151 D RegistrationHandler: Has received 5 of 15 from 1@test.com
+04-26 14:42:22.312 17096 17151 D RegistrationHandler: Has received 6 of 15 from 1@test.com
+04-26 14:42:22.441 17096 17151 D RegistrationHandler: Has received 7 of 15 from 1@test.com
+04-26 14:42:22.456 17096 17151 D RegistrationHandler: Has received 8 of 15 from 1@test.com
+04-26 14:42:22.676 17096 17151 D RegistrationHandler: Has received 9 of 15 from 1@test.com
+04-26 14:42:22.690 17096 17151 D RegistrationHandler: Has received 10 of 15 from 1@test.com
+04-26 14:42:22.705 17096 17151 D RegistrationHandler: Has received 11 of 15 from 1@test.com
+04-26 14:42:22.729 17096 17151 D RegistrationHandler: Has received 12 of 15 from 1@test.com
+04-26 14:42:22.745 17096 17151 D RegistrationHandler: Has received 13 of 15 from 1@test.com
+04-26 14:42:22.988 17096 17151 D RegistrationHandler: Has received 14 of 15 from 1@test.com
+04-26 14:42:23.094 17096 17151 D RegistrationHandler: Has received 15 of 15 from 1@test.com
+04-26 14:42:23.123 17096 17151 D RegistrationHandler: Received full ledger from 1@test.com with nonce 1055350682
+04-26 14:42:23.123 17096 17151 D RegistrationHandler: FULL_LEDGER 1055350682
+round 21 of 40
+04-26 14:42:36.368 17205 17253 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-26 14:42:36.370 17205 17255 D MulticastServer: Registration process started with nonce 470727007
+04-26 14:42:36.373 17205 17254 D MulticastClient: REQUEST_LEDGER 470727007
+04-26 14:42:36.374 17205 17254 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":470727007,"seq":0,"tot":0}]
+04-26 14:42:36.635 17205 17262 D RegistrationHandler: Has received 1 of 15 fragments from 1@test.com
+04-26 14:42:36.773 17205 17262 D RegistrationHandler: Has received 2 of 15 from 1@test.com
+04-26 14:42:36.793 17205 17262 D RegistrationHandler: Has received 3 of 15 from 1@test.com
+04-26 14:42:36.818 17205 17262 D RegistrationHandler: Has received 4 of 15 from 1@test.com
+04-26 14:42:36.832 17205 17262 D RegistrationHandler: Has received 5 of 15 from 1@test.com
+04-26 14:42:37.057 17205 17262 D RegistrationHandler: Has received 6 of 15 from 1@test.com
+04-26 14:42:37.074 17205 17262 D RegistrationHandler: Has received 7 of 15 from 1@test.com
+04-26 14:42:37.094 17205 17262 D RegistrationHandler: Has received 8 of 15 from 1@test.com
+04-26 14:42:37.110 17205 17262 D RegistrationHandler: Has received 9 of 15 from 1@test.com
+04-26 14:42:37.131 17205 17262 D RegistrationHandler: Has received 10 of 15 from 1@test.com
+04-26 14:42:37.144 17205 17262 D RegistrationHandler: Has received 11 of 15 from 1@test.com
+04-26 14:42:37.192 17205 17262 D RegistrationHandler: Has received 12 of 15 from 1@test.com
+04-26 14:42:37.204 17205 17262 D RegistrationHandler: Has received 13 of 15 from 1@test.com
+04-26 14:42:37.234 17205 17262 D RegistrationHandler: Has received 14 of 15 from 1@test.com
+04-26 14:42:37.299 17205 17262 D RegistrationHandler: Has received 15 of 15 from 1@test.com
+04-26 14:42:37.327 17205 17262 D RegistrationHandler: Received full ledger from 1@test.com with nonce 470727007
+04-26 14:42:37.327 17205 17262 D RegistrationHandler: FULL_LEDGER 470727007
+round 22 of 40
+04-26 14:42:50.773 17303 17351 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-26 14:42:50.776 17303 17353 D MulticastServer: Registration process started with nonce 369675043
+04-26 14:42:50.779 17303 17357 D MulticastClient: REQUEST_LEDGER 369675043
+04-26 14:42:50.780 17303 17357 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":369675043,"seq":0,"tot":0}]
+04-26 14:42:51.124 17303 17360 D RegistrationHandler: Has received 1 of 15 fragments from 1@test.com
+04-26 14:42:51.193 17303 17360 D RegistrationHandler: Has received 2 of 15 from 1@test.com
+04-26 14:42:51.215 17303 17360 D RegistrationHandler: Has received 3 of 15 from 1@test.com
+04-26 14:42:51.254 17303 17360 D RegistrationHandler: Has received 4 of 15 from 1@test.com
+04-26 14:42:51.269 17303 17360 D RegistrationHandler: Has received 5 of 15 from 1@test.com
+04-26 14:42:51.282 17303 17360 D RegistrationHandler: Has received 6 of 15 from 1@test.com
+04-26 14:42:51.455 17303 17360 D RegistrationHandler: Has received 7 of 15 from 1@test.com
+04-26 14:42:51.553 17303 17360 D RegistrationHandler: Has received 8 of 15 from 1@test.com
+04-26 14:42:51.561 17303 17360 D RegistrationHandler: Has received 9 of 15 from 1@test.com
+04-26 14:42:51.584 17303 17360 D RegistrationHandler: Has received 10 of 15 from 1@test.com
+04-26 14:42:51.833 17303 17360 D RegistrationHandler: Has received 11 of 15 from 1@test.com
+04-26 14:42:51.906 17303 17360 D RegistrationHandler: Has received 12 of 15 from 1@test.com
+04-26 14:42:51.924 17303 17360 D RegistrationHandler: Has received 13 of 15 from 1@test.com
+04-26 14:42:51.949 17303 17360 D RegistrationHandler: Has received 14 of 15 from 1@test.com
+04-26 14:42:51.956 17303 17360 D RegistrationHandler: Has received 15 of 15 from 1@test.com
+04-26 14:42:51.982 17303 17360 D RegistrationHandler: Received full ledger from 1@test.com with nonce 369675043
+04-26 14:42:51.982 17303 17360 D RegistrationHandler: FULL_LEDGER 369675043
+round 23 of 40
+04-26 14:43:05.196 17413 17461 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-26 14:43:05.198 17413 17462 D MulticastServer: Registration process started with nonce 1211471942
+04-26 14:43:05.201 17413 17460 D MulticastClient: REQUEST_LEDGER 1211471942
+04-26 14:43:05.202 17413 17460 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1211471942,"seq":0,"tot":0}]
+04-26 14:43:05.265 17413 17469 D MulticastServer: Broadcast block received {"ip":"192.168.1.66","cert":"MIIBGzCBwqADAgECAgYBgEtLsMUwCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKVFRNNDkwNSBDQTAeFw0yMjA0MjAwODQ0NTNaFw0yMjA1MjEwODQ0NTNaMBUxEzARBgNVBAMMCjFAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQHFNOCHx/BBFYqT41UW1M6slehFXn+9LK4VDhtASjKBd51QxSRtYZAl+/IpTuOnQdMVvlGCMMWkSeEGOgyfwh1MAoGCCqGSM49BAMCA0gAMEUCIQD1OXIEAO1fI6+XpR936a5Ef365WnXPvrbzl8oxr0/Z8QIgV5LWkYufM8V0VqpcYcHXyI2fCScD24nJMtVWnrVtOU8="}
+04-26 14:43:05.394 17413 17469 D RegistrationHandler: Has received 1 of 15 fragments from 1@test.com
+04-26 14:43:05.405 17413 17469 D RegistrationHandler: Has received 2 of 15 from 1@test.com
+04-26 14:43:05.425 17413 17469 D RegistrationHandler: Has received 3 of 15 from 1@test.com
+04-26 14:43:05.440 17413 17469 D RegistrationHandler: Has received 4 of 15 from 1@test.com
+04-26 14:43:05.540 17413 17469 D RegistrationHandler: Has received 5 of 15 from 1@test.com
+04-26 14:43:05.633 17413 17469 D RegistrationHandler: Has received 6 of 15 from 1@test.com
+04-26 14:43:05.651 17413 17469 D RegistrationHandler: Has received 7 of 15 from 1@test.com
+04-26 14:43:05.743 17413 17469 D RegistrationHandler: Has received 8 of 15 from 1@test.com
+04-26 14:43:05.759 17413 17469 D RegistrationHandler: Has received 9 of 15 from 1@test.com
+04-26 14:43:05.779 17413 17469 D RegistrationHandler: Has received 10 of 15 from 1@test.com
+04-26 14:43:05.795 17413 17469 D RegistrationHandler: Has received 11 of 15 from 1@test.com
+04-26 14:43:05.809 17413 17469 D RegistrationHandler: Has received 12 of 15 from 1@test.com
+04-26 14:43:05.882 17413 17469 D RegistrationHandler: Has received 13 of 15 from 1@test.com
+04-26 14:43:05.896 17413 17469 D RegistrationHandler: Has received 14 of 15 from 1@test.com
+04-26 14:43:06.043 17413 17469 D RegistrationHandler: Has received 15 of 15 from 1@test.com
+04-26 14:43:06.072 17413 17469 D RegistrationHandler: Received full ledger from 1@test.com with nonce 1211471942
+04-26 14:43:06.072 17413 17469 D RegistrationHandler: FULL_LEDGER 1211471942
+round 24 of 40
+04-26 14:43:19.582 17511 17559 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-26 14:43:19.584 17511 17561 D MulticastServer: Registration process started with nonce 975595638
+04-26 14:43:19.587 17511 17560 D MulticastClient: REQUEST_LEDGER 975595638
+04-26 14:43:19.588 17511 17560 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":975595638,"seq":0,"tot":0}]
+04-26 14:43:19.650 17511 17567 D MulticastServer: Broadcast block received {"ip":"192.168.1.66","cert":"MIIBGzCBwqADAgECAgYBgEtLsMUwCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKVFRNNDkwNSBDQTAeFw0yMjA0MjAwODQ0NTNaFw0yMjA1MjEwODQ0NTNaMBUxEzARBgNVBAMMCjFAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQHFNOCHx/BBFYqT41UW1M6slehFXn+9LK4VDhtASjKBd51QxSRtYZAl+/IpTuOnQdMVvlGCMMWkSeEGOgyfwh1MAoGCCqGSM49BAMCA0gAMEUCIQD1OXIEAO1fI6+XpR936a5Ef365WnXPvrbzl8oxr0/Z8QIgV5LWkYufM8V0VqpcYcHXyI2fCScD24nJMtVWnrVtOU8="}
+04-26 14:43:19.758 17511 17567 D RegistrationHandler: Has received 1 of 15 fragments from 1@test.com
+04-26 14:43:19.777 17511 17567 D RegistrationHandler: Has received 2 of 15 from 1@test.com
+04-26 14:43:19.793 17511 17567 D RegistrationHandler: Has received 3 of 15 from 1@test.com
+04-26 14:43:19.813 17511 17567 D RegistrationHandler: Has received 4 of 15 from 1@test.com
+04-26 14:43:19.828 17511 17567 D RegistrationHandler: Has received 5 of 15 from 1@test.com
+04-26 14:43:19.985 17511 17567 D RegistrationHandler: Has received 6 of 15 from 1@test.com
+04-26 14:43:20.070 17511 17567 D RegistrationHandler: Has received 7 of 15 from 1@test.com
+04-26 14:43:20.081 17511 17567 D RegistrationHandler: Has received 8 of 15 from 1@test.com
+04-26 14:43:20.097 17511 17567 D RegistrationHandler: Has received 9 of 15 from 1@test.com
+04-26 14:43:20.133 17511 17567 D RegistrationHandler: Has received 10 of 15 from 1@test.com
+04-26 14:43:20.152 17511 17567 D RegistrationHandler: Has received 11 of 15 from 1@test.com
+04-26 14:43:20.172 17511 17567 D RegistrationHandler: Has received 12 of 15 from 1@test.com
+04-26 14:43:20.376 17511 17567 D RegistrationHandler: Has received 13 of 15 from 1@test.com
+04-26 14:43:20.536 17511 17567 D RegistrationHandler: Has received 14 of 15 from 1@test.com
+04-26 14:43:20.557 17511 17567 D RegistrationHandler: Has received 15 of 15 from 1@test.com
+04-26 14:43:20.586 17511 17567 D RegistrationHandler: Received full ledger from 1@test.com with nonce 975595638
+04-26 14:43:20.586 17511 17567 D RegistrationHandler: FULL_LEDGER 975595638
+round 25 of 40
+04-26 14:43:34.027 17614 17661 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-26 14:43:34.029 17614 17663 D MulticastServer: Registration process started with nonce 166707059
+04-26 14:43:34.033 17614 17667 D MulticastClient: REQUEST_LEDGER 166707059
+04-26 14:43:34.040 17614 17667 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":166707059,"seq":0,"tot":0}]
+04-26 14:43:34.214 17614 17669 D RegistrationHandler: Has received 1 of 15 fragments from 1@test.com
+04-26 14:43:34.227 17614 17669 D RegistrationHandler: Has received 2 of 15 from 1@test.com
+04-26 14:43:34.247 17614 17669 D RegistrationHandler: Has received 3 of 15 from 1@test.com
+04-26 14:43:34.364 17614 17669 D RegistrationHandler: Has received 4 of 15 from 1@test.com
+04-26 14:43:34.457 17614 17669 D RegistrationHandler: Has received 5 of 15 from 1@test.com
+04-26 14:43:34.549 17614 17669 D RegistrationHandler: Has received 6 of 15 from 1@test.com
+04-26 14:43:34.566 17614 17669 D RegistrationHandler: Has received 7 of 15 from 1@test.com
+04-26 14:43:34.588 17614 17669 D RegistrationHandler: Has received 8 of 15 from 1@test.com
+04-26 14:43:34.616 17614 17669 D RegistrationHandler: Has received 9 of 15 from 1@test.com
+04-26 14:43:34.628 17614 17669 D RegistrationHandler: Has received 10 of 15 from 1@test.com
+04-26 14:43:34.671 17614 17669 D RegistrationHandler: Has received 11 of 15 from 1@test.com
+04-26 14:43:34.689 17614 17669 D RegistrationHandler: Has received 12 of 15 from 1@test.com
+04-26 14:43:34.818 17614 17669 D RegistrationHandler: Has received 13 of 15 from 1@test.com
+04-26 14:43:35.044 17614 17669 D RegistrationHandler: Has received 14 of 15 from 1@test.com
+04-26 14:43:35.062 17614 17669 D RegistrationHandler: Has received 15 of 15 from 1@test.com
+04-26 14:43:35.090 17614 17669 D RegistrationHandler: Received full ledger from 1@test.com with nonce 166707059
+04-26 14:43:35.090 17614 17669 D RegistrationHandler: FULL_LEDGER 166707059
+round 26 of 40
+04-26 14:43:48.456 17727 17774 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-26 14:43:48.458 17727 17776 D MulticastServer: Registration process started with nonce 1313299935
+04-26 14:43:48.460 17727 17775 D MulticastClient: REQUEST_LEDGER 1313299935
+04-26 14:43:48.462 17727 17775 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1313299935,"seq":0,"tot":0}]
+04-26 14:43:48.937 17727 17783 D RegistrationHandler: Has received 1 of 15 fragments from 1@test.com
+04-26 14:43:48.954 17727 17783 D RegistrationHandler: Has received 2 of 15 from 1@test.com
+04-26 14:43:48.972 17727 17783 D RegistrationHandler: Has received 3 of 15 from 1@test.com
+04-26 14:43:49.097 17727 17783 D RegistrationHandler: Has received 4 of 15 from 1@test.com
+04-26 14:43:49.147 17727 17783 D RegistrationHandler: Has received 5 of 15 from 1@test.com
+04-26 14:43:49.167 17727 17783 D RegistrationHandler: Has received 6 of 15 from 1@test.com
+04-26 14:43:49.180 17727 17783 D RegistrationHandler: Has received 7 of 15 from 1@test.com
+04-26 14:43:49.258 17727 17783 D RegistrationHandler: Has received 8 of 15 from 1@test.com
+04-26 14:43:49.273 17727 17783 D RegistrationHandler: Has received 9 of 15 from 1@test.com
+04-26 14:43:49.371 17727 17783 D RegistrationHandler: Has received 10 of 15 from 1@test.com
+04-26 14:43:49.387 17727 17783 D RegistrationHandler: Has received 11 of 15 from 1@test.com
+04-26 14:43:49.473 17727 17783 D RegistrationHandler: Has received 12 of 15 from 1@test.com
+04-26 14:43:49.769 17727 17783 D RegistrationHandler: Has received 13 of 15 from 1@test.com
+04-26 14:43:50.002 17727 17783 D RegistrationHandler: Has received 14 of 15 from 1@test.com
+round 27 of 40
+04-26 14:44:02.886 17825 17873 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-26 14:44:02.888 17825 17875 D MulticastServer: Registration process started with nonce 2018104195
+04-26 14:44:02.891 17825 17874 D MulticastClient: REQUEST_LEDGER 2018104195
+04-26 14:44:02.892 17825 17874 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":2018104195,"seq":0,"tot":0}]
+04-26 14:44:03.193 17825 17882 D RegistrationHandler: Has received 1 of 15 fragments from 1@test.com
+04-26 14:44:03.213 17825 17882 D RegistrationHandler: Has received 2 of 15 from 1@test.com
+04-26 14:44:03.237 17825 17882 D RegistrationHandler: Has received 3 of 15 from 1@test.com
+04-26 14:44:03.252 17825 17882 D RegistrationHandler: Has received 4 of 15 from 1@test.com
+04-26 14:44:03.346 17825 17882 D RegistrationHandler: Has received 5 of 15 from 1@test.com
+04-26 14:44:03.363 17825 17882 D RegistrationHandler: Has received 6 of 15 from 1@test.com
+04-26 14:44:03.384 17825 17882 D RegistrationHandler: Has received 7 of 15 from 1@test.com
+04-26 14:44:03.499 17825 17882 D RegistrationHandler: Has received 8 of 15 from 1@test.com
+04-26 14:44:03.512 17825 17882 D RegistrationHandler: Has received 9 of 15 from 1@test.com
+04-26 14:44:03.595 17825 17882 D RegistrationHandler: Has received 10 of 15 from 1@test.com
+04-26 14:44:03.686 17825 17882 D RegistrationHandler: Has received 11 of 15 from 1@test.com
+04-26 14:44:03.913 17825 17882 D RegistrationHandler: Has received 12 of 15 from 1@test.com
+04-26 14:44:03.931 17825 17882 D RegistrationHandler: Has received 13 of 15 from 1@test.com
+04-26 14:44:04.137 17825 17882 D RegistrationHandler: Has received 14 of 15 from 1@test.com
+04-26 14:44:06.569 17825 17882 D RegistrationHandler: Has received 15 of 15 from 1@test.com
+04-26 14:44:06.596 17825 17882 D RegistrationHandler: Received full ledger from 1@test.com with nonce 2018104195
+04-26 14:44:06.596 17825 17882 D RegistrationHandler: FULL_LEDGER 2018104195
+round 28 of 40
+04-26 14:44:17.318 17921 17970 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-26 14:44:17.320 17921 17972 D MulticastServer: Registration process started with nonce 281432142
+04-26 14:44:17.322 17921 17971 D MulticastClient: REQUEST_LEDGER 281432142
+04-26 14:44:17.324 17921 17971 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":281432142,"seq":0,"tot":0}]
+04-26 14:44:17.567 17921 17978 D RegistrationHandler: Has received 1 of 15 fragments from 1@test.com
+04-26 14:44:17.581 17921 17978 D RegistrationHandler: Has received 2 of 15 from 1@test.com
+04-26 14:44:17.635 17921 17978 D RegistrationHandler: Has received 3 of 15 from 1@test.com
+04-26 14:44:17.660 17921 17978 D RegistrationHandler: Has received 4 of 15 from 1@test.com
+04-26 14:44:17.676 17921 17978 D RegistrationHandler: Has received 5 of 15 from 1@test.com
+04-26 14:44:17.701 17921 17978 D RegistrationHandler: Has received 6 of 15 from 1@test.com
+04-26 14:44:17.791 17921 17978 D RegistrationHandler: Has received 7 of 15 from 1@test.com
+04-26 14:44:17.953 17921 17978 D RegistrationHandler: Has received 8 of 15 from 1@test.com
+04-26 14:44:17.973 17921 17978 D RegistrationHandler: Has received 9 of 15 from 1@test.com
+04-26 14:44:17.998 17921 17978 D RegistrationHandler: Has received 10 of 15 from 1@test.com
+04-26 14:44:18.023 17921 17978 D RegistrationHandler: Has received 11 of 15 from 1@test.com
+04-26 14:44:18.041 17921 17978 D RegistrationHandler: Has received 12 of 15 from 1@test.com
+04-26 14:44:18.056 17921 17978 D RegistrationHandler: Has received 13 of 15 from 1@test.com
+04-26 14:44:18.153 17921 17978 D RegistrationHandler: Has received 14 of 15 from 1@test.com
+04-26 14:44:18.246 17921 17978 D RegistrationHandler: Has received 15 of 15 from 1@test.com
+04-26 14:44:18.275 17921 17978 D RegistrationHandler: Received full ledger from 1@test.com with nonce 281432142
+04-26 14:44:18.275 17921 17978 D RegistrationHandler: FULL_LEDGER 281432142
+round 29 of 40
+04-26 14:44:31.698 18033 18082 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-26 14:44:31.706 18033 18084 D MulticastServer: Registration process started with nonce 1387438203
+04-26 14:44:31.710 18033 18089 D MulticastClient: REQUEST_LEDGER 1387438203
+04-26 14:44:31.717 18033 18089 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1387438203,"seq":0,"tot":0}]
+04-26 14:44:31.910 18033 18092 D RegistrationHandler: Has received 1 of 15 fragments from 1@test.com
+04-26 14:44:31.946 18033 18092 D RegistrationHandler: Has received 2 of 15 from 1@test.com
+04-26 14:44:31.965 18033 18092 D RegistrationHandler: Has received 3 of 15 from 1@test.com
+04-26 14:44:31.980 18033 18092 D RegistrationHandler: Has received 4 of 15 from 1@test.com
+04-26 14:44:32.057 18033 18092 D RegistrationHandler: Has received 5 of 15 from 1@test.com
+04-26 14:44:32.074 18033 18092 D RegistrationHandler: Has received 6 of 15 from 1@test.com
+04-26 14:44:32.088 18033 18092 D RegistrationHandler: Has received 7 of 15 from 1@test.com
+04-26 14:44:32.108 18033 18092 D RegistrationHandler: Has received 8 of 15 from 1@test.com
+04-26 14:44:32.124 18033 18092 D RegistrationHandler: Has received 9 of 15 from 1@test.com
+04-26 14:44:32.151 18033 18092 D RegistrationHandler: Has received 10 of 15 from 1@test.com
+04-26 14:44:32.240 18033 18092 D RegistrationHandler: Has received 11 of 15 from 1@test.com
+04-26 14:44:32.260 18033 18092 D RegistrationHandler: Has received 12 of 15 from 1@test.com
+04-26 14:44:32.476 18033 18092 D RegistrationHandler: Has received 13 of 15 from 1@test.com
+04-26 14:44:32.728 18033 18092 D RegistrationHandler: Has received 14 of 15 from 1@test.com
+04-26 14:44:32.745 18033 18092 D RegistrationHandler: Has received 15 of 15 from 1@test.com
+04-26 14:44:32.774 18033 18092 D RegistrationHandler: Received full ledger from 1@test.com with nonce 1387438203
+04-26 14:44:32.774 18033 18092 D RegistrationHandler: FULL_LEDGER 1387438203
+round 30 of 40
+04-26 14:44:46.170 18143 18191 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-26 14:44:46.172 18143 18193 D MulticastServer: Registration process started with nonce 750199416
+04-26 14:44:46.177 18143 18197 D MulticastClient: REQUEST_LEDGER 750199416
+04-26 14:44:46.184 18143 18197 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":750199416,"seq":0,"tot":0}]
+04-26 14:44:46.203 18143 18199 D MulticastServer: Broadcast block received {"ip":"192.168.1.66","cert":"MIIBGzCBwqADAgECAgYBgEtLsMUwCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKVFRNNDkwNSBDQTAeFw0yMjA0MjAwODQ0NTNaFw0yMjA1MjEwODQ0NTNaMBUxEzARBgNVBAMMCjFAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQHFNOCHx/BBFYqT41UW1M6slehFXn+9LK4VDhtASjKBd51QxSRtYZAl+/IpTuOnQdMVvlGCMMWkSeEGOgyfwh1MAoGCCqGSM49BAMCA0gAMEUCIQD1OXIEAO1fI6+XpR936a5Ef365WnXPvrbzl8oxr0/Z8QIgV5LWkYufM8V0VqpcYcHXyI2fCScD24nJMtVWnrVtOU8="}
+04-26 14:44:46.353 18143 18199 D RegistrationHandler: Has received 1 of 15 fragments from 1@test.com
+04-26 14:44:46.365 18143 18199 D RegistrationHandler: Has received 2 of 15 from 1@test.com
+04-26 14:44:46.501 18143 18199 D RegistrationHandler: Has received 3 of 15 from 1@test.com
+04-26 14:44:46.516 18143 18199 D RegistrationHandler: Has received 4 of 15 from 1@test.com
+04-26 14:44:46.537 18143 18199 D RegistrationHandler: Has received 5 of 15 from 1@test.com
+04-26 14:44:46.554 18143 18199 D RegistrationHandler: Has received 6 of 15 from 1@test.com
+04-26 14:44:46.572 18143 18199 D RegistrationHandler: Has received 7 of 15 from 1@test.com
+04-26 14:44:46.592 18143 18199 D RegistrationHandler: Has received 8 of 15 from 1@test.com
+04-26 14:44:46.614 18143 18199 D RegistrationHandler: Has received 9 of 15 from 1@test.com
+04-26 14:44:46.707 18143 18199 D RegistrationHandler: Has received 10 of 15 from 1@test.com
+04-26 14:44:46.726 18143 18199 D RegistrationHandler: Has received 11 of 15 from 1@test.com
+04-26 14:44:46.836 18143 18199 D RegistrationHandler: Has received 12 of 15 from 1@test.com
+04-26 14:44:46.854 18143 18199 D RegistrationHandler: Has received 13 of 15 from 1@test.com
+04-26 14:44:46.874 18143 18199 D RegistrationHandler: Has received 14 of 15 from 1@test.com
+04-26 14:44:46.894 18143 18199 D RegistrationHandler: Has received 15 of 15 from 1@test.com
+04-26 14:44:46.923 18143 18199 D RegistrationHandler: Received full ledger from 1@test.com with nonce 750199416
+04-26 14:44:46.923 18143 18199 D RegistrationHandler: FULL_LEDGER 750199416
+round 31 of 40
+04-26 14:45:00.580 18239 18287 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-26 14:45:00.581 18239 18289 D MulticastServer: Registration process started with nonce 365759297
+04-26 14:45:00.584 18239 18288 D MulticastClient: REQUEST_LEDGER 365759297
+04-26 14:45:00.585 18239 18288 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":365759297,"seq":0,"tot":0}]
+04-26 14:45:00.792 18239 18295 D RegistrationHandler: Has received 1 of 15 fragments from 1@test.com
+04-26 14:45:00.804 18239 18295 D RegistrationHandler: Has received 2 of 15 from 1@test.com
+04-26 14:45:00.909 18239 18295 D RegistrationHandler: Has received 3 of 15 from 1@test.com
+04-26 14:45:00.928 18239 18295 D RegistrationHandler: Has received 4 of 15 from 1@test.com
+04-26 14:45:00.944 18239 18295 D RegistrationHandler: Has received 5 of 15 from 1@test.com
+04-26 14:45:00.964 18239 18295 D RegistrationHandler: Has received 6 of 15 from 1@test.com
+04-26 14:45:00.984 18239 18295 D RegistrationHandler: Has received 7 of 15 from 1@test.com
+04-26 14:45:01.003 18239 18295 D RegistrationHandler: Has received 8 of 15 from 1@test.com
+04-26 14:45:01.035 18239 18295 D RegistrationHandler: Has received 9 of 15 from 1@test.com
+04-26 14:45:01.052 18239 18295 D RegistrationHandler: Has received 10 of 15 from 1@test.com
+04-26 14:45:01.071 18239 18295 D RegistrationHandler: Has received 11 of 15 from 1@test.com
+04-26 14:45:01.250 18239 18295 D RegistrationHandler: Has received 12 of 15 from 1@test.com
+04-26 14:45:01.270 18239 18295 D RegistrationHandler: Has received 13 of 15 from 1@test.com
+04-26 14:45:01.287 18239 18295 D RegistrationHandler: Has received 14 of 15 from 1@test.com
+04-26 14:45:01.639 18239 18295 D RegistrationHandler: Has received 15 of 15 from 1@test.com
+04-26 14:45:01.667 18239 18295 D RegistrationHandler: Received full ledger from 1@test.com with nonce 365759297
+04-26 14:45:01.667 18239 18295 D RegistrationHandler: FULL_LEDGER 365759297
+round 32 of 40
+04-26 14:45:14.969 18333 18383 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-26 14:45:14.972 18333 18385 D MulticastServer: Registration process started with nonce 1080878589
+04-26 14:45:14.975 18333 18384 D MulticastClient: REQUEST_LEDGER 1080878589
+04-26 14:45:14.976 18333 18384 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1080878589,"seq":0,"tot":0}]
+04-26 14:45:15.158 18333 18392 D RegistrationHandler: Has received 1 of 15 fragments from 1@test.com
+04-26 14:45:15.172 18333 18392 D RegistrationHandler: Has received 2 of 15 from 1@test.com
+04-26 14:45:15.349 18333 18392 D RegistrationHandler: Has received 3 of 15 from 1@test.com
+04-26 14:45:15.369 18333 18392 D RegistrationHandler: Has received 4 of 15 from 1@test.com
+04-26 14:45:15.384 18333 18392 D RegistrationHandler: Has received 5 of 15 from 1@test.com
+04-26 14:45:15.570 18333 18392 D RegistrationHandler: Has received 6 of 15 from 1@test.com
+04-26 14:45:15.609 18333 18392 D RegistrationHandler: Has received 7 of 15 from 1@test.com
+04-26 14:45:15.628 18333 18392 D RegistrationHandler: Has received 8 of 15 from 1@test.com
+04-26 14:45:15.714 18333 18392 D RegistrationHandler: Has received 9 of 15 from 1@test.com
+04-26 14:45:15.723 18333 18392 D RegistrationHandler: Has received 10 of 15 from 1@test.com
+04-26 14:45:15.745 18333 18392 D RegistrationHandler: Has received 11 of 15 from 1@test.com
+04-26 14:45:15.765 18333 18392 D RegistrationHandler: Has received 12 of 15 from 1@test.com
+04-26 14:45:15.783 18333 18392 D RegistrationHandler: Has received 13 of 15 from 1@test.com
+04-26 14:45:15.804 18333 18392 D RegistrationHandler: Has received 14 of 15 from 1@test.com
+04-26 14:45:16.076 18333 18392 D RegistrationHandler: Has received 15 of 15 from 1@test.com
+04-26 14:45:16.103 18333 18392 D RegistrationHandler: Received full ledger from 1@test.com with nonce 1080878589
+04-26 14:45:16.103 18333 18392 D RegistrationHandler: FULL_LEDGER 1080878589
+round 33 of 40
+04-26 14:45:29.351 18442 18492 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-26 14:45:29.358 18442 18494 D MulticastServer: Registration process started with nonce 1201893262
+04-26 14:45:29.361 18442 18498 D MulticastClient: REQUEST_LEDGER 1201893262
+04-26 14:45:29.364 18442 18498 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1201893262,"seq":0,"tot":0}]
+04-26 14:45:29.844 18442 18501 D RegistrationHandler: Has received 1 of 15 fragments from 1@test.com
+04-26 14:45:29.847 18442 18501 D RegistrationHandler: Has received 2 of 15 from 1@test.com
+04-26 14:45:29.861 18442 18501 D RegistrationHandler: Has received 3 of 15 from 1@test.com
+04-26 14:45:29.878 18442 18501 D RegistrationHandler: Has received 4 of 15 from 1@test.com
+04-26 14:45:29.894 18442 18501 D RegistrationHandler: Has received 5 of 15 from 1@test.com
+04-26 14:45:30.074 18442 18501 D RegistrationHandler: Has received 6 of 15 from 1@test.com
+04-26 14:45:30.118 18442 18501 D RegistrationHandler: Has received 7 of 15 from 1@test.com
+04-26 14:45:30.133 18442 18501 D RegistrationHandler: Has received 8 of 15 from 1@test.com
+04-26 14:45:30.155 18442 18501 D RegistrationHandler: Has received 9 of 15 from 1@test.com
+04-26 14:45:30.198 18442 18501 D RegistrationHandler: Has received 10 of 15 from 1@test.com
+04-26 14:45:30.222 18442 18501 D RegistrationHandler: Has received 11 of 15 from 1@test.com
+04-26 14:45:30.235 18442 18501 D RegistrationHandler: Has received 12 of 15 from 1@test.com
+04-26 14:45:30.416 18442 18501 D RegistrationHandler: Has received 13 of 15 from 1@test.com
+04-26 14:45:31.993 18442 18501 D RegistrationHandler: Has received 14 of 15 from 1@test.com
+04-26 14:45:33.022 18442 18501 D RegistrationHandler: Has received 15 of 15 from 1@test.com
+04-26 14:45:33.049 18442 18501 D RegistrationHandler: Received full ledger from 1@test.com with nonce 1201893262
+04-26 14:45:33.049 18442 18501 D RegistrationHandler: FULL_LEDGER 1201893262
+round 34 of 40
+04-26 14:45:43.730 18540 18592 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-26 14:45:43.733 18540 18594 D MulticastServer: Registration process started with nonce 1823214469
+04-26 14:45:43.736 18540 18598 D MulticastClient: REQUEST_LEDGER 1823214469
+04-26 14:45:43.737 18540 18598 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1823214469,"seq":0,"tot":0}]
+04-26 14:45:43.936 18540 18601 D RegistrationHandler: Has received 1 of 15 fragments from 1@test.com
+04-26 14:45:43.953 18540 18601 D RegistrationHandler: Has received 2 of 15 from 1@test.com
+04-26 14:45:43.973 18540 18601 D RegistrationHandler: Has received 3 of 15 from 1@test.com
+04-26 14:45:43.988 18540 18601 D RegistrationHandler: Has received 4 of 15 from 1@test.com
+04-26 14:45:44.052 18540 18601 D RegistrationHandler: Has received 5 of 15 from 1@test.com
+04-26 14:45:44.072 18540 18601 D RegistrationHandler: Has received 6 of 15 from 1@test.com
+04-26 14:45:44.154 18540 18601 D RegistrationHandler: Has received 7 of 15 from 1@test.com
+04-26 14:45:44.178 18540 18601 D RegistrationHandler: Has received 8 of 15 from 1@test.com
+04-26 14:45:44.193 18540 18601 D RegistrationHandler: Has received 9 of 15 from 1@test.com
+04-26 14:45:44.255 18540 18601 D RegistrationHandler: Has received 10 of 15 from 1@test.com
+04-26 14:45:44.278 18540 18601 D RegistrationHandler: Has received 11 of 15 from 1@test.com
+04-26 14:45:44.391 18540 18601 D RegistrationHandler: Has received 12 of 15 from 1@test.com
+04-26 14:45:44.526 18540 18601 D RegistrationHandler: Has received 13 of 15 from 1@test.com
+04-26 14:45:44.748 18540 18601 D RegistrationHandler: Has received 14 of 15 from 1@test.com
+04-26 14:45:44.767 18540 18601 D RegistrationHandler: Has received 15 of 15 from 1@test.com
+04-26 14:45:44.795 18540 18601 D RegistrationHandler: Received full ledger from 1@test.com with nonce 1823214469
+04-26 14:45:44.795 18540 18601 D RegistrationHandler: FULL_LEDGER 1823214469
+round 35 of 40
+04-26 14:45:58.140 18652 18701 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-26 14:45:58.142 18652 18703 D MulticastServer: Registration process started with nonce 471601482
+04-26 14:45:58.144 18652 18702 D MulticastClient: REQUEST_LEDGER 471601482
+04-26 14:45:58.146 18652 18702 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":471601482,"seq":0,"tot":0}]
+04-26 14:45:58.381 18652 18709 D RegistrationHandler: Has received 1 of 15 fragments from 1@test.com
+04-26 14:45:58.397 18652 18709 D RegistrationHandler: Has received 2 of 15 from 1@test.com
+04-26 14:45:58.417 18652 18709 D RegistrationHandler: Has received 3 of 15 from 1@test.com
+04-26 14:45:58.436 18652 18709 D RegistrationHandler: Has received 4 of 15 from 1@test.com
+04-26 14:45:58.468 18652 18709 D RegistrationHandler: Has received 5 of 15 from 1@test.com
+04-26 14:45:58.488 18652 18709 D RegistrationHandler: Has received 6 of 15 from 1@test.com
+04-26 14:45:58.504 18652 18709 D RegistrationHandler: Has received 7 of 15 from 1@test.com
+04-26 14:45:58.524 18652 18709 D RegistrationHandler: Has received 8 of 15 from 1@test.com
+04-26 14:45:58.619 18652 18709 D RegistrationHandler: Has received 9 of 15 from 1@test.com
+04-26 14:45:58.779 18652 18709 D RegistrationHandler: Has received 10 of 15 from 1@test.com
+04-26 14:45:58.809 18652 18709 D RegistrationHandler: Has received 11 of 15 from 1@test.com
+04-26 14:45:58.824 18652 18709 D RegistrationHandler: Has received 12 of 15 from 1@test.com
+04-26 14:45:58.843 18652 18709 D RegistrationHandler: Has received 13 of 15 from 1@test.com
+04-26 14:45:59.238 18652 18709 D RegistrationHandler: Has received 14 of 15 from 1@test.com
+04-26 14:46:01.707 18652 18709 D RegistrationHandler: Has received 15 of 15 from 1@test.com
+04-26 14:46:01.736 18652 18709 D RegistrationHandler: Received full ledger from 1@test.com with nonce 471601482
+04-26 14:46:01.736 18652 18709 D RegistrationHandler: FULL_LEDGER 471601482
+round 36 of 40
+04-26 14:46:12.521 18755 18804 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-26 14:46:12.524 18755 18806 D MulticastServer: Registration process started with nonce 749834903
+04-26 14:46:12.527 18755 18811 D MulticastClient: REQUEST_LEDGER 749834903
+04-26 14:46:12.528 18755 18811 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":749834903,"seq":0,"tot":0}]
+04-26 14:46:12.715 18755 18813 D RegistrationHandler: Has received 1 of 15 fragments from 1@test.com
+04-26 14:46:12.913 18755 18813 D RegistrationHandler: Has received 2 of 15 from 1@test.com
+04-26 14:46:12.929 18755 18813 D RegistrationHandler: Has received 3 of 15 from 1@test.com
+04-26 14:46:12.948 18755 18813 D RegistrationHandler: Has received 4 of 15 from 1@test.com
+04-26 14:46:13.134 18755 18813 D RegistrationHandler: Has received 5 of 15 from 1@test.com
+04-26 14:46:13.149 18755 18813 D RegistrationHandler: Has received 6 of 15 from 1@test.com
+04-26 14:46:13.178 18755 18813 D RegistrationHandler: Has received 7 of 15 from 1@test.com
+04-26 14:46:13.203 18755 18813 D RegistrationHandler: Has received 8 of 15 from 1@test.com
+04-26 14:46:13.216 18755 18813 D RegistrationHandler: Has received 9 of 15 from 1@test.com
+04-26 14:46:13.241 18755 18813 D RegistrationHandler: Has received 10 of 15 from 1@test.com
+04-26 14:46:13.255 18755 18813 D RegistrationHandler: Has received 11 of 15 from 1@test.com
+04-26 14:46:13.273 18755 18813 D RegistrationHandler: Has received 12 of 15 from 1@test.com
+04-26 14:46:13.291 18755 18813 D RegistrationHandler: Has received 13 of 15 from 1@test.com
+04-26 14:46:13.305 18755 18813 D RegistrationHandler: Has received 14 of 15 from 1@test.com
+04-26 14:46:13.561 18755 18813 D RegistrationHandler: Has received 15 of 15 from 1@test.com
+04-26 14:46:13.590 18755 18813 D RegistrationHandler: Received full ledger from 1@test.com with nonce 749834903
+04-26 14:46:13.590 18755 18813 D RegistrationHandler: FULL_LEDGER 749834903
+round 37 of 40
+04-26 14:46:27.028 18885 18934 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-26 14:46:27.031 18885 18936 D MulticastServer: Registration process started with nonce 986939947
+04-26 14:46:27.035 18885 18941 D MulticastClient: REQUEST_LEDGER 986939947
+04-26 14:46:27.042 18885 18941 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":986939947,"seq":0,"tot":0}]
+04-26 14:46:28.120 18885 18943 D RegistrationHandler: Has received 1 of 15 fragments from 1@test.com
+04-26 14:46:28.146 18885 18943 D RegistrationHandler: Received full ledger from 1@test.com with nonce 986939947
+04-26 14:46:28.146 18885 18943 D RegistrationHandler: FULL_LEDGER 986939947
+round 38 of 40
+04-26 14:46:41.513 18995 19044 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-26 14:46:41.515 18995 19046 D MulticastServer: Registration process started with nonce 397581298
+04-26 14:46:41.517 18995 19045 D MulticastClient: REQUEST_LEDGER 397581298
+04-26 14:46:41.519 18995 19045 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":397581298,"seq":0,"tot":0}]
+04-26 14:46:41.732 18995 19053 D RegistrationHandler: Has received 1 of 15 fragments from 1@test.com
+04-26 14:46:41.745 18995 19053 D RegistrationHandler: Has received 2 of 15 from 1@test.com
+04-26 14:46:41.765 18995 19053 D RegistrationHandler: Has received 3 of 15 from 1@test.com
+04-26 14:46:41.852 18995 19053 D RegistrationHandler: Has received 4 of 15 from 1@test.com
+04-26 14:46:41.872 18995 19053 D RegistrationHandler: Has received 5 of 15 from 1@test.com
+04-26 14:46:41.888 18995 19053 D RegistrationHandler: Has received 6 of 15 from 1@test.com
+04-26 14:46:42.003 18995 19053 D RegistrationHandler: Has received 7 of 15 from 1@test.com
+04-26 14:46:42.014 18995 19053 D RegistrationHandler: Has received 8 of 15 from 1@test.com
+04-26 14:46:42.032 18995 19053 D RegistrationHandler: Has received 9 of 15 from 1@test.com
+04-26 14:46:42.237 18995 19053 D RegistrationHandler: Has received 10 of 15 from 1@test.com
+04-26 14:46:42.249 18995 19053 D RegistrationHandler: Has received 11 of 15 from 1@test.com
+04-26 14:46:42.335 18995 19053 D RegistrationHandler: Has received 12 of 15 from 1@test.com
+04-26 14:46:42.413 18995 19053 D RegistrationHandler: Has received 13 of 15 from 1@test.com
+04-26 14:46:42.549 18995 19053 D RegistrationHandler: Has received 14 of 15 from 1@test.com
+04-26 14:46:42.575 18995 19053 D RegistrationHandler: Has received 15 of 15 from 1@test.com
+04-26 14:46:42.602 18995 19053 D RegistrationHandler: Received full ledger from 1@test.com with nonce 397581298
+04-26 14:46:42.602 18995 19053 D RegistrationHandler: FULL_LEDGER 397581298
+round 39 of 40
+04-26 14:46:55.980 19106 19155 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-26 14:46:55.982 19106 19158 D MulticastServer: Registration process started with nonce 159967177
+04-26 14:46:55.986 19106 19157 D MulticastClient: REQUEST_LEDGER 159967177
+04-26 14:46:55.990 19106 19157 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":159967177,"seq":0,"tot":0}]
+04-26 14:46:56.181 19106 19165 D RegistrationHandler: Has received 1 of 15 fragments from 1@test.com
+04-26 14:46:56.197 19106 19165 D RegistrationHandler: Has received 2 of 15 from 1@test.com
+04-26 14:46:56.213 19106 19165 D RegistrationHandler: Has received 3 of 15 from 1@test.com
+04-26 14:46:56.233 19106 19165 D RegistrationHandler: Has received 4 of 15 from 1@test.com
+04-26 14:46:56.248 19106 19165 D RegistrationHandler: Has received 5 of 15 from 1@test.com
+04-26 14:46:56.328 19106 19165 D RegistrationHandler: Has received 6 of 15 from 1@test.com
+04-26 14:46:56.401 19106 19165 D RegistrationHandler: Has received 7 of 15 from 1@test.com
+04-26 14:46:56.423 19106 19165 D RegistrationHandler: Has received 8 of 15 from 1@test.com
+04-26 14:46:56.621 19106 19165 D RegistrationHandler: Has received 9 of 15 from 1@test.com
+04-26 14:46:56.646 19106 19165 D RegistrationHandler: Has received 10 of 15 from 1@test.com
+04-26 14:46:56.679 19106 19165 D RegistrationHandler: Has received 11 of 15 from 1@test.com
+04-26 14:46:56.968 19106 19165 D RegistrationHandler: Has received 12 of 15 from 1@test.com
+04-26 14:46:57.193 19106 19165 D RegistrationHandler: Has received 13 of 15 from 1@test.com
+04-26 14:46:58.406 19106 19165 D RegistrationHandler: Has received 14 of 15 from 1@test.com
+04-26 14:46:58.420 19106 19165 D RegistrationHandler: Has received 15 of 15 from 1@test.com
+04-26 14:46:58.447 19106 19165 D RegistrationHandler: Received full ledger from 1@test.com with nonce 159967177
+04-26 14:46:58.447 19106 19165 D RegistrationHandler: FULL_LEDGER 159967177
+round 40 of 40
+04-26 14:47:10.380 19216 19266 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-26 14:47:10.382 19216 19268 D MulticastServer: Registration process started with nonce 1450980894
+04-26 14:47:10.384 19216 19267 D MulticastClient: REQUEST_LEDGER 1450980894
+04-26 14:47:10.386 19216 19267 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1450980894,"seq":0,"tot":0}]
+04-26 14:47:10.658 19216 19274 D RegistrationHandler: Has received 1 of 15 fragments from 1@test.com
+04-26 14:47:10.720 19216 19274 D RegistrationHandler: Has received 2 of 15 from 1@test.com
+04-26 14:47:10.737 19216 19274 D RegistrationHandler: Has received 3 of 15 from 1@test.com
+04-26 14:47:10.756 19216 19274 D RegistrationHandler: Has received 4 of 15 from 1@test.com
+04-26 14:47:10.777 19216 19274 D RegistrationHandler: Has received 5 of 15 from 1@test.com
+04-26 14:47:10.793 19216 19274 D RegistrationHandler: Has received 6 of 15 from 1@test.com
+04-26 14:47:10.887 19216 19274 D RegistrationHandler: Has received 7 of 15 from 1@test.com
+04-26 14:47:10.904 19216 19274 D RegistrationHandler: Has received 8 of 15 from 1@test.com
+04-26 14:47:11.033 19216 19274 D RegistrationHandler: Has received 9 of 15 from 1@test.com
+04-26 14:47:11.052 19216 19274 D RegistrationHandler: Has received 10 of 15 from 1@test.com
+04-26 14:47:11.109 19216 19274 D RegistrationHandler: Has received 11 of 15 from 1@test.com
+04-26 14:47:11.119 19216 19274 D RegistrationHandler: Has received 12 of 15 from 1@test.com
+04-26 14:47:11.216 19216 19274 D RegistrationHandler: Has received 13 of 15 from 1@test.com
+04-26 14:47:11.400 19216 19274 D RegistrationHandler: Has received 14 of 15 from 1@test.com
+04-26 14:47:13.148 19216 19274 D RegistrationHandler: Has received 15 of 15 from 1@test.com
+04-26 14:47:13.176 19216 19274 D RegistrationHandler: Received full ledger from 1@test.com with nonce 1450980894
+04-26 14:47:13.176 19216 19274 D RegistrationHandler: FULL_LEDGER 1450980894

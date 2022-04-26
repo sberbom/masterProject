@@ -2,7 +2,7 @@ devices=$(echo $(adb devices))
 device1=$(echo $devices | cut -f5 -d$' ')
 device2=$(echo $devices | cut -f7 -d$' ')
 test_path="tests/total_packet_wait"
-rounds=40
+rounds=20
 for var in "$@"
 do
    git checkout test/total_packet_wait/"$var"

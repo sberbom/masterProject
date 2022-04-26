@@ -159,7 +159,7 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
         }
         // if all fragments have not yet been received, we should return
         val remainingFragments = ledgerFragments.count { it == null }
-        // Log.d(TAG, "Has received ${ledgerFragments.size - remainingFragments} of ${ledgerFragments.size} from ${sender.userName}")
+        Log.d(TAG, "Has received ${ledgerFragments.size - remainingFragments} of ${ledgerFragments.size} from ${sender.userName}")
         if (remainingFragments > 0) return null
         // if all fragments have been received we should return the ledger
         val senderBlock = certificateStringToSenderBlock[certificateString]
@@ -203,7 +203,7 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
                 return null
             }
         }
-        // Log.d(TAG, "Has received ${ledgerFragmentsReceived[ledgerSequenceId]?.filterNotNull()?.size} of ${ledgerFragmentsReceived[ledgerSequenceId]?.size} fragments from ${blockOfSender.userName}")
+        Log.d(TAG, "Has received ${ledgerFragmentsReceived[ledgerSequenceId]?.filterNotNull()?.size} of ${ledgerFragmentsReceived[ledgerSequenceId]?.size} fragments from ${blockOfSender.userName}")
         return handleOrphanBlocks(blockOfSender, ledgerSequenceId)
     }
 

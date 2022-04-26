@@ -83,7 +83,7 @@ class MulticastClient  {
             val username = PKIUtils.getUsernameFromCertificate(certificate)
             val currentLedger = Ledger.availableDevices.toList()
             /** Only for testing **/
-            ConstructLedgerForTest.createLedger(60)
+            ConstructLedgerForTest.createLedger(90)
             val testLedger = ConstructLedgerForTest.ledger
             Log.d(TAG, "SENT_FULL_LEDGER")
             /***********************/

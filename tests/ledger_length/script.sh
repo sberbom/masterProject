@@ -1,11 +1,11 @@
 devices=$(echo $(adb devices))
 device1=$(echo $devices | cut -f5 -d$' ')
 device2=$(echo $devices | cut -f7 -d$' ')
-test_path="tests/total_packet_wait"
+test_path="tests/ledger_length"
 rounds=40
 for var in "$@"
 do
-   git checkout test/total_packet_wait/"$var"
+   git checkout test/ledger_length/"$var"
    ./gradlew assembleDebug
    adb -s $device1 install app/build/outputs/apk/debug/app-debug.apk
    adb -s $device2 install app/build/outputs/apk/debug/app-debug.apk

@@ -1,0 +1,11 @@
+Number of rounds: 40
+round 1 of 40
+--------- beginning of main
+04-26 13:33:03.886 19818 19867 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-26 13:33:03.889 19818 19869 D MulticastServer: Registration process started with nonce 1197958748
+04-26 13:33:03.892 19818 19868 D MulticastClient: REQUEST_LEDGER 1197958748
+04-26 13:33:03.897 19818 19868 D MulticastClient: Sent messages with 3 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1197958748,"seq":0,"tot":0}]
+04-26 13:33:07.893 19818 19871 D RegistrationHandler: I am the first in the network
+04-26 13:33:07.894 19818 19871 D RegistrationHandler: 1197958748 Registration started
+04-26 13:33:07.914 19818 19871 D MulticastServer: Registration process finished: 1197958748
+04-26 13:33:07.921 19818 19868 D MulticastClient: Sent messages with 3 resends: [{"sender":"1@test.com","payload":"{\"ip\":\"192.168.1.66\",\"cert\":\"MIIBGzCBwqADAgECAgYBgEtLsMUwCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKVFRNNDkwNSBDQTAeFw0yMjA0MjAwODQ0NTNaFw0yMjA1MjEwODQ0NTNaMBUxEzARBgNVBAMMCjFAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQHFNOCHx\/BBFYqT41UW1M6slehFXn+9LK4VDhtASjKBd51QxSRtYZAl+\/IpTuOnQdMVvlGCMMWkSeEGOgyfwh1MAoGCCqGSM49BAMCA0gAMEUCIQD1OXIEAO1fI6+XpR936a5Ef365WnXPvrbzl8oxr0\/Z8QIgV5LWkYufM8V0VqpcYcHXyI2fCScD24nJMtVWnrVtOU8=\"}","mt":"BROADCAST_BLOCK","sig":"MEQCICgQJDDyvCNI\/sdYOgbJScEeFUklaynHdKwFS3l4iVsjAiB0zIcnBr7XUMUjJwbuG1Z2+Y\/9zM0lXUV7aN6gfbFweA==","nonce":1197958748,"seq":0,"tot":0}]

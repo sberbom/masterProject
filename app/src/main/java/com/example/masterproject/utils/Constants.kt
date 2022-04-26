@@ -26,7 +26,7 @@ class Constants {
         const val KEY_MANAGER_INSTANCE = "X509"
         const val CA_CN = "CN=TTM4905 CA"
 
-        const val TOTAL_PACKET_WAIT = 300
+        const val TOTAL_PACKET_WAIT = 600
         const val NUMBER_OF_RESENDS = 3
 
         const val INTER_PACKET_TIME = 5

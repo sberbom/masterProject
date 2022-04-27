@@ -29,9 +29,9 @@ do
          echo "round $i of $rounds" >> ./"$test_path"/"$var"/log_device1.txt
          echo "round $i of $rounds" >> ./"$test_path"/"$var"/log_device2.txt
          adb -s $device1 shell am start -n com.example.masterproject/com.example.masterproject.activities.MainActivity
-         sleep 5
+         sleep 2
          adb -s $device2 shell am start -n com.example.masterproject/com.example.masterproject.activities.MainActivity
-         sleep 8
+         sleep 4
          adb -s $device1 shell am force-stop com.example.masterproject
          adb -s $device2 shell am force-stop com.example.masterproject
          sleep 1

@@ -65,10 +65,12 @@ def valuelabel(x,y, offset=0):
 
 x_coordinates = pylab.arange(len(folders))
 
+x_values = [str(int(x) + 1) for x in folders]
+
 valuelabel(x_coordinates, packet_loss_total)
 
 pylab.bar(x_coordinates, packet_loss_total)
-pylab.xlabel("Number of resends")
+pylab.xlabel("Number of transmissions")
 pylab.ylabel("Packets loss %")
-pylab.xticks(x_coordinates, folders)
+pylab.xticks(x_coordinates, x_values)
 pylab.show()

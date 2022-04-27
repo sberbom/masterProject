@@ -33,7 +33,7 @@ for folder in folders:
                 received_nonces.append(nonce)
 
     print("\n\n")
-    print("Leder length: {}".format(folder))
+    print("Ledger length: {}".format(folder))
 
     print("Received {0} out of {1} requests for ledger.".format(ledgers_sent, requests_sent))
 
@@ -63,12 +63,14 @@ def valuelabel(x,y, offset=0):
         value_string = str(value) + "%"
         pylab.text(i+offset, y[i] + 0.0005, value_string, ha = 'center')
 
+x_values = [str(int(int(x)/3)) for x in folders]
+
 x_coordinates = pylab.arange(len(folders))
 
 valuelabel(x_coordinates, packet_loss_total)
 
 pylab.bar(x_coordinates, packet_loss_total)
-pylab.xlabel("Total packet wait (ms)")
+pylab.xlabel("Time between transmissions (ms)")
 pylab.ylabel("Packets loss %")
-pylab.xticks(x_coordinates, folders)
+pylab.xticks(x_coordinates, x_values)
 pylab.show()

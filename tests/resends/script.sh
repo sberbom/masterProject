@@ -2,7 +2,7 @@ devices=$(echo $(adb devices))
 device1=$(echo $devices | cut -f5 -d$' ')
 device2=$(echo $devices | cut -f7 -d$' ')
 test_path="tests/resends"
-rounds=300
+rounds=500
 for var in "$@"
 do
    git checkout test/resends/"$var"

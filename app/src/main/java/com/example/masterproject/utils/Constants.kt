@@ -27,7 +27,7 @@ class Constants {
         const val CA_CN = "CN=TTM4905 CA"
 
         const val TOTAL_PACKET_WAIT = 900
-        const val NUMBER_OF_RESENDS = 3
+        const val NUMBER_OF_RESENDS = 1
 
         const val INTER_PACKET_TIME = 5
         const val LEDGER_ACCEPTANCE_TIME: Long = 15000

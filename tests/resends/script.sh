@@ -31,7 +31,7 @@ do
          adb -s $device1 shell am start -n com.example.masterproject/com.example.masterproject.activities.MainActivity
          sleep 4
          adb -s $device2 shell am start -n com.example.masterproject/com.example.masterproject.activities.MainActivity
-         sleep 4
+         sleep 2
          adb -s $device1 shell am force-stop com.example.masterproject
          adb -s $device2 shell am force-stop com.example.masterproject
          sleep 1

@@ -30,8 +30,8 @@ class Constants {
         const val NUMBER_OF_RESENDS = 0
 
         const val INTER_PACKET_TIME = 5
-        const val LEDGER_ACCEPTANCE_TIME: Long = 15000
-        const val ALONE_IN_NETWORK_TIME: Long = 4000
+        const val LEDGER_ACCEPTANCE_TIME: Long = 4000
+        const val ALONE_IN_NETWORK_TIME: Long = 2000
         const val BACKOFF_TIME: Long = 500
         const val CHECK_NETWORK_AVAILABILITY_TIME: Long = 500
     }

@@ -83,12 +83,14 @@ class MulticastClient  {
             val username = PKIUtils.getUsernameFromCertificate(certificate)
             val currentLedger = Ledger.availableDevices.toList()
             /** Only for testing **/
+            /*
             ConstructLedgerForTest.createLedger(1)
             val testLedger = ConstructLedgerForTest.ledger
             Log.d(TAG, "SENT_FULL_LEDGER")
+             */
             /***********************/
             // next line should use testLedger when testing and currentLedger if not
-            val deconstructedLedger = testLedger.chunked(4)
+            val deconstructedLedger = currentLedger.chunked(4)
             val multicastPackets = deconstructedLedger.mapIndexed { index, fragment ->
                 val fragmentString = Ledger.toString(fragment).replace("[", "").replace("]", "")
                 MulticastPacket(

@@ -1,5 +1,10 @@
 from datetime import datetime
 from statistics import mean
+import pylab
+
+
+results_mean = []
+results_max = []
 
 # Maps the index of a device, to a dictionary mapping the round number to the time it took to
 # accept the ledger that round
@@ -34,6 +39,8 @@ rounds_with_missing_ledger = {}
 
 # Maps the index of a device to the rounds where the ledger was incorrect
 #incorrect_ledgers = {}
+
+
 
 def search_file(index, folder):
     log_device = open("{0}/log_device{1}.txt".format(folder, index), "r")
@@ -106,7 +113,9 @@ def search_file(index, folder):
 
     filtered_accepted_ledger_times = list(filter(lambda el: el is not None, accept_ledger_times[index]))
 
-    print("Average time to accept ledger of length {0} was {1:.3f} seconds".format(folder, mean(filtered_accepted_ledger_times)))
+    print("Average time to receive ledger of length {0} was {1:.3f} seconds".format(folder, mean(filtered_accepted_ledger_times)))
+    results_mean.append(mean(filtered_accepted_ledger_times))
+    results_max.append(max(filtered_accepted_ledger_times))
     #print("The probability of accepting the correct ledger at length {0} is {1:.3f}".format(index - 1, correct_ledger[index]/(total_ledgers[index] + ledgers_missing[index])))
     print("The probability of not accepting a ledger: {:.3f}".format(ledgers_missing[index]/(total_ledgers[index] + ledgers_missing[index])))
     print("The rounds it did not accept a ledger (0-indexed rounds): {}".format(rounds_with_missing_ledger[index]))
@@ -115,4 +124,25 @@ for i in range(2, 7):
     search_file(i, "ca_signed")
 """
 
-search_file(2, "180")
+folders = ["1", "30", "60", "90", "120", "150"]
+
+for i in folders:
+    search_file(2, i)
+
+def valuelabel(x,y, offset=0):
+    for i in range(len(x)):
+        value = round(round(y[i], 3), 1)
+        value_string = str(value) + " s"
+        pylab.text(i+offset, y[i] + 0.0005, value_string, ha = 'center')
+
+x_coordinates = pylab.arange(len(folders))
+
+valuelabel(x_coordinates, results_max)
+valuelabel(x_coordinates, results_mean)
+
+pylab.bar(x_coordinates, results_max)
+pylab.bar(x_coordinates, results_mean)
+pylab.xlabel("Number of ledger entries")
+pylab.ylabel("Time to receive ledger (s)")
+pylab.xticks(x_coordinates, folders)
+pylab.show()

@@ -121,6 +121,6 @@ def search_file(index, folder):
   print("Rounds with incorrect ledger (0-indexed rounds): {}".format(incorrect_ledgers[index]))
 
 for i in range(2, 7):
-  search_file(i, "ca_signed")
+  search_file(i, ".")
 
 

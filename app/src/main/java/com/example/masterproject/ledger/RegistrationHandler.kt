@@ -101,6 +101,7 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
         }
         Log.d(TAG, "Received full ledger from ${receivedLedger.senderBlock.userName} with nonce ${multicastPacket.nonce}")
         Log.d(TAG, "FULL_LEDGER ${multicastPacket.nonce}")
+        Log.d(TAG, "Hash of full ledger: ${receivedLedger.hash}")
         if(!Ledger.ledgerIsValid(receivedLedger.ledger)) return
         if (receivedLedgers.map { it.hash }.contains(receivedLedger.hash)) {
             addHash(receivedLedger.senderBlock, receivedLedger.hash)
@@ -303,6 +304,7 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
         val certificateIsValid = PKIUtils.isCASignedCertificate(senderBlock.certificate) || PKIUtils.isSelfSignedCertificate(senderBlock.certificate)
         if (certificateIsValid) {
             hashes.add(ReceivedHash(hash, senderBlock))
+            setLedgerIfAccepted()
         }
     }
 
@@ -355,7 +357,7 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
         val mostCommonHashAmongCACertified = getMostCommonHash( caVerifiedValidators, receivedLedgers, true )
         val ledgerWithMostCommonHashAmongCACertified = receivedLedgers.find { it.hash == mostCommonHashAmongCACertified }
         val numberOfCACertifiedInLedger = ledgerWithMostCommonHashAmongCACertified?.ledger?.count { PKIUtils.isCASignedCertificate(it.certificate) }
-        val numberOfCACertifiedValidations = caVerifiedValidators.count { it.hash == mostCommonHashAmongCACertified }
+        val numberOfCACertifiedValidations = caVerifiedValidators.count { it.hash == mostCommonHashAmongCACertified } + receivedLedgers.count { it.hash == mostCommonHashAmongCACertified }
         // If two or more CA certified users have approved the ledger and they are more then half of the validators, the ledger should be accepted
         if (numberOfCACertifiedInLedger != null && numberOfCACertifiedValidations >= 2 && numberOfCACertifiedValidations > (numberOfCACertifiedInLedger - 1) / 2) return mostCommonHashAmongCACertified
         val mostCommonHash = getMostCommonHash(hashes, receivedLedgers,false)

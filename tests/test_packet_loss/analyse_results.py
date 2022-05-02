@@ -27,13 +27,13 @@ for folder in folders:
     filtered_line_list = list(filter(lambda el: el != "", line_list))
     if "Number of rounds:" in line:
       requests_sent = int(filtered_line_list[-1])
-    if len(filtered_line_list) > 8 and filtered_line_list[5] == "MulticastClient:" and "FULL_LEDGER" in filtered_line_list[8]:
+    if len(filtered_line_list) > 11 and filtered_line_list[5] == "MulticastClient:" and "FULL_LEDGER" in filtered_line_list[11]:
       ledgers_sent += 1
 
   for line in log_device_2:
     line_list = line.split(" ")
     filtered_line_list = list(filter(lambda el: el != "", line_list))
-    if len(filtered_line_list) > 6 and filtered_line_list[5] == "MulticastServer:" and "FULL_LEDGER" in filtered_line_list[6]:
+    if len(filtered_line_list) > 6 and filtered_line_list[5] == "RegistrationHandler:" and "FULL_LEDGER" in filtered_line_list[6]:
       nonce = int(filtered_line_list[7])
       if not nonce in received_nonces:
         ledgers_received += 1

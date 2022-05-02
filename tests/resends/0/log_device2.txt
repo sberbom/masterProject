@@ -1,0 +1,157 @@
+Number of rounds: 20
+round 1 of 20
+--------- beginning of main
+04-27 10:23:26.525 17171 17220 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-27 10:23:26.527 17171 17222 D MulticastServer: Registration process started with nonce 1272692378
+04-27 10:23:26.529 17171 17221 D MulticastClient: REQUEST_LEDGER 1272692378
+04-27 10:23:26.531 17171 17221 D MulticastClient: Sent messages with 0 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1272692378,"seq":0,"tot":0}]
+04-27 10:23:26.602 17171 17228 D RegistrationHandler: Received full ledger from 1@test.com with nonce 1272692378
+04-27 10:23:26.602 17171 17228 D RegistrationHandler: FULL_LEDGER 1272692378
+round 2 of 20
+04-27 10:23:33.900 17297 17345 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-27 10:23:33.903 17297 17347 D MulticastServer: Registration process started with nonce 1058417588
+04-27 10:23:33.907 17297 17351 D MulticastClient: REQUEST_LEDGER 1058417588
+04-27 10:23:33.915 17297 17351 D MulticastClient: Sent messages with 0 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1058417588,"seq":0,"tot":0}]
+04-27 10:23:33.923 17297 17354 D MulticastServer: Broadcast block received {"ip":"192.168.1.66","cert":"MIIBGzCBwqADAgECAgYBgEtLsMUwCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKVFRNNDkwNSBDQTAeFw0yMjA0MjAwODQ0NTNaFw0yMjA1MjEwODQ0NTNaMBUxEzARBgNVBAMMCjFAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQHFNOCHx/BBFYqT41UW1M6slehFXn+9LK4VDhtASjKBd51QxSRtYZAl+/IpTuOnQdMVvlGCMMWkSeEGOgyfwh1MAoGCCqGSM49BAMCA0gAMEUCIQD1OXIEAO1fI6+XpR936a5Ef365WnXPvrbzl8oxr0/Z8QIgV5LWkYufM8V0VqpcYcHXyI2fCScD24nJMtVWnrVtOU8="}
+04-27 10:23:33.980 17297 17354 D RegistrationHandler: Received full ledger from 1@test.com with nonce 1058417588
+04-27 10:23:33.980 17297 17354 D RegistrationHandler: FULL_LEDGER 1058417588
+round 3 of 20
+04-27 10:23:41.240 17410 17459 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-27 10:23:41.242 17410 17461 D MulticastServer: Registration process started with nonce 1480267159
+04-27 10:23:41.247 17410 17465 D MulticastClient: REQUEST_LEDGER 1480267159
+04-27 10:23:41.255 17410 17465 D MulticastClient: Sent messages with 0 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1480267159,"seq":0,"tot":0}]
+04-27 10:23:41.267 17410 17467 D MulticastServer: Broadcast block received {"ip":"192.168.1.66","cert":"MIIBGzCBwqADAgECAgYBgEtLsMUwCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKVFRNNDkwNSBDQTAeFw0yMjA0MjAwODQ0NTNaFw0yMjA1MjEwODQ0NTNaMBUxEzARBgNVBAMMCjFAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQHFNOCHx/BBFYqT41UW1M6slehFXn+9LK4VDhtASjKBd51QxSRtYZAl+/IpTuOnQdMVvlGCMMWkSeEGOgyfwh1MAoGCCqGSM49BAMCA0gAMEUCIQD1OXIEAO1fI6+XpR936a5Ef365WnXPvrbzl8oxr0/Z8QIgV5LWkYufM8V0VqpcYcHXyI2fCScD24nJMtVWnrVtOU8="}
+04-27 10:23:41.317 17410 17467 D RegistrationHandler: Received full ledger from 1@test.com with nonce 1480267159
+04-27 10:23:41.317 17410 17467 D RegistrationHandler: FULL_LEDGER 1480267159
+round 4 of 20
+04-27 10:23:48.614 17527 17574 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-27 10:23:48.616 17527 17576 D MulticastServer: Registration process started with nonce 974731402
+04-27 10:23:48.619 17527 17575 D MulticastClient: REQUEST_LEDGER 974731402
+04-27 10:23:48.620 17527 17575 D MulticastClient: Sent messages with 0 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":974731402,"seq":0,"tot":0}]
+04-27 10:23:48.680 17527 17583 D MulticastServer: Broadcast block received {"ip":"192.168.1.66","cert":"MIIBGzCBwqADAgECAgYBgEtLsMUwCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKVFRNNDkwNSBDQTAeFw0yMjA0MjAwODQ0NTNaFw0yMjA1MjEwODQ0NTNaMBUxEzARBgNVBAMMCjFAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQHFNOCHx/BBFYqT41UW1M6slehFXn+9LK4VDhtASjKBd51QxSRtYZAl+/IpTuOnQdMVvlGCMMWkSeEGOgyfwh1MAoGCCqGSM49BAMCA0gAMEUCIQD1OXIEAO1fI6+XpR936a5Ef365WnXPvrbzl8oxr0/Z8QIgV5LWkYufM8V0VqpcYcHXyI2fCScD24nJMtVWnrVtOU8="}
+04-27 10:23:48.735 17527 17583 D RegistrationHandler: Received full ledger from 1@test.com with nonce 974731402
+04-27 10:23:48.735 17527 17583 D RegistrationHandler: FULL_LEDGER 974731402
+round 5 of 20
+04-27 10:23:56.054 17627 17676 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-27 10:23:56.056 17627 17678 D MulticastServer: Registration process started with nonce 1999077103
+04-27 10:23:56.062 17627 17682 D MulticastClient: REQUEST_LEDGER 1999077103
+04-27 10:23:56.063 17627 17682 D MulticastClient: Sent messages with 0 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1999077103,"seq":0,"tot":0}]
+04-27 10:23:56.156 17627 17685 D MulticastServer: Broadcast block received {"ip":"192.168.1.66","cert":"MIIBGzCBwqADAgECAgYBgEtLsMUwCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKVFRNNDkwNSBDQTAeFw0yMjA0MjAwODQ0NTNaFw0yMjA1MjEwODQ0NTNaMBUxEzARBgNVBAMMCjFAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQHFNOCHx/BBFYqT41UW1M6slehFXn+9LK4VDhtASjKBd51QxSRtYZAl+/IpTuOnQdMVvlGCMMWkSeEGOgyfwh1MAoGCCqGSM49BAMCA0gAMEUCIQD1OXIEAO1fI6+XpR936a5Ef365WnXPvrbzl8oxr0/Z8QIgV5LWkYufM8V0VqpcYcHXyI2fCScD24nJMtVWnrVtOU8="}
+04-27 10:23:56.204 17627 17685 D RegistrationHandler: Received full ledger from 1@test.com with nonce 1999077103
+04-27 10:23:56.204 17627 17685 D RegistrationHandler: FULL_LEDGER 1999077103
+round 6 of 20
+04-27 10:24:03.459 17742 17791 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-27 10:24:03.461 17742 17793 D MulticastServer: Registration process started with nonce 905520654
+04-27 10:24:03.464 17742 17797 D MulticastClient: REQUEST_LEDGER 905520654
+04-27 10:24:03.465 17742 17797 D MulticastClient: Sent messages with 0 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":905520654,"seq":0,"tot":0}]
+04-27 10:24:03.524 17742 17800 D MulticastServer: Broadcast block received {"ip":"192.168.1.66","cert":"MIIBGzCBwqADAgECAgYBgEtLsMUwCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKVFRNNDkwNSBDQTAeFw0yMjA0MjAwODQ0NTNaFw0yMjA1MjEwODQ0NTNaMBUxEzARBgNVBAMMCjFAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQHFNOCHx/BBFYqT41UW1M6slehFXn+9LK4VDhtASjKBd51QxSRtYZAl+/IpTuOnQdMVvlGCMMWkSeEGOgyfwh1MAoGCCqGSM49BAMCA0gAMEUCIQD1OXIEAO1fI6+XpR936a5Ef365WnXPvrbzl8oxr0/Z8QIgV5LWkYufM8V0VqpcYcHXyI2fCScD24nJMtVWnrVtOU8="}
+04-27 10:24:03.590 17742 17800 D RegistrationHandler: Received full ledger from 1@test.com with nonce 905520654
+04-27 10:24:03.590 17742 17800 D RegistrationHandler: FULL_LEDGER 905520654
+round 7 of 20
+04-27 10:24:10.792 17841 17888 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-27 10:24:10.794 17841 17890 D MulticastServer: Registration process started with nonce 1095127484
+04-27 10:24:10.798 17841 17894 D MulticastClient: REQUEST_LEDGER 1095127484
+04-27 10:24:10.805 17841 17894 D MulticastClient: Sent messages with 0 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1095127484,"seq":0,"tot":0}]
+04-27 10:24:10.848 17841 17897 D MulticastServer: Broadcast block received {"ip":"192.168.1.66","cert":"MIIBGzCBwqADAgECAgYBgEtLsMUwCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKVFRNNDkwNSBDQTAeFw0yMjA0MjAwODQ0NTNaFw0yMjA1MjEwODQ0NTNaMBUxEzARBgNVBAMMCjFAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQHFNOCHx/BBFYqT41UW1M6slehFXn+9LK4VDhtASjKBd51QxSRtYZAl+/IpTuOnQdMVvlGCMMWkSeEGOgyfwh1MAoGCCqGSM49BAMCA0gAMEUCIQD1OXIEAO1fI6+XpR936a5Ef365WnXPvrbzl8oxr0/Z8QIgV5LWkYufM8V0VqpcYcHXyI2fCScD24nJMtVWnrVtOU8="}
+04-27 10:24:10.901 17841 17897 D RegistrationHandler: Received full ledger from 1@test.com with nonce 1095127484
+04-27 10:24:10.901 17841 17897 D RegistrationHandler: FULL_LEDGER 1095127484
+round 8 of 20
+04-27 10:24:18.168 17954 18004 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-27 10:24:18.171 17954 18006 D MulticastServer: Registration process started with nonce 472667456
+04-27 10:24:18.173 17954 18005 D MulticastClient: REQUEST_LEDGER 472667456
+04-27 10:24:18.174 17954 18005 D MulticastClient: Sent messages with 0 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":472667456,"seq":0,"tot":0}]
+04-27 10:24:18.191 17954 18012 D MulticastServer: Broadcast block received {"ip":"192.168.1.66","cert":"MIIBGzCBwqADAgECAgYBgEtLsMUwCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKVFRNNDkwNSBDQTAeFw0yMjA0MjAwODQ0NTNaFw0yMjA1MjEwODQ0NTNaMBUxEzARBgNVBAMMCjFAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQHFNOCHx/BBFYqT41UW1M6slehFXn+9LK4VDhtASjKBd51QxSRtYZAl+/IpTuOnQdMVvlGCMMWkSeEGOgyfwh1MAoGCCqGSM49BAMCA0gAMEUCIQD1OXIEAO1fI6+XpR936a5Ef365WnXPvrbzl8oxr0/Z8QIgV5LWkYufM8V0VqpcYcHXyI2fCScD24nJMtVWnrVtOU8="}
+04-27 10:24:18.247 17954 18012 D RegistrationHandler: Received full ledger from 1@test.com with nonce 472667456
+04-27 10:24:18.247 17954 18012 D RegistrationHandler: FULL_LEDGER 472667456
+round 9 of 20
+04-27 10:24:25.618 18068 18116 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-27 10:24:25.621 18068 18118 D MulticastServer: Registration process started with nonce 516521996
+04-27 10:24:25.623 18068 18117 D MulticastClient: REQUEST_LEDGER 516521996
+04-27 10:24:25.625 18068 18117 D MulticastClient: Sent messages with 0 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":516521996,"seq":0,"tot":0}]
+04-27 10:24:25.744 18068 18125 D RegistrationHandler: Received full ledger from 1@test.com with nonce 516521996
+04-27 10:24:25.744 18068 18125 D RegistrationHandler: FULL_LEDGER 516521996
+round 10 of 20
+04-27 10:24:33.022 18183 18229 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-27 10:24:33.024 18183 18231 D MulticastServer: Registration process started with nonce 2086281349
+04-27 10:24:33.028 18183 18235 D MulticastClient: REQUEST_LEDGER 2086281349
+04-27 10:24:33.034 18183 18235 D MulticastClient: Sent messages with 0 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":2086281349,"seq":0,"tot":0}]
+04-27 10:24:33.047 18183 18237 D MulticastServer: Broadcast block received {"ip":"192.168.1.66","cert":"MIIBGzCBwqADAgECAgYBgEtLsMUwCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKVFRNNDkwNSBDQTAeFw0yMjA0MjAwODQ0NTNaFw0yMjA1MjEwODQ0NTNaMBUxEzARBgNVBAMMCjFAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQHFNOCHx/BBFYqT41UW1M6slehFXn+9LK4VDhtASjKBd51QxSRtYZAl+/IpTuOnQdMVvlGCMMWkSeEGOgyfwh1MAoGCCqGSM49BAMCA0gAMEUCIQD1OXIEAO1fI6+XpR936a5Ef365WnXPvrbzl8oxr0/Z8QIgV5LWkYufM8V0VqpcYcHXyI2fCScD24nJMtVWnrVtOU8="}
+04-27 10:24:33.104 18183 18237 D RegistrationHandler: Received full ledger from 1@test.com with nonce 2086281349
+04-27 10:24:33.104 18183 18237 D RegistrationHandler: FULL_LEDGER 2086281349
+round 11 of 20
+04-27 10:24:40.449 18279 18326 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-27 10:24:40.452 18279 18328 D MulticastServer: Registration process started with nonce 1666760351
+04-27 10:24:40.455 18279 18327 D MulticastClient: REQUEST_LEDGER 1666760351
+04-27 10:24:40.456 18279 18327 D MulticastClient: Sent messages with 0 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1666760351,"seq":0,"tot":0}]
+04-27 10:24:40.471 18279 18334 D MulticastServer: Broadcast block received {"ip":"192.168.1.66","cert":"MIIBGzCBwqADAgECAgYBgEtLsMUwCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKVFRNNDkwNSBDQTAeFw0yMjA0MjAwODQ0NTNaFw0yMjA1MjEwODQ0NTNaMBUxEzARBgNVBAMMCjFAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQHFNOCHx/BBFYqT41UW1M6slehFXn+9LK4VDhtASjKBd51QxSRtYZAl+/IpTuOnQdMVvlGCMMWkSeEGOgyfwh1MAoGCCqGSM49BAMCA0gAMEUCIQD1OXIEAO1fI6+XpR936a5Ef365WnXPvrbzl8oxr0/Z8QIgV5LWkYufM8V0VqpcYcHXyI2fCScD24nJMtVWnrVtOU8="}
+04-27 10:24:40.520 18279 18334 D RegistrationHandler: Received full ledger from 1@test.com with nonce 1666760351
+04-27 10:24:40.520 18279 18334 D RegistrationHandler: FULL_LEDGER 1666760351
+round 12 of 20
+04-27 10:24:47.885 18379 18428 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-27 10:24:47.887 18379 18430 D MulticastServer: Registration process started with nonce 1810290195
+04-27 10:24:47.889 18379 18429 D MulticastClient: REQUEST_LEDGER 1810290195
+04-27 10:24:47.890 18379 18429 D MulticastClient: Sent messages with 0 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1810290195,"seq":0,"tot":0}]
+04-27 10:24:48.004 18379 18436 D RegistrationHandler: Received full ledger from 1@test.com with nonce 1810290195
+04-27 10:24:48.004 18379 18436 D RegistrationHandler: FULL_LEDGER 1810290195
+round 13 of 20
+04-27 10:24:55.296 18492 18540 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-27 10:24:55.298 18492 18542 D MulticastServer: Registration process started with nonce 1726658520
+04-27 10:24:55.301 18492 18541 D MulticastClient: REQUEST_LEDGER 1726658520
+04-27 10:24:55.302 18492 18541 D MulticastClient: Sent messages with 0 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1726658520,"seq":0,"tot":0}]
+04-27 10:24:55.364 18492 18548 D MulticastServer: Broadcast block received {"ip":"192.168.1.66","cert":"MIIBGzCBwqADAgECAgYBgEtLsMUwCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKVFRNNDkwNSBDQTAeFw0yMjA0MjAwODQ0NTNaFw0yMjA1MjEwODQ0NTNaMBUxEzARBgNVBAMMCjFAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQHFNOCHx/BBFYqT41UW1M6slehFXn+9LK4VDhtASjKBd51QxSRtYZAl+/IpTuOnQdMVvlGCMMWkSeEGOgyfwh1MAoGCCqGSM49BAMCA0gAMEUCIQD1OXIEAO1fI6+XpR936a5Ef365WnXPvrbzl8oxr0/Z8QIgV5LWkYufM8V0VqpcYcHXyI2fCScD24nJMtVWnrVtOU8="}
+04-27 10:24:55.431 18492 18548 D RegistrationHandler: Received full ledger from 1@test.com with nonce 1726658520
+04-27 10:24:55.431 18492 18548 D RegistrationHandler: FULL_LEDGER 1726658520
+round 14 of 20
+04-27 10:25:02.677 18604 18655 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-27 10:25:02.679 18604 18657 D MulticastServer: Registration process started with nonce 1375853363
+04-27 10:25:02.683 18604 18661 D MulticastClient: REQUEST_LEDGER 1375853363
+04-27 10:25:02.689 18604 18661 D MulticastClient: Sent messages with 0 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1375853363,"seq":0,"tot":0}]
+04-27 10:25:02.748 18604 18663 D RegistrationHandler: Received full ledger from 1@test.com with nonce 1375853363
+04-27 10:25:02.748 18604 18663 D RegistrationHandler: FULL_LEDGER 1375853363
+round 15 of 20
+04-27 10:25:10.053 18715 18764 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-27 10:25:10.055 18715 18766 D MulticastServer: Registration process started with nonce 1220859803
+04-27 10:25:10.058 18715 18765 D MulticastClient: REQUEST_LEDGER 1220859803
+04-27 10:25:10.059 18715 18765 D MulticastClient: Sent messages with 0 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1220859803,"seq":0,"tot":0}]
+04-27 10:25:10.178 18715 18772 D RegistrationHandler: Received full ledger from 1@test.com with nonce 1220859803
+04-27 10:25:10.178 18715 18772 D RegistrationHandler: FULL_LEDGER 1220859803
+round 16 of 20
+04-27 10:25:17.465 18816 18865 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-27 10:25:17.467 18816 18867 D MulticastServer: Registration process started with nonce 293074540
+04-27 10:25:17.469 18816 18866 D MulticastClient: REQUEST_LEDGER 293074540
+04-27 10:25:17.470 18816 18866 D MulticastClient: Sent messages with 0 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":293074540,"seq":0,"tot":0}]
+04-27 10:25:17.528 18816 18874 D MulticastServer: Broadcast block received {"ip":"192.168.1.66","cert":"MIIBGzCBwqADAgECAgYBgEtLsMUwCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKVFRNNDkwNSBDQTAeFw0yMjA0MjAwODQ0NTNaFw0yMjA1MjEwODQ0NTNaMBUxEzARBgNVBAMMCjFAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQHFNOCHx/BBFYqT41UW1M6slehFXn+9LK4VDhtASjKBd51QxSRtYZAl+/IpTuOnQdMVvlGCMMWkSeEGOgyfwh1MAoGCCqGSM49BAMCA0gAMEUCIQD1OXIEAO1fI6+XpR936a5Ef365WnXPvrbzl8oxr0/Z8QIgV5LWkYufM8V0VqpcYcHXyI2fCScD24nJMtVWnrVtOU8="}
+04-27 10:25:17.592 18816 18874 D RegistrationHandler: Received full ledger from 1@test.com with nonce 293074540
+04-27 10:25:17.592 18816 18874 D RegistrationHandler: FULL_LEDGER 293074540
+round 17 of 20
+04-27 10:25:24.892 18918 18966 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-27 10:25:24.894 18918 18968 D MulticastServer: Registration process started with nonce 214385043
+04-27 10:25:24.897 18918 18967 D MulticastClient: REQUEST_LEDGER 214385043
+04-27 10:25:24.898 18918 18967 D MulticastClient: Sent messages with 0 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":214385043,"seq":0,"tot":0}]
+04-27 10:25:24.964 18918 18974 D MulticastServer: Broadcast block received {"ip":"192.168.1.66","cert":"MIIBGzCBwqADAgECAgYBgEtLsMUwCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKVFRNNDkwNSBDQTAeFw0yMjA0MjAwODQ0NTNaFw0yMjA1MjEwODQ0NTNaMBUxEzARBgNVBAMMCjFAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQHFNOCHx/BBFYqT41UW1M6slehFXn+9LK4VDhtASjKBd51QxSRtYZAl+/IpTuOnQdMVvlGCMMWkSeEGOgyfwh1MAoGCCqGSM49BAMCA0gAMEUCIQD1OXIEAO1fI6+XpR936a5Ef365WnXPvrbzl8oxr0/Z8QIgV5LWkYufM8V0VqpcYcHXyI2fCScD24nJMtVWnrVtOU8="}
+04-27 10:25:25.029 18918 18974 D RegistrationHandler: Received full ledger from 1@test.com with nonce 214385043
+04-27 10:25:25.029 18918 18974 D RegistrationHandler: FULL_LEDGER 214385043
+round 18 of 20
+04-27 10:25:32.271 19024 19071 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-27 10:25:32.274 19024 19073 D MulticastServer: Registration process started with nonce 1728810538
+04-27 10:25:32.276 19024 19078 D MulticastClient: REQUEST_LEDGER 1728810538
+04-27 10:25:32.278 19024 19078 D MulticastClient: Sent messages with 0 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1728810538,"seq":0,"tot":0}]
+04-27 10:25:32.332 19024 19080 D MulticastServer: Broadcast block received {"ip":"192.168.1.66","cert":"MIIBGzCBwqADAgECAgYBgEtLsMUwCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKVFRNNDkwNSBDQTAeFw0yMjA0MjAwODQ0NTNaFw0yMjA1MjEwODQ0NTNaMBUxEzARBgNVBAMMCjFAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQHFNOCHx/BBFYqT41UW1M6slehFXn+9LK4VDhtASjKBd51QxSRtYZAl+/IpTuOnQdMVvlGCMMWkSeEGOgyfwh1MAoGCCqGSM49BAMCA0gAMEUCIQD1OXIEAO1fI6+XpR936a5Ef365WnXPvrbzl8oxr0/Z8QIgV5LWkYufM8V0VqpcYcHXyI2fCScD24nJMtVWnrVtOU8="}
+04-27 10:25:32.389 19024 19080 D RegistrationHandler: Received full ledger from 1@test.com with nonce 1728810538
+04-27 10:25:32.389 19024 19080 D RegistrationHandler: FULL_LEDGER 1728810538
+round 19 of 20
+04-27 10:25:39.639 19124 19172 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-27 10:25:39.641 19124 19174 D MulticastServer: Registration process started with nonce 1056158606
+04-27 10:25:39.644 19124 19173 D MulticastClient: REQUEST_LEDGER 1056158606
+04-27 10:25:39.646 19124 19173 D MulticastClient: Sent messages with 0 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1056158606,"seq":0,"tot":0}]
+04-27 10:25:39.674 19124 19180 D MulticastServer: Broadcast block received {"ip":"192.168.1.66","cert":"MIIBGzCBwqADAgECAgYBgEtLsMUwCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKVFRNNDkwNSBDQTAeFw0yMjA0MjAwODQ0NTNaFw0yMjA1MjEwODQ0NTNaMBUxEzARBgNVBAMMCjFAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQHFNOCHx/BBFYqT41UW1M6slehFXn+9LK4VDhtASjKBd51QxSRtYZAl+/IpTuOnQdMVvlGCMMWkSeEGOgyfwh1MAoGCCqGSM49BAMCA0gAMEUCIQD1OXIEAO1fI6+XpR936a5Ef365WnXPvrbzl8oxr0/Z8QIgV5LWkYufM8V0VqpcYcHXyI2fCScD24nJMtVWnrVtOU8="}
+04-27 10:25:39.717 19124 19180 D RegistrationHandler: Received full ledger from 1@test.com with nonce 1056158606
+04-27 10:25:39.717 19124 19180 D RegistrationHandler: FULL_LEDGER 1056158606
+round 20 of 20
+04-27 10:25:46.997 19237 19285 D MulticastServer: MULTICAST_SERVER_LISTENING
+04-27 10:25:46.999 19237 19287 D MulticastServer: Registration process started with nonce 1742206330
+04-27 10:25:47.001 19237 19286 D MulticastClient: REQUEST_LEDGER 1742206330
+04-27 10:25:47.003 19237 19286 D MulticastClient: Sent messages with 0 resends: [{"sender":"","payload":"","mt":"REQUEST_LEDGER","sig":"","nonce":1742206330,"seq":0,"tot":0}]
+04-27 10:25:47.061 19237 19293 D MulticastServer: Broadcast block received {"ip":"192.168.1.66","cert":"MIIBGzCBwqADAgECAgYBgEtLsMUwCgYIKoZIzj0EAwIwFTETMBEGA1UEAwwKVFRNNDkwNSBDQTAeFw0yMjA0MjAwODQ0NTNaFw0yMjA1MjEwODQ0NTNaMBUxEzARBgNVBAMMCjFAdGVzdC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQHFNOCHx/BBFYqT41UW1M6slehFXn+9LK4VDhtASjKBd51QxSRtYZAl+/IpTuOnQdMVvlGCMMWkSeEGOgyfwh1MAoGCCqGSM49BAMCA0gAMEUCIQD1OXIEAO1fI6+XpR936a5Ef365WnXPvrbzl8oxr0/Z8QIgV5LWkYufM8V0VqpcYcHXyI2fCScD24nJMtVWnrVtOU8="}
+04-27 10:25:47.130 19237 19293 D RegistrationHandler: Received full ledger from 1@test.com with nonce 1742206330
+04-27 10:25:47.130 19237 19293 D RegistrationHandler: FULL_LEDGER 1742206330

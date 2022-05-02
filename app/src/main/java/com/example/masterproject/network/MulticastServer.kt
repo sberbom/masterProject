@@ -17,9 +17,7 @@ import com.example.masterproject.types.MulticastPacket
 import com.example.masterproject.utils.Constants
 import com.example.masterproject.utils.MISCUtils
 import com.example.masterproject.utils.PKIUtils
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import java.net.DatagramPacket
 import java.net.InetAddress
 import java.net.MulticastSocket
@@ -40,8 +38,10 @@ class MulticastServer: Service() {
 
     private var currentNetwork: Network? = null
 
+    private val handleMessagesContext = newSingleThreadContext("handleIncoming")
+
     private fun listenForData(): MutableList<LedgerEntry>? {
-        val buf = ByteArray(512 * 3)
+        val buf = ByteArray(512 * 7)
         try{
             val socket = MulticastSocket(Constants.multicastPort)
             socket.joinGroup(address)
@@ -53,6 +53,7 @@ class MulticastServer: Service() {
 
                     val msgRaw = String(buf, 0, buf.size)
                     val multicastPacket = MulticastPacket.decodeMulticastPacket(msgRaw)
+                    /*
                     GlobalScope.launch(Dispatchers.IO) {
                             when (multicastPacket.messageType) {
                                 BroadcastMessageTypes.BROADCAST_BLOCK.toString() -> handleBroadcastBlock(multicastPacket)
@@ -63,7 +64,20 @@ class MulticastServer: Service() {
                                 BroadcastMessageTypes.IP_CHANGED.toString() -> handleIpChanged(multicastPacket)
                                 else -> Log.d(TAG, "Received unknown message type.")
                             }
+                    }*/
+                    runBlocking {
+                        withContext(handleMessagesContext) {
+                            when (multicastPacket.messageType) {
+                                BroadcastMessageTypes.BROADCAST_BLOCK.toString() -> handleBroadcastBlock(multicastPacket)
+                                BroadcastMessageTypes.REQUEST_LEDGER.toString() -> handleRequestedLedger(multicastPacket)
+                                BroadcastMessageTypes.REQUEST_SPECIFIC_LEDGER.toString() -> handleSpecificLedgerRequest(multicastPacket)
+                                BroadcastMessageTypes.FULL_LEDGER.toString() -> handleFullLedger(multicastPacket)
+                                BroadcastMessageTypes.LEDGER_HASH.toString() -> handleHash(multicastPacket)
+                                BroadcastMessageTypes.IP_CHANGED.toString() -> handleIpChanged(multicastPacket)
+                                else -> Log.d(TAG, "Received unknown message type.")
+                            }
                         }
+                    }
                 } catch (e: Exception) {
                     e.printStackTrace()
                 }
@@ -224,6 +238,7 @@ class MulticastServer: Service() {
                 Ledger.clearLedger()
                 val nonce = MISCUtils.generateNonce()
                 if (isWifi) {
+                    Log.d("NetworkCallback", "NetworkCapabilities updated.")
                     server.startRegistrationProcess(nonce, true)
                     GlobalScope.launch(Dispatchers.IO) {
                         MulticastClient.requestLedger(nonce)

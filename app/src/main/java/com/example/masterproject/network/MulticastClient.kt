@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.Log
 import com.example.masterproject.App
 import com.example.masterproject.ledger.Ledger
+import com.example.masterproject.test.ConstructLedgerForTest
 import com.example.masterproject.types.MulticastPacket
 import com.example.masterproject.utils.Constants
 import com.example.masterproject.utils.MISCUtils
@@ -32,6 +33,7 @@ class MulticastClient  {
             msgs.forEach { msg ->
                 val msgPacket = DatagramPacket(msg.toByteArray(), msg.toByteArray().size, address, multicastPort)
                 socket.send(msgPacket)
+                Thread.sleep(Constants.INTER_PACKET_TIME.toLong())
             }
         }
 
@@ -39,7 +41,7 @@ class MulticastClient  {
             val address = InetAddress.getByName(multicastGroup)
             try {
                 if (socket.isClosed) socket = DatagramSocket()
-                Log.d(TAG, "Sent messages: $msgs")
+                Log.d(TAG, "Sent messages with ${Constants.NUMBER_OF_RESENDS} resends: $msgs")
                 sendPacket(msgs, address)
                 if (Constants.NUMBER_OF_RESENDS > 0) {
                     repeat(Constants.NUMBER_OF_RESENDS) {
@@ -74,6 +76,7 @@ class MulticastClient  {
         }
 
         suspend fun sendLedger(nonce: Int) {
+            Log.d(TAG, "INTER_PACKET_TIME: ${Constants.INTER_PACKET_TIME}")
             if(context == null) throw Exception("Could not send ledger, context not defined")
             val privateKey = PKIUtils.getPrivateKeyFromKeyStore() ?: throw Exception("Could not send ledger, private not defined")
             val certificate = PKIUtils.getStoredCertificate() ?: throw Exception("Could not send ledger, username not defined")
@@ -81,12 +84,13 @@ class MulticastClient  {
             val currentLedger = Ledger.availableDevices.toList()
             /** Only for testing **/
             /*
-            ConstructLedgerForTest.createLedger(75)
+            ConstructLedgerForTest.createLedger(1)
             val testLedger = ConstructLedgerForTest.ledger
-            Log.d(TAG, "SENT_FULL_LEDGER")*/
+            Log.d(TAG, "SENT_FULL_LEDGER")
+             */
             /***********************/
             // next line should use testLedger when testing and currentLedger if not
-            val deconstructedLedger = currentLedger.chunked(1)
+            val deconstructedLedger = currentLedger.chunked(4)
             val multicastPackets = deconstructedLedger.mapIndexed { index, fragment ->
                 val fragmentString = Ledger.toString(fragment).replace("[", "").replace("]", "")
                 MulticastPacket(

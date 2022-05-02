@@ -94,12 +94,14 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
         // If the you have previously received a hash from the user that sent the ledger, remove the hash and store the ledger
         // as this is probably a ledger that has been accepted by someone else and will therefore also be accepted by you
         val receivedHashOfSender = hashes.toList().find { PKIUtils.certificateToString(it.senderBlock.certificate) == PKIUtils.certificateToString(receivedLedger.senderBlock.certificate) }
+        if (user != null && receivedLedgers.toList().map { PKIUtils.certificateToString(it.senderBlock.certificate) }.contains(PKIUtils.certificateToString(user.certificate))) return
         if (receivedHashOfSender != null) {
             hashes.remove(receivedHashOfSender)
             receivedLedgers.add(receivedLedger)
         }
         Log.d(TAG, "Received full ledger from ${receivedLedger.senderBlock.userName} with nonce ${multicastPacket.nonce}")
         Log.d(TAG, "FULL_LEDGER ${multicastPacket.nonce}")
+        Log.d(TAG, "Hash of full ledger: ${receivedLedger.hash}")
         if(!Ledger.ledgerIsValid(receivedLedger.ledger)) return
         if (receivedLedgers.map { it.hash }.contains(receivedLedger.hash)) {
             addHash(receivedLedger.senderBlock, receivedLedger.hash)
@@ -150,7 +152,12 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
         }
         // ...if the first block of the sequence has been received and
         // we have not received this message before it should be stored
-        if (ledgerFragments[multicastPacket.sequenceNumber] == null) ledgerFragments[multicastPacket.sequenceNumber] = multicastPacket.payload
+        if (ledgerFragments[multicastPacket.sequenceNumber] == null) {
+            ledgerFragments[multicastPacket.sequenceNumber] = multicastPacket.payload
+        } else {
+            // If ledger fragment has already been handled
+            return null
+        }
         // if all fragments have not yet been received, we should return
         val remainingFragments = ledgerFragments.count { it == null }
         Log.d(TAG, "Has received ${ledgerFragments.size - remainingFragments} of ${ledgerFragments.size} from ${sender.userName}")
@@ -185,10 +192,17 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
         certificateStringToSenderBlock[certificateString] = blockOfSender
         val ledgerSequenceId = "${multicastPacket.nonce}:${certificateString}"
         val ledgerFragments = ledgerFragmentsReceived[ledgerSequenceId]
-        if (ledgerFragments == null) {
-            ledgerFragmentsReceived[ledgerSequenceId] = MutableList(multicastPacket.lastSequenceNumber + 1) {index -> if (index == 0) multicastPacket.payload else null }
-        } else if (ledgerFragments[multicastPacket.sequenceNumber] == null) {
-            ledgerFragmentsReceived[ledgerSequenceId]!![multicastPacket.sequenceNumber] = multicastPacket.payload
+        when {
+            ledgerFragments == null -> {
+                ledgerFragmentsReceived[ledgerSequenceId] = MutableList(multicastPacket.lastSequenceNumber + 1) {index -> if (index == 0) multicastPacket.payload else null }
+            }
+            ledgerFragments[multicastPacket.sequenceNumber] == null -> {
+                ledgerFragmentsReceived[ledgerSequenceId]!![multicastPacket.sequenceNumber] = multicastPacket.payload
+            }
+            else -> {
+                // If this sequence number has already been handled
+                return null
+            }
         }
         Log.d(TAG, "Has received ${ledgerFragmentsReceived[ledgerSequenceId]?.filterNotNull()?.size} of ${ledgerFragmentsReceived[ledgerSequenceId]?.size} fragments from ${blockOfSender.userName}")
         return handleOrphanBlocks(blockOfSender, ledgerSequenceId)
@@ -290,6 +304,7 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
         val certificateIsValid = PKIUtils.isCASignedCertificate(senderBlock.certificate) || PKIUtils.isSelfSignedCertificate(senderBlock.certificate)
         if (certificateIsValid) {
             hashes.add(ReceivedHash(hash, senderBlock))
+            setLedgerIfAccepted()
         }
     }
 
@@ -342,7 +357,7 @@ class RegistrationHandler(private val server: MulticastServer, private val nonce
         val mostCommonHashAmongCACertified = getMostCommonHash( caVerifiedValidators, receivedLedgers, true )
         val ledgerWithMostCommonHashAmongCACertified = receivedLedgers.find { it.hash == mostCommonHashAmongCACertified }
         val numberOfCACertifiedInLedger = ledgerWithMostCommonHashAmongCACertified?.ledger?.count { PKIUtils.isCASignedCertificate(it.certificate) }
-        val numberOfCACertifiedValidations = caVerifiedValidators.count { it.hash == mostCommonHashAmongCACertified }
+        val numberOfCACertifiedValidations = caVerifiedValidators.count { it.hash == mostCommonHashAmongCACertified } + receivedLedgers.count { it.hash == mostCommonHashAmongCACertified }
         // If two or more CA certified users have approved the ledger and they are more then half of the validators, the ledger should be accepted
         if (numberOfCACertifiedInLedger != null && numberOfCACertifiedValidations >= 2 && numberOfCACertifiedValidations > (numberOfCACertifiedInLedger - 1) / 2) return mostCommonHashAmongCACertified
         val mostCommonHash = getMostCommonHash(hashes, receivedLedgers,false)

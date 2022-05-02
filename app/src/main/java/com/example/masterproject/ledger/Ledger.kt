@@ -141,10 +141,10 @@ class Ledger {
             val caSignedCertificates = availableDevices.filter { PKIUtils.isCASignedCertificate(it.certificate) }.map { PKIUtils.certificateToString(it.certificate) }
             return when {
                 caSignedCertificates.isNotEmpty() -> {
-                    caSignedCertificates.takeLast(2).contains(myCertificateString)
+                    caSignedCertificates.takeLast(1).contains(myCertificateString)
                 }
                 else -> {
-                    availableDevices.takeLast(2).map { PKIUtils.certificateToString(it.certificate)}
+                    availableDevices.takeLast(1).map { PKIUtils.certificateToString(it.certificate)}
                         .contains(myCertificateString)
                 }
             }

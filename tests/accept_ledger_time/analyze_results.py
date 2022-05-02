@@ -151,6 +151,7 @@ valuelabel(x_coordinates, results_accepting_correct_ledger)
 
 pylab.bar(x_coordinates, results_accepting_correct_ledger)
 #pylab.bar(x_coordinates, results_time_to_accept_ledger)
+
 pylab.xlabel("Number of users in the network")
 
 pylab.ylabel("Probability of accepting correct ledger %")

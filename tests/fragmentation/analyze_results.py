@@ -59,15 +59,17 @@ for folder in folders:
 
 def valuelabel(x,y, offset=0):
     for i in range(len(x)):
-        value = round(round(y[i], 3) * 100, 1)
+        value = round(round(y[i], 3), 1)
         value_string = str(value) + "%"
         pylab.text(i+offset, y[i] + 0.0005, value_string, ha = 'center')
 
+packet_loss_percent = [x * 100 for x in packet_loss_total]
+
 x_coordinates = pylab.arange(len(folders))
 
-valuelabel(x_coordinates, packet_loss_total)
+valuelabel(x_coordinates, packet_loss_percent)
 
-pylab.bar(x_coordinates, packet_loss_total)
+pylab.bar(x_coordinates, packet_loss_percent)
 pylab.xlabel("Number of ledger entries per fragment")
 pylab.ylabel("Packets loss %")
 pylab.xticks(x_coordinates, folders)

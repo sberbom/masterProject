@@ -3,9 +3,9 @@ from statistics import mean
 import pylab
 
 
-results_accepting_correct_ledger = []
+results_accepting_correct_ledger = {}
 
-results_time_to_accept_ledger = []
+results_time_to_accept_ledger = {}
 
 # Maps the index of a device, to a dictionary mapping the round number to the time it took to
 # accept the ledger that round
@@ -123,39 +123,51 @@ def search_file(index, folder):
   prob_accept_correct = correct_ledger[index]/(total_ledgers[index] + ledgers_missing[index])
 
   print("Average time to accept ledger of length {0} was {1:.3f} seconds".format(index - 1, time_to_accept))
-  results_time_to_accept_ledger.append(time_to_accept)
+  results_time_to_accept_ledger[folder].append(time_to_accept)
   print("The probability of accepting the correct ledger at length {0} is {1:.3f}".format(index - 1, prob_accept_correct))
-  results_accepting_correct_ledger.append(prob_accept_correct)
+  results_accepting_correct_ledger[folder].append(prob_accept_correct)
   print("The probability of not accepting a ledger: {:.3f}".format(ledgers_missing[index]/(total_ledgers[index] + ledgers_missing[index])))
   print("The rounds it did not accept a ledger (0-indexed rounds): {}".format(rounds_with_missing_ledger[index]))
   print("The probability of accepting a ledger without all the entries at length {0} is {1:.3f}".format(index - 1, (total_ledgers[index] - correct_ledger[index])/total_ledgers[index]))
   print("Rounds with incorrect ledger (0-indexed rounds): {}".format(incorrect_ledgers[index]))
 
-for i in range(2, 7):
-  search_file(i, ".")
+for folder in ["CA_forsøk 1", "IKKECA_forsøk 1"]:
+  results_time_to_accept_ledger[folder] = []
+  results_accepting_correct_ledger[folder] = []
+  for i in range(2, 7):
+    search_file(i, folder)
 
 
 
 def valuelabel(x,y, offset=0):
   for i in range(5):
-    value = round(round(y[i], 3)*100, 1)
-    value_string = str(value) + "%"
-    #value = round(y[i], 3)
-    #value_string = str(value) + " s"
-    pylab.text(i+offset, y[i] + 0.0005, value_string, ha = 'center')
+    #value = round(round(y[i], 3)*100, 1)
+    #value_string = str(value) + "%"
+    value = round(y[i], 3)
+    value_string = str(value) + " s"
+    pylab.text(i+offset, y[i] + 0.0005, value_string, ha = 'center', fontsize=7)
 
 x_coordinates = pylab.arange(5)
 
-valuelabel(x_coordinates, results_accepting_correct_ledger)
-#valuelabel(x_coordinates, results_time_to_accept_ledger)
+#valuelabel(x_coordinates, results_accepting_correct_ledger["IKKECA_forsøk 1"])
+#valuelabel(x_coordinates, results_accepting_correct_ledger["CA_forsøk 1"])
+valuelabel(x_coordinates, results_time_to_accept_ledger["IKKECA_forsøk 1"], -0.2)
+valuelabel(x_coordinates, results_time_to_accept_ledger["CA_forsøk 1"], 0.2)
 
-pylab.bar(x_coordinates, results_accepting_correct_ledger)
-#pylab.bar(x_coordinates, results_time_to_accept_ledger)
+
+#pylab.bar(x_coordinates, results_accepting_correct_ledger["IKKECA_forsøk 1"])
+#pylab.bar(x_coordinates, results_accepting_correct_ledger["CA_forsøk 1"])
+pylab.bar(x_coordinates - 0.2, results_time_to_accept_ledger["IKKECA_forsøk 1"], 0.4, label="CA verified users")
+pylab.bar(x_coordinates + 0.2, results_time_to_accept_ledger["CA_forsøk 1"], 0.4, label="No CA verified users")
+
 
 pylab.xlabel("Number of users in the network")
 
-pylab.ylabel("Probability of accepting correct ledger %")
-#pylab.ylabel("Time to accept ledger (s)")
+#pylab.ylabel("Probability of accepting correct ledger %")
+pylab.ylabel("Time to accept ledger (s)")
 
 pylab.xticks(x_coordinates, [i + 1 for i in range(5)])
+
+pylab.legend(loc=3)
+
 pylab.show()
